@@ -1,6 +1,15 @@
 "use strict";
-var cctv =0;
+
+angular.module('appControllers', []).controller('indexController', function ($scope, $rootScope, $location, $window) {
+
+});
 "use strict";
-var i = 0;
+
+angular.module('appControllers', []).controller('productDetailsController', function ($scope, $rootScope, $location, $window) {
+
+});
 "use strict";
-var j = 1;
+
+angular.module('appControllers', []).controller('productListsController', function ($scope, $rootScope, $location, $window) {
+
+});

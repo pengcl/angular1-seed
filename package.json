@@ -10,6 +10,7 @@
     "graceful-fs": "^4.1.4",
     "gulp": "^3.9.1",
     "gulp-concat": "^2.6.0",
+    "gulp-for-compass": "0.0.2",
     "gulp-htmlmin": "^2.0.0",
     "gulp-imagemin": "^3.0.1",
     "gulp-jshint": "^2.0.1",
@@ -29,7 +30,7 @@
   },
   "scripts": {
     "postinstall": "bower install",
-    "prestart": "gulp",
+    "prestart": "npm install",
     "start": "http-server -a localhost -p 8000 -c-1 ./app",
     "pretest": "npm install",
     "test": "karma start karma.conf.js",

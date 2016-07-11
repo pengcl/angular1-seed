@@ -1,2 +1,5 @@
 "use strict";
-var cctv =0;
+
+angular.module('appControllers', []).controller('indexController', function ($scope, $rootScope, $location, $window) {
+
+});
