@@ -6,6 +6,7 @@
   "license": "MIT",
   "private": true,
   "dependencies": {
+    "jquery":"",
     "angular": "~1.4.12",
     "ui-route": "",
     "angular-loader": "~1.4.12",

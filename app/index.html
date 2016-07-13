@@ -8,36 +8,61 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>My AngularJS App</title>
   <meta name="description" content="">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1" />
   <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/normalize.css">
-  <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/main.css">
-  <link rel="stylesheet" href="app.css">
+  <link rel="stylesheet" href="css/app.min.css">
   <script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
 </head>
 <body>
-  <ul class="menu">
-    <li><a href="#!/productLists">view1</a></li>
-    <li><a href="#!/productDetails">view2</a></li>
-  </ul>
-
-  <!--[if lt IE 7]>
-      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-  <![endif]-->
-
-  <div ng-view></div>
-
-  <div>Angular seed app: v<span app-version></span></div>
-
-  <!-- In production use:
-  <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
-  -->
+<div class="wrapper-welcome">
+  <div class="title-welcome">翼分期 - 充值平台</div>
+  <div class="description-welcome"></div>
+</div>
+<div id="container" class="menu-open">
+  <section id="menu" class="overthrow">
+    <a href="javascript:;" class="">
+        <span class="wrapper-menu-item">
+          <span class="icon-home"></span>
+          <span class="title-menu">主页</span>
+        </span>
+    </a>
+    <a href="javascript:;" class="">
+        <span class="wrapper-menu-item">
+          <span class="icon-rss"></span>
+          <span class="title-menu">流量卡<br>Cooking</span>
+        </span>
+    </a>
+    <a href="javascript:;" class="">
+        <span class="wrapper-menu-item">
+          <span class="icon-category"></span>
+          <span class="title-menu">电话卡</span>
+        </span>
+    </a>
+    <a href="javascript:;" class="">
+        <span class="wrapper-menu-item">
+          <span class="icon-bookmark-hollow"></span>
+          <span class="title-menu">个人<br>中心</span>
+        </span>
+    </a>
+    <a href="javascript:;" class="">
+        <span class="wrapper-menu-item">
+          <span class="icon-question"></span>
+          <span class="title-menu">关于<br>翼分期</span>
+        </span>
+    </a>
+  </section>
+  <div class="notifications"></div>
+  <div class="content-overlay"></div>
+  <div id="content-container">
+    <div class="view-container">
+      <div id="ui-view" ui-view class="view-frame"></div>
+    </div>
+  </div>
+</div>
   <script src="bower_components/angular/angular.min.js"></script>
   <script src="bower_components/ui-route/release/angular-ui-router.min.js"></script>
   <script src="bower_components/angular-cookies/angular-cookies.min.js"></script>
   <script src="bower_components/angular-animate/angular-animate.min.js"></script>
-  <script src="app.js"></script>
-  <script src="components/1.0.0/controllers.min.js"></script>
-  <script src="components/1.0.0/directive.js"></script>
-  <script src="components/1.0.0/filter.js"></script>
+  <script src="components/1.0.0/app.min.js"></script>
 </body>
 </html>

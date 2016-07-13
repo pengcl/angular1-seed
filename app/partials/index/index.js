@@ -1,5 +1,5 @@
 "use strict";
 
-angular.module('appControllers', []).controller('indexController', function ($scope, $rootScope, $location, $window) {
+appControllers.controller('indexController',['$scope','$rootScope','$location', function ($scope, $rootScope, $location) {
 
-});
+}]);
