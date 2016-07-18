@@ -1,0 +1,13 @@
+a {
+  color: #d83e14;
+  cursor: pointer;
+  text-decoration: none;
+  @include transition-property(all);
+  @include transition-duration(200ms);
+  @include transition-timing-function(ease-in);
+  @include transition-delay(0s);
+  &:hover,
+  &:focus {
+    text-decoration: none;
+  }
+}

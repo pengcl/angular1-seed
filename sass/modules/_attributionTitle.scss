@@ -1,0 +1,98 @@
+.attribution-title {
+  backface-visibility: hidden;
+  @include transform( translate3d(0px, 0px, 0px));
+  @include transition-property(all);
+  @include transition-duration(700ms);
+  @include transition-timing-function(cubic-bezier(0.175, 0.885, 0.335, 1.05));
+  @include transition-delay(0s);
+  bottom: 0;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.1);
+  height: auto;
+  left: 0;
+  min-height: 9rem;
+  overflow: hidden;
+  padding-bottom: 6.5rem;
+  padding-top: 2rem;
+  position: absolute;
+  right: 0;
+  text-align: center;
+  top: auto;
+  width: auto;
+  z-index: 1;
+  &::after {
+    @include transition-property(all);
+    @include transition-duration(700ms);
+    @include transition-timing-function(cubic-bezier(0.175, 0.885, 0.335, 1.05));
+    @include transition-delay(0s);
+    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.9), #ffffff 20%, white 100%);
+    bottom: 5px;
+    content: "";
+    height: auto;
+    left: 0;
+    min-height: 12rem;
+    opacity: 1;
+    position: absolute;
+    right: 0;
+    top: 0;
+    @include transform( translate3d(0px, 0px, 0px));
+    width: auto;
+    z-index: -1;
+  }
+  .title {
+    @include transition-property(all);
+    @include transition-duration(525ms);
+    @include transition-timing-function(cubic-bezier(0.175, 0.885, 0.335, 1.05));
+    @include transition-delay(0s);
+    backface-visibility: hidden;
+    font-family: "lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 2.2rem;
+    font-weight: 700;
+    line-height: 2.6rem;
+    margin-bottom: 1rem;
+    margin-top: 0;
+    padding: 0 1rem;
+    transform: translateY(0px);
+    @include transform( translateY(0px));
+    width: 100%;
+  }
+  .metadata-wrapper {
+    @include transition-property(all);
+    @include transition-duration(350ms);
+    @include transition-timing-function(cubic-bezier(0.175, 0.885, 0.335, 1.05));
+    @include transition-delay(0s);
+    opacity: 1;
+    overflow: hidden;
+    @include transform( translate3d(0px, 0px, 0px));
+  }
+  .sub-title {
+    color: #555555;
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
+    padding: 0 1rem;
+    &:empty {
+      display: none;
+    }
+  }
+  .time {
+    border-left: 1px solid #cccccc;
+    font-family: "lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 700;
+    padding-left: 0.5rem;
+  }
+  .source {
+    font-family: "lorabold", TimesNewRoman, "Times New Roman", Times, Baskerville, Georgia, serif;
+    font-style: normal;
+    letter-spacing: 0.3em;
+    padding-right: 0.25rem;
+    text-indent: 0.3em;
+    text-transform: uppercase;
+  }
+  .time,
+  .source {
+    color: #aaaaaa;
+    display: inline-block;
+    font-size: 10px;
+    line-height: 16px;
+    vertical-align: middle;
+  }
+}

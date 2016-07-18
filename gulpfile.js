@@ -23,14 +23,14 @@ gulp.task('sass', function () {
 
 //语法检查
 gulp.task('jshint', function () {
-    return gulp.src(['app/js/**/*.js', 'app/partials/**/*.js', 'app/modules/**/*.js'])
+    return gulp.src(['app/js/**/*.js', 'app/html/**/*.js'])
         .pipe(jshint())
         .pipe(jshint.reporter('default'));
 });
 
 //合并,压缩 app、controllers、Directives、filters
 gulp.task('app', function () {
-    return gulp.src(['app/js/**/*.js', 'app/partials/**/*.js', 'app/modules/**/*.js'])      //需要操作的文件
+    return gulp.src(['app/js/**/*.js', 'app/html/**/*.js'])      //需要操作的文件
         .pipe(concat('app.js'))    //合并所有js到app.js
         .pipe(gulp.dest('app/components/' + version + '/'))       //输出到文件夹
         .pipe(rename({suffix: '.min'}))   //rename压缩后的文件名
@@ -39,7 +39,7 @@ gulp.task('app', function () {
 });
 
 gulp.task('watch', function () {
-    gulp.watch(['app/js/**/*.js', 'app/partials/**/*.js', 'app/modules/**/*.js'], ['jshint', 'app']);
+    gulp.watch(['app/js/**/*.js', 'app/html/**/*.js'], ['jshint', 'app']);
     gulp.watch('sass/**/*.scss', ['sass']);
 });
 
