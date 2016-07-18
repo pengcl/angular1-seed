@@ -7,11 +7,9 @@ app.directive("topNav", function () {
         templateUrl: "html/modules/nav/nav.html",
         link: function (scope, element, attrs) {
             scope.pageTitle = attrs.pageTitle;
-            if(attrs.pageBack){
-                scope.back = true;
-            }else{
-                scope.back = false;
-            }
+            scope.$root.title = scope.pageTitle;
+            scope.pageBack = attrs.pageBack;
+            //console.log(scope.pageBack);
         }
     };
 });

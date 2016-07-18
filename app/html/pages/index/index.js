@@ -10,8 +10,6 @@ app.config(['$stateProvider', function ($stateProvider) {
             controller: "indexController"
         });
 }]).controller('indexController',['$scope','$rootScope','$location', function ($scope, $rootScope, $location) {
-    $scope.pageTitle = "充值成功";
-    $scope.$root.title = $scope.pageTitle;
 
 
 }]);

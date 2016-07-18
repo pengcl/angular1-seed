@@ -1388,3 +1388,88 @@ a:hover, a:focus {
   line-height: 16px;
   vertical-align: middle;
 }
+
+/* line 1, ../../sass/modules/_areaSelect.scss */
+#store-selector {
+  display: inline-table;
+}
+
+/* line 5, ../../sass/modules/_areaSelect.scss */
+#address-panel {
+  position: absolute;
+  top: 0;
+  left: 10%;
+  right: 0;
+  bottom: 0;
+  display: block;
+  width: 90%;
+  z-index: 10001;
+  height: 100%;
+  overflow-y: auto;
+  background: #fff;
+  display: none;
+}
+/* line 19, ../../sass/modules/_areaSelect.scss */
+#address-panel .area-list li {
+  border-bottom: 1px solid #ccc;
+  font-size: 14px;
+  line-height: 20px;
+  padding: 2px 25px;
+  text-align: left;
+}
+/* line 25, ../../sass/modules/_areaSelect.scss */
+#address-panel .area-list li a {
+  display: block;
+  height: 40px;
+  line-height: 40px;
+  color: #666;
+  text-decoration: none !important;
+}
+/* line 34, ../../sass/modules/_areaSelect.scss */
+#address-panel .mt {
+  position: fixed;
+  height: 44px;
+  top: 0;
+  width: 100%;
+  background: #fff;
+}
+/* line 41, ../../sass/modules/_areaSelect.scss */
+#address-panel .mt .tab li {
+  border-bottom: 1px solid #ccc;
+  font-size: 14px;
+  line-height: 20px;
+  padding: 2px 25px;
+  text-align: left;
+  display: none;
+  text-align: center;
+}
+/* line 49, ../../sass/modules/_areaSelect.scss */
+#address-panel .mt .tab li a {
+  display: block;
+  height: 40px;
+  line-height: 40px;
+  color: #666;
+  position: relative;
+}
+/* line 55, ../../sass/modules/_areaSelect.scss */
+#address-panel .mt .tab li a em {
+  font-size: 24px;
+  position: absolute;
+  line-height: 40px;
+  left: 0;
+  color: #666;
+}
+/* line 63, ../../sass/modules/_areaSelect.scss */
+#address-panel .mt .tab li.curr {
+  display: block;
+}
+/* line 69, ../../sass/modules/_areaSelect.scss */
+#address-panel .mc {
+  height: 100%;
+  overflow-y: auto;
+  width: 100%;
+  padding-top: 44px;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}

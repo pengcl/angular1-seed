@@ -9,15 +9,7 @@ var app = angular.module('app', ['ui.router', 'ngAnimate', 'ngCookies']);
 app.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', function ($stateProvider, $urlRouterProvider, $locationProvider) {
     $locationProvider.hashPrefix('!');
 
-    $urlRouterProvider.otherwise("/about");
-    //
-    // 设定路由
-    $stateProvider
-        .state('phone', { //首页,单卡
-            url: "/phone",
-            templateUrl: "html/pages/phone/index/index.html",
-            controller: "phoneIndexController"
-        })
+    $urlRouterProvider.otherwise("/index");
 }]);
 
 'use strict';
@@ -46,23 +38,6 @@ $(document).ready(function () {
     $("html").css("font-size",($container.width() / 320) * parseInt($("html").css("font-size")));
 });
 
-'use strict';
-
-app.directive("topNav", function () {
-    return {
-        restrict: 'E',
-        replace: true,
-        templateUrl: "html/modules/nav/nav.html",
-        link: function (scope, element, attrs) {
-            scope.pageTitle = attrs.pageTitle;
-            if(attrs.pageBack){
-                scope.back = true;
-            }else{
-                scope.back = false;
-            }
-        }
-    };
-});
 "use strict";
 
 app.config(['$stateProvider', function ($stateProvider) {
@@ -79,6 +54,37 @@ app.config(['$stateProvider', function ($stateProvider) {
 
 }]);
 
+
+
+
+'use strict';
+
+app.directive("reciverAddress", function () {
+    return {
+        restrict: 'E',
+        replace: true,
+        templateUrl: "html/modules/address/address.html"
+    };
+}).controller("addressController", function ($scope) {
+
+    console.log($scope.receiver.name);
+
+});
+'use strict';
+
+app.directive("topNav", function () {
+    return {
+        restrict: 'E',
+        replace: true,
+        templateUrl: "html/modules/nav/nav.html",
+        link: function (scope, element, attrs) {
+            scope.pageTitle = attrs.pageTitle;
+            scope.$root.title = scope.pageTitle;
+            scope.pageBack = attrs.pageBack;
+            //console.log(scope.pageBack);
+        }
+    };
+});
 "use strict";
 
 app.config(['$stateProvider', function ($stateProvider) {
@@ -91,10 +97,6 @@ app.config(['$stateProvider', function ($stateProvider) {
             controller: "indexController"
         });
 }]).controller('indexController',['$scope','$rootScope','$location', function ($scope, $rootScope, $location) {
-    $scope.pageTitle = "充值成功";
-    $scope.$root.title = $scope.pageTitle;
 
 
 }]);
-
-

@@ -1,0 +1,75 @@
+<div class="address">
+    <div class="weui_cells weui_cells_form">
+        <div class="weui_cell">
+            <div class="weui_cell_hd"><label class="weui_label">收件人：</label></div>
+            <div class="weui_cell_bd weui_cell_primary">
+                <input type="text" id="reciverName" name="reciverName" ng-model="receiver.name" placeholder="请输入姓名" class="weui_input" required />
+            </div>
+        </div>
+        <div class="weui_cell">
+            <div class="weui_cell_hd"><label class="weui_label">联系电话：</label></div>
+            <div class="weui_cell_bd weui_cell_primary">
+                <input type="number" id="receiverMobile" name="receiverMobile" ng-model="receiver.mobile" placeholder="请输入您的手机号码" ng-maxlength="11" ng-minlength="11" class="weui_input" required />
+            </div>
+            <div class="weui_cell_ft">
+            </div>
+        </div>
+        <div class="weui_cell" id="inputsStoreSelect" ng-click="getAddress()">
+            <div class="weui_cell_hd"><label class="weui_label">收件区域</label></div>
+            <div class="weui_cell_bd weui_cell_primary">
+                <div id="store-selector">
+                    <div id="store-text" class="text" data-value="">
+                        <div title="">请选择收件区域<span ng-bind="receiverCity"></span></div>
+                        <input type="hidden" ng-model="receiver.city" name="receiverCity" id="receiverCity">
+                        <b></b>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="weui_cell">
+            <div class="weui_cell_hd"><label class="weui_label">详细地址</label></div>
+            <div class="weui_cell_bd weui_cell_primary">
+                <input type="text" id="receiverRoom" ng-model="receiver.room" name="receiverRoom" placeholder="街道 楼牌号等" class="weui_input">
+            </div>
+            <div class="weui_cell_ft">
+            </div>
+        </div>
+    </div>
+
+    <div id="address-panel" class="content">
+        <div id="CF-stock" class="m CF-stock" data-widget="tabs">
+            <div class="mt">
+                <ul class="tab">
+                    <li data-widget="tab-item" data-index="0" class="curr"><a class="" href="javascript:;"><em
+                            class="icon-arrow-left"></em><i>配送至</i></a></li>
+                    <li data-widget="tab-item" data-index="1" class=""><a class="" href="javascript:;"><em
+                            class="icon-arrow-left"></em><i>配送至</i></a></li>
+                    <li data-widget="tab-item" data-index="2" class=""><a class="" href="javascript:;"><em
+                            class="icon-arrow-left"></em><i>配送至</i></a></li>
+                    <li data-widget="tab-item" data-index="3" class=""><a class="" href="javascript:;"><em
+                            class="icon-arrow-left"></em><i>配送至</i></a></li>
+                </ul>
+                <div class="stock-line"></div>
+            </div>
+            <div id="stock_province_item" data-widget="tab-content" data-area="0" class="mc" style="">
+                <ul class="area-list">
+                </ul>
+            </div>
+            <div id="stock_city_item" data-widget="tab-content" data-area="1" class="mc" style="display: none;">
+                <ul class="area-list">
+                </ul>
+            </div>
+            <div id="stock_area_item" data-widget="tab-content" data-area="2" class="mc" style="display: none;">
+                <ul class="area-list">
+                </ul>
+            </div>
+            <div id="stock_town_item" data-widget="tab-content" data-area="3" class="mc" style="display: none;">
+                <ul class="area-list">
+                </ul>
+            </div>
+        </div>
+        <span class="clr"></span>
+    </div>
+    <div class="close" style="display: none"></div>
+    <div class="address-overlay"></div>
+</div>
