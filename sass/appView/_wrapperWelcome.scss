@@ -1,0 +1,52 @@
+.wrapper-welcome {
+  position: absolute;
+  top: 1.25rem;
+  right: auto;
+  bottom: auto;
+  left: 0;
+  width: 25%;
+  height: auto;
+  padding: 0 1.25rem;
+  z-index: -1;
+  display: none;
+}
+
+@media screen and (min-width: 60em) {
+  .wrapper-welcome {
+    display: block;
+  }
+}
+
+.wrapper-welcome {
+  .title-welcome {
+    font-size: 1.4rem;
+    line-height: 2.0rem;
+    font-family: $baseFontFamily;
+    font-weight: 900;
+    letter-spacing: 0.3rem;
+    text-indent: 0.3rem;
+    text-transform: uppercase;
+    color: #d83e14;
+    margin-bottom: 0.5rem;
+    text-indent: 0;
+  }
+  .description-welcome {
+    font-size: 1.2rem;
+    line-height: 1.8rem;
+    color: #555555;
+    + .description-welcome {
+      margin-top: 0.5rem;
+    }
+    a {
+      font-family: $baseFontFamily;
+      font-weight: 700;
+      color: #666666;
+      &:hover {
+        color: #3b3b3b;
+      }
+      &:active {
+        color: #555555;
+      }
+    }
+  }
+}

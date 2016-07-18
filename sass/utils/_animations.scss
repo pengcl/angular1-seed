@@ -1,0 +1,150 @@
+/*
+ * animations css stylesheet
+ */
+
+.view-container {}
+
+.view-frame.ng-enter,
+.view-frame.ng-leave {
+    background: #fff;
+}
+
+.view-frame.ng-enter {
+    -webkit-animation: 0.5s fade-in;
+    -moz-animation: 0.5s fade-in;
+    -o-animation: 0.5s fade-in;
+    animation: 0.5s fade-in;
+    z-index: 100;
+}
+
+.view-frame.ng-leave {
+    -webkit-animation: 0.5s fade-out;
+    -moz-animation: 0.5s fade-out;
+    -o-animation: 0.5s fade-out;
+    animation: 0.5s fade-out;
+    z-index: 99;
+}
+
+.ani-left .view-frame.ng-enter {
+    -webkit-animation: 0.5s fade-left-in;
+    -moz-animation: 0.5s fade-left-in;
+    -o-animation: 0.5s fade-left-in;
+    animation: 0.5s fade-left-in;
+    z-index: 100;
+}
+
+.ani-left .view-frame.ng-leave {
+    -webkit-animation: 0.5s fade-left-out;
+    -moz-animation: 0.5s fade-left-out;
+    -o-animation: 0.5s fade-left-out;
+    animation: 0.5s fade-left-out;
+    z-index: 99;
+}
+
+@keyframes fade-in {
+    from {
+        left: 100%;
+    }
+    to {
+        left: 0;
+    }
+}
+
+@-moz-keyframes fade-in {
+    from {
+        left: 100%;
+    }
+    to {
+        left: 0;
+    }
+}
+
+@-webkit-keyframes fade-in {
+    from {
+        left: 100%;
+    }
+    to {
+        left: 0;
+    }
+}
+
+@keyframes fade-left-in {
+    from {
+        left: -100%;
+    }
+    to {
+        left: 0;
+    }
+}
+
+@-moz-keyframes fade-left-in {
+    from {
+        left: -100%;
+    }
+    to {
+        left: 0;
+    }
+}
+
+@-webkit-keyframes fade-left-in {
+    from {
+        left: -100%;
+    }
+    to {
+        left: 0;
+    }
+}
+
+@keyframes fade-out {
+    from {
+        left: 0;
+    }
+    to {
+        left: -100%;
+    }
+}
+
+@-moz-keyframes fade-out {
+    from {
+        left: 0;
+    }
+    to {
+        left: -100%;
+    }
+}
+
+@-webkit-keyframes fade-out {
+    from {
+        left: 0;
+    }
+    to {
+        left: -100%;
+    }
+}
+
+@keyframes fade-left-out {
+    from {
+        left: 0;
+    }
+    to {
+        left: 100%;
+    }
+}
+
+@-moz-keyframes fade-left-out {
+    from {
+        left: 0;
+    }
+    to {
+        left: 100%;
+    }
+}
+
+@-webkit-keyframes fade-left-out {
+    from {
+        left: 0;
+    }
+    to {
+        left: 100%;
+    }
+}

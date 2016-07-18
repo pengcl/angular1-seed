@@ -1,0 +1,121 @@
+@import "compass/css3";
+#topNav {
+    font-size: 1.5rem;
+    line-height: 2rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    background: #fff;
+    text-align: center;
+    background: #50d2c2;
+    color: #fff;
+}
+
+nav {
+    background: rgba(255, 255, 255, 0.97) none repeat scroll 0 0;
+    bottom: auto;
+    height: 4.5rem;
+    left: 0;
+    position: absolute;
+    right: 0;
+    text-align: center;
+    top: 0;
+    @include transform( translate3d(0px, 0px, 0px));
+    @include transition-property(all);
+    @include transition-duration(200ms);
+    @include transition-timing-function(ease-out);
+    @include transition-delay(0s);
+    width: 100%;
+    z-index: 10;
+    .nav-group {
+        bottom: auto;
+        height: auto;
+        left: 0;
+        position: absolute;
+        right: auto;
+        top: 0;
+        width: auto;
+        z-index: 1;
+        &.right {
+            left: auto;
+            right: 0;
+        }
+    }
+    .nav-item {
+        color: #333333;
+        display: inline-block;
+        font-size: 18px;
+        height: 4.5rem;
+        line-height: 4.5rem;
+        width: 4.5rem;
+        &:active {
+            @include opacity(0.5);
+        }
+        [class^="icon-"],
+        [class*=" icon-"] {
+            line-height: 3rem;
+            vertical-align: middle;
+        }
+    }
+    &.black {
+        background: transparent none repeat scroll 0 0;
+        color: white;
+        .nav-item {
+            color: white;
+        }
+        &::after {
+            background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0) 100%);
+            bottom: auto;
+            content: "";
+            height: 3.5em;
+            left: 0;
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 100%;
+            z-index: -1;
+        }
+    }
+    &.scrolled {
+        background: rgba(255, 255, 255, 0.97) none repeat scroll 0 0;
+        color: #333333;
+        &::after {
+            opacity: 0;
+        }
+        .nav-item {
+            color: #333333;
+        }
+    }
+    .title-page {
+        bottom: auto;
+        font-family: "Microsoft Yahei";
+        font-size: 1.2rem;
+        font-style: normal;
+        height: auto;
+        left: 0;
+        letter-spacing: 0.3em;
+        overflow: hidden;
+        position: absolute;
+        right: 0;
+        text-indent: 0.3em;
+        text-overflow: ellipsis;
+        text-transform: uppercase;
+        top: 50%;
+        @include transform( translate3d(0px, -40%, 0px));
+        white-space: nowrap;
+        width: auto;
+        .subtext-page {
+            color: #aaaaaa;
+            display: block;
+            font-family: "Microsoft Yahei";
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 0;
+            line-height: 1;
+            text-transform: none;
+        }
+    }
+}
+
+.recharge {
+    
+}

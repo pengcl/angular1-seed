@@ -1,0 +1,111 @@
+html {
+  font-size: 10px;
+}
+
+@media screen and (min-width: 540px) {
+  body {
+    overflow: hidden;
+    &:after {
+      position: absolute;
+      top: 50%;
+      right: 50%;
+      bottom: auto;
+      left: auto;
+      width: 368px;
+      height: 752px;
+      @include transform(translate3d(50%, -50%, 0));
+      background-image: url($images-src + 'chrome-iphone6-432x882@2x.jpg');
+      content: '';
+      display: block;
+      background-size: contain;
+      z-index: -1;
+    }
+    #container {
+      background: $bg-base;
+      position: absolute;
+      top: 50%;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      width: auto;
+      height: 100%;
+      @include transform(translate3d(0, -50%, 0));
+      max-width: 320px;
+      max-height: 568px;
+      margin: 0 auto;
+      overflow: hidden;
+    }
+  }
+}
+
+body {
+  background: white;
+}
+
+#content-container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: auto;
+  height: auto;
+  @include transition-property(all);
+  @include transition-duration(200ms);
+  @include transition-timing-function(ease-out);
+  @include transform(translate3d(0, 0, 0));
+  .page {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: auto;
+    height: auto;
+    overflow: hidden;
+    background: #fff;
+  }
+}
+
+.content-scrollable {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: auto;
+  height: auto;
+  background: white;
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.content-overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: auto;
+  height: auto;
+  cursor: pointer;
+}
+
+.menu-open {
+  .content-overlay {
+    @include transform(translate3d(45%, 0px, 0px));
+    z-index: 1;
+  }
+}
+
+.view-container,
+#ui-view {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: auto;
+  width: 100%;
+}
