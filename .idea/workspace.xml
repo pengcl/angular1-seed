@@ -320,7 +320,7 @@
       <workItem from="1468378907559" duration="2339000" />
       <workItem from="1468390827435" duration="11000" />
       <workItem from="1468394252004" duration="17381000" />
-      <workItem from="1468815250807" duration="390000" />
+      <workItem from="1468815250807" duration="432000" />
     </task>
     <task id="LOCAL-00001" summary="biuld angular-seed">
       <created>1468210687974</created>
@@ -364,11 +364,18 @@
       <option name="project" value="LOCAL" />
       <updated>1468815632956</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="biuld angular-seed">
+      <created>1468815649445</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1468815649445</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="40668000" />
+    <option name="totallyTimeSpent" value="40710000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1920" height="1054" extended-state="6" />
