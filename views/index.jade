@@ -1,0 +1,33 @@
+extends layout
+
+block content
+    div.wrapper-welcome
+        div.title-welcome 翼分期 - 充值平台 - nodejs
+        div.description-welcome
+    div#container
+        section#menu.overthrow
+            a(href='#')
+                span.wrapper-menu-item
+                    span.icon-home
+                    span.title-menu 主页
+            a(href='#')
+                span.wrapper-menu-item
+                    span.icon-rss
+                    span.title-menu 流量卡
+            a(href='#')
+                span.wrapper-menu-item
+                    span.icon-home
+                    span.title-menu 电话卡
+            a(href='#')
+                span.wrapper-menu-item
+                    span.icon-home
+                    span.title-menu 个人<br>中心
+            a(href='/about')
+                span.wrapper-menu-item
+                    span.icon-question
+                    span.title-menu 关于<br>翼分期
+        div.notifications
+        div.content-overlay
+        div#content-container
+            div.view-container
+                div#ui-view.view-frame(ui-view)
