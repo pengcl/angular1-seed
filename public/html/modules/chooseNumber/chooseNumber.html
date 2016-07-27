@@ -1,0 +1,51 @@
+
+<div class="choose-number">
+    <div id="customSelect" class="weui_panel weui_panel_access">
+        <div class="weui_panel_hd">选择靓号</div>
+        <div class="weui_panel_bd">
+            <div class="fanghao-panel cf-panel ani-up fixed-bt">
+                <div class="select-num" style="">
+                    <div id="number-select" class="number-select clearfix">
+                        <span class="none" date-value="1">1</span>
+                        <span class="none" date-value="8">8</span>
+                        <span class="none" date-value="1">1</span>
+                        <span class="curr" ng-click="showPickNumberPanel(3)">?</span>
+                        <span class="future" ng-click="showPickNumberPanel(4)">?</span>
+                        <span class="future" ng-click="showPickNumberPanel(5)">?</span>
+                        <span class="future" ng-click="showPickNumberPanel(6)">?</span>
+                        <span class="future" ng-click="showPickNumberPanel(7)">?</span>
+                        <span class="future" ng-click="showPickNumberPanel(8)">?</span>
+                        <span class="future" ng-click="showPickNumberPanel(9)">?</span>
+                        <span class="future" ng-click="showPickNumberPanel(10)">?</span>
+                    </div>
+                    <input id="mainPhoneNumber" name="mainPhoneNumber" type="hidden" value="{{mainPhoneNumber}}">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="number-list">
+        <table class="pure-table pure-table-bordered">
+            <tr>
+                <td><a href='javascript:;' ng-click='selectNumber(1,$event)'>1</a></td>
+                <td><a href='javascript:;' ng-click='selectNumber(2,$event)'>2</a></td>
+                <td><a href='javascript:;' ng-click='selectNumber(3,$event)'>3</a></td>
+            </tr>
+            <tr>
+                <td><a href='javascript:;' ng-click='selectNumber(4,$event)'>4</a></td>
+                <td><a href='javascript:;' ng-click='selectNumber(5,$event)'>5</a></td>
+                <td><a href='javascript:;' ng-click='selectNumber(6,$event)'>6</a></td>
+            </tr>
+            <tr>
+                <td><a href='javascript:;' ng-click='selectNumber(7,$event)'>7</a></td>
+                <td><a href='javascript:;' ng-click='selectNumber(8,$event)'>8</a></td>
+                <td><a href='javascript:;' ng-click='selectNumber(9,$event)'>9</a></td>
+            </tr>
+            <tr>
+                <td id="num-reset">重选</td>
+                <td><a href='javascript:;' ng-click='selectNumber(0,$event)'>0</a></td>
+                <td id="num-sure">确定</td>
+            </tr>
+        </table>
+    </div>
+</div>

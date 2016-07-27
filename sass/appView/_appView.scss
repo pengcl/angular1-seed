@@ -54,6 +54,7 @@ body {
   @include transition-duration(200ms);
   @include transition-timing-function(ease-out);
   @include transform(translate3d(0, 0, 0));
+  background: #000;
   .page {
     position: absolute;
     top: 0;

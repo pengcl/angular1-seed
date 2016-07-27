@@ -1,0 +1,112 @@
+.passport {
+    .upload-area {
+        padding-bottom: 1rem;
+        padding-top: 1rem;
+        background: #fff;
+        button {
+            display: none;
+        }
+        label {
+            font-size: 1.4rem;
+            color: #cf0000;
+            margin-top: 1rem;
+            display: block;
+            text-align: center;
+        }
+        .upload-zone {
+            width: 24rem;
+            height: 16rem;
+            margin: 0 auto;
+            position: relative;
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: 100% 100%;
+            &.passport-a {
+                background-image: url($images-src + 'passport-a.jpg');
+            }
+            &.passport-b {
+                background-image: url($images-src + 'passport-b.jpg');
+            }
+            &.passport-c {
+                background-image: url($images-src + 'passport-c.jpg');
+            }
+            input {
+                position: absolute;
+                left: 0;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                width: 24rem;
+                height: 16rem;
+                background: none;
+                border: none;
+                @include opacity(0);
+            }
+            img {
+                position: absolute;
+                left: 0;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                width: 24rem;
+                height: 16rem;
+            }
+            button {
+                display: none;
+            }
+        }
+    }
+}
+
+.img-overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(255,255,255,0.7);
+    display: none;
+    i {
+        font-size: 1.4rem;
+        height: 1.4rem;
+        line-height: 1;
+        width: 1.4rem;
+        margin-top: -0.7rem;
+        margin-left: -0.7rem;
+        top: 50%;
+        left: 50%;
+        position: absolute;
+    }
+}
+
+.passport-tips {
+    background: #fff;
+    font-size: 1.2rem;
+    padding: 1.5rem;
+}
+
+
+.dropzone {
+    border: 0;
+    @include border-radius(4px);
+    padding: 0;
+    .dz-message {
+        display: none;
+    }
+    .dz-preview {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        top: 0;
+        left: 0;
+        .dz-image {
+            width: 100%;
+            height: 100%;
+            z-index: auto;
+        }
+        .dz-details {
+            display: none;
+        }
+    }
+}

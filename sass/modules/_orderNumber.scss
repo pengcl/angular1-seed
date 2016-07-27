@@ -1,0 +1,82 @@
+.fanghao-panel {
+  padding: 1.5rem;
+  .number-select {
+    text-align: center;
+    font-size: 0;
+    span {
+      @include inline-block;
+      font-size: 1.4rem;
+      @include border-radius(0.3rem);
+      padding-left: 0.7rem;
+      padding-right: 0.7rem;
+      padding-top: 0.5rem;
+      padding-bottom: 0.5rem;
+      margin-left: 0.1rem;
+      margin-right: 0.1rem;
+      &.none {
+        background: $bg-gray-light;
+      }
+      &.future {
+        background: $bg-red;
+        color: #fff;
+      }
+      &.curr {
+        background: $bg-red;
+        color: #fff;
+      }
+      &.old {
+        background: $bg-green;
+        color: #fff;
+      }
+    }
+  }
+}
+
+#number-list {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background: #fff;
+  display: none;
+  z-index: 1001;
+  table {
+    width: 100%;
+    border: 0;
+    border-spacing: 0;
+    td {
+      text-align: center;
+      line-height: 2.8rem;
+      width: 33%;
+      font-size: 1.8rem;
+      border-top: 1px solid #cbcbcb;
+      border-right: 1px solid #cbcbcb;
+      font-weight: 300;
+      a {
+        display: block;
+        background: #fff;
+        text-align: center;
+        line-height: 2.8rem;
+        width: 100%;
+        top: 0;
+        left: 0;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        color:#ccc;
+        @include opacity(0.65);
+        &.active {
+          color: #d83e14;
+          background: #fff;
+          @include opacity(1);
+        }
+      }
+    }
+    tr {
+      td {
+        &:last-child {
+          border-right: 0;
+        }
+      }
+    }
+  }
+}

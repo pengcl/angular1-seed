@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>
+<html lang="en" ng-app="app" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>
+<html lang="en" ng-app="app" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>
+<html lang="en" ng-app="app" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" ng-app="app" class="no-js"> <!--<![endif]-->
+<head>
+    <base href="/" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title ng-bind="title"></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1"/>
+    <link rel="stylesheet" href="/bower_components/html5-boilerplate/dist/css/normalize.css">
+    <link rel="stylesheet" href="/css/utils/weui.min.css">
+    <link rel="stylesheet" href="/css/app.min.css">
+    <script src="/bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
+</head>
+<body>
+<div class="wrapper-welcome">
+    <div class="title-welcome">翼分期 - 充值平台 - nodejs</div>
+    <div class="description-welcome"></div>
+</div>
+<div id="container">
+    <section id="menu" class="overthrow">
+        <a href="javascript:;" class="">
+        <span class="wrapper-menu-item">
+          <span class="icon-home"></span>
+          <span class="title-menu">主页</span>
+        </span>
+        </a>
+        <a href="javascript:;" class="">
+        <span class="wrapper-menu-item">
+          <span class="icon-rss"></span>
+          <span class="title-menu">流量卡</span>
+        </span>
+        </a>
+        <a href="javascript:;" class="">
+        <span class="wrapper-menu-item">
+          <span class="icon-category"></span>
+          <span class="title-menu">电话卡</span>
+        </span>
+        </a>
+        <a href="javascript:;" class="">
+        <span class="wrapper-menu-item">
+          <span class="icon-user"></span>
+          <span class="title-menu">个人<br>中心</span>
+        </span>
+        </a>
+        <a href="/about" class="">
+        <span class="wrapper-menu-item">
+          <span class="icon-question"></span>
+          <span class="title-menu">关于<br>翼分期</span>
+        </span>
+        </a>
+    </section>
+    <div class="notifications"></div>
+    <div class="content-overlay"></div>
+    <div id="content-container">
+        <div class="view-container">
+            <div id="ui-view" ui-view class="view-frame"></div>
+        </div>
+    </div>
+</div>
+<script src="/bower_components/angular/angular.min.js"></script>
+<script src="/bower_components/ui-route/release/angular-ui-router.min.js"></script>
+<script src="/bower_components/angular-cookies/angular-cookies.min.js"></script>
+<script src="/bower_components/angular-animate/angular-animate.min.js"></script>
+<script src="/bower_components/jquery/dist/jquery.min.js"></script>
+<script src="/components/1.0.0/public.min.js"></script>
+</body>
+</html>
