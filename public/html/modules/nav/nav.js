@@ -9,6 +9,9 @@ app.directive("topNav", function () {
             scope.pageTitle = attrs.pageTitle;
             scope.$root.title = scope.pageTitle;
             scope.pageBack = attrs.pageBack;
+            scope.back = function () {
+                $window.history.back();
+            }
         }
     };
 });
