@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3fb611db-3d4f-42ed-a66b-9f45cebf59a9" name="Default" comment="biuld angular-seed">
+    <list default="true" id="3fb611db-3d4f-42ed-a66b-9f45cebf59a9" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/html/modules/nav/nav.html" afterPath="$PROJECT_DIR$/public/html/modules/nav/nav.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/html/modules/nav/nav.js" afterPath="$PROJECT_DIR$/public/html/modules/nav/nav.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/index.html" afterPath="$PROJECT_DIR$/public/index.html" />
     </list>
     <list id="92836dd6-0910-4b60-81e2-cf43716201b2" name="Failed commit: Default" comment="biuld angular-seed">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config.rb" afterPath="$PROJECT_DIR$/config.rb" />
@@ -381,7 +378,7 @@
       <workItem from="1468815250807" duration="53482000" />
       <workItem from="1469416291884" duration="2128000" />
       <workItem from="1469516095314" duration="16954000" />
-      <workItem from="1469697127315" duration="5359000" />
+      <workItem from="1469697127315" duration="5430000" />
     </task>
     <task id="LOCAL-00001" summary="biuld angular-seed">
       <created>1468210687974</created>
@@ -474,11 +471,18 @@
       <option name="project" value="LOCAL" />
       <updated>1469606026080</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="biuld angular-seed">
+      <created>1469708365960</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1469708365960</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="118201000" />
+    <option name="totallyTimeSpent" value="118272000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="426" y="22" width="1423" height="1054" extended-state="0" />
