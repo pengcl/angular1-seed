@@ -9,10 +9,9 @@ var $container = $("#container");
 
 $container.on('click','.js-menu',function (e) {
     $("#container").addClass('menu-open');
-});
-
-$container.on('click','.js-back',function (e) {
-    console.log("back");
+    $("#menu").click(function(){
+        $("#container").removeClass('menu-open');
+    });
 });
 
 $(".content-overlay").click(function (e) {

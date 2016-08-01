@@ -830,6 +830,130 @@ nav .title-page .subtext-page {
   vertical-align: baseline;
 }
 
+/*
+ * animations css stylesheet
+ */
+/* line 5, ../../sass/utils/_animations.scss */
+.view-frame {
+  background: #fff;
+}
+
+/* line 9, ../../sass/utils/_animations.scss */
+.view-frame.ng-leave {
+  -moz-transition-property: all;
+  -o-transition-property: all;
+  -webkit-transition-property: all;
+  transition-property: all;
+  -moz-transition-duration: 5000ms;
+  -o-transition-duration: 5000ms;
+  -webkit-transition-duration: 5000ms;
+  transition-duration: 5000ms;
+  -moz-transition-timing-function: ease-out;
+  -o-transition-timing-function: ease-out;
+  -webkit-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+  -moz-transform: translate3d(0, 0, 0);
+  -ms-transform: translate3d(0, 0, 0);
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  z-index: 99;
+}
+
+/* line 17, ../../sass/utils/_animations.scss */
+.view-frame.ng-leave-active {
+  -moz-transform: translate3d(-100%, 0, 0);
+  -ms-transform: translate3d(-100%, 0, 0);
+  -webkit-transform: translate3d(-100%, 0, 0);
+  transform: translate3d(-100%, 0, 0);
+}
+
+/* line 21, ../../sass/utils/_animations.scss */
+.view-frame.ng-enter {
+  -moz-transition-property: all;
+  -o-transition-property: all;
+  -webkit-transition-property: all;
+  transition-property: all;
+  -moz-transition-duration: 5000ms;
+  -o-transition-duration: 5000ms;
+  -webkit-transition-duration: 5000ms;
+  transition-duration: 5000ms;
+  -moz-transition-timing-function: ease-out;
+  -o-transition-timing-function: ease-out;
+  -webkit-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+  -moz-transform: translate3d(100%, 0, 0);
+  -ms-transform: translate3d(100%, 0, 0);
+  -webkit-transform: translate3d(100%, 0, 0);
+  transform: translate3d(100%, 0, 0);
+  z-index: 100;
+}
+
+/* line 29, ../../sass/utils/_animations.scss */
+.view-frame.ng-enter-active {
+  -moz-transform: translate3d(0, 0, 0);
+  -ms-transform: translate3d(0, 0, 0);
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+
+/* line 34, ../../sass/utils/_animations.scss */
+.ng-back .view-frame.ng-leave {
+  -moz-transition-property: all;
+  -o-transition-property: all;
+  -webkit-transition-property: all;
+  transition-property: all;
+  -moz-transition-duration: 5000ms;
+  -o-transition-duration: 5000ms;
+  -webkit-transition-duration: 5000ms;
+  transition-duration: 5000ms;
+  -moz-transition-timing-function: ease-out;
+  -o-transition-timing-function: ease-out;
+  -webkit-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+  -moz-transform: translate3d(0, 0, 0);
+  -ms-transform: translate3d(0, 0, 0);
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  z-index: 99;
+}
+
+/* line 42, ../../sass/utils/_animations.scss */
+.ng-back .view-frame.ng-leave-active {
+  -moz-transform: translate3d(100%, 0, 0);
+  -ms-transform: translate3d(100%, 0, 0);
+  -webkit-transform: translate3d(100%, 0, 0);
+  transform: translate3d(100%, 0, 0);
+}
+
+/* line 46, ../../sass/utils/_animations.scss */
+.ng-back .view-frame.ng-enter {
+  -moz-transition-property: all;
+  -o-transition-property: all;
+  -webkit-transition-property: all;
+  transition-property: all;
+  -moz-transition-duration: 5000ms;
+  -o-transition-duration: 5000ms;
+  -webkit-transition-duration: 5000ms;
+  transition-duration: 5000ms;
+  -moz-transition-timing-function: ease-out;
+  -o-transition-timing-function: ease-out;
+  -webkit-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+  -moz-transform: translate3d(-100%, 0, 0);
+  -ms-transform: translate3d(-100%, 0, 0);
+  -webkit-transform: translate3d(-100%, 0, 0);
+  transform: translate3d(-100%, 0, 0);
+  z-index: 100;
+}
+
+/* line 54, ../../sass/utils/_animations.scss */
+.ng-back .view-frame.ng-enter-active {
+  -moz-transform: translate3d(0, 0, 0);
+  -ms-transform: translate3d(0, 0, 0);
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+
 /* line 1, ../../sass/appView/_appView.scss */
 html {
   font-size: 10px;
@@ -893,25 +1017,9 @@ body {
   left: 0;
   width: auto;
   height: auto;
-  -moz-transition-property: all;
-  -o-transition-property: all;
-  -webkit-transition-property: all;
-  transition-property: all;
-  -moz-transition-duration: 200ms;
-  -o-transition-duration: 200ms;
-  -webkit-transition-duration: 200ms;
-  transition-duration: 200ms;
-  -moz-transition-timing-function: ease-out;
-  -o-transition-timing-function: ease-out;
-  -webkit-transition-timing-function: ease-out;
-  transition-timing-function: ease-out;
-  -moz-transform: translate3d(0, 0, 0);
-  -ms-transform: translate3d(0, 0, 0);
-  -webkit-transform: translate3d(0, 0, 0);
-  transform: translate3d(0, 0, 0);
   background: #000;
 }
-/* line 58, ../../sass/appView/_appView.scss */
+/* line 54, ../../sass/appView/_appView.scss */
 #content-container .page {
   position: absolute;
   top: 0;
@@ -924,7 +1032,7 @@ body {
   background: #fff;
 }
 
-/* line 71, ../../sass/appView/_appView.scss */
+/* line 67, ../../sass/appView/_appView.scss */
 .content-scrollable {
   position: absolute;
   top: 0;
@@ -939,7 +1047,7 @@ body {
   -webkit-overflow-scrolling: touch;
 }
 
-/* line 85, ../../sass/appView/_appView.scss */
+/* line 81, ../../sass/appView/_appView.scss */
 .content-overlay {
   position: absolute;
   top: 0;
@@ -951,7 +1059,7 @@ body {
   cursor: pointer;
 }
 
-/* line 97, ../../sass/appView/_appView.scss */
+/* line 93, ../../sass/appView/_appView.scss */
 .menu-open .content-overlay {
   -moz-transform: translate3d(45%, 0px, 0px);
   -ms-transform: translate3d(45%, 0px, 0px);
@@ -960,7 +1068,7 @@ body {
   z-index: 1;
 }
 
-/* line 103, ../../sass/appView/_appView.scss */
+/* line 99, ../../sass/appView/_appView.scss */
 .view-container,
 #ui-view {
   position: absolute;
@@ -1686,7 +1794,7 @@ a:hover, a:focus {
 
 /* line 35, ../../sass/modules/_orderNumber.scss */
 #number-list {
-  position: absolute;
+  position: fixed;
   left: 0;
   bottom: 0;
   width: 100%;

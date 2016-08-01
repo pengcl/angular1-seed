@@ -9,5 +9,6 @@ var app = angular.module('app', ['ui.router', 'ngAnimate', 'ngCookies']);
 app.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', function ($stateProvider, $urlRouterProvider, $locationProvider) {
     $locationProvider.html5Mode(true).hashPrefix('!');
 
-    $urlRouterProvider.otherwise("/");
+    //$urlRouterProvider.otherwise("/");
+}]).run(['$rootScope', function ($rootScope) {
 }]);

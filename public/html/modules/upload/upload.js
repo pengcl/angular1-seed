@@ -6,7 +6,7 @@ app.directive("dropzone", function () {
         link: function(scope, element, attrs) {
 
             var config = {
-                url: 'http://127.0.0.1:8082/uploadFile.html?decorator=blank',
+                url: 'http://www.cz.com:8082/uploadFile.html?decorator=blank',
                 maxFilesize: 100,
                 paramName: "uploadfile",
                 maxThumbnailFilesize: 10,
@@ -28,6 +28,7 @@ app.directive("dropzone", function () {
                 },
 
                 'success': function (file, response) {
+                    console.log(response);
                     var _input = $("#" + attrs.id + "-input");
                     _input.val(response);
                 }

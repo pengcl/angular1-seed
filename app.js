@@ -26,16 +26,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', routes);
 app.use('/api', api);
 
-app.use(function (req, res) {
-    console.log(req.path);
-    if(req.path.indexOf('/api')>=0){
-        res.send("server text");
-    }else{ //angular启动页
-        console.log("ecs");
-        res.sendfile('/public/index.html');
-    }
-});
-
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
     var err = new Error('Not Found');
