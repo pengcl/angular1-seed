@@ -1,0 +1,24 @@
+<div id="phoneQuery" class="phone-query weui_cells">
+
+    <div class="weui_cell weui_cell_select weui_select_before">
+        <div class="weui_cell_hd">
+            <div class="weui_select">
+                <span>选择靓号</span>
+            </div>
+        </div>
+        <div class="weui_cell_bd weui_cell_primary">
+            <input track ng-model="query" placeholder="请输入号码" pattern="[0-9]*" class="weui_input">
+        </div>
+    </div>
+    <div class="query-panel">
+        <ul class="phone-numbers-list pure-g">
+            <li class="phone-number-item pure-u-1-2" ng-repeat="numberItem in phoneData | filter : query | limitTo : 6">
+                <div class="item-box">
+                    <p class="phone-number"><span ng-bind-html="numberItem.n | replaceInput : query | trustHtml"></span></p>
+                    <p class="phone-fee"><span>预存￥</span><span ng-bind="numberItem.s"></span></p>
+                    <ins class="icon-check"></ins>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>

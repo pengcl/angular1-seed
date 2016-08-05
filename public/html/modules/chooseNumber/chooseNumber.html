@@ -18,7 +18,7 @@
                         <span class="future" ng-click="showPickNumberPanel(9)">?</span>
                         <span class="future" ng-click="showPickNumberPanel(10)">?</span>
                     </div>
-                    <input id="mainPhoneNumber" name="mainPhoneNumber" type="hidden" value="{{mainPhoneNumber}}">
+                    <input track="change" id="mainPhoneNumber" name="mainPhoneNumber" ng-model="mainPhoneNumber" type="hidden" value="{{mainPhoneNumber}}">
                 </div>
             </div>
         </div>

@@ -646,7 +646,7 @@ nav.black::after {
   background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0) 100%);
   bottom: auto;
   content: "";
-  height: 3.5em;
+  height: 3.5rem;
   left: 0;
   position: absolute;
   right: 0;
@@ -844,10 +844,10 @@ nav .title-page .subtext-page {
   -o-transition-property: all;
   -webkit-transition-property: all;
   transition-property: all;
-  -moz-transition-duration: 5000ms;
-  -o-transition-duration: 5000ms;
-  -webkit-transition-duration: 5000ms;
-  transition-duration: 5000ms;
+  -moz-transition-duration: 500ms;
+  -o-transition-duration: 500ms;
+  -webkit-transition-duration: 500ms;
+  transition-duration: 500ms;
   -moz-transition-timing-function: ease-out;
   -o-transition-timing-function: ease-out;
   -webkit-transition-timing-function: ease-out;
@@ -873,10 +873,10 @@ nav .title-page .subtext-page {
   -o-transition-property: all;
   -webkit-transition-property: all;
   transition-property: all;
-  -moz-transition-duration: 5000ms;
-  -o-transition-duration: 5000ms;
-  -webkit-transition-duration: 5000ms;
-  transition-duration: 5000ms;
+  -moz-transition-duration: 500ms;
+  -o-transition-duration: 500ms;
+  -webkit-transition-duration: 500ms;
+  transition-duration: 500ms;
   -moz-transition-timing-function: ease-out;
   -o-transition-timing-function: ease-out;
   -webkit-transition-timing-function: ease-out;
@@ -902,10 +902,10 @@ nav .title-page .subtext-page {
   -o-transition-property: all;
   -webkit-transition-property: all;
   transition-property: all;
-  -moz-transition-duration: 5000ms;
-  -o-transition-duration: 5000ms;
-  -webkit-transition-duration: 5000ms;
-  transition-duration: 5000ms;
+  -moz-transition-duration: 500ms;
+  -o-transition-duration: 500ms;
+  -webkit-transition-duration: 500ms;
+  transition-duration: 500ms;
   -moz-transition-timing-function: ease-out;
   -o-transition-timing-function: ease-out;
   -webkit-transition-timing-function: ease-out;
@@ -931,10 +931,10 @@ nav .title-page .subtext-page {
   -o-transition-property: all;
   -webkit-transition-property: all;
   transition-property: all;
-  -moz-transition-duration: 5000ms;
-  -o-transition-duration: 5000ms;
-  -webkit-transition-duration: 5000ms;
-  transition-duration: 5000ms;
+  -moz-transition-duration: 500ms;
+  -o-transition-duration: 500ms;
+  -webkit-transition-duration: 500ms;
+  transition-duration: 500ms;
   -moz-transition-timing-function: ease-out;
   -o-transition-timing-function: ease-out;
   -webkit-transition-timing-function: ease-out;
@@ -954,6 +954,42 @@ nav .title-page .subtext-page {
   transform: translate3d(0, 0, 0);
 }
 
+/*
+.view-frame {
+  @include transition-duration(500ms);
+  @include transition-timing-function(ease-out);
+  @include transform(translateX(0));
+}
+
+.view-frame.ng-enter {
+  -webkit-transform: translateX(100%);
+  transform: translateX(100%);
+}
+
+.view-frame.ng-enter.ng-enter-active, .view-frame.ng-leave {
+  -webkit-transform: translateX(0);
+  transform: translateX(0);
+}
+
+.view-frame.ng-leave.ng-leave-active {
+  -webkit-transform: translateX(-100%);
+  transform: translateX(-100%);
+}
+
+.ng-back .view-frame.ng-enter {
+  -webkit-transform: translateX(-100%);
+  transform: translateX(-100%);
+}
+
+.ng-back .view-frame.ng-enter.ng-enter-active, .ng-back .view-frame.ng-leave {
+  -webkit-transform: translateX(0);
+  transform: translateX(0);
+}
+
+.ng-back .view-frame.ng-leave.ng-leave-active {
+  -webkit-transform: translateX(100%);
+  transform: translateX(100%);
+}*/
 /* line 1, ../../sass/appView/_appView.scss */
 html {
   font-size: 10px;
@@ -1136,6 +1172,11 @@ body {
 /* line 47, ../../sass/appView/_wrapperWelcome.scss */
 .wrapper-welcome .description-welcome a:active {
   color: #555555;
+}
+
+/* line 1, ../../sass/appView/_weui.scss */
+.weui_cells {
+  font-size: 1.3rem;
 }
 
 /* line 1, ../../sass/modules/_link.scss */
@@ -1843,4 +1884,130 @@ a:hover, a:focus {
 /* line 76, ../../sass/modules/_orderNumber.scss */
 #number-list table tr td:last-child {
   border-right: 0;
+}
+
+/* line 1, ../../sass/modules/_phoneQuery.scss */
+.weui_select {
+  height: 3.5rem;
+  line-height: 3.5rem;
+  padding-left: 1.5rem;
+}
+
+/* line 8, ../../sass/modules/_phoneQuery.scss */
+.weui_cell_select .weui_select {
+  padding-right: 3rem;
+}
+
+/* line 14, ../../sass/modules/_phoneQuery.scss */
+.weui_select_before .weui_select {
+  width: 10.5rem;
+}
+
+/* line 20, ../../sass/modules/_phoneQuery.scss */
+.item-box {
+  padding: 1.5rem;
+  text-align: center;
+  position: relative;
+  background: #fff;
+  margin-left: 0.4rem;
+  margin-right: 0.4rem;
+  margin-top: 0.4rem;
+  margin-bottom: 0.4rem;
+}
+/* line 29, ../../sass/modules/_phoneQuery.scss */
+.item-box ins {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  text-decoration: none;
+  display: none;
+}
+/* line 37, ../../sass/modules/_phoneQuery.scss */
+.phone-numbers-list, .item-lists {
+  margin-left: -0.4rem;
+  margin-right: -0.4rem;
+}
+
+/* line 43, ../../sass/modules/_phoneQuery.scss */
+.phone-query {
+  margin-top: 0.5rem;
+  background: none;
+}
+/* line 47, ../../sass/modules/_phoneQuery.scss */
+.phone-query.weui_cells:before {
+  display: none;
+}
+/* line 52, ../../sass/modules/_phoneQuery.scss */
+.phone-query .weui_cell:before {
+  display: none;
+}
+
+/* line 2, ../../sass/pages/_index.scss */
+.page.home .title-page {
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+  opacity: 0;
+}
+/* line 5, ../../sass/pages/_index.scss */
+.page.home nav.scrolled .title-page {
+  filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
+  opacity: 1;
+}
+/* line 9, ../../sass/pages/_index.scss */
+.page.home .bg-image.home {
+  height: 50%;
+  background-image: url("/images/bg-home-640x655.jpg");
+}
+/* line 13, ../../sass/pages/_index.scss */
+.page.home .bg-image.home:before, .page.home .bg-image.home:after {
+  -moz-transform: translate3d(0, 0, 0);
+  -ms-transform: translate3d(0, 0, 0);
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  content: '';
+  background: white;
+  z-index: 1;
+}
+/* line 22, ../../sass/pages/_index.scss */
+.page.home .bg-image.home:before {
+  position: absolute;
+  margin-left: .5rem;
+}
+/* line 30, ../../sass/pages/_index.scss */
+.page.home .bg-image.home:after {
+  margin-right: .5rem;
+}
+/* line 34, ../../sass/pages/_index.scss */
+.page.home .bg-image.home .title-home {
+  bottom: auto;
+  display: inline-block;
+  height: auto;
+  left: auto;
+  position: absolute;
+  right: 50%;
+  top: 45%;
+  -moz-transform: translate3d(50%, -50%, 0px);
+  -ms-transform: translate3d(50%, -50%, 0px);
+  -webkit-transform: translate3d(50%, -50%, 0px);
+  transform: translate3d(50%, -50%, 0px);
+  width: 70%;
+  padding: 0;
+  margin: 0;
+  font-style: normal;
+  font-size: 3.6rem;
+  line-height: 4.4rem;
+}
+/* line 49, ../../sass/pages/_index.scss */
+.page.home .bg-image.home .title-home img {
+  width: 100%;
+  display: block;
+  vertical-align: middle;
+}
+/* line 56, ../../sass/pages/_index.scss */
+.page.home .content-scrollable {
+  background: #fbf9fe !important;
+}
+
+/* line 2, ../../sass/pages/_recharge.scss */
+.page.recharge .content-scrollable {
+  padding-top: 4.5rem;
 }

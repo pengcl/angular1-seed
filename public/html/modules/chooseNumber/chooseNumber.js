@@ -76,7 +76,7 @@ app.directive("chooseNumber", function () {
             }, true);
         }
     };
-}).controller('chooseNumberController', ['$scope', '$cookieStore', '$http', '$compile', function ($scope, $cookieStore, $http, $compile) {
+}).controller('chooseNumberController', ['$scope', '$cookieStore', '$http', '$compile', function ($scope, $cookieStore, $http) {
     //var deferred = $q.defer();
     $scope.phoneData = new Array();
     $http.jsonp('http://m.gd189fq.com/wap/taokafanghaoNew/fetchNumber.html?callback=JSON_CALLBACK').success(function (data, status, headers, config) {

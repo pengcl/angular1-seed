@@ -10,7 +10,7 @@ app.directive("passport", function () {
         }
     }
 }).controller('passportController',['$scope', '$cookieStore', function($scope,$cookieStore) {
-    var receiverWatch = $scope.$watch('passport', function (newVal, oldVal, scope) {
+    var receiverWatch = $scope.$watch('passport', function (newVal, oldVal) {
         if (newVal !== oldVal) {
             $cookieStore.put('passport',newVal);
         }

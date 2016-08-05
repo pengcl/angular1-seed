@@ -8,7 +8,7 @@
 
 .view-frame.ng-leave {
   @include transition-property(all);
-  @include transition-duration(5000ms);
+  @include transition-duration(500ms);
   @include transition-timing-function(ease-out);
   @include transform(translate3d(0, 0, 0));
   z-index: 99;
@@ -20,7 +20,7 @@
 
 .view-frame.ng-enter {
   @include transition-property(all);
-  @include transition-duration(5000ms);
+  @include transition-duration(500ms);
   @include transition-timing-function(ease-out);
   @include transform(translate3d(100%, 0, 0));
   z-index: 100;
@@ -33,7 +33,7 @@
 //back
 .ng-back .view-frame.ng-leave {
   @include transition-property(all);
-  @include transition-duration(5000ms);
+  @include transition-duration(500ms);
   @include transition-timing-function(ease-out);
   @include transform(translate3d(0, 0, 0));
   z-index: 99;
@@ -45,7 +45,7 @@
 
 .ng-back .view-frame.ng-enter {
   @include transition-property(all);
-  @include transition-duration(5000ms);
+  @include transition-duration(500ms);
   @include transition-timing-function(ease-out);
   @include transform(translate3d(-100%, 0, 0));
   z-index: 100;
@@ -54,3 +54,40 @@
 .ng-back .view-frame.ng-enter-active {
   @include transform(translate3d(0, 0, 0));
 }
+
+/*
+.view-frame {
+  @include transition-duration(500ms);
+  @include transition-timing-function(ease-out);
+  @include transform(translateX(0));
+}
+
+.view-frame.ng-enter {
+  -webkit-transform: translateX(100%);
+  transform: translateX(100%);
+}
+
+.view-frame.ng-enter.ng-enter-active, .view-frame.ng-leave {
+  -webkit-transform: translateX(0);
+  transform: translateX(0);
+}
+
+.view-frame.ng-leave.ng-leave-active {
+  -webkit-transform: translateX(-100%);
+  transform: translateX(-100%);
+}
+
+.ng-back .view-frame.ng-enter {
+  -webkit-transform: translateX(-100%);
+  transform: translateX(-100%);
+}
+
+.ng-back .view-frame.ng-enter.ng-enter-active, .ng-back .view-frame.ng-leave {
+  -webkit-transform: translateX(0);
+  transform: translateX(0);
+}
+
+.ng-back .view-frame.ng-leave.ng-leave-active {
+  -webkit-transform: translateX(100%);
+  transform: translateX(100%);
+}*/

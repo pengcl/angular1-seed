@@ -10,14 +10,13 @@ app.directive("topNav", ['$timeout', function ($timeout) {
             scope.$root.title = scope.pageTitle;
             scope.pageBack = attrs.pageBack;
             scope.back = function () {
-                var viewContainer = $(".view-container");
-                var container = $("#container");
-                var uiView = $("#ui-view");
-                viewContainer.addClass("ng-back");
+                var $viewContainer = $(".view-container");
+                //var $viewFrame = $(".view-frame");
+                $viewContainer.addClass("ng-back");
                 history.back();
                 var timer = $timeout(function(){
-                    viewContainer.removeClass("ng-back");
-                },5000);
+                    $viewContainer.removeClass("ng-back");
+                },600);
             }
         }
     };

@@ -1,0 +1,59 @@
+.page.home {
+  .title-page {
+    @include opacity(0)
+  }
+  nav.scrolled .title-page {
+    @include opacity(1)
+  }
+
+  .bg-image.home {
+    height: 50%;
+    background-image: url("/images/bg-home-640x655.jpg");
+    // Achieves down arrow mask effect
+    &:before,
+    &:after {
+      @include transform(translate3d(0, 0, 0));
+      content: '';
+      background: $color-empty;
+      z-index: 1;
+    }
+
+    // Right side of down arrow
+    &:before {
+      //.position(absolute, auto, 0, 0, 50%, auto, .5rem);
+      position: absolute;
+
+      margin-left: .5rem;
+    }
+
+    // Left side of down arrow
+    &:after {
+      //.position(absolute, auto, 50%, 0, 0, auto, .5rem);
+      margin-right: .5rem;
+    }
+    .title-home {
+      bottom: auto;
+      display: inline-block;
+      height: auto;
+      left: auto;
+      position: absolute;
+      right: 50%;
+      top: 45%;
+      @include transform(translate3d(50%, -50%, 0px));
+      width: 70%;
+      padding: 0;
+      margin: 0;
+      font-style: normal;
+      font-size: 3.6rem;
+      line-height: 4.4rem;
+      img {
+        width: 100%;
+        display: block;
+        vertical-align: middle;
+      }
+    }
+  }
+  .content-scrollable {
+    background: #fbf9fe !important;
+  }
+}

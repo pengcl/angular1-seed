@@ -1,9 +1,16 @@
-<div class="page index">
+<div class="page home">
     <top-nav page-title="首页" page-back="menu"></top-nav>
     <div class="content-scrollable">
+        <div class="bg-image home">
+            <h1 class="title-home">
+                <img src="/images/logo-local.svg" alt="Local Market"/>
+            </h1>
+            <span class="hours"><span class="title-callout">Hours</span>
+        Mon–Fri 9-6pm, Sat 10-5pm</span>
+            <span class="arrow"></span>
+        </div>
         <form name="myForm" ng-submit="save()">
-            <choose-number></choose-number>
-            <passport></passport>
+            <phone-query></phone-query>
             <input type="submit" ng-disabled="myForm.$invalid"/>
         </form>
     </div>

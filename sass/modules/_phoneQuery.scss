@@ -1,0 +1,56 @@
+.weui_select {
+  height: 3.5rem;
+  line-height: 3.5rem;
+  padding-left: 1.5rem;
+}
+
+.weui_cell_select {
+  .weui_select {
+    padding-right: 3rem;
+  }
+}
+
+.weui_select_before {
+  .weui_select {
+    width: 10.5rem;
+  }
+}
+
+.query-panel {
+  @at-root .item-box {
+    padding: 1.5rem;
+    text-align: center;
+    position: relative;
+    background: #fff;
+    margin-left: 0.4rem;
+    margin-right: 0.4rem;
+    margin-top: 0.4rem;
+    margin-bottom: 0.4rem;
+    ins {
+      position: absolute;
+      bottom:0;
+      right: 0;
+      text-decoration: none;
+      display: none;
+    }
+  }
+  @at-root .phone-numbers-list,.item-lists {
+    margin-left: -0.4rem;
+    margin-right: -0.4rem;
+  }
+}
+
+.phone-query {
+  margin-top: 0.5rem;
+  background: none;
+  &.weui_cells {
+    &:before {
+      display: none;
+    }
+  }
+  .weui_cell {
+    &:before {
+      display: none;
+    }
+  }
+}

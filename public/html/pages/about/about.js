@@ -9,8 +9,6 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
             templateUrl: "html/pages/about/about.html",
             controller: "aboutController"
         });
-    $locationProvider.html5Mode(true);
 }]).controller('aboutController', ['$scope', '$rootScope', '$location', function ($scope, $rootScope, $location) {
-    $scope.pageTitle = "关于我们";
-    $scope.$root.title = $scope.pageTitle;
+
 }]);

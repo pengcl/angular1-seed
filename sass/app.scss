@@ -7,6 +7,7 @@
 @import "utils/animations";
 @import "appView/appView";
 @import "appView/wrapperWelcome";
+@import "appView/weui";
 @import "modules/link";
 @import "modules/menu";
 @import "modules/banner";
@@ -16,3 +17,5 @@
 @import "modules/areaSelect";
 @import "modules/passport";
 @import "modules/orderNumber";
+@import "modules/phoneQuery";
+@import "pages/pages";
