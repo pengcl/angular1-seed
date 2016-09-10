@@ -1,39 +1,40 @@
-<div class="address">
-    <div><span>{{receiver}}</span></div>
+<div id="receiverAddress" class="address">
+    <input type="hidden" value="{{receiver.city + receiver.room}}" name="address" id="address">
+    <div class="weui_cells_title title-icon">{{receiverTitle}}</div>
     <div class="weui_cells weui_cells_form">
-        <div class="weui_cell">
+        <div class="weui_cell input-name">
             <div class="weui_cell_hd"><label class="weui_label">收件人：</label></div>
             <div class="weui_cell_bd weui_cell_primary">
-                <input type="text" id="reciverName" name="reciverName" ng-model="receiver.name" placeholder="请输入姓名" class="weui_input" required />
+                <input type="text" id="reciverName" name="reciverName" ng-model="receiver.name" class="weui_input" required/>
             </div>
+            <div class="weui_cell_ft"><i class="weui_icon_warn"></i></div>
         </div>
-        <div class="weui_cell">
+        <div class="weui_cell input-mobile">
             <div class="weui_cell_hd"><label class="weui_label">联系电话：</label></div>
             <div class="weui_cell_bd weui_cell_primary">
-                <input type="number" id="receiverMobile" name="receiverMobile" ng-model="receiver.mobile" placeholder="请输入您的手机号码" ng-maxlength="11" ng-minlength="11" class="weui_input" required />
+                <input id="receiverMobile" name="receiverMobile" ng-model="receiver.mobile" ng-maxlength="11" ng-pattern="/^[0-9]*$/" pattern="[0-9]*" ng-minlength="11" class="weui_input" required/>
             </div>
-            <div class="weui_cell_ft">
-            </div>
+            <div class="weui_cell_ft"><i class="weui_icon_warn"></i></div>
         </div>
-        <div class="weui_cell" id="inputsStoreSelect">
-            <div class="weui_cell_hd"><label class="weui_label">收件区域</label></div>
+        <div class="weui_cell input-city" id="inputsStoreSelect">
+            <div class="weui_cell_hd"><label class="weui_label">收件区域：</label></div>
             <div class="weui_cell_bd weui_cell_primary">
-                <div id="store-selector">
+                <div id="store-selector" ng-click="inputFocus('.input-city');">
                     <div id="store-text" class="text" data-value="">
-                        <div title="">请选择收件区域</div>
-                        <input type="hidden" value="{{receiver.city}}" name="receiverCity" id="receiverCity" class="weui_input" required />
+                        <div>请选择收件区域</div>
+                        <input type="hidden" value="{{receiver.city}}" ng-model="receiver.city" name="receiverCity" id="receiverCity" class="weui_input" required/>
                         <b></b>
                     </div>
                 </div>
             </div>
+            <div class="weui_cell_ft"><i class="weui_icon_warn"></i></div>
         </div>
-        <div class="weui_cell">
-            <div class="weui_cell_hd"><label class="weui_label">详细地址</label></div>
+        <div class="weui_cell input-room">
+            <div class="weui_cell_hd"><label class="weui_label">详细地址：</label></div>
             <div class="weui_cell_bd weui_cell_primary">
-                <input type="text" id="receiverRoom" ng-model="receiver.room" name="receiverRoom" placeholder="街道 楼牌号等" class="weui_input" required />
+                <input type="text" id="receiverRoom" placeholder="街道、门牌号..." ng-model="receiver.room" name="receiverRoom" class="weui_input" required/>
             </div>
-            <div class="weui_cell_ft">
-            </div>
+            <div class="weui_cell_ft"><i class="weui_icon_warn"></i></div>
         </div>
     </div>
 
@@ -71,6 +72,5 @@
         </div>
         <span class="clr"></span>
     </div>
-    <div class="close" style="display: none"></div>
     <div class="address-overlay"></div>
 </div>

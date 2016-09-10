@@ -1,0 +1,35 @@
+video {
+  background-color: transparent !important;
+}
+
+.letter-video {
+  left: 1%;
+  width: 98%;
+  position: absolute;
+}
+
+.mask-letter {
+  mix-blend-mode: multiply;
+}
+
+.video-mask {
+  overflow: hidden;
+}
+
+.mask-letter {
+  height: 100%;
+  width: 100%;
+}
+
+.full-size {
+  height: 40% !important;
+  overflow: hidden;
+}
+
+.blend-screen {
+  mix-blend-mode: screen;
+}
+
+.blend-multiply {
+  mix-blend-mode: multiply;
+}

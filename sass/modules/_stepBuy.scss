@@ -1,0 +1,23 @@
+.step-buy {
+  @include border-radius(5rem);
+  display: block;
+  width: 0.8rem;
+  height: 0.8rem;
+  text-align: center;
+  position: absolute;
+  right: 0.10rem;
+  bottom: 0.10rem;
+  @include box-shadow(rgba(#000, 0.4) 0 0 25px, 0 1px 1px 0 #74d077 inset);
+  @include background-image(linear-gradient(to bottom, #00c307 0px, #039103 100%));
+  display:table;
+  &:after {
+  }
+  .progressbar-text {
+    display:table-cell;
+    vertical-align:middle;
+    color: #fff;
+    font-size: 0.17rem;
+    line-height: 0.20rem;
+    @include text-shadow(rgba(#039103, 0.4));
+  }
+}

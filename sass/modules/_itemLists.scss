@@ -1,0 +1,68 @@
+.item-lists {
+  margin-left: -0.04rem;
+  margin-right: -0.04rem;
+  font-size: 0.12rem;
+  .list-item {
+    margin:0;
+    padding:0;
+  }
+  @at-root .item-box {
+    padding: 0.15rem;
+    text-align: center;
+    position: relative;
+    background: #fff;
+    margin-left: 0.04rem;
+    margin-right: 0.04rem;
+    margin-top: 0.04rem;
+    margin-bottom: 0.04rem;
+    font-size: 0.12rem;
+    @include box-shadow(#d9d9d9 0px 0px 2px);
+    &:after {
+    }
+    em {
+      color: $color-primary;
+      font-style: normal;
+      font-size: 0.18rem;
+    }
+    del {
+      font-size: 0.14rem;
+      color: #999;
+    }
+
+    p {
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+
+    ins {
+      position: absolute;
+      text-decoration: none;
+      display: none;
+      font-size: 0.18rem;
+      right: 0rem;
+      bottom: 0rem;
+    }
+
+    i {
+      position: absolute;
+      font-size: 0;
+      width: 25%;
+      right: -0.1rem;
+      top: -0.08rem;
+      img {
+        display: block;
+        width: 100%;
+      }
+    }
+
+    &.curr {
+      @include box-shadow($color-green 0px 0px 2px);
+      color: $color-green;
+      font-weight: bold;
+      ins {
+        display: block;
+      }
+    }
+  }
+}

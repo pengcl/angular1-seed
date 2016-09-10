@@ -1,0 +1,161 @@
+//严禁在此处写公共样式,此文件可随活动一起废弃.
+.page.fd-details {
+  .flow-package-panel {
+    padding-left: 0.15rem;
+    padding-right: 0.15rem;
+  }
+  .sim-type-panel {
+    padding-left: 0.15rem;
+    padding-right: 0.15rem;
+  }
+  .product-header {
+    background: #fff;
+  }
+  .content-scrollable {
+    background: #fbf9fe !important;
+  }
+  .weui_cells_title {
+    font-size: 0.2rem;
+    color: #333;
+    font-weight: bold;
+    line-height: 0.32rem;
+  }
+  .address {
+    .weui_cells {
+      background: none;
+      &:before {
+        display: none;
+      }
+    }
+    .weui_cell {
+      margin-left: 0.15rem;
+      margin-right: 0.15rem;
+      margin-top: 0.1rem;
+      margin-bottom: 0.1rem;
+      @include border-radius(0.04rem);
+      border: 1px solid #999;
+      background: #fff;
+      &:before {
+        display: none;
+      }
+    }
+    .weui_label {
+      width: 5em;
+      color: #999;
+    }
+    .weui_cell_warn {
+      .weui_label {
+        //width: 5em;
+        color: #f43530;
+      }
+    }
+    .weui_cell_ft {
+      .weui_icon_warn {
+        &:before {
+          font-size: 0.18rem;
+        }
+      }
+    }
+  }
+  .item-lists {
+    margin-left: -0.05rem;
+    margin-right: -0.05rem;
+    .list-item {
+      .item-box {
+        margin: 0.05rem;
+        font-size: 0.16rem;
+        border: 1px solid #999;
+        @include border-radius(0.04rem);
+        //@include box-shadow($color-full 0px 0px 2px);
+        em {
+          color: #333;
+        }
+        &.curr {
+          border: 1px solid $color-primary;
+          @include box-shadow($color-primary 0px 0px 2px);
+          color: $color-primary;
+          em {
+            color: $color-primary;
+          }
+          ins {
+            display: block;
+          }
+        }
+      }
+    }
+  }
+  &.default {
+    .weui_cells_title {
+      &.title-icon {
+        position: relative;
+        padding-left: 0.28rem;
+        &:before {
+          content: " ";
+          position: absolute;
+          left: 0.15rem;
+          height: 0.16rem;
+          top: 50%;
+          margin-top: -0.08rem;
+          background: $color-primary;
+          @include border-radius(1rem);
+          width: 0.05rem;
+        }
+      }
+    }
+  }
+}
+
+.overlay.sim {
+  .weui_cell {
+    @include align-items(top);
+  }
+  .weui_cell_hd {
+    @include align-self(top);
+  }
+  .weui_cell_bd {
+    p {
+      font-weight: 300;
+      color: #999;
+      &.tit {
+        font-size: 0.16rem;font-weight: bold;
+        color: #333;
+      }
+      s {
+        color: #333;
+        font-style: normal;
+        text-decoration: none;
+      }
+    }
+  }
+  .weui_panel {
+    background: none;
+    margin-top: 0;
+    .weui_panel_hd {
+      text-align: center;
+      &:after {
+        left: 0;
+      }
+    }
+    .weui_panel_ft {
+      text-align: center;
+      padding-bottom: 0.2rem;
+      color: #333;
+      &:before {
+        left: 0;
+      }
+    }
+  }
+  .weui_cells {
+    background: none;
+    .weui_cell {
+      &:before {
+        left: 0;
+      }
+    }
+  }
+}
+
+.overlay.bottom {
+  top: auto;
+  background: #fff;
+}

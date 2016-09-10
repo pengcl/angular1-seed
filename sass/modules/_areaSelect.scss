@@ -2,6 +2,14 @@
   display: inline-table;
 }
 
+.address {
+  .weui_cells {
+    &:after {
+      display: none;
+    }
+  }
+}
+
 #address-panel {
   position: absolute;
   top: 0;

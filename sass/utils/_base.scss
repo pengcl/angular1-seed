@@ -1,0 +1,32 @@
+em {
+  color: $color-primary;
+  font-style: normal;
+}
+sub {
+  bottom:0;
+}
+.img-box {
+  img {
+    display: block;
+    width: 100%;
+  }
+}
+.text-r {
+  text-align: right;
+}
+.text-l {
+  text-align: left;
+}
+.text-c {
+  text-align: center;
+}
+.ib {
+  @include inline-block;
+}
+.pure-u-offset-right-1-2 {
+  margin-right: 50% !important;
+  *margin-right: 49.969% !important;
+}
+.hide{
+  display: none !important;
+}

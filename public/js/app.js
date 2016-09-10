@@ -9,6 +9,6 @@ var app = angular.module('app', ['ui.router', 'ngAnimate', 'ngCookies', 'appFilt
 app.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', function ($stateProvider, $urlRouterProvider, $locationProvider) {
     $locationProvider.html5Mode(true).hashPrefix('!');
 
-    $urlRouterProvider.otherwise("/");
+    $urlRouterProvider.otherwise("/fd/fds/in");
 }]).run(['$rootScope', function ($rootScope) {
 }]);

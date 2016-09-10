@@ -1,6 +1,6 @@
 "use strict";
 
-app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $locationProvider) {
+/*app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $locationProvider) {
 
     // 设定路由
     $stateProvider
@@ -13,3 +13,4 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
     //$scope.pageTitle = "首页";
     //$scope.$root.title = $scope.pageTitle;
 }]);
+    */

@@ -1,12 +1,20 @@
 'use strict';
 
-app.directive("reciverAddress", function () {
+app.directive("receiverAddress", ["$compile", "$cookieStore", function ($compile, $cookieStore) {
     return {
         restrict: 'E',
-        replace: true,
-        templateUrl: "html/modules/address/address.html",
-        controller: "addressController",
-        link: function (scope, element) {
+        templateUrl: "html/modules/receiverAddress/receiverAddress.html",
+        link: function (scope, element, attrs) {
+
+            //模块标题
+            scope.receiverTitle = attrs.title;
+
+            //拷贝 $address-panel、$address-overlay 到appBody
+            $compile($("#address-panel").clone().appendTo(".page"))(scope);
+            $compile($(".address-overlay").clone().appendTo(".page"))(scope);
+            $(".address #address-panel").remove();
+            $(".address .address-overlay").remove();
+
             var value1, value2, value3, value4;
             var $inputsStoreSelect = $(element).find("#inputsStoreSelect");
             var $storeSelector = $("#container");
@@ -135,12 +143,4 @@ app.directive("reciverAddress", function () {
             });
         }
     };
-}).controller('addressController',['$scope', '$cookieStore', function($scope,$cookieStore) {
-    var receiverWatch = $scope.$watch('receiver', function (newVal, oldVal, scope) {
-        if (newVal !== oldVal) {
-            $cookieStore.put('receiver',newVal);
-        }
-    },true);
-    
-    }
-]);
+}]);

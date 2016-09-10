@@ -18,6 +18,16 @@ appFilters.filter('MB', function () {
     };
 });
 
+appFilters.filter('GB', function () {
+    return function (kb) {
+        var m = 1024,
+            g = 1024;
+        //sizes = ['KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'],
+        //i = Math.floor(Math.log(kb) / Math.log(m));
+        return ((kb / m) / g);
+    };
+});
+
 appFilters.filter('replaceS', function () {
     return function (input, key) {
         if (key != undefined || key != null || key != "") {

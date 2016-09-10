@@ -6,18 +6,18 @@
   @include transition-timing-function(cubic-bezier(0.175, 0.885, 0.335, 1.05));
   @include transition-delay(0s);
   bottom: 0;
-  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.1);
   height: auto;
   left: 0;
-  min-height: 9rem;
+  min-height: 0.9rem;
   overflow: hidden;
-  padding-bottom: 6.5rem;
-  padding-top: 2rem;
+  padding-bottom: 0.65rem;
+  padding-top: 0.2rem;
   position: absolute;
   right: 0;
   text-align: center;
   top: auto;
   width: auto;
+  font-size: 0;
   z-index: 1;
   &::after {
     @include transition-property(all);
@@ -29,7 +29,7 @@
     content: "";
     height: auto;
     left: 0;
-    min-height: 12rem;
+    min-height: 1.2rem;
     opacity: 1;
     position: absolute;
     right: 0;
@@ -45,15 +45,14 @@
     @include transition-delay(0s);
     backface-visibility: hidden;
     font-family: "lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 2.2rem;
+    font-size: 0.22rem;
     font-weight: 700;
-    line-height: 2.6rem;
-    margin-bottom: 1rem;
+    line-height: 0.26rem;
+    margin-bottom: 0.1rem;
     margin-top: 0;
-    padding: 0 1rem;
+    padding: 0 0.1rem;
     transform: translateY(0px);
     @include transform( translateY(0px));
-    width: 100%;
   }
   .metadata-wrapper {
     @include transition-property(all);
@@ -66,9 +65,9 @@
   }
   .sub-title {
     color: #555555;
-    font-size: 1.4rem;
-    margin-bottom: 0.5rem;
-    padding: 0 1rem;
+    font-size: 0.14rem;
+    margin-bottom: 0.05rem;
+    padding: 0 0.1rem;
     &:empty {
       display: none;
     }
@@ -77,14 +76,14 @@
     border-left: 1px solid #cccccc;
     font-family: "lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-weight: 700;
-    padding-left: 0.5rem;
+    padding-left: 0.05rem;
   }
   .source {
     font-family: "lorabold", TimesNewRoman, "Times New Roman", Times, Baskerville, Georgia, serif;
     font-style: normal;
-    letter-spacing: 0.3em;
-    padding-right: 0.25rem;
-    text-indent: 0.3em;
+    letter-spacing: 0.03em;
+    padding-right: 0.025rem;
+    text-indent: 0.03em;
     text-transform: uppercase;
   }
   .time,

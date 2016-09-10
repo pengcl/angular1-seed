@@ -1,0 +1,16 @@
+[
+  {
+    "id": "0",
+    "txt": "小卡",
+    "title": "小卡 尺寸:12*9毫米",
+    "tips": "适用于：乐视1S(双卡) 华为P8 魅族MX5 华为荣耀7i 华为G7/Plus 华为Mate8(双卡) 魅蓝metal等",
+    "pic":"/images/flow/flowcard/in/card-s.png"
+  },
+  {
+    "id": "1",
+    "txt": "大卡",
+    "title": "大卡 (可拆分) 拆分前尺寸：25*15毫米",
+    "tips": "适用于：小米4 红米note2  华为mate8(双卡) 乐视了1s(双卡)等<s>大多数安卓手机</s>",
+    "pic":"/images/flow/flowcard/in/card-b.png"
+  }
+]

@@ -1,4 +1,4 @@
-@import "compass/css3";
+
 .content-overlay {
     bottom: 0;
     cursor: pointer;
@@ -22,21 +22,22 @@
     z-index: 1;
     .overlay-back,
     .overlay-dismiss {
+        font-size: 0;
         bottom: auto;
-        height: 4.8rem;
+        height: 0.48rem;
         left: auto;
         position: absolute;
         right: auto;
         text-align: center;
         text-decoration: none;
         top: 0;
-        width: 4.8rem;
+        width: 0.48rem;
         z-index: 1;
         [class^="icon-"],
         [class*=" icon-"] {
             color: #666666;
-            font-size: 1.6rem;
-            line-height: 4.8rem;
+            font-size: 0.16rem;
+            line-height: 0.48rem;
         }
     }
     .overlay-back {
@@ -49,7 +50,7 @@
         bottom: auto;
         height: auto;
         left: auto;
-        padding: 0 1.25rem;
+        padding: 0 0.125rem;
         position: absolute;
         right: auto;
         text-align: center;
@@ -63,12 +64,12 @@
         font-size: 40px;
         font-weight: 700;
         line-height: 1;
-        margin-bottom: 0.5rem;
+        margin-bottom: 0.05rem;
     }
     .subtitle-overlay {
         color: #555555;
         font-size: 18px;
-        line-height: 1.5;
+        line-height: 0.15;
     }
     &.auth {
         @include transform( translate3d(-100%, 0px, 0px));

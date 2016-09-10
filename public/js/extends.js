@@ -4,14 +4,6 @@
 //
 //全局统计
 
-var _hmt = _hmt || [];
-(function () {
-    var hm = document.createElement("script");
-    hm.src = "//hm.baidu.com/hm.js?b796d357db4d48aba8d2ea205d708eaa";
-    var s = document.getElementsByTagName("script")[0];
-    s.parentNode.insertBefore(hm, s);
-})();
-
 var userTrack = function (category, action, gh, value) {
 
 };
@@ -31,7 +23,7 @@ $(".content-overlay").click(function (e) {
 
 //Document ready事件
 $(document).ready(function () {
-    $("html").css("font-size", ($container.width() / 320) * parseInt($("html").css("font-size")));
+    $("html").css("font-size", ($container.width() / 375) * parseInt($("html").css("font-size")));
 });
 
 //手机号处理 开始
@@ -78,3 +70,130 @@ function getPosNum(orderNumber, data) {
 }
 
 //手机号处理 结束
+
+//阻止橡皮筋事件
+
+function isScroller(el) { // 判断元素是否为 scroller
+    return el.classList.contains('content-scrollable')
+}
+
+document.body.addEventListener('touchmove', function (ev) {
+    var target = ev.target;
+    //alert(target);
+// 在 scroller 上滑动，阻止事件冒泡，启用浏览器默认行为。
+    if (isScroller(target)) {
+        ev.stopPropagation()
+    }
+}, false);
+
+
+//map
+function Map() {
+    var struct = function (key, value) {
+        this.key = key;
+        this.value = value;
+    }
+    var put = function (key, value) {
+        for (var i = 0; i < this.arr.length; i++) {
+            if (this.arr[i].key === key) {
+                this.arr[i].value = value;
+                return;
+            }
+        }
+        this.arr[this.arr.length] = new struct(key, value);
+    }
+
+    var get = function (key) {
+        for (var i = 0; i < this.arr.length; i++) {
+            if (this.arr[i].key === key) {
+                return this.arr[i].value;
+            }
+        }
+        return null;
+    }
+
+    var remove = function (key) {
+        var v;
+        for (var i = 0; i < this.arr.length; i++) {
+            v = this.arr.pop();
+            if (v.key === key) {
+                continue;
+            }
+            this.arr.unshift(v);
+        }
+    }
+    var size = function () {
+        return this.arr.length;
+    }
+
+    var isEmpty = function () {
+        return this.arr.length <= 0;
+    }
+    this.arr = new Array();
+    this.get = get;
+    this.put = put;
+    this.remove = remove;
+    this.size = size;
+    this.isEmpty = isEmpty;
+}
+
+//统计
+function operation() {
+    var pageName = "";
+    var productName = "";
+    var productId = "";
+    var map = null;
+    var loc = window.location.href;
+    this.init = function (pName, pdName, pdId) {
+        pageName = pName;
+        productName = pdName;
+        productId = pdId;
+    }
+    this.record = function (type) {
+        if (type == null) {
+            return false;
+        }
+        map = new Map();
+        map.put('operation', type);
+        this.writeOperation();
+    }
+    this.writeOperation = function () {
+        var flag = false;
+        var info = "flow=" + loc + "&operation=" + map.get('operation');
+        //------------传入后台时，去掉地址中的/#字符 modity by linwj 20160812
+        info = info.replace("\/\#", "");
+        //------------传入后台时，去掉地址中的/#字符 modity by linwj 20160812
+        var url = "http://m.gd189fq.com/record/writeLog.html?" + info;
+        $.ajax({
+            type: "get",
+            url: url,
+            dataType: "jsonp",
+            jsonp: "callback",
+            jsonpCallback: "callback",
+            success: function (json) {
+
+            },
+            error: function () {
+
+            }
+        });
+        return flag;
+    }
+    this.writeIntentionMsg = function (operationName, operationValue, dataType, opSeq) {
+        var url = "http://m.gd189fq.com/record/intentionLog.html";
+        $.get(url, {operationName: operationName, operationValue: operationValue, dataType: dataType, opSeq: opSeq},
+            function (data) {
+
+            }
+        );
+    }
+
+
+}
+
+var op = new operation();
+
+function writebdLog(category, action, opt_label, opt_value) {//category项目，action统计项目，渠道label，渠道号
+    _hmt.push(['_trackEvent', category, category + action, opt_label, opt_value]);
+    op.record(encodeURI(category + action));
+}

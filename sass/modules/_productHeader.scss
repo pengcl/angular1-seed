@@ -1,0 +1,117 @@
+.product-header　{
+  font-size: 0.14rem;
+  padding: 0.15rem;
+  background: #fff;
+  position: relative;
+  h1　{
+    font-size: 0.16rem;
+    font-weight: 400;
+    margin:0;
+  }
+  h2　{
+    font-size: 0.14rem;
+    font-weight: 400;
+    color: $color-primary;
+  }
+  .price-area {
+    font-size: 0.18rem;
+    margin-top:0.1rem;
+    sub {
+      color: $color-primary;
+    }
+    &.price-absolute {
+      position: absolute;
+      width: 100%;
+      @include box-sizing(border-box);
+      left: 0;
+      top:-0.55rem;
+      background: #ff5b29;
+      color: #fff;
+      padding:0.15rem;
+      font-size: 0.16rem;
+      margin-top: 0;
+      ins {
+        position: absolute;
+        font-size: 0.14rem;
+        line-height: 0.28rem;
+        display: block;
+        top: -0.24rem;
+        left: 0;
+        padding-left: 0.15rem;
+        padding-right: 0.15rem;
+        @include border-top-radius(4px);
+        background: #ff5b29;
+        text-decoration: none;
+      }
+      sub {
+        color: #fff;
+      }
+      em {
+        color: #fff;
+      }
+      .timer-area {
+        position: absolute;
+        right:0.15rem;
+        top:0.1rem;
+        font-size: 0.12rem;
+        line-height: 1;
+        .timer-label {
+          text-align: right;
+        }
+        .timer {
+          text-align: right;
+          margin-top: 0.05rem;
+          i {
+            @include inline-block;
+            font-size: 0.12rem;
+            width: 0.18rem;
+            height: 0.18rem;
+            text-align: center;
+            line-height: 0.18rem;
+            background: #fff;
+            @include border-radius(4px);
+            color: $color-primary;
+            vertical-align:bottom;
+            margin-left: 0.03rem;
+            margin-right: 0.03rem;
+            font-style: normal;
+          }
+        }
+      }
+      del {
+        font-size: 0.12rem;
+        color: #ddd;
+        sub {
+          color: #ddd;
+        }
+      }
+    }
+  }
+}
+.product-header-ft {
+  font-size: 0.14rem;
+  padding-left: 0.15rem;
+  padding-top: 0.1rem;
+  padding-bottom: 0.1rem;
+  background: #fff;
+  position: relative;
+  color: #999;
+  &:before {
+    content: " ";
+    position: absolute;
+    top:0;
+    left: 0;
+    width: 100%;
+    border-top: 1px solid #d9d9d9;
+    @include scaleY(0.5);
+  }
+  &:after {
+    content: " ";
+    position: absolute;
+    bottom:0;
+    left: 0;
+    width: 100%;
+    border-bottom: 1px solid #d9d9d9;
+    @include scaleY(0.5);
+  }
+}

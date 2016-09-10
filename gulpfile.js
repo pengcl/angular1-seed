@@ -5,9 +5,25 @@ var uglify = require('gulp-uglify');
 var rename = require('gulp-rename');
 var jshint = require('gulp-jshint');
 var minifyCSS = require('gulp-minify-css');
+var ngHtml2Js = require("gulp-ng-html2js");
+var minifyHtml = require("gulp-minify-html");
 var version = "1.0.0";
 
 
+/*gulp.task('templates',function () {
+    return gulp.src("public/html/!**!/!*.html")
+        .pipe(minifyHtml({
+            empty: true,
+            spare: true,
+            quotes: true
+        }))
+        .pipe(ngHtml2Js({
+            moduleName: "appTemplates"
+        }))
+        .pipe(concat("template.tpl.js"))
+        .pipe(uglify())
+        .pipe(gulp.dest('public/components/' + version + '/'));
+});*/
 //sass合并,压缩
 gulp.task('sass', function () {
     return gulp.src('sass/**/*.scss')
@@ -29,7 +45,7 @@ gulp.task('jshint', function () {
 });
 
 //合并,压缩 angular
-gulp.task('angular', function () {
+/*gulp.task('angular', function () {
     return gulp.src([
         'public/bower_components/angular/angular.min.js',
         'public/bower_components/ui-route/release/angular-ui-router.min.js',
@@ -40,7 +56,7 @@ gulp.task('angular', function () {
         .pipe(rename({suffix: '.min'}))   //rename压缩后的文件名
         .pipe(uglify())    //压缩
         .pipe(gulp.dest('public/components/angular/'));  //输出
-});
+});*/
 
 //合并,压缩 app、controllers、Directives、filters
 gulp.task('public', function () {
@@ -53,11 +69,11 @@ gulp.task('public', function () {
 });
 
 gulp.task('watch', function () {
-    gulp.watch(['public/js/**/*.js', 'public/html/**/*.js'], ['jshint', 'public']);
+    gulp.watch(['public/js/**/*.js', 'public/html/**/*.js'], [/*'jshint', */'public']);
     gulp.watch('sass/**/*.scss', ['sass']);
 });
 
 gulp.task('default', function () {
     // 将你的默认的任务代码放在这
-    gulp.start('sass', 'jshint', 'angular', 'public', 'watch');
+    gulp.start('sass', /*'jshint', */'public', 'watch');
 });

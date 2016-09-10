@@ -1,0 +1,97 @@
+.page.fd-details {
+  &.in {
+    .content-scrollable {
+      background: #ffc6d9 !important;
+    }
+    .product-header {
+      background: #fcff02;
+    }
+    .banner-image {
+      position: relative;
+      #banner-bg {
+        width: 100%;
+        display: block;
+      }
+      #banner-bg2 {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+      }
+      #banner-title {
+        position: absolute;
+        top: 0.15rem;
+        width: 58%;
+        left: 21%;
+        @include animation-delay(0.7s);
+      }
+      #banner-subtitle-1 {
+        position: absolute;
+        width: 27%;
+        left: 7%;
+        top: 0.5rem;
+        @include animation-delay(1s);
+      }
+      #banner-subtitle-2 {
+        position: absolute;
+        width: 25%;
+        left: 35%;
+        top: 0.55rem;
+        @include animation-delay(1.3s);
+      }
+      #banner-subtitle-3 {
+        position: absolute;
+        width: 31%;
+        left: 62%;
+        top: 0.62rem;
+        @include animation-delay(1.6s);
+      }
+      #banner-dot {
+        position: absolute;
+        width: 95%;
+        top: 0.23rem;
+        left: 3.2%;
+        @include animation-delay(1.6s);
+      }
+      #banner-card {
+        position: absolute;
+        width: 62%;
+        top: 1.18rem;
+        left: 18%;
+        @include animation-delay(2s);
+      }
+      #banner-cat {
+        position: absolute;
+        width: 20%;
+        top: 1.08rem;
+        right: 1%;
+        @include animation-delay(2.3s);
+      }
+    }
+  }
+}
+
+.overlay.sim.in {
+  background-image: linear-gradient(to bottom, rgba(255, 198, 217, 0.97), rgba(255, 175, 202, 0.97) 100%) !important;
+  .weui_panel {
+    .weui_panel_hd {
+      text-align: center;
+    }
+    .weui_panel_bd {
+      p {
+        &.disc {
+          color: #333;
+        }
+        s {
+          color: #5476e5;
+          font-style: normal;
+          text-decoration: none;
+        }
+      }
+    }
+    .weui_panel_ft {
+      text-align: center;
+      padding-bottom: 0.2rem;
+    }
+  }
+}

@@ -9,6 +9,7 @@ app.directive("topNav", ['$timeout', function ($timeout) {
             scope.pageTitle = attrs.pageTitle;
             scope.$root.title = scope.pageTitle;
             scope.pageBack = attrs.pageBack;
+            scope.navVisibility = attrs.navVisibility;
             scope.back = function () {
                 var $viewContainer = $(".view-container");
                 //var $viewFrame = $(".view-frame");

@@ -1,18 +1,22 @@
 'use strict';
 
-app.directive("chooseNumber", function () {
+app.directive("chooseNumber", ["$compile", function ($compile) {
     return {
         restrict: 'E',
-        replace: true,
         templateUrl: "html/modules/chooseNumber/chooseNumber.html",
         controller: "chooseNumberController",
         link: function (scope, element) {
+            //scope.pageClass = "hide-checkbox";
+            $compile($(".number-list").clone().appendTo(".page"))(scope);
+            $(".choose-number .number-list").remove();
+
             var $span = $("#number-select span");
-            var $table = $("#number-list table");
+            var $numberList = $(".number-list");
+            var $table = $numberList.find("table");
             var curr;
 
-            scope.selectNumber = function (k,e) {
-                if($(e.target).hasClass("active")) {
+            scope.selectNumber = function (k, e) {
+                if ($(e.target).hasClass("active")) {
                     var j, numLast, number;
                     $span.eq(curr).attr("date-value", k);
                     $span.eq(curr).html(k);
@@ -34,9 +38,9 @@ app.directive("chooseNumber", function () {
 
                         $("#num-sure").addClass("active");
                         $("#num-reset").addClass("active");
-                        $("#number-list").slideUp();
+                        $numberList.slideUp();
                     }
-                }else {
+                } else {
                     return false;
                 }
             };
@@ -66,17 +70,17 @@ app.directive("chooseNumber", function () {
                             $table.find("td").eq(k - 1).find("a").attr("class", "active");
                         }
                     });
-                    $("#number-list").slideDown();
+                    $numberList.slideDown();
                 }
             };
             scope.$watch('phoneData', function (newVal, oldVal, scope) {
                 if (newVal !== oldVal) {
-                    scope.showPickNumberPanel(3);
+                    //scope.showPickNumberPanel(3);
                 }
             }, true);
         }
     };
-}).controller('chooseNumberController', ['$scope', '$cookieStore', '$http', '$compile', function ($scope, $cookieStore, $http) {
+}]).controller('chooseNumberController', ['$scope', '$cookieStore', '$http', '$compile', function ($scope, $cookieStore, $http) {
     //var deferred = $q.defer();
     $scope.phoneData = new Array();
     $http.jsonp('http://m.gd189fq.com/wap/taokafanghaoNew/fetchNumber.html?callback=JSON_CALLBACK').success(function (data, status, headers, config) {

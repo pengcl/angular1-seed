@@ -1,21 +1,21 @@
 .passport {
     .upload-area {
-        padding-bottom: 1rem;
-        padding-top: 1rem;
+        padding-bottom: 0.1rem;
+        padding-top: 0.1rem;
         background: #fff;
         button {
             display: none;
         }
         label {
-            font-size: 1.4rem;
+            font-size: 0.14rem;
             color: #cf0000;
-            margin-top: 1rem;
+            margin-top: 0.1rem;
             display: block;
             text-align: center;
         }
         .upload-zone {
-            width: 24rem;
-            height: 16rem;
+            width: 2.4rem;
+            height: 1.6rem;
             margin: 0 auto;
             position: relative;
             background-repeat: no-repeat;
@@ -36,8 +36,8 @@
                 top: 0;
                 right: 0;
                 bottom: 0;
-                width: 24rem;
-                height: 16rem;
+                width: 2.4rem;
+                height: 1.6rem;
                 background: none;
                 border: none;
                 @include opacity(0);
@@ -48,8 +48,8 @@
                 top: 0;
                 right: 0;
                 bottom: 0;
-                width: 24rem;
-                height: 16rem;
+                width: 2.4rem;
+                height: 1.6rem;
             }
             button {
                 display: none;

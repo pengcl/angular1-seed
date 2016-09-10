@@ -1,0 +1,33 @@
+.weui_cells_title{
+  font-size: 0.14rem;
+  span {
+    @include inline-block;
+  }
+  .sub-title {
+    font-size: 70%;
+    padding-left: 0.1rem;
+    padding-right: 0.1rem;
+    @include border-radius(0.1rem);
+    border:1px solid $color-primary;
+    line-height: 0.28rem;
+    margin-left: 0.15rem;
+    color: $color-primary;
+  }
+  .question {
+    font-size: 75%;
+    float: right;
+  }
+  .timer {
+    @include inline-block;
+    margin-left: 0.15rem;
+    font-weight: 300;
+    i {
+      font-style: normal;
+      font-size: 90%;
+    }
+    sub {
+      color: #999;
+      font-size: 60%;
+    }
+  }
+}

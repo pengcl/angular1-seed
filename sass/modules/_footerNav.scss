@@ -1,1 +1,94 @@
+.weui_tabbar_icon {
+  font-size: 24px;
+  line-height: 1;
+}
 
+.footer-nav {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  display: block;
+  font-size: 0;
+  background: #fff;
+  &.nav-list {
+    padding: 0;
+    text-align: center;
+    //@include display-flex(inline-flex);
+    //@include flex-wrap(wrap);
+    height: 0.48rem;
+    @include box-sizing(border-box);
+    overflow: hidden;
+    padding-left: 1.2rem;
+    //position: relative;
+    .nav-item {
+      font-size: 0.12rem;
+      display: inline-block; /* non-flexbox browsers */
+      //@include align-items(center);
+      //@include justify-content(center);
+      padding-top: 0.05rem;
+      padding-left: 0.1rem;
+      padding-right: 0.1rem;
+      position: relative;
+      color: #333;
+      @include box-sizing(border-box);
+      &.nav-order {
+        width: 0.72rem;
+        position: absolute;
+        left: 0;
+        top: 0;
+      }
+      &.nav-comment {
+        width: 0.48rem;
+        position: absolute;
+        left: 0.72rem;
+        top: 0;
+      }
+      &.nav-price {
+        //@include flex(1 0);
+        padding-top: 0;
+        line-height:0.48rem;
+        font-size: 0.24rem;
+      }
+      &.nav-button {
+        //@include flex(1 0);
+        padding-top: 0;
+        line-height:0.48rem;
+        background: $color-primary;
+        color: #fff;
+        font-size: 0.2rem;
+        position: relative;
+        a {
+          color: #fff;
+          //position: absolute;
+          left:0;
+          top:0;
+          bottom:0;
+          right:0;
+          display: block;
+        }
+      }
+      &.line-r {
+        &:after {
+          content:" ";
+          position: absolute;
+          width: 1px;
+          height: 100%;
+          border-right: 1px solid #ccc;
+          @include scaleX(0.5);
+          top: 0;
+          right: 0;
+        }
+      }
+      .nav-icon {
+        font-size: 0.20rem;
+        line-height: 0.20rem;
+        color: #666;
+      }
+      .nav-label {
+        font-size: 0.12rem;
+        line-height:0.23rem;
+      }
+    }
+  }
+}

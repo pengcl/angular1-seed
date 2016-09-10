@@ -1,5 +1,5 @@
 a {
-  color: #d83e14;
+  color: $color-primary;
   cursor: pointer;
   text-decoration: none;
   @include transition-property(all);

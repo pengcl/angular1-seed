@@ -6,6 +6,17 @@ app.directive("phoneQuery", function () {
         templateUrl: "html/modules/phoneQuery/phoneQuery.html",
         controller: "phoneQueryController",
         link: function (scope, element, attrs) {
+
+            //选择号码 对象类型
+            scope.setNumber = function (event, numberItem) {
+                event.preventDefault();
+                var $this = $(event.currentTarget);
+                $this.parent().siblings().children().removeClass('curr');
+                $this.addClass('curr');
+                scope.numberItem = numberItem;
+            };
+
+            //监视号码数据变动
             scope.$watch('phoneData', function (newVal, oldVal, scope) {
                 if (newVal !== oldVal) {
                     //console.log(newVal);
