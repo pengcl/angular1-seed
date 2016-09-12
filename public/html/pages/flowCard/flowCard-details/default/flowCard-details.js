@@ -6,7 +6,7 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
     $stateProvider
         .state('flowCard', { //app首页
             url: "/fd/product",
-            templateUrl: "html/pages/flowCard/flowCard-details/default/flowCard-details.html",
+            templateUrl: "pages/flowCard/flowCard-details/default/flowCard-details.html",
             controller: "fdProController"
         });
 }]).controller('fdProController', ['$scope', '$rootScope', '$location', function ($scope, $rootScope, $location) {

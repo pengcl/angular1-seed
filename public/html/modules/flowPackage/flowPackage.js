@@ -3,7 +3,7 @@
 app.directive("flowPackage", ['$http', function ($http) {
     return {
         restrict: 'E',
-        templateUrl: "html/modules/flowPackage/flowPackage.html",
+        templateUrl: "modules/flowPackage/flowPackage.html",
         link: function (scope, element, attrs) {
 
             //模块标题

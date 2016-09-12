@@ -3,7 +3,7 @@
 app.directive("chooseNumber", ["$compile", function ($compile) {
     return {
         restrict: 'E',
-        templateUrl: "html/modules/chooseNumber/chooseNumber.html",
+        templateUrl: "modules/chooseNumber/chooseNumber.html",
         controller: "chooseNumberController",
         link: function (scope, element) {
             //scope.pageClass = "hide-checkbox";

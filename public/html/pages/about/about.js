@@ -6,7 +6,7 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
     $stateProvider
         .state('about', { //关于我们
             url: "/about",
-            templateUrl: "html/pages/about/about.html",
+            templateUrl: "pages/about/about.html",
             controller: "aboutController"
         });
 }]).controller('aboutController', ['$scope', '$rootScope', '$location', function ($scope, $rootScope, $location) {

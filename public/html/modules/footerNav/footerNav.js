@@ -3,7 +3,7 @@
 app.directive("footerNav", ['$http', function ($http) {
     return {
         restrict: 'E',
-        templateUrl: "html/modules/footerNav/footerNav.html",
+        templateUrl: "modules/footerNav/footerNav.html",
         link: function (scope, element, attrs) {
             var $form = $(attrs.submit);
             var $container = $('.content-scrollable');

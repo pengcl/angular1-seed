@@ -3,7 +3,7 @@
 app.directive("simType", ['$http', '$compile', function ($http, $compile) {
     return {
         restrict: 'E',
-        templateUrl: "html/modules/simType/simType.html",
+        templateUrl: "modules/simType/simType.html",
         link: function (scope, element, attrs) {
             scope.simTitle = attrs.title;
             scope.class = attrs.addClass;

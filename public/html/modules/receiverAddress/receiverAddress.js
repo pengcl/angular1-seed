@@ -3,7 +3,7 @@
 app.directive("receiverAddress", ["$compile", "$cookieStore", function ($compile, $cookieStore) {
     return {
         restrict: 'E',
-        templateUrl: "html/modules/receiverAddress/receiverAddress.html",
+        templateUrl: "modules/receiverAddress/receiverAddress.html",
         link: function (scope, element, attrs) {
 
             //模块标题

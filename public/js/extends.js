@@ -92,7 +92,7 @@ function Map() {
     var struct = function (key, value) {
         this.key = key;
         this.value = value;
-    }
+    };
     var put = function (key, value) {
         for (var i = 0; i < this.arr.length; i++) {
             if (this.arr[i].key === key) {
@@ -101,7 +101,7 @@ function Map() {
             }
         }
         this.arr[this.arr.length] = new struct(key, value);
-    }
+    };
 
     var get = function (key) {
         for (var i = 0; i < this.arr.length; i++) {
@@ -110,7 +110,7 @@ function Map() {
             }
         }
         return null;
-    }
+    };
 
     var remove = function (key) {
         var v;
@@ -121,14 +121,14 @@ function Map() {
             }
             this.arr.unshift(v);
         }
-    }
+    };
     var size = function () {
         return this.arr.length;
-    }
+    };
 
     var isEmpty = function () {
         return this.arr.length <= 0;
-    }
+    };
     this.arr = new Array();
     this.get = get;
     this.put = put;
@@ -148,7 +148,7 @@ function operation() {
         pageName = pName;
         productName = pdName;
         productId = pdId;
-    }
+    };
     this.record = function (type) {
         if (type == null) {
             return false;
@@ -156,7 +156,7 @@ function operation() {
         map = new Map();
         map.put('operation', type);
         this.writeOperation();
-    }
+    };
     this.writeOperation = function () {
         var flag = false;
         var info = "flow=" + loc + "&operation=" + map.get('operation');
@@ -178,7 +178,7 @@ function operation() {
             }
         });
         return flag;
-    }
+    };
     this.writeIntentionMsg = function (operationName, operationValue, dataType, opSeq) {
         var url = "http://m.gd189fq.com/record/intentionLog.html";
         $.get(url, {operationName: operationName, operationValue: operationValue, dataType: dataType, opSeq: opSeq},
@@ -187,8 +187,6 @@ function operation() {
             }
         );
     }
-
-
 }
 
 var op = new operation();

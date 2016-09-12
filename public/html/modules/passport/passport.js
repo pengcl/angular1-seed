@@ -4,7 +4,7 @@ app.directive("passport", function () {
     return {
         restrict: 'E',
         replace: true,
-        templateUrl: "html/modules/passport/passport.html",
+        templateUrl: "modules/passport/passport.html",
         controller: "passportController",
         link: function (scope, element) {
         }

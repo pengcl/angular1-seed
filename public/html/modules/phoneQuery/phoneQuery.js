@@ -3,7 +3,7 @@
 app.directive("phoneQuery", function () {
     return {
         restrict: 'E',
-        templateUrl: "html/modules/phoneQuery/phoneQuery.html",
+        templateUrl: "modules/phoneQuery/phoneQuery.html",
         controller: "phoneQueryController",
         link: function (scope, element, attrs) {
 

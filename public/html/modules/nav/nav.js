@@ -4,7 +4,7 @@ app.directive("topNav", ['$timeout', function ($timeout) {
     return {
         restrict: 'E',
         replace: true,
-        templateUrl: "html/modules/nav/nav.html",
+        templateUrl: "modules/nav/nav.html",
         link: function (scope, element, attrs) {
             scope.pageTitle = attrs.pageTitle;
             scope.$root.title = scope.pageTitle;

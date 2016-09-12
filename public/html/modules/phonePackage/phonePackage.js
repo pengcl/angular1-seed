@@ -3,7 +3,7 @@
 app.directive("phonePackage", ['$http', function ($http) {
     return {
         restrict: 'E',
-        templateUrl: "html/modules/phonePackage/phonePackage.html",
+        templateUrl: "modules/phonePackage/phonePackage.html",
         link: function (scope, element, attrs) {
 
             //获取选择框尺码

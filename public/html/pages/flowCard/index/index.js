@@ -6,7 +6,7 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
     $stateProvider
         .state('flow', { //关于我们
             url: "/flow",
-            templateUrl: "html/pages/flow/index/index.html",
+            templateUrl: "pages/flow/index/index.html",
             controller: "flowController"
         });
 }]).controller('flowController', ['$scope', '$rootScope', '$location', function ($scope, $rootScope, $location) {

@@ -4,7 +4,7 @@
 
 /* App Module */
 
-var app = angular.module('app', ['ui.router', 'ngAnimate', 'ngCookies', 'appFilters']);
+var app = angular.module('app', ['ui.router', 'appTemplates', 'ngAnimate', 'ngCookies', 'appFilters']);
 
 app.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', function ($stateProvider, $urlRouterProvider, $locationProvider) {
     $locationProvider.html5Mode(true).hashPrefix('!');

@@ -6,7 +6,7 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
     $stateProvider
         .state('flowRecharge', { //关于我们
             url: "/flow/recharge",
-            templateUrl: "html/pages/flow/recharge/recharge.html",
+            templateUrl: "pages/flow/recharge/recharge.html",
             controller: "flowRechargeController"
         });
 }]).controller('flowRechargeController', ['$scope', '$rootScope', '$location', function ($scope, $rootScope, $location) {

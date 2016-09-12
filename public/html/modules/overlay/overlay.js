@@ -3,7 +3,7 @@
 app.directive("overlay", ['$http','$compile', function ($http,$compile) {
     return {
         restrict: 'E',
-        templateUrl: "html/modules/overlay/overlay.html",
+        templateUrl: "modules/overlay/overlay.html",
         link: function (scope, element, attrs) {
             var $overlayHook = $("#overlay-hook");
             var $container = $("#container");

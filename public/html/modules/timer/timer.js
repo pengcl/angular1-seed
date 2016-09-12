@@ -4,7 +4,7 @@ app.directive("timer", ['$timeout', function ($timeout) {
     return {
         restrict: 'E',
         replace: true,
-        templateUrl: "html/modules/timer/timer.html",
+        templateUrl: "modules/timer/timer.html",
         link: function (scope, element, attrs) {
 
             function getRTime() {

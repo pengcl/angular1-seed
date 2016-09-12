@@ -4,7 +4,7 @@ app.directive("stepBuy", function () {
     return {
         restrict: 'E',
         replace:true,
-        templateUrl: "html/modules/stepBuy/stepBuy.html",
+        templateUrl: "modules/stepBuy/stepBuy.html",
         link: function (scope, element, attrs) {
             /*var _options = angular.fromJson(attrs.options);
             scope.mainStepName = _options.stepList[_options.stepStart];
