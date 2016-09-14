@@ -2,21 +2,21 @@
     <input type="hidden" value="{{receiver.city + receiver.room}}" name="address" id="address">
     <div class="weui_cells_title title-icon">{{receiverTitle}}</div>
     <div class="weui_cells weui_cells_form">
-        <div class="weui_cell input-name">
+        <div class="weui_cell input-name" ng-class="{'weui_cell_warn':checkoutForm.reciverName.$dirty== true && checkoutForm.reciverName.$valid == false,'weui_cell_success':checkoutForm.reciverName.$dirty== true && checkoutForm.reciverName.$valid == true}">
             <div class="weui_cell_hd"><label class="weui_label">收件人：</label></div>
             <div class="weui_cell_bd weui_cell_primary">
                 <input type="text" id="reciverName" name="reciverName" ng-model="receiver.name" class="weui_input" required/>
             </div>
-            <div class="weui_cell_ft"><i class="weui_icon_warn"></i></div>
+            <div class="weui_cell_ft"><i class="weui_icon_warn"></i><i class="weui_icon_success"></i></div>
         </div>
-        <div class="weui_cell input-mobile">
+        <div class="weui_cell input-mobile" ng-class="{'weui_cell_warn':checkoutForm.receiverMobile.$dirty== true && checkoutForm.receiverMobile.$valid == false,'weui_cell_success':checkoutForm.receiverMobile.$dirty== true && checkoutForm.receiverMobile.$valid == true}">
             <div class="weui_cell_hd"><label class="weui_label">联系电话：</label></div>
             <div class="weui_cell_bd weui_cell_primary">
                 <input id="receiverMobile" name="receiverMobile" ng-model="receiver.mobile" ng-maxlength="11" ng-pattern="/^[0-9]*$/" pattern="[0-9]*" ng-minlength="11" class="weui_input" required/>
             </div>
-            <div class="weui_cell_ft"><i class="weui_icon_warn"></i></div>
+            <div class="weui_cell_ft"><i class="weui_icon_warn"></i><i class="weui_icon_success"></i></div>
         </div>
-        <div class="weui_cell input-city" id="inputsStoreSelect">
+        <div class="weui_cell input-city" id="inputsStoreSelect" ng-class="{'weui_cell_warn':checkoutForm.receiverCity.$dirty== true && checkoutForm.receiverCity.$valid == false,'weui_cell_success':checkoutForm.receiverCity.$valid == true}">
             <div class="weui_cell_hd"><label class="weui_label">收件区域：</label></div>
             <div class="weui_cell_bd weui_cell_primary">
                 <div id="store-selector" ng-click="inputFocus('.input-city');">
@@ -27,14 +27,14 @@
                     </div>
                 </div>
             </div>
-            <div class="weui_cell_ft"><i class="weui_icon_warn"></i></div>
+            <div class="weui_cell_ft"><i class="weui_icon_warn"></i><i class="weui_icon_success"></i></div>
         </div>
-        <div class="weui_cell input-room">
+        <div class="weui_cell input-room" ng-class="{'weui_cell_warn':checkoutForm.receiverRoom.$dirty== true && checkoutForm.receiverRoom.$valid == false,'weui_cell_success':checkoutForm.receiverRoom.$dirty== true && checkoutForm.receiverRoom.$valid == true}">
             <div class="weui_cell_hd"><label class="weui_label">详细地址：</label></div>
             <div class="weui_cell_bd weui_cell_primary">
                 <input type="text" id="receiverRoom" placeholder="街道、门牌号..." ng-model="receiver.room" name="receiverRoom" class="weui_input" required/>
             </div>
-            <div class="weui_cell_ft"><i class="weui_icon_warn"></i></div>
+            <div class="weui_cell_ft"><i class="weui_icon_warn"></i><i class="weui_icon_success"></i></div>
         </div>
     </div>
 

@@ -1,11 +1,13 @@
 'use strict';
 
-app.directive("timer", ['$timeout', function ($timeout) {
+app.directive("timer", ['$interval',function ($interval) {
     return {
         restrict: 'E',
         replace: true,
         templateUrl: "modules/timer/timer.html",
         link: function (scope, element, attrs) {
+
+            //scope.timer = "1";
 
             function getRTime() {
 
@@ -24,9 +26,11 @@ app.directive("timer", ['$timeout', function ($timeout) {
                 var s = Math.floor(t / 1000 % 60);
 
                 scope.timer = "<i>" + h + "</i>" + "<sub>时</sub>" + "<i>" + m + "</i>" + "<sub>分</sub>" + "<i>" + s + "</i>" + "<sub>秒</sub>";
+                //scope.timer = "1";
+                //console.log(scope.timer);
             };
 
-            setInterval(getRTime, 1000);
+            $interval(getRTime, 1000);
         }
     };
 }]);

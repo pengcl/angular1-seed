@@ -1,23 +1,61 @@
 .btn {
-    color: white;
-    @include inline-block;
-    font-family: "lato","Helvetica Neue",Helvetica,Arial,sans-serif;
-    font-size: 0.12rem;
-    font-weight: 300;
-    letter-spacing: 0.03rem;
-    line-height: 22px !important;
-    padding: 0.12rem 0.125rem 0.095rem;
-    position: relative;
-    text-align: center;
-    text-decoration: none !important;
-    text-indent: 0.03rem;
-    text-transform: uppercase;
-    transition: all 200ms ease-in 0s;
-    white-space: nowrap;
-    @include border-radius(2px);
+  color: white;
+  @include inline-block;
+  font-family: "lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 0.12rem;
+  font-weight: 300;
+  letter-spacing: 0.03rem;
+  line-height: 22px !important;
+  padding: 0.12rem 0.125rem 0.095rem;
+  position: relative;
+  text-align: center;
+  text-decoration: none !important;
+  text-indent: 0.03rem;
+  text-transform: uppercase;
+  transition: all 200ms ease-in 0s;
+  white-space: nowrap;
+  @include border-radius(2px);
 }
 
 .btn-block {
-    display: block;
-    border: 0;
+  display: block;
+  border: 0;
+}
+
+.weui_cells_form {
+  .weui_label {
+    width: 5em;
+    color: #999;
+  }
+  .weui_cell_warn {
+    .weui_label {
+      //width: 5em;
+      color: #f43530;
+    }
+  }
+  .weui_cell_success {
+    color: $color-green;
+    .weui_label {
+      //width: 5em;
+      color: $color-green;
+    }
+    .weui_icon_success {
+      display: inline-block;
+    }
+  }
+  .weui_cell_ft {
+    .weui_icon_warn {
+      &:before {
+        font-size: 0.18rem;
+      }
+    }
+    .weui_icon_success {
+      &:before {
+        font-size: 0.18rem;
+      }
+    }
+  }
+  .weui_icon_success {
+    display: none;
+  }
 }

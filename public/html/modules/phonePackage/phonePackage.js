@@ -6,12 +6,18 @@ app.directive("phonePackage", ['$http', function ($http) {
         templateUrl: "modules/phonePackage/phonePackage.html",
         link: function (scope, element, attrs) {
 
+            //模块标题
+            scope.packageTitle = attrs.title;
+            scope.packageSubTitle = attrs.subTitle;
+
             //获取选择框尺码
             //scope.size = attrs.size;
+
 
             //获取套餐列表
             $http.get('/data/phonePackage.json').success(function (data) {
                 scope.phonePackageList = data;
+                scope.phonePackageItem = data[1];
             });
 
             //选择号码 对象类型

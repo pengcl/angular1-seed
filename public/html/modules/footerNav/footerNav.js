@@ -3,11 +3,17 @@
 app.directive("footerNav", ['$http', function ($http) {
     return {
         restrict: 'E',
+        scope : {
+            footerPrice : '=price'
+        },
         templateUrl: "modules/footerNav/footerNav.html",
         link: function (scope, element, attrs) {
             var $form = $(attrs.submit);
             var $container = $('.content-scrollable');
             var $scrollTo = $('#receiverAddress');
+
+            //scope.footerPrice = attrs.price;
+            console.log(scope.footerPrice);
 
             scope.checks = eval(attrs.checks);
 
@@ -28,9 +34,9 @@ app.directive("footerNav", ['$http', function ($http) {
             };
 
             scope.getContent = function () {
-                getMeiqia();
-                //$("#contactUs").show();
-                _MEIQIA('showPanel');
+                //getMeiqia();
+                $("#contactUs").show();
+                //_MEIQIA('showPanel');
                 writebdLog(scope.category,"客服","渠道号",scope.gh);
             };
 

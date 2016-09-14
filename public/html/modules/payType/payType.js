@@ -6,7 +6,7 @@ app.directive("pt", ['$location', function ($location) {
         templateUrl: "modules/payType/payType.html",
         link: function (scope, element, attrs) {
             scope.pt = $location.search().pt;
-            console.log(scope.pt);
+            //console.log(scope.pt);
         }
     };
 }]);

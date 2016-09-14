@@ -3,17 +3,17 @@
     <div class="weui_cells_title title-icon"><span class="title" ng-bind="packageTitle"></span><span class="sub-title" ng-class="{true:'hide',false:''}[packageSubTitle == '']" ng-bind="packageSubTitle"></span><timer></timer></div>
     <div class="flow-package-panel">
         <ul class="flow-package-lists item-lists pure-g">
-            <li class="flow-package-item list-item pure-u-1-2" ng-class="{true:'pure-u-offset-right-1-2',false:''}[flowPackageItem.name=='10GB全国流量']" ng-repeat="flowPackageItem in flowPackageList | filter:{cardType: 0} | orderBy:flowSize:true">
-                <div class="item-box" ng-click="setFlowPackage($event,flowPackageItem)" ng-class="{true: 'curr', false: ''}[flowPackageItem.name == '8GB全国流量']">
+            <li class="flow-package-item list-item pure-u-1-2" ng-class="{true:'pure-u-offset-right-1-2',false:''}[flowPackageItem.n=='10GB全国流量']" ng-repeat="flowPackageItem in flowPackageList | orderBy:fs:true">
+                <div class="item-box" ng-click="setFlowPackage($event,flowPackageItem)" ng-class="{true: 'curr', false: ''}[flowPackageItem.n == '8GB全国流量']">
                     <p>
-                        <em><span ng-bind="flowPackageItem.flowSize | GB"></span>G</em>
+                        <em><span ng-bind="flowPackageItem.fs | GB"></span>G</em>
                     </p>
                     <p>
-                        <span ng-bind="flowPackageItem.salesPrice"></span><span>元/月</span>
-                        <del><span ng-bind="flowPackageItem.monthRent"></span><span>元/月</span></del>
+                        <span ng-bind="flowPackageItem.p"></span><span>元/月</span>
+                        <del><span ng-bind="flowPackageItem.op"></span><span>元/月</span></del>
                     </p>
-                    <i ng-if="flowPackageItem.name =='8GB全国流量'">
-                        <img src="/images/tuijian.png" alt="">
+                    <i ng-if="flowPackageItem.n =='8GB全国流量'">
+                        荐
                     </i>
                     <ins class="icon-check"></ins>
                 </div>

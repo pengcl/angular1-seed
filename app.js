@@ -1,3 +1,4 @@
+var compression = require('compression');
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
@@ -9,6 +10,18 @@ var routes = require('./routes/index');
 var api = require('./routes/api');
 
 var app = express();
+
+// compress all requests
+app.use(compression({filter: shouldCompress}));
+function shouldCompress(req, res) {
+    if (req.headers['x-no-compression']) {
+        // don't compress responses with this request header
+        return false
+    }
+
+    // fallback to standard filter function
+    return compression.filter(req, res);
+};
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

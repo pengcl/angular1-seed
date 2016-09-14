@@ -46,10 +46,17 @@
 
     i {
       position: absolute;
-      font-size: 0;
-      width: 25%;
-      right: -0.1rem;
-      top: -0.08rem;
+      font-size: 0.2rem;
+      width: 0.36rem;
+      height: 0.36rem;
+      right: -0.08rem;
+      top: -0.06rem;
+      text-align: center;
+      line-height: 0.36rem;
+      @include border-radius(10rem);
+      background: $color-primary;
+      color: #fff;
+      font-style: normal;
       img {
         display: block;
         width: 100%;

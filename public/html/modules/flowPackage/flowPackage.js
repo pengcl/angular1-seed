@@ -1,6 +1,6 @@
 'use strict';
 
-app.directive("flowPackage", ['$http', function ($http) {
+app.directive("flowPackage", ['$http', 'FlowPackages', function ($http, FlowPackages) {
     return {
         restrict: 'E',
         templateUrl: "modules/flowPackage/flowPackage.html",
@@ -14,13 +14,23 @@ app.directive("flowPackage", ['$http', function ($http) {
             scope.size = attrs.size;
 
             //获取套餐列表
-            $http.get('/data/flowPackage.json').success(function (data) {
+
+
+            $http.get('http://app.gd189fq.com:3099/api/getFlowPackages').success(function (data) {
                 scope.flowPackageList = data;
 
                 //设置默认选中项 start
                 scope.flowPackageItem = data[3];
                 //end
             });
+
+            /*$http.get('/data/flowPackage.json').success(function (data) {
+             scope.flowPackageList = data;
+
+             //设置默认选中项 start
+             scope.flowPackageItem = data[3];
+             //end
+             });*/
 
             //选择号码 对象类型
             scope.setFlowPackage = function (event, flowPackageItem) {
@@ -29,7 +39,7 @@ app.directive("flowPackage", ['$http', function ($http) {
                 $this.parent().siblings().children().removeClass('curr');
                 $this.addClass('curr');
                 scope.flowPackageItem = flowPackageItem;
-                writebdLog(scope.category,"优惠套餐","渠道号",scope.gh);
+                writebdLog(scope.category, "优惠套餐", "渠道号", scope.gh);
             };
         }
     };

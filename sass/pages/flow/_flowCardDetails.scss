@@ -38,22 +38,11 @@
       &:before {
         display: none;
       }
-    }
-    .weui_label {
-      width: 5em;
-      color: #999;
-    }
-    .weui_cell_warn {
-      .weui_label {
-        //width: 5em;
-        color: #f43530;
+      &.weui_cell_success {
+        border: 1px solid $color-green;
       }
-    }
-    .weui_cell_ft {
-      .weui_icon_warn {
-        &:before {
-          font-size: 0.18rem;
-        }
+      &.weui_cell_warn {
+        border: 1px solid $color-primary;
       }
     }
   }
@@ -158,4 +147,12 @@
 .overlay.bottom {
   top: auto;
   background: #fff;
+}
+
+.module-tips {
+  font-size: 0.12rem;
+  color: #999;
+  text-align: right;
+  padding-right: 0.15rem;
+  margin-top: 0.05rem;
 }

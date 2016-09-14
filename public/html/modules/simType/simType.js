@@ -7,7 +7,7 @@ app.directive("simType", ['$http', '$compile', function ($http, $compile) {
         link: function (scope, element, attrs) {
             scope.simTitle = attrs.title;
             scope.class = attrs.addClass;
-            console.log(attrs.addClass);
+            //console.log(attrs.addClass);
 
             //获取选择框尺码
             scope.size = attrs.size;
