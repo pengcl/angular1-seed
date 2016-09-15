@@ -1,6 +1,6 @@
 <div id="flowPackage" class="flow-package">
     <input type="hidden" name="productId" id="productId" ng-model="flowPackageItem.id" value="{{flowPackageItem.id}}" required>
-    <div class="weui_cells_title title-icon"><span class="title" ng-bind="packageTitle"></span><span class="sub-title" ng-class="{true:'hide',false:''}[packageSubTitle == '']" ng-bind="packageSubTitle"></span><timer></timer></div>
+    <div class="weui_cells_title title-icon"><span class="title" ng-bind="packageTitle"></span><span class="sub-title" ng-class="{true:'hide',false:''}[packageSubTitle == '']" ng-bind="packageSubTitle"></span><timer ng-if="showTime=='true'"></timer></div>
     <div class="flow-package-panel">
         <ul class="flow-package-lists item-lists pure-g">
             <li class="flow-package-item list-item pure-u-1-2" ng-class="{true:'pure-u-offset-right-1-2',false:''}[flowPackageItem.n=='10GB全国流量']" ng-repeat="flowPackageItem in flowPackageList | orderBy:fs:true">

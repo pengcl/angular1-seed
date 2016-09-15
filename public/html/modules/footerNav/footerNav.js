@@ -3,23 +3,17 @@
 app.directive("footerNav", ['$http', function ($http) {
     return {
         restrict: 'E',
-        scope : {
-            footerPrice : '=price'
-        },
         templateUrl: "modules/footerNav/footerNav.html",
         link: function (scope, element, attrs) {
             var $form = $(attrs.submit);
             var $container = $('.content-scrollable');
             var $scrollTo = $('#receiverAddress');
 
-            //scope.footerPrice = attrs.price;
-            console.log(scope.footerPrice);
-
             scope.checks = eval(attrs.checks);
 
-            var getMeiqia = function (){
-                (function(m, ei, q, i, a, j, s) {
-                    m[a] = m[a] || function() {
+            var getMeiqia = function () {
+                (function (m, ei, q, i, a, j, s) {
+                    m[a] = m[a] || function () {
                             (m[a].a = m[a].a || []).push(arguments)
                         };
                     j = ei.createElement(q),
@@ -37,7 +31,7 @@ app.directive("footerNav", ['$http', function ($http) {
                 //getMeiqia();
                 $("#contactUs").show();
                 //_MEIQIA('showPanel');
-                writebdLog(scope.category,"客服","渠道号",scope.gh);
+                writebdLog(scope.category, "客服", "渠道号", scope.gh);
             };
 
             function checkAddress() {
@@ -46,7 +40,7 @@ app.directive("footerNav", ['$http', function ($http) {
                     //alert("请输入收件人");
                     $(".input-name").addClass("weui_cell_warn");
                     return false;
-                }  else if (!scope.checkoutForm.receiverMobile.$valid) {
+                } else if (!scope.checkoutForm.receiverMobile.$valid) {
                     //alert("请输入联系电话");
                     $(".input-mobile").addClass("weui_cell_warn");
                     return false;
@@ -61,12 +55,13 @@ app.directive("footerNav", ['$http', function ($http) {
                 }
                 return true;
             }
+
             scope.submitForm = function () {
-                if(checkAddress()){
-                    writebdLog(scope.category,"收货地址","渠道号",scope.gh);
-                    writebdLog(scope.category,"立即支付","渠道号",scope.gh);
+                if (checkAddress()) {
+                    writebdLog(scope.category, "收货地址", "渠道号", scope.gh);
+                    writebdLog(scope.category, "立即支付", "渠道号", scope.gh);
                     $form.submit();
-                }else {
+                } else {
                     $container.animate({
                         scrollTop: $scrollTo.offset().top - $container.offset().top + $container.scrollTop()
                     });

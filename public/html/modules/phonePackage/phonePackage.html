@@ -4,7 +4,7 @@
     <div class="phone-package-panel">
         <ul class="phone-package-lists item-lists pure-g">
             <li class="phone-package-item list-item pure-u-1-2" ng-repeat="phonePackageItem in phonePackageList">
-                <div class="item-box" ng-click="setPhonePackage($event,phonePackageItem)">
+                <div class="item-box" ng-click="setPhonePackage($event,phonePackageItem)" ng-class="{true: 'curr', false: ''}[phonePackageItem.id == '1']">
                     <p>
                         <em><sub>￥</sub><span ng-bind-html="phonePackageItem.price | number:2 | formatMoney:-3 | trustHtml"></span></em>
                         <del><sub>￥</sub><span ng-bind="phonePackageItem.oldPrice"></span></del>

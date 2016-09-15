@@ -13,6 +13,7 @@
     "express": "~4.13.4",
     "graceful-fs": "^4.1.4",
     "gulp": "^3.9.1",
+    "gulp-compass": "^2.1.0",
     "gulp-concat": "^2.6.0",
     "gulp-for-compass": "0.0.2",
     "gulp-htmlmin": "^2.0.0",

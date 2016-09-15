@@ -13,6 +13,9 @@ app.directive("flowPackage", ['$http', 'FlowPackages', function ($http, FlowPack
             //获取选择框尺码
             scope.size = attrs.size;
 
+            //获取timer值 布尔类型
+            scope.showTime = attrs.showTime;
+
             //获取套餐列表
 
 
@@ -41,6 +44,12 @@ app.directive("flowPackage", ['$http', 'FlowPackages', function ($http, FlowPack
                 scope.flowPackageItem = flowPackageItem;
                 writebdLog(scope.category, "优惠套餐", "渠道号", scope.gh);
             };
+
+            scope.$watch('flowPackageItem', function (nv, ov, scope) {
+                if (nv != ov) {
+                    scope.mainPrice = nv.p;
+                }
+            });
         }
     };
 }]);

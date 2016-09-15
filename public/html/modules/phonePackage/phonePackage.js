@@ -28,6 +28,12 @@ app.directive("phonePackage", ['$http', function ($http) {
                 $this.addClass('curr');
                 scope.phonePackageItem = phonePackageItem;
             };
+
+            scope.$watch('phonePackageItem', function (nv, ov, scope) {
+                if (nv != ov) {
+                    scope.mainPrice = nv.price;
+                }
+            });
         }
     };
 }]);

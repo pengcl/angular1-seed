@@ -6,7 +6,7 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
     $stateProvider
         .state('product', { //app首页
             url: "/pd/product",
-            templateUrl: "html/pages/phoneCard/phoneCard-details/default/phoneCard-details.html",
+            templateUrl: "pages/phoneCard/phoneCard-details/default/phoneCard-details.html",
             controller: "pdProController"
         });
 }]).controller('pdProController', ['$scope', '$rootScope', '$location', function ($scope, $rootScope, $location) {
