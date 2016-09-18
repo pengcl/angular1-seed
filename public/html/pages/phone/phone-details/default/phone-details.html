@@ -11,14 +11,14 @@
             <div class="product-header" style="margin-top: 0.55rem">
                 <div class="price-area price-absolute">
                     <ins>限时特价</ins>
-                    <sub class="bold">￥</sub><em class="bold" ng-bind="phone.price"></em><sub class="bold">.00</sub>
+                    <sub class="bold">￥</sub><em class="bold" ng-bind="mainPrice"></em><sub class="bold">.00</sub>
                     <div class="timer-area">
                         <p class="timer-label">距活动结束还剩余</p>
                         <timer></timer>
                     </div>
                 </div>
-                <h1 class="product-title" ng-bind-html="phoneItem.title | trustHtml"></h1>
-                <h2 class="product-sub-title" ng-bind-html="phoneItem.subTitle | trustHtml"></h2>
+                <h1 class="product-title">[电信购机送话费] Apple <span ng-bind="phone.phoneNumber"></span> <span ng-bind="storage.flash"></span> <span ng-bind="color.colorName"></span> 全网通4G手机</h1>
+                <h2 class="product-sub-title">预存<span ng-bind="mainPrice"></span>元话费0元购机，信用卡12期0利息付款 预存款全额返还</h2>
             </div>
             <div class="product-header-ft">运费：活动期间全国包邮</div>
             <phone-colors title="机身颜色" sub-title=""></phone-colors>

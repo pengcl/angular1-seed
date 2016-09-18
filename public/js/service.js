@@ -6,7 +6,7 @@ appServices.factory('FlowPackages', ['$resource', function ($resource) {
     });
 }]);
 
-appServices.factory('Phone', ['$resource', function ($resource) {
+appServices.factory('Phone', ['$resource','$q', function ($resource,$q) {
     return $resource('/data/phones/:phoneId.json', {}, {
         query: {method: 'GET', params: {phoneId: 'phones'}, isArray: true}
     });

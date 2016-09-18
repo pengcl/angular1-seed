@@ -77,6 +77,15 @@ function isScroller(el) { // 判断元素是否为 scroller
     return el.classList.contains('content-scrollable')
 }
 
+//获取对象或数组中选中对象的index
+function getIndex(jsonArray, value) {
+    for (var i = 0; i < jsonArray.length; i++) {
+        if (jsonArray[i].selected == value) {
+            return i;
+        }
+    }
+};
+
 document.body.addEventListener('touchmove', function (ev) {
     var target = ev.target;
     //alert(target);

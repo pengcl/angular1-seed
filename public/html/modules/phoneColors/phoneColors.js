@@ -1,6 +1,6 @@
 'use strict';
 
-app.directive("phoneColors", ['$http', function ($http) {
+app.directive("phoneColors", ['$http', '$q', '$timeout', function ($http, $q, $timeout) {
     return {
         restrict: 'E',
         templateUrl: "modules/phoneColors/phoneColors.html",
@@ -10,19 +10,13 @@ app.directive("phoneColors", ['$http', function ($http) {
             scope.colorTitle = attrs.title;
             scope.colorSubTitle = attrs.subTitle;
 
-            $http.get("/data/phones/colors/" + scope.phoneId + ".json").success(function (colors) {
-                scope.colors = colors;
-                scope.color = colors[0];
-            });
-            //scope.size = attrs.size;
-
-            //选择号码 对象类型
+            //选择手机颜色
             scope.setPhoneColor = function (event, color) {
                 event.preventDefault();
                 var $this = $(event.currentTarget);
-                if($this.hasClass("disabled")){
+                if ($this.hasClass("disabled")) {
                     return false;
-                }else {
+                } else {
                     $this.parent().siblings().children().removeClass('curr');
                     $this.addClass('curr');
                     scope.color = color;

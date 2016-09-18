@@ -1,19 +1,18 @@
 {
   "double": false,
-  "productId": "256",
-  "title": "[电信购机送话费] Apple iPhone 7 32G 玫瑰金 全网通4G手机",
-  "phoneNumber":"iPhone 7",
-  "subTitle": "预存5388元话费0元购机，信用卡12期0利息付款 预存款全额返还",
-  "flash": "32GB",
-  "price": "5388",
-  "markitPrice": "5288",
+  "productId": "61",
+  "title": "[电信购机送话费] Apple iPhone 7 128G 玫瑰金 全网通4G手机",
+  "subTitle": "预存6188元话费0元购机，信用卡12期0利息付款 预存款全额返还",
+  "flash": "128GB",
+  "price": "6188",
+  "markitPrice": "6188",
   "sold": "2436",
   "phoneImg": "/images/phones/iphone7/iphone-default.jpg",
   "recommend": [
     {
       "productId": "256",
       "productName": "iPhone 7",
-      "price": "5388",
+      "price": "6388",
       "selected": "active"
     },
     {
@@ -42,31 +41,31 @@
     {
       "colorName": "金色",
       "colorUrl": "/images/phones/iphone7/iphone7-gold.jpg",
-      "selected": ""
+      "selected": "curr"
     },
     {
       "colorName": "玫瑰金",
       "colorUrl": "/images/phones/iphone7/iphone7-rosegold.jpg",
-      "selected": "curr"
+      "selected": ""
     }
   ],
-  "storages": [
+  "storage": [
     {
       "productId": "256",
       "flash": "32GB",
       "price": "5388",
       "content": "电信合约机，正品行货，信用卡12期0利息免压力，机价比X东便宜，更送超值话费。",
-      "selected": ""
+      "selected": "curr"
     },
     {
       "productId": "261",
       "flash": "128GB",
       "price": "6188",
       "content": "电信合约机，正品行货，信用卡12期0利息免压力，机价比X东便宜，更送超值话费。",
-      "selected": "curr"
+      "selected": ""
     },
     {
-      "productId": "260",
+      "productId": "262",
       "flash": "256GB",
       "price": "6988",
       "content": "电信合约机，正品行货，信用卡12期0利息免压力，机价比X东便宜，更送超值话费。",
