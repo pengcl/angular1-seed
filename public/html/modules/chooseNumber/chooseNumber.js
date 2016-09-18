@@ -34,7 +34,7 @@ app.directive("chooseNumber", ["$compile", function ($compile) {
                             numLast = numLast + $span.eq(j).attr("date-value");
                         }
                         number = numLast;
-                        scope.mainPhoneNumber = number;
+                        scope.phoneNumber = number;
 
                         $("#num-sure").addClass("active");
                         $("#num-reset").addClass("active");

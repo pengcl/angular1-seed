@@ -34,3 +34,7 @@ sub {
 .bold {
   font-weight: 500;
 }
+.disabled {
+  color: #999;
+  @include opacity(0.5);
+}

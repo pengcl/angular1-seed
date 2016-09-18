@@ -1,0 +1,29 @@
+[
+  {
+    "age": 1,
+    "productId": 256,
+    "brand": "apple",
+    "imageUrl": "/templates/default/pages/app/img/phones/iPhone6s/1.jpg",
+    "name": "iPhone 7",
+    "storage": "32GB",
+    "price": "5388",
+    "sold": "2436",
+    "package": "299",
+    "oldPackage": "304",
+    "onList": "1"
+  },
+  {
+    "age": 2,
+    "productId": 257,
+    "brand": "apple",
+    "imageUrl": "/templates/default/pages/app/img/phones/iPhone6s/1.jpg",
+    "name": "iPhone 7 Plus",
+    "storage": "64GB",
+    "price": "5588",
+    "sprice": "5588",
+    "sold": "3754",
+    "package": "299",
+    "oldPackage": "304",
+    "onList": "0"
+  }
+]

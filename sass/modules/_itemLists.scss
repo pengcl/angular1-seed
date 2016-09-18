@@ -3,8 +3,8 @@
   margin-right: -0.04rem;
   font-size: 0.12rem;
   .list-item {
-    margin:0;
-    padding:0;
+    margin: 0;
+    padding: 0;
   }
   @at-root .item-box {
     padding: 0.15rem;
@@ -17,13 +17,19 @@
     margin-bottom: 0.04rem;
     font-size: 0.12rem;
     @include box-shadow(#d9d9d9 0px 0px 2px);
+    &.small {
+      padding:0.05rem;
+      font-size: 0.12rem !important;
+    }
     &:after {
     }
+
     em {
       color: $color-primary;
       font-style: normal;
       font-size: 0.18rem;
     }
+
     del {
       font-size: 0.14rem;
       color: #999;

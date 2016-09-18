@@ -1,0 +1,51 @@
+<div class="page p-details default">
+    <top-nav page-title="首页" page-back="menu" nav-visibility="hide"></top-nav>
+    <form id="checkoutForm" name="checkoutForm" action="http://m.gd189fq.com/wap/taokafanghaoNew/submitOrderMachine.html" method="post" novalidate>
+        <input type="hidden" value="1" name="monthNumber" id="monthNumber">
+        <gh></gh>
+        <pt></pt>
+        <div class="content-scrollable has-footer">
+            <div class="banner-image img-box">
+                <img ng-src="{{mainImage}}" />
+            </div>
+            <div class="product-header" style="margin-top: 0.55rem">
+                <div class="price-area price-absolute">
+                    <ins>限时特价</ins>
+                    <sub class="bold">￥</sub><em class="bold" ng-bind="phone.price"></em><sub class="bold">.00</sub>
+                    <div class="timer-area">
+                        <p class="timer-label">距活动结束还剩余</p>
+                        <timer></timer>
+                    </div>
+                </div>
+                <h1 class="product-title" ng-bind-html="phoneItem.title | trustHtml"></h1>
+                <h2 class="product-sub-title" ng-bind-html="phoneItem.subTitle | trustHtml"></h2>
+            </div>
+            <div class="product-header-ft">运费：活动期间全国包邮</div>
+            <phone-colors title="机身颜色" sub-title=""></phone-colors>
+            <phone-storages title="机身内存" sub-title=""></phone-storages>
+            <choose-number title="选择靓号"></choose-number>
+            <phone-package title="选择套餐" sub-title="" type="phone"></phone-package>
+            <sim-type title="流量卡类型" add-class="bottom" size="s"></sim-type>
+            <receiver-address title="收货地址"></receiver-address>
+            <div class="product-details" style="margin-top: 0.2rem">
+                <div class="img-box"><img src="/images/phones/iphone7/details/1.gif"></div>
+                <spc-title main-title="分期购机更划算，0利息更值！" sub-title="享受优惠，一张信用卡就足够"></spc-title>
+                <div class="img-box"><img src="/images/phones/iphone7/details/2.gif"></div>
+                <spc-title main-title="购买需知" sub-title=""></spc-title>
+                <div class="img-box"><img src="/images/phones/iphone7/details/3.gif"></div>
+                <spc-title main-title="常见问题" sub-title=""></spc-title>
+                <div class="img-box"><img src="/images/phones/iphone7/details/4.gif"></div>
+                <spc-title main-title="合作企业" sub-title=""></spc-title>
+                <div class="img-box"><img src="/images/phones/iphone7/details/5.gif"></div>
+                <spc-title main-title="关于翼分期" sub-title=""></spc-title>
+                <div class="img-box"><img src="/images/phones/iphone7/details/6.gif"></div>
+                <spc-title main-title="联系我们" sub-title=""></spc-title>
+                <div class="img-box"><img src="/images/phones/iphone7/details/7.gif"></div>
+
+                <div class="img-box"><img src="/images/phones/iphone7/iphone7-details.jpg"></div>
+            </div>
+        </div>
+        <footer-nav check-phone="true" submit="#checkoutForm"></footer-nav>
+    </form>
+    <dialog dialog-id="contactUs" title="" content="咨询请关注微信公众号<br><em>“翼分期商城”</em>"></dialog>
+</div>

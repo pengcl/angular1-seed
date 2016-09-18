@@ -1,16 +1,16 @@
 <div id="phonePackage" class="phone-package">
-    <input type="hidden" name="mainProductId" id="mainProductId" ng-model="phonePackageItem.productId" value="{{phonePackageItem.productId}}" required track class="weui_input">
-    <div class="weui_cells_title"><span class="title" ng-bind="packageTitle"></span><span class="sub-title" ng-class="{true:'hide',false:''}[packageSubTitle == '']" ng-bind="packageSubTitle"></span><timer></timer></div>
+    <input type="hidden" name="productId" id="productId" ng-model="phonePackageItem.productId" value="{{phonePackageItem.productId}}" required track class="weui_input">
+    <div class="weui_cells_title title-icon"><span class="title" ng-bind="packageTitle"></span><span class="sub-title" ng-class="{true:'hide',false:''}[packageSubTitle == '']" ng-bind="packageSubTitle"></span><timer ng-if="showTime=='true'"></timer></div>
     <div class="phone-package-panel">
         <ul class="phone-package-lists item-lists pure-g">
             <li class="phone-package-item list-item pure-u-1-2" ng-repeat="phonePackageItem in phonePackageList">
-                <div class="item-box" ng-click="setPhonePackage($event,phonePackageItem)" ng-class="{true: 'curr', false: ''}[phonePackageItem.id == '1']">
+                <div class="item-box" ng-click="setPhonePackage($event,phonePackageItem)" ng-class="{true: 'curr', false: ''}[phonePackageItem.selected == 'active']">
                     <p>
                         <em><sub>￥</sub><span ng-bind-html="phonePackageItem.price | number:2 | formatMoney:-3 | trustHtml"></span></em>
                         <del><sub>￥</sub><span ng-bind="phonePackageItem.oldPrice"></span></del>
                     </p>
                     <p>
-                        <span ng-bind="phonePackageItem.network"></span><span>G流量</span>
+                        <span ng-bind="phonePackageItem.network"></span><span>流量</span>
                         <span ng-bind="phonePackageItem.talkTime"></span><span>分钟通话</span>
                     </p>
                     <ins class="icon-check"></ins>

@@ -5,3 +5,9 @@ appServices.factory('FlowPackages', ['$resource', function ($resource) {
         query: {method: 'GET', params: {cardType: '0'}, isArray: true}
     });
 }]);
+
+appServices.factory('Phone', ['$resource', function ($resource) {
+    return $resource('/data/phones/:phoneId.json', {}, {
+        query: {method: 'GET', params: {phoneId: 'phones'}, isArray: true}
+    });
+}]);

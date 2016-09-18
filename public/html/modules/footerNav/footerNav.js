@@ -7,7 +7,7 @@ app.directive("footerNav", ['$http', function ($http) {
         link: function (scope, element, attrs) {
             var $form = $(attrs.submit);
             var $container = $('.content-scrollable');
-            var $scrollTo = $('#receiverAddress');
+            var $scrollTo;
 
             scope.checks = eval(attrs.checks);
 
@@ -56,12 +56,33 @@ app.directive("footerNav", ['$http', function ($http) {
                 return true;
             }
 
+            function checkPhoneNumber() {
+                console.log(scope.checkoutForm.phoneNumber.$valid);
+                if (!scope.checkoutForm.phoneNumber.$valid) {
+                    scope.showPickNumberPanel(3);
+                    return false;
+                }
+                return true;
+            }
+
             scope.submitForm = function () {
+                if (attrs.checkPhone == "true") {
+                    if (checkPhoneNumber()) {
+                        writebdLog(scope.category, "选择号码", "渠道号", scope.gh);
+                    } else {
+                        $scrollTo = $('#chooseNumber');
+                        $container.animate({
+                            scrollTop: $scrollTo.offset().top - $container.offset().top + $container.scrollTop()
+                        });
+                        return false;
+                    }
+                }
                 if (checkAddress()) {
                     writebdLog(scope.category, "收货地址", "渠道号", scope.gh);
                     writebdLog(scope.category, "立即支付", "渠道号", scope.gh);
                     $form.submit();
                 } else {
+                    $scrollTo = $('#receiverAddress');
                     $container.animate({
                         scrollTop: $scrollTo.offset().top - $container.offset().top + $container.scrollTop()
                     });

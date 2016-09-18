@@ -1,0 +1,16 @@
+<div id="phoneColors" class="phone-colors">
+    <input type="hidden" name="machineColor" id="machineColor" ng-model="color.colorName" value="{{color.colorName}}" required>
+    <div class="weui_cells_title title-icon"><span class="title" ng-bind="colorTitle"></span><span class="sub-title" ng-class="{true:'hide',false:''}[colorSubTitle == '']" ng-bind="colorSubTitle"></span></div>
+    <div class="phone-colors-panel">
+        <ul class="phone-colors-lists item-lists pure-g">
+            <li class="phone-colors-item list-item pure-u-1-4" ng-repeat="color in colors">
+                <div class="item-box small {{color.selected}}" ng-click="setPhoneColor($event,color)">
+                    <p>
+                        <span ng-bind="color.colorName"></span>
+                    </p>
+                    <ins class="icon-check"></ins>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>

@@ -9,15 +9,29 @@ app.directive("phonePackage", ['$http', function ($http) {
             //模块标题
             scope.packageTitle = attrs.title;
             scope.packageSubTitle = attrs.subTitle;
+            scope.packageType = attrs.type;
 
             //获取选择框尺码
             //scope.size = attrs.size;
 
+            //获取timer值 布尔类型
+            scope.showTime = attrs.showTime;
+
 
             //获取套餐列表
-            $http.get('/data/phonePackage.json').success(function (data) {
+            if (attrs.type == "phone") {
+                var apiUrl = "/data/phones/packages/" + scope.phoneId + ".json";
+            }else {
+                var apiUrl = "/data/phonePackage.json";
+            }
+            $http.get(apiUrl).success(function (data) {
                 scope.phonePackageList = data;
                 scope.phonePackageItem = data[1];
+                if (attrs.type == "phone") {
+                    scope.phonePackageItem = data[0];
+                }else {
+                    scope.phonePackageItem = data[1];
+                }
             });
 
             //选择号码 对象类型
@@ -31,7 +45,11 @@ app.directive("phonePackage", ['$http', function ($http) {
 
             scope.$watch('phonePackageItem', function (nv, ov, scope) {
                 if (nv != ov) {
-                    scope.mainPrice = nv.price;
+                    if (attrs.type == "phone") {
+
+                    }else {
+                        scope.mainPrice = nv.price;
+                    }
                 }
             });
         }

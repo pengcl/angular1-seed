@@ -1,6 +1,6 @@
-<div class="choose-number">
+<div id="chooseNumber" class="choose-number" style="font-size: 0.12rem">
+    <div class="weui_cells_title title-icon">选择靓号<!--<span ng-show="myForm.mainPhoneNumber.$error.required">必填</span>--></div>
     <div id="customSelect" class="weui_panel weui_panel_access">
-        <div class="weui_panel_hd">选择靓号<!--<span ng-show="myForm.mainPhoneNumber.$error.required">必填</span>--></div>
         <div class="weui_panel_bd">
             <div class="fanghao-panel cf-panel ani-up fixed-bt">
                 <div class="select-num" style="">
@@ -17,7 +17,7 @@
                         <span class="future" ng-click="showPickNumberPanel(9)">?</span>
                         <span class="future" ng-click="showPickNumberPanel(10)">?</span>
                     </div>
-                    <input id="mainPhoneNumber" name="mainPhoneNumber" ng-model="mainPhoneNumber" type="hidden" required value="{{mainPhoneNumber}}">
+                    <input id="phoneNumber" name="phoneNumber" ng-model="phoneNumber" type="hidden" required value="{{phoneNumber}}">
                 </div>
             </div>
         </div>
