@@ -2,35 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3fb611db-3d4f-42ed-a66b-9f45cebf59a9" name="Default" comment="biuld angular-seed">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/images/flow/flowcard/1.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/images/flow/flowcard/4.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/images/flow/flowcard/banner.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/images/flow/flowcard/in/card-b.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/data/phones/256.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/data/phones/257.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/data/phones/phones.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/data/phones/storages/256.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/html/modules/phoneColors/phoneColors.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/html/modules/phoneColors/phoneColors.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/html/modules/phoneStorages/phoneStorages.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/html/modules/phoneStorages/phoneStorages.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/html/pages/phone/phone-details/default/phone-details.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/html/pages/phone/phone-details/default/phone-details.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/public/html/pages/phone/phone-details/phone-details.html" afterPath="$PROJECT_DIR$/public/data/phones/colors/256.json" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/public/html/pages/phone/phone-details/phone-details.js" afterPath="$PROJECT_DIR$/public/data/phones/packages/256.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/images/phones/iphone7/details/1.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/images/phones/iphone7/details/2.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/images/phones/iphone7/details/3.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/images/phones/iphone7/details/4.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/images/phones/iphone7/details/5.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/images/phones/iphone7/details/6.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/images/phones/iphone7/details/7.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/images/phones/iphone7/iphone-default.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/images/phones/iphone7/iphone7-black.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/images/phones/iphone7/iphone7-details.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/images/phones/iphone7/iphone7-gold.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/images/phones/iphone7/iphone7-jetblack.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/images/phones/iphone7/iphone7-rosegold.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/images/phones/iphone7/iphone7-silver.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/images/phones/iphone7/iphone_upgrade_large.jpg" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/app.css" afterPath="$PROJECT_DIR$/public/css/app.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/app.min.css" afterPath="$PROJECT_DIR$/public/css/app.min.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/html/modules/chooseNumber/chooseNumber.html" afterPath="$PROJECT_DIR$/public/html/modules/chooseNumber/chooseNumber.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/html/modules/chooseNumber/chooseNumber.js" afterPath="$PROJECT_DIR$/public/html/modules/chooseNumber/chooseNumber.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/html/modules/footerNav/footerNav.js" afterPath="$PROJECT_DIR$/public/html/modules/footerNav/footerNav.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/html/modules/phonePackage/phonePackage.html" afterPath="$PROJECT_DIR$/public/html/modules/phonePackage/phonePackage.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/html/modules/phonePackage/phonePackage.js" afterPath="$PROJECT_DIR$/public/html/modules/phonePackage/phonePackage.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/service.js" afterPath="$PROJECT_DIR$/public/js/service.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sass/modules/_itemLists.scss" afterPath="$PROJECT_DIR$/sass/modules/_itemLists.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sass/modules/_orderNumber.scss" afterPath="$PROJECT_DIR$/sass/modules/_orderNumber.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sass/pages/flow/_flowCardDetails.scss" afterPath="$PROJECT_DIR$/sass/pages/flow/_flowCardDetails.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sass/utils/_base.scss" afterPath="$PROJECT_DIR$/sass/utils/_base.scss" />
     </list>
     <list id="92836dd6-0910-4b60-81e2-cf43716201b2" name="Failed commit: Default" comment="biuld angular-seed">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config.rb" afterPath="$PROJECT_DIR$/config.rb" />
@@ -760,7 +747,7 @@
       <workItem from="1473647159075" duration="5950000" />
       <workItem from="1473665806439" duration="58210000" />
       <workItem from="1473841267917" duration="4235000" />
-      <workItem from="1474163113142" duration="28919000" />
+      <workItem from="1474163113142" duration="29121000" />
     </task>
     <task id="LOCAL-00001" summary="biuld angular-seed">
       <created>1468210687974</created>
@@ -916,11 +903,18 @@
       <option name="project" value="LOCAL" />
       <updated>1473680083809</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="biuld angular-seed">
+      <created>1474198229922</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1474198229922</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="525421000" />
+    <option name="totallyTimeSpent" value="525623000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1" y="22" width="1920" height="1054" extended-state="6" />
@@ -1359,14 +1353,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/data/phones/packages/256.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="1" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/data/phones/storages/256.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
@@ -1383,6 +1369,14 @@
             <element signature="n#style#0;n#div#1;n#div#0;n#form#0;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#3;n#div#0;n#form#0;n#div#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/data/phones/packages/256.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="1" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
+          <folding />
         </state>
       </provider>
     </entry>
