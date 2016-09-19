@@ -1,6 +1,6 @@
 'use strict';
 
-app.directive("phonePackage", ['$http', function ($http) {
+app.directive("phonePackage", ['$http', '$stateParams', function ($http, $stateParams) {
     return {
         restrict: 'E',
         templateUrl: "modules/phonePackage/phonePackage.html",
@@ -20,8 +20,8 @@ app.directive("phonePackage", ['$http', function ($http) {
 
             //获取套餐列表
             if (attrs.type == "phone") {
-                var apiUrl = "/data/phones/packages/" + scope.phoneId + ".json";
-            }else {
+                var apiUrl = "/data/phones/packages/" + $stateParams.phoneId + ".json";
+            } else {
                 var apiUrl = "/data/phonePackage.json";
             }
             $http.get(apiUrl).success(function (data) {
@@ -29,7 +29,7 @@ app.directive("phonePackage", ['$http', function ($http) {
                 scope.phonePackageItem = data[1];
                 if (attrs.type == "phone") {
                     scope.phonePackageItem = data[0];
-                }else {
+                } else {
                     scope.phonePackageItem = data[1];
                 }
             });
@@ -47,7 +47,7 @@ app.directive("phonePackage", ['$http', function ($http) {
                 if (nv != ov) {
                     if (attrs.type == "phone") {
 
-                    }else {
+                    } else {
                         scope.mainPrice = nv.price;
                     }
                 }

@@ -22,7 +22,36 @@
   border: 0;
 }
 
+.address {
+  .weui_cells {
+    background: none;
+    &:before {
+      display: none;
+    }
+  }
+  .weui_cell {
+    margin-left: 0.15rem;
+    margin-right: 0.15rem;
+    margin-top: 0.1rem;
+    margin-bottom: 0.1rem;
+    @include border-radius(0.04rem);
+    border: 1px solid #999;
+    background: #fff;
+    &:before {
+      display: none;
+    }
+  }
+}
+
 .weui_cells_form {
+  .weui_cell {
+    &.weui_cell_warn {
+      border: 1px solid $color-primary;
+    }
+    &.weui_cell_success {
+      border: 1px solid $color-green;
+    }
+  }
   .weui_label {
     width: 5em;
     color: #999;
@@ -38,6 +67,9 @@
     .weui_label {
       //width: 5em;
       color: $color-green;
+    }
+    .weui_icon_warn {
+      display: none;
     }
     .weui_icon_success {
       display: inline-block;

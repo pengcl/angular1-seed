@@ -1,7 +1,5 @@
 'use strict';
 
-
-//
 //全局统计
 
 var userTrack = function (category, action, gh, value) {

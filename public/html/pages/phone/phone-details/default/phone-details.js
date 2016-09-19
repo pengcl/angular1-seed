@@ -15,18 +15,17 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
 
     $scope.appType = "phone";
     $scope.category = $scope.appType;
-    $scope.phoneId = $stateParams.phoneId;
 
     $scope.getI = function (jsonArray) {
-        for (var i=0; i < jsonArray.length; i++) {
-            if(jsonArray[i].selected == "curr"){
+        for (var i = 0; i < jsonArray.length; i++) {
+            if (jsonArray[i].selected == "curr") {
                 return i;
             }
         }
     };
 
     $scope.phone = Phone.get({
-        phoneId: $scope.phoneId
+        phoneId: $stateParams.phoneId
     }, function (phone) {
         $scope.mainImage = phone.phoneImg;
         //$scope.mainPrice = phone.price;

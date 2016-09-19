@@ -56,14 +56,14 @@
       "flash": "32GB",
       "price": "5388",
       "content": "电信合约机，正品行货，信用卡12期0利息免压力，机价比X东便宜，更送超值话费。",
-      "selected": ""
+      "selected": "curr"
     },
     {
       "productId": "261",
       "flash": "128GB",
       "price": "6188",
       "content": "电信合约机，正品行货，信用卡12期0利息免压力，机价比X东便宜，更送超值话费。",
-      "selected": "curr"
+      "selected": "disabled"
     },
     {
       "productId": "260",

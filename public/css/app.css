@@ -800,35 +800,72 @@ nav .title-page .subtext-page {
 }
 
 /* line 26, ../../sass/utils/_forms.scss */
+.address .weui_cells {
+  background: none;
+}
+/* line 28, ../../sass/utils/_forms.scss */
+.address .weui_cells:before {
+  display: none;
+}
+/* line 32, ../../sass/utils/_forms.scss */
+.address .weui_cell {
+  margin-left: 0.15rem;
+  margin-right: 0.15rem;
+  margin-top: 0.1rem;
+  margin-bottom: 0.1rem;
+  -moz-border-radius: 0.04rem;
+  -webkit-border-radius: 0.04rem;
+  border-radius: 0.04rem;
+  border: 1px solid #999;
+  background: #fff;
+}
+/* line 40, ../../sass/utils/_forms.scss */
+.address .weui_cell:before {
+  display: none;
+}
+
+/* line 48, ../../sass/utils/_forms.scss */
+.weui_cells_form .weui_cell.weui_cell_warn {
+  border: 1px solid #d83e14;
+}
+/* line 51, ../../sass/utils/_forms.scss */
+.weui_cells_form .weui_cell.weui_cell_success {
+  border: 1px solid #09bb07;
+}
+/* line 55, ../../sass/utils/_forms.scss */
 .weui_cells_form .weui_label {
   width: 5em;
   color: #999;
 }
-/* line 31, ../../sass/utils/_forms.scss */
+/* line 60, ../../sass/utils/_forms.scss */
 .weui_cells_form .weui_cell_warn .weui_label {
   color: #f43530;
 }
-/* line 36, ../../sass/utils/_forms.scss */
+/* line 65, ../../sass/utils/_forms.scss */
 .weui_cells_form .weui_cell_success {
   color: #09bb07;
 }
-/* line 38, ../../sass/utils/_forms.scss */
+/* line 67, ../../sass/utils/_forms.scss */
 .weui_cells_form .weui_cell_success .weui_label {
   color: #09bb07;
 }
-/* line 42, ../../sass/utils/_forms.scss */
+/* line 71, ../../sass/utils/_forms.scss */
+.weui_cells_form .weui_cell_success .weui_icon_warn {
+  display: none;
+}
+/* line 74, ../../sass/utils/_forms.scss */
 .weui_cells_form .weui_cell_success .weui_icon_success {
   display: inline-block;
 }
-/* line 48, ../../sass/utils/_forms.scss */
+/* line 80, ../../sass/utils/_forms.scss */
 .weui_cells_form .weui_cell_ft .weui_icon_warn:before {
   font-size: 0.18rem;
 }
-/* line 53, ../../sass/utils/_forms.scss */
+/* line 85, ../../sass/utils/_forms.scss */
 .weui_cells_form .weui_cell_ft .weui_icon_success:before {
   font-size: 0.18rem;
 }
-/* line 58, ../../sass/utils/_forms.scss */
+/* line 90, ../../sass/utils/_forms.scss */
 .weui_cells_form .weui_icon_success {
   display: none;
 }
@@ -1577,7 +1614,7 @@ a:hover, a:focus {
   margin: 0;
   padding: 0;
 }
-/* line 9, ../../sass/modules/_itemLists.scss */
+/* line 10, ../../sass/modules/_itemLists.scss */
 .item-box {
   padding: 0.15rem;
   text-align: center;
@@ -1588,33 +1625,34 @@ a:hover, a:focus {
   margin-top: 0.04rem;
   margin-bottom: 0.04rem;
   font-size: 0.12rem;
-  -moz-box-shadow: #d9d9d9 0px 0px 2px;
-  -webkit-box-shadow: #d9d9d9 0px 0px 2px;
-  box-shadow: #d9d9d9 0px 0px 2px;
+  border: 1px solid #999;
+  -moz-border-radius: 0.04rem;
+  -webkit-border-radius: 0.04rem;
+  border-radius: 0.04rem;
 }
-/* line 20, ../../sass/modules/_itemLists.scss */
+/* line 23, ../../sass/modules/_itemLists.scss */
 .item-box.small {
   padding: 0.05rem;
   font-size: 0.12rem !important;
 }
-/* line 27, ../../sass/modules/_itemLists.scss */
+/* line 30, ../../sass/modules/_itemLists.scss */
 .item-box em {
-  color: #d83e14;
+  color: #333;
   font-style: normal;
   font-size: 0.18rem;
 }
-/* line 33, ../../sass/modules/_itemLists.scss */
+/* line 36, ../../sass/modules/_itemLists.scss */
 .item-box del {
   font-size: 0.14rem;
   color: #999;
 }
-/* line 38, ../../sass/modules/_itemLists.scss */
+/* line 41, ../../sass/modules/_itemLists.scss */
 .item-box p {
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
 }
-/* line 44, ../../sass/modules/_itemLists.scss */
+/* line 47, ../../sass/modules/_itemLists.scss */
 .item-box ins {
   position: absolute;
   text-decoration: none;
@@ -1623,7 +1661,7 @@ a:hover, a:focus {
   right: 0rem;
   bottom: 0rem;
 }
-/* line 53, ../../sass/modules/_itemLists.scss */
+/* line 56, ../../sass/modules/_itemLists.scss */
 .item-box i {
   position: absolute;
   font-size: 0.2rem;
@@ -1640,20 +1678,22 @@ a:hover, a:focus {
   color: #fff;
   font-style: normal;
 }
-/* line 66, ../../sass/modules/_itemLists.scss */
+/* line 69, ../../sass/modules/_itemLists.scss */
 .item-box i img {
   display: block;
   width: 100%;
 }
-/* line 72, ../../sass/modules/_itemLists.scss */
+/* line 75, ../../sass/modules/_itemLists.scss */
 .item-box.curr {
-  -moz-box-shadow: #09bb07 0px 0px 2px;
-  -webkit-box-shadow: #09bb07 0px 0px 2px;
-  box-shadow: #09bb07 0px 0px 2px;
-  color: #09bb07;
+  border: 1px solid #d83e14;
+  color: #d83e14;
   font-weight: bold;
 }
-/* line 76, ../../sass/modules/_itemLists.scss */
+/* line 80, ../../sass/modules/_itemLists.scss */
+.item-box.curr em {
+  color: #d83e14;
+}
+/* line 83, ../../sass/modules/_itemLists.scss */
 .item-box.curr ins {
   display: block;
 }
@@ -3022,78 +3062,12 @@ a:hover, a:focus {
   font-weight: bold;
   line-height: 0.32rem;
 }
-/* line 24, ../../sass/pages/flow/_flowCardDetails.scss */
-.page.fd-details .address .weui_cells, .page.p-details .address .weui_cells {
-  background: none;
-}
-/* line 26, ../../sass/pages/flow/_flowCardDetails.scss */
-.page.fd-details .address .weui_cells:before, .page.p-details .address .weui_cells:before {
-  display: none;
-}
-/* line 30, ../../sass/pages/flow/_flowCardDetails.scss */
-.page.fd-details .address .weui_cell, .page.p-details .address .weui_cell {
-  margin-left: 0.15rem;
-  margin-right: 0.15rem;
-  margin-top: 0.1rem;
-  margin-bottom: 0.1rem;
-  -moz-border-radius: 0.04rem;
-  -webkit-border-radius: 0.04rem;
-  border-radius: 0.04rem;
-  border: 1px solid #999;
-  background: #fff;
-}
-/* line 38, ../../sass/pages/flow/_flowCardDetails.scss */
-.page.fd-details .address .weui_cell:before, .page.p-details .address .weui_cell:before {
-  display: none;
-}
-/* line 41, ../../sass/pages/flow/_flowCardDetails.scss */
-.page.fd-details .address .weui_cell.weui_cell_success, .page.p-details .address .weui_cell.weui_cell_success {
-  border: 1px solid #09bb07;
-}
-/* line 44, ../../sass/pages/flow/_flowCardDetails.scss */
-.page.fd-details .address .weui_cell.weui_cell_warn, .page.p-details .address .weui_cell.weui_cell_warn {
-  border: 1px solid #d83e14;
-}
-/* line 49, ../../sass/pages/flow/_flowCardDetails.scss */
-.page.fd-details .item-lists, .page.p-details .item-lists {
-  margin-left: -0.05rem;
-  margin-right: -0.05rem;
-}
-/* line 53, ../../sass/pages/flow/_flowCardDetails.scss */
-.page.fd-details .item-lists .list-item .item-box, .page.p-details .item-lists .list-item .item-box {
-  margin: 0.05rem;
-  font-size: 0.16rem;
-  border: 1px solid #999;
-  -moz-border-radius: 0.04rem;
-  -webkit-border-radius: 0.04rem;
-  border-radius: 0.04rem;
-}
-/* line 59, ../../sass/pages/flow/_flowCardDetails.scss */
-.page.fd-details .item-lists .list-item .item-box em, .page.p-details .item-lists .list-item .item-box em {
-  color: #333;
-}
-/* line 62, ../../sass/pages/flow/_flowCardDetails.scss */
-.page.fd-details .item-lists .list-item .item-box.curr, .page.p-details .item-lists .list-item .item-box.curr {
-  border: 1px solid #d83e14;
-  -moz-box-shadow: #d83e14 0px 0px 2px;
-  -webkit-box-shadow: #d83e14 0px 0px 2px;
-  box-shadow: #d83e14 0px 0px 2px;
-  color: #d83e14;
-}
-/* line 66, ../../sass/pages/flow/_flowCardDetails.scss */
-.page.fd-details .item-lists .list-item .item-box.curr em, .page.p-details .item-lists .list-item .item-box.curr em {
-  color: #d83e14;
-}
-/* line 69, ../../sass/pages/flow/_flowCardDetails.scss */
-.page.fd-details .item-lists .list-item .item-box.curr ins, .page.p-details .item-lists .list-item .item-box.curr ins {
-  display: block;
-}
-/* line 78, ../../sass/pages/flow/_flowCardDetails.scss */
+/* line 25, ../../sass/pages/flow/_flowCardDetails.scss */
 .page.fd-details.default .weui_cells_title.title-icon, .page.p-details.default .weui_cells_title.title-icon {
   position: relative;
   padding-left: 0.28rem;
 }
-/* line 81, ../../sass/pages/flow/_flowCardDetails.scss */
+/* line 28, ../../sass/pages/flow/_flowCardDetails.scss */
 .page.fd-details.default .weui_cells_title.title-icon:before, .page.p-details.default .weui_cells_title.title-icon:before {
   content: " ";
   position: absolute;
@@ -3108,72 +3082,72 @@ a:hover, a:focus {
   width: 0.05rem;
 }
 
-/* line 98, ../../sass/pages/flow/_flowCardDetails.scss */
+/* line 45, ../../sass/pages/flow/_flowCardDetails.scss */
 .overlay.sim .weui_cell {
   -webkit-align-items: top;
   align-items: top;
 }
-/* line 101, ../../sass/pages/flow/_flowCardDetails.scss */
+/* line 48, ../../sass/pages/flow/_flowCardDetails.scss */
 .overlay.sim .weui_cell_hd {
   -webkit-align-self: top;
   align-self: top;
 }
-/* line 105, ../../sass/pages/flow/_flowCardDetails.scss */
+/* line 52, ../../sass/pages/flow/_flowCardDetails.scss */
 .overlay.sim .weui_cell_bd p {
   font-weight: 300;
   color: #999;
 }
-/* line 108, ../../sass/pages/flow/_flowCardDetails.scss */
+/* line 55, ../../sass/pages/flow/_flowCardDetails.scss */
 .overlay.sim .weui_cell_bd p.tit {
   font-size: 0.16rem;
   font-weight: bold;
   color: #333;
 }
-/* line 112, ../../sass/pages/flow/_flowCardDetails.scss */
+/* line 59, ../../sass/pages/flow/_flowCardDetails.scss */
 .overlay.sim .weui_cell_bd p s {
   color: #333;
   font-style: normal;
   text-decoration: none;
 }
-/* line 119, ../../sass/pages/flow/_flowCardDetails.scss */
+/* line 66, ../../sass/pages/flow/_flowCardDetails.scss */
 .overlay.sim .weui_panel {
   background: none;
   margin-top: 0;
 }
-/* line 122, ../../sass/pages/flow/_flowCardDetails.scss */
+/* line 69, ../../sass/pages/flow/_flowCardDetails.scss */
 .overlay.sim .weui_panel .weui_panel_hd {
   text-align: center;
 }
-/* line 124, ../../sass/pages/flow/_flowCardDetails.scss */
+/* line 71, ../../sass/pages/flow/_flowCardDetails.scss */
 .overlay.sim .weui_panel .weui_panel_hd:after {
   left: 0;
 }
-/* line 128, ../../sass/pages/flow/_flowCardDetails.scss */
+/* line 75, ../../sass/pages/flow/_flowCardDetails.scss */
 .overlay.sim .weui_panel .weui_panel_ft {
   text-align: center;
   padding-bottom: 0.2rem;
   color: #333;
 }
-/* line 132, ../../sass/pages/flow/_flowCardDetails.scss */
+/* line 79, ../../sass/pages/flow/_flowCardDetails.scss */
 .overlay.sim .weui_panel .weui_panel_ft:before {
   left: 0;
 }
-/* line 137, ../../sass/pages/flow/_flowCardDetails.scss */
+/* line 84, ../../sass/pages/flow/_flowCardDetails.scss */
 .overlay.sim .weui_cells {
   background: none;
 }
-/* line 140, ../../sass/pages/flow/_flowCardDetails.scss */
+/* line 87, ../../sass/pages/flow/_flowCardDetails.scss */
 .overlay.sim .weui_cells .weui_cell:before {
   left: 0;
 }
 
-/* line 147, ../../sass/pages/flow/_flowCardDetails.scss */
+/* line 94, ../../sass/pages/flow/_flowCardDetails.scss */
 .overlay.bottom {
   top: auto;
   background: #fff;
 }
 
-/* line 152, ../../sass/pages/flow/_flowCardDetails.scss */
+/* line 99, ../../sass/pages/flow/_flowCardDetails.scss */
 .module-tips {
   font-size: 0.12rem;
   color: #999;

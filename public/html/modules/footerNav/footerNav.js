@@ -28,33 +28,11 @@ app.directive("footerNav", ['$http', function ($http) {
             };
 
             scope.getContent = function () {
-                //getMeiqia();
-                $("#contactUs").show();
-                //_MEIQIA('showPanel');
+                getMeiqia();
+                //$("#contactUs").show();
+                _MEIQIA('showPanel');
                 writebdLog(scope.category, "客服", "渠道号", scope.gh);
             };
-
-            function checkAddress() {
-                $("#receiverAddress").find(".weui_cell").removeClass("weui_cell_warn");
-                if (!scope.checkoutForm.reciverName.$valid) {
-                    //alert("请输入收件人");
-                    $(".input-name").addClass("weui_cell_warn");
-                    return false;
-                } else if (!scope.checkoutForm.receiverMobile.$valid) {
-                    //alert("请输入联系电话");
-                    $(".input-mobile").addClass("weui_cell_warn");
-                    return false;
-                } else if (!scope.checkoutForm.receiverCity.$valid) {
-                    $(".input-city").addClass("weui_cell_warn");
-                    //alert("请选择收件区域");
-                    return false;
-                } else if (!scope.checkoutForm.receiverRoom.$valid) {
-                    $(".input-room").addClass("weui_cell_warn");
-                    //alert("请输入详细地址");
-                    return false;
-                }
-                return true;
-            }
 
             function checkPhoneNumber() {
                 console.log(scope.checkoutForm.phoneNumber.$valid);
@@ -77,7 +55,7 @@ app.directive("footerNav", ['$http', function ($http) {
                         return false;
                     }
                 }
-                if (checkAddress()) {
+                if (scope.checkAddress()) {
                     writebdLog(scope.category, "收货地址", "渠道号", scope.gh);
                     writebdLog(scope.category, "立即支付", "渠道号", scope.gh);
                     $form.submit();
