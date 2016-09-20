@@ -48,12 +48,12 @@
     {
       "colorName": "亮黑色",
       "colorUrl": "/images/phones/iphone7/iphone7-jetblack.jpg",
-      "selected": "active"
+      "selected": "disabled"
     },
     {
       "colorName": "黑色",
       "colorUrl": "/images/phones/iphone7/iphone7-black.jpg",
-      "selected": ""
+      "selected": "curr"
     },
     {
       "colorName": "银色",
