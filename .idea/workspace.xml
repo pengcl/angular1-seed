@@ -1,35 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3fb611db-3d4f-42ed-a66b-9f45cebf59a9" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/html/modules/copyRight/copyRight.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/html/modules/copyRight/copyRight.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/html/modules/owlCarousel/owlCarousel.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/html/modules/owlCarousel/owlCarousel.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sass/modules/_copyRight.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sass/modules/_owlCarousel.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sass/modules/_table.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/images/phones/iphone7/iphone7-details.jpg" afterPath="$PROJECT_DIR$/public/images/phones/iphone7/iphone7-details.jpg" />
+    <list default="true" id="3fb611db-3d4f-42ed-a66b-9f45cebf59a9" name="Default" comment="biuld angular-seed">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/app.css" afterPath="$PROJECT_DIR$/public/css/app.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/app.min.css" afterPath="$PROJECT_DIR$/public/css/app.min.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/html/modules/flowPackage/flowPackage.html" afterPath="$PROJECT_DIR$/public/html/modules/flowPackage/flowPackage.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/html/modules/payType/payType.html" afterPath="$PROJECT_DIR$/public/html/modules/payType/payType.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/html/modules/payType/payType.js" afterPath="$PROJECT_DIR$/public/html/modules/payType/payType.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/html/modules/phonePackage/phonePackage.html" afterPath="$PROJECT_DIR$/public/html/modules/phonePackage/phonePackage.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/html/modules/phonePackage/phonePackage.js" afterPath="$PROJECT_DIR$/public/html/modules/phonePackage/phonePackage.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/html/modules/simType/simType.html" afterPath="$PROJECT_DIR$/public/html/modules/simType/simType.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/html/modules/stepBuy/stepBuy.html" afterPath="$PROJECT_DIR$/public/html/modules/stepBuy/stepBuy.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/html/modules/stepBuy/stepBuy.js" afterPath="$PROJECT_DIR$/public/html/modules/stepBuy/stepBuy.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/html/pages/flowCard/flowCard-details/default/flowCard-details.html" afterPath="$PROJECT_DIR$/public/html/pages/flowCard/flowCard-details/default/flowCard-details.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/html/pages/phone/phone-details/default/phone-details.html" afterPath="$PROJECT_DIR$/public/html/pages/phone/phone-details/default/phone-details.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/html/pages/phone/phone-details/default/phone-details.js" afterPath="$PROJECT_DIR$/public/html/pages/phone/phone-details/default/phone-details.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/index.html" afterPath="$PROJECT_DIR$/public/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/extends.js" afterPath="$PROJECT_DIR$/public/js/extends.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sass/app.scss" afterPath="$PROJECT_DIR$/sass/app.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sass/appView/_weui.scss" afterPath="$PROJECT_DIR$/sass/appView/_weui.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sass/modules/_stepBuy.scss" afterPath="$PROJECT_DIR$/sass/modules/_stepBuy.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sass/pages/flow/_flowCardDetails.scss" afterPath="$PROJECT_DIR$/sass/pages/flow/_flowCardDetails.scss" />
     </list>
     <ignored path="angular1-seed.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -778,7 +751,7 @@
       <workItem from="1474163113142" duration="29121000" />
       <workItem from="1474249173136" duration="29123000" />
       <workItem from="1474429716521" duration="189000" />
-      <workItem from="1474430439716" duration="710000" />
+      <workItem from="1474430439716" duration="981000" />
     </task>
     <task id="LOCAL-00001" summary="biuld angular-seed">
       <created>1468210687974</created>
@@ -962,11 +935,18 @@
       <option name="project" value="LOCAL" />
       <updated>1474343936499</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="biuld angular-seed">
+      <created>1474432882521</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1474432882521</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="555645000" />
+    <option name="totallyTimeSpent" value="555916000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1920" height="1054" extended-state="6" />
