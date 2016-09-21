@@ -27,7 +27,7 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
     $scope.phone = Phone.get({
         phoneId: $stateParams.phoneId
     }, function (phone) {
-        $scope.mainImage = phone.phoneImg;
+        //$scope.mainImage = phone.phoneImg;
         //$scope.mainPrice = phone.price;
 
         //选择默认颜色

@@ -4,12 +4,19 @@
   width: 0.8rem;
   height: 0.8rem;
   text-align: center;
-  position: absolute;
+  position: fixed;
   right: 0.10rem;
-  bottom: 0.10rem;
+  top:30%;
   @include box-shadow(rgba(#000, 0.4) 0 0 25px, 0 1px 1px 0 #74d077 inset);
   @include background-image(linear-gradient(to bottom, #00c307 0px, #039103 100%));
   display:table;
+  @include opacity(0.5);
+  @include transition-property(opacity);
+  @include transition-duration(7000);
+  @include transition-timing-function(ease-in);
+  &.active {
+    @include opacity(1);
+  }
   &:after {
   }
   .progressbar-text {

@@ -1,6 +1,11 @@
 <div id="phonePackage" class="phone-package">
     <input type="hidden" name="productId" id="productId" ng-model="phonePackageItem.productId" value="{{phonePackageItem.productId}}" required track class="weui_input">
-    <div class="weui_cells_title title-icon"><span class="title" ng-bind="packageTitle"></span><span class="sub-title" ng-class="{true:'hide',false:''}[packageSubTitle == '']" ng-bind="packageSubTitle"></span><timer ng-if="showTime=='true'"></timer></div>
+    <div class="weui_cells_title title-icon">
+        <span class="title" ng-bind="packageTitle"></span>
+        <span class="sub-title" ng-class="{true:'hide',false:''}[packageSubTitle == '']" ng-bind="packageSubTitle"></span>
+        <timer ng-if="showTime=='true'"></timer>
+        <a class="question" ng-click="showOverLay('packageInfo')">什么是合约套餐?</a>
+    </div>
     <div class="phone-package-panel">
         <ul class="phone-package-lists item-lists pure-g">
             <li class="phone-package-item list-item pure-u-1-2" ng-repeat="phonePackageItem in phonePackageList">
@@ -17,5 +22,50 @@
                 </div>
             </li>
         </ul>
+    </div>
+
+    <div id="packageInfo" style="display: none;">
+        <div class="overlay sim {{class}}">
+            <a class="js-close-overlay overlay-dismiss" href="#"><span class="icon-cross"></span></a>
+            <div class="weui_panel">
+                <div class="weui_panel_hd"><a href="">合约套餐介绍</a></div>
+                <div class="weui_panel_bd">
+                    <div class="weui_media_box weui_media_text">
+                        <h4 class="weui_media_title">独家政策，全国通用，接听免费，拨出无漫游，优惠周期36个月，号码归属广东。</h4>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>套餐价</th>
+                                    <th>3年共返</th>
+                                    <th>12个月</th>
+                                    <th>149元</th>
+                                    <th>4G</th>
+                                    <th>1500分钟</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><a>299元</a></td>
+                                    <td><a>5388元</a></td>
+                                    <td><a>12个月</a></td>
+                                    <td><a>149元</a></td>
+                                    <td><a>4G</a></td>
+                                    <td><a>1500分钟</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="weui_media_box weui_media_text">
+                        <h4 class="weui_media_title">超出收费</h4>
+                        <p class="weui_media_desc">短信0.1元/条，国内通话0.15元/分钟，国内流量不足100MB按0.0003元/KB收费，100MB-500MB收费30元。</p>
+                    </div>
+                    <div class="weui_media_box weui_media_text">
+                        <h4 class="weui_media_title">缴费时间</h4>
+                        <p class="weui_media_desc">每月8号前仅需网上<a href="javascript:;">充值150元</a>即可，充值后，返还的149元系统将在每月<a href="javascript:;">9--13号</a>到账。</p>
+                        <p class="weui_media_desc" style="margin-top: 0.1rem;">本优惠套餐为合约机优惠套餐，与手机捆绑使用才可享受优惠。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>

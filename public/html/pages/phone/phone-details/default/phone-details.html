@@ -4,11 +4,8 @@
     <form id="checkoutForm" name="checkoutForm" action="http://m.gd189fq.com/wap/taokafanghaoNew/submitOrderMachine.html" method="post" novalidate>
         <input type="hidden" value="1" name="monthNumber" id="monthNumber">
         <gh></gh>
-        <pt></pt>
         <div class="content-scrollable has-footer">
-            <div class="banner-image img-box">
-                <img ng-src="{{mainImage}}" />
-            </div>
+            <div class="owl-carousel" img-urls="['/images/phones/iphone7/owl/iphone7-1.jpg','/images/phones/iphone7/owl/iphone7-2.jpg','/images/phones/iphone7/owl/iphone7-3.jpg']" options="{loop: true,margin: 0,autoPlay: 3000,items: 1}"></div>
             <div class="product-header" style="margin-top: 0.55rem">
                 <div class="price-area price-absolute">
                     <ins>限时特价</ins>
@@ -24,8 +21,9 @@
             <div class="product-header-ft">运费：活动期间全国包邮</div>
             <phone-colors title="机身颜色" sub-title=""></phone-colors>
             <phone-storages title="机身内存" sub-title=""></phone-storages>
-            <choose-number title="选择靓号"></choose-number>
             <phone-package title="选择套餐" sub-title="" type="phone"></phone-package>
+            <pay-type title="选择支付" sub-title=""></pay-type>
+            <choose-number title="选择靓号"></choose-number>
             <sim-type title="流量卡类型" add-class="bottom" size="s"></sim-type>
             <receiver-address title="收货地址"></receiver-address>
             <div class="product-details" style="margin-top: 0.2rem">
@@ -45,6 +43,7 @@
 
                 <div class="img-box"><img src="/images/phones/iphone7/iphone7-details.jpg"></div>
             </div>
+            <step-buy></step-buy>
         </div>
         <footer-nav check-phone="true" submit="#checkoutForm"></footer-nav>
     </form>

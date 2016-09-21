@@ -43,6 +43,12 @@ app.directive("phonePackage", ['$http', '$stateParams', function ($http, $stateP
                 scope.phonePackageItem = phonePackageItem;
             };
 
+            scope.showOverLay = function (targetId) {
+                var targetHtml = $("#" + targetId).html();
+                scope.$root.Overlay.open(targetHtml,scope.simList);
+                writebdLog(scope.category,"合约套餐介绍","渠道号",scope.gh);
+            };
+
             scope.$watch('phonePackageItem', function (nv, ov, scope) {
                 if (nv != ov) {
                     if (attrs.type == "phone") {

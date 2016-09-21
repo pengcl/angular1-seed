@@ -1384,6 +1384,18 @@ body {
   font-size: 0.17rem;
 }
 
+/* line 19, ../../sass/appView/_weui.scss */
+.weui_media_box .weui_media_title {
+  font-size: 0.13rem;
+  -ms-text-overflow: inherit;
+  text-overflow: inherit;
+  white-space: normal;
+}
+/* line 25, ../../sass/appView/_weui.scss */
+.weui_media_box .weui_media_desc {
+  font-size: 0.12rem;
+}
+
 /* line 1, ../../sass/modules/_link.scss */
 a {
   color: #d83e14;
@@ -2491,6 +2503,83 @@ a:hover, a:focus {
   display: none;
 }
 
+/* line 1, ../../sass/modules/_table.scss */
+table {
+  width: 100%;
+  position: relative;
+  border: 0;
+  font-size: 0.12rem;
+  border-collapse: collapse;
+  border-spacing: 0;
+  empty-cells: show;
+}
+/* line 9, ../../sass/modules/_table.scss */
+table:before {
+  content: " ";
+  position: absolute;
+  left: 0;
+  height: 100%;
+  display: block;
+  border-left: 1px solid #ccc;
+  width: 1px;
+  top: 0;
+}
+/* line 19, ../../sass/modules/_table.scss */
+table:after {
+  content: " ";
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 1px;
+  display: block;
+  border-top: 1px solid #ccc;
+  width: 100%;
+}
+/* line 29, ../../sass/modules/_table.scss */
+table th, table td {
+  position: relative;
+  padding: 0.04rem;
+  text-align: center;
+}
+/* line 33, ../../sass/modules/_table.scss */
+table th:before, table td:before {
+  content: " ";
+  position: absolute;
+  right: 0;
+  height: 100%;
+  display: block;
+  border-right: 1px solid #ccc;
+  width: 1px;
+  top: 0;
+}
+/* line 43, ../../sass/modules/_table.scss */
+table th:after, table td:after {
+  content: " ";
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  display: block;
+  border-bottom: 1px solid #ccc;
+  width: 100%;
+}
+
+/* line 1, ../../sass/modules/_owlCarousel.scss */
+.owl-carousel {
+  font-size: 0;
+}
+
+/* line 4, ../../sass/modules/_owlCarousel.scss */
+.carousel-item {
+  width: 100%;
+}
+/* line 6, ../../sass/modules/_owlCarousel.scss */
+.carousel-item img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
 /* line 1, ../../sass/modules/_logo.scss */
 .logo {
   background: #000 url("/images/logo.svg") no-repeat scroll center center/98% auto;
@@ -2952,6 +3041,66 @@ a:hover, a:focus {
   transform: translate3d(0px, 0px, 0px);
 }
 
+/* line 1, ../../sass/modules/_stepBuy.scss */
+.step-buy {
+  -moz-border-radius: 5rem;
+  -webkit-border-radius: 5rem;
+  border-radius: 5rem;
+  display: block;
+  width: 0.8rem;
+  height: 0.8rem;
+  text-align: center;
+  position: fixed;
+  right: 0.10rem;
+  top: 30%;
+  -moz-box-shadow: rgba(0, 0, 0, 0.4) 0 0 25px, 0 1px 1px 0 #74d077 inset;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.4) 0 0 25px, 0 1px 1px 0 #74d077 inset;
+  box-shadow: rgba(0, 0, 0, 0.4) 0 0 25px, 0 1px 1px 0 #74d077 inset;
+  background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuNSIgeTE9IjAuMCIgeDI9IjAuNSIgeTI9IjEuMCI+PHN0b3Agb2Zmc2V0PSIwcHgiIHN0b3AtY29sb3I9IiMwMGMzMDciLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMwMzkxMDMiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyYWQpIiAvPjwvc3ZnPiA=');
+  background-size: 100%;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0px, #00c307), color-stop(100%, #039103));
+  background-image: -moz-linear-gradient(top, #00c307 0px, #039103 100%);
+  background-image: -webkit-linear-gradient(top, #00c307 0px, #039103 100%);
+  background-image: linear-gradient(to bottom, #00c307 0px, #039103 100%);
+  display: table;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=50);
+  opacity: 0.5;
+  -moz-transition-property: opacity;
+  -o-transition-property: opacity;
+  -webkit-transition-property: opacity;
+  transition-property: opacity;
+  -moz-transition-duration: 7000;
+  -o-transition-duration: 7000;
+  -webkit-transition-duration: 7000;
+  transition-duration: 7000;
+  -moz-transition-timing-function: ease-in;
+  -o-transition-timing-function: ease-in;
+  -webkit-transition-timing-function: ease-in;
+  transition-timing-function: ease-in;
+}
+/* line 17, ../../sass/modules/_stepBuy.scss */
+.step-buy.active {
+  filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
+  opacity: 1;
+}
+/* line 22, ../../sass/modules/_stepBuy.scss */
+.step-buy .progressbar-text {
+  display: table-cell;
+  vertical-align: middle;
+  color: #fff;
+  font-size: 0.17rem;
+  line-height: 0.20rem;
+  text-shadow: rgba(3, 145, 3, 0.4);
+}
+
+/* line 1, ../../sass/modules/_copyRight.scss */
+.copy-right {
+  padding-top: 0.1rem;
+  padding-bottom: 0.1rem;
+  font-size: 0.1rem;
+  text-align: center;
+}
+
 /* line 2, ../../sass/pages/_index.scss */
 .page.home .title-page {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
@@ -3038,7 +3187,7 @@ a:hover, a:focus {
 }
 
 /* line 3, ../../sass/pages/flow/_flowCardDetails.scss */
-.page.fd-details .flow-package-panel, .page.fd-details .phone-package-panel, .page.fd-details .phone-colors-panel, .page.fd-details .phone-storages-panel, .page.p-details .flow-package-panel, .page.p-details .phone-package-panel, .page.p-details .phone-colors-panel, .page.p-details .phone-storages-panel {
+.page.fd-details .flow-package-panel, .page.fd-details .phone-package-panel, .page.fd-details .phone-colors-panel, .page.fd-details .phone-storages-panel, .page.fd-details .paytype-panel, .page.p-details .flow-package-panel, .page.p-details .phone-package-panel, .page.p-details .phone-colors-panel, .page.p-details .phone-storages-panel, .page.p-details .paytype-panel {
   padding-left: 0.15rem;
   padding-right: 0.15rem;
 }

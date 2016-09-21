@@ -1,8 +1,10 @@
 <div id="simType" class="sim-type">
     <input type="hidden" name="mainCardTypeId" id="mainCardTypeId" value="{{simItem.id}}" ng-model="simItem.id" required
            track class="weui_input">
-    <div class="weui_cells_title title-icon"><span ng-bind="simTitle"></span>
-        <a class="question" ng-click="showOverLay('simTypeInfo')">卡类型介绍?</a></div>
+    <div class="weui_cells_title title-icon">
+        <span ng-bind="simTitle"></span>
+        <a class="question" ng-click="showOverLay('simTypeInfo')">卡类型介绍?</a>
+    </div>
     <div class="sim-type-panel">
         <ul class="sim-type-lists item-lists pure-g">
             <li class="sim-type-item list-item" ng-class="{true:'pure-u-1-4',false:'pure-u-1-2'}[size=='s']"

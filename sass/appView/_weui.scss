@@ -14,3 +14,15 @@
 .weui_dialog_hd {
   font-size: 0.17rem;
 }
+
+.weui_media_box {
+  .weui_media_title {
+    font-size: 0.13rem;
+    -ms-text-overflow:inherit;
+    text-overflow:inherit;
+    white-space:normal;
+  }
+  .weui_media_desc {
+    font-size: 0.12rem;
+  }
+}

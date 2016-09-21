@@ -1,0 +1,54 @@
+table {
+  width: 100%;
+  position: relative;
+  border:0;
+  font-size: 0.12rem;
+  border-collapse:collapse;
+  border-spacing:0;
+  empty-cells:show;
+  &:before {
+    content: " ";
+    position: absolute;
+    left: 0;
+    height: 100%;
+    display: block;
+    border-left: 1px solid #ccc;
+    width: 1px;
+    top:0;
+  }
+  &:after {
+    content: " ";
+    position: absolute;
+    left: 0;
+    top:0;
+    height: 1px;
+    display: block;
+    border-top: 1px solid #ccc;
+    width: 100%;
+  }
+  th,td {
+    position: relative;
+    padding:0.04rem;
+    text-align: center;
+    &:before {
+      content: " ";
+      position: absolute;
+      right: 0;
+      height: 100%;
+      display: block;
+      border-right: 1px solid #ccc;
+      width: 1px;
+      top:0;
+    }
+    &:after {
+      content: " ";
+      position: absolute;
+      right: 0;
+      bottom:0;
+      height: 1px;
+      display: block;
+      border-bottom: 1px solid #ccc;
+      width: 100%;
+    }
+  }
+}

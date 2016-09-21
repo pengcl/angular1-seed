@@ -1,1 +1,24 @@
-<input type="hidden" value="{{pt}}" name="mainPayType" id="mainPayType">
+<div id="setPayType" class="pay-type">
+    <input type="hidden" name="payType" id="payType" ng-model="payType" value="{{payType}}" required>
+    <div class="weui_cells_title title-icon"><span class="title" ng-bind="payTypeTitle"></span><span class="sub-title" ng-class="{true:'hide',false:''}[payTypeSubTitle == '']" ng-bind="payTypeSubTitle"></span></div>
+    <div class="paytype-panel">
+        <ul class="paytype-lists item-lists pure-g">
+            <li class="paytype-item list-item pure-u-1-4">
+                <div class="item-box small curr" ng-click="setPayType($event,1)">
+                    <p>
+                        <span>分期付款</span>
+                    </p>
+                    <ins class="icon-check"></ins>
+                </div>
+            </li>
+            <li class="paytype-item list-item pure-u-1-4">
+                <div class="item-box small" ng-click="setPayType($event,0)">
+                    <p>
+                        <span>全额支付</span>
+                    </p>
+                    <ins class="icon-check"></ins>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
