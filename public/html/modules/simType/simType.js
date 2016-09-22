@@ -29,13 +29,13 @@ app.directive("simType", ['$http', '$compile', function ($http, $compile) {
                 $item.eq(index).addClass('curr');
                 scope.simItem = simItem;
                 scope.$root.Overlay.close();
-                writebdLog(scope.category,"流量卡类型","渠道号",scope.gh);
+                writebdLog(scope.category,"_SelectCardType","渠道号",scope.gh);//流量卡类型
             };
 
             scope.showOverLay = function (targetId) {
                 var targetHtml = $("#" + targetId).html();
                 scope.$root.Overlay.open(targetHtml,scope.simList);
-                writebdLog(scope.category,"卡类型介绍","渠道号",scope.gh);
+                writebdLog(scope.category,"_CardTypeIntro","渠道号",scope.gh);//卡类型介绍
             };
         }
     };

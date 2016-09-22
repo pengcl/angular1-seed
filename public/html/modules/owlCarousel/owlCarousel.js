@@ -15,7 +15,6 @@ app.directive("owlCarousel", ['$http','$compile', function ($http,$compile) {
         restrict: 'C',
         link: function (scope, element, attrs) {
             if(scope.$last){
-                console.log(scope.$last);
                 $(element).parent().owlCarousel({
                     navigation : true, // Show next and prev buttons
                     slideSpeed : 300,

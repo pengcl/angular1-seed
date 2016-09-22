@@ -42,7 +42,7 @@ app.directive("flowPackage", ['$http', 'FlowPackages', function ($http, FlowPack
                 $this.parent().siblings().children().removeClass('curr');
                 $this.addClass('curr');
                 scope.flowPackageItem = flowPackageItem;
-                writebdLog(scope.category, "优惠套餐", "渠道号", scope.gh);
+                writebdLog(scope.category, "_SelectPackage", "渠道号", scope.gh);//优惠套餐
             };
 
             scope.$watch('flowPackageItem', function (nv, ov, scope) {

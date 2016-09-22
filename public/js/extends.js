@@ -1,6 +1,7 @@
 'use strict';
 
 //全局统计
+var systemName="yfqapp";
 
 var userTrack = function (category, action, gh, value) {
 
@@ -167,10 +168,7 @@ function operation() {
     this.writeOperation = function () {
         var flag = false;
         var info = "flow=" + loc + "&operation=" + map.get('operation');
-        //------------传入后台时，去掉地址中的/#字符 modity by linwj 20160812
-        info = info.replace("\/\#", "");
-        //------------传入后台时，去掉地址中的/#字符 modity by linwj 20160812
-        var url = "http://m.gd189fq.com/record/writeLog.html?" + info;
+        var url = "http://m.gd189fq.com/record/writeLog.html?" + info + "&s=wap";
         $.ajax({
             type: "get",
             url: url,

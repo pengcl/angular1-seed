@@ -1,26 +1,26 @@
 {
   "double": false,
-  "productId": "257",
+  "productId": "259",
   "title": "[电信购机送话费] Apple iPhone 7 32G 玫瑰金 全网通4G手机",
-  "phoneNumber":"iPhone 7 Plus",
+  "phoneNumber":"iPhone 7",
   "subTitle": "预存5388元话费0元购机，信用卡12期0利息付款 预存款全额返还",
-  "flash": "32GB",
-  "price": "6388",
-  "markitPrice": "6388",
+  "flash": "128GB",
+  "price": "6188",
+  "markitPrice": "6188",
   "sold": "2436",
   "phoneImg": "/images/phones/iphone7/iphone-default.jpg",
   "recommend": [
     {
-      "productId": "256",
+      "productId": "259",
       "productName": "iPhone 7",
-      "price": "5388",
-      "selected": ""
+      "price": "6188",
+      "selected": "active"
     },
     {
-      "productId": "257",
+      "productId": "261",
       "productName": "iPhone 7 Plus",
-      "price": "6388",
-      "selected": "active"
+      "price": "6988",
+      "selected": ""
     }
   ],
   "colors": [
@@ -52,10 +52,10 @@
   ],
   "packages": [
     {
-      "productId": "263",
-      "price": "329",
-      "oldPrice": "329",
-      "network": "5.0G",
+      "productId": "258",
+      "price": "299",
+      "oldPrice": "304",
+      "network": "4.0G",
       "talkTime": "1500",
       "message": "50",
       "selected": "active"
@@ -63,17 +63,17 @@
   ],
   "storages": [
     {
-      "productId": "257",
+      "productId": "256",
       "flash": "32GB",
-      "selected": "curr"
-    },
-    {
-      "productId": "261",
-      "flash": "128GB",
       "selected": ""
     },
     {
-      "productId": "262",
+      "productId": "259",
+      "flash": "128GB",
+      "selected": "curr"
+    },
+    {
+      "productId": "260",
       "flash": "256GB",
       "selected": ""
     }

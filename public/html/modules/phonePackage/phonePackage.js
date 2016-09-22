@@ -1,6 +1,6 @@
 'use strict';
 
-app.directive("phonePackage", ['$http', '$stateParams', function ($http, $stateParams) {
+app.directive("phonePackage", ['$http', '$stateParams', '$q', function ($http, $stateParams, $q) {
     return {
         restrict: 'E',
         templateUrl: "modules/phonePackage/phonePackage.html",
@@ -18,21 +18,12 @@ app.directive("phonePackage", ['$http', '$stateParams', function ($http, $stateP
             scope.showTime = attrs.showTime;
 
 
-            //获取套餐列表
+            //获取默认选择套餐
             if (attrs.type == "phone") {
-                var apiUrl = "/data/phones/packages/" + $stateParams.phoneId + ".json";
+                scope.phonePackageItem = scope.phone.packages[0];
             } else {
-                var apiUrl = "/data/phonePackage.json";
+                scope.phonePackageItem = scope.phonePackageList[1];
             }
-            $http.get(apiUrl).success(function (data) {
-                scope.phonePackageList = data;
-                scope.phonePackageItem = data[1];
-                if (attrs.type == "phone") {
-                    scope.phonePackageItem = data[0];
-                } else {
-                    scope.phonePackageItem = data[1];
-                }
-            });
 
             //选择号码 对象类型
             scope.setPhonePackage = function (event, phonePackageItem) {
@@ -45,19 +36,9 @@ app.directive("phonePackage", ['$http', '$stateParams', function ($http, $stateP
 
             scope.showOverLay = function (targetId) {
                 var targetHtml = $("#" + targetId).html();
-                scope.$root.Overlay.open(targetHtml,scope.simList);
-                writebdLog(scope.category,"合约套餐介绍","渠道号",scope.gh);
+                scope.$root.Overlay.open(targetHtml, scope.simList);
+                writebdLog(scope.category, "合约套餐介绍", "渠道号", scope.gh);
             };
-
-            scope.$watch('phonePackageItem', function (nv, ov, scope) {
-                if (nv != ov) {
-                    if (attrs.type == "phone") {
-
-                    } else {
-                        scope.mainPrice = nv.price;
-                    }
-                }
-            });
         }
     };
 }]);

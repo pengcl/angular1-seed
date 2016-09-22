@@ -27,15 +27,18 @@ app.directive("footerNav", ['$http', function ($http) {
                 _MEIQIA('withoutBtn');
             };
 
+            scope.getSearch = function(){
+                writebdLog(scope.category, "_OrderQuery", "渠道号", scope.gh);//订单查询
+            };
+
             scope.getContent = function () {
                 getMeiqia();
                 //$("#contactUs").show();
                 _MEIQIA('showPanel');
-                writebdLog(scope.category, "客服", "渠道号", scope.gh);
+                writebdLog(scope.category, "_CustConsult", "渠道号", scope.gh);//客服咨询
             };
 
             function checkPhoneNumber() {
-                console.log(scope.checkoutForm.phoneNumber.$valid);
                 if (!scope.checkoutForm.phoneNumber.$valid) {
                     scope.showPickNumberPanel(3);
                     return false;
@@ -46,7 +49,7 @@ app.directive("footerNav", ['$http', function ($http) {
             scope.submitForm = function () {
                 if (attrs.checkPhone == "true") {
                     if (checkPhoneNumber()) {
-                        writebdLog(scope.category, "选择号码", "渠道号", scope.gh);
+                        writebdLog(scope.category, "_SelectNumber", "渠道号", scope.gh);//选择号码
                     } else {
                         $scrollTo = $('#chooseNumber');
                         $container.animate({
@@ -56,8 +59,8 @@ app.directive("footerNav", ['$http', function ($http) {
                     }
                 }
                 if (scope.checkAddress()) {
-                    writebdLog(scope.category, "收货地址", "渠道号", scope.gh);
-                    writebdLog(scope.category, "立即支付", "渠道号", scope.gh);
+                    writebdLog(scope.category, "_Address", "渠道号", scope.gh);//收货地址
+                    writebdLog(scope.category, "_BuyNow", "渠道号", scope.gh);//立即支付
                     $form.submit();
                 } else {
                     $scrollTo = $('#receiverAddress');

@@ -1,5 +1,5 @@
 <div id="phoneStorages" class="phone-storages">
-    <input type="hidden" value="{{storage.productId}}" name="machineId" id="machineId">
+    <input type="hidden" value="{{storage.productId}}" ng-model="storage.productId" name="machineId" id="machineId">
     <input type="hidden" name="machineStorage" id="machineStorage" ng-model="storage.flash" value="{{storage.flash}}" required>
     <div class="weui_cells_title title-icon"><span class="title" ng-bind="storageTitle"></span><span class="sub-title" ng-class="{true:'hide',false:''}[storageSubTitle == '']" ng-bind="storageSubTitle"></span></div>
     <div class="phone-storages-panel">

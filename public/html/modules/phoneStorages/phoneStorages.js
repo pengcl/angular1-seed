@@ -21,8 +21,7 @@ app.directive("phoneStorages", ['$http', 'Phone', function ($http, Phone) {
                 } else {
                     $this.parent().siblings().children().removeClass('curr');
                     $this.addClass('curr');
-                    scope.storage = storage;
-                    scope.mainPrice = storage.price;
+                    scope.productId = storage.productId;
                 }
             };
         }
