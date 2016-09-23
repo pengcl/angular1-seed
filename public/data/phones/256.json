@@ -58,7 +58,7 @@
       "network": "4.0G",
       "talkTime": "1500",
       "message": "50",
-      "selected": "active"
+      "selected": "curr"
     }
   ],
   "storages": [

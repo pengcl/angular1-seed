@@ -11,16 +11,16 @@
   "phoneImg": "/images/phones/iphone7/iphone-default.jpg",
   "phoneTypes": [
     {
-      "productId": "256",
+      "productId": "260",
       "productName": "iPhone 7",
       "price": "5388",
-      "selected": "active"
+      "selected": ""
     },
     {
-      "productId": "257",
+      "productId": "262",
       "productName": "iPhone 7 Plus",
-      "price": "6388",
-      "selected": ""
+      "price": "7988",
+      "selected": "curr"
     }
   ],
   "colors": [
@@ -58,7 +58,7 @@
       "network": "5.0G",
       "talkTime": "1500",
       "message": "50",
-      "selected": "active"
+      "selected": "curr"
     }
   ],
   "storages": [

@@ -20,7 +20,7 @@
       "productId": "257",
       "productName": "iPhone 7 Plus",
       "price": "6388",
-      "selected": "active"
+      "selected": "curr"
     }
   ],
   "colors": [
@@ -58,7 +58,7 @@
       "network": "5.0G",
       "talkTime": "1500",
       "message": "50",
-      "selected": "active"
+      "selected": "curr"
     }
   ],
   "storages": [

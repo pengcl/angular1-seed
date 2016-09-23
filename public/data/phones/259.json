@@ -14,7 +14,7 @@
       "productId": "259",
       "productName": "iPhone 7",
       "price": "6188",
-      "selected": "active"
+      "selected": "curr"
     },
     {
       "productId": "261",
@@ -58,7 +58,7 @@
       "network": "4.0G",
       "talkTime": "1500",
       "message": "50",
-      "selected": "active"
+      "selected": "curr"
     }
   ],
   "storages": [
