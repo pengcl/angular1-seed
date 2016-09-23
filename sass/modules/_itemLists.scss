@@ -1,6 +1,8 @@
 .item-lists {
-  margin-left: -0.04rem;
-  margin-right: -0.04rem;
+  &.minus {
+    margin-left: -0.04rem;
+    margin-right: -0.04rem;
+  }
   font-size: 0.12rem;
   .list-item {
     margin: 0;
@@ -12,19 +14,22 @@
     text-align: center;
     position: relative;
     background: #fff;
-    margin-left: 0.04rem;
-    margin-right: 0.04rem;
-    margin-top: 0.04rem;
-    margin-bottom: 0.04rem;
     font-size: 0.12rem;
-    border: 1px solid #999;
-    @include border-radius(0.04rem);
+    &.margin {
+      margin-left: 0.04rem;
+      margin-right: 0.04rem;
+      margin-top: 0.04rem;
+      margin-bottom: 0.04rem;
+    }
+    &.border {
+      border: 1px solid #999;
+    }
+    &.radius {
+      @include border-radius(0.04rem);
+    }
     //@include box-shadow(#d9d9d9 0px 0px 2px);
     &.small {
       padding:0.05rem;
-      font-size: 0.12rem !important;
-    }
-    &:after {
     }
 
     em {
@@ -74,9 +79,11 @@
 
     &.curr {
       //@include box-shadow($color-green 0px 0px 2px);
-      border: 1px solid $color-primary;
       color: $color-primary;
       font-weight: bold;
+      &.border {
+        border: 1px solid $color-primary;
+      }
       em {
         color: $color-primary;
       }

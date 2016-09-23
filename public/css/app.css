@@ -14,24 +14,25 @@ sub {
 .img-box img {
   display: block;
   width: 100%;
+  height: auto;
 }
 
-/* line 14, ../../sass/utils/_base.scss */
+/* line 15, ../../sass/utils/_base.scss */
 .text-r {
   text-align: right;
 }
 
-/* line 17, ../../sass/utils/_base.scss */
+/* line 18, ../../sass/utils/_base.scss */
 .text-l {
   text-align: left;
 }
 
-/* line 20, ../../sass/utils/_base.scss */
+/* line 21, ../../sass/utils/_base.scss */
 .text-c {
   text-align: center;
 }
 
-/* line 23, ../../sass/utils/_base.scss */
+/* line 24, ../../sass/utils/_base.scss */
 .ib {
   display: inline-block;
   vertical-align: middle;
@@ -40,27 +41,39 @@ sub {
   *display: inline;
 }
 
-/* line 26, ../../sass/utils/_base.scss */
+/* line 27, ../../sass/utils/_base.scss */
 .pure-u-offset-right-1-2 {
   margin-right: 50% !important;
   *margin-right: 49.969% !important;
 }
 
-/* line 30, ../../sass/utils/_base.scss */
+/* line 31, ../../sass/utils/_base.scss */
 .hide {
   display: none !important;
 }
 
-/* line 34, ../../sass/utils/_base.scss */
+/* line 35, ../../sass/utils/_base.scss */
 .bold {
   font-weight: 500;
 }
 
-/* line 37, ../../sass/utils/_base.scss */
+/* line 38, ../../sass/utils/_base.scss */
 .disabled {
   color: #999;
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=50);
   opacity: 0.5;
+}
+
+/* line 43, ../../sass/utils/_base.scss */
+.pd-w {
+  padding-left: 0.15rem;
+  padding-right: 0.15rem;
+}
+
+/* line 47, ../../sass/utils/_base.scss */
+.pd-h {
+  padding-top: 0.15rem;
+  padding-bottom: 0.15rem;
 }
 
 @font-face {
@@ -1615,56 +1628,87 @@ a:hover, a:focus {
   left: 50%;
 }
 
+/* line 94, ../../sass/modules/_title.scss */
+.title-icon {
+  position: relative;
+  padding-left: 0.28rem;
+}
+/* line 97, ../../sass/modules/_title.scss */
+.title-icon:before {
+  content: " ";
+  position: absolute;
+  left: 0.15rem;
+  height: 0.16rem;
+  top: 50%;
+  margin-top: -0.08rem;
+  background: #d83e14;
+  -moz-border-radius: 1rem;
+  -webkit-border-radius: 1rem;
+  border-radius: 1rem;
+  width: 0.05rem;
+}
+
 /* line 1, ../../sass/modules/_itemLists.scss */
 .item-lists {
-  margin-left: -0.04rem;
-  margin-right: -0.04rem;
   font-size: 0.12rem;
 }
-/* line 5, ../../sass/modules/_itemLists.scss */
+/* line 2, ../../sass/modules/_itemLists.scss */
+.item-lists.minus {
+  margin-left: -0.04rem;
+  margin-right: -0.04rem;
+}
+/* line 7, ../../sass/modules/_itemLists.scss */
 .item-lists .list-item {
   margin: 0;
   padding: 0;
 }
-/* line 10, ../../sass/modules/_itemLists.scss */
+/* line 12, ../../sass/modules/_itemLists.scss */
 .item-box {
   padding: 0.15rem;
   text-align: center;
   position: relative;
   background: #fff;
+  font-size: 0.12rem;
+}
+/* line 18, ../../sass/modules/_itemLists.scss */
+.item-box.margin {
   margin-left: 0.04rem;
   margin-right: 0.04rem;
   margin-top: 0.04rem;
   margin-bottom: 0.04rem;
-  font-size: 0.12rem;
+}
+/* line 24, ../../sass/modules/_itemLists.scss */
+.item-box.border {
   border: 1px solid #999;
+}
+/* line 27, ../../sass/modules/_itemLists.scss */
+.item-box.radius {
   -moz-border-radius: 0.04rem;
   -webkit-border-radius: 0.04rem;
   border-radius: 0.04rem;
 }
-/* line 23, ../../sass/modules/_itemLists.scss */
+/* line 31, ../../sass/modules/_itemLists.scss */
 .item-box.small {
   padding: 0.05rem;
-  font-size: 0.12rem !important;
 }
-/* line 30, ../../sass/modules/_itemLists.scss */
+/* line 35, ../../sass/modules/_itemLists.scss */
 .item-box em {
   color: #333;
   font-style: normal;
   font-size: 0.18rem;
 }
-/* line 36, ../../sass/modules/_itemLists.scss */
+/* line 41, ../../sass/modules/_itemLists.scss */
 .item-box del {
   font-size: 0.14rem;
   color: #999;
 }
-/* line 41, ../../sass/modules/_itemLists.scss */
+/* line 46, ../../sass/modules/_itemLists.scss */
 .item-box p {
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
 }
-/* line 47, ../../sass/modules/_itemLists.scss */
+/* line 52, ../../sass/modules/_itemLists.scss */
 .item-box ins {
   position: absolute;
   text-decoration: none;
@@ -1673,7 +1717,7 @@ a:hover, a:focus {
   right: 0rem;
   bottom: 0rem;
 }
-/* line 56, ../../sass/modules/_itemLists.scss */
+/* line 61, ../../sass/modules/_itemLists.scss */
 .item-box i {
   position: absolute;
   font-size: 0.2rem;
@@ -1690,22 +1734,25 @@ a:hover, a:focus {
   color: #fff;
   font-style: normal;
 }
-/* line 69, ../../sass/modules/_itemLists.scss */
+/* line 74, ../../sass/modules/_itemLists.scss */
 .item-box i img {
   display: block;
   width: 100%;
 }
-/* line 75, ../../sass/modules/_itemLists.scss */
+/* line 80, ../../sass/modules/_itemLists.scss */
 .item-box.curr {
-  border: 1px solid #d83e14;
   color: #d83e14;
   font-weight: bold;
 }
-/* line 80, ../../sass/modules/_itemLists.scss */
+/* line 84, ../../sass/modules/_itemLists.scss */
+.item-box.curr.border {
+  border: 1px solid #d83e14;
+}
+/* line 87, ../../sass/modules/_itemLists.scss */
 .item-box.curr em {
   color: #d83e14;
 }
-/* line 83, ../../sass/modules/_itemLists.scss */
+/* line 90, ../../sass/modules/_itemLists.scss */
 .item-box.curr ins {
   display: block;
 }
@@ -3187,116 +3234,87 @@ table th:after, table td:after {
 }
 
 /* line 3, ../../sass/pages/flow/_flowCardDetails.scss */
-.page.fd-details .flow-package-panel, .page.fd-details .phone-package-panel, .page.fd-details .phone-colors-panel, .page.fd-details .phone-storages-panel, .page.fd-details .paytype-panel, .page.p-details .flow-package-panel, .page.p-details .phone-package-panel, .page.p-details .phone-colors-panel, .page.p-details .phone-storages-panel, .page.p-details .paytype-panel {
-  padding-left: 0.15rem;
-  padding-right: 0.15rem;
-}
-/* line 7, ../../sass/pages/flow/_flowCardDetails.scss */
-.page.fd-details .sim-type-panel, .page.p-details .sim-type-panel {
-  padding-left: 0.15rem;
-  padding-right: 0.15rem;
-}
-/* line 11, ../../sass/pages/flow/_flowCardDetails.scss */
 .page.fd-details .product-header, .page.p-details .product-header {
   background: #fff;
 }
-/* line 14, ../../sass/pages/flow/_flowCardDetails.scss */
+/* line 6, ../../sass/pages/flow/_flowCardDetails.scss */
 .page.fd-details .content-scrollable, .page.p-details .content-scrollable {
   background: #fbf9fe !important;
 }
-/* line 17, ../../sass/pages/flow/_flowCardDetails.scss */
+/* line 9, ../../sass/pages/flow/_flowCardDetails.scss */
 .page.fd-details .weui_cells_title, .page.p-details .weui_cells_title {
   font-size: 0.2rem;
   color: #333;
   font-weight: bold;
   line-height: 0.32rem;
 }
-/* line 25, ../../sass/pages/flow/_flowCardDetails.scss */
-.page.fd-details.default .weui_cells_title.title-icon, .page.p-details.default .weui_cells_title.title-icon {
-  position: relative;
-  padding-left: 0.28rem;
-}
-/* line 28, ../../sass/pages/flow/_flowCardDetails.scss */
-.page.fd-details.default .weui_cells_title.title-icon:before, .page.p-details.default .weui_cells_title.title-icon:before {
-  content: " ";
-  position: absolute;
-  left: 0.15rem;
-  height: 0.16rem;
-  top: 50%;
-  margin-top: -0.08rem;
-  background: #d83e14;
-  -moz-border-radius: 1rem;
-  -webkit-border-radius: 1rem;
-  border-radius: 1rem;
-  width: 0.05rem;
-}
 
-/* line 45, ../../sass/pages/flow/_flowCardDetails.scss */
+/* line 18, ../../sass/pages/flow/_flowCardDetails.scss */
 .overlay.sim .weui_cell {
   -webkit-align-items: top;
   align-items: top;
 }
-/* line 48, ../../sass/pages/flow/_flowCardDetails.scss */
+/* line 21, ../../sass/pages/flow/_flowCardDetails.scss */
 .overlay.sim .weui_cell_hd {
   -webkit-align-self: top;
   align-self: top;
 }
-/* line 52, ../../sass/pages/flow/_flowCardDetails.scss */
+/* line 25, ../../sass/pages/flow/_flowCardDetails.scss */
 .overlay.sim .weui_cell_bd p {
   font-weight: 300;
   color: #999;
 }
-/* line 55, ../../sass/pages/flow/_flowCardDetails.scss */
+/* line 28, ../../sass/pages/flow/_flowCardDetails.scss */
 .overlay.sim .weui_cell_bd p.tit {
   font-size: 0.16rem;
   font-weight: bold;
   color: #333;
 }
-/* line 59, ../../sass/pages/flow/_flowCardDetails.scss */
+/* line 32, ../../sass/pages/flow/_flowCardDetails.scss */
 .overlay.sim .weui_cell_bd p s {
   color: #333;
   font-style: normal;
   text-decoration: none;
 }
-/* line 66, ../../sass/pages/flow/_flowCardDetails.scss */
+/* line 39, ../../sass/pages/flow/_flowCardDetails.scss */
 .overlay.sim .weui_panel {
   background: none;
   margin-top: 0;
 }
-/* line 69, ../../sass/pages/flow/_flowCardDetails.scss */
+/* line 42, ../../sass/pages/flow/_flowCardDetails.scss */
 .overlay.sim .weui_panel .weui_panel_hd {
   text-align: center;
 }
-/* line 71, ../../sass/pages/flow/_flowCardDetails.scss */
+/* line 44, ../../sass/pages/flow/_flowCardDetails.scss */
 .overlay.sim .weui_panel .weui_panel_hd:after {
   left: 0;
 }
-/* line 75, ../../sass/pages/flow/_flowCardDetails.scss */
+/* line 48, ../../sass/pages/flow/_flowCardDetails.scss */
 .overlay.sim .weui_panel .weui_panel_ft {
   text-align: center;
   padding-bottom: 0.2rem;
   color: #333;
 }
-/* line 79, ../../sass/pages/flow/_flowCardDetails.scss */
+/* line 52, ../../sass/pages/flow/_flowCardDetails.scss */
 .overlay.sim .weui_panel .weui_panel_ft:before {
   left: 0;
 }
-/* line 84, ../../sass/pages/flow/_flowCardDetails.scss */
+/* line 57, ../../sass/pages/flow/_flowCardDetails.scss */
 .overlay.sim .weui_cells {
   background: none;
 }
-/* line 87, ../../sass/pages/flow/_flowCardDetails.scss */
+/* line 60, ../../sass/pages/flow/_flowCardDetails.scss */
 .overlay.sim .weui_cells .weui_cell:before {
   left: 0;
 }
 
-/* line 94, ../../sass/pages/flow/_flowCardDetails.scss */
+/* line 67, ../../sass/pages/flow/_flowCardDetails.scss */
 .overlay.bottom {
   top: auto;
   background: #fff;
 }
 
-/* line 99, ../../sass/pages/flow/_flowCardDetails.scss */
+/* line 72, ../../sass/pages/flow/_flowCardDetails.scss */
 .module-tips {
   font-size: 0.12rem;
   color: #999;
@@ -3422,4 +3440,162 @@ table th:after, table td:after {
 .overlay.sim.in .weui_panel .weui_panel_ft {
   text-align: center;
   padding-bottom: 0.2rem;
+}
+
+/* line 3, ../../sass/pages/phone/_phoneDetails.scss */
+.p-details .product-header .price-area {
+  background: #DEBD7F;
+  font-size: 0.256rem;
+  line-height: 1;
+}
+/* line 7, ../../sass/pages/phone/_phoneDetails.scss */
+.p-details .product-header .price-area sub {
+  color: #d83e14;
+}
+/* line 10, ../../sass/pages/phone/_phoneDetails.scss */
+.p-details .product-header .price-area em {
+  color: #d83e14;
+}
+/* line 13, ../../sass/pages/phone/_phoneDetails.scss */
+.p-details .product-header .price-area ins {
+  background: #DEBD7F;
+  color: #d83e14;
+}
+/* line 17, ../../sass/pages/phone/_phoneDetails.scss */
+.p-details .product-header .price-area .timer-area {
+  color: #000;
+}
+/* line 20, ../../sass/pages/phone/_phoneDetails.scss */
+.p-details .product-header .price-area .timer-area .timer i {
+  background: #000;
+  color: #fff;
+}
+/* line 24, ../../sass/pages/phone/_phoneDetails.scss */
+.p-details .product-header .price-area .timer-area .timer sub {
+  color: #fff;
+}
+/* line 32, ../../sass/pages/phone/_phoneDetails.scss */
+.p-details .item-box.curr {
+  background: #DEBD7F;
+  color: #000;
+}
+/* line 35, ../../sass/pages/phone/_phoneDetails.scss */
+.p-details .item-box.curr.border {
+  border: 1px solid #DEBD7F;
+}
+/* line 38, ../../sass/pages/phone/_phoneDetails.scss */
+.p-details .item-box.curr ins {
+  display: none;
+}
+/* line 44, ../../sass/pages/phone/_phoneDetails.scss */
+.p-details .title-icon:before {
+  background: #DEBD7F;
+}
+/* line 49, ../../sass/pages/phone/_phoneDetails.scss */
+.p-details .price-table {
+  background: #e5e5e5;
+}
+/* line 51, ../../sass/pages/phone/_phoneDetails.scss */
+.p-details .price-table table {
+  font-size: 0.12rem;
+}
+/* line 53, ../../sass/pages/phone/_phoneDetails.scss */
+.p-details .price-table table:before {
+  display: none;
+}
+/* line 56, ../../sass/pages/phone/_phoneDetails.scss */
+.p-details .price-table table:after {
+  display: none;
+}
+/* line 59, ../../sass/pages/phone/_phoneDetails.scss */
+.p-details .price-table table th, .p-details .price-table table td {
+  background: #bababa;
+}
+/* line 61, ../../sass/pages/phone/_phoneDetails.scss */
+.p-details .price-table table th:before, .p-details .price-table table td:before {
+  border-right: 1px solid #e5e5e5;
+}
+/* line 64, ../../sass/pages/phone/_phoneDetails.scss */
+.p-details .price-table table th:after, .p-details .price-table table td:after {
+  border-bottom: 1px solid #e5e5e5;
+}
+/* line 67, ../../sass/pages/phone/_phoneDetails.scss */
+.p-details .price-table table th.imp-has-bg, .p-details .price-table table td.imp-has-bg {
+  background: #d83e14;
+  color: #fff;
+}
+/* line 71, ../../sass/pages/phone/_phoneDetails.scss */
+.p-details .price-table table th.imp, .p-details .price-table table td.imp {
+  color: #d83e14;
+}
+/* line 75, ../../sass/pages/phone/_phoneDetails.scss */
+.p-details .price-table table th.no-after:after, .p-details .price-table table td.no-after:after {
+  display: none;
+}
+/* line 80, ../../sass/pages/phone/_phoneDetails.scss */
+.p-details .price-table table th.no-before:before, .p-details .price-table table td.no-before:before {
+  display: none;
+}
+/* line 84, ../../sass/pages/phone/_phoneDetails.scss */
+.p-details .price-table table th.txt-l, .p-details .price-table table td.txt-l {
+  text-align: left;
+  padding: 0.1rem;
+}
+/* line 92, ../../sass/pages/phone/_phoneDetails.scss */
+.p-details .price-table.black table th, .p-details .price-table.black table td {
+  background: #000;
+  color: #fff;
+}
+/* line 99, ../../sass/pages/phone/_phoneDetails.scss */
+.p-details .why {
+  background: #debd7f;
+  padding: 0.15rem;
+  font-size: 0.12rem;
+}
+/* line 103, ../../sass/pages/phone/_phoneDetails.scss */
+.p-details .why .why-lists {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+/* line 109, ../../sass/pages/phone/_phoneDetails.scss */
+.p-details .why .why-lists li:last-child .why-box {
+  margin-bottom: 0;
+}
+/* line 115, ../../sass/pages/phone/_phoneDetails.scss */
+.p-details .why .why-box {
+  margin-bottom: 0.15rem;
+  font-size: 0.12rem;
+  background: #3c3c3c;
+  color: #fff;
+  padding: 0.15rem;
+}
+/* line 121, ../../sass/pages/phone/_phoneDetails.scss */
+.p-details .why .why-box h3 {
+  font-size: 0.16rem;
+  color: #debd7f;
+  font-weight: bold;
+}
+/* line 128, ../../sass/pages/phone/_phoneDetails.scss */
+.p-details .fqa {
+  background: #debd7f;
+  padding: 0.15rem;
+  font-size: 0.12rem;
+}
+/* line 132, ../../sass/pages/phone/_phoneDetails.scss */
+.p-details .fqa .fqa-lists {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+/* line 137, ../../sass/pages/phone/_phoneDetails.scss */
+.p-details .fqa .fqa-box {
+  margin-bottom: 0.15rem;
+  font-size: 0.12rem;
+}
+/* line 140, ../../sass/pages/phone/_phoneDetails.scss */
+.p-details .fqa .fqa-box h3 {
+  font-size: 0.16rem;
+  color: #d83e14;
+  font-weight: bold;
 }

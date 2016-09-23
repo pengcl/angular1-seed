@@ -13,13 +13,21 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
     //$scope.pageTitle = "首页";
     //$scope.$root.title = $scope.pageTitle;
 
-    $scope.appType = "phone";
+    $scope.appType = systemName+"_Iphone";
     $scope.category = $scope.appType;
+    
+    writebdLog($scope.category,"_Load","渠道号",$scope.gh);
 
     $scope.phone = Phone.get({
         phoneId: $stateParams.phoneId
     }, function (phone) {
         $scope.productId = phone.productId;
+    });
+
+    $("img.lazy").lazyload({
+        effect : "fadeIn",
+        skip_invisible : false,
+        container:$(".content-scrollable")
     });
 
     $scope.$watch('productId', function (n, o, $scope) {

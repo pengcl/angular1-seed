@@ -6,10 +6,10 @@
         <timer ng-if="showTime=='true'"></timer>
         <a class="question" ng-click="showOverLay('packageInfo')">什么是合约套餐?</a>
     </div>
-    <div class="phone-package-panel">
-        <ul class="phone-package-lists item-lists pure-g">
+    <div class="phone-package-panel pd-w">
+        <ul class="phone-package-lists item-lists minus pure-g">
             <li class="phone-package-item list-item pure-u-1-2" ng-repeat="phonePackageItem in phone.packages">
-                <div class="item-box" ng-click="setPhonePackage($event,phonePackageItem)" ng-class="{true: 'curr', false: ''}[phonePackageItem.selected == 'curr']">
+                <div class="item-box border margin radius" ng-click="setPhonePackage($event,phonePackageItem)" ng-class="{true: 'curr', false: ''}[phonePackageItem.selected == 'curr']">
                     <p>
                         <em><sub>￥</sub><span ng-bind-html="phonePackageItem.price | number:2 | formatMoney:-3 | trustHtml"></span></em>
                         <del><sub>￥</sub><span ng-bind="phonePackageItem.oldPrice"></span></del>

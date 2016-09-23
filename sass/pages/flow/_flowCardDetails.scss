@@ -1,13 +1,5 @@
 //严禁在此处写公共样式,此文件可随活动一起废弃.
 .page.fd-details,.page.p-details {
-  .flow-package-panel,.phone-package-panel,.phone-colors-panel,.phone-storages-panel,.paytype-panel {
-    padding-left: 0.15rem;
-    padding-right: 0.15rem;
-  }
-  .sim-type-panel {
-    padding-left: 0.15rem;
-    padding-right: 0.15rem;
-  }
   .product-header {
     background: #fff;
   }
@@ -19,25 +11,6 @@
     color: #333;
     font-weight: bold;
     line-height: 0.32rem;
-  }
-  &.default {
-    .weui_cells_title {
-      &.title-icon {
-        position: relative;
-        padding-left: 0.28rem;
-        &:before {
-          content: " ";
-          position: absolute;
-          left: 0.15rem;
-          height: 0.16rem;
-          top: 50%;
-          margin-top: -0.08rem;
-          background: $color-primary;
-          @include border-radius(1rem);
-          width: 0.05rem;
-        }
-      }
-    }
   }
 }
 

@@ -9,6 +9,7 @@ sub {
   img {
     display: block;
     width: 100%;
+    height: auto;
   }
 }
 .text-r {
@@ -37,4 +38,13 @@ sub {
 .disabled {
   color: #999;
   @include opacity(0.5);
+}
+
+.pd-w {
+  padding-left: 0.15rem;
+  padding-right: 0.15rem;
+}
+.pd-h {
+  padding-top: 0.15rem;
+  padding-bottom: 0.15rem;
 }

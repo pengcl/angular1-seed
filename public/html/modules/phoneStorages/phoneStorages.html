@@ -1,11 +1,10 @@
 <div id="phoneStorages" class="phone-storages">
-    <input type="hidden" value="{{storage.productId}}" ng-model="storage.productId" name="machineId" id="machineId">
     <input type="hidden" name="machineStorage" id="machineStorage" ng-model="storage.flash" value="{{storage.flash}}" required>
     <div class="weui_cells_title title-icon"><span class="title" ng-bind="storageTitle"></span><span class="sub-title" ng-class="{true:'hide',false:''}[storageSubTitle == '']" ng-bind="storageSubTitle"></span></div>
-    <div class="phone-storages-panel">
-        <ul class="phone-storages-lists item-lists pure-g">
+    <div class="phone-storages-panel pd-w">
+        <ul class="phone-storages-lists item-lists minus pure-g">
             <li class="phone-storages-item list-item pure-u-1-4" ng-repeat="storage in phone.storages">
-                <div class="item-box small {{storage.selected}}" ng-click="setPhoneStorage($event,storage)">
+                <div class="item-box border radius margin small {{storage.selected}}" ng-click="setPhoneStorage($event,storage)">
                     <p>
                         <span ng-bind="storage.flash"></span>
                     </p>

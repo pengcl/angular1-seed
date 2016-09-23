@@ -59,7 +59,6 @@ app.directive("footerNav", ['$http', function ($http) {
                     }
                 }
                 if (scope.checkAddress()) {
-                    writebdLog(scope.category, "_Address", "渠道号", scope.gh);//收货地址
                     writebdLog(scope.category, "_BuyNow", "渠道号", scope.gh);//立即支付
                     $form.submit();
                 } else {

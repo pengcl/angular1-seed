@@ -90,3 +90,19 @@
     left: 50%;
   }
 }
+
+.title-icon {
+  position: relative;
+  padding-left: 0.28rem;
+  &:before {
+    content: " ";
+    position: absolute;
+    left: 0.15rem;
+    height: 0.16rem;
+    top: 50%;
+    margin-top: -0.08rem;
+    background: $color-primary;
+    @include border-radius(1rem);
+    width: 0.05rem;
+  }
+}

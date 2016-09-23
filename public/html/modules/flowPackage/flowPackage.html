@@ -5,10 +5,10 @@
         <span class="sub-title" ng-class="{true:'hide',false:''}[packageSubTitle == '']" ng-bind="packageSubTitle"></span>
         <timer ng-if="showTime=='true'"></timer>
     </div>
-    <div class="flow-package-panel">
-        <ul class="flow-package-lists item-lists pure-g">
+    <div class="flow-package-panel pd-w">
+        <ul class="flow-package-lists item-lists minus pure-g">
             <li class="flow-package-item list-item pure-u-1-2" ng-class="{true:'pure-u-offset-right-1-2',false:''}[flowPackageItem.n=='10GB全国流量']" ng-repeat="flowPackageItem in flowPackageList | orderBy:fs:true">
-                <div class="item-box" ng-click="setFlowPackage($event,flowPackageItem)" ng-class="{true: 'curr', false: ''}[flowPackageItem.n == '8GB全国流量']">
+                <div class="item-box margin radius border" ng-click="setFlowPackage($event,flowPackageItem)" ng-class="{true: 'curr', false: ''}[flowPackageItem.n == '8GB全国流量']">
                     <p>
                         <em><span ng-bind="flowPackageItem.fs | GB"></span>G</em>
                     </p>

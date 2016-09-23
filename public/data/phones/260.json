@@ -9,7 +9,7 @@
   "markitPrice": "6988",
   "sold": "2436",
   "phoneImg": "/images/phones/iphone7/iphone-default.jpg",
-  "recommend": [
+  "phoneTypes": [
     {
       "productId": "260",
       "productName": "iPhone 7",

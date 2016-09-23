@@ -1,0 +1,147 @@
+.p-details {
+  .product-header {
+    .price-area {
+      background: #DEBD7F;
+      font-size: 0.256rem;
+      line-height: 1;
+      sub {
+        color: $color-primary;
+      }
+      em {
+        color: $color-primary;
+      }
+      ins {
+        background: #DEBD7F;
+        color: $color-primary;
+      }
+      .timer-area {
+        color: #000;
+        .timer {
+          i {
+            background: #000;
+            color: #fff;
+          }
+          sub {
+            color: #fff;
+          }
+        }
+      }
+    }
+  }
+  .item-box {
+    &.curr {
+      background: #DEBD7F;
+      color: #000;
+      &.border {
+        border: 1px solid #DEBD7F;
+      }
+      ins {
+        display: none;
+      }
+    }
+  }
+  .title-icon {
+    &:before {
+      background: #DEBD7F;
+    }
+  }
+
+  .price-table {
+    background: #e5e5e5;
+    table {
+      font-size: 0.12rem;
+      &:before {
+        display: none;
+      }
+      &:after {
+        display: none;
+      }
+      th, td {
+        background: #bababa;
+        &:before {
+          border-right: 1px solid #e5e5e5;
+        }
+        &:after {
+          border-bottom: 1px solid #e5e5e5;
+        }
+        &.imp-has-bg {
+          background: $color-primary;
+          color: #fff;
+        }
+        &.imp {
+          color: $color-primary;
+        }
+        &.no-after {
+          &:after {
+            display: none;
+          }
+        }
+        &.no-before {
+          &:before {
+            display: none;
+          }
+        }
+        &.txt-l {
+          text-align: left;
+          padding: 0.1rem;
+        }
+      }
+    }
+    &.black {
+      table {
+        th, td {
+          background: #000;
+          color: #fff;
+        }
+      }
+    }
+  }
+  .why {
+    background: #debd7f;
+    padding: 0.15rem;
+    font-size: 0.12rem;
+    .why-lists {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      li {
+        &:last-child {
+          .why-box {
+            margin-bottom: 0;
+          }
+        }
+      }
+    }
+    .why-box {
+      margin-bottom: 0.15rem;
+      font-size: 0.12rem;
+      background: #3c3c3c;
+      color: #fff;
+      padding:0.15rem;
+      h3 {
+        font-size: 0.16rem;
+        color: #debd7f;
+        font-weight: bold;
+      }
+    }
+  }
+  .fqa {
+    background: #debd7f;
+    padding: 0.15rem;
+    font-size: 0.12rem;
+    .fqa-lists {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    .fqa-box {
+      margin-bottom: 0.15rem;
+      font-size: 0.12rem;
+      h3 {
+        font-size: 0.16rem;
+        color: $color-primary;
+        font-weight: bold;
+      }
+    }
+  }
+}

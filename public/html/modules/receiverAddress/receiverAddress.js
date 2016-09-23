@@ -96,6 +96,7 @@ app.directive("receiverAddress", ["$compile", "$cookieStore", function ($compile
                 stockShow();
                 dataAreaShow(0);
                 tabShow(0);
+                writebdLog(scope.category, "_Address", "渠道号", scope.gh);//收货地址
             });
 
             //址选择器顶栏点击事件
