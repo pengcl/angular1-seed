@@ -17,26 +17,17 @@ app.directive("phonePackage", ['$http', '$stateParams', '$q', function ($http, $
             //获取timer值 布尔类型
             scope.showTime = attrs.showTime;
 
-
-            //获取默认选择套餐
-            if (attrs.type == "phone") {
-                scope.package = scope.phone.packages[0];
-            } else {
-                scope.package = scope.phonePackageList[1];
-            }
-
             //选择号码 对象类型
-            scope.setPhonePackage = function (event, phonePackageItem) {
+            scope.setPhonePackage = function (event, pkg) {
                 event.preventDefault();
                 var $this = $(event.currentTarget);
                 $this.parent().siblings().children().removeClass('curr');
                 $this.addClass('curr');
-                scope.package = phonePackageItem;
+                scope.pkg = pkg;
                 writebdLog(scope.category,"_SelectPackage","渠道号",scope.gh);//选择套餐
             };
 
             scope.showOverLay = function (targetId) {
-                console.log(scope.package);
                 var targetHtml = $("#" + targetId).html();
                 scope.$root.Overlay.open(targetHtml);
                 writebdLog(scope.category, "_IsContractPackage", "渠道号", scope.gh);//合约套餐介绍

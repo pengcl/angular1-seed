@@ -1,5 +1,5 @@
 <div id="phonePackage" class="phone-package">
-    <input type="hidden" name="productId" id="productId" value="{{package.productId}}" required class="weui_input">
+    <input type="hidden" name="productId" id="productId" value="{{pkg.productId}}" required class="weui_input">
     <div class="weui_cells_title title-icon">
         <span class="title" ng-bind="packageTitle"></span>
         <span class="sub-title" ng-class="{true:'hide',false:''}[packageSubTitle == '']" ng-bind="packageSubTitle"></span>
@@ -8,15 +8,15 @@
     </div>
     <div class="phone-package-panel pd-w">
         <ul class="phone-package-lists item-lists minus pure-g">
-            <li class="phone-package-item list-item pure-u-1-2" ng-repeat="phonePackageItem in phone.packages">
-                <div class="item-box border margin radius" ng-click="setPhonePackage($event,phonePackageItem)" ng-class="{true: 'curr', false: ''}[phonePackageItem.selected == 'curr']">
+            <li class="phone-package-item list-item pure-u-1-2" ng-repeat="pkg in phone.packages">
+                <div class="item-box border margin radius" ng-click="setPhonePackage($event,pkg)" ng-class="{true: 'curr', false: ''}[pkg.selected == 'curr']">
                     <p>
-                        <em><sub>￥</sub><span ng-bind-html="phonePackageItem.price | number:2 | formatMoney:-3 | trustHtml"></span></em>
+                        <em><sub>￥</sub><span ng-bind-html="pkg.oldPrice | number:2 | formatMoney:-3 | trustHtml"></span></em>
                         <!--<del><sub>￥</sub><span ng-bind="phonePackageItem.oldPrice"></span></del>-->
                     </p>
                     <p>
-                        <span ng-bind="phonePackageItem.network"></span><span>流量</span>
-                        <span ng-bind="phonePackageItem.talkTime"></span><span>分钟</span>
+                        <span ng-bind="pkg.network"></span><span>流量</span>
+                        <span ng-bind="pkg.talkTime"></span><span>分钟</span>
                     </p>
                     <ins class="icon-check"></ins>
                 </div>
@@ -44,13 +44,13 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr ng-repeat="package in phone.packages">
-                                    <td><a>299元</a></td>
+                                <tr>
+                                    <td><a><span ng-bind="pkg.oldPrice"></span>元</a></td>
                                     <td><a><span ng-bind="phone.return"></span>元</a></td>
                                     <td><a>36个月</a></td>
-                                    <td><a><span ng-bind="package.price"></span>元</a></td>
-                                    <td><a><span ng-bind="package.network"></span></a></td>
-                                    <td><a><span ng-bind="package.talkTime"></span>分钟</a></td>
+                                    <td><a><span ng-bind="pkg.price"></span>元</a></td>
+                                    <td><a><span ng-bind="pkg.network"></span></a></td>
+                                    <td><a><span ng-bind="pkg.talkTime"></span>分钟</a></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -61,7 +61,7 @@
                     </div>
                     <div class="weui_media_box weui_media_text">
                         <h4 class="weui_media_title">缴费时间</h4>
-                        <p class="weui_media_desc">每月8号前仅需网上<a href="javascript:;">充值<span ng-bind="package.price"></span>元</a>即可，充值后，返还的149元系统将在每月<a href="javascript:;">9--13号</a>到账。</p>
+                        <p class="weui_media_desc">每月8号前仅需网上<a href="javascript:;">充值<span ng-bind="pkg.price"></span>元</a>即可，充值后，返还的149元系统将在每月<a href="javascript:;">9--13号</a>到账。</p>
                         <p class="weui_media_desc" style="margin-top: 0.1rem;">本优惠套餐为合约机优惠套餐，与手机捆绑使用才可享受优惠。</p>
                     </div>
                 </div>
