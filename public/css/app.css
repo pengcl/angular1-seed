@@ -2615,12 +2615,24 @@ table th:after, table td:after {
 .owl-carousel {
   font-size: 0;
 }
+/* line 3, ../../sass/modules/_owlCarousel.scss */
+.owl-carousel .owl-controls {
+  position: absolute;
+  bottom: 0.1rem;
+  z-index: 1;
+  width: 100%;
+  text-align: center;
+}
+/* line 9, ../../sass/modules/_owlCarousel.scss */
+.owl-carousel .owl-controls .owl-buttons {
+  display: none;
+}
 
-/* line 4, ../../sass/modules/_owlCarousel.scss */
+/* line 14, ../../sass/modules/_owlCarousel.scss */
 .carousel-item {
   width: 100%;
 }
-/* line 6, ../../sass/modules/_owlCarousel.scss */
+/* line 16, ../../sass/modules/_owlCarousel.scss */
 .carousel-item img {
   display: block;
   width: 100%;
@@ -3445,8 +3457,8 @@ table th:after, table td:after {
 /* line 3, ../../sass/pages/phone/_phoneDetails.scss */
 .p-details .product-header .price-area {
   background: #DEBD7F;
-  font-size: 0.256rem;
-  line-height: 1;
+  font-size: 0.22rem;
+  line-height: 1.1;
 }
 /* line 7, ../../sass/pages/phone/_phoneDetails.scss */
 .p-details .product-header .price-area sub {

@@ -6,11 +6,11 @@
         <input type="hidden" value="{{phone.productId}}" ng-model="phone.productId" name="machineId" id="machineId">
         <gh></gh>
         <div class="content-scrollable has-footer">
-            <div class="owl-carousel" img-urls="['/images/phones/iphone7/owl/iphone7-2.jpg','/images/phones/iphone7/owl/iphone7-3.jpg']" options="{loop: true,margin: 0,autoPlay: 3000,items: 1}"></div>
+            <div class="owl-carousel" img-urls="['/images/phones/iphone7/owl/iphone7-1.jpg','/images/phones/iphone7/owl/iphone7-2.jpg','/images/phones/iphone7/owl/iphone7-3.jpg']" options="{loop: true,margin: 0,autoPlay: 3000,items: 1}"></div>
             <div class="product-header" style="margin-top: 0.55rem">
                 <div class="price-area price-absolute">
                     <ins>限时特价</ins>
-                    <sub class="bold">￥</sub><em class="bold" ng-bind="mainPrice"></em><sub class="bold">.00</sub>
+                    <sub class="bold">月供：￥</sub><em class="bold" ng-bind="mainPrice/12 | number:0"></em><sub class="bold">.00 x 12期</sub>
                     <div class="timer-area">
                         <p class="timer-label">距活动结束还剩余</p>
                         <timer></timer>

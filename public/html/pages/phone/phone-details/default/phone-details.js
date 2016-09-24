@@ -39,6 +39,9 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
                 //选择默认内存
                 $scope.storage = phone.storages[getIndex(phone.storages, "curr")];
 
+                $scope.package = phone.packages[0];
+                console.log($scope.package);
+
                 $scope.phoneType = phone.phoneTypes[getIndex(phone.phoneTypes, "curr")];
 
                 $scope.mainPrice = phone.price;

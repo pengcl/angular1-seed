@@ -20,9 +20,9 @@ app.directive("phonePackage", ['$http', '$stateParams', '$q', function ($http, $
 
             //获取默认选择套餐
             if (attrs.type == "phone") {
-                scope.phonePackageItem = scope.phone.packages[0];
+                scope.package = scope.phone.packages[0];
             } else {
-                scope.phonePackageItem = scope.phonePackageList[1];
+                scope.package = scope.phonePackageList[1];
             }
 
             //选择号码 对象类型
@@ -31,13 +31,14 @@ app.directive("phonePackage", ['$http', '$stateParams', '$q', function ($http, $
                 var $this = $(event.currentTarget);
                 $this.parent().siblings().children().removeClass('curr');
                 $this.addClass('curr');
-                scope.phonePackageItem = phonePackageItem;
+                scope.package = phonePackageItem;
                 writebdLog(scope.category,"_SelectPackage","渠道号",scope.gh);//选择套餐
             };
 
             scope.showOverLay = function (targetId) {
+                console.log(scope.package);
                 var targetHtml = $("#" + targetId).html();
-                scope.$root.Overlay.open(targetHtml, scope.simList);
+                scope.$root.Overlay.open(targetHtml);
                 writebdLog(scope.category, "_IsContractPackage", "渠道号", scope.gh);//合约套餐介绍
             };
         }

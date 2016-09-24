@@ -9,6 +9,7 @@
   "price": "6988",
   "markitPrice": "6988",
   "sold": "2436",
+  "return":"5388",
   "phoneImg": "/images/phones/iphone7/iphone-default.jpg",
   "phoneTypes": [
     {
@@ -54,8 +55,8 @@
   "packages": [
     {
       "productId": "258",
-      "price": "299",
-      "oldPrice": "304",
+      "price": "149",
+      "oldPrice": "299",
       "network": "4.0G",
       "talkTime": "1500",
       "message": "50",

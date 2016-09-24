@@ -1,5 +1,15 @@
 .owl-carousel {
   font-size: 0;
+  .owl-controls {
+    position: absolute;
+    bottom:0.1rem;
+    z-index: 1;
+    width: 100%;
+    text-align: center;
+    .owl-buttons {
+      display: none;
+    }
+  }
 }
 .carousel-item {
   width: 100%;
