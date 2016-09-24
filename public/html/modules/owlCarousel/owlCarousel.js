@@ -19,7 +19,8 @@ app.directive("owlCarousel", ['$http','$compile', function ($http,$compile) {
                     navigation : true, // Show next and prev buttons
                     slideSpeed : 300,
                     paginationSpeed : 400,
-                    singleItem:true
+                    singleItem:true,
+                    autoPlay:3000
                 });
             }
         }

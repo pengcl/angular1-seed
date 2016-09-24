@@ -23,7 +23,7 @@ app.directive("chooseNumber", ["$compile", function ($compile) {
                     $span.eq(curr).attr("class", "old");
                     $span.eq(curr + 1).attr("class", "curr");
                     if (curr < 10) {
-                        scope.showPickNumberPanel(curr + 1);
+                        scope.showPickNumberPanel(curr + 1,'selectNumber');
                         $("#num-sure").removeClass("active");
                         $("#num-reset").removeClass("active");
                         return true;
@@ -43,9 +43,10 @@ app.directive("chooseNumber", ["$compile", function ($compile) {
                 } else {
                     return false;
                 }
+                
             };
 
-            scope.showPickNumberPanel = function (pos) {
+            scope.showPickNumberPanel = function (pos,isWrite) {
                 var i, numNow;
                 numNow = "";
                 curr = pos;
@@ -71,8 +72,19 @@ app.directive("chooseNumber", ["$compile", function ($compile) {
                         }
                     });
                     $numberList.slideDown();
+                    //如果是输入号码，不需要记录行为 
+                    if(isWrite!='selectNumber')
+                    {
+	                    writebdLog(scope.category, "_SelectNumber", "渠道号", scope.gh);//选择号码
+                    } 
                 }
             };
+
+            scope.reChooseNumber = function () {
+                scope.showPickNumberPanel(3,'selectNumber');
+                writebdLog(scope.category, "_AgainNumber", "渠道号", scope.gh);//重新选号
+            };
+
             scope.$watch('phoneData', function (newVal, oldVal, scope) {
                 if (newVal !== oldVal) {
                     //scope.showPickNumberPanel(3);

@@ -12,11 +12,11 @@
                 <div class="item-box border margin radius" ng-click="setPhonePackage($event,phonePackageItem)" ng-class="{true: 'curr', false: ''}[phonePackageItem.selected == 'curr']">
                     <p>
                         <em><sub>￥</sub><span ng-bind-html="phonePackageItem.price | number:2 | formatMoney:-3 | trustHtml"></span></em>
-                        <del><sub>￥</sub><span ng-bind="phonePackageItem.oldPrice"></span></del>
+                        <!--<del><sub>￥</sub><span ng-bind="phonePackageItem.oldPrice"></span></del>-->
                     </p>
                     <p>
                         <span ng-bind="phonePackageItem.network"></span><span>流量</span>
-                        <span ng-bind="phonePackageItem.talkTime"></span><span>分钟通话</span>
+                        <span ng-bind="phonePackageItem.talkTime"></span><span>分钟</span>
                     </p>
                     <ins class="icon-check"></ins>
                 </div>

@@ -24,6 +24,7 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
         $scope.productId = phone.productId;
     });
 
+    //初始化图片按需加载
     $("img.lazy").lazyload({
         effect : "fadeIn",
         skip_invisible : false,
@@ -34,9 +35,6 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
         if (n != o) {
             $http.get('/data/phones/' + $scope.productId + '.json').success(function (phone) {
                 $scope.phone = phone;
-
-                //选择默认颜色
-                $scope.color = phone.colors[getIndex(phone.colors, "curr")];
 
                 //选择默认内存
                 $scope.storage = phone.storages[getIndex(phone.storages, "curr")];

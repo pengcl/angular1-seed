@@ -9,6 +9,12 @@ app.directive("footerNav", ['$http', function ($http) {
             var $container = $('.content-scrollable');
             var $scrollTo;
 
+            if(scope.payType == 1){
+                scope.payTypeName = "立即分期";
+            }else {
+                scope.payTypeName = "立即支付";
+            }
+
             scope.checks = eval(attrs.checks);
 
             var getMeiqia = function () {
@@ -49,7 +55,7 @@ app.directive("footerNav", ['$http', function ($http) {
             scope.submitForm = function () {
                 if (attrs.checkPhone == "true") {
                     if (checkPhoneNumber()) {
-                        writebdLog(scope.category, "_SelectNumber", "渠道号", scope.gh);//选择号码
+                        //writebdLog(scope.category, "_SelectNumber", "渠道号", scope.gh);//选择号码
                     } else {
                         $scrollTo = $('#chooseNumber');
                         $container.animate({

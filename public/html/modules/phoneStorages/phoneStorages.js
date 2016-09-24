@@ -22,6 +22,7 @@ app.directive("phoneStorages", ['$http', 'Phone', function ($http, Phone) {
                     $this.parent().siblings().children().removeClass('curr');
                     $this.addClass('curr');
                     scope.productId = storage.productId;
+                    writebdLog(scope.category,"_FuselageMemory","渠道号",scope.gh);//选择机身内存
                 }
             };
         }

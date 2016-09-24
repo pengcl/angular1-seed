@@ -1,12 +1,12 @@
 <div class="page p-details default">
-    <top-nav page-title="首页" page-back="menu" nav-visibility="hide"></top-nav>
+    <top-nav page-title="翼分期商城" page-back="menu" nav-visibility="hide"></top-nav>
     <!--<form id="checkoutForm" name="checkoutForm" action="http://2b2fda71.ngrok.natapp.cn/wap/taokafanghaoNew/submitOrderMachine.html" method="post" novalidate>-->
     <form id="checkoutForm" name="checkoutForm" action="http://m.gd189fq.com/wap/taokafanghaoNew/submitOrderMachine.html" method="post" novalidate>
         <input type="hidden" value="1" name="monthNumber" id="monthNumber">
         <input type="hidden" value="{{phone.productId}}" ng-model="phone.productId" name="machineId" id="machineId">
         <gh></gh>
         <div class="content-scrollable has-footer">
-            <div class="owl-carousel" img-urls="['/images/phones/iphone7/owl/iphone7-1.jpg','/images/phones/iphone7/owl/iphone7-2.jpg','/images/phones/iphone7/owl/iphone7-3.jpg']" options="{loop: true,margin: 0,autoPlay: 3000,items: 1}"></div>
+            <div class="owl-carousel" img-urls="['/images/phones/iphone7/owl/iphone7-2.jpg','/images/phones/iphone7/owl/iphone7-3.jpg']" options="{loop: true,margin: 0,autoPlay: 3000,items: 1}"></div>
             <div class="product-header" style="margin-top: 0.55rem">
                 <div class="price-area price-absolute">
                     <ins>限时特价</ins>
@@ -25,12 +25,12 @@
             <phone-colors title="机身颜色" sub-title=""></phone-colors>
             <phone-storages title="机身内存" sub-title=""></phone-storages>
             <phone-package title="选择套餐" sub-title="" type="phone" ng-if="phone.packages"></phone-package>
-            <pay-type title="选择支付" sub-title=""></pay-type>
+            <pay-type title="选择支付" sub-title="" visibility="false"></pay-type>
             <choose-number title="请选择合约套餐手机号码"></choose-number>
-            <sim-type title="流量卡类型" add-class="bottom" size="s"></sim-type>
+            <!-- <sim-type title="流量卡类型" add-class="bottom" size="s"></sim-type> -->
             <receiver-address title="收货地址"></receiver-address>
 
-            <div class="img-box">
+            <div id="imgStart" class="img-box">
                 <img class="lazy" data-original="/images/phones/assets/1.gif">
             </div>
             <div class="img-box">
@@ -168,7 +168,7 @@
                     <tr>
                         <td colspan="6" class="no-before txt-l">
                             <p>套餐合约期：36个月</p>
-                            <p>赠送规则：每月赠送150元，连续赚送35个月，最后一个月赠送138元，合计：5388元</p>
+                            <p>赠送规则：每月赠送150元，连续赠送35个月，最后一个月赠送138元，合计：5388元</p>
                         </td>
                     </tr>
                     </tbody>
@@ -178,6 +178,17 @@
             <div class="img-box">
                 <img class="lazy" data-original="/images/phones/assets/5.gif">
             </div>
+
+            <div class="img-box">
+                <img class="lazy" data-original="/images/phones/assets/6.jpg">
+            </div>
+            <div class="img-box">
+                <img class="lazy" data-original="/images/phones/assets/7.gif">
+            </div>
+            <div class="img-box">
+                <img class="lazy" data-original="/images/phones/assets/11.jpg">
+            </div>
+
             <div class="why">
                 <ul class="why-lists">
                     <li class="why-item">
@@ -205,13 +216,6 @@
                         </div>
                     </li>
                 </ul>
-            </div>
-
-            <div class="img-box">
-                <img class="lazy" data-original="/images/phones/assets/6.jpg">
-            </div>
-            <div class="img-box">
-                <img class="lazy" data-original="/images/phones/assets/7.gif">
             </div>
 
             <div class="img-box">
@@ -244,8 +248,11 @@
                 <img class="lazy" data-original="/images/phones/assets/9.gif">
             </div>
 
-            <div class="product-details" style="margin-top: 0.2rem">
+            <div class="product-details">
                 <div class="img-box"><img class="lazy" data-original="/images/phones/iphone7/iphone7-details.jpg"></div>
+            </div>
+            <div class="img-box">
+                <img class="lazy" data-original="/images/phones/assets/10.gif">
             </div>
             <step-buy></step-buy>
         </div>

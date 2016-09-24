@@ -32,12 +32,13 @@ app.directive("phonePackage", ['$http', '$stateParams', '$q', function ($http, $
                 $this.parent().siblings().children().removeClass('curr');
                 $this.addClass('curr');
                 scope.phonePackageItem = phonePackageItem;
+                writebdLog(scope.category,"_SelectPackage","渠道号",scope.gh);//选择套餐
             };
 
             scope.showOverLay = function (targetId) {
                 var targetHtml = $("#" + targetId).html();
                 scope.$root.Overlay.open(targetHtml, scope.simList);
-                writebdLog(scope.category, "合约套餐介绍", "渠道号", scope.gh);
+                writebdLog(scope.category, "_IsContractPackage", "渠道号", scope.gh);//合约套餐介绍
             };
         }
     };

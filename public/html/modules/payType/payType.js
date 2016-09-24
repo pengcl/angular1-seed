@@ -8,6 +8,11 @@ app.directive("payType", ['$location', function ($location) {
             //模块标题
             scope.payTypeTitle = attrs.title;
             scope.payTypeSubTitle = attrs.subTitle;
+            scope.visibility = attrs.visibility;
+
+            if(scope.visibility === "false"){
+                $(element).addClass("hide");
+            }
 
             scope.payType = 1;
 

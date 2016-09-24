@@ -3100,15 +3100,15 @@ table th:after, table td:after {
   position: fixed;
   right: 0.10rem;
   top: 30%;
-  -moz-box-shadow: rgba(0, 0, 0, 0.4) 0 0 25px, 0 1px 1px 0 #74d077 inset;
-  -webkit-box-shadow: rgba(0, 0, 0, 0.4) 0 0 25px, 0 1px 1px 0 #74d077 inset;
-  box-shadow: rgba(0, 0, 0, 0.4) 0 0 25px, 0 1px 1px 0 #74d077 inset;
-  background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuNSIgeTE9IjAuMCIgeDI9IjAuNSIgeTI9IjEuMCI+PHN0b3Agb2Zmc2V0PSIwcHgiIHN0b3AtY29sb3I9IiMwMGMzMDciLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMwMzkxMDMiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyYWQpIiAvPjwvc3ZnPiA=');
+  -moz-box-shadow: rgba(0, 0, 0, 0.4) 0 0 10px, 0 1px 1px 0 #d83e14 inset;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.4) 0 0 10px, 0 1px 1px 0 #d83e14 inset;
+  box-shadow: rgba(0, 0, 0, 0.4) 0 0 10px, 0 1px 1px 0 #d83e14 inset;
+  background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuNSIgeTE9IjAuMCIgeDI9IjAuNSIgeTI9IjEuMCI+PHN0b3Agb2Zmc2V0PSIwcHgiIHN0b3AtY29sb3I9IiNmNDM1MzAiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNkODNlMTQiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyYWQpIiAvPjwvc3ZnPiA=');
   background-size: 100%;
-  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0px, #00c307), color-stop(100%, #039103));
-  background-image: -moz-linear-gradient(top, #00c307 0px, #039103 100%);
-  background-image: -webkit-linear-gradient(top, #00c307 0px, #039103 100%);
-  background-image: linear-gradient(to bottom, #00c307 0px, #039103 100%);
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0px, #f43530), color-stop(100%, #d83e14));
+  background-image: -moz-linear-gradient(top, #f43530 0px, #d83e14 100%);
+  background-image: -webkit-linear-gradient(top, #f43530 0px, #d83e14 100%);
+  background-image: linear-gradient(to bottom, #f43530 0px, #d83e14 100%);
   display: table;
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=50);
   opacity: 0.5;
@@ -3116,10 +3116,10 @@ table th:after, table td:after {
   -o-transition-property: opacity;
   -webkit-transition-property: opacity;
   transition-property: opacity;
-  -moz-transition-duration: 7000;
-  -o-transition-duration: 7000;
-  -webkit-transition-duration: 7000;
-  transition-duration: 7000;
+  -moz-transition-duration: 0.2s;
+  -o-transition-duration: 0.2s;
+  -webkit-transition-duration: 0.2s;
+  transition-duration: 0.2s;
   -moz-transition-timing-function: ease-in;
   -o-transition-timing-function: ease-in;
   -webkit-transition-timing-function: ease-in;
@@ -3137,7 +3137,7 @@ table th:after, table td:after {
   color: #fff;
   font-size: 0.17rem;
   line-height: 0.20rem;
-  text-shadow: rgba(3, 145, 3, 0.4);
+  text-shadow: rgba(216, 62, 20, 0.4);
 }
 
 /* line 1, ../../sass/modules/_copyRight.scss */

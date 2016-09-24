@@ -7,7 +7,6 @@ app.directive("phoneTypes", ['$http', 'Phone', function ($http, Phone) {
         link: function (scope, element, attrs) {
 
             //模块标题
-            console.log(attrs.title);
             scope.phoneTypeTitle = attrs.title;
             scope.phoneTypeSubTitle = attrs.subTitle;
 
@@ -23,6 +22,7 @@ app.directive("phoneTypes", ['$http', 'Phone', function ($http, Phone) {
                     $this.parent().siblings().children().removeClass('curr');
                     $this.addClass('curr');
                     scope.productId = phoneType.productId;
+                    writebdLog(scope.category,"_SelectVersion","渠道号",scope.gh);//选择版本
                 }
             };
         }
