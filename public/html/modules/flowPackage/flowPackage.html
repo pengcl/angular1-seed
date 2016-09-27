@@ -1,6 +1,6 @@
 <div id="flowPackage" class="flow-package">
     <input type="hidden" name="productId" id="productId" ng-model="flowPackageItem.id" value="{{flowPackageItem.id}}" required>
-    <div class="weui_cells_title title-icon">
+    <div class="weui-cells__title title-icon">
         <span class="title" ng-bind="packageTitle"></span>
         <span class="sub-title" ng-class="{true:'hide',false:''}[packageSubTitle == '']" ng-bind="packageSubTitle"></span>
         <timer ng-if="showTime=='true'"></timer>

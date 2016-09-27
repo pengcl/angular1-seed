@@ -6,7 +6,7 @@
   .content-scrollable {
     background: #fbf9fe !important;
   }
-  .weui_cells_title {
+  .weui-cells__title {
     font-size: 0.2rem;
     color: #333;
     font-weight: bold;
@@ -15,13 +15,13 @@
 }
 
 .overlay.sim {
-  .weui_cell {
+  .weui-cell {
     @include align-items(top);
   }
-  .weui_cell_hd {
+  .weui-cell__hd {
     @include align-self(top);
   }
-  .weui_cell_bd {
+  .weui-cell__bd {
     p {
       font-weight: 300;
       color: #999;
@@ -36,16 +36,16 @@
       }
     }
   }
-  .weui_panel {
+  .weui-panel {
     background: none;
     margin-top: 0;
-    .weui_panel_hd {
+    .weui-panel__hd {
       text-align: center;
       &:after {
         left: 0;
       }
     }
-    .weui_panel_ft {
+    .weui-panel__ft {
       text-align: center;
       padding-bottom: 0.2rem;
       color: #333;
@@ -54,7 +54,7 @@
       }
     }
   }
-  .weui_cells {
+  .weui-cells {
     background: none;
     .weui_cell {
       &:before {

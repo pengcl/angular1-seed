@@ -1,6 +1,6 @@
 <div id="phoneTypes" class="phone-type">
     <input type="hidden" name="machineType" id="machineType" ng-model="phoneType.productName" value="{{phoneType.productName}}" required>
-    <div class="weui_cells_title title-icon"><span class="title" ng-bind="phoneTypeTitle"></span><span class="sub-title" ng-class="{true:'hide',false:''}[phoneTypeSubTitle == '']" ng-bind="phoneTypeSubTitle"></span></div>
+    <div class="weui-cells__title title-icon"><span class="title" ng-bind="phoneTypeTitle"></span><span class="sub-title" ng-class="{true:'hide',false:''}[phoneTypeSubTitle == '']" ng-bind="phoneTypeSubTitle"></span></div>
     <div class="phone-storages-panel pd-w">
         <ul class="phone-storages-lists item-lists minus pure-g">
             <li class="phone-storages-item list-item pure-u-1-3" ng-repeat="phoneType in phone.phoneTypes">

@@ -9,6 +9,12 @@ app.directive("footerNav", ['$http', function ($http) {
             var $container = $('.content-scrollable');
             var $scrollTo;
 
+            if(scope.appType == "yfqapp_Iphone"){
+                scope.orderURL = "http://m.gd189fq.com/wap/customer/searchIndexA.html?s=wap";
+            }else {
+                scope.orderURL = "http://m.gd189fq.com/yfqcz/#/purchaseOrderList?redirect_uri=http://app.yfq.cn";
+            }
+
             if(scope.payType == 1){
                 scope.payTypeName = "立即分期";
             }else {
@@ -34,6 +40,7 @@ app.directive("footerNav", ['$http', function ($http) {
             };
 
             scope.getSearch = function(){
+                console.log(scope.appType);
                 writebdLog(scope.category, "_OrderQuery", "渠道号", scope.gh);//订单查询
             };
 

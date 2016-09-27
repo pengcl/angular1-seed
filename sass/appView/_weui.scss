@@ -1,28 +1,38 @@
-.weui_cells {
+.weui-cells {
   font-size: 0.13rem;
 }
 
-.weui_cells_title{
+.weui-cells__title{
   font-size: 0.14rem;
 }
 
-.weui_panel_hd {
+.weui-panel__hd {
   font-size: 0.14rem;
   color: #888;
 }
 
-.weui_dialog_hd {
+.weui-dialog__hd {
   font-size: 0.17rem;
 }
 
-.weui_media_box {
-  .weui_media_title {
-    font-size: 0.13rem;
+.weui-panel__ft {
+  font-size: 0.14rem;
+}
+
+.weui-media-box {
+  .weui-media__hd {
+    width: 40px;
+    margin-right: 5px;
+    line-height: 40px;
+    height: 40px;
+  }
+  .weui-media__title {
+    font-size: 0.16rem;
     -ms-text-overflow:inherit;
     text-overflow:inherit;
     white-space:normal;
   }
-  .weui_media_desc {
-    font-size: 0.12rem;
+  .weui-media__desc {
+    font-size: 0.13rem;
   }
 }

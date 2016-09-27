@@ -73,11 +73,11 @@
 
 .overlay.sim.in {
   background-image: linear-gradient(to bottom, rgba(255, 198, 217, 0.97), rgba(255, 175, 202, 0.97) 100%) !important;
-  .weui_panel {
-    .weui_panel_hd {
+  .weui-panel {
+    .weui-panel__hd {
       text-align: center;
     }
-    .weui_panel_bd {
+    .weui-panel__bd {
       p {
         &.disc {
           color: #333;
@@ -89,7 +89,7 @@
         }
       }
     }
-    .weui_panel_ft {
+    .weui-panel__ft {
       text-align: center;
       padding-bottom: 0.2rem;
     }

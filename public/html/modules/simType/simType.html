@@ -1,6 +1,7 @@
 <div id="simType" class="sim-type">
-    <input type="hidden" name="mainCardTypeId" id="mainCardTypeId" value="{{simItem.id}}" ng-model="simItem.id" required class="weui_input">
-    <div class="weui_cells_title title-icon">
+    <input type="hidden" name="mainCardTypeId" id="mainCardTypeId" value="{{simItem.id}}" ng-model="simItem.id" required
+           class="weui-input">
+    <div class="weui-cells__title title-icon">
         <span ng-bind="simTitle"></span>
         <a class="question" ng-click="showOverLay('simTypeInfo')">卡类型介绍?</a>
     </div>
@@ -21,25 +22,21 @@
     <div id="simTypeInfo" style="display: none;">
         <div class="overlay sim {{class}}">
             <a class="js-close-overlay overlay-dismiss" href="#"><span class="icon-cross"></span></a>
-            <div class="weui_panel">
-                <div class="weui_panel_hd"><a href="">SIM卡类型</a></div>
-                <div class="weui_panel_bd">
-                    <div class="weui_media_box weui_media_small_appmsg">
-                        <div class="sim-type-lists weui_cells weui_cells_access">
-                            <a href="javascript:;" class="sim-type-item weui_cell" ng-repeat="simItem in simList">
-                                <div class="weui_cell_hd">
-                                    <img style="width:40px;margin-right:5px;display:block" alt="" ng-src="{{simItem.pic}}">
-                                </div>
-                                <div class="weui_cell_bd weui_cell_primary">
-                                    <p class="tit" ng-bind="simItem.txt"></p>
-                                    <p class="disc" ng-bind-html="simItem.tips | trustHtml"></p>
-                                </div>
-                                <!--<span class="weui_cell_ft"></span>-->
-                            </a>
+            <div class="weui-panel">
+                <div class="weui-panel__hd"><a href="">SIM卡类型</a></div>
+                <div class="weui-panel__bd">
+                    <a class="weui-media-box weui-media-box_appmsg" href="javascript:;" ng-repeat="simItem in simList">
+                        <div class="weui-media__hd">
+                            <img class="weui-media__thumb" alt="" ng-src="{{simItem.pic}}">
                         </div>
-                    </div>
+                        <div class="weui-cell__bd">
+                            <h4 class="weui-media__title" ng-bind="simItem.txt"></h4>
+                            <p class="weui-media__desc" ng-bind-html="simItem.tips | trustHtml"></p>
+                        </div>
+                        <!--<span class="weui_cell_ft"></span>-->
+                    </a>
                 </div>
-                <div class="weui_panel_ft">仅支持三网通和电信版4G手机</div>
+                <div class="weui-panel__ft">仅支持三网通和电信版4G手机</div>
             </div>
         </div>
     </div>

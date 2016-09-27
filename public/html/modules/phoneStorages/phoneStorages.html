@@ -1,6 +1,6 @@
 <div id="phoneStorages" class="phone-storages">
     <input type="hidden" name="machineStorage" id="machineStorage" ng-model="storage.flash" value="{{storage.flash}}" required>
-    <div class="weui_cells_title title-icon"><span class="title" ng-bind="storageTitle"></span><span class="sub-title" ng-class="{true:'hide',false:''}[storageSubTitle == '']" ng-bind="storageSubTitle"></span></div>
+    <div class="weui-cells__title title-icon"><span class="title" ng-bind="storageTitle"></span><span class="sub-title" ng-class="{true:'hide',false:''}[storageSubTitle == '']" ng-bind="storageSubTitle"></span></div>
     <div class="phone-storages-panel pd-w">
         <ul class="phone-storages-lists item-lists minus pure-g">
             <li class="phone-storages-item list-item pure-u-1-4" ng-repeat="storage in phone.storages">

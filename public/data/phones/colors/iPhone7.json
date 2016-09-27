@@ -7,7 +7,7 @@
   {
     "colorName": "黑色",
     "colorUrl": "/images/phones/iphone7/iphone7-black.jpg",
-    "selected": "curr"
+    "selected": ""
   },
   {
     "colorName": "银色",
@@ -22,6 +22,6 @@
   {
     "colorName": "玫瑰金",
     "colorUrl": "/images/phones/iphone7/iphone7-rosegold.jpg",
-    "selected": ""
+    "selected": "curr"
   }
 ]

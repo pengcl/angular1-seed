@@ -14,6 +14,10 @@ app.directive("chooseNumber", ["$compile", function ($compile) {
             var $numberList = $(".number-list");
             var $table = $numberList.find("table");
             var curr;
+            
+            scope.closeNumberList = function () {
+                $numberList.slideUp();
+            };
 
             scope.selectNumber = function (k, e) {
                 if ($(e.target).hasClass("active")) {

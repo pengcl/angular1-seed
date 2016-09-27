@@ -1,16 +1,16 @@
-.weui_select {
+.weui-cell_select {
   height: 0.35rem;
   line-height: 0.35rem;
   padding-left: 0.15rem;
 }
 
-.weui_cell_select {
+.weui-cell_select {
   .weui_select {
     padding-right: 0.03rem;
   }
 }
 
-.weui_select_before {
+.weui-cell_select-before {
   .weui_select {
     width: 1.05rem;
   }
@@ -26,12 +26,12 @@
 .phone-query {
   margin-top: 0.05rem;
   background: none;
-  &.weui_cells {
+  &.weui-cells {
     &:before {
       display: none;
     }
   }
-  .weui_cell {
+  .weui-cell {
     &:before {
       display: none;
     }
