@@ -152,6 +152,33 @@ router.get('/getUserFlowRecords/:iccid', function (req, res) {
     });
 });
 
+//测试提交表单
+router.get('/submitForm/:action', function (req, res) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Methods", "GET, POST");
+    //以上两行设置跨域请求
+    request('http://m.gd189fq.com/yfqcz/czOrdRechargeController.do?userRecharge&iccid=' + req.params.iccid, function (error, response, body) {
+        if (!error && response.statusCode == 200) {
+            //console.log(eval(body)[0]);
+            var _body = new Array();
+            var obj = new Array();
+            each(eval(body), function (o, i) {
+
+                //重新封装数据
+                data = {
+                    "iccid": o.iccid,
+                    "on": o.rechargeOrdNum,
+                    "pn": o.payMoney,
+                    "pm": o.paymethod,
+                    "ct": o.createTime
+                };
+                jsonData.push(obj);
+            });
+            res.send(_body);
+        }
+    });
+});
+
 router.get('/getNumber', function (req, res) {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Methods", "GET, POST");

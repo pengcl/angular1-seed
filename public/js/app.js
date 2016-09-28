@@ -9,6 +9,6 @@ var app = angular.module('app', ['ui.router', 'appServices', 'appTemplates', 'ng
 app.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', function ($stateProvider, $urlRouterProvider, $locationProvider) {
     $locationProvider.html5Mode(true).hashPrefix('!');
 
-    $urlRouterProvider.otherwise("/fd/fds/in");
+    $urlRouterProvider.otherwise("/phones/256");
 }]).run(['$rootScope', function ($rootScope) {
 }]);
