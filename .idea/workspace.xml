@@ -1,48 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3fb611db-3d4f-42ed-a66b-9f45cebf59a9" name="Default" comment="biuld angular-seed">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/html/pages/phone/phone-details/B/phone-details.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/html/pages/phone/phone-details/B/phone-details.js" />
+    <list default="true" id="3fb611db-3d4f-42ed-a66b-9f45cebf59a9" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/css/app.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/css/app.min.css" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/images/flow/flowcard/7.gif" afterPath="$PROJECT_DIR$/public/images/flow/flowcard/7.gif" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/images/phones/iphone7/owl/iPhone7-1.jpg" afterPath="$PROJECT_DIR$/public/images/phones/iphone7/owl/iPhone7-1.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/images/phones/iphone7/owl/iPhone7-2.jpg" afterPath="$PROJECT_DIR$/public/images/phones/iphone7/owl/iPhone7-2.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/images/phones/iphone7/owl/iPhone7-3.jpg" afterPath="$PROJECT_DIR$/public/images/phones/iphone7/owl/iPhone7-3.jpg" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/app.css" afterPath="$PROJECT_DIR$/public/css/app.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/app.min.css" afterPath="$PROJECT_DIR$/public/css/app.min.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/data/phones/256.json" afterPath="$PROJECT_DIR$/public/data/phones/256.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/data/phones/257.json" afterPath="$PROJECT_DIR$/public/data/phones/257.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/data/phones/259.json" afterPath="$PROJECT_DIR$/public/data/phones/259.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/data/phones/260.json" afterPath="$PROJECT_DIR$/public/data/phones/260.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/data/phones/261.json" afterPath="$PROJECT_DIR$/public/data/phones/261.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/data/phones/262.json" afterPath="$PROJECT_DIR$/public/data/phones/262.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/data/phones/colors/iPhone7.json" afterPath="$PROJECT_DIR$/public/data/phones/colors/iPhone7.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/html/modules/chooseNumber/chooseNumber.html" afterPath="$PROJECT_DIR$/public/html/modules/chooseNumber/chooseNumber.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/html/modules/chooseNumber/chooseNumber.js" afterPath="$PROJECT_DIR$/public/html/modules/chooseNumber/chooseNumber.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/html/modules/flowPackage/flowPackage.html" afterPath="$PROJECT_DIR$/public/html/modules/flowPackage/flowPackage.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/html/modules/footerNav/footerNav.html" afterPath="$PROJECT_DIR$/public/html/modules/footerNav/footerNav.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/html/modules/footerNav/footerNav.js" afterPath="$PROJECT_DIR$/public/html/modules/footerNav/footerNav.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/html/modules/passport/passport.html" afterPath="$PROJECT_DIR$/public/html/modules/passport/passport.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/html/modules/payType/payType.html" afterPath="$PROJECT_DIR$/public/html/modules/payType/payType.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/html/modules/phoneColors/phoneColors.html" afterPath="$PROJECT_DIR$/public/html/modules/phoneColors/phoneColors.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/html/modules/phonePackage/phonePackage.html" afterPath="$PROJECT_DIR$/public/html/modules/phonePackage/phonePackage.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/html/modules/phoneQuery/phoneQuery.html" afterPath="$PROJECT_DIR$/public/html/modules/phoneQuery/phoneQuery.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/html/modules/phoneStorages/phoneStorages.html" afterPath="$PROJECT_DIR$/public/html/modules/phoneStorages/phoneStorages.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/html/modules/phoneTypes/phoneTypes.html" afterPath="$PROJECT_DIR$/public/html/modules/phoneTypes/phoneTypes.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/html/modules/receiverAddress/receiverAddress.html" afterPath="$PROJECT_DIR$/public/html/modules/receiverAddress/receiverAddress.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/html/modules/receiverAddress/receiverAddress.js" afterPath="$PROJECT_DIR$/public/html/modules/receiverAddress/receiverAddress.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/html/modules/simType/simType.html" afterPath="$PROJECT_DIR$/public/html/modules/simType/simType.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gulpfile.js" afterPath="$PROJECT_DIR$/gulpfile.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/html/pages/flowCard/flowCard-details/default/flowCard-details.html" afterPath="$PROJECT_DIR$/public/html/pages/flowCard/flowCard-details/default/flowCard-details.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/html/pages/phone/phone-details/B/phone-details.html" afterPath="$PROJECT_DIR$/public/html/pages/phone/phone-details/B/phone-details.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/html/pages/phone/phone-details/default/phone-details.html" afterPath="$PROJECT_DIR$/public/html/pages/phone/phone-details/default/phone-details.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/index.html" afterPath="$PROJECT_DIR$/public/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sass/appView/_weui.scss" afterPath="$PROJECT_DIR$/sass/appView/_weui.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sass/modules/_areaSelect.scss" afterPath="$PROJECT_DIR$/sass/modules/_areaSelect.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sass/modules/_orderNumber.scss" afterPath="$PROJECT_DIR$/sass/modules/_orderNumber.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sass/modules/_phoneQuery.scss" afterPath="$PROJECT_DIR$/sass/modules/_phoneQuery.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sass/modules/_title.scss" afterPath="$PROJECT_DIR$/sass/modules/_title.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sass/pages/flow/_flowCardDetails.scss" afterPath="$PROJECT_DIR$/sass/pages/flow/_flowCardDetails.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sass/pages/flow/gh/_in.scss" afterPath="$PROJECT_DIR$/sass/pages/flow/gh/_in.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sass/utils/_forms.scss" afterPath="$PROJECT_DIR$/sass/utils/_forms.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sass/appView/_appView.scss" afterPath="$PROJECT_DIR$/sass/appView/_appView.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sass/utils/_icon.scss" afterPath="$PROJECT_DIR$/sass/utils/_icon.scss" />
     </list>
     <list id="92836dd6-0910-4b60-81e2-cf43716201b2" name="Failed commit: Default" comment="biuld angular-seed" />
     <ignored path="angular1-seed.iws" />
@@ -62,88 +32,14 @@
     <favorites_list name="angular1-seed" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="vertical" split-proportion="0.7282609">
+    <splitter split-orientation="vertical" split-proportion="0.6352657">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="footerNav.js" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/public/html/modules/footerNav/footerNav.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="243">
-                  <caret line="40" column="0" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="footerNav.html" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/public/html/modules/footerNav/footerNav.html">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="15">
-                  <caret line="1" column="84" selection-start-line="1" selection-start-column="84" selection-end-line="1" selection-end-column="84" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="passport.html" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/public/html/modules/passport/passport.html">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="30">
-                  <caret line="2" column="32" selection-start-line="2" selection-start-column="32" selection-end-line="2" selection-end-column="32" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="phonePackage.html" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/public/html/modules/phonePackage/phonePackage.html">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="270">
-                  <caret line="58" column="63" selection-start-line="58" selection-start-column="63" selection-end-line="58" selection-end-column="63" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="app.css" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/public/css/app.css">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="190">
-                  <caret line="1413" column="1" selection-start-line="1413" selection-start-column="1" selection-end-line="1413" selection-end-column="1" />
-                  <folding>
-                    <marker date="1474973247000" expanded="true" signature="30977:30983" ph="{...}" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="app.min.css" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/public/css/app.min.css">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="0">
-                  <caret line="0" column="11919" selection-start-line="0" selection-start-column="11919" selection-end-line="0" selection-end-column="11919" />
-                  <folding>
-                    <element signature="e#42313#42844#2" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="_weui.scss" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/sass/appView/_weui.scss">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="359">
-                  <caret line="33" column="3" selection-start-line="33" selection-start-column="3" selection-end-line="33" selection-end-column="3" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
           <file leaf-file-name="weui.min.css" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/public/css/utils/weui.min.css">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="157">
-                  <caret line="6" column="22346" selection-start-line="6" selection-start-column="22346" selection-end-line="6" selection-end-column="22346" />
+                <state relative-caret-position="90">
+                  <caret line="6" column="136" selection-start-line="6" selection-start-column="95" selection-end-line="6" selection-end-column="136" />
                   <folding>
                     <element signature="e#383#5323#1" expanded="true" />
                   </folding>
@@ -151,21 +47,85 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="phone-details.js" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/public/html/pages/phone/phone-details/B/phone-details.js">
+          <file leaf-file-name="_appView.scss" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/sass/appView/_appView.scss">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="165">
-                  <caret line="11" column="4" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="4" />
+                <state relative-caret-position="645">
+                  <caret line="43" column="56" selection-start-line="43" selection-start-column="56" selection-end-line="43" selection-end-column="56" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="phone-details.html" pinned="false" current-in-tab="true">
+          <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/public/index.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="1365">
+                  <caret line="91" column="30" selection-start-line="91" selection-start-column="30" selection-end-line="91" selection-end-column="30" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="gulpfile.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/gulpfile.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="15">
+                  <caret line="1" column="39" selection-start-line="1" selection-start-column="23" selection-end-line="1" selection-end-column="39" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="phoneQuery.html" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/public/html/modules/phoneQuery/phoneQuery.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="15">
+                  <caret line="1" column="112" selection-start-line="1" selection-start-column="112" selection-end-line="1" selection-end-column="112" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="app.min.css" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/public/css/1.0.1/app.min.css">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="0">
+                  <caret line="0" column="1989" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="50927" />
+                  <folding>
+                    <element signature="e#42369#42900#2" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="template.tpl.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/public/components/1.0.1/template.tpl.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="0">
+                  <caret line="0" column="2280" selection-start-line="0" selection-start-column="2280" selection-end-line="0" selection-end-column="2280" />
+                  <folding>
+                    <marker date="1475043332000" expanded="true" signature="231:249" ph="..." />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="_icon.scss" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/sass/utils/_icon.scss">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="150">
+                  <caret line="10" column="1" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="phone-details.html" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/public/html/pages/phone/phone-details/B/phone-details.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="45">
-                  <caret line="3" column="76" selection-start-line="3" selection-start-column="76" selection-end-line="3" selection-end-column="76" />
+                <state relative-caret-position="90">
+                  <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
                   <folding>
                     <element signature="n#style#0;n#div#1;n#div#0;n#form#0;n#div#0;n#!!top" expanded="true" />
                     <element signature="n#style#0;n#table#0;n#div#10;n#div#0;n#form#0;n#div#0;n#!!top" expanded="true" />
@@ -177,6 +137,16 @@
               </provider>
             </entry>
           </file>
+          <file leaf-file-name="flowCard-details.html" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/public/html/pages/flowCard/flowCard-details/default/flowCard-details.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="900">
+                  <caret line="60" column="58" selection-start-line="60" selection-start-column="58" selection-end-line="60" selection-end-column="58" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
         </leaf>
       </split-first>
       <split-second>
@@ -184,8 +154,8 @@
           <file leaf-file-name="phone-details.html" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/public/html/pages/phone/phone-details/default/phone-details.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="45">
-                  <caret line="3" column="76" selection-start-line="3" selection-start-column="76" selection-end-line="3" selection-end-column="76" />
+                <state relative-caret-position="120">
+                  <caret line="18" column="56" selection-start-line="18" selection-start-column="56" selection-end-line="18" selection-end-column="56" />
                   <folding />
                 </state>
               </provider>
@@ -214,7 +184,7 @@
           <file leaf-file-name="_wrapperWelcome.scss" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/sass/appView/_wrapperWelcome.scss">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="15">
+                <state relative-caret-position="300">
                   <caret line="20" column="2" selection-start-line="20" selection-start-column="2" selection-end-line="20" selection-end-column="2" />
                   <folding />
                 </state>
@@ -254,7 +224,7 @@
           <file leaf-file-name="_flowCardDetails.scss" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/sass/pages/flow/_flowCardDetails.scss">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="105">
+                <state relative-caret-position="405">
                   <caret line="27" column="7" selection-start-line="27" selection-start-column="7" selection-end-line="27" selection-end-column="7" />
                   <folding />
                 </state>
@@ -291,11 +261,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/public/data/phones/packages/256.json" />
-        <option value="$PROJECT_DIR$/public/data/phones/storage/256.json" />
-        <option value="$PROJECT_DIR$/public/html/modules/phoneStorage/phoneStorage.js" />
-        <option value="$PROJECT_DIR$/public/html/modules/phoneStorage/phoneStorage.html" />
-        <option value="$PROJECT_DIR$/sass/modules/_itemLists.scss" />
         <option value="$PROJECT_DIR$/sass/utils/_base.scss" />
         <option value="$PROJECT_DIR$/public/data/phones/colors/256.json" />
         <option value="$PROJECT_DIR$/public/html/pages/phoneCard/phoneCard-details/default/phoneCard-details.html" />
@@ -315,7 +280,6 @@
         <option value="$PROJECT_DIR$/public/data/phones/261.json" />
         <option value="$PROJECT_DIR$/public/data/phones/262.json" />
         <option value="$PROJECT_DIR$/public/data/phones/colors/iPhone7.json" />
-        <option value="$PROJECT_DIR$/public/index.html" />
         <option value="$PROJECT_DIR$/public/html/modules/chooseNumber/chooseNumber.html" />
         <option value="$PROJECT_DIR$/public/html/modules/phoneColors/phoneColors.html" />
         <option value="$PROJECT_DIR$/public/html/modules/phoneStorages/phoneStorages.html" />
@@ -340,8 +304,14 @@
         <option value="$PROJECT_DIR$/public/css/app.css" />
         <option value="$PROJECT_DIR$/public/css/app.min.css" />
         <option value="$PROJECT_DIR$/sass/appView/_weui.scss" />
-        <option value="$PROJECT_DIR$/public/html/pages/phone/phone-details/B/phone-details.html" />
+        <option value="$PROJECT_DIR$/public/html/pages/flowCard/flowCard-details/default/flowCard-details.html" />
+        <option value="$PROJECT_DIR$/sass/appView/_appView.scss" />
+        <option value="$PROJECT_DIR$/public/index.html" />
+        <option value="$PROJECT_DIR$/gulpfile.js" />
+        <option value="$PROJECT_DIR$/sass/utils/_icon.scss" />
+        <option value="$PROJECT_DIR$/public/components/1.0.1/template.tpl.js" />
         <option value="$PROJECT_DIR$/public/html/pages/phone/phone-details/default/phone-details.html" />
+        <option value="$PROJECT_DIR$/public/html/pages/phone/phone-details/B/phone-details.html" />
       </list>
     </option>
   </component>
@@ -384,7 +354,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -413,293 +382,14 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="sass" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="angular1-seed" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="angular1-seed" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sass" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="appView" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="angular1-seed" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="angular1-seed" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="angular1-seed" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="angular1-seed" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="html" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pages" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="angular1-seed" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="angular1-seed" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="html" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pages" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="phone" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="angular1-seed" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="angular1-seed" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="html" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pages" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="phone" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="phone-details" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="default" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="angular1-seed" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="angular1-seed" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="html" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pages" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="phone" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="phone-details" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="B" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="angular1-seed" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="angular1-seed" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="html" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="modules" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="angular1-seed" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="angular1-seed" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="html" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="modules" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="phonePackage" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="angular1-seed" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="angular1-seed" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="html" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="modules" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="footerNav" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="angular1-seed" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="angular1-seed" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="css" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="angular1-seed" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="angular1-seed" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="components" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="angular1-seed" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="angular1-seed" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="components" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="1.0.0" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
       <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -772,6 +462,13 @@
       <gulpfile />
       <tasks />
       <arguments />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.npm" factoryName="npm">
+      <command value="run-script" />
+      <scripts />
+      <node-interpreter value="project" />
       <envs />
       <method />
     </configuration>
@@ -852,7 +549,10 @@
       <workItem from="1474859916982" duration="1365000" />
       <workItem from="1474871927130" duration="13260000" />
       <workItem from="1474963827493" duration="626000" />
-      <workItem from="1474965062953" duration="4961000" />
+      <workItem from="1474965062953" duration="5329000" />
+      <workItem from="1475025440404" duration="1784000" />
+      <workItem from="1475031496754" duration="666000" />
+      <workItem from="1475039953497" duration="2124000" />
     </task>
     <task id="LOCAL-00001" summary="biuld angular-seed">
       <created>1468210687974</created>
@@ -1015,33 +715,40 @@
       <option name="project" value="LOCAL" />
       <updated>1474198229922</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="biuld angular-seed">
+      <created>1474979521261</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1474979521261</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="563127000" />
+    <option name="totallyTimeSpent" value="568069000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1920" height="1054" extended-state="6" />
     <editor active="false" />
     <layout>
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22151224" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25772098" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2657082" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13929313" sideWeight="0.5223642" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2837838" sideWeight="0.4834931" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2037422" sideWeight="0.4765708" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.15800416" sideWeight="0.4978701" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13929313" sideWeight="0.5308839" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3097713" sideWeight="0.49361023" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24973376" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13929313" sideWeight="0.47763577" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13929313" sideWeight="0.4691161" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16548224" sideWeight="0.4975404" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2037422" sideWeight="0.47231096" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1035533" sideWeight="0.6557292" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2837838" sideWeight="0.4834931" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.37055838" sideWeight="0.7629541" order="3" side_tool="false" content_ui="tabs" />
     </layout>
@@ -1070,41 +777,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/public/data/phones/phones.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="24" column="19" selection-start-line="24" selection-start-column="16" selection-end-line="24" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/html/modules/phonePackage/phonePackage.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="29" column="53" selection-start-line="29" selection-start-column="53" selection-end-line="29" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/service.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="73" selection-start-line="8" selection-start-column="73" selection-end-line="8" selection-end-column="73" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/html/pages/phone/phone-details/default/phone-details.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="34" column="18" selection-start-line="34" selection-start-column="18" selection-end-line="34" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/html/modules/chooseNumber/chooseNumber.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="75" column="25" selection-start-line="75" selection-start-column="25" selection-end-line="75" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/data/phones/256.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="301">
@@ -1175,13 +847,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="70" selection-start-line="4" selection-start-column="70" selection-end-line="4" selection-end-column="70" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/html/modules/phoneColors/phoneColors.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
@@ -1225,13 +890,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/sass/appView/_checkoutView.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sass/appView/_appView.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -1293,19 +951,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/html/modules/phoneQuery/phoneQuery.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="112" selection-start-line="1" selection-start-column="112" selection-end-line="1" selection-end-column="112" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/html/modules/simType/simType.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="585">
           <caret line="39" column="18" selection-start-line="39" selection-start-column="18" selection-end-line="39" selection-end-column="18" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1313,7 +962,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1365">
           <caret line="91" column="3" selection-start-line="91" selection-start-column="3" selection-end-line="91" selection-end-column="3" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1321,7 +969,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
           <caret line="16" column="1" selection-start-line="16" selection-start-column="1" selection-end-line="16" selection-end-column="1" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1329,7 +976,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1590">
           <caret line="106" column="1" selection-start-line="106" selection-start-column="1" selection-end-line="106" selection-end-column="1" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1337,7 +983,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="345">
           <caret line="23" column="58" selection-start-line="23" selection-start-column="58" selection-end-line="23" selection-end-column="58" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1345,7 +990,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
           <caret line="1" column="84" selection-start-line="1" selection-start-column="84" selection-end-line="1" selection-end-column="84" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1353,7 +997,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
           <caret line="2" column="32" selection-start-line="2" selection-start-column="32" selection-end-line="2" selection-end-column="32" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1361,48 +1004,18 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
           <caret line="11" column="4" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="4" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/html/modules/phonePackage/phonePackage.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
+        <state relative-caret-position="870">
           <caret line="58" column="63" selection-start-line="58" selection-start-column="63" selection-end-line="58" selection-end-column="63" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/css/app.min.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="11919" selection-start-line="0" selection-start-column="11919" selection-end-line="0" selection-end-column="11919" />
-          <folding>
-            <element signature="e#42313#42844#2" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/css/utils/weui.min.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="157">
-          <caret line="6" column="22346" selection-start-line="6" selection-start-column="22346" selection-end-line="6" selection-end-column="22346" />
-          <folding>
-            <element signature="e#383#5323#1" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/css/app.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="1413" column="1" selection-start-line="1413" selection-start-column="1" selection-end-line="1413" selection-end-column="1" />
-          <folding>
-            <marker date="1474973247000" expanded="true" signature="30977:30983" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/public/css/app.min.css" />
+    <entry file="file://$PROJECT_DIR$/public/css/app.css" />
     <entry file="file://$PROJECT_DIR$/public/html/modules/payType/payType.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
@@ -1413,7 +1026,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/sass/appView/_wrapperWelcome.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
+        <state relative-caret-position="300">
           <caret line="20" column="2" selection-start-line="20" selection-start-column="2" selection-end-line="20" selection-end-column="2" />
           <folding />
         </state>
@@ -1421,15 +1034,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/sass/appView/_weui.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="359">
+        <state relative-caret-position="495">
           <caret line="33" column="3" selection-start-line="33" selection-start-column="3" selection-end-line="33" selection-end-column="3" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/html/modules/footerNav/footerNav.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="243">
+        <state relative-caret-position="600">
           <caret line="40" column="0" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
           <folding />
         </state>
@@ -1437,16 +1049,86 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/sass/pages/flow/_flowCardDetails.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
+        <state relative-caret-position="405">
           <caret line="27" column="7" selection-start-line="27" selection-start-column="7" selection-end-line="27" selection-end-column="7" />
           <folding />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/public/css/utils/weui.min.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="136" selection-start-line="6" selection-start-column="95" selection-end-line="6" selection-end-column="136" />
+          <folding>
+            <element signature="e#383#5323#1" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sass/appView/_appView.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="645">
+          <caret line="43" column="56" selection-start-line="43" selection-start-column="56" selection-end-line="43" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1365">
+          <caret line="91" column="30" selection-start-line="91" selection-start-column="30" selection-end-line="91" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sass/utils/_icon.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="1" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/css/1.0.1/app.min.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="1989" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="50927" />
+          <folding>
+            <element signature="e#42369#42900#2" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/html/pages/flowCard/flowCard-details/default/flowCard-details.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="900">
+          <caret line="60" column="58" selection-start-line="60" selection-start-column="58" selection-end-line="60" selection-end-column="58" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/html/pages/phone/phone-details/default/phone-details.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="18" column="56" selection-start-line="18" selection-start-column="56" selection-end-line="18" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/components/1.0.1/template.tpl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="2280" selection-start-line="0" selection-start-column="2280" selection-end-line="0" selection-end-column="2280" />
+          <folding>
+            <marker date="1475043332000" expanded="true" signature="231:249" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/public/html/pages/phone/phone-details/B/phone-details.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="76" selection-start-line="3" selection-start-column="76" selection-end-line="3" selection-end-column="76" />
+        <state relative-caret-position="90">
+          <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
           <folding>
             <element signature="n#style#0;n#div#1;n#div#0;n#form#0;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#table#0;n#div#10;n#div#0;n#form#0;n#div#0;n#!!top" expanded="true" />
@@ -1457,16 +1139,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/html/pages/phone/phone-details/default/phone-details.html">
+    <entry file="file://$PROJECT_DIR$/gulpfile.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="76" selection-start-line="3" selection-start-column="76" selection-end-line="3" selection-end-column="76" />
+        <state relative-caret-position="15">
+          <caret line="1" column="39" selection-start-line="1" selection-start-column="23" selection-end-line="1" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/html/modules/phoneQuery/phoneQuery.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="112" selection-start-line="1" selection-start-column="112" selection-end-line="1" selection-end-column="112" />
           <folding />
         </state>
       </provider>
     </entry>
   </component>
   <component name="webServersAuthStorage">
-    <data>AAABEPTYYylUxpUHNkNI9k9fVUQ2ixd1cEAn3UiHVY93EqeRUYAqNRI2+0WngGHxCEUDkVEry7atYGvBZRrAQWUztN69JBT3kSVduXWKrMh03ggOsf2ct993MFo2KnUH+rwYFsqAXU/Gvmqpv0ioswkc1c2uV5gw6ZWBDn8H2CXxXo2DBK5VzbdT9rvKN6RlJWifqoFVVr5k1l/F4vStU/w0IPjxgK8Z620HbJF2v75eF2QudwDG5RhVUd1MiZnEEmxHGGTrP+9W7gYVzmxWZlOLDlqmT/U8qDStNf7XpPihAHzIbTYcZG82QQry3ywKHAc1YF6xk+aJKhjL6AVqkKUdxW1pwYeGmnL3dC+D77sBYWlYWDTSIpGQFYCz4yozKZh+KQ==</data>
+    <data>AAABECm4CpySth2lifvCybMv8mz3ddb70/mPO6Z1VIQG2La/B2Dmt539yHU700ZIr1X5OTQB5hxO+9PiGqFwv/0U3HpWlY5PBY4venn8dDCWFdWwMNNws8lwswbn5zPKDt3FfOK4su9+gry/kmH8YCDKC0oIBaDG1Cj3mCMIAo5wC/7JQLJEyVtvkQ7EJ1J0RJL1VhknAMcwrbtULoQsgUXZnNNoi6vhvID510xVQgj98ZeYaBkSj9gwJPfnz0s3+2cuQNv+xt1ZKSgIaciI+dTX1I8a68Zv28mWi1Ph9kAXxo6zv5iv54CjMHtSF1tT2c+lmsFC8GEk/LmdJiaQ5tB6V3R1hmQRdL5Kx/Muh2d97MeKs5VVJDFtQF3YYrQEZCdD8w==</data>
   </component>
 </project>

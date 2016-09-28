@@ -7,7 +7,7 @@ var jshint = require('gulp-jshint');
 var minifyCSS = require('gulp-minify-css');
 var ngHtml2Js = require("gulp-ng-html2js");
 var minifyHtml = require("gulp-minify-html");
-var version = "1.0.0";
+var version = "1.0.1";
 
 
 gulp.task('html2js', function () {
@@ -29,12 +29,12 @@ gulp.task('sass', function () {
     return gulp.src('sass/**/*.scss')
         .pipe(compass({
             sassDir: 'sass',
-            cssDir: 'public/css',
+            cssDir: 'public/css/' + version + '/',
             force: true
         }))
         .pipe(rename({suffix: '.min'}))
         .pipe(minifyCSS())
-        .pipe(gulp.dest('css/'));
+        .pipe(gulp.dest(version + '/'));
 });
 
 //语法检查
