@@ -29,7 +29,10 @@
     }
     //@include box-shadow(#d9d9d9 0px 0px 2px);
     &.small {
-      padding:0.05rem;
+      padding-left:0.05rem;
+      padding-right: 0.05rem;
+      padding-top: 0.07rem;
+      padding-bottom: 0.07rem;
     }
 
     em {

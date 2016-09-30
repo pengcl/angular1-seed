@@ -13,15 +13,19 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
     //$scope.pageTitle = "首页";
     //$scope.$root.title = $scope.pageTitle;
 
-    $scope.appType = systemName+"_Iphone";
-    $scope.category = $scope.appType;
-    
-    writebdLog($scope.category,"_Load","渠道号",$scope.gh);
 
     $scope.phone = Phone.get({
         phoneId: $stateParams.phoneId
     }, function (phone) {
         $scope.productId = phone.productId;
+        
+        $scope.appType = systemName+"_V1_"+phone.phoneModel;
+        if($location.path().indexOf("/phones/B")!=-1)
+    	{
+    		$scope.appType = systemName+"_V2_"+phone.phoneModel;
+    	}
+        $scope.category = $scope.appType;
+        writebdLog($scope.category,"_Load","渠道号",$scope.gh);
     });
 
     //初始化图片按需加载
@@ -40,7 +44,6 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
                 $scope.storage = phone.storages[getIndex(phone.storages, "curr")];
 
                 $scope.pkg = phone.packages[0];
-                //console.log($scope.pkg);
 
                 $scope.phoneType = phone.phoneTypes[getIndex(phone.phoneTypes, "curr")];
 
