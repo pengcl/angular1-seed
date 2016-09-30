@@ -1,6 +1,6 @@
 'use strict';
 
-app.directive("flowPackage", ['$http', 'FlowPackages', function ($http, FlowPackages) {
+app.directive("flowPackage", ['$http', function ($http) {
     return {
         restrict: 'E',
         templateUrl: "modules/flowPackage/flowPackage.html",
@@ -47,7 +47,11 @@ app.directive("flowPackage", ['$http', 'FlowPackages', function ($http, FlowPack
 
             scope.$watch('flowPackageItem', function (nv, ov, scope) {
                 if (nv != ov) {
-                    scope.mainPrice = nv.p;
+                    if(scope.mifi){
+                        scope.mainPrice = parseInt(scope.mifi.price) + parseInt(scope.flowPackageItem.p);
+                    }else {
+                        scope.mainPrice = nv.p;
+                    }
                 }
             });
         }

@@ -1,0 +1,33 @@
+<div id="mifi" class="mifi">
+    <input type="hidden" name="mifiId" id="mifiId" ng-model="mifi.id" value="{{mifi.id}}" required>
+    <div class="weui-cells__title title-icon">
+        <span class="title" ng-bind="mifiTitle"></span>
+        <!--<span class="sub-title" ng-class="{true:'hide',false:''}[mifiSubTitle == '']" ng-bind="mifiSubTitle"></span>-->
+    </div>
+    <div class="mifi-panel pd-w">
+        <ul class="mifi-lists item-lists minus pure-g">
+            <li class="mifi-item list-item pure-u-1-2" ng-repeat="mifi in mifis">
+                <div class="item-box margin radius border" ng-click="setMifi($event,mifi)">
+                    <p class="font-14">
+                        <span ng-bind="mifi.name"></span>
+                    </p>
+                    <p class="font-14">
+                        <span ng-bind="mifi.price"></span><span>元 </span>
+                        <del> <span ng-bind="mifi.oldPrice"></span><span>元/月</span></del>
+                    </p>
+                    <i>
+                        推荐
+                    </i>
+                    <ins class="icon-check"></ins>
+                </div>
+            </li>
+            <li class="mifi-item list-item pure-u-1-2">
+                <div class="item-box margin bg-none">
+                    <div class="font-14 text-l">
+                        <a href="javascript:;">无双卡双待手机用户强烈推荐使用</a>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>

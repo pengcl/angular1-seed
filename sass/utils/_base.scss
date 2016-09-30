@@ -32,6 +32,10 @@ sub {
   display: none !important;
 }
 
+.bg-none {
+  background: none !important;
+}
+
 .bold {
   font-weight: 500;
 }
@@ -47,4 +51,17 @@ sub {
 .pd-h {
   padding-top: 0.15rem;
   padding-bottom: 0.15rem;
+}
+
+.font-12 {
+  font-size: 0.12rem;
+}
+.font-14 {
+  font-size: 0.14rem;
+}
+.font-16 {
+  font-size: 0.16rem;
+}
+.font-18 {
+  font-size: 0.18rem;
 }

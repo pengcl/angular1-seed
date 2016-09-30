@@ -25,6 +25,9 @@ app.directive("simType", ['$http', '$compile', function ($http, $compile) {
                 //console.log("1");
                 event.preventDefault();
                 var $item = $(".sim-type-lists").find(".item-box");
+                if($item.hasClass("disabled")){
+                    return false;
+                }
                 $item.removeClass('curr');
                 $item.eq(index).addClass('curr');
                 scope.simItem = simItem;
