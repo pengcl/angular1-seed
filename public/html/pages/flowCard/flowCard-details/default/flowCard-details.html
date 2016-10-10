@@ -23,8 +23,9 @@
                 <h2 class="product-sub-title">全国通用 4G极速网络 包月租 购买当月生效</h2>
             </div>
             <div class="product-header-ft">运费：活动期间全国包邮</div>
-            <flow-package title="优惠套餐" sub-title="5折限时月租秒杀价" size="l" show-time="true"></flow-package>
+            <flow-package title="优惠套餐" sub-title="5折限时秒杀价" size="l" show-time="true"></flow-package>
             <p class="module-tips">活动期间首次支付金额为当月流量月租，卡0元</p>
+            <mifi title="搭配移动上网设备" ng-show="appType == 'yfqapp_FlowPackage_MiFi'"></mifi>
             <sim-type title="流量卡类型" size="s" add-class="bottom"></sim-type>
             <receiver-address title="收货地址"></receiver-address>
             <div class="product-details" style="margin-top: 0.2rem">
@@ -50,7 +51,8 @@
                 <div class="img-box"><img src="http://app.yfq.cn/images/flow/flowcard/7.gif"></div>
 
                 <spc-title main-title="常见问题" sub-title="" arrow='true'></spc-title>
-                <div class="img-box"><img src="http://app.yfq.cn/images/flow/flowcard/8.gif"></div>
+
+                <flow-fqa></flow-fqa>
 
                 <div class="img-box"><img src="http://app.yfq.cn/images/flow/flowcard/9.gif"></div>
 

@@ -1,0 +1,11 @@
+<div id="phoneQuery" class="weui-cells weui-cells_form">
+    <div class="weui-cell no-border" ng-class="{'weui-cell_warn':checkoutForm.receiverMobile.$dirty== true && checkoutForm.receiverMobile.$valid == false,'weui-cell_success':checkoutForm.receiverMobile.$dirty== true && checkoutForm.receiverMobile.$valid == true}">
+        <div class="weui-cell__hd"><label class="weui-label">手机号码</label></div>
+        <div class="weui-cell__bd">
+            <input id="receiverMobile" name="receiverMobile" ng-model="receiverMobile" ng-maxlength="11" ng-pattern="/^[0-9]*$/" pattern="[0-9]*" ng-minlength="11" class="weui-input" placeholder="请输入购买手机号码" required/>
+        </div>
+        <div class="weui-cell__ft">
+            <i class="weui-icon-warn"></i>
+        </div>
+    </div>
+</div>

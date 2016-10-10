@@ -1,0 +1,47 @@
+<div id="flowUsing" class="weui-panel weui-panel_access">
+    <h2 class="weui-panel__hd">
+        <span ng-bind="flowCard.pkg"></span>元/月
+        <span ng-bind="flowCard.fs | GB | number : 0"></span>GB全国流量
+    </h2>
+    <div class="weui-panel__bd">
+        <div class="weui_progress">
+            <div class="weui_progress_bar">
+                <div style="width: {{flowCard.ufs/flowCard.fs}}%"
+                     class="weui_progress_inner_bar js_progress "></div>
+            </div>
+        </div>
+        <div class="package-using active" ng-class="{1: 'active', 0: 'inactive'}[card.cardStatus]" style="">
+            <table class="pure-table pure-table-bordered">
+                <tbody>
+                <tr>
+                    <td>
+                        <div>
+                            <p>
+                                <em ng-bind="flowCard.b | number : 2"></em><span>元</span>
+                                <span ng-bind="flowCard.s"></span>
+                            </p>
+                            <p>
+                                <span>账户余额</span>
+                            </p>
+                            <ins></ins>
+                        </div>
+                    </td>
+                    <td>
+                        <p><em ng-bind="flowCard.ufs | MB | number : 0"></em><span>MB</span></p>
+                        <p><span>已用流量</span></p>
+                        <ins></ins>
+                    </td>
+                    <td>
+                        <p><em ng-bind="flowCard.fs - flowCard.ufs | MB | number : 0"></em><span>MB</span></p>
+                        <p><span>剩余流量</span></p>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="weui-panel__ft">
+        <span>超额流量扣费：</span><em>0.15元</em><span>/MB</span>
+    </div>
+    <p>流量使用情况具有一定的滞后性，查询仅供参考</p>
+</div>

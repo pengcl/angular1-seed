@@ -1,10 +1,10 @@
 'use strict';
 
-app.directive("phoneQuery", function () {
+app.directive("inputQuery", function () {
     return {
         restrict: 'E',
-        templateUrl: "modules/phoneQuery/phoneQuery.html",
-        controller: "phoneQueryController",
+        templateUrl: "modules/inputQuery/inputQuery.html",
+        controller: "inputQueryController",
         link: function (scope, element, attrs) {
 
             //选择号码 对象类型
@@ -24,7 +24,7 @@ app.directive("phoneQuery", function () {
             }, true);
         }
     };
-}).controller('phoneQueryController', ['$scope', '$cookieStore', '$http', function ($scope, $cookieStore, $http) {
+}).controller('inputQueryController', ['$scope', '$cookieStore', '$http', function ($scope, $cookieStore, $http) {
     $scope.phoneData = new Array();
     $http.jsonp('http://m.gd189fq.com/wap/taokafanghaoNew/fetchNumber.html?callback=JSON_CALLBACK').success(function (data, status, headers, config) {
         $.each(eval(data), function (i, k) {

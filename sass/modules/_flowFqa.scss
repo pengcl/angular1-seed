@@ -1,0 +1,36 @@
+.flow-fqa {
+  font-size: 0.12rem;
+  padding: 0.15rem;
+  .fqa-lists {
+    margin-left: 0.15rem;
+    li {
+      color: $color-primary;
+      margin-top: 0.1rem;
+      .list-disc {
+        font-size: 0.1rem;
+        color: #999;
+        b {
+          color: #333;
+        }
+      }
+    }
+  }
+  .fqa-tips {
+    border:1px solid #bbb;
+    @include border-radius(10px);
+    margin-top: 0.15rem;
+    padding-left:0.15rem;
+    padding-right: 0.15rem;
+    padding-top: 0.1rem;
+    padding-bottom: 0.1rem;
+    .tips-tit {
+      margin-bottom: 0.05rem;
+      font-size: 0.12rem;
+    }
+    p {
+      font-size: 0.1rem;
+      color: #999;
+      line-height: 1.4;
+    }
+  }
+}

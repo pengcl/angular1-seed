@@ -18,6 +18,7 @@ function each(objArray, funName) {
 router.get('/getFlowPackages', function (req, res) {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Methods", "GET, POST");
+    res.header("Cache-Control: no-cache, must-reva lidate");
     //以上两行设置跨域请求
     request('http://m.gd189fq.com/yfqcz/czOrdRechargeController.do?proListAll&cardType=0', function (error, response, body) {
         if (!error && response.statusCode == 200) {
@@ -115,6 +116,7 @@ router.get('/getUserFlowCards/:contractMobiNum', function (req, res) {
                     "iccid": o.iccid,
                     "pkg": o.monthRent,
                     "fs": o.cardflowsize,
+                    "ufs": o.curUsedFlowSize,
                     "b": (o.balance - o.overdue),
                     "s": cardStatus
                 };

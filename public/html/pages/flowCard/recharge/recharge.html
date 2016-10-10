@@ -1,9 +1,11 @@
 <div class="page recharge">
-    <top-nav page-title="充量充值" page-back="back"></top-nav>
+    <top-nav page-title="充量充值"></top-nav>
 
-    <div class="content-scrollable">
-        <form name="myForm" ng-submit="save()">
+    <div class="content-scrollable has-footer">
+        <form name="checkoutForm" ng-submit="save()">
             <phone-query></phone-query>
+            <flow-cards></flow-cards>
+            <flow-using style="font-size: 0.12rem"></flow-using>
         </form>
     </div>
 </div>

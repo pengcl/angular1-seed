@@ -144,21 +144,21 @@ app.directive("receiverAddress", ["$compile", "$cookieStore", function ($compile
             });
 
             scope.checkAddress = function () {
-                $("#receiverAddress").find(".weui_cell").removeClass("weui-cell-warn");
+                $("#receiverAddress").find(".weui_cell").removeClass("weui-cell_warn");
                 if (!scope.checkoutForm.reciverName.$valid) {
                     //alert("请输入收件人");
-                    $(".input-name").addClass("weui-cell-warn");
+                    $(".input-name").addClass("weui-cell_warn");
                     return false;
                 } else if (!scope.checkoutForm.receiverMobile.$valid) {
                     //alert("请输入联系电话");
-                    $(".input-mobile").addClass("weui-cell-warn");
+                    $(".input-mobile").addClass("weui-cell_warn");
                     return false;
                 } else if (!scope.checkoutForm.receiverCity.$valid) {
-                    $(".input-city").addClass("weui-cell-warn");
+                    $(".input-city").addClass("weui-cell_warn");
                     //alert("请选择收件区域");
                     return false;
                 } else if (!scope.checkoutForm.receiverRoom.$valid) {
-                    $(".input-room").addClass("weui-cell-warn");
+                    $(".input-room").addClass("weui-cell_warn");
                     //alert("请输入详细地址");
                     return false;
                 }

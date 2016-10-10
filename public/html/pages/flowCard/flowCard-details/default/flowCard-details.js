@@ -8,11 +8,21 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
             url: "/fd/product",
             templateUrl: "pages/flowCard/flowCard-details/default/flowCard-details.html",
             controller: "fdProController"
+        })
+        .state('flowCardMifi', { //app首页
+            url: "/fd/mifi",
+            templateUrl: "pages/flowCard/flowCard-details/default/flowCard-details.html",
+            controller: "fdProController"
         });
 }]).controller('fdProController', ['$scope', '$rootScope', '$location', function ($scope, $rootScope, $location) {
-    //$scope.pageTitle = "首页";
-    //$scope.$root.title = $scope.pageTitle;
-    $scope.appType = systemName+"_FlowPackage";
+
+    $scope.appType = systemName + "_FlowPackage";
+
+    if ($location.path() == "/fd/mifi") {
+        $scope.appType = systemName + "_FlowPackage_MiFi";
+    }
+
     $scope.category = $scope.appType;
-    writebdLog($scope.category,"_Load","渠道号",$scope.gh);//页面载入
+
+    writebdLog($scope.category, "_Load", "渠道号", $scope.gh);//页面载入
 }]);

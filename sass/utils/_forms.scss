@@ -44,25 +44,22 @@
 }
 
 .weui-cells_form {
-  .weui-cell {
-    &.weui-cell-warn {
-      border: 1px solid $color-primary;
-    }
-    &.weui-cell-success {
-      border: 1px solid $color-green;
-    }
-  }
   .weui-label {
     width: 5em;
     color: #999;
   }
-  .weui-cell-warn {
+  .weui-icon-success {
+    display: none;
+  }
+  .weui-cell_warn {
+    border: 1px solid $color-primary;
     .weui-label {
       //width: 5em;
       color: #f43530;
     }
   }
-  .weui-cell-success {
+  .weui-cell_success {
+    border: 1px solid $color-green;
     color: $color-green;
     .weui-label {
       //width: 5em;
@@ -86,8 +83,5 @@
         font-size: 0.18rem;
       }
     }
-  }
-  .weui-icon-success {
-    display: none;
   }
 }

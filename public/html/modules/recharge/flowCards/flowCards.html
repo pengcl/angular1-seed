@@ -1,0 +1,13 @@
+<div id="flowCards">
+    <div class="weui-cells weui-cells_radio">
+        <label class="weui-cell weui-check__label" for="x{{$index}}" ng-repeat="flowCard in flowCards" ng-click="getFlowCard($event,flowCard)">
+            <div class="weui-cell__bd">
+                <p><span class="iccid" ng-bind="flowCard.iccid"></span><span class="status" ng-bind="flowCard.s"></span></p>
+            </div>
+            <div class="weui-cell__ft">
+                <input class="weui-check" name="radio1" id="x{{$index}}" type="radio">
+                <span class="weui-icon-checked"></span>
+            </div>
+        </label>
+    </div>
+</div>
