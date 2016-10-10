@@ -19,7 +19,7 @@ app.directive("flowPackage", ['$http', function ($http) {
             //获取套餐列表
 
 
-            $http.get('http://app.gd189fq.com:3099/api/getFlowPackages').success(function (data) {
+            $http.get(baseApiUri + '/getFlowPackages').success(function (data) {
                 scope.flowPackageList = data;
 
                 //设置默认选中项 start

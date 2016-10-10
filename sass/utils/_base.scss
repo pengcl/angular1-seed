@@ -52,7 +52,9 @@ sub {
   padding-top: 0.15rem;
   padding-bottom: 0.15rem;
 }
-
+.font-10 {
+  font-size: 0.10rem;
+}
 .font-12 {
   font-size: 0.12rem;
 }
@@ -67,4 +69,12 @@ sub {
 }
 .no-border {
   border:none !important;
+}
+p.tips {
+  font-size: 0.1rem;
+  color: #999;
+  margin-left: 0.15rem;
+  margin-right: 0.15rem;
+  margin-top: 0.05rem;
+  margin-bottom: 0.1rem;
 }

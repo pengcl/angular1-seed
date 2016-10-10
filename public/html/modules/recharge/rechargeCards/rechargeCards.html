@@ -1,0 +1,14 @@
+<div id="rechargeCards" class="pd-w">
+    <ul class="item-lists minus pure-g">
+        <li class="list-item pure-u-1-3" ng-repeat="rechargeCard in rechargeCards">
+            <div class="item-box margin radius border active" ng-click="recharge($event,rechargeCard.id);">
+                <span ng-bind="rechargeCard.p"></span>
+            </div>
+        </li>
+        <li class="list-item pure-u-1-3">
+            <div class="item-box margin radius border active" ng-click="recharge($event,'month1');">
+                <span>充值1个月</span>
+            </div>
+        </li>
+    </ul>
+</div>

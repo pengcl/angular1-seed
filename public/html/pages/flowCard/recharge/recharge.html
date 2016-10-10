@@ -5,7 +5,8 @@
         <form name="checkoutForm" ng-submit="save()">
             <phone-query></phone-query>
             <flow-cards></flow-cards>
-            <flow-using style="font-size: 0.12rem"></flow-using>
+            <flow-using ng-show="flowCard"></flow-using>
+            <recharge-cards ng-show="receiverMobile"></recharge-cards>
         </form>
     </div>
 </div>
