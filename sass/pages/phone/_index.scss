@@ -1,0 +1,54 @@
+.page.p-index {
+  .content-scrollable {
+    background-color: #000;
+  }
+  &.default {
+    .timer-area {
+      font-size: 0.24rem;
+      color: #fff;
+      margin-top: 0.5rem;
+      margin-bottom: 0.7rem;
+      p {
+        font-size: 0.18rem;
+        &:before {
+          content: " ";
+          @include inline-block;
+          margin-right: 0.1rem;
+          width: 2em;
+          height: 1px;
+          background: #fff;
+        }
+        &:after {
+          content: " ";
+          @include inline-block;
+          margin-left: 0.1rem;
+          width: 2em;
+          height: 1px;
+          background: #fff;
+        }
+        span {
+          @include inline-block;
+        }
+      }
+      .timer {
+        margin-top: 0.1rem;
+        i {
+          font-size: 0.24rem;
+          width: 0.32rem;
+          height: 0.32rem;
+          line-height: 0.32rem;
+          @include border-radius(4px);
+          color: #000;
+        }
+      }
+    }
+    .nav-comment {
+      position: absolute;
+      top: 0;
+      bottom:0;
+      left: 0;
+      width: 23%;
+      background: #fff;
+    }
+  }
+}

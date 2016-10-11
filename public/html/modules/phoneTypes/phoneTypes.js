@@ -10,6 +10,8 @@ app.directive("phoneTypes", ['$http', 'Phone', function ($http, Phone) {
             scope.phoneTypeTitle = attrs.title;
             scope.phoneTypeSubTitle = attrs.subTitle;
 
+            scope.showDetails = attrs.phoneDetails;
+
             //scope.size = attrs.size;
 
             //选择号码 对象类型
@@ -24,6 +26,12 @@ app.directive("phoneTypes", ['$http', 'Phone', function ($http, Phone) {
                     scope.productId = phoneType.productId;
                     writebdLog(scope.category,"_SelectVersion","渠道号",scope.gh);//选择版本
                 }
+            };
+
+            scope.showOverLay = function (targetId) {
+                var targetHtml = $("#" + targetId).html();
+                scope.$root.Overlay.open(targetHtml);
+                writebdLog(scope.category, "_IsContractPackage", "渠道号", scope.gh);//合约套餐介绍
             };
         }
     };

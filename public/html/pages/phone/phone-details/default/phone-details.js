@@ -24,6 +24,10 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
     	{
     		$scope.appType = systemName+"_V2_"+phone.phoneModel;
     	}
+        if($location.path().indexOf("/phones/C")!=-1)
+        {
+            $scope.appType = systemName+"_V3_"+phone.phoneModel;
+        }
         $scope.category = $scope.appType;
         writebdLog($scope.category,"_Load","渠道号",$scope.gh);
     });

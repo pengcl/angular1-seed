@@ -9,7 +9,9 @@ app.directive("footerNav", ['$http', function ($http) {
             var $container = $('.content-scrollable');
             var $scrollTo;
 
-            if(scope.appType == "yfqapp_Iphone"){
+            var searchType = attrs.searchType;
+
+            if(searchType == "phone"){
                 scope.orderURL = "http://m.gd189fq.com/wap/customer/searchIndexA.html?s=wap";
             }else {
                 scope.orderURL = "http://m.gd189fq.com/yfqcz/#/purchaseOrderList?redirect_uri=http://app.yfq.cn";

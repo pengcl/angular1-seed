@@ -54,28 +54,12 @@
         right:0.15rem;
         top:0.1rem;
         font-size: 0.12rem;
-        line-height: 1;
         .timer-label {
           text-align: right;
         }
         .timer {
           text-align: right;
           margin-top: 0.05rem;
-          i {
-            @include inline-block;
-            font-size: 0.12rem;
-            width: 0.18rem;
-            height: 0.18rem;
-            text-align: center;
-            line-height: 0.18rem;
-            background: #fff;
-            @include border-radius(4px);
-            color: $color-primary;
-            vertical-align:bottom;
-            margin-left: 0.03rem;
-            margin-right: 0.03rem;
-            font-style: normal;
-          }
         }
       }
       del {
