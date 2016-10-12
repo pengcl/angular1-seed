@@ -9,9 +9,18 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
             templateUrl: "pages/phone/index/index.html",
             controller: "pIndexController"
         });
-}]).controller('pIndexController', ['$scope', function ($scope) {
+}]).controller('pIndexController', ['$scope', '$location', function ($scope, $location) {
 
-    $scope.appType = systemName + "_V3_index";
+
+    var _path,_version;
+    _path = $location.path();
+    if(_path == "/phone/indexC"){
+        _version = "V3";
+    }
+    if(_path == "/phone/indexD"){
+        _version = "V4";
+    };
+    $scope.appType = systemName + "_" + _version + "_index";
     $scope.category = $scope.appType;
 
     //统计

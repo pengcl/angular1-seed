@@ -28,6 +28,10 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
         {
             $scope.appType = systemName+"_V3_"+phone.phoneModel;
         }
+        if($location.path().indexOf("/phones/D")!=-1)
+        {
+            $scope.appType = systemName+"_V4_"+phone.phoneModel;
+        }
         $scope.category = $scope.appType;
         writebdLog($scope.category,"_Load","渠道号",$scope.gh);
     });
@@ -55,5 +59,5 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
             });
         }
     });
-
+    androidInputBugFix();
 }]);

@@ -11,6 +11,8 @@ app.directive("footerNav", ['$http', function ($http) {
 
             var searchType = attrs.searchType;
 
+            scope.priceType = attrs.priceType;
+
             if(searchType == "phone"){
                 scope.orderURL = "http://m.gd189fq.com/wap/customer/searchIndexA.html?s=wap";
             }else {
@@ -18,8 +20,11 @@ app.directive("footerNav", ['$http', function ($http) {
             }
 
             if(scope.payType == 1){
-                scope.payTypeName = "立即分期";
-            }else {
+                scope.payTypeName = "下一步";
+            }else if(scope.payType == 2){
+                scope.payTypeName = "货到付款";
+            }
+            else {
                 scope.payTypeName = "立即支付";
             }
 
