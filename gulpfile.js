@@ -1,5 +1,5 @@
 var gulp = require('gulp');
-var compass = require('gulp-for-compass');
+//var compass = require('gulp-for-compass');
 var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
 var rename = require('gulp-rename');
@@ -70,10 +70,10 @@ gulp.task('public', function () {
 
 gulp.task('watch', function () {
     gulp.watch(['public/js/**/*.js', 'public/html/**/*.js', 'public/html/**/*.html'], [/*'jshint', */'public', 'html2js']);
-    gulp.watch('sass/**/*.scss', ['sass']);
+    //gulp.watch('sass/**/*.scss', ['sass']);
 });
 
 gulp.task('default', function () {
     // 将你的默认的任务代码放在这
-    gulp.start('sass', /*'jshint', */'public', 'html2js', 'watch');
+    gulp.start(/*'sass', /*'jshint', */'public', 'html2js', 'watch');
 });

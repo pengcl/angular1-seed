@@ -12,8 +12,6 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
 }]).controller('pProController', ['$scope', '$rootScope', '$location', '$stateParams', '$http', 'Phone', function ($scope, $rootScope, $location, $stateParams, $http, Phone) {
     //$scope.pageTitle = "首页";
     //$scope.$root.title = $scope.pageTitle;
-
-
     $scope.phone = Phone.get({
         phoneId: $stateParams.phoneId
     }, function (phone) {

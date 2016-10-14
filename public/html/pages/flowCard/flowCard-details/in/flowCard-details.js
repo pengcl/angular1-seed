@@ -1,7 +1,6 @@
 "use strict";
 
 app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $locationProvider) {
-
     // 设定路由
     $stateProvider
         .state('flowCardIn', { //app首页
