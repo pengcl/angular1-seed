@@ -21,6 +21,13 @@
     top: 0;
     width: auto;
     z-index: 1;
+    .overlay-title {
+        font-size: 0.18rem;
+        height: 0.48rem;
+        line-height: 0.48rem;
+        text-align: center;
+        background: #fff;
+    }
     .overlay-back,
     .overlay-dismiss {
         font-size: 0;

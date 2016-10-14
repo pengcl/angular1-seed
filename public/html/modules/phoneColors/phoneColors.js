@@ -54,6 +54,10 @@ app.directive("phoneColors", ['$http', '$q', '$timeout', function ($http, $q, $t
                     writebdLog(scope.category,"_FuselageColor","渠道号",scope.gh);//选择机身颜色
                 }
             };
+
+            scope.$watch('productId', function (n, o, scope) {
+                console.log("1");
+            });
         }
     };
 }]);
