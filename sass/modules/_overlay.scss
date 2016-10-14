@@ -80,3 +80,32 @@
         }
     }
 }
+
+.content-overlay {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: auto;
+    height: auto;
+    cursor: pointer;
+}
+
+.menu-open {
+    .content-overlay {
+        @include transform(translate3d(45%, 0px, 0px));
+        z-index: 1;
+    }
+}
+
+.overlay-open {
+    .content-overlay {
+        //@include transform(translate3d(45%, 0px, 0px));
+        background: rgba(0,0,0,0.7);
+        z-index: 1;
+    }
+    .overlay {
+        z-index: 11;
+    }
+}

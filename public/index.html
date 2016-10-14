@@ -24,7 +24,7 @@
     <script src="//cdn.bootcss.com/modernizr/2.8.3/modernizr.min.js"></script>
     <script>
         var _hmt = _hmt || [];
-        (function() {
+        (function () {
             var hm = document.createElement("script");
             hm.src = "//hm.baidu.com/hm.js?ee0c67568d5c202840357783c24b820f";
             var s = document.getElementsByTagName("script")[0];
@@ -77,6 +77,13 @@
         <div class="view-container">
             <div id="ui-view" ui-view class="view-frame"></div>
         </div>
+    </div>
+</div>
+<div id="loadingToast" style="display: none;">
+    <div class="weui-mask_transparent"></div>
+    <div class="weui-toast">
+        <i class="weui-loading weui-icon_toast"></i>
+        <p class="weui-toast__content">数据加载中</p>
     </div>
 </div>
 <script src="//cdn.bootcss.com/angular.js/1.4.12/angular.min.js"></script>

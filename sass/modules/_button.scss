@@ -1,10 +1,10 @@
 [class^="btn-"],
 [class*=" btn-"] {
   // Sizing
-  font-size: 0.12rem;
+  font-size: 0.18rem;
   line-height: 0.18rem;
-  line-height: 0.22rem !important; //override line-height always so we can use em's to size.
-  padding: 0.12em 0.125em 0.095em 0.125em; // 48px tall
+  line-height: 0.26rem !important; //override line-height always so we can use em's to size.
+  padding: 0.125rem 0.125rem 0.095rem 0.125rem; // 48px tall
 
   // Style
   font-family: 'lato', "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -114,6 +114,10 @@
 .btns-group {
   @include display-flex;
   @include flex-wrap(wrap);
+  position: absolute;
+  top: auto;
+  bottom: 0;
+  left: 0;
   width: 100%;
 
   [class*="btn-"] {

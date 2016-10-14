@@ -1,7 +1,7 @@
 'use strict';
 
 //全局统计
-var systemName="yfqapp";
+var systemName = "yfqapp";
 
 var userTrack = function (category, action, gh, value) {
 
@@ -256,7 +256,7 @@ function writebdLog(category, action, opt_label, opt_value) {//category项目，
     };
 })();
 
-function androidInputBugFix(){
+function androidInputBugFix() {
     // .container 设置了 overflow 属性, 导致 Android 手机下输入框获取焦点时, 输入法挡住输入框的 bug
     // 解决方法:
     // 0. .container 去掉 overflow 属性, 但会引发别的问题
@@ -271,4 +271,35 @@ function androidInputBugFix(){
             }
         })
     }
+}
+
+//美恰在线客服
+function getMeiqia() {
+    (function (m, ei, q, i, a, j, s) {
+        m[a] = m[a] || function () {
+                (m[a].a = m[a].a || []).push(arguments)
+            };
+        j = ei.createElement(q),
+            s = ei.getElementsByTagName(q)[0];
+        j.async = true;
+        j.charset = 'UTF-8';
+        j.src = i + '?v=' + new Date().getUTCDate();
+        s.parentNode.insertBefore(j, s);
+    })(window, document, 'script', '//static.meiqia.com/dist/meiqia.js', '_MEIQIA');
+    _MEIQIA('entId', 27864);
+    _MEIQIA('withoutBtn');
+};
+
+//加载中事件
+function showToast() {
+    var $loadingToast = $('#loadingToast');
+    if ($loadingToast.css('display') != 'none') {
+        return;
+    }
+    $loadingToast.fadeIn(100);
+}
+
+function hideToast() {
+    var $loadingToast = $('#loadingToast');
+    $loadingToast.fadeOut(100);
 }

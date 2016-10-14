@@ -48,6 +48,65 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
             $http.get('/data/phones/' + $scope.productId + '.json').success(function (phone) {
                 $scope.phone = phone;
 
+                /*console.log($scope.productId);
+                if(phone.productId == 256){
+                    $scope.colors = [
+                        {
+                            "colorName": "亮黑色",
+                            "colorUrl": "/images/phones/iphone7/iphone7-jetblack.jpg",
+                            "selected": "disabled"
+                        },
+                        {
+                            "colorName": "黑色",
+                            "colorUrl": "/images/phones/iphone7/iphone7-black.jpg",
+                            "selected": ""
+                        },
+                        {
+                            "colorName": "银色",
+                            "colorUrl": "/images/phones/iphone7/iphone7-silver.jpg",
+                            "selected": ""
+                        },
+                        {
+                            "colorName": "金色",
+                            "colorUrl": "/images/phones/iphone7/iphone7-gold.jpg",
+                            "selected": ""
+                        },
+                        {
+                            "colorName": "玫瑰金",
+                            "colorUrl": "/images/phones/iphone7/iphone7-rosegold.jpg",
+                            "selected": "curr"
+                        }
+                    ]
+                }else {
+                    $scope.colors = [
+                        {
+                            "colorName": "亮黑色",
+                            "colorUrl": "/images/phones/iphone7/iphone7-jetblack.jpg",
+                            "selected": ""
+                        },
+                        {
+                            "colorName": "黑色",
+                            "colorUrl": "/images/phones/iphone7/iphone7-black.jpg",
+                            "selected": ""
+                        },
+                        {
+                            "colorName": "银色",
+                            "colorUrl": "/images/phones/iphone7/iphone7-silver.jpg",
+                            "selected": ""
+                        },
+                        {
+                            "colorName": "金色",
+                            "colorUrl": "/images/phones/iphone7/iphone7-gold.jpg",
+                            "selected": ""
+                        },
+                        {
+                            "colorName": "玫瑰金",
+                            "colorUrl": "/images/phones/iphone7/iphone7-rosegold.jpg",
+                            "selected": "curr"
+                        }
+                    ]
+                }*/
+
                 //选择默认内存
                 $scope.storage = phone.storages[getIndex(phone.storages, "curr")];
 

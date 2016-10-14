@@ -21,6 +21,9 @@ app.directive("phonePackage", ['$http', '$stateParams', '$q', function ($http, $
             scope.setPhonePackage = function (event, pkg) {
                 event.preventDefault();
                 var $this = $(event.currentTarget);
+                if($this.hasClass("curr")){
+                    return false;
+                }
                 $this.parent().siblings().children().removeClass('curr');
                 $this.addClass('curr');
                 scope.pkg = pkg;

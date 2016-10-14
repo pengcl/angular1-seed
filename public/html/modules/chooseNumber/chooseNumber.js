@@ -13,7 +13,7 @@ app.directive("chooseNumber", ["$compile", function ($compile) {
             var $span = $("#number-select span");
             var $numberList = $(".number-list");
             var $table = $numberList.find("table");
-            var curr;
+            scope.currNumberIndex = 3;
             
             scope.closeNumberList = function () {
                 $numberList.slideUp();
@@ -22,17 +22,17 @@ app.directive("chooseNumber", ["$compile", function ($compile) {
             scope.selectNumber = function (k, e) {
                 if ($(e.target).hasClass("active")) {
                     var j, numLast, number;
-                    $span.eq(curr).attr("date-value", k);
-                    $span.eq(curr).html(k);
-                    $span.eq(curr).attr("class", "old");
-                    $span.eq(curr + 1).attr("class", "curr");
-                    if (curr < 10) {
-                        scope.showPickNumberPanel(curr + 1,'selectNumber');
+                    $span.eq(scope.currNumberIndex).attr("date-value", k);
+                    $span.eq(scope.currNumberIndex).html(k);
+                    $span.eq(scope.currNumberIndex).attr("class", "old");
+                    $span.eq(scope.currNumberIndex + 1).attr("class", "curr");
+                    if (scope.currNumberIndex < 10) {
+                        scope.showPickNumberPanel(scope.currNumberIndex + 1,'selectNumber');
                         $("#num-sure").removeClass("active");
                         $("#num-reset").removeClass("active");
                         return true;
                     }
-                    if (curr == 10) {
+                    if (scope.currNumberIndex == 10) {
                         numLast = "";
                         for (j = 0; j < 11; j++) {
                             numLast = numLast + $span.eq(j).attr("date-value");
@@ -53,7 +53,7 @@ app.directive("chooseNumber", ["$compile", function ($compile) {
             scope.showPickNumberPanel = function (pos,isWrite) {
                 var i, numNow;
                 numNow = "";
-                curr = pos;
+                scope.currNumberIndex = pos;
 
                 $span.eq(pos).nextAll("span").attr("class", "future");
                 $span.eq(pos - 1).nextAll("span").html("?");
