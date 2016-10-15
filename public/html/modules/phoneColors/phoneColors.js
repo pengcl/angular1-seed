@@ -56,7 +56,7 @@ app.directive("phoneColors", ['$http', '$q', '$timeout', function ($http, $q, $t
             };
 
             scope.$watch('productId', function (n, o, scope) {
-                console.log("1");
+                //console.log("1");
             });
         }
     };

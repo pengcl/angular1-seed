@@ -32,7 +32,7 @@ app.directive("footerNav", ['$http', function ($http) {
             scope.checks = eval(attrs.checks);
 
             scope.getSearch = function () {
-                console.log(scope.appType);
+                //console.log(scope.appType);
                 writebdLog(scope.category, "_OrderQuery", "渠道号", scope.gh);//订单查询
             };
 
@@ -45,7 +45,7 @@ app.directive("footerNav", ['$http', function ($http) {
 
             function checkPhoneNumber() {
                 if (!$lastNumberSpan.hasClass("old")) {
-                    console.log(scope.currNumberIndex);
+                    //console.log(scope.currNumberIndex);
                     scope.showPickNumberPanel(scope.currNumberIndex);
                     return false;
                 }
