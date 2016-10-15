@@ -4,7 +4,7 @@
     <div class="phone-colors-panel pd-w">
         <ul class="phone-colors-lists item-lists minus pure-g">
             <li class="phone-colors-item list-item pure-u-1-4" ng-repeat="color in colors">
-                <div class="item-box margin border radius small {{color.selected}}" ng-init="colorInit(color.colorName)" ng-click="setPhoneColor($event,color)">
+                <div id="color{{$index}}" class="item-box margin border radius small {{color.selected}}" ng-init="colorInit(color.colorName)" ng-click="setPhoneColor($event,color)">
                     <p>
                         <span ng-bind="color.colorName"></span>
                     </p>

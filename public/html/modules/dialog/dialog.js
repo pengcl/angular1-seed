@@ -1,18 +1,22 @@
 'use strict';
 
-app.directive("dialog", ['$timeout', function ($timeout) {
+app.directive("jsDialog", ['$timeout', function ($timeout) {
     return {
         restrict: 'E',
-        replace:true,
         templateUrl: "modules/dialog/dialog.html",
         link: function (scope, element, attrs) {
-            scope.dialogId = attrs.dialogId;
-            scope.dialogTitle = attrs.title;
-            scope.dialogContent = attrs.content;
-            
-            scope.dialogHide = function (dialogId) {
-                $("#" + dialogId).hide();
-            }
+
+            scope.$root.dialog = {
+                open: function(title,content) {
+                    scope.dialogTitle = title;
+                    scope.dialogContent = content;
+                    //console.log($("#js-dialog").html());
+                    $(".js_dialog").show();
+                },
+                close: function() {
+                    $(".js_dialog").hide();
+                }
+            };
         }
     };
 }]);

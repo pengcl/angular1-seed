@@ -1,10 +1,10 @@
-<div style="display: none;" id="{{dialogId}}" class="weui_dialog_alert">
-    <div class="weui_mask"></div>
-    <div class="weui_dialog">
-        <div class="weui_dialog_hd"><strong class="weui_dialog_title" ng-bind="dialogTitle"></strong></div>
-        <div class="weui_dialog_bd" ng-bind-html="dialogContent | trustHtml"></div>
-        <div class="weui_dialog_ft">
-            <a class="weui_btn_dialog primary" href="javascript:;" ng-click="dialogHide(dialogId)">确定</a>
+<div id="js-dialog" class="js_dialog" style="display: none">
+    <div class="weui-mask"></div>
+    <div class="weui-dialog">
+        <div class="weui-dialog__hd"><strong class="weui_dialog_title" ng-bind="dialogTitle"></strong></div>
+        <div class="weui-dialog__bd" ng-bind-html="dialogContent | trustHtml"></div>
+        <div class="weui-dialog__ft">
+            <a href="javascript:;" class="weui-dialog__btn weui-dialog__btn_primary" ng-click="dialog.close()">知道了</a>
         </div>
     </div>
 </div>

@@ -77,9 +77,9 @@ function isScroller(el) { // 判断元素是否为 scroller
 }
 
 //获取对象或数组中选中对象的index
-function getIndex(jsonArray, value) {
+function getIndex(jsonArray, keyName, value) {
     for (var i = 0; i < jsonArray.length; i++) {
-        if (jsonArray[i].selected == value) {
+        if (jsonArray[i][keyName] == value) {
             return i;
         }
     }

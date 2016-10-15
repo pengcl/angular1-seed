@@ -38,13 +38,13 @@ app.directive("footerNav", ['$http', function ($http) {
 
             scope.getContent = function () {
                 getMeiqia();
-                //$("#contactUs").show();
+                //scope.$root.dialog.open("","咨询请关注微信公众号<br><em>“翼分期商城”</em>");
                 _MEIQIA('showPanel');
                 writebdLog(scope.category, "_CustConsult", "渠道号", scope.gh);//客服咨询
             };
 
             function checkPhoneNumber() {
-                if (!$lastNumberSpan.hasClass("old")) {
+                if (!$lastNumberSpan.hasClass("old")) {//原本应该用!scope.checkoutForm.phoneNumber.$valid
                     //console.log(scope.currNumberIndex);
                     scope.showPickNumberPanel(scope.currNumberIndex);
                     return false;
