@@ -3,7 +3,7 @@ logs/*
 node_modules/
 bower_components/
 tmp
-gulpfile.js
+
 .ignore
 .DS_Store
 .idea
