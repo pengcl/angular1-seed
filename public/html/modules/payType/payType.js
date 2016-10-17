@@ -11,9 +11,11 @@ app.directive("payType", ['$location', function ($location) {
 
             //设置本模块的显示隐藏
             scope.visibility = attrs.visibility;
-            if(scope.visibility === "false"){
+            if (scope.visibility === "false") {
                 $(element).addClass("hide");
             }
+
+            var $form = $(attrs.submit);
 
             //默认赋值
             scope.payType = 1;
@@ -27,22 +29,43 @@ app.directive("payType", ['$location', function ($location) {
             var _payType = $location.search().payType;
 
             //判断是否有带支付方式参数，如果有，更改默认支付方式;
-            if(_payType){
+            if (_payType) {
                 scope.setDefaultPayType(_payType);
             }
 
             //选择支付方式
+
             scope.setPayType = function (event, type) {
                 event.preventDefault();
                 var $this = $(event.currentTarget);
                 if ($this.hasClass("disabled")) {
                     return false;
                 } else {
-                    $this.parent().siblings().children().removeClass('curr');
-                    $this.addClass('curr');
-                    scope.payType = type;
+                    if (scope.checkAddress()) {
+
+                        //writebdLog(scope.category, "_BuyNow", "渠道号", scope.gh);//立即支付
+                        scope.$root.toast.open();
+                        $form.submit();
+                    } else {
+                        var $scrollTo = $('#receiverAddress');
+                        $container.animate({
+                            scrollTop: $scrollTo.offset().top - $container.offset().top + $container.scrollTop()
+                        });
+                    }
                 }
             };
+
+            /*scope.setPayType = function (event, type) {
+             event.preventDefault();
+             var $this = $(event.currentTarget);
+             if ($this.hasClass("disabled")) {
+             return false;
+             } else {
+             $this.parent().siblings().children().removeClass('curr');
+             $this.addClass('curr');
+             scope.payType = type;
+             }
+             };*/
         }
     };
 }]);
