@@ -37,6 +37,18 @@ gulp.task('sass', function () {
         .pipe(gulp.dest(version + '/'));
 });
 
+gulp.task('spc', function () {
+    return gulp.src('public/spc/sass/*.scss')
+        .pipe(compass({
+            sassDir: 'public/spc/sass/',
+            cssDir: 'public/spc/',
+            force: true
+        }))
+        .pipe(rename({suffix: '.min'}))
+        .pipe(minifyCSS())
+        .pipe(gulp.dest('public/spc/min/'));
+});
+
 //语法检查
 gulp.task('jshint', function () {
     return gulp.src(['public/js/**/*.js', 'public/html/**/*.js'])
@@ -70,10 +82,10 @@ gulp.task('public', function () {
 
 gulp.task('watch', function () {
     gulp.watch(['public/js/**/*.js', 'public/html/**/*.js', 'public/html/**/*.html'], [/*'jshint', */'public', 'html2js']);
-    gulp.watch('sass/**/*.scss', ['sass']);
+    gulp.watch(['sass/**/*.scss', 'public/spc/sass/*.scss'], ['sass', 'spc']);
 });
 
 gulp.task('default', function () {
     // 将你的默认的任务代码放在这
-    gulp.start('sass', /*'jshint', */'public', 'html2js', 'watch');
+    gulp.start('sass', 'spc', /*'jshint', */'public', 'html2js', 'watch');
 });

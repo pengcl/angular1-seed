@@ -1,0 +1,13 @@
+@import "compass/css3";
+@import "../../../sass/variables/variables";
+@import "../../../sass/utils/base";
+@import "../../../sass/appView/appView";
+@import "../../../sass/modules/button";
+
+.page {
+  &.e, &.d {
+    .content-scrollable {
+      background: #000;
+    }
+  }
+}

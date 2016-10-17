@@ -1,3 +1,4 @@
+/*
 "use strict";
 
 app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $locationProvider) {
@@ -9,4 +10,4 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
             templateUrl: "pages/phone/phone-details/C/phone-details.html",
             controller: "pProController"
         });
-}]);
+}]);*/

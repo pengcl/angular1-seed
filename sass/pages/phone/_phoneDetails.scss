@@ -117,7 +117,7 @@
       font-size: 0.12rem;
       background: #3c3c3c;
       color: #fff;
-      padding:0.15rem;
+      padding: 0.15rem;
       h3 {
         font-size: 0.16rem;
         color: #debd7f;
@@ -144,35 +144,33 @@
       }
     }
   }
-  &.c {
-    .content-scrollable {
-      background: #fff !important;
-      padding-top: 0.45rem;
+  .content-scrollable {
+    background: #fff !important;
+    padding-top: 0.45rem;
+  }
+  .page-title {
+    font-size: 0.18rem;
+    padding-top: 0.15rem;
+    padding-bottom: 0.15rem;
+    line-height: 1;
+    text-align: center;
+    position: relative;
+    &:after {
+      content: " ";
+      position: absolute;
+      width: 100%;
+      height: 1px;
+      bottom: 0;
+      left: 0;
+      border-bottom: 1px solid #ccc;
+      @include scaleY(0.5);
     }
-    .page-title {
-      font-size: 0.18rem;
-      padding-top: 0.15rem;
-      padding-bottom: 0.15rem;
-      line-height: 1;
-      text-align: center;
-      position: relative;
-      &:after {
-        content: " ";
-        position: absolute;
-        width: 100%;
-        height: 1px;
-        bottom:0;
-        left: 0;
-        border-bottom: 1px solid #ccc;
-        @include scaleY(0.5);
-      }
-    }
-    .item-box {
-      &.curr {
-        background: #e8b013;
-        &.border {
-          border:1px solid #e8b013;
-        }
+  }
+  .item-box {
+    &.curr {
+      background: #e8b013;
+      &.border {
+        border: 1px solid #e8b013;
       }
     }
   }
