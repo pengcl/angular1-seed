@@ -12,7 +12,7 @@
         <div class="weui-cell input-mobile" ng-class="{'weui-cell_warn':checkoutForm.receiverMobile.$dirty== true && checkoutForm.receiverMobile.$valid == false,'weui-cell_success':checkoutForm.receiverMobile.$dirty== true && checkoutForm.receiverMobile.$valid == true}">
             <div class="weui-cell__hd"><label class="weui-label">联系电话：</label></div>
             <div class="weui-cell__bd weui_cell_primary">
-                <input id="receiverMobile" name="receiverMobile" ng-model="receiver.mobile" ng-maxlength="11" ng-pattern="/^[0-9]*$/" pattern="[0-9]*" ng-minlength="11" class="weui-input" ng-required/>
+                <input id="receiverMobile" name="receiverMobile" ng-model="receiver.mobile" ng-maxlength="11" ng-pattern="/^[0-9]*$/" pattern="[0-9]*" ng-minlength="11" class="weui-input" required/>
             </div>
             <div class="weui-cell__ft"><i class="weui-icon-warn"></i><i class="weui-icon-success"></i></div>
         </div>

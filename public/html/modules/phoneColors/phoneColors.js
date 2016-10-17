@@ -65,7 +65,7 @@ app.directive("phoneColors", ['$http', '$q', '$timeout', function ($http, $q, $t
 
             scope.$watch('productId', function (n, o, scope) {//临时解决方案
                 if (n != o && scope.colors) {
-                    if (n == 256) {
+                    if (n == 256 || n==257) {
                         scope.colors[0].selected = "disabled";
                         $("#color0").removeClass("curr");
                         if (scope.color.colorName == "亮黑色") {

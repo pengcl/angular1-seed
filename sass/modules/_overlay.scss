@@ -27,6 +27,11 @@
         line-height: 0.48rem;
         text-align: center;
         background: #fff;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1;
     }
     .overlay-back,
     .overlay-dismiss {

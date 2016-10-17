@@ -78,6 +78,9 @@ body {
   overflow-x: hidden;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
+  &.has-header {
+  padding-top: 0.55rem;
+}
   &.has-footer {
     &:after {
       content: " ";
