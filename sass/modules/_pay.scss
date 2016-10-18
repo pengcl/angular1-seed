@@ -1,0 +1,66 @@
+.pay-lists {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  background: #fff;
+  border-top: 1px solid #eee;
+  font-size: 0.14rem;
+  li {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    position: relative;
+    padding-left: 0.70rem;
+    padding-right: 0.45rem;
+    padding-top: 0.12rem;
+    padding-bottom: 0.12rem;
+    border-bottom: 1px solid #eee;
+    @include box-sizing(border-box);
+    .pay-logo {
+      position: absolute;
+      left: 0.15rem;
+      height: 0.4rem;
+      top: 0.15rem;
+      width: 0.4rem;
+      svg {
+        color: #FF5B29;
+      }
+    }
+    .txt {
+      .mode-name {
+        line-height: 0.24rem;
+        font-weight: bold;
+      }
+      .discription {
+        line-height: 0.16rem;
+        font-size: 12px;
+        color: #999;
+      }
+    }
+    .mode-select {
+      width: 20px;
+      height: 20px;
+      position: absolute;
+      right: 15px;
+      top: 25px;
+      text-align: center;
+      line-height: 20px;
+      text-decoration: none;
+      text-align: center;
+      i {
+        line-height: 20px;
+        color: #999;
+        font-size: 20px;
+      }
+    }
+    &.curr {
+      .mode-select {
+        color: #fff;
+        i {
+          display: block;
+          color: #09bb07;
+        }
+      }
+    }
+  }
+}

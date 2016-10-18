@@ -1,0 +1,20 @@
+<div class="page payment">
+    <top-nav page-title="收货地址" page-back="back"></top-nav>
+    <!--<form id="checkoutForm" name="checkoutForm" action="http://2b2fda71.ngrok.natapp.cn/wap/taokafanghaoNew/submitOrderMachine.html" method="post" novalidate>-->
+    <form id="checkoutForm" name="checkoutForm" action="http://m.gd189fq.com/wap/taokafanghaoNew/submitOrderMachine.html" method="post" novalidate>
+        <input type="hidden" value="1" name="monthNumber" id="monthNumber">
+        <input type="hidden" value="{{category}}" name="category" id="category">
+        <input type="hidden" value="{{orderState.machineId}}" ng-model="phone.productId" name="machineId" id="machineId">
+        <input name="productId" id="productId" value="{{orderState.productId}}" required="" class="weui_input" type="hidden">
+        <input name="machineColor" id="machineColor" ng-model="color.colorName" value="{{orderState.color}}" type="hidden">
+        <input id="phoneNumber" name="phoneNumber" ng-model="phoneNumber" value="{{orderState.phoneNumber}}" type="hidden">
+        <gh></gh>
+        <activity></activity>
+        <redirect-url></redirect-url>
+        <div class="content-scrollable has-header has-footer">
+            <!-- <sim-type title="流量卡类型" add-class="bottom" size="s"></sim-type> -->
+            <receiver-address title="收货地址"></receiver-address>
+            <pay-type title="选择支付" sub-title="" submit="#checkoutForm"></pay-type>
+        </div>
+    </form>
+</div>

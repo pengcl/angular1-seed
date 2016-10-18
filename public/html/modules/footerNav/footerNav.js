@@ -1,6 +1,6 @@
 'use strict';
 
-app.directive("footerNav", ['$http', function ($http) {
+app.directive("footerNav", ['$http', '$cookieStore', '$location', function ($http, $cookieStore, $location) {
     return {
         restrict: 'E',
         templateUrl: "modules/footerNav/footerNav.html",
@@ -52,11 +52,23 @@ app.directive("footerNav", ['$http', function ($http) {
                 return true;
             }
 
-            scope.submitForm = function () {
+            scope.submitForm = function (event) {
+                //event.preventDefault();
+                //console.log(scope.phone.productId, scope.color.colorName, scope.pkg.productId, scope.phoneNumber);
                 if (attrs.checkPhone == "true") {
+                    //event.preventDefault();
                     if (checkPhoneNumber()) {
+                        scope.orderState = {
+                            machineId: scope.phone.productId,
+                            productId: scope.pkg.productId,
+                            color: scope.color.colorName,
+                            phoneNumber: scope.phoneNumber,
+                            price: scope.mainPrice
+                        };
+                        $cookieStore.put("orderState", scope.orderState);
                         //writebdLog(scope.category, "_SelectNumber", "渠道号", scope.gh);//选择号码
                     } else {
+                        event.preventDefault();
                         $scrollTo = $('#chooseNumber');
                         $container.animate({
                             scrollTop: $scrollTo.offset().top - $container.offset().top + $container.scrollTop()
@@ -64,15 +76,21 @@ app.directive("footerNav", ['$http', function ($http) {
                         return false;
                     }
                 }
-                if (scope.checkAddress()) {
-                    writebdLog(scope.category, "_BuyNow", "渠道号", scope.gh);//立即支付
-                    scope.$root.toast.open();
-                    $form.submit();
+                if (attrs.checkAddress == "false") {
+                    console.log("1");
                 } else {
-                    $scrollTo = $('#receiverAddress');
-                    $container.animate({
-                        scrollTop: $scrollTo.offset().top - $container.offset().top + $container.scrollTop()
-                    });
+                    event.preventDefault();
+                    if (scope.checkAddress()) {
+
+                        writebdLog(scope.category, "_BuyNow", "渠道号", scope.gh);//立即支付
+                        scope.$root.toast.open();
+                        $form.submit();
+                    } else {
+                        $scrollTo = $('#receiverAddress');
+                        $container.animate({
+                            scrollTop: $scrollTo.offset().top - $container.offset().top + $container.scrollTop()
+                        });
+                    }
                 }
             }
         }
