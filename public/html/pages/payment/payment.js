@@ -11,4 +11,6 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
         });
 }]).controller('paymentController', ['$scope', '$rootScope', '$location', '$stateParams', '$cookieStore', function ($scope, $rootScope, $location, $stateParams, $cookieStore) {
     $scope.orderState = $cookieStore.get("orderState");
+    $scope.category = $scope.orderState.category;
+    writebdLog($scope.category, "_Load", "渠道号", $scope.gh);
 }]);

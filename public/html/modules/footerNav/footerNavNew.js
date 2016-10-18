@@ -1,6 +1,6 @@
 'use strict';
 
-app.directive("footerNav", ['$http', function ($http) {
+app.directive("footerNavNew", ['$http', '$cookieStore', function ($http, $cookieStore) {
     return {
         restrict: 'E',
         templateUrl: "modules/footerNav/footerNav.html",
@@ -44,36 +44,29 @@ app.directive("footerNav", ['$http', function ($http) {
             };
 
             function checkPhoneNumber() {
-                if (!$lastNumberSpan.hasClass("old")) {//原本应该用!scope.checkoutForm.phoneNumber.$valid
+                if (!scope.checkoutForm.phoneNumber.$valid) {//原本应该用!scope.checkoutForm.phoneNumber.$valid
                     //console.log(scope.currNumberIndex);
-                    scope.showPickNumberPanel(scope.currNumberIndex);
+                    scope.npShow();
                     return false;
                 }
                 return true;
             }
 
             scope.submitForm = function (event) {
-                event.preventDefault();
-                if (attrs.checkPhone == "true") {
-                    if (checkPhoneNumber()) {
-                        //writebdLog(scope.category, "_SelectNumber", "渠道号", scope.gh);//选择号码
-                    } else {
-                        $scrollTo = $('#chooseNumber');
-                        $container.animate({
-                            scrollTop: $scrollTo.offset().top - $container.offset().top + $container.scrollTop()
-                        });
-                        return false;
-                    }
-                }
-                if (scope.checkAddress()) {
-                    writebdLog(scope.category, "_BuyNow", "渠道号", scope.gh);//立即支付
-                    showToast();
-                    $form.submit();
+                if (checkPhoneNumber()) {
+                    scope.orderState = {
+                        machineId: scope.phone.productId,
+                        productId: scope.pkg.productId,
+                        color: scope.color.colorName,
+                        phoneNumber: scope.phoneNumber,
+                        price: scope.mainPrice,
+                        category: scope.category
+                    };
+                    $cookieStore.put("orderState", scope.orderState);
+                    //writebdLog(scope.category, "_SelectNumber", "渠道号", scope.gh);//选择号码
                 } else {
-                    $scrollTo = $('#receiverAddress');
-                    $container.animate({
-                        scrollTop: $scrollTo.offset().top - $container.offset().top + $container.scrollTop()
-                    });
+                    event.preventDefault();
+                    scope.npShow(1);
                 }
             }
         }

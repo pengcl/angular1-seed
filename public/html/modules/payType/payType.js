@@ -18,7 +18,7 @@ app.directive("payType", ['$location', function ($location) {
             var $form = $(attrs.submit);
 
             //默认赋值
-            scope.payType = 1;
+            //scope.payType = 1;
 
             //设置默认payType;
             scope.setDefaultPayType = function (type) {
@@ -26,12 +26,12 @@ app.directive("payType", ['$location', function ($location) {
             };
 
             //获取地址栏支付方式的参数
-            var _payType = $location.search().payType;
+            //var _payType = $location.search().payType;
 
             //判断是否有带支付方式参数，如果有，更改默认支付方式;
-            if (_payType) {
+            /*if (_payType) {
                 scope.setDefaultPayType(_payType);
-            }
+            }*/
 
             //选择支付方式
 
@@ -43,8 +43,10 @@ app.directive("payType", ['$location', function ($location) {
                 } else {
                     if (scope.checkAddress()) {
 
-                        //writebdLog(scope.category, "_BuyNow", "渠道号", scope.gh);//立即支付
+                        writebdLog(scope.category, "_PayType", "渠道号", scope.gh);//立即支付
                         scope.$root.toast.open();
+
+                        $("#payType").val(type);
                         $form.submit();
                     } else {
                         var $scrollTo = $('#receiverAddress');

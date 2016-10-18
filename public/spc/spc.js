@@ -1,4 +1,5 @@
 
+var systemName = "yfqapp";
 
 (function () {//1.变态功能，如非必要，不推荐使用;2.对所有拥有rewrite-url 类的a标签重写href
     var params, rewriteUrl, $a, i, _href;
@@ -27,9 +28,12 @@ function getMeiqia() {
     _MEIQIA('withoutBtn');
 };
 
+var category = systemName + "_" + pageType + "_iPhone7";
+console.log(category);
+
 var getContact = function () {
     getMeiqia();
     //$("#contactUs").show();
     _MEIQIA('showPanel');
-    //writebdLog($scope.category, "_CustConsult", "渠道号", $scope.gh);//客服咨询
+    writebdLog(category, "_CustConsult", "渠道号", gh);//客服咨询
 };

@@ -1,5 +1,6 @@
 <div id="setPayType" class="pay-type">
-    <input type="hidden" name="payType" id="payType" ng-model="payType" value="{{payType}}" required>
+    <input type="hidden" name="payType" id="payType" value="{{payType}}" required>
+    <input type="hidden" name="payTypes" id="payTypes" ng-model="payTypes" value="0" required>
     <div class="weui-cells__title title-icon"><span class="title" ng-bind="payTypeTitle"></span><span class="sub-title" ng-class="{true:'hide',false:''}[payTypeSubTitle == '']" ng-bind="payTypeSubTitle"></span></div>
     <div class="paytype-panel">
         <ul class="pay-lists">
@@ -21,7 +22,7 @@
                     <i class="icon-arrow-right"></i>
                 </ins>
             </li>
-            <li class="paytype-item" ng-click="setPayType($event,1)">
+            <li class="paytype-item" ng-click="setPayType($event,2)">
                 <ins class="pay-logo">
                     <svg width="40" height="40" viewBox="0 0 40 40">
                         <g class="transform-group">
@@ -39,7 +40,7 @@
                     <i class="icon-arrow-right"></i>
                 </ins>
             </li>
-            <li class="paytype-item" ng-click="setPayType($event,2)">
+            <li class="paytype-item" ng-click="setPayType($event,1)">
                 <ins class="pay-logo">
                     <svg width="40" height="40" viewBox="0 0 40 40">
                         <g class="transform-group">

@@ -24,16 +24,120 @@
 }
 
 .phone-query {
-  margin-top: 0.05rem;
-  background: none;
-  &.weui-cells {
-    &:before {
-      display: none;
+  .page > nav {
+    z-index: -1;
+  }
+  .footer-nav {
+    display: none;
+  }
+  .content-scrollable {
+    position: static;
+  }
+}
+
+#phoneQuery {
+  .overlay {
+    z-index: 13;
+  }
+  .query-lists {
+    .query-item {
+      &:nth-child(even) {
+        .item-box {
+          &:before {
+            content: " ";
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 1px;
+            border-top: 1px solid #e5e5e5;
+            width: 100%;
+          }
+        }
+      }
+      &:nth-child(odd) {
+        .item-box {
+          &:before {
+            content: " ";
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 1px;
+            border-top: 1px solid #e5e5e5;
+            width: 100%;
+          }
+          &:after {
+            content: " ";
+            position: absolute;
+            top: 0;
+            right: 0;
+            height: 100%;
+            border-right: 1px solid #e5e5e5;
+            height: 100%;
+          }
+
+
+        }
+      }
+      .item-box {
+        .weui-icon_msg {
+          display: none;
+        }
+        &.curr {
+          background: none;
+          .weui-icon_msg {
+            @include inline-block;
+          }
+        }
+      }
     }
   }
-  .weui-cell {
+  .sbtn {
+    font-size: 0.12rem;
+    width: 100%;
+    margin-bottom: 0.2rem;
+    text-align: center;
+    position: relative;
+    padding: 0.15rem;
+    @include box-sizing(border-box);
     &:before {
-      display: none;
+      content: " ";
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 1px;
+      border-top: 1px solid #e5e5e5;
+      width: 100%;
+    }
+    &:after {
+      content: " ";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      height: 1px;
+      border-bottom: 1px solid #e5e5e5;
+      width: 100%;
+    }
+    li {
+      @include inline-block;
+      margin-left: 0.02rem;
+      margin-right: 0.02rem;
+      list-style: none;
+      a {
+        @include border-radius(4px);
+        border: 1px solid #ccc;
+        color: $color-primary;
+        line-height: 0.3rem;
+        display: block;
+        width: 0.3rem;
+        height: 0.3rem;
+      }
+      &.active {
+        a {
+          background: $color-primary;
+          color: #fff;
+          border: 1px solid $color-primary;
+        }
+      }
     }
   }
 }
