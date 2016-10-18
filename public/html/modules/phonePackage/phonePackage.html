@@ -5,7 +5,7 @@
         <span class="sub-title" ng-class="{true:'hide',false:''}[packageSubTitle == '']"
               ng-bind="packageSubTitle"></span>
         <timer ng-if="showTime=='true'"></timer>
-        <a class="question" ng-click="showOverLay('packageInfo')">什么是合约套餐?</a>
+        <a class="question" ng-click="showOverLay('packageInfo')">5388/6388元话费大礼包介绍</a>
     </div>
     <div class="phone-package-panel pd-w">
         <ul class="phone-package-lists item-lists minus pure-g">
@@ -30,10 +30,10 @@
     <div id="packageInfo" style="display: none;">
         <div class="overlay {{class}}">
             <div class="overlay-title">合约套餐介绍</div>
-            <a class="js-close-overlay overlay-dismiss" href="#"><span class="icon-cross"></span></a>
+            <a class="js-close-overlay overlay-dismiss" style="left:0 !important;" href="#"><span class="icon-cross"></span></a>
             <div class="content-scrollable has-header">
             <div class="weui-panel">
-                <div class="weui-panel__hd">独家政策 全国通用，接听免费 全国无漫游</div>
+                <div class="weui-panel__hd" style="position:relative;color:#000;"><span style="position:absolute;left:20px;top:16px;width:5px;height:15px;border-radius:2px;background-color:#FF5B29"></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;独家政策 全国通用，接听免费 全国无漫游</div>
                 <div class="weui-panel__bd">
                     <div class="weui-media-box weui-media__text">
                         <table>
@@ -61,19 +61,59 @@
                             <tr>
                                 <td colspan="5">
                                     <p><a href="javascript:;">赠送规则：赠送36个月话费</a></p>
-                                    <p>前35个月，每月赠送150元，最后一月赠送138元。每月话费9-13号到帐</p>
+                                    <p>前35个月，每月赠送150元，最后一月赠送138元。</p>
+                                    <p>每月话费9-13号到帐</p>
                                     <p class="weui-media__desc font-12">注：本优惠套餐为合约机优惠套餐，与手机绑定使用才可享受优惠</p>
                                 </td>
                             </tr>
                             </tbody>
                         </table>
-                        <p class="weui-media__desc mgt font-12"><b>超出收费：</b>短信0.1元/条，国内通话0.15元/分钟，国内流量不足100MB按0.0003元/KB收费，100MB-500MB收费30元，超过500MB时，500MB/30元收取。</p>
+                        <p class="weui-media__desc mgt font-12" style="display:none"><b>超出收费：</b>短信0.1元/条，国内通话0.15元/分钟，国内流量不足100MB按0.0003元/KB收费，100MB-500MB收费30元，超过500MB时，500MB/30元收取。</p>
+                        <table style="margin-top:.12rem">
+                            <thead>
+                                <th colspan="4">这个合约套餐贵不贵?</th>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td></td>
+                                    <td>套餐实缴</td>
+                                    <td>全国流量</td>
+                                    <td>全国通话</td>
+                                </tr>
+                                <tr>
+                                    <td>中国移动</td>
+                                    <td>188元 / 月</td>
+                                    <td>3G流量</td>
+                                    <td>500分钟</td>
+                                </tr>
+                                <tr>
+                                    <td>中国电信</td>
+                                    <td>199元 / 月</td>
+                                    <td>3G流量</td>
+                                    <td>700分钟</td>
+                                </tr>
+                                <tr>
+                                    <td>中国联通</td>
+                                    <td>196元 / 月</td>
+                                    <td>3G流量</td>
+                                    <td>700分钟</td>
+                                </tr>
+                                <tr>
+                                    <td>翼分期商城</td>
+                                    <td>149元 /月</td>
+                                    <td>4G流量</td>
+                                    <td>1500分钟</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p style="font-size: .12rem">如果您购买裸机，您将损失5388元话费</p>
                     </div>
+
                 </div>
             </div>
 
             <div class="weui-panel">
-                <div class="weui-panel__hd">常见问题</div>
+                <div class="weui-panel__hd" style="position:relative;color:#000;"><span style="position:absolute;left:20px;top:16px;width:5px;height:15px;border-radius:2px;background-color:#FF5B29"></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;常见问题</div>
                 <div class="weui-panel__bd">
                     <div class="weui-media-box weui-media__text">
                         <h4 class="weui-media__title">电话卡掉，要去本地营业厅补卡吗？</h4>
@@ -86,6 +126,10 @@
                     <div class="weui-media-box weui-media__text">
                         <h4 class="weui-media__title">关于退货？</h4>
                         <p class="weui-media__desc font-12">合约机签收后，号码激活即生效，不支持退货退款。拒收退货不收违约金，核实手机无损可退款。（开封后手机不符合7天无理由退货规则）</p>
+                    </div>
+                    <div class="weui-media-box weui-media__text">
+                        <h4 class="weui-media__title">超出收费</h4>
+                        <p class="weui-media__desc font-12">短信0.1元/条，国内通话0.15元/分钟，国内流量不足100MB按0.0003元/KB收费，100MB-500MB收费30元，超过500MB时，500MB/30元收取。</p>
                     </div>
                 </div>
             </div>
