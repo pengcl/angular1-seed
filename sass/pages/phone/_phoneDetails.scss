@@ -28,23 +28,6 @@
       }
     }
   }
-  .item-box {
-    &.curr {
-      background: #DEBD7F;
-      color: #000;
-      &.border {
-        border: 1px solid #DEBD7F;
-      }
-      ins {
-        display: none;
-      }
-    }
-  }
-  .title-icon {
-    &:before {
-      background: #DEBD7F;
-    }
-  }
 
   .price-table {
     background: #e5e5e5;
@@ -145,7 +128,6 @@
     }
   }
   .content-scrollable {
-    background: #fff !important;
     padding-top: 0.45rem;
   }
   .page-title {
@@ -164,14 +146,6 @@
       left: 0;
       border-bottom: 1px solid #ccc;
       @include scaleY(0.5);
-    }
-  }
-  .item-box {
-    &.curr {
-      background: #e8b013;
-      &.border {
-        border: 1px solid #e8b013;
-      }
     }
   }
 }

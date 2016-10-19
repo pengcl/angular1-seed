@@ -24,12 +24,18 @@ app.directive("receiverAddress", ["$compile", "$cookieStore", function ($compile
             var $areaList = $dataAreas.find(".area-list");
 
             //定义送货信息对象
-            scope.receiver = {
-                name: "",
-                mobile: "",
-                city: "",
-                room: ""
-            };
+
+
+            if ($cookieStore.get("receiver")) {
+                scope.receiver = $cookieStore.get("receiver");
+            } else {
+                scope.receiver = {
+                    name: "",
+                    mobile: "",
+                    city: "",
+                    room: ""
+                };
+            }
 
             //隐藏地址选择器
             var stockHide = function () {
@@ -162,6 +168,9 @@ app.directive("receiverAddress", ["$compile", "$cookieStore", function ($compile
                     //alert("请输入详细地址");
                     return false;
                 }
+
+                $cookieStore.put("receiver", scope.receiver);
+
                 return true;
             }
         }

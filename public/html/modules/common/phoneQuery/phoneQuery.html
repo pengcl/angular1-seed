@@ -4,7 +4,7 @@
         <!--<span ng-show="myForm.mainPhoneNumber.$error.required">必填</span>-->
     </div>
 
-    <div class="phone-query-panel pd-w">
+    <div class="phone-query-panel pd-w" style="margin-bottom: 0.5rem">
         <ul class="phone-query-lists item-lists minus pure-g">
             <li class="phone-query-item list-item pure-u-1-2">
                 <input id="phoneNumber" name="phoneNumber" ng-model="phoneNumber" type="hidden" required value="{{phoneNumber}}">
@@ -15,6 +15,7 @@
                     <p ng-show="phoneNumber">
                         <span ng-bind="phoneNumber"></span>
                     </p>
+                    <ins class="icon-check"></ins>
                 </div>
             </li>
             <li class="phone-query-item list-item pure-u-1-2" ng-show="phoneNumber" style="display: none">
@@ -35,12 +36,12 @@
         <div class="overlay">
             <div class="overlay-title">选择靓号</div>
             <a class="js-close-overlay overlay-dismiss" href="javascript:;" ng-click="npHide($event)"><span class="icon-cross"></span></a>
-            <div class="content-scrollable has-header">
+            <div class="content-scrollable has-header" style="position: absolute">
                 <div class="weui-cells weui-cells_form">
-                    <div class="weui-cell no-border" ng-class="{'weui-cell_warn':checkoutForm.receiverMobile.$dirty== true && checkoutForm.receiverMobile.$valid == false,'weui-cell_success':checkoutForm.receiverMobile.$dirty== true && checkoutForm.receiverMobile.$valid == true}">
-                        <div class="weui-cell__hd"><label class="weui-label">选择靓号</label></div>
+                    <div class="number-query-label weui-cell no-border" ng-class="{'weui-cell_warn':checkoutForm.receiverMobile.$dirty== true && checkoutForm.receiverMobile.$valid == false,'weui-cell_success':checkoutForm.receiverMobile.$dirty== true && checkoutForm.receiverMobile.$valid == true}">
+                        <div class="weui-cell__hd title-icon"><label class="weui-label">选择靓号</label></div>
                         <div class="weui-cell__bd">
-                            <input ng-change="phoneFilter(query)" class="weui-input" pattern="[0-9]*" ng-model="query" placeholder="请输入2 ~ 5位您想要的数字">
+                            <input ng-change="phoneFilter(query)" ng-blur="inputNumber(query)" class="weui-input" pattern="[0-9]*" ng-model="query" placeholder="请输入2 ~ 5位您想要的数字">
                         </div>
                         <div class="weui-cell__ft">
                             <i class="weui-icon-warn"></i>

@@ -13,4 +13,12 @@ app.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', functio
 
     $urlRouterProvider.otherwise("/phones/256");
 }]).run(['$rootScope', function ($rootScope) {
+
+    /*$rootScope.$on('$locationChangeStart',function(){
+
+    });
+
+    $rootScope.$on('$locationChangeSuccess',function(){
+
+    });*/
 }]);
