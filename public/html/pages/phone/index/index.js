@@ -15,11 +15,14 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
     var _path,_version;
     _path = $location.path();
     if(_path == "/phone/indexC"){
-        _version = "V3";
+        _version = "C";
     }
     if(_path == "/phone/indexD"){
-        _version = "V4";
-    };
+        _version = "D";
+    }
+    if(_path == "/phone/indexD"){
+        _version = "E";
+    }
     $scope.appType = systemName + "_" + _version + "_index";
     $scope.category = $scope.appType;
 

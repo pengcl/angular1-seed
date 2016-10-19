@@ -23,7 +23,16 @@ app.directive("phoneQuery", [function () {
                 $container.addClass("phone-query");
                 $("#numberPanel").show();
                 _index = index;
+                if(index!='numberPanel') return ;
+                writebdLog(scope.category, "_CuteNumber", "渠道号", scope.gh);//选择靓号
             };
+
+            function checkPhoneNumber() {
+                if (!scope.checkoutForm.phoneNumber.$valid) {//原本应该用!scope.checkoutForm.phoneNumber.$valid
+                    return false;
+                }
+                return true;
+            }
             
             scope.setNumberItem = function (event,numberItem) {
                 event.preventDefault();
@@ -41,11 +50,17 @@ app.directive("phoneQuery", [function () {
 
                 //console.log(scope.phoneNumber);
                 //scope.npHide();
+                
+                writebdLog(scope.category, "_SelectNumber", "渠道号", scope.gh);//选择号码
             };
             
             scope.getNumber = function () {
 
-                scope.npHide();
+                if(checkPhoneNumber()){
+                    scope.npHide();
+                }else {
+                    scope.$root.dialog.open("", "请您选择号码！");
+                }
             }
         }
 
@@ -70,6 +85,12 @@ app.directive("phoneQuery", [function () {
 
         $scope.dataInit();
     };
+    
+    $scope.inputNumber = function (query) {
+    	if(query=="") return ;
+        writebdLog($scope.category, '_InputNumber', "渠道号", $scope.gh);//输入查询号码
+    }
+    
     $http.jsonp('http://m.gd189fq.com/wap/taokafanghaoNew/fetchNumber.html?callback=JSON_CALLBACK').success(function (data, status, headers, config) {
         $.each(eval(data), function (i, k) {
             if (!k.t) {
@@ -133,6 +154,7 @@ app.directive("phoneQuery", [function () {
         //下一页
         $scope.Next = function () {
             $scope.selectPage($scope.selPage + 1);
+            writebdLog($scope.category, "_ChangeALot", "渠道号", $scope.gh);//换一批
         };
 
     }).error(function (data, status, headers, config) {

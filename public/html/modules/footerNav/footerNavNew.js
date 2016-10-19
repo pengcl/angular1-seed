@@ -20,14 +20,7 @@ app.directive("footerNavNew", ['$http', '$cookieStore', function ($http, $cookie
                 scope.orderURL = "http://m.gd189fq.com/yfqcz/#/purchaseOrderList?redirect_uri=http://app.yfq.cn";
             }
 
-            if (scope.payType == 1) {
-                scope.payTypeName = "下一步";
-            } else if (scope.payType == 2) {
-                scope.payTypeName = "货到付款";
-            }
-            else {
-                scope.payTypeName = "立即支付";
-            }
+            scope.payTypeName = "下一步";
 
             scope.checks = eval(attrs.checks);
 
@@ -46,7 +39,7 @@ app.directive("footerNavNew", ['$http', '$cookieStore', function ($http, $cookie
             function checkPhoneNumber() {
                 if (!scope.checkoutForm.phoneNumber.$valid) {//原本应该用!scope.checkoutForm.phoneNumber.$valid
                     //console.log(scope.currNumberIndex);
-                    scope.npShow();
+                    //scope.npShow();
                     return false;
                 }
                 return true;

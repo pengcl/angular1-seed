@@ -43,9 +43,18 @@ app.directive("payType", ['$location', function ($location) {
                 } else {
                     if (scope.checkAddress()) {
 
-                        writebdLog(scope.category, "_PayType", "渠道号", scope.gh);//立即支付
+                    	var value;
+            		 	if(type == 0){
+            		 		value = "_payAll";
+            		 	}
+            		 	if(type == 2){
+            		 		value = "_payMonthly";
+            		 	}
+            		 	if(type == 1){
+            		 		value = "_payCOD";
+            		 	}
+                        writebdLog(scope.category, value, "渠道号", scope.gh);//支付方式
                         scope.$root.toast.open();
-
                         $("#payType").val(type);
                         $form.submit();
                     } else {
