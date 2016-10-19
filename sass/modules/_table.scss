@@ -59,4 +59,20 @@ table {
       text-align: left;
     }
   }
+  &.border-white {
+    &:before {
+      border-left: 1px solid #fff;
+    }
+    &:after {
+      border-top: 1px solid #fff;
+    }
+    th,td {
+      &:before {
+        border-right: 1px solid #fff;
+      }
+      &:after {
+        border-bottom: 1px solid #ccc;
+      }
+    }
+  }
 }

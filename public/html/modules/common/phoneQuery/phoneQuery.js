@@ -1,6 +1,6 @@
 'use strict';
 
-app.directive("phoneQuery", [function () {
+app.directive("phoneQuery", ["$cookieStore", function ($cookieStore) {
     return {
         restrict: 'E',
         templateUrl: "modules/common/phoneQuery/phoneQuery.html",
@@ -10,6 +10,11 @@ app.directive("phoneQuery", [function () {
             $container = $("#container");
 
             var _index;
+
+            if($cookieStore.get("orderState")){
+                var orderState = $cookieStore.get("orderState");
+                scope.phoneNumber = orderState.phoneNumber;
+            }
 
             scope.npHide = function () {
                 //event.preventDefault();
@@ -23,7 +28,7 @@ app.directive("phoneQuery", [function () {
                 $container.addClass("phone-query");
                 $("#numberPanel").show();
                 _index = index;
-                if(index!='numberPanel') return ;
+                if (index != 'numberPanel') return;
                 writebdLog(scope.category, "_CuteNumber", "渠道号", scope.gh);//选择靓号
             };
 
@@ -33,8 +38,8 @@ app.directive("phoneQuery", [function () {
                 }
                 return true;
             }
-            
-            scope.setNumberItem = function (event,numberItem) {
+
+            scope.setNumberItem = function (event, numberItem) {
                 event.preventDefault();
                 scope.phoneNumber = numberItem.n;
 
@@ -42,23 +47,20 @@ app.directive("phoneQuery", [function () {
 
                 $this.parent().siblings().children().removeClass('curr');
                 $this.addClass('curr');
-                /*if(_index == 1){
-                    scope.phoneNumber = numberItem.n;
-                }else {
-                    scope.phoneNumberSub = numberItem.n;
-                }*/
 
-                //console.log(scope.phoneNumber);
-                //scope.npHide();
-                
                 writebdLog(scope.category, "_SelectNumber", "渠道号", scope.gh);//选择号码
             };
-            
+
             scope.getNumber = function () {
 
-                if(checkPhoneNumber()){
+                if (checkPhoneNumber()) {
                     scope.npHide();
-                }else {
+                    var $scrollTo = $('#phoneQuery');
+                    var $container = $(".content-scrollable");
+                    $container.animate({
+                        scrollTop: $scrollTo.offset().top - $container.offset().top + $container.scrollTop()
+                    });
+                } else {
                     scope.$root.dialog.open("", "请您选择号码！");
                 }
             }
@@ -85,12 +87,12 @@ app.directive("phoneQuery", [function () {
 
         $scope.dataInit();
     };
-    
+
     $scope.inputNumber = function (query) {
-    	if(query=="") return ;
+        if (query == "") return;
         writebdLog($scope.category, '_InputNumber', "渠道号", $scope.gh);//输入查询号码
     }
-    
+
     $http.jsonp('http://m.gd189fq.com/wap/taokafanghaoNew/fetchNumber.html?callback=JSON_CALLBACK').success(function (data, status, headers, config) {
         $.each(eval(data), function (i, k) {
             if (!k.t) {

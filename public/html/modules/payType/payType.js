@@ -30,8 +30,8 @@ app.directive("payType", ['$location', function ($location) {
 
             //判断是否有带支付方式参数，如果有，更改默认支付方式;
             /*if (_payType) {
-                scope.setDefaultPayType(_payType);
-            }*/
+             scope.setDefaultPayType(_payType);
+             }*/
 
             //选择支付方式
 
@@ -43,16 +43,16 @@ app.directive("payType", ['$location', function ($location) {
                 } else {
                     if (scope.checkAddress()) {
 
-                    	var value;
-            		 	if(type == 0){
-            		 		value = "_payAll";
-            		 	}
-            		 	if(type == 2){
-            		 		value = "_payMonthly";
-            		 	}
-            		 	if(type == 1){
-            		 		value = "_payCOD";
-            		 	}
+                        var value;
+                        if (type == 0) {
+                            value = "_payAll";
+                        }
+                        if (type == 2) {
+                            value = "_payMonthly";
+                        }
+                        if (type == 1) {
+                            value = "_payCOD";
+                        }
                         writebdLog(scope.category, value, "渠道号", scope.gh);//支付方式
                         scope.$root.toast.open();
                         $("#payType").val(type);
