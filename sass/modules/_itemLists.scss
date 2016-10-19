@@ -51,6 +51,19 @@
       text-overflow: ellipsis;
       white-space: nowrap;
       overflow: hidden;
+      &.phone-number {
+        font-size: 0.16rem;
+        line-height:0.24rem;
+        em {
+          line-height: 0.24rem;
+          color: $color-primary;
+        }
+        .weui-icon_msg {
+          &:before {
+            font-size: 0.18rem;
+          }
+        }
+      }
     }
 
     ins {
