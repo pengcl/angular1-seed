@@ -382,13 +382,13 @@ body {
 /* line 66, ../../sass/modules/_button.scss */
 [class^="btn-"][class*="twitter"],
 [class*=" btn-"][class*="twitter"] {
-  background-color: #46c8f5;
+  background-color: #d83e14;
   color: white;
 }
 /* line 70, ../../sass/modules/_button.scss */
 [class^="btn-"][class*="twitter"]:hover,
 [class*=" btn-"][class*="twitter"]:hover {
-  background-color: #16baf2;
+  background-color: #a93110;
 }
 /* line 71, ../../sass/modules/_button.scss */
 [class^="btn-"][class*="twitter"]:active,

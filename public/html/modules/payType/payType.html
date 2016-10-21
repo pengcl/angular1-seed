@@ -102,14 +102,20 @@
         <div class="overlay {{class}}">
             <a class="js-close-overlay overlay-dismiss" href="#"><span class="icon-cross"></span></a>
             <div class="sign-in-panel">
-                <div class="form-group">
-                    <label class="control-label" for="username">请输入您的手机号</label>
-                    <input type="number" id="username" name="username" class="form-control">
+                <div class="weui-panel" style="margin-top: 0.75rem;background: none">
+                    <div class="weui-cells__title title-icon" style="font-size:.16rem;color:black">本次支付服务由中国银联提供技术支持</div>
+                    <div class="weui-panel__bd">
+                        <div class="weui-media-box weui-media__text">
+                            <h4 class="weui-media__title">1.如您未开通分期业务，付款时可能会出现跳转至银行开通分期。</h4>
+                        </div>
+                        <div class="weui-media-box weui-media__text">
+                            <h4 class="weui-media__title">2.额度问题可能导致付款失败</h4>
+                        </div>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label class="control-label" for="password">请输入您的密码</label>
-                    <input type="password" id="password" name="password" class="form-control">
-                </div>
+            </div>
+            <div class="btns-group">
+                <a class="btn-twitter" href="javascript:;">我知道了</a>
             </div>
         </div>
     </div>
