@@ -14,6 +14,64 @@ function each(objArray, funName) {
     }
 }
 
+//获取订单信息
+router.get('/getSalesOrder/:orderNo', function (req, res) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Methods", "GET, POST");
+    res.header("Cache-Control: no-cache, must-reva lidate");
+    //以上两行设置跨域请求
+    request('http://m.gd189fq.com/wap/taokafanghaoNew/getSalesOrder.html?orderNo=' + req.params.orderNo + "&s=wap", function (error, response, body) {
+        if (!error && response.statusCode == 200) {
+            //console.log(eval(body)[0]);
+            /*var jsonData = new Array();
+            var data = new Array();
+            each(body, function (o, i) {
+                data = {
+                    "orderNo": o.orderNo,
+                    "receiverName": o.recieverName,
+                    "recieverMobile": o.recieverMobile,
+                    "receiverCity": o.receiverCity,
+                    "receiverRoom": o.receiverRoom,
+                    "productName": o.buyerMemo,
+                    "price": o.totalAmount,
+                    'color': o.color
+                };
+                jsonData.push(data);
+            });*/
+            res.send(body);
+        }
+    });
+});
+
+//获取订单信息
+router.get('/getSalesOrderTest/:orderNo', function (req, res) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Methods", "GET, POST");
+    res.header("Cache-Control: no-cache, must-reva lidate");
+    //以上两行设置跨域请求
+    request('http://m.gd189fq.com/wap/taokafanghaoNew/getSalesOrder.html?orderNo=' + req.params.orderNo + "&s=wap", function (error, response, body) {
+        if (!error && response.statusCode == 200) {
+            //console.log(eval(body)[0]);
+            /*var jsonData = new Array();
+             var data = new Array();
+             each(body, function (o, i) {
+             data = {
+             "orderNo": o.orderNo,
+             "receiverName": o.recieverName,
+             "recieverMobile": o.recieverMobile,
+             "receiverCity": o.receiverCity,
+             "receiverRoom": o.receiverRoom,
+             "productName": o.buyerMemo,
+             "price": o.totalAmount,
+             'color': o.color
+             };
+             jsonData.push(data);
+             });*/
+            res.send(body);
+        }
+    });
+});
+
 //获取流量卡
 router.get('/getFlowPackages', function (req, res) {
     res.header("Access-Control-Allow-Origin", "*");

@@ -9,11 +9,50 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
             templateUrl: "pages/payment/payment.html",
             controller: "paymentController"
         });
-}]).controller('paymentController', ['$scope', '$rootScope', '$location', '$stateParams', '$cookieStore', function ($scope, $rootScope, $location, $stateParams, $cookieStore) {
-    $scope.orderState = $cookieStore.get("orderState");
+}]).controller('paymentController', ['$scope', '$rootScope', '$location', '$stateParams', '$cookieStore', '$http', function ($scope, $rootScope, $location, $stateParams, $cookieStore, $http) {
 
+    $scope.orderNo = $location.search().orderNo;
 
+    //$scope.appType = systemName + "_" + $stateParams.pageType + "_" + phone.phoneModel;
+    //$scope.category = $scope.appType;
 
-    $scope.category = $scope.orderState.category;
-    writebdLog($scope.category, "_Load", "渠道号", $scope.gh);
+    if ($scope.orderNo) {
+        $scope.category = "_IndexSearch";
+        $http.get("http://app.yfq.cn:3099/api/getSalesOrder/" + $scope.orderNo).success(function (data) {
+            var machineId,productId,color,phoneNumber,price;
+
+            $.each(data.items,function (i,o) {
+                if(o.productName.indexOf("月") == -1){
+                    machineId = o.productId;
+                    color = o.salesOrder.color;
+                    phoneNumber = o.salesOrder.buyMobile;
+                    price = o.salesOrder.totalAmount;
+
+                }else {
+                    productId = o.productId;
+                }
+            });
+
+            $scope.orderState = {
+                machineId: machineId,
+                productId: productId,
+                color: color,
+                phoneNumber: phoneNumber,
+                price: price,
+                category: $scope.category
+            };
+
+            $scope.receiver = {
+                name: data.salesOrder.recieverName,
+                mobile: data.salesOrder.recieverMobile,
+                city: data.salesOrder.receiverCity,
+                room: data.salesOrder.receiverRoom
+            };
+        });
+    } else {
+        $scope.orderState = $cookieStore.get("orderState");
+        $scope.category = $scope.orderState.category;
+    }
+
+    //writebdLog($scope.category, "_Load", "渠道号", $scope.gh);
 }]);

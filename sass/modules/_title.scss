@@ -1,7 +1,12 @@
+
 .weui-cells__title{
-  font-size: 0.14rem;
+  font-size: 0.16rem;
+  color: #333;
+  font-weight: bold;
+  line-height: 0.32rem;
   span {
     @include inline-block;
+    vertical-align: baseline;
   }
   .sub-title {
     font-size: 60%;

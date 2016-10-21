@@ -19,7 +19,7 @@
     height: 0.48rem;
     @include box-sizing(border-box);
     overflow: hidden;
-    padding-left: 1.2rem;
+    padding-left: 0.96rem;
     //position: relative;
     .nav-item {
       font-size: 0.12rem;
@@ -39,7 +39,7 @@
         top: 0;
       }
       &.nav-comment {
-        width: 0.72rem;
+        width: 0.48rem;
         position: absolute;
         left: 0.48rem;
         top: 0;

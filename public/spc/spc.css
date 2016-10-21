@@ -242,6 +242,34 @@ body {
   width: 100%;
 }
 
+/* line 1, ../../sass/modules/_owlCarousel.scss */
+.owl-carousel {
+  font-size: 0;
+}
+/* line 3, ../../sass/modules/_owlCarousel.scss */
+.owl-carousel .owl-controls {
+  position: absolute;
+  bottom: 0.1rem;
+  z-index: 1;
+  width: 100%;
+  text-align: center;
+}
+/* line 9, ../../sass/modules/_owlCarousel.scss */
+.owl-carousel .owl-controls .owl-buttons {
+  display: none;
+}
+
+/* line 14, ../../sass/modules/_owlCarousel.scss */
+.carousel-item, .owl-item {
+  width: 100%;
+}
+/* line 16, ../../sass/modules/_owlCarousel.scss */
+.carousel-item img, .owl-item img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
 /* line 1, ../../sass/modules/_button.scss */
 [class^="btn-"],
 [class*=" btn-"] {
@@ -443,7 +471,7 @@ body {
   flex: 1;
 }
 
-/* line 9, sass/spc.scss */
+/* line 10, sass/spc.scss */
 .page.e .content-scrollable, .page.d .content-scrollable {
   background: #000;
 }

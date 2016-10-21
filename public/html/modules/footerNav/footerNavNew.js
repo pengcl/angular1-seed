@@ -56,7 +56,7 @@ app.directive("footerNavNew", ['$http', '$cookieStore', function ($http, $cookie
                         category: scope.category
                     };
                     $cookieStore.put("orderState", scope.orderState);
-                    //writebdLog(scope.category, "_SelectNumber", "渠道号", scope.gh);//选择号码
+                    writebdLog(scope.category, "_BuyNow", "渠道号", scope.gh);//下一步
                 } else {
                     event.preventDefault();
                     scope.npShow(1);

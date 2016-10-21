@@ -21,7 +21,8 @@
             <div class="weui-cell__bd weui-cell-primary">
                 <div id="store-selector" ng-click="inputFocus('.input-city');">
                     <div id="store-text" class="text" data-value="">
-                        <div>请选择收件区域</div>
+                        <div ng-if="receiver.city !=''"><span ng-bind="receiver.city"></span></div>
+                        <div ng-if="receiver.city ==''"><span>请选择收件区域</span></div>
                         <input type="hidden" value="{{receiver.city}}" ng-model="receiver.city" name="receiverCity" id="receiverCity" class="weui-input" required/>
                         <b></b>
                     </div>

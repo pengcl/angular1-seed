@@ -1,6 +1,6 @@
 'use strict';
 
-app.directive("receiverAddress", ["$compile", "$cookieStore", function ($compile, $cookieStore) {
+app.directive("receiverAddress", ["$compile", "$cookieStore", '$http', function ($compile, $cookieStore, $http) {
     return {
         restrict: 'E',
         templateUrl: "modules/receiverAddress/receiverAddress.html",
@@ -26,6 +26,7 @@ app.directive("receiverAddress", ["$compile", "$cookieStore", function ($compile
             //定义送货信息对象
 
 
+            //判断cookie是否存在
             if ($cookieStore.get("receiver")) {
                 scope.receiver = $cookieStore.get("receiver");
             } else {
@@ -172,7 +173,7 @@ app.directive("receiverAddress", ["$compile", "$cookieStore", function ($compile
                 $cookieStore.put("receiver", scope.receiver);
 
                 return true;
-            }
+            };
         }
     };
 }]);

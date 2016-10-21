@@ -54,8 +54,15 @@ app.directive("payType", ['$location', function ($location) {
                             value = "_payCOD";
                         }
                         writebdLog(scope.category, value, "渠道号", scope.gh);//支付方式
-                        scope.$root.toast.open();
                         $("#payType").val(type);
+
+                        if (type == 2) {
+                            scope.showOverLay("payTipsPanel");
+                            return;
+                        }else {
+                            scope.$root.toast.open();
+                        }
+
                         $form.submit();
                     } else {
                         var $scrollTo = $('#receiverAddress');
@@ -64,6 +71,12 @@ app.directive("payType", ['$location', function ($location) {
                         });
                     }
                 }
+            };
+
+            scope.showOverLay = function (targetId) {
+                var targetHtml = $("#" + targetId).html();
+                scope.$root.Overlay.open(targetHtml);
+                writebdLog(scope.category, "_payTips", "渠道号", scope.gh);//了解iPhone7
             };
 
             /*scope.setPayType = function (event, type) {

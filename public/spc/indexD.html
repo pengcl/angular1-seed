@@ -5,6 +5,8 @@
     <title></title>
     <meta name="description" content="">
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1"/>
+    <link rel="stylesheet" href="//cdn.bootcss.com/owl-carousel/1.32/owl.carousel.min.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/owl-carousel/1.32/owl.theme.min.css">
     <link rel="stylesheet" href="spc.min.css">
     <script>
         var _hmt = _hmt || [];
@@ -20,8 +22,10 @@
 <body>
 <div class="page p-index d default">
     <div class="content-scrollable has-footer">
-        <div class="img-box">
+        <div id="owlBanner">
             <img src="img/assets/indexD/banner.jpg">
+            <img src="img/assets/indexD/banner2.jpg">
+            <img src="img/assets/indexD/banner3.jpg">
         </div>
         <div class="img-box" style="margin-top: 0.2rem;">
             <img src="img/assets/indexD/10.png">
@@ -55,8 +59,18 @@
 </div>
 <script src="//apps.bdimg.com/libs/jquery/1.11.3/jquery.min.js" type="text/javascript"></script>
 <script src="//cdn.bootcss.com/jquery_lazyload/1.9.7/jquery.lazyload.min.js" type="text/javascript"></script>
+<script src="//cdn.bootcss.com/owl-carousel/1.32/owl.carousel.min.js" type="text/javascript"></script>
 <script>
     pageType = "D";
+    $(document).ready(function () {
+        $("#owlBanner").owlCarousel({
+            navigation : true, // Show next and prev buttons
+            slideSpeed : 300,
+            paginationSpeed : 400,
+            singleItem:true,
+            autoPlay:3000
+        });
+    });
 </script>
 <script src="spc.js" type="text/javascript"></script>
 </body>
