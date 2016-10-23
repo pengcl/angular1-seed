@@ -78,6 +78,12 @@ app.directive("payType", ['$location', function ($location) {
                 scope.$root.Overlay.open(targetHtml);
                 writebdLog(scope.category, "_payTips", "渠道号", scope.gh);//了解iPhone7
             };
+            
+            scope.$root.submitForm = function () {
+                $form.submit();
+            };
+            
+            
 
             /*scope.setPayType = function (event, type) {
              event.preventDefault();
