@@ -76,9 +76,13 @@ app.directive("payType", ['$location', function ($location) {
             scope.showOverLay = function (targetId) {
                 var targetHtml = $("#" + targetId).html();
                 scope.$root.Overlay.open(targetHtml);
-                writebdLog(scope.category, "_payTips", "渠道号", scope.gh);//了解iPhone7
+                writebdLog(scope.category, "_IsContractPackage", "渠道号", scope.gh);//合约套餐介绍
             };
 
+            $("#container").on("click",".btn-twitter",function () {
+                scope.$root.Overlay.close;
+                $form.submit();
+            });
             /*scope.setPayType = function (event, type) {
              event.preventDefault();
              var $this = $(event.currentTarget);
