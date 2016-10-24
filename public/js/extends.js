@@ -302,4 +302,20 @@ function showToast() {
 function hideToast() {
     var $loadingToast = $('#loadingToast');
     $loadingToast.fadeOut(100);
+};
+
+function checkMobileCode(code) {
+    var flag = false;
+    $.ajax({
+        url: "http://app.yfq.cn:3099/api/checkActiveCode/" + code,
+        async: false,
+        type: "get",
+        success: function (data) {
+            if (data == 'true') {
+                flag = true;
+            }
+        }
+    });
+
+    return flag;
 }

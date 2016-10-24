@@ -13,6 +13,11 @@ app.directive("overlay", ['$http','$compile', function ($http,$compile) {
                     $compile($overlayHook.html(template))(scope);
                     $container.addClass("overlay-open");
                 },
+                openCompile: function(template) {
+                    //console.log(scope.simList);
+                    $compile($overlayHook.html(template))(scope);
+                    $container.addClass("overlay-open");
+                },
                 close: function() {
                     $container.removeClass("overlay-open");
                     $overlayHook.html("");

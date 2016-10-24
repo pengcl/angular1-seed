@@ -1,6 +1,6 @@
 'use strict';
 
-app.directive("payType", ['$location', function ($location) {
+app.directive("payType", ['$location', '$compile', '$q', function ($location, $compile, $q) {
     return {
         restrict: 'E',
         templateUrl: "modules/payType/payType.html",
@@ -59,11 +59,14 @@ app.directive("payType", ['$location', function ($location) {
                         if (type == 2) {
                             scope.showOverLay("payTipsPanel");
                             return;
-                        }else {
-                            scope.$root.toast.open();
+                        } else {
+                            //scope.$root.toast.open();
                         }
 
-                        $form.submit();
+                        if (scope.checkActiveCode()) {
+                            scope.$root.toast.open();
+                            $form.submit();
+                        }
                     } else {
                         var $scrollTo = $('#receiverAddress');
                         $container.animate({
@@ -75,8 +78,15 @@ app.directive("payType", ['$location', function ($location) {
 
             scope.showOverLay = function (targetId) {
                 var targetHtml = $("#" + targetId).html();
-                scope.$root.Overlay.open(targetHtml);
-                writebdLog(scope.category, "_payTips", "渠道号", scope.gh);//了解iPhone7
+                scope.$root.Overlay.openCompile(targetHtml);
+                writebdLog(scope.category, "_IsContractPackage", "渠道号", scope.gh);//合约套餐介绍
+            };
+
+            scope.$root.tipsSubmit = function () {
+                scope.$root.Overlay.close;
+                if (scope.checkActiveCode()) {
+                    $form.submit();
+                }
             };
             
             scope.$root.submitForm = function () {
@@ -85,6 +95,10 @@ app.directive("payType", ['$location', function ($location) {
             
             
 
+            /*$("#container").on("click",".btn-twitter",function () {
+             scope.$root.Overlay.close;
+             $form.submit();
+             });*/
             /*scope.setPayType = function (event, type) {
              event.preventDefault();
              var $this = $(event.currentTarget);

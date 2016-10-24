@@ -22,6 +22,11 @@
   border: 0;
 }
 
+.weui-vcode-btn, .weui-vcode-img {
+  height: auto;
+  line-height: normal;
+}
+
 .address {
   .weui-cells {
     background: none;
@@ -40,6 +45,15 @@
     &:before {
       display: none;
     }
+  }
+  .weui-cell_vcode {
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  .weui-vcode-btn {
+    font-size: 0.13rem;
   }
 }
 

@@ -13,7 +13,7 @@ app.directive("jsDialog", [function () {
                     //console.log($("#js-dialog").html());
                     $(".js_dialog").show();
                 },
-                close: function () {
+                close: function (url) {
                     $(".js_dialog").hide();
                 }
             };

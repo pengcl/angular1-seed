@@ -16,6 +16,15 @@
             </div>
             <div class="weui-cell__ft"><i class="weui-icon-warn"></i><i class="weui-icon-success"></i></div>
         </div>
+
+        <div class="weui-cell weui-cell_vcode input-vcode" ng-show="checkoutForm.receiverMobile.$valid == true" ng-class="{'weui-cell_warn':checkoutForm.activeCode.$dirty== true && checkoutForm.activeCode.$valid == false,'weui-cell_success':checkoutForm.activeCode.$valid == true}">
+            <div class="weui-cell__hd"><label class="weui-label">验证码：</label></div>
+            <div class="weui-cell__bd weui_cell_primary">
+                <input id="activeCode" name="activeCode" ng-model="activeCode" ng-maxlength="4" ng-pattern="/^[0-9]*$/" pattern="[0-9]*" ng-minlength="4" class="weui-input" required/>
+            </div>
+            <div class="weui-cell__ft"><a href="javascript:;" class="weui-vcode-btn" ng-click="getActiveCode(receiver.mobile)" ng-class="paraclass" ng-bind="paracont">获取验证码</a></div>
+        </div>
+
         <div class="weui-cell input-city" id="inputsStoreSelect" ng-class="{'weui-cell_warn':checkoutForm.receiverCity.$dirty== true && checkoutForm.receiverCity.$valid == false,'weui-cell_success':checkoutForm.receiverCity.$valid == true}">
             <div class="weui-cell__hd"><label class="weui-label">收件区域：</label></div>
             <div class="weui-cell__bd weui-cell-primary">
