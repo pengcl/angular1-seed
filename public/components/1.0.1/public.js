@@ -15,6 +15,8 @@ app.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', functio
     $urlRouterProvider.otherwise("/phones/256");
 }]).run(['$rootScope', function ($rootScope) {
 
+
+
     /*$rootScope.$on('$locationChangeStart',function(){
 
     });
@@ -328,6 +330,22 @@ function showToast() {
 function hideToast() {
     var $loadingToast = $('#loadingToast');
     $loadingToast.fadeOut(100);
+};
+
+function checkMobileCode(code) {
+    var flag = false;
+    $.ajax({
+        url: "http://app.yfq.cn:3099/api/checkActiveCode/" + code,
+        async: false,
+        type: "get",
+        success: function (data) {
+            if (data == 'true') {
+                flag = true;
+            }
+        }
+    });
+
+    return flag;
 }
 'use strict';
 
@@ -566,6 +584,16 @@ app.directive("copyRight", ['$timeout', function ($timeout) {
 }]);
 'use strict';
 
+app.directive("flowFqa", ['$location', function ($location) {
+    return {
+        restrict: 'E',
+        templateUrl: "modules/flowFqa/flowFqa.html",
+        link: function (scope, element, attrs) {
+        }
+    };
+}]);
+'use strict';
+
 app.directive("jsDialog", [function () {
     return {
         restrict: 'E',
@@ -579,20 +607,10 @@ app.directive("jsDialog", [function () {
                     //console.log($("#js-dialog").html());
                     $(".js_dialog").show();
                 },
-                close: function () {
+                close: function (url) {
                     $(".js_dialog").hide();
                 }
             };
-        }
-    };
-}]);
-'use strict';
-
-app.directive("flowFqa", ['$location', function ($location) {
-    return {
-        restrict: 'E',
-        templateUrl: "modules/flowFqa/flowFqa.html",
-        link: function (scope, element, attrs) {
         }
     };
 }]);
@@ -723,9 +741,12 @@ app.directive("footerNav", ['$http', function ($http) {
                     }
                 }
                 if (scope.checkAddress()) {
-                    writebdLog(scope.category, "_BuyNow", "渠道号", scope.gh);//立即支付
-                    showToast();
-                    $form.submit();
+                    //writebdLog(scope.category, "_BuyNow", "渠道号", scope.gh);//立即支付
+                    if (scope.checkActiveCode()) {
+                        writebdLog(scope.category, "_BuyNow", "渠道号", scope.gh);//立即支付
+                        scope.$root.toast.open();
+                        $form.submit();
+                    }
                 } else {
                     $scrollTo = $('#receiverAddress');
                     $container.animate({
@@ -795,7 +816,11 @@ app.directive("footerNavNew", ['$http', '$cookieStore', function ($http, $cookie
                         category: scope.category
                     };
                     $cookieStore.put("orderState", scope.orderState);
-                    writebdLog(scope.category, "_BuyNow", "渠道号", scope.gh);//下一步
+                    if (scope.checkActiveCode()) {
+                        writebdLog(scope.category, "_BuyNow", "渠道号", scope.gh);//下一步
+                        scope.$root.toast.open();
+                        $form.submit();
+                    }
                 } else {
                     event.preventDefault();
                     scope.npShow(1);
@@ -1006,7 +1031,12 @@ app.directive("overlay", ['$http','$compile', function ($http,$compile) {
             scope.$root.Overlay = {
                 open: function(template) {
                     //console.log(scope.simList);
-                    $overlayHook.html(template);
+                    $compile($overlayHook.html(template))(scope);
+                    $container.addClass("overlay-open");
+                },
+                openCompile: function(template) {
+                    //console.log(scope.simList);
+                    $compile($overlayHook.html(template))(scope);
                     $container.addClass("overlay-open");
                 },
                 close: function() {
@@ -1068,7 +1098,7 @@ app.directive("passport", function () {
 }]);
 'use strict';
 
-app.directive("payType", ['$location', function ($location) {
+app.directive("payType", ['$location', '$compile', '$q', function ($location, $compile, $q) {
     return {
         restrict: 'E',
         templateUrl: "modules/payType/payType.html",
@@ -1127,11 +1157,14 @@ app.directive("payType", ['$location', function ($location) {
                         if (type == 2) {
                             scope.showOverLay("payTipsPanel");
                             return;
-                        }else {
-                            scope.$root.toast.open();
+                        } else {
+                            //scope.$root.toast.open();
                         }
 
-                        $form.submit();
+                        if (scope.checkActiveCode()) {
+                            scope.$root.toast.open();
+                            $form.submit();
+                        }
                     } else {
                         var $scrollTo = $('#receiverAddress');
                         $container.animate({
@@ -1143,10 +1176,29 @@ app.directive("payType", ['$location', function ($location) {
 
             scope.showOverLay = function (targetId) {
                 var targetHtml = $("#" + targetId).html();
-                scope.$root.Overlay.open(targetHtml);
-                writebdLog(scope.category, "_payTips", "渠道号", scope.gh);//了解iPhone7
+                scope.$root.Overlay.openCompile(targetHtml);
+                writebdLog(scope.category, "_IsContractPackage", "渠道号", scope.gh);//合约套餐介绍
             };
 
+            scope.$root.tipsSubmit = function () {
+                if (scope.checkActiveCode()) {
+                    scope.$root.toast.open();
+                    $form.submit();
+                }else {
+                    scope.$root.Overlay.close();
+                }
+            };
+            
+            scope.$root.submitForm = function () {
+                $form.submit();
+            };
+            
+            
+
+            /*$("#container").on("click",".btn-twitter",function () {
+             scope.$root.Overlay.close;
+             $form.submit();
+             });*/
             /*scope.setPayType = function (event, type) {
              event.preventDefault();
              var $this = $(event.currentTarget);
@@ -1374,7 +1426,7 @@ app.directive("productHeader", ['$http', function ($http) {
 }]);
 'use strict';
 
-app.directive("receiverAddress", ["$compile", "$cookieStore", '$http', function ($compile, $cookieStore, $http) {
+app.directive("receiverAddress", ["$compile", "$cookieStore", '$http', '$interval', function ($compile, $cookieStore, $http, $interval) {
     return {
         restrict: 'E',
         templateUrl: "modules/receiverAddress/receiverAddress.html",
@@ -1434,6 +1486,46 @@ app.directive("receiverAddress", ["$compile", "$cookieStore", '$http', function 
             var dataAreaShow = function (index) {
                 $dataAreas.hide();
                 $dataAreas.eq(index).show();
+            };
+
+            scope.paracont = "获取验证码";
+            scope.paraclass = "but_null";
+            var second = 59, timePromise = undefined;
+
+            scope.getActiveCode = function (phoneNumber) {
+                $http.get("http://app.yfq.cn:3099/api/getActiveCode/" + phoneNumber).success(function (data) {
+                    if (data == "") {
+                        timePromise = $interval(function () {
+                            if (second <= 0) {
+                                $interval.cancel(timePromise);
+                                timePromise = undefined;
+
+                                second = 59;
+                                scope.paracont = "重发验证码";
+                                scope.paraclass = "but_null";
+                            } else {
+                                scope.paracont = second + "秒后可重发";
+                                scope.paraclass = "not but_null";
+                                second--;
+
+                            }
+                        }, 1000, 100);
+                    }
+                });
+            };
+
+            scope.checkActiveCode = function () {
+                if (!scope.checkoutForm.activeCode.$valid) {
+                    $(".input-vcode").addClass("weui-cell_warn");
+                    return false;
+                } else {
+                    if (!checkMobileCode(scope.activeCode)) {
+                        $(".input-vcode").removeClass("weui-cell_success");
+                        $(".input-vcode").addClass("weui-cell_warn");
+                        return false;
+                    }
+                    return checkMobileCode(scope.activeCode);
+                }
             };
 
             //获取地址数据

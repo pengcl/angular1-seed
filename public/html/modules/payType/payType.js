@@ -83,9 +83,11 @@ app.directive("payType", ['$location', '$compile', '$q', function ($location, $c
             };
 
             scope.$root.tipsSubmit = function () {
-                scope.$root.Overlay.close;
                 if (scope.checkActiveCode()) {
+                    scope.$root.toast.open();
                     $form.submit();
+                }else {
+                    scope.$root.Overlay.close();
                 }
             };
             
