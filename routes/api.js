@@ -72,6 +72,34 @@ router.get('/getSalesOrderTest/:orderNo', function (req, res) {
     });
 });
 
+//获取手机验证码
+router.get('/getActiveCode/:receiverMobile', function (req, res) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Methods", "GET, POST");
+    res.header("Cache-Control: no-cache, must-reva lidate");
+    //以上两行设置跨域请求
+    request.post('http://m.gd189fq.com/wap/customer/getMobileCodeSync.html?reciverMoblie=' + req.params.receiverMobile + "&s=wap", function (error, response, body) {
+        if (!error && response.statusCode == 200) {
+
+            res.send(body);
+        }
+    });
+});
+
+//验证手机验证码是否正确
+router.get('/checkActiveCode/:activeCode', function (req, res) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Methods", "GET, POST");
+    res.header("Cache-Control: no-cache, must-reva lidate");
+    //以上两行设置跨域请求
+    request.post('http://m.gd189fq.com/wap/customer/checkMobileCode.html?mobileCode=' + req.params.activeCode + "&s=wap", function (error, response, body) {
+        if (!error && response.statusCode == 200) {
+
+            res.send(body);
+        }
+    });
+});
+
 //获取流量卡
 router.get('/getFlowPackages', function (req, res) {
     res.header("Access-Control-Allow-Origin", "*");

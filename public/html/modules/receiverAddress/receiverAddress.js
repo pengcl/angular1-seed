@@ -1,6 +1,6 @@
 'use strict';
 
-app.directive("receiverAddress", ["$compile", "$cookieStore", '$http', function ($compile, $cookieStore, $http) {
+app.directive("receiverAddress", ["$compile", "$cookieStore", '$http', '$interval', function ($compile, $cookieStore, $http, $interval) {
     return {
         restrict: 'E',
         templateUrl: "modules/receiverAddress/receiverAddress.html",
@@ -60,6 +60,46 @@ app.directive("receiverAddress", ["$compile", "$cookieStore", '$http', function 
             var dataAreaShow = function (index) {
                 $dataAreas.hide();
                 $dataAreas.eq(index).show();
+            };
+
+            scope.paracont = "获取验证码";
+            scope.paraclass = "but_null";
+            var second = 59, timePromise = undefined;
+
+            scope.getActiveCode = function (phoneNumber) {
+                $http.get("http://app.yfq.cn:3099/api/getActiveCode/" + phoneNumber).success(function (data) {
+                    if (data == "") {
+                        timePromise = $interval(function () {
+                            if (second <= 0) {
+                                $interval.cancel(timePromise);
+                                timePromise = undefined;
+
+                                second = 59;
+                                scope.paracont = "重发验证码";
+                                scope.paraclass = "but_null";
+                            } else {
+                                scope.paracont = second + "秒后可重发";
+                                scope.paraclass = "not but_null";
+                                second--;
+
+                            }
+                        }, 1000, 100);
+                    }
+                });
+            };
+
+            scope.checkActiveCode = function () {
+                if (!scope.checkoutForm.activeCode.$valid) {
+                    $(".input-vcode").addClass("weui-cell_warn");
+                    return false;
+                } else {
+                    if (!checkMobileCode(scope.activeCode)) {
+                        $(".input-vcode").removeClass("weui-cell_success");
+                        $(".input-vcode").addClass("weui-cell_warn");
+                        return false;
+                    }
+                    return checkMobileCode(scope.activeCode);
+                }
             };
 
             //获取地址数据

@@ -23,9 +23,9 @@
 <div class="page p-index d default">
     <div class="content-scrollable has-footer">
         <div id="owlBanner">
-            <img src="img/assets/indexD/banner.jpg">
-            <img src="img/assets/indexD/banner2.jpg">
-            <img src="img/assets/indexD/banner3.jpg">
+            <div class="img-box">
+                <img src="img/assets/indexD/banner.jpg">
+            </div>
         </div>
         <div class="img-box" style="margin-top: 0.2rem;">
             <img src="img/assets/indexD/10.png">
@@ -67,7 +67,7 @@
 <script>
     (function(){
         var _v = getUrlParam("version");
-        var $owlBanner = $("#owlBanner");
+        var $owlBanner = $("#owlBanner .img-box");
         if(_v==1){
             $owlBanner.html('<img src="img/assets/indexD/banner.jpg">');
         }else if(_v==2){
@@ -77,13 +77,13 @@
         }else {
             $owlBanner.html('<img src="img/assets/indexD/banner.jpg">');
         }
-        $("#owlBanner").owlCarousel({
+        /*$("#owlBanner").owlCarousel({
             navigation : true, // Show next and prev buttons
             slideSpeed : 300,
             paginationSpeed : 400,
             singleItem:true,
             autoPlay:3000
-        });
+        });*/
     })();
 </script>
 </body>

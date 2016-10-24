@@ -862,15 +862,21 @@ nav .title-page .subtext-page {
   border: 0;
 }
 
-/* line 26, ../../../sass/utils/_forms.scss */
+/* line 25, ../../../sass/utils/_forms.scss */
+.weui-vcode-btn, .weui-vcode-img {
+  height: auto;
+  line-height: normal;
+}
+
+/* line 31, ../../../sass/utils/_forms.scss */
 .address .weui-cells {
   background: none;
 }
-/* line 28, ../../../sass/utils/_forms.scss */
+/* line 33, ../../../sass/utils/_forms.scss */
 .address .weui-cells:before {
   display: none;
 }
-/* line 32, ../../../sass/utils/_forms.scss */
+/* line 37, ../../../sass/utils/_forms.scss */
 .address .weui-cell {
   margin-left: 0.15rem;
   margin-right: 0.15rem;
@@ -882,50 +888,61 @@ nav .title-page .subtext-page {
   border: 1px solid #999;
   background: #fff;
 }
-/* line 40, ../../../sass/utils/_forms.scss */
+/* line 45, ../../../sass/utils/_forms.scss */
 .address .weui-cell:before {
   display: none;
 }
+/* line 49, ../../../sass/utils/_forms.scss */
+.address .weui-cell_vcode {
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+/* line 55, ../../../sass/utils/_forms.scss */
+.address .weui-vcode-btn {
+  font-size: 0.13rem;
+}
 
-/* line 47, ../../../sass/utils/_forms.scss */
+/* line 61, ../../../sass/utils/_forms.scss */
 .weui-cells_form .weui-label {
   width: 5em;
   color: #999;
 }
-/* line 51, ../../../sass/utils/_forms.scss */
+/* line 65, ../../../sass/utils/_forms.scss */
 .weui-cells_form .weui-icon-success {
   display: none;
 }
-/* line 54, ../../../sass/utils/_forms.scss */
+/* line 68, ../../../sass/utils/_forms.scss */
 .weui-cells_form .weui-cell_warn {
   border: 1px solid #d83e14;
 }
-/* line 56, ../../../sass/utils/_forms.scss */
+/* line 70, ../../../sass/utils/_forms.scss */
 .weui-cells_form .weui-cell_warn .weui-label {
   color: #f43530;
 }
-/* line 61, ../../../sass/utils/_forms.scss */
+/* line 75, ../../../sass/utils/_forms.scss */
 .weui-cells_form .weui-cell_success {
   border: 1px solid #09bb07;
   color: #09bb07;
 }
-/* line 64, ../../../sass/utils/_forms.scss */
+/* line 78, ../../../sass/utils/_forms.scss */
 .weui-cells_form .weui-cell_success .weui-label {
   color: #09bb07;
 }
-/* line 68, ../../../sass/utils/_forms.scss */
+/* line 82, ../../../sass/utils/_forms.scss */
 .weui-cells_form .weui-cell_success .weui-icon-warn {
   display: none;
 }
-/* line 71, ../../../sass/utils/_forms.scss */
+/* line 85, ../../../sass/utils/_forms.scss */
 .weui-cells_form .weui-cell_success .weui-icon-success {
   display: inline-block;
 }
-/* line 77, ../../../sass/utils/_forms.scss */
+/* line 91, ../../../sass/utils/_forms.scss */
 .weui-cells_form .weui-cell__ft .weui-icon-warn:before {
   font-size: 0.18rem;
 }
-/* line 82, ../../../sass/utils/_forms.scss */
+/* line 96, ../../../sass/utils/_forms.scss */
 .weui-cells_form .weui-cell__ft .weui-icon-success:before {
   font-size: 0.18rem;
 }
