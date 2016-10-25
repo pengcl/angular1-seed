@@ -63,7 +63,7 @@ app.directive("payType", ['$location', '$compile', '$q', function ($location, $c
                             //scope.$root.toast.open();
                         }
 
-                        if (scope.checkActiveCode()) {
+                        if (scope.$root.checkActiveCode()) {
                             scope.$root.toast.open();
                             $form.submit();
                         }
@@ -83,7 +83,7 @@ app.directive("payType", ['$location', '$compile', '$q', function ($location, $c
             };
 
             scope.$root.tipsSubmit = function () {
-                if (scope.checkActiveCode()) {
+                if (scope.$root.checkActiveCode()) {
                     scope.$root.toast.open();
                     $form.submit();
                 }else {

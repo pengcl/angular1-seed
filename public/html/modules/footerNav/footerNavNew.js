@@ -56,11 +56,9 @@ app.directive("footerNavNew", ['$http', '$cookieStore', function ($http, $cookie
                         category: scope.category
                     };
                     $cookieStore.put("orderState", scope.orderState);
-                    if (scope.checkActiveCode()) {
-                        writebdLog(scope.category, "_BuyNow", "渠道号", scope.gh);//下一步
-                        scope.$root.toast.open();
-                        $form.submit();
-                    }
+                    writebdLog(scope.category, "_BuyNow", "渠道号", scope.gh);//下一步
+                    scope.$root.toast.open();
+                    //$form.submit();
                 } else {
                     event.preventDefault();
                     scope.npShow(1);

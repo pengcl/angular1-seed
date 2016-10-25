@@ -88,7 +88,7 @@ app.directive("receiverAddress", ["$compile", "$cookieStore", '$http', '$interva
                 });
             };
 
-            scope.checkActiveCode = function () {
+            scope.$root.checkActiveCode = function () {
                 if (!scope.checkoutForm.activeCode.$valid) {
                     $(".input-vcode").addClass("weui-cell_warn");
                     return false;
