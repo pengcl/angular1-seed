@@ -61,6 +61,11 @@ app.directive("receiverAddress", ["$compile", "$cookieStore", '$http', '$interva
                 $dataAreas.hide();
                 $dataAreas.eq(index).show();
             };
+            
+            //获取下单页输入验证码
+            scope.inputHomeCode = function () {
+            	writebdLog(scope.category,"_InputHomeCode","渠道号",scope.gh); 
+            };
 
             scope.paracont = "获取验证码";
             scope.paraclass = "but_null";
@@ -86,6 +91,8 @@ app.directive("receiverAddress", ["$compile", "$cookieStore", '$http', '$interva
                         }, 1000, 100);
                     }
                 });
+                
+                writebdLog(scope.category,"_VariHomeCode","渠道号",scope.gh); //获取下单页验证码
             };
 
             scope.$root.checkActiveCode = function () {

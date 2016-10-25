@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=750,user-scalable=no"/>
+<title>电信新入网福利驾到 购iPhone7送588元话费</title>
+<link rel="shortcut icon" href="/common/images/favicon.ico" />
+<link rel="stylesheet" href="css/bootstrap.css">
+<link rel="stylesheet" href="css/ind_carousel.css">
+<link rel="stylesheet" href="css/pro_details.css">
+</head>
+
+<body>
+<div class="main_body"> 
+  
+  <!--当前位置html--> 
+  
+  <!--详情图片和详细参数html-->
+  
+  <div class="details_banner">
+    <div class="container-fluid">
+      <div class="details_banner_left pull-left"> 
+        
+        <!--产品图片切换html -->
+        
+        <div id="owl-product" class="owl-carousel owl-theme">
+          <div class="item"><img src="images/7p_181.png" alt=""></div>
+          <div class="item"><img src="images/7p_180.png" alt=""></div>
+          <div class="item"><img src="images/7p_167.png" alt=""></div>
+          <div class="item"><img src="images/7p_166.png" alt=""></div>
+          <div class="item"><img src="images/7p_162.png" alt=""></div>
+        </div>
+        
+        <!--产品图片切换html--> 
+        
+      </div>
+      <div class="details_banner_right pull-right">
+        <div class="details_banner_attr">
+          <p style="text-align:center;">iPhone 7<small>唯一的不同，是处处都不同</small></p>
+          <form id="offer" name="offer" action="/order/confirm" method="post" onsubmit="return confirm()">
+            <input type="hidden" id="goods_id" name="goods_id" alt="商品ID" value=""/>
+            <input type="hidden" id="product_id" name="product_id" value="422" alt="产品ID" />
+            <input type="hidden" id="brandmodel" name="brandmodel" value="iphone7p" alt="产品型号" />
+            <input type="hidden" id="order_getgoods" name="order_getgoods" alt="取货方式" value="">
+            <input type="hidden" id="partner_id" name="partner_id" alt="门店" value="">
+            <input type="hidden" id="shop_name" name="shop_name" alt="门店名称" value="">
+            <input type="hidden" id="pay_type" name="pay_type" alt="支付方式" value="">
+            
+            <!--                         <input type="hidden" id="foregift_price" name="foregift_price" alt="押金" value=""/> --> 
+            
+            <!--                         <input type="hidden" id="free_price" name="free_price" alt="免赔服务" value="" /> --> 
+            
+            <!--                         <input type="hidden" id="rent_price" name="rent_price" alt="租金" value=""/> --> 
+            
+            <!--                         <input type="hidden" id="buyNums" name="buyNums" onblur="checkBuyNums();" value="1" maxlength="5" /> --> 
+            
+            <!--                         <input type="hidden" id="rent_pay" name="rent_pay" alt="租金支付方式" value="0" /> --> 
+            
+            <!--                         <input type="hidden" id="discount" name="discount" alt="租金优惠" /> --> 
+            
+            <!--                         <input type="hidden" id="duration" name="duration" alt="租期" value="3"> -->
+            
+            <div class="details_attr">
+              <ul id="roomRsc" class="details_attr_list">
+                <li class="specCols">
+                  <div class="th pull-left">支付方式</div>
+                  <div class="td pull-left">
+                    <label id="express"  onclick="sele_spec(this);getgoods('express');" > <span class="txt">一次性95折</span> </label><br>
+                    <label id="express"  onclick="sele_spec(this);getgoods('express');" > <span class="txt">货到支付（全额）</span> </label><br>
+                    <label id="express"  onclick="sele_spec(this);getgoods('express');" > <span class="txt">信用卡12期0利息（每月还449）</span> </label>
+                    <span class="color-red" id="shop_name_id"></span> </div>
+                </li>
+                <li class="specCols">
+                  <div class="th pull-left"></div>
+                  <div class="td pull-left"> <span class="color-black fontsize16">您当前选择了：</span>
+                    <p class="lineheight30" style="font-size:12px; color:#666;"> 
+                      
+                      <!--                                             <span class="prodcolor">粉色</span> --> 
+                      
+                      <span class="prodcapacity"></span> 
+                      
+                      <!--                                             <span class="prodctcc">公开版</span> --> 
+                      
+                      <span class="prodexpress"></span> </p>
+                  </div>
+                </li>
+                <li class="specCols tongji">
+                  <div class="th pull-left"></div>
+                  <div class="td pull-left">
+                    <button type="submit" id="buyNowButton" class="btn btn-lg btn-success">立即抢购</button>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!--详情页html--> 
+
+<script src="js/jquery-1.11.1.min.js"></script> 
+<script src="js/owl.carousel.js"></script> 
+<script src="js/pro_details.js"></script> 
+  <script type="text/javascript">
+var action = "";//此变量访问后台方法
+//自动加载解析json串
+var prodetail = {"goods":[{"FREE_DUTY_CASH":199,"GOOD_NAME":"iPhone 7 32G 玫瑰金色","ID":265,"MON_PRICE":6,"PRESS_CASH":5388,"PRODUCT_ID":421,"PRODUCT_NAME":"iPhone 7","PRODUCT_TAILID":399,"PRODUCT_TAILNAME":"iPhone 7 32G 玫瑰金色","SPE_VALUEJSON":[{"id":167,"name":"玫瑰金色","tableName":"lz_specification_value"},{"id":171,"name":"32G","tableName":"lz_specification_value"}]},{"FREE_DUTY_CASH":199,"GOOD_NAME":"iPhone 7 32G 金色","ID":266,"MON_PRICE":6,"PRESS_CASH":5388,"PRODUCT_ID":421,"PRODUCT_NAME":"iPhone 7","PRODUCT_TAILID":401,"PRODUCT_TAILNAME":"iPhone 7 32G 金色","SPE_VALUEJSON":[{"id":171,"name":"32G","tableName":"lz_specification_value"},{"id":166,"name":"金色","tableName":"lz_specification_value"}]},{"FREE_DUTY_CASH":199,"GOOD_NAME":"iPhone 7 32G 银色","ID":267,"MON_PRICE":6,"PRESS_CASH":5388,"PRODUCT_ID":421,"PRODUCT_NAME":"iPhone 7","PRODUCT_TAILID":400,"PRODUCT_TAILNAME":"iPhone 7 32G 银色","SPE_VALUEJSON":[{"id":162,"name":"银色","tableName":"lz_specification_value"},{"id":171,"name":"32G","tableName":"lz_specification_value"}]},{"FREE_DUTY_CASH":199,"GOOD_NAME":"iPhone 7 32G 黑色","ID":268,"MON_PRICE":6,"PRESS_CASH":5388,"PRODUCT_ID":421,"PRODUCT_NAME":"iPhone 7","PRODUCT_TAILID":402,"PRODUCT_TAILNAME":"iPhone 7 32G 黑色","SPE_VALUEJSON":[{"id":171,"name":"32G","tableName":"lz_specification_value"},{"id":180,"name":"黑色","tableName":"lz_specification_value"}]},{"FREE_DUTY_CASH":299,"GOOD_NAME":"iPhone 7 128G 金色","ID":269,"MON_PRICE":6.67,"PRESS_CASH":6188,"PRODUCT_ID":421,"PRODUCT_NAME":"iPhone 7","PRODUCT_TAILID":404,"PRODUCT_TAILNAME":"iPhone 7 128G 金色","SPE_VALUEJSON":[{"id":170,"name":"128G","tableName":"lz_specification_value"},{"id":166,"name":"金色","tableName":"lz_specification_value"}]},{"FREE_DUTY_CASH":299,"GOOD_NAME":"iPhone 7 128G 玫瑰金色","ID":270,"MON_PRICE":6.67,"PRESS_CASH":6188,"PRODUCT_ID":421,"PRODUCT_NAME":"iPhone 7","PRODUCT_TAILID":403,"PRODUCT_TAILNAME":"iPhone 7 128G 玫瑰金色","SPE_VALUEJSON":[{"id":170,"name":"128G","tableName":"lz_specification_value"},{"id":167,"name":"玫瑰金色","tableName":"lz_specification_value"}]},{"FREE_DUTY_CASH":299,"GOOD_NAME":"iPhone 7 128G 银色","ID":271,"MON_PRICE":6.67,"PRESS_CASH":6188,"PRODUCT_ID":421,"PRODUCT_NAME":"iPhone 7","PRODUCT_TAILID":405,"PRODUCT_TAILNAME":"iPhone 7 128G 银色","SPE_VALUEJSON":[{"id":170,"name":"128G","tableName":"lz_specification_value"},{"id":162,"name":"银色","tableName":"lz_specification_value"}]},{"FREE_DUTY_CASH":299,"GOOD_NAME":"iPhone 7 128G 黑色","ID":272,"MON_PRICE":6.67,"PRESS_CASH":6188,"PRODUCT_ID":421,"PRODUCT_NAME":"iPhone 7","PRODUCT_TAILID":406,"PRODUCT_TAILNAME":"iPhone 7 128G 黑色","SPE_VALUEJSON":[{"id":170,"name":"128G","tableName":"lz_specification_value"},{"id":180,"name":"黑色","tableName":"lz_specification_value"}]},{"FREE_DUTY_CASH":299,"GOOD_NAME":"iPhone 7 128G 亮黑色","ID":273,"MON_PRICE":6.67,"PRESS_CASH":6188,"PRODUCT_ID":421,"PRODUCT_NAME":"iPhone 7","PRODUCT_TAILID":407,"PRODUCT_TAILNAME":"iPhone 7 128G 亮黑色","SPE_VALUEJSON":[{"id":170,"name":"128G","tableName":"lz_specification_value"},{"id":181,"name":"亮黑色","tableName":"lz_specification_value"}]},{"FREE_DUTY_CASH":299,"GOOD_NAME":"iPhone 7 256G 金色","ID":274,"MON_PRICE":8.67,"PRESS_CASH":6988,"PRODUCT_ID":421,"PRODUCT_NAME":"iPhone 7","PRODUCT_TAILID":409,"PRODUCT_TAILNAME":"iPhone 7 256G 金色","SPE_VALUEJSON":[{"id":172,"name":"256G","tableName":"lz_specification_value"},{"id":166,"name":"金色","tableName":"lz_specification_value"}]},{"FREE_DUTY_CASH":299,"GOOD_NAME":"iPhone 7 256G 玫瑰金色","ID":275,"MON_PRICE":8.67,"PRESS_CASH":6988,"PRODUCT_ID":421,"PRODUCT_NAME":"iPhone 7","PRODUCT_TAILID":408,"PRODUCT_TAILNAME":"iPhone 7 256G 玫瑰金色","SPE_VALUEJSON":[{"id":172,"name":"256G","tableName":"lz_specification_value"},{"id":167,"name":"玫瑰金色","tableName":"lz_specification_value"}]},{"FREE_DUTY_CASH":299,"GOOD_NAME":"iPhone 7 256G 银色","ID":276,"MON_PRICE":8.67,"PRESS_CASH":6988,"PRODUCT_ID":421,"PRODUCT_NAME":"iPhone 7","PRODUCT_TAILID":410,"PRODUCT_TAILNAME":"iPhone 7 256G 银色","SPE_VALUEJSON":[{"id":172,"name":"256G","tableName":"lz_specification_value"},{"id":162,"name":"银色","tableName":"lz_specification_value"}]},{"FREE_DUTY_CASH":299,"GOOD_NAME":"iPhone 7 256G 黑色","ID":277,"MON_PRICE":8.67,"PRESS_CASH":6988,"PRODUCT_ID":421,"PRODUCT_NAME":"iPhone 7","PRODUCT_TAILID":411,"PRODUCT_TAILNAME":"iPhone 7 256G 黑色","SPE_VALUEJSON":[{"id":172,"name":"256G","tableName":"lz_specification_value"},{"id":180,"name":"黑色","tableName":"lz_specification_value"}]},{"FREE_DUTY_CASH":299,"GOOD_NAME":"iPhone 7 256G 亮黑色","ID":278,"MON_PRICE":8.67,"PRESS_CASH":6988,"PRODUCT_ID":421,"PRODUCT_NAME":"iPhone 7","PRODUCT_TAILID":412,"PRODUCT_TAILNAME":"iPhone 7 256G 亮黑色","SPE_VALUEJSON":[{"id":172,"name":"256G","tableName":"lz_specification_value"},{"id":181,"name":"亮黑色","tableName":"lz_specification_value"}]}],"images":["http://pic.5ilend.com/fileserver/image/product/7/7_181.png","http://pic.5ilend.com/fileserver/image/product/7/7_180.png","http://pic.5ilend.com/fileserver/image/product/7/7_167.png","http://pic.5ilend.com/fileserver/image/product/7/7_166.png","http://pic.5ilend.com/fileserver/image/product/7/7_162.png"],"prices":{"freeDutyCash":199,"freeDutyCashRuleId":0,"goodsId":265,"monprice":6,"monpriceRuleId":0,"pressCash":5388,"pressCashRuleId":0,"productName":"iPhone 7"},"specification":[{"ID":776,"PRODUCTS":421,"SPECIFICATIONS":1,"SPECIFICATIONS_NAME":"颜色","SPE_VALUEJSON":[{"id":167,"image":"http:\\/\\/pic.5ilend.com\\/fileserver\\/image\\/201607\\/24\\/d402fb0fd25740c88de28d3573233452.jpg","name":"玫瑰金色"},{"id":162,"image":"http:\\/\\/pic.5ilend.com\\/fileserver\\/image\\/201607\\/24\\/bac1bb310a8b420d9b67da06c5357453.jpg","name":"银色"},{"id":166,"image":"http:\\/\\/pic.5ilend.com\\/fileserver\\/image\\/201607\\/24\\/b9de3093756646fcaf9d100e53cee3aa.jpg","name":"金色"},{"id":180,"image":"http:\\/\\/pic.5ilend.com\\/fileserver\\/image\\/201610\\/10\\/808462b1572c4fd8b677a3c4006b63dc.jpg","name":"黑色"},{"id":181,"image":"http:\\/\\/pic.5ilend.com\\/fileserver\\/image\\/201610\\/10\\/6a04e194b5b34b53bbdb4e345a014fb0.jpg","name":"亮黑色"}],"TYPE":1},{"ID":777,"PRODUCTS":421,"SPECIFICATIONS":2,"SPECIFICATIONS_NAME":"容量","SPE_VALUEJSON":[{"id":"170","name":"128G"},{"id":"171","name":"32G"},{"id":"172","name":"256G"}],"TYPE":0}]};
+
+var test = setTimeout(function(){
+        autoparsetojson()
+},1000);
+
+//拼接html
+//autoparsetojson();
+
+function autoparsetojson(){
+    var para="";//拼接html串
+    var prices = prodetail.prices;
+    //$('#goods_id').val(prices.goodsId);//商品ID
+    
+    //遍历json数组
+    $.each(prodetail.specification, function(i, item) {
+        var title = item.SPECIFICATIONS_NAME;
+        var type = item.TYPE; //0 表示图片 1表示其它类型
+        para+="<li class='specCols' name='specCols'>";
+        para+="<div class='th pull-left'>"+title+"</div>";
+        if(type == 1 || type == '1')//1 表示图片 0表示其它类型
+        {
+            para+="<div class='td tdcolor pull-left'>";
+	        $.each(item.SPE_VALUEJSON, function(j, val) {
+	             var name = val.name;
+	             var id = val.id;
+	             var images = val.image;
+	             //此方法取出默认商品对应的产品规格信息
+	             if(checkedOffer(id))
+	             {
+	                para+="<label onclick='sele_spec(this);' class='selected' value="+id+">";
+	             }else{
+	                para+="<label onclick='sele_spec(this);' value="+id+">";
+	             }
+			     para+="<img src='"+images.replace(/\\/g, "")+"' alt='"+name+"' title='"+name+"'>";
+				 para+="</label>";
+				 
+	         });
+            para+="</div>";
+        }else{
+             para+="<div class='td pull-left'>";
+             $.each(item.SPE_VALUEJSON, function(j, val) {
+	             var name = val.name;
+	             var id = val.id;
+			     //此方法取出默认商品对应的产品规格信息
+	             if(checkedOffer(id))
+	             {
+	                para+="<label onclick='sele_spec(this);' class='selected' value="+id+">";
+	             }else{
+	                para+="<label onclick='sele_spec(this);' value="+id+">";
+	             }
+			     para+="<span class='txt'>"+name+"</span>";
+			     para+="</label>";
+	         });
+             para+="</div>";
+         }
+        para+="</li>";
+      });  
+     $("#roomRsc").prepend(para);
+     
+     var goodsId =$('#goods_id').val();
+     if(goodsId == null || goodsId == '')
+     {
+       var prices = prodetail.prices;
+       goodsId = prices.goodsId;//商品ID
+     }
+     
+     var goodsid=prices.goodsId;
+     $.each(prodetail.goods, function(m, offer) {
+            var offerId = offer.ID;
+            if(goodsId == offerId){
+                $('#goods_id').val(goodsid);
+            	var PRODUCT_TAILNAME = offer.PRODUCT_TAILNAME;
+            	$(".prodcapacity").text(PRODUCT_TAILNAME);
+            }
+	 });
+	 
+	 //初始化邮寄方式
+	 var order_getgoods = $("#order_getgoods").val();
+	 if(order_getgoods != null && order_getgoods != '')
+	 {
+	      if(order_getgoods=='express'){
+	         $('#express').addClass("selected");
+	      }else if(order_getgoods=='sm'){
+	         $('#sm').addClass("selected");
+	      }
+	 }
+}
+
+//判断当前产品规格是否选 中
+function checkedOffer(id){
+    //var prices = prodetail.prices;
+    //var goodsId = prices.goodsId;//商品ID
+    var goodsId =$('#goods_id').val();
+    if(goodsId == null || goodsId == '')
+    {
+       var prices = prodetail.prices;
+       goodsId = prices.goodsId;//商品ID
+    }
+    var flag=false;
+    $.each(prodetail.goods, function(m, offer) {
+         var offerId = offer.ID;
+         if(goodsId == offerId)
+         {
+             $.each(offer.SPE_VALUEJSON, function(n, detail) {
+                  var detailId=detail.id;
+                  if(id == detailId){
+                       flag=true;
+                       return flag;
+                  }
+             });
+         }
+	                  
+	 });
+     return flag;
+}
+
+function checkSpecSelected()
+{
+  if($('[name="specCols"]').length === $('[name="specCols"] .selected').length)
+    {
+        return true;
+    }
+    return false;
+}
+
+//产品选中
+function confirm()
+{
+    var order_getgoods = $("#order_getgoods").val();
+	if(order_getgoods == null || order_getgoods == ''){
+        //info.infoAlert("请送货方式!");
+		$.lezu.Alert("小乐提示","请选择取货方式!");
+        return false;
+    }
+    
+    if(order_getgoods == 'sm')
+    {
+        var shop_name_id = $('#shop_name_id').text();
+	    if(shop_name_id == null || shop_name_id == ''){
+	        //info.infoAlert("请取货门店!");
+			$.lezu.Alert("小乐提示","请选择取货门店!");
+	        return false;
+	    }
+    }
+    
+    return true;
+}
+
+// function checkboxOnclick_freepay(obj){
+// 	$(obj).addClass("selected").siblings().removeClass("selected");
+// 	if ($("#free_pay").val() == 0){
+// 		$("#free_pay").val("1");
+// 	}else{
+// 		$("#free_pay").val("1");
+// 	}
+// }
+  
+function choose_shop() {
+	window.open("/product/chooseshop");
+}	
+  
+function choose_shop_callback(id, shop_name, service_type) {
+  	$('#partner_id').val(id);
+  	$('#shop_name_id').text(shop_name);
+  	$('#shop_name').val(shop_name);
+}
+
+function getgoods(type){
+    $("#order_getgoods").val(type);
+    if(type == 'express'){
+       $('#prodexpress').text("快递");
+       $('#shop_name_id').text("");
+       $('#shop_name').val("");
+    }else if(type == 'sm') {
+      $('#prodexpress').text("上门自提");
+    }
+}
+	
+</script> 
+
+
+</body>
+</html>

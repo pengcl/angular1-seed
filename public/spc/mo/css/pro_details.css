@@ -1,0 +1,893 @@
+/*************详情页*************/
+
+.main_body {
+	width:100%;
+	margin:0 auto;
+	background: #f8f8f8;
+}
+/*当前位置*/
+
+.current {
+	background: #fff;
+}
+/*详情图片和参数*/
+
+/*.details_banner {
+	background: #eaeaea url(../images/details_banner_bj.png) top center no-repeat;
+}*/
+.details_banner_left {
+	background: #eaeaea;
+	width: 435px;
+	padding: 0;
+	height: 450px;
+}
+/*产品图片切换*/
+
+.item img {
+	display: block;
+	width: 400px;
+	height: 400px;
+}
+.owl-theme .owl-controls {
+	margin-top: 10px;
+}
+.owl-theme .owl-controls .owl-page span {
+	background: #bbb;
+}
+.details_banner_right {
+	background: #FFF;
+	width: 315px;
+	height: 450px;
+}
+.details_banner_attr {
+	padding: 6px 0px;
+}
+.details_banner_attr p {
+	font-size:20px;
+	color: #99cc33;
+}
+.details_banner_attr p small {
+	font-size: 12px;
+	font-weight:100;
+	color:#666
+}
+.details_attr_list {
+	padding: 10px;
+	margin-top: 20px;
+}
+.specCols {
+	height: auto;
+	overflow: hidden;
+	margin-bottom: 18px;
+}
+.specCols .th {
+	font-size: 14px;
+	width: 22%;
+	padding-top: 8px;
+	color: #000;
+	text-align:center;
+}
+.specCols .td {
+	width: 75%;
+}
+.specCols .td label {
+	padding: 8px 18px;
+	background: #e4e4e4;
+	border: 1px solid #e4e4e4;
+	cursor: pointer;
+	margin: 0 7px 7px 0;
+	font-size:12px;
+}
+.specCols .td label.selected {
+	border: 1px solid #99cc33;
+}
+.specCols .tdcolor label {
+	padding: 1px;
+	border-radius: 30px;
+}
+.specCols .tdcolor label img {
+	width: 30px;
+	height: 30px;
+	padding: 4px;
+	border-width: 1px;
+	border-radius: 30px;
+}
+.specCols .tdcolor label.selected {
+	border-width: 1px;
+	background: #fff;
+}
+.tongji .td label {
+	margin: 0 0 12px 0;
+	line-height: 24px;
+	background: #eee;
+	text-align: center;
+}
+.select_time .td label {
+	background: #f8f8f8;
+	color: #555;
+	margin-bottom: 0;
+	width: 180px;
+	padding-right: 5px;
+}
+.select_time .td label span {
+	margin: 0 15px 0 30px;
+}
+.select_time .td label.selected {
+	border: 1px solid #f8f8f8;
+}
+/*下拉框*/
+
+.select_ul {
+	position: absolute;
+	display: none;
+	margin: 0 0 0 0;
+	background: #fff;
+	width: 180px;
+	border: 1px solid #efefef;
+	padding: 10px 0;
+}
+.select_ul li {
+	height: 40px;
+	line-height: 40px;
+	padding-left: 52px;
+	cursor: pointer;
+}
+.select_ul li:hover {
+	background: #eee;
+}
+/*iphone7详情介绍*/
+
+.iphone7_title {
+	color: #8cc81e;
+	font-size: 40px;
+	font-weight: 100;
+}
+.iphone7_mbody {
+	font-size: 16px;
+	color: #999;
+	margin-bottom: 30px;
+	font-weight: 100;
+	line-height: 30px;
+}
+.iphone7_01 {
+	background: #f8f8f8;
+	height: 725px;
+}
+.iphone7_boxbj {
+	background: url(../images/iphone7_01.png) no-repeat left bottom;
+	height: 725px;
+	width: 40%;
+	position: absolute;
+	right: 0;
+}
+.iphone7_logo {
+	margin: 210px 0 70px 30px
+}
+.iphone7_01 p {
+	width: 530px;
+	margin: 0 0 0 30px;
+}
+.iphone7_02 {
+	height: 960px;
+	overflow: hidden;
+	background: #fff url(../images/iphone7_02bj.png) no-repeat center bottom;
+	text-align: center;
+}
+.iphone7_02 h2 {
+	margin: 150px 0 40px 0;
+}
+.iphone7_02 p {
+	height: 160px;
+	margin-bottom: 84px;
+}
+.iphone7_03 {
+	height: 830px;
+	background: #f8f8f8;
+}
+.iphone7_03 h2 {
+	margin: 280px 0 40px 0;
+}
+.iphone7_box3bj {
+	background: url(../images/iphone7_03.png) no-repeat left bottom;
+	height: 830px;
+	width: 45%;
+	position: absolute;
+	right: 0;
+}
+.iphone7_03 p {
+	width: 560px;
+	text-align: left;
+}
+.iphone7_04 {
+	height: 880px;
+	background: #fff url(../images/iphone7_03a.png) no-repeat center top;
+	padding: 400px 0 0 0px;
+	text-align: right;
+}
+.iphone7_04 .container-fluid {
+	padding-right: 30px;
+}
+.iphone7_04 h2 {
+	margin: 0 0 50px 0;
+}
+.iphone7_05 {
+	height: 790px;
+}
+.iphone7_box5bj {
+	background: #f8f8f8 url(../images/iphone7_04.png) no-repeat left bottom;
+	height: 790px;
+	width: 40%;
+	position: absolute;
+	right: 0;
+}
+.iphone7_05 h2 {
+	margin: 320px 0 120px 0;
+}
+.iphone7_05 p {
+	width: 670px;
+	text-align: center;
+	color: #fff;
+}
+.iphone7_05bj {
+	background: #8cc81e;
+	height: 210px;
+	margin: -190px 0 0 0;
+}
+/*iphone7plus详情介绍*/
+
+
+
+.iphone7p_01 {
+	height: 650px;
+}
+.iphone7p_01 .container-fluid {
+	height: 650px;
+	background: url(../images/iphone7p_01.png) no-repeat right bottom;
+	position: relative;
+	z-index: 2;
+	width: 1180px;
+	margin: 0 auto;
+}
+.iphone7p_logo {
+	margin: 140px 0 160px 0;
+	float: right;
+	clear: both;
+}
+.iphone7p_01 p {
+	text-align: right;
+	clear: both;
+	color: #fff;
+}
+.iphone7p_01bj {
+	height: 301px;
+	background: #8cc81e;
+	position: absolute;
+	width: 30%;
+	right: 0;
+	margin: -301px 0 0 0;
+	z-index: 1;
+}
+.iphone7p_02 {
+	background: #fff;
+	height: 760px;
+}
+.iphone7p_box2bj {
+	background: url(../images/iphone7p_02.png) no-repeat left bottom;
+	height: 760px;
+	width: 40%;
+	position: absolute;
+	right: 0;
+}
+.iphone7p_02 h2 {
+	margin: 195px 0 50px 100px;
+}
+.iphone7p_02 p {
+	width: 530px;
+	margin: 0 0 60px 100px;
+}
+.iphone7p_02 img {
+	margin: 0 0 0 100px;
+}
+.iphone7p_02a {
+	background: url(../images/iphone7p_02a.png) no-repeat top center;
+	height: 298px;
+	margin: -20px 0 0 0;
+}
+.iphone7p_03 {
+	background: #f8f8f8;
+	height: 990px;
+	text-align: center;
+}
+.iphone7p_03 .container-fluid {
+	height: 990px;
+	background: url(../images/iphone7p_03.png) no-repeat center bottom;
+}
+.iphone7p_03 h2 {
+	margin: 230px 0 50px 0
+}
+.iphone7p_04 {
+	background: #f8f8f8;
+	height: 830px;
+}
+.iphone7p_04 .container-fluid {
+	height: 725px;
+}
+.iphone7p_04bj {
+	background: #8cc81e;
+	height: 105px;
+}
+.iphone7p_04img {
+	position: absolute;
+	z-index: 2;
+	background: url(../images/iphone7p_04.png) no-repeat bottom center;
+	width: 510px;
+	height: 830px;
+	margin: 0 0 0 670px;
+}
+.iphone7p_04 h2 {
+	margin: 340px 0 45px 40px;
+}
+.iphone7p_04 p {
+	margin: 0 0 0 40px;
+}
+.iphone7p_05 {
+	background: #fff;
+	height: 820px;
+}
+.iphone7p_05 .container-fluid {
+	height: 820px;
+	background: url(../images/iphone7p_05.jpg) no-repeat left bottom;
+}
+.iphone7p_05 h2 {
+	margin: 150px 0 50px 410px;
+}
+.iphone7p_05 p {
+	margin: 0 0 0 410px;
+}
+/*6splus详情介绍*/
+
+.product_introduce1 {
+	padding: 150px 0 215px 0;
+	text-align: center;
+	background: #F8F8F8 url(../images/6spart1-2.png) no-repeat bottom;
+}
+.product_introduce1 img {
+	padding-bottom: 150px;
+}
+.product_introduce1 ul {
+	text-align: left;
+	margin-left: 135px;
+	margin-bottom: 40px;
+	color: #272727;
+	font-size: 18px;
+}
+.product_introduce1 ul h1 {
+	font-weight: normal;
+	display: inline-block;
+	color: #98c72a;
+	padding-right: 15px;
+}
+.product_introduce1 small {
+	color: #aaa;
+}
+.product_introduce2 {
+	text-align: center;
+	background: #9cc932;
+	height: 541px;
+	color: #FFFFFF;
+	line-height: 30px;
+}
+.product_introduce2 h1 {
+	font-size: 40px;
+	color: #FFFFFF;
+	margin-bottom: 50px;
+	margin-top: 0;
+}
+.product_introduce2 img {
+	position: relative;
+	width: 90%;
+	margin: 0 5%;
+	max-width: 1400px;
+	top: 65px;
+}
+.product_introduce3 {
+	height: auto;
+	overflow: hidden;
+	margin: 300px 0 0 0;
+}
+.product_introduce3 .pull-left {
+	background: #f8f8f8 url(../images/6spart3.png) top right no-repeat;
+	width: 50%;
+	max-width: 1000px;
+	height: 500px;
+}
+.product_introduce3 .pull-right {
+	width: 50%;
+	height: 350px;
+	float: left;
+}
+.product_introduce3 h1 {
+	font-size: 40px;
+	color: #98c72a;
+}
+.product_introduce3 ul {
+	text-align: center;
+	margin-top: 150px;
+	font-size: 16px;
+	line-height: 30px;
+}
+.product_introduce4 {
+	background: #f8f8f8;
+}
+.product_introduce4 .container-fluid {
+	background: url(../images/6spart4.png) no-repeat right bottom;
+	padding: 250px 0;
+}
+.product_introduce4 h1 {
+	font-size: 40px;
+	color: #98c72a;
+}
+.product_introduce4 ul {
+	text-align: center;
+	font-size: 16px;
+	line-height: 30px;
+	margin-left: -60%;
+}
+.product_introduce5 {
+	background: #9cc932;
+}
+.product_introduce5 .container-fluid {
+	background: url(../images/6spart5-1.png) no-repeat left bottom;
+	padding: 150px 0;
+}
+.introduce5_right {
+	float: right;
+	text-align: center;
+}
+.product_introduce5 h1 {
+	font-size: 40px;
+	color: #FFFFFF;
+}
+.product_introduce5 ul {
+	font-size: 16px;
+	line-height: 30px;
+	color: #FFFFFF;
+}
+/**********5se详情介绍*********/
+
+.iphone5se_box1 {
+	background: #f8f8f8 url(../images/one_bj.png) center 180px no-repeat;
+	height: 1100px;
+}
+.iphone5se_box1 .pull-left {
+	width: 560px;
+	text-align: right;
+	padding-top: 160px;
+	font-size: 30px;
+	color: #333;
+}
+.iphone5se_box1 .pull-left p {
+	margin: 30px 0 0 0;
+}
+.iphone5se_box1 .pull-right {
+	width: 560px;
+	font-weight: 100;
+	padding-top: 160px;
+	color: #87c100;
+	font-size: 16px;
+	line-height: 34px;
+}
+.iphone5se_box2 {
+	height: 619px;
+	background: #99cc33;
+	overflow: hidden;
+	margin-bottom: 520px;
+}
+.iphone5se_box2 .pull-left {
+	width: 50%;
+	height: 619px;
+	z-index: 9;
+	position: absolute;
+	background: #b1d764;
+}
+.iphone5se_box2 .container-fluid {
+	position: relative;
+	height: 619px;
+	z-index: 10;
+	background: url(../images/box2_bj1.png) no-repeat center top;
+	font-weight: 100;
+	text-align: center;
+	color: #fff;
+}
+.iphone5se_box2 h3 {
+	font-size: 40px;
+	color: #fff;
+	margin: 110px 0 50px 0;
+	font-weight: 100;
+}
+.iphone5se_box2 ul {
+	padding: 0;
+}
+.iphone5se_box2 ul li {
+	display: inline-block;
+	padding: 0 50px;
+	height: 120px;
+	border-right: 1px solid #fff;
+	font-size: 16px;
+}
+.iphone5se_box2 ul li.noborder {
+	border: none;
+}
+.iphone5se_box2 ul li b {
+	font-size: 60px;
+	font-weight: 300;
+}
+.iphone5se_box2 ul li img {
+	display: block;
+}
+.iphone5se_box2 p {
+	margin: 40px 0 0 0;
+	font-size: 16px;
+	line-height: 34px;
+}
+.iphone5se_box2_foot {
+	position: absolute;
+	z-index: 11;
+	margin: -70px 0 0 0;
+	width: 100%;
+	background: url(../images/box2_bj2.png) top center no-repeat;
+	height: 513px;
+}
+.iphone5se_box3 {
+	height: 617px;
+}
+.iphone5se_box3bj {
+	background: url(../images/box3_bj.png) no-repeat left 100px;
+	height: 617px;
+	width: 35%;
+	position: absolute;
+	right: 0;
+}
+.iphone5se_box3_m {
+	float: left;
+	width: 850px;
+	padding-top: 200px;
+}
+.iphone5se_box3_m h3 {
+	color: #87c100;
+	font-size: 40px;
+	font-weight: 200;
+	margin-bottom: 40px;
+	padding-left: 210px;
+}
+.iphone5se_box3_m div img {
+	float: left;
+	margin: 6px 29px 30px 80px;
+}
+.iphone5se_box3_m div {
+	color: #999;
+	font-size: 16px;
+	line-height: 28px;
+	font-weight: 100;
+}
+.iphone5se_box4 {
+	height: 940px;
+}
+.iphone5se_box4bj {
+	background: url(../images/box4_bj.png) no-repeat right 100px;
+	height: 940px;
+	width: 65%;
+	position: absolute;
+	z-index: 1;
+}
+.iphone5se_box4bj .container-fluid {
+}
+.iphone5se_box4_m {
+	width: 550px;
+	height: 700px;
+	z-index: 3;
+	margin-left: 600px;
+	padding-top: 180px;
+	position: absolute;
+}
+.iphone5se_box4_m h3 {
+	color: #87c100;
+	font-size: 40px;
+	font-weight: 200;
+	margin-bottom: 40px;
+}
+.iphone5se_box4_m div {
+	color: #333;
+	font-size: 16px;
+	line-height: 28px;
+	font-weight: 100;
+}
+.iphone5se_box4_m ul {
+	padding: 0;
+	margin-top: 60px;
+	height: 150px;
+}
+.iphone5se_box4_m ul li {
+	display: inline-block;
+	margin-right: 60px;
+	font-size: 16px;
+	color: #333;
+}
+.iphone5se_box4_m ul li span {
+	color: #99cc33;
+	font-size: 20px;
+}
+.iphone5se_box4_m ul li span b {
+	font-size: 50px;
+	font-weight: 100;
+}
+.iphone5se_box5 {
+	height: 570px;
+	background: #99cc33;
+}
+.iphone5se_box5bj {
+	background: url(../images/box5_tu.png) no-repeat left top;
+	height: 750px;
+	width: 50%;
+	position: absolute;
+	right: 0;
+	margin-top: -180px;
+}
+.iphone5se_box5_m {
+	float: left;
+	width: 850px;
+	padding-top: 180px;
+}
+.iphone5se_box5_m h3 {
+	color: #fff;
+	font-size: 40px;
+	font-weight: 200;
+	margin-bottom: 40px;
+}
+.iphone5se_box5_m div {
+	color: #fff;
+	font-size: 16px;
+	line-height: 28px;
+	font-weight: 100;
+}
+/**********iphone6详情介绍*********/
+
+.iphone6_box1 {
+	height: 670px;
+}
+.iphone6_box1 .container-fluid div {
+	height: 135px;
+	padding-left: 35px;
+	width: 350px;
+	margin: 140px auto;
+	border-left: 12px solid #8cc81e;
+}
+.iphone6_box1 .container-fluid div p {
+	font-size: 35px;
+	color: #000;
+	font-weight: 100;
+	margin-top: 20px;
+}
+.iphone6_box1a {
+	height: 465px;
+	background: url(../images/tabj.png);
+	text-align: center;
+}
+.iphone6_box1a img {
+	margin-top: -269px;
+}
+.iphone6_box2 {
+	height: 885px;
+	background: #fff;
+}
+.iphone6_box2bj {
+	background: url(../images/box2_tu.png) no-repeat left top;
+	height: 885px;
+	width: 55%;
+	position: absolute;
+	right: 0;
+}
+.iphone6_box2_m {
+	float: left;
+	width: 850px;
+	padding-top: 300px;
+}
+.iphone6_box2_m h3 {
+	color: #87c100;
+	font-size: 40px;
+	font-weight: 200;
+	margin-bottom: 40px;
+}
+.iphone6_box2_m div img {
+	float: left;
+	margin: 6px 29px 30px 80px;
+}
+.iphone6_box2_m div {
+	color: #999;
+	font-size: 16px;
+	line-height: 32px;
+	font-weight: 100;
+}
+.iphone6_box3 {
+	height: 880px;
+	background: #8cc81e;
+}
+.iphone6_box3bj {
+	background: #f8f8f8;
+	height: 880px;
+	width: 42%;
+	position: absolute;
+	left: 0;
+}
+.iphone6_box3_m {
+	position: absolute;
+	width: 1180px;
+	margin-top: 179px;
+}
+.iphone6_box3_m img {
+	float: left;
+	margin: 0 60px;
+}
+.iphone6_box3_m h3 {
+	color: #fff;
+	font-size: 40px;
+	font-weight: 200;
+	margin: 180px 0 60px;
+}
+.iphone6_box3_m div {
+	color: #fff;
+	font-size: 16px;
+	line-height: 32px;
+	font-weight: 100;
+}
+.iphone6_box4 {
+	height: 1096px;
+	background: url(../images/box4_bj.png) center bottom no-repeat;
+}
+.iphone6_box4_m {
+	padding-top: 230px;
+	background: url(../images/box3_bjbox4.png) 55px top no-repeat;
+	text-align: center;
+}
+.iphone6_box4_m h3 {
+	color: #87c100;
+	font-size: 40px;
+	font-weight: 200;
+}
+.iphone6_box4_m div {
+	color: #999999;
+	margin-top: 30px;
+	font-size: 16px;
+	line-height: 32px;
+	font-weight: 100;
+}
+/**********iphone5s详情介绍*********/
+
+.iphone5s_box1 {
+	height: 838px;
+	background: url(../images/iphone5s_box1tu.png) center bottom no-repeat;
+}
+.iphone5s_box1_m {
+	padding-top: 100px;
+	text-align: center;
+}
+.iphone5s_box1_m h3 {
+	color: #000;
+	font-size: 30px;
+	font-weight: 100;
+	margin: 25px 0;
+}
+.iphone5s_box1_m div {
+	color: #87c100;
+	font-size: 16px;
+	font-weight: 100;
+	line-height: 30px;
+}
+.iphone5s_box2 {
+	height: 996px;
+	overflow: hidden;
+	background: #8cc81e;
+}
+.iphone5s_box2bj {
+	width: 50%;
+	position: absolute;
+	height: 996px;
+	background: url(../images/iphone5s_box2tu.png) no-repeat right bottom;
+	z-index: 2
+}
+.iphone5s_box2bj1 {
+	background: #fff;
+	margin: -400px 230px 0 0;
+	float: right;
+	height: 1900px;
+	position: relative;
+	width: 850px;
+	z-index: 1;
+	transform: rotate(15deg);
+	-ms-transform: rotate(15deg); 	/* IE 9 */
+	-moz-transform: rotate(15deg); 	/* Firefox */
+	-webkit-transform: rotate(15deg); /* Safari 和 Chrome */
+	-o-transform: rotate(15deg); 	/* Opera */
+}
+.iphone5s_box2_m {
+	padding: 340px 0 0 560px;
+	z-index: 3;
+	position: absolute;
+}
+.iphone5s_box2_m h3 {
+	color: #87c100;
+	font-size: 30px;
+	font-weight: 100;
+	margin: 0 0 40px 0;
+}
+.iphone5s_box2_m div {
+	color: #999;
+	font-size: 16px;
+	font-weight: 100;
+	line-height: 30px;
+}
+.iphone5s_box3 {
+	height: 1020px;
+	background: #fff;
+}
+.iphone5s_box3bj {
+	position: absolute;
+	width: 52%;
+	background: url(../images/iphone5s_box3bj.png) left bottom no-repeat;
+	height: 1020px;
+	right: 0;
+}
+.iphone5s_box3_m h3 {
+	color: #87c100;
+	font-size: 30px;
+	font-weight: 100;
+	margin: 390px 0 40px 0;
+}
+.iphone5s_box3_m div {
+	color: #999;
+	font-size: 16px;
+	font-weight: 100;
+	line-height: 30px;
+}
+.iphone5s_box4 {
+	background: #fff url(../images/iphone5s_box4bj.png) center bottom no-repeat;
+	height: 730px;
+}
+.iphone5s_box4_m {
+	margin: 370px 0 0 120px
+}
+.iphone5s_box4_m h3 {
+	color: #fff;
+	font-size: 30px;
+	font-weight: 100;
+	margin-bottom: 40px;
+}
+.iphone5s_box4_m div {
+	color: #fff;
+	font-size: 16px;
+	font-weight: 100;
+	line-height: 30px;
+}
+.iphone5s_box5 {
+	height: 823px;
+	overflow: hidden;
+}
+.iphone5s_box5_m {
+	height: 823px;
+	position: absolute;
+	width: 1180px;
+	background: url(../images/iphone5s_box5bj.png) left top no-repeat;
+}
+.iphone5s_box5_m h3 {
+	color: #87c100;
+	font-size: 30px;
+	font-weight: 100;
+	margin: 355px 0 40px 590px;
+}
+.iphone5s_box5_m div {
+	color: #999;
+	font-size: 16px;
+	font-weight: 100;
+	line-height: 30px;
+	margin: 0 0 0 590px;
+}
