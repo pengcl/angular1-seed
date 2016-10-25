@@ -56,12 +56,12 @@ app.directive("payType", ['$location', '$compile', '$q', function ($location, $c
                         writebdLog(scope.category, value, "渠道号", scope.gh);//支付方式
                         $("#payType").val(type);
 
-                        if (type == 2) {
-                            scope.showOverLay("payTipsPanel");
-                            return;
-                        } else {
-                            //scope.$root.toast.open();
-                        }
+                        // if (type == 2) {
+                        //     scope.showOverLay("payTipsPanel");
+                        //     return;
+                        // } else {
+                        //     //scope.$root.toast.open();
+                        // }
 
                         if (scope.$root.checkActiveCode()) {
                             scope.$root.toast.open();
