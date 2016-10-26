@@ -22,6 +22,10 @@ app.directive("footerNavNew", ['$http', '$cookieStore', function ($http, $cookie
 
             scope.payTypeName = "下一步";
 
+            if (attrs.payTypeName) {
+                scope.payTypeName = attrs.payTypeName;
+            }
+
             scope.checks = eval(attrs.checks);
 
             scope.getSearch = function () {

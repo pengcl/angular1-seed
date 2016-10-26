@@ -60,6 +60,8 @@ app.directive("phoneQuery", ["$cookieStore", function ($cookieStore) {
                     $container.animate({
                         scrollTop: $scrollTo.offset().top - $container.offset().top + $container.scrollTop()
                     });
+                    
+                    writebdLog(scope.category, "_ConfirmNumber", "渠道号", scope.gh);//确认号码
                 } else {
                     scope.$root.dialog.open("", "请您选择号码！");
                 }

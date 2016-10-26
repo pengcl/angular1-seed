@@ -1,15 +1,15 @@
 {
   "double": false,
-  "phoneModel":"iPhone7",
+  "phoneModel": "iPhone7",
   "productId": "257",
   "title": "[电信购机送话费] Apple iPhone 7 32G 玫瑰金 全网通4G手机",
-  "phoneNumber":"iPhone 7 Plus",
+  "phoneName": "iPhone 7 Plus",
   "subTitle": "预存5388元话费0元购机，信用卡12期0利息付款 预存款全额返还",
   "flash": "32GB",
   "price": "6388",
   "markitPrice": "6388",
   "sold": "2436",
-  "return":"6388",
+  "return": "6388",
   "phoneImg": "/images/phones/iphone7/iphone-default.jpg",
   "phoneTypes": [
     {

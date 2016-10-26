@@ -66,6 +66,12 @@ app.directive("receiverAddress", ["$compile", "$cookieStore", '$http', '$interva
             scope.inputHomeCode = function () {
             	writebdLog(scope.category,"_InputHomeCode","渠道号",scope.gh); 
             };
+            
+            //只有输入详细收货地址才记录到闭环
+            scope.inputAddress = function (room) {
+            	if(room==undefined||room==""||room.length<=3) return;
+            	writebdLog(scope.category, "_Address", "渠道号", scope.gh);//收货地址 
+            };
 
             scope.paracont = "获取验证码";
             scope.paraclass = "but_null";
@@ -150,7 +156,6 @@ app.directive("receiverAddress", ["$compile", "$cookieStore", '$http', '$interva
                 stockShow();
                 dataAreaShow(0);
                 tabShow(0);
-                writebdLog(scope.category, "_Address", "渠道号", scope.gh);//收货地址
             });
 
             //址选择器顶栏点击事件

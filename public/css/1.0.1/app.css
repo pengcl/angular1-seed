@@ -2805,8 +2805,10 @@ table.border-white th:after, table.border-white td:after {
 /* line 1, ../../../sass/modules/_owlCarousel.scss */
 .owl-carousel {
   font-size: 0;
+  background: #eaeaea;
+  padding-bottom: 0.3rem;
 }
-/* line 3, ../../../sass/modules/_owlCarousel.scss */
+/* line 5, ../../../sass/modules/_owlCarousel.scss */
 .owl-carousel .owl-controls {
   position: absolute;
   bottom: 0.1rem;
@@ -2814,16 +2816,16 @@ table.border-white th:after, table.border-white td:after {
   width: 100%;
   text-align: center;
 }
-/* line 9, ../../../sass/modules/_owlCarousel.scss */
+/* line 11, ../../../sass/modules/_owlCarousel.scss */
 .owl-carousel .owl-controls .owl-buttons {
   display: none;
 }
 
-/* line 14, ../../../sass/modules/_owlCarousel.scss */
+/* line 16, ../../../sass/modules/_owlCarousel.scss */
 .carousel-item, .owl-item {
   width: 100%;
 }
-/* line 16, ../../../sass/modules/_owlCarousel.scss */
+/* line 18, ../../../sass/modules/_owlCarousel.scss */
 .carousel-item img, .owl-item img {
   display: block;
   width: 100%;
@@ -4113,6 +4115,152 @@ div.module-tips {
   -ms-transform: scaleY(0.5);
   -webkit-transform: scaleY(0.5);
   transform: scaleY(0.5);
+}
+/* line 153, ../../../sass/pages/phone/_phoneDetails.scss */
+.page.p-details.mo .content-scrollable {
+  background: #fff;
+}
+/* line 156, ../../../sass/pages/phone/_phoneDetails.scss */
+.page.p-details.mo .product-title {
+  font-size: 0.22rem;
+  margin-top: 0.15rem;
+  color: #99cc33;
+  margin-bottom: 0.3rem;
+}
+/* line 161, ../../../sass/pages/phone/_phoneDetails.scss */
+.page.p-details.mo .product-title small {
+  font-size: 0.14rem;
+  color: #666;
+}
+/* line 167, ../../../sass/pages/phone/_phoneDetails.scss */
+.page.p-details.mo .weui-cells__title {
+  float: left;
+  margin-top: 0.4em;
+  padding-left: 0.15rem;
+}
+/* line 171, ../../../sass/pages/phone/_phoneDetails.scss */
+.page.p-details.mo .weui-cells__title:before {
+  display: none;
+}
+/* line 174, ../../../sass/pages/phone/_phoneDetails.scss */
+.page.p-details.mo .weui-cells__title .question {
+  display: none;
+}
+/* line 179, ../../../sass/pages/phone/_phoneDetails.scss */
+.page.p-details.mo #phoneTypes {
+  display: none;
+}
+/* line 182, ../../../sass/pages/phone/_phoneDetails.scss */
+.page.p-details.mo #phoneStorages, .page.p-details.mo #phoneColors, .page.p-details.mo #phonePackage, .page.p-details.mo #phonePackage, .page.p-details.mo #phoneQuery {
+  margin-bottom: 0.2rem;
+  clear: both;
+}
+/* line 187, ../../../sass/pages/phone/_phoneDetails.scss */
+.page.p-details.mo #phoneStorages > div > .item-lists .list-item, .page.p-details.mo #phoneColors > div > .item-lists .list-item, .page.p-details.mo #phonePackage > div > .item-lists .list-item, .page.p-details.mo #phonePackage > div > .item-lists .list-item, .page.p-details.mo #phoneQuery > div > .item-lists .list-item {
+  width: auto;
+}
+/* line 190, ../../../sass/pages/phone/_phoneDetails.scss */
+.page.p-details.mo #phoneStorages > div > .item-lists .item-box, .page.p-details.mo #phoneColors > div > .item-lists .item-box, .page.p-details.mo #phonePackage > div > .item-lists .item-box, .page.p-details.mo #phonePackage > div > .item-lists .item-box, .page.p-details.mo #phoneQuery > div > .item-lists .item-box {
+  border: 0;
+  -moz-border-radius: 0;
+  -webkit-border-radius: 0;
+  border-radius: 0;
+  background: #e4e4e4;
+  padding: 0.07rem 0.17rem 0.07rem 0.17rem;
+  color: #757575;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  border: 1px solid #e4e4e4;
+}
+/* line 198, ../../../sass/pages/phone/_phoneDetails.scss */
+.page.p-details.mo #phoneStorages > div > .item-lists .item-box.curr, .page.p-details.mo #phoneColors > div > .item-lists .item-box.curr, .page.p-details.mo #phonePackage > div > .item-lists .item-box.curr, .page.p-details.mo #phonePackage > div > .item-lists .item-box.curr, .page.p-details.mo #phoneQuery > div > .item-lists .item-box.curr {
+  border: 1px solid #99cc33;
+  color: #757575;
+  font-weight: normal;
+}
+/* line 203, ../../../sass/pages/phone/_phoneDetails.scss */
+.page.p-details.mo #phoneStorages > div > .item-lists .item-box ins, .page.p-details.mo #phoneColors > div > .item-lists .item-box ins, .page.p-details.mo #phonePackage > div > .item-lists .item-box ins, .page.p-details.mo #phonePackage > div > .item-lists .item-box ins, .page.p-details.mo #phoneQuery > div > .item-lists .item-box ins {
+  display: none;
+}
+/* line 208, ../../../sass/pages/phone/_phoneDetails.scss */
+.page.p-details.mo #phoneStorages > div > .item-lists.phone-colors-lists li, .page.p-details.mo #phoneColors > div > .item-lists.phone-colors-lists li, .page.p-details.mo #phonePackage > div > .item-lists.phone-colors-lists li, .page.p-details.mo #phonePackage > div > .item-lists.phone-colors-lists li, .page.p-details.mo #phoneQuery > div > .item-lists.phone-colors-lists li {
+  width: auto;
+}
+/* line 210, ../../../sass/pages/phone/_phoneDetails.scss */
+.page.p-details.mo #phoneStorages > div > .item-lists.phone-colors-lists li .item-box, .page.p-details.mo #phoneColors > div > .item-lists.phone-colors-lists li .item-box, .page.p-details.mo #phonePackage > div > .item-lists.phone-colors-lists li .item-box, .page.p-details.mo #phonePackage > div > .item-lists.phone-colors-lists li .item-box, .page.p-details.mo #phoneQuery > div > .item-lists.phone-colors-lists li .item-box {
+  overflow: hidden;
+  text-indent: -999rem;
+  -moz-border-radius: 30px;
+  -webkit-border-radius: 30px;
+  border-radius: 30px;
+  padding: 0.06rem;
+  width: 0.38rem;
+  height: 0.38rem;
+}
+/* line 217, ../../../sass/pages/phone/_phoneDetails.scss */
+.page.p-details.mo #phoneStorages > div > .item-lists.phone-colors-lists li .item-box p, .page.p-details.mo #phoneColors > div > .item-lists.phone-colors-lists li .item-box p, .page.p-details.mo #phonePackage > div > .item-lists.phone-colors-lists li .item-box p, .page.p-details.mo #phonePackage > div > .item-lists.phone-colors-lists li .item-box p, .page.p-details.mo #phoneQuery > div > .item-lists.phone-colors-lists li .item-box p {
+  display: block;
+  -moz-border-radius: 30px;
+  -webkit-border-radius: 30px;
+  border-radius: 30px;
+  width: 100%;
+  height: 100%;
+}
+/* line 225, ../../../sass/pages/phone/_phoneDetails.scss */
+.page.p-details.mo #phoneStorages > div > .item-lists.phone-colors-lists li:nth-child(1) p, .page.p-details.mo #phoneColors > div > .item-lists.phone-colors-lists li:nth-child(1) p, .page.p-details.mo #phonePackage > div > .item-lists.phone-colors-lists li:nth-child(1) p, .page.p-details.mo #phonePackage > div > .item-lists.phone-colors-lists li:nth-child(1) p, .page.p-details.mo #phoneQuery > div > .item-lists.phone-colors-lists li:nth-child(1) p {
+  background: url("http://pic.5ilend.com/fileserver/image/201610/10/6a04e194b5b34b53bbdb4e345a014fb0.jpg");
+}
+/* line 230, ../../../sass/pages/phone/_phoneDetails.scss */
+.page.p-details.mo #phoneStorages > div > .item-lists.phone-colors-lists li:nth-child(2) p, .page.p-details.mo #phoneColors > div > .item-lists.phone-colors-lists li:nth-child(2) p, .page.p-details.mo #phonePackage > div > .item-lists.phone-colors-lists li:nth-child(2) p, .page.p-details.mo #phonePackage > div > .item-lists.phone-colors-lists li:nth-child(2) p, .page.p-details.mo #phoneQuery > div > .item-lists.phone-colors-lists li:nth-child(2) p {
+  background: url("http://pic.5ilend.com/fileserver/image/201610/10/808462b1572c4fd8b677a3c4006b63dc.jpg");
+}
+/* line 235, ../../../sass/pages/phone/_phoneDetails.scss */
+.page.p-details.mo #phoneStorages > div > .item-lists.phone-colors-lists li:nth-child(3) p, .page.p-details.mo #phoneColors > div > .item-lists.phone-colors-lists li:nth-child(3) p, .page.p-details.mo #phonePackage > div > .item-lists.phone-colors-lists li:nth-child(3) p, .page.p-details.mo #phonePackage > div > .item-lists.phone-colors-lists li:nth-child(3) p, .page.p-details.mo #phoneQuery > div > .item-lists.phone-colors-lists li:nth-child(3) p {
+  background: url("http://pic.5ilend.com/fileserver/image/201607/24/bac1bb310a8b420d9b67da06c5357453.jpg");
+}
+/* line 240, ../../../sass/pages/phone/_phoneDetails.scss */
+.page.p-details.mo #phoneStorages > div > .item-lists.phone-colors-lists li:nth-child(4) p, .page.p-details.mo #phoneColors > div > .item-lists.phone-colors-lists li:nth-child(4) p, .page.p-details.mo #phonePackage > div > .item-lists.phone-colors-lists li:nth-child(4) p, .page.p-details.mo #phonePackage > div > .item-lists.phone-colors-lists li:nth-child(4) p, .page.p-details.mo #phoneQuery > div > .item-lists.phone-colors-lists li:nth-child(4) p {
+  background: url("http://pic.5ilend.com/fileserver/image/201607/24/b9de3093756646fcaf9d100e53cee3aa.jpg");
+}
+/* line 245, ../../../sass/pages/phone/_phoneDetails.scss */
+.page.p-details.mo #phoneStorages > div > .item-lists.phone-colors-lists li:nth-child(5) p, .page.p-details.mo #phoneColors > div > .item-lists.phone-colors-lists li:nth-child(5) p, .page.p-details.mo #phonePackage > div > .item-lists.phone-colors-lists li:nth-child(5) p, .page.p-details.mo #phonePackage > div > .item-lists.phone-colors-lists li:nth-child(5) p, .page.p-details.mo #phoneQuery > div > .item-lists.phone-colors-lists li:nth-child(5) p {
+  background: url("http://pic.5ilend.com/fileserver/image/201607/24/d402fb0fd25740c88de28d3573233452.jpg");
+}
+/* line 255, ../../../sass/pages/phone/_phoneDetails.scss */
+.page.p-details.mo .footer-nav {
+  padding-left: 0;
+  height: auto;
+}
+/* line 259, ../../../sass/pages/phone/_phoneDetails.scss */
+.page.p-details.mo .footer-nav .nav-item {
+  display: none;
+}
+/* line 261, ../../../sass/pages/phone/_phoneDetails.scss */
+.page.p-details.mo .footer-nav .nav-item.nav-button {
+  display: block;
+  width: 100%;
+  padding: 0.1rem;
+  background: #fff;
+}
+/* line 266, ../../../sass/pages/phone/_phoneDetails.scss */
+.page.p-details.mo .footer-nav .nav-item.nav-button a {
+  background: #81b618;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+}
+/* line 273, ../../../sass/pages/phone/_phoneDetails.scss */
+.page.p-details.mo .temp-cart-title {
+  font-size: 0.16rem;
+  margin-left: 1rem;
+}
+/* line 277, ../../../sass/pages/phone/_phoneDetails.scss */
+.page.p-details.mo .temp-cart-details {
+  font-size: 0.14rem;
+  color: #666;
+  margin-bottom: 0.5rem;
+  margin-left: 1rem;
 }
 
 /* line 1, ../../../sass/modules/recharge/_phoneQuery.scss */

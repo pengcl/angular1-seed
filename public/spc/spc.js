@@ -9,6 +9,7 @@ var systemName = "yfqapp";
         _href = $a.eq(i).attr("href");
         rewriteUrl = "http://app.yfq.cn" + _href + params;
         $a.eq(i).attr("href",rewriteUrl);//重写href
+        //console.log(rewriteUrl);
     }
 })();
 

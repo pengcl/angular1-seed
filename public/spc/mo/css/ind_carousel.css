@@ -2,7 +2,7 @@
 
 .owl-carousel .owl-wrapper:after{content:".";display:block;clear:both;visibility:hidden;line-height:0;height:0}
 
-.owl-carousel{display:none;position:relative;width:400px;-ms-touch-action:pan-y}
+.owl-carousel{display:none;position:relative;width:100%;-ms-touch-action:pan-y}
 
 .owl-carousel .owl-wrapper{display:none;position:relative;-webkit-transform:translate3d(0,0,0)}
 
@@ -22,7 +22,7 @@
 
 /*主题*/
 
-.owl-theme .owl-controls{margin-top:-150px;text-align:center; position:absolute; width:400px;}
+.owl-theme .owl-controls{margin-top:-150px;text-align:center; position:absolute; width:100%;}
 
 .owl-theme .owl-controls .owl-buttons div{color:#FFF;display:inline-block;zoom:1;padding:3px 10px;font-size:35px;-webkit-border-radius:3px;-moz-border-radius:3px;border-radius:3px;}
 

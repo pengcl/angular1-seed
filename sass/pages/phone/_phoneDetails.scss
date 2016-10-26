@@ -148,4 +148,138 @@
       @include scaleY(0.5);
     }
   }
+
+  &.mo {
+    .content-scrollable {
+      background: #fff;
+    }
+    .product-title {
+      font-size: 0.22rem;
+      margin-top: 0.15rem;
+      color: #99cc33;
+      margin-bottom: 0.3rem;
+      small {
+        font-size: 0.14rem;
+        color: #666;
+      }
+    }
+
+    .weui-cells__title {
+      float: left;
+      margin-top: 0.4em;
+      padding-left: 0.15rem;
+      &:before {
+        display: none;
+      }
+      .question {
+        display: none;
+      }
+    }
+
+    #phoneTypes {
+      display: none;
+    }
+    #phoneStorages, #phoneColors, #phonePackage, #phonePackage, #phoneQuery {
+      margin-bottom: 0.2rem;
+      clear: both;
+      & > div {
+        & > .item-lists {
+          .list-item {
+            width: auto;
+          }
+          .item-box {
+            border: 0;
+            @include border-radius(0);
+            background: #e4e4e4;
+            padding: 0.07rem 0.17rem 0.07rem 0.17rem;
+            color: #757575;
+            @include box-sizing("border-box");
+            border: 1px solid #e4e4e4;
+            &.curr {
+              border: 1px solid #99cc33;
+              color: #757575;
+              font-weight: normal;
+            }
+            ins {
+              display: none;
+            }
+          }
+          &.phone-colors-lists {
+            li {
+              width: auto;
+              .item-box {
+                overflow: hidden;
+                text-indent: -999rem;
+                @include border-radius(30px);
+                padding: 0.06rem;
+                width: 0.38rem;
+                height: 0.38rem;
+                p {
+                  display: block;
+                  @include border-radius(30px);
+                  width: 100%;
+                  height: 100%;
+                }
+              }
+              &:nth-child(1) {
+                p {
+                  background: url("http://pic.5ilend.com/fileserver/image/201610/10/6a04e194b5b34b53bbdb4e345a014fb0.jpg");
+                }
+              }
+              &:nth-child(2) {
+                p {
+                  background: url("http://pic.5ilend.com/fileserver/image/201610/10/808462b1572c4fd8b677a3c4006b63dc.jpg");
+                }
+              }
+              &:nth-child(3) {
+                p {
+                  background: url("http://pic.5ilend.com/fileserver/image/201607/24/bac1bb310a8b420d9b67da06c5357453.jpg");
+                }
+              }
+              &:nth-child(4) {
+                p {
+                  background: url("http://pic.5ilend.com/fileserver/image/201607/24/b9de3093756646fcaf9d100e53cee3aa.jpg");
+                }
+              }
+              &:nth-child(5) {
+                p {
+                  background: url("http://pic.5ilend.com/fileserver/image/201607/24/d402fb0fd25740c88de28d3573233452.jpg");
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .footer-nav {
+      padding-left: 0;
+      height: auto;
+
+      .nav-item {
+        display: none;
+        &.nav-button {
+          display: block;
+          width: 100%;
+          padding:0.1rem;
+          background: #fff;
+          a {
+            background: #81b618;
+            @include border-radius(4px);
+          }
+        }
+      }
+    }
+    .temp-cart-title {
+      font-size: 0.16rem;
+      margin-left: 1rem;
+    }
+    .temp-cart-details {
+      font-size: 0.14rem;
+      color: #666;
+      margin-bottom: 0.5rem;
+      margin-left: 1rem;
+    }
+  }
+
 }

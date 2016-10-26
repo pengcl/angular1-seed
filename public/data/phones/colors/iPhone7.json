@@ -2,26 +2,31 @@
   {
     "colorName": "亮黑色",
     "colorUrl": "/images/phones/iphone7/iphone7-jetblack.jpg",
+    "colorValue":"#000000",
     "selected": "disabled"
   },
   {
     "colorName": "黑色",
     "colorUrl": "/images/phones/iphone7/iphone7-black.jpg",
+    "colorValue":"#2a2e31",
     "selected": ""
   },
   {
     "colorName": "银色",
     "colorUrl": "/images/phones/iphone7/iphone7-silver.jpg",
+    "colorValue":"#f8ddc0",
     "selected": ""
   },
   {
     "colorName": "金色",
     "colorUrl": "/images/phones/iphone7/iphone7-gold.jpg",
+    "colorValue":"#dbd8d3",
     "selected": ""
   },
   {
     "colorName": "玫瑰金",
     "colorUrl": "/images/phones/iphone7/iphone7-rosegold.jpg",
+    "colorValue":"#ffa4a1",
     "selected": "curr"
   }
 ]

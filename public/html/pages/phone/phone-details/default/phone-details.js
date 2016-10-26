@@ -11,12 +11,14 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
         });
 }]).controller('pProController', ['$scope', '$rootScope', '$location', '$stateParams', '$http', 'Phone', function ($scope, $rootScope, $location, $stateParams, $http, Phone) {
 
+    $scope.pageType = $stateParams.pageType;
+
     $scope.phone = Phone.get({
         phoneId: $stateParams.phoneId
     }, function (phone) {
         $scope.productId = phone.productId;
 
-        $scope.appType = systemName + "_" + $stateParams.pageType + "_" + phone.phoneModel;
+        $scope.appType = systemName + "_" + $scope.pageType + "_" + phone.phoneModel;
         //console.log($scope.appType);
         $scope.category = $scope.appType;
         writebdLog($scope.category, "_Load", "渠道号", $scope.gh);
