@@ -1,11 +1,18 @@
 <script>
-    function chunk(arr, size) {
-        var nArr =[];
-        for(var i=0;i<(arr.length)/size;i++){
-            nArr.push(arr.slice(size*i,size*i+size));
+    console.log(null != null);
+    function bouncer(arr) {
+        // Don't show a false ID to this bouncer.
+        var fakeArr = [false,null,0,"",undefined,NaN];
+
+        function isBool(element) {
+            for(var i =0;i<fakeArr.length;i++){
+                //console.log(element != fakeArr[i]);
+                return element != fakeArr[i];
+            }
         }
-        return nArr;
+
+        return arr.filter(isBool);
     }
 
-    chunk(["a", "b", "c", "d"], 2);
+    bouncer([false, null, 0, NaN, undefined, ""]);
 </script>

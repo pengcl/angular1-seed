@@ -5,6 +5,7 @@ bower_components/
 tmp
 gulpfile.js
 .ignore
+.sass-cache
 .DS_Store
 .idea
 /build/

@@ -32,6 +32,12 @@ app.directive("phoneQuery", ["$cookieStore", function ($cookieStore) {
                 writebdLog(scope.category, "_CuteNumber", "渠道号", scope.gh);//选择靓号
             };
 
+            scope.showOverLay = function (targetId) {
+                var targetHtml = $("#" + targetId).html();
+                scope.$root.Overlay.open(targetHtml);
+                writebdLog(scope.category, "_IsContractPackage", "渠道号", scope.gh);//合约套餐介绍
+            };
+
             function checkPhoneNumber() {
                 if (!scope.checkoutForm.phoneNumber.$valid) {//原本应该用!scope.checkoutForm.phoneNumber.$valid
                     return false;
