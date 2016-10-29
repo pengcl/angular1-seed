@@ -1,0 +1,11 @@
+<script>
+    function chunk(arr, size) {
+        var nArr =[];
+        for(var i=0;i<(arr.length)/size;i++){
+            nArr.push(arr.slice(size*i,size*i+size));
+        }
+        return nArr;
+    }
+
+    chunk(["a", "b", "c", "d"], 2);
+</script>

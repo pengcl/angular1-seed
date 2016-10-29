@@ -71,6 +71,11 @@ app.directive("footerNav", ['$http', function ($http) {
                         writebdLog(scope.category, "_BuyNow", "渠道号", scope.gh);//立即支付
                         scope.$root.toast.open();
                         $form.submit();
+                    }else {
+                        $scrollTo = $('#receiverAddress');
+                        $container.animate({
+                            scrollTop: $scrollTo.offset().top - $container.offset().top + $container.scrollTop()
+                        });
                     }
                 } else {
                     $scrollTo = $('#receiverAddress');

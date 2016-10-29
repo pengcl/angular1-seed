@@ -1,4 +1,4 @@
-<div class="page home">
+<div class="page pd-details">
     <top-nav page-title="首页" page-back="menu" nav-visibility="hide"></top-nav>
     <form id="checkoutForm" name="checkoutForm" action="http://m.gd189fq.com/yfqcz/czOrdMainController.do?submitOrder" method="post" novalidate>
         <input type="hidden" value="1" name="mainMonthNumber" id="mainMonthNumber">
@@ -8,26 +8,82 @@
             <div class="banner-image img-box">
                 <img src="//r.gd189fq.com/public/images/phoneCard/banner.jpg" />
             </div>
-            <div class="product-header">
-                <h1 class="product-title">全国流量卡/上网卡，3G/4G/6G/8G/10G</h1>
-                <h2 class="product-sub-title">自动充值 当月生效 <span class="label label-danger">全国包邮</span></h2>
-                <div class="price-area">
-                    <sub>￥</sub><em>52</em><sub>.00</sub> - <sub>￥</sub><em>120</em><sub>.00</sub>
+            <div class="product-header" style="margin-top: 0.55rem">
+                <div class="price-area price-absolute">
+                    <ins>限时特价</ins>
+                    <sub class="bold">￥</sub><em class="bold">52</em><sub class="bold">.00</sub>~<em class="bold">120</em><sub class="bold">.00</sub>
+                    <del><sub>￥</sub>78.00~195.00</del>
+                    <div class="timer-area">
+                        <p class="timer-label">距活动结束还剩余</p>
+                        <timer></timer>
+                    </div>
                 </div>
+                <h1 class="product-title">[翼分期商城] 专注于信用卡分期的商城，此次推广福利，推出5折限时套餐，为您提供全网划算的4G套餐</h1>
+                <h2 class="product-sub-title">月享5折 全国通用 号码归属地广东</h2>
             </div>
-            <choose-number></choose-number>
+            <div class="product-header-ft">运费：活动期间全国包邮</div>
+
+            <spc-title main-title="套餐说明" sub-title="" arrow='true'></spc-title>
+
+            <div class="flow-fqa">
+                <ol class="fqa-lists">
+                    <li>
+                        <h3 class="list-tit">套餐情况</h3>
+                        <p class="list-disc">102元/月，3.5G国内流量，900分钟国内通话，50条短信</p>
+                    </li>
+                    <li>
+                        <h3 class="list-tit">套餐超出收费</h3>
+                        <p class="list-disc">国内通话：0.15元/分钟，短信：0.1元条，超出流量不足100MB按0.0003元/KB收取，100-500MB， 收费30元；超过500MB时，500MB/30元，以此类推；消费600元/15G封顶</p>
+                    </li>
+                    <li>
+                        <h3 class="list-tit">优惠资费</h3>
+                        <p class="list-disc">优惠期内，指定套餐可享5折优惠，优惠期长达36个月，为您节省2448元</p>
+                    </li>
+                    <li>
+                        <h3 class="list-tit">套餐性质</h3>
+                        <p class="list-disc">全国无漫游，接听免费，靓号任选，号码归属地广东</p>
+                    </li>
+                    <li>
+                        <h3 class="list-tit">适用范围</h3>
+                        <p class="list-disc">支持电信/三网通4G手机</p>
+                    </li>
+                    <li>
+                        <h3 class="list-tit">话费情况</h3>
+                        <p class="list-disc">电话卡激活后含一个月话费。次月起，每月8号前充值月租使用</p>
+                    </li>
+                    <li>
+                        <h3 class="list-tit">收费方式</h3>
+                        <p class="list-disc">开卡当月按剩余天数扣费</p>
+                        <p class="list-disc">(例：1月15号开通使用，只计算半月费用、半月流量，扣半月费用)</p>
+                    </li>
+                </ol>
+            </div>
+
+            <phone-query></phone-query>
             <phone-package title="选择套餐" sub-title="流量全国通用,通话全国无漫游"></phone-package>
-            <sim-type title="流量卡类型" add-class="bottom"></sim-type>
             <receiver-address title="收货地址"></receiver-address>
-            <div class="product-details" style="margin-top:0.2rem">
-                <div class="img-box"><img src="http://app.yfq.cn/images/flow/flowcard/in/1.gif"></div>
-                <div class="img-box"><img src="http://app.yfq.cn/images/flow/flowcard/in/2.gif"></div>
-                <div class="img-box"><img src="http://app.yfq.cn/images/flow/flowcard/in/3.gif"></div>
-                <div class="img-box"><img src="http://app.yfq.cn/images/flow/flowcard/in/4.gif"></div>
-                <div class="img-box"><img src="http://app.yfq.cn/images/flow/flowcard/in/5.gif"></div>
-                <div class="img-box"><img src="http://app.yfq.cn/images/flow/flowcard/in/6.gif"></div>
-                <div class="img-box"><img src="http://app.yfq.cn/images/flow/flowcard/in/7.gif"></div>
+
+            <spc-title main-title="购买流程" sub-title=""></spc-title>
+            <div class="img-box">
+                <img alt="" src="//r.gd189fq.com/public/images/flow/1/3.gif">
             </div>
+
+            <spc-title main-title="购买需知" sub-title=""></spc-title>
+            <div class="img-box">
+                <img alt="" src="//r.gd189fq.com/public/images/flow/1/4.gif">
+            </div>
+
+            <spc-title main-title="常见问题" sub-title="" arrow='true'></spc-title>
+
+            <txt-list txt-data="{{pdFqa}}"></txt-list>
+
+
+
+            <spc-title main-title="联系我们" sub-title=""></spc-title>
+            <div class="img-box">
+                <img alt="" src="//r.gd189fq.com/public/images/flow/1/6.gif">
+            </div>
+
         </div>
         <footer-nav submit="#checkoutForm"></footer-nav>
     </form>

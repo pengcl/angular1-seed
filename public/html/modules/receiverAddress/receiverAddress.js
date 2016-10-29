@@ -38,6 +38,12 @@ app.directive("receiverAddress", ["$compile", "$cookieStore", '$http', '$interva
                 };
             }
 
+            if ($cookieStore.get("activeCode")) {
+                scope.activeCode = $cookieStore.get("activeCode");
+            } else {
+                scope.activeCode = "";
+            }
+
             //隐藏地址选择器
             var stockHide = function () {
                 $storeSelector.removeClass("hover");
@@ -61,16 +67,16 @@ app.directive("receiverAddress", ["$compile", "$cookieStore", '$http', '$interva
                 $dataAreas.hide();
                 $dataAreas.eq(index).show();
             };
-            
+
             //获取下单页输入验证码
             scope.inputHomeCode = function () {
-            	writebdLog(scope.category,"_InputHomeCode","渠道号",scope.gh); 
+                writebdLog(scope.category, "_InputHomeCode", "渠道号", scope.gh);
             };
-            
+
             //只有输入详细收货地址才记录到闭环
             scope.inputAddress = function (room) {
-            	if(room==undefined||room==""||room.length<=3) return;
-            	writebdLog(scope.category, "_Address", "渠道号", scope.gh);//收货地址 
+                if (room == undefined || room == "" || room.length <= 3) return;
+                writebdLog(scope.category, "_Address", "渠道号", scope.gh);//收货地址
             };
 
             scope.paracont = "获取验证码";
@@ -97,8 +103,8 @@ app.directive("receiverAddress", ["$compile", "$cookieStore", '$http', '$interva
                         }, 1000, 100);
                     }
                 });
-                
-                writebdLog(scope.category,"_VariHomeCode","渠道号",scope.gh); //获取下单页验证码
+
+                writebdLog(scope.category, "_VariHomeCode", "渠道号", scope.gh); //获取下单页验证码
             };
 
             scope.$root.checkActiveCode = function () {
@@ -111,7 +117,8 @@ app.directive("receiverAddress", ["$compile", "$cookieStore", '$http', '$interva
                         $(".input-vcode").addClass("weui-cell_warn");
                         return false;
                     }
-                    return checkMobileCode(scope.activeCode);
+                    $cookieStore.put("activeCode",scope.activeCode);
+                    return true;
                 }
             };
 

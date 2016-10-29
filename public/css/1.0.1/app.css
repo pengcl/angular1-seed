@@ -4263,6 +4263,60 @@ div.module-tips {
   margin-left: 1rem;
 }
 
+/* line 3, ../../../sass/pages/phoneCard/_phoneCardDetails.scss */
+.page.pd-details .product-header {
+  background: #fff;
+}
+/* line 6, ../../../sass/pages/phoneCard/_phoneCardDetails.scss */
+.page.pd-details .question {
+  display: none;
+}
+/* line 10, ../../../sass/pages/phoneCard/_phoneCardDetails.scss */
+.page.pd-details #phoneQuery > .weui-cells__title {
+  display: none;
+}
+/* line 13, ../../../sass/pages/phoneCard/_phoneCardDetails.scss */
+.page.pd-details #phoneQuery .phone-query-panel {
+  display: none;
+}
+/* line 16, ../../../sass/pages/phoneCard/_phoneCardDetails.scss */
+.page.pd-details #phoneQuery .weui-cells_form {
+  margin-top: 0;
+}
+/* line 19, ../../../sass/pages/phoneCard/_phoneCardDetails.scss */
+.page.pd-details #phoneQuery .weui-btn-area {
+  display: none;
+}
+/* line 23, ../../../sass/pages/phoneCard/_phoneCardDetails.scss */
+.page.pd-details #numberPanel {
+  display: block !important;
+}
+/* line 26, ../../../sass/pages/phoneCard/_phoneCardDetails.scss */
+.page.pd-details .overlay {
+  position: relative;
+}
+/* line 28, ../../../sass/pages/phoneCard/_phoneCardDetails.scss */
+.page.pd-details .overlay .overlay-title {
+  display: none;
+}
+/* line 31, ../../../sass/pages/phoneCard/_phoneCardDetails.scss */
+.page.pd-details .overlay .overlay-dismiss {
+  display: none;
+}
+/* line 34, ../../../sass/pages/phoneCard/_phoneCardDetails.scss */
+.page.pd-details .overlay .content-scrollable {
+  position: static !important;
+  padding-top: 0;
+}
+/* line 39, ../../../sass/pages/phoneCard/_phoneCardDetails.scss */
+.page.pd-details .spc-title {
+  margin-top: 0.1rem;
+}
+/* line 42, ../../../sass/pages/phoneCard/_phoneCardDetails.scss */
+.page.pd-details .flow-fqa {
+  background: #fff;
+}
+
 /* line 1, ../../../sass/modules/recharge/_phoneQuery.scss */
 #phoneQuery {
   margin-top: 0.1rem;

@@ -1,7 +1,8 @@
 <div id="phoneQuery">
     <div class="weui-cells__title title-icon">
-        选择靓号
+        <span>选择靓号</span>
         <!--<span ng-show="myForm.mainPhoneNumber.$error.required">必填</span>-->
+        <a class="question" ng-click="showOverLay('packageInfo')">5388/6388元话费大礼包介绍</a>
     </div>
 
     <div class="phone-query-panel pd-w" style="margin-bottom: 0.5rem">
@@ -64,7 +65,7 @@
                 </div>
 
                 <div class="sbtn">
-                    <a href="javascript:;" ng-click="Next()">上一批</a>
+                    <a href="javascript:;" ng-click="Previous()">上一批</a>
                     <a href="javascript:;" ng-click="Next()">下一批</a>
                 </div>
 

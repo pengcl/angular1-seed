@@ -11,6 +11,11 @@ app.directive("phonePackage", ['$http', '$stateParams', '$q', function ($http, $
             scope.packageSubTitle = attrs.subTitle;
             scope.packageType = attrs.type;
 
+            scope.visibility = attrs.visibility;
+            if (scope.visibility === "false") {
+                $(element).addClass("hide");
+            }
+
             //获取选择框尺码
             //scope.size = attrs.size;
 

@@ -10,7 +10,7 @@ app.directive("overlay", ['$http','$compile', function ($http,$compile) {
             scope.$root.Overlay = {
                 open: function(template) {
                     //console.log(scope.simList);
-                    $compile($overlayHook.html(template))(scope);
+                    $overlayHook.html(template);
                     $container.addClass("overlay-open");
                 },
                 openCompile: function(template) {

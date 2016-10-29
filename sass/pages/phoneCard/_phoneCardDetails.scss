@@ -1,0 +1,46 @@
+//严禁在此处写公共样式,此文件可随活动一起废弃.
+.page.pd-details {
+  .product-header {
+    background: #fff;
+  }
+  .question {
+    display: none;
+  }
+  #phoneQuery {
+    & > .weui-cells__title {
+      display: none;
+    }
+    .phone-query-panel {
+      display: none;
+    }
+    .weui-cells_form {
+      margin-top: 0;
+    }
+    .weui-btn-area {
+      display: none;
+    }
+  }
+  #numberPanel {
+    display: block !important;
+  }
+  .overlay {
+    position: relative;
+    .overlay-title {
+      display: none;
+    }
+    .overlay-dismiss {
+      display: none;
+    }
+    .content-scrollable {
+      position: static !important;
+      padding-top: 0;
+    }
+  }
+  .spc-title {
+    margin-top: 0.1rem;
+  }
+  .flow-fqa {
+    background: #fff;
+  }
+}
+
