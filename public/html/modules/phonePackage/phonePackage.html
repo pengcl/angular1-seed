@@ -82,21 +82,21 @@
                             </tr>
                             <tr>
                                 <td style="color:#999">市场购机价</td>
-                                <td >188元 / 月</td>
-                                <td>3G流量</td>
-                                <td>500分钟</td>
+                                <td ><span ng-bind="phone.price"></span>元</td>
+                                <td><span ng-bind="pkg.oldPrice"></span>*36=<span ng-bind="pkg.oldPrice*36"></span>元</td>
+                                <td ><span ng-bind="phone.price*1 + pkg.oldPrice*36"></span>元</td>
                             </tr>
                             <tr>
                                 <td style="color:#999">翼分期购机价</td>
-                                <td>199元 / 月</td>
-                                <td>3G流量</td>
-                                <td>700分钟</td>
+                                <td>0元</td>
+                                <td><span ng-bind="pkg.oldPrice"></span>*36=<span ng-bind="pkg.oldPrice*36"></span>元</td>
+                                <td><span ng-bind="pkg.oldPrice*36"></span>元</td>
                             </tr>
-                            <tr>
-                                <td style="color:#999">翼分期购机价</td>
-                                <td>196元 / 月</td>
-                                <td>3G流量</td>
-                                <td>700分钟</td>
+                            <tr style="background-color:#FBDFDD;color:#d83e14;font-weight:600">
+                                <td style="color:#999">差价</td>
+                                <td><span ng-bind="phone.price"></span>元</td>
+                                <td>0</td>
+                                <td><span ng-bind="phone.price"></span>元</td>
                             </tr>
                             </tbody>
                         </table>
