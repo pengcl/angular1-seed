@@ -219,11 +219,11 @@ app.directive("receiverAddress", ["$compile", "$cookieStore", '$http', '$interva
                     //alert("请输入联系电话");
                     $(".input-mobile").addClass("weui-cell_warn");
                     return false;
-                } else if (!scope.checkoutForm.receiverCity.$valid) {
+                } /*else if (!scope.checkoutForm.receiverCity.$valid) {
                     $(".input-city").addClass("weui-cell_warn");
                     //alert("请选择收件区域");
                     return false;
-                } else if (!scope.checkoutForm.receiverRoom.$valid) {
+                }*/ else if (!scope.checkoutForm.receiverRoom.$valid) {
                     $(".input-room").addClass("weui-cell_warn");
                     //alert("请输入详细地址");
                     return false;
