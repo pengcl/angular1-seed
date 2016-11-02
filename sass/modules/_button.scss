@@ -33,42 +33,62 @@
     background-color: $color-primary;
     color: $color-empty;
 
-    &:hover { background-color: darken($color-primary, 5%); }
-    &:active { box-shadow: rgba(0,0,0,.3) 0 1px 3px 0 inset; }
+    &:hover {
+      background-color: darken($color-primary, 5%);
+    }
+    &:active {
+      box-shadow: rgba(0, 0, 0, .3) 0 1px 3px 0 inset;
+    }
   }
 
   &[class*="secondary"] {
     background: $color-tertiary;
-    color: rgba(255,255,255,.4);
+    color: rgba(255, 255, 255, .4);
 
-    &:hover { background-color: darken($color-tertiary, 5%); }
-    &:active { box-shadow: rgba(0,0,0,.3) 0 1px 3px 0 inset; }
+    &:hover {
+      background-color: darken($color-tertiary, 5%);
+    }
+    &:active {
+      box-shadow: rgba(0, 0, 0, .3) 0 1px 3px 0 inset;
+    }
 
     &.active,
     &.no-state:first-child {
       background: $color-secondary;
       color: $color-empty;
 
-      &:hover{ background-color: darken($color-secondary, 5%); }
-      &:active{ box-shadow: rgba(0,0,0,.3) 0 1px 3px 0 inset; }
+      &:hover {
+        background-color: darken($color-secondary, 5%);
+      }
+      &:active {
+        box-shadow: rgba(0, 0, 0, .3) 0 1px 3px 0 inset;
+      }
     }
 
-    &.no-state { color: $color-empty; }
+    &.no-state {
+      color: $color-empty;
+    }
   }
 
   &[class*="tertiary"] {
     background: $color-raw;
     color: $color-primary;
 
-    &:hover { background-color: $color-raw; }
+    &:hover {
+      background-color: $color-raw;
+    }
   }
 
   &[class*="twitter"] {
-    background-color: $color-primary;
+    background-color: $color-twitter;
     color: $color-empty;
 
-    &:hover { background-color: darken($color-primary, 10%); }
-    &:active { box-shadow: rgba(0,0,0,.3) 0 1px 3px 0 inset; }
+    &:hover {
+      background-color: darken($color-primary, 10%);
+    }
+    &:active {
+      box-shadow: rgba(0, 0, 0, .3) 0 1px 3px 0 inset;
+    }
   }
 
   &[class*="camera"] {
@@ -83,13 +103,13 @@
 
     .icon-camera {
       position: absolute;
-      top:50%;
-      right:50%;
-      left:auto;
-      bottom:auto;
+      top: 50%;
+      right: 50%;
+      left: auto;
+      bottom: auto;
       width: 0.35rem;
       height: 0.35rem;
-      @include transform(translate3d(50%, -50%,0));
+      @include transform(translate3d(50%, -50%, 0));
       background-color: $color-primary;
       border-radius: 10em;
       color: $color-empty;
@@ -99,16 +119,22 @@
 
     &:hover {
       box-shadow: darken($color-primary, 3%) 0 0 0px 2px inset;
-      .icon-camera { background-color: darken($color-primary, 3%); }
+      .icon-camera {
+        background-color: darken($color-primary, 3%);
+      }
     }
 
     &:active {
       box-shadow: darken($color-primary, 3%) 0 0 0px 2px inset;
-      .icon-camera { background-color: darken($color-primary, 3%); }
+      .icon-camera {
+        background-color: darken($color-primary, 3%);
+      }
     }
   }
 
-  &[disabled] { opacity: .5; }
+  &[disabled] {
+    opacity: .5;
+  }
 }
 
 .btns-group {
@@ -123,5 +149,35 @@
   [class*="btn-"] {
     //.ellipsized;
     @include flex(1);
+  }
+}
+
+.new-btn {
+  //background-color: #3bb3e0;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: block;
+  position: relative;
+  text-decoration: none;
+  height: 0.48rem;
+  color: #666;
+  @include background(rgba(0, 0, 0, 0) linear-gradient(#fff, #eee) repeat scroll 0 0);
+  border: 1px solid #eee;
+  .nav-icon {
+    margin-top: 0.03rem;
+  }
+  &.pure-btn {
+    @include background(rgba(0, 0, 0, 0) linear-gradient(#9088ec, #665ce6) repeat scroll 0 0);
+    @include box-shadow(0 1px 0 rgba(255, 255, 255, 0.3) inset, 0 1px 2px rgba(0, 0, 0, 0.15));
+    border: 1px solid #665ce6;
+    color: #fff;
+  }
+  &.red-btn {
+    @include background(rgba(0, 0, 0, 0) linear-gradient(#ff5c69, #ff2939) repeat scroll 0 0);
+    @include box-shadow(0 1px 0 rgba(255, 255, 255, 0.3) inset, 0 1px 2px rgba(0, 0, 0, 0.15));
+    border: 1px solid #ff2939;
+    color: #fff;
   }
 }

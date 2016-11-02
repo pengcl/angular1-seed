@@ -13,8 +13,10 @@ app.directive("chooseNumber", ["$compile", function ($compile) {
             var $span = $("#number-select span");
             var $numberList = $(".number-list");
             var $table = $numberList.find("table");
+            var $lastNumberSpan = $("#number-select span:last-child");
+
             scope.currNumberIndex = 3;
-            
+
             scope.closeNumberList = function () {
                 $numberList.slideUp();
             };
@@ -27,7 +29,7 @@ app.directive("chooseNumber", ["$compile", function ($compile) {
                     $span.eq(scope.currNumberIndex).attr("class", "old");
                     $span.eq(scope.currNumberIndex + 1).attr("class", "curr");
                     if (scope.currNumberIndex < 10) {
-                        scope.showPickNumberPanel(scope.currNumberIndex + 1,'selectNumber');
+                        scope.showPickNumberPanel(scope.currNumberIndex + 1, 'selectNumber');
                         $("#num-sure").removeClass("active");
                         $("#num-reset").removeClass("active");
                         return true;
@@ -47,10 +49,10 @@ app.directive("chooseNumber", ["$compile", function ($compile) {
                 } else {
                     return false;
                 }
-                
+
             };
 
-            scope.showPickNumberPanel = function (pos,isWrite) {
+            scope.showPickNumberPanel = function (pos, isWrite) {
                 var i, numNow;
                 numNow = "";
                 scope.currNumberIndex = pos;
@@ -77,15 +79,23 @@ app.directive("chooseNumber", ["$compile", function ($compile) {
                     });
                     $numberList.slideDown();
                     //如果是输入号码，不需要记录行为 
-                    if(isWrite!='selectNumber')
-                    {
-	                    writebdLog(scope.category, "_SelectNumber", "渠道号", scope.gh);//选择号码
-                    } 
+                    if (isWrite != 'selectNumber') {
+                        writebdLog(scope.category, "_SelectNumber", "渠道号", scope.gh);//选择号码
+                    }
                 }
             };
 
+            scope.checkPhone = function () {
+                if (!$lastNumberSpan.hasClass("old")) {//原本应该用!scope.checkoutForm.phoneNumber.$valid
+                    //console.log(scope.currNumberIndex);
+                    scope.showPickNumberPanel(scope.currNumberIndex);
+                    return false;
+                }
+                return true;
+            };
+
             scope.reChooseNumber = function () {
-                scope.showPickNumberPanel(3,'selectNumber');
+                scope.showPickNumberPanel(3, 'selectNumber');
                 writebdLog(scope.category, "_AgainNumber", "渠道号", scope.gh);//重新选号
             };
 

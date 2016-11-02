@@ -11,7 +11,7 @@ app.directive("phoneQuery", ["$cookieStore", function ($cookieStore) {
 
             var _index;
 
-            if($cookieStore.get("orderState")){
+            if ($cookieStore.get("orderState")) {
                 var orderState = $cookieStore.get("orderState");
                 scope.phoneNumber = orderState.phoneNumber;
             }
@@ -38,7 +38,7 @@ app.directive("phoneQuery", ["$cookieStore", function ($cookieStore) {
                 writebdLog(scope.category, "_IsContractPackage", "渠道号", scope.gh);//合约套餐介绍
             };
 
-            function checkPhoneNumber() {
+            scope.checkPhone = function () {
                 if (!scope.checkoutForm.phoneNumber.$valid) {//原本应该用!scope.checkoutForm.phoneNumber.$valid
                     return false;
                 }
@@ -59,14 +59,14 @@ app.directive("phoneQuery", ["$cookieStore", function ($cookieStore) {
 
             scope.getNumber = function () {
 
-                if (checkPhoneNumber()) {
+                if (scope.checkPhone()) {
                     scope.npHide();
                     var $scrollTo = $('#phoneQuery');
                     var $container = $(".content-scrollable");
                     $container.animate({
                         scrollTop: $scrollTo.offset().top - $container.offset().top + $container.scrollTop()
                     });
-                    
+
                     writebdLog(scope.category, "_ConfirmNumber", "渠道号", scope.gh);//确认号码
                 } else {
                     scope.$root.dialog.open("", "请您选择号码！");
@@ -99,7 +99,7 @@ app.directive("phoneQuery", ["$cookieStore", function ($cookieStore) {
     $scope.inputNumber = function (query) {
         if (query == "") return;
         writebdLog($scope.category, '_InputNumber', "渠道号", $scope.gh);//输入查询号码
-    }
+    };
 
     $http.jsonp('http://m.gd189fq.com/wap/taokafanghaoNew/fetchNumber.html?callback=JSON_CALLBACK').success(function (data, status, headers, config) {
         $.each(eval(data), function (i, k) {

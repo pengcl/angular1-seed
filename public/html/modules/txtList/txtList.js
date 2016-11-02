@@ -1,15 +1,15 @@
 'use strict';
 
-app.directive("txtList", [function () {
+app.directive("txtList", ["$http", function ($http) {
     return {
         restrict: 'E',
         replace: true,
-        scope:{
-            data:"@txtData"
-        },
+        scope: {},
         templateUrl: "modules/txtList/txtList.html",
         link: function (scope, element, attrs) {
-            console.log(scope.data.listItems);
+            $http.get(attrs.apiUrl).success(function (data) {
+                scope.txtData = data;
+            });
         }
     };
 }]);

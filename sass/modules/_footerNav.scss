@@ -52,7 +52,7 @@
       }
       &.nav-button {
         //@include flex(1 0);
-        padding-top: 0;
+        padding:0;
         line-height:0.48rem;
         background: $color-primary;
         color: #fff;

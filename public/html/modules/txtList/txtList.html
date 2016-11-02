@@ -1,13 +1,12 @@
 <div class="txt-list">
-    {{data}}
     <ol class="txt-lists">
-        <li ng-repeat="item in data">
+        <li ng-repeat="item in txtData.listItems">
             <h3 class="list-tit" ng-bind="item.title"></h3>
             <p class="list-disc" ng-bind="item.description"></p>
         </li>
     </ol>
 
-    <div class="fqa-tips">
+    <div class="list-tips">
         <h3 class="tips-tit">关于特殊原因延迟发货声明</h3>
         <p>1.每人限购两张，重复办理将不予发货</p>
         <p>2.身份证为电信运营商黑名单，无法办理入网</p>

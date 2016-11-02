@@ -50,7 +50,7 @@ app.directive("footerNavNew", ['$http', '$cookieStore', function ($http, $cookie
             }
 
             scope.submitForm = function (event) {
-                if (checkPhoneNumber()) {
+                if (scope.checkPhone()) {
                     scope.orderState = {
                         machineId: scope.phone.productId,
                         productId: scope.pkg.productId,

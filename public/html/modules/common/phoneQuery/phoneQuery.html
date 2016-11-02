@@ -8,6 +8,7 @@
     <div class="phone-query-panel pd-w" style="margin-bottom: 0.5rem">
         <ul class="phone-query-lists item-lists minus pure-g">
             <li class="phone-query-item list-item pure-u-1-2">
+                <input id="mainPhoneNumber" name="mainPhoneNumber" ng-model="mainPhoneNumber" type="hidden" required value="{{phoneNumber}}">
                 <input id="phoneNumber" name="phoneNumber" ng-model="phoneNumber" type="hidden" required value="{{phoneNumber}}">
                 <div class="item-box border radius margin small" ng-click="npShow('numberPanel')" ng-class="{true: '', false: 'curr'}[!phoneNumber]">
                     <p ng-show="!phoneNumber">

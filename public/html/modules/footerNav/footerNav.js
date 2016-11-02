@@ -43,19 +43,10 @@ app.directive("footerNav", ['$http', function ($http) {
                 writebdLog(scope.category, "_CustConsult", "渠道号", scope.gh);//客服咨询
             };
 
-            function checkPhoneNumber() {
-                if (!$lastNumberSpan.hasClass("old")) {//原本应该用!scope.checkoutForm.phoneNumber.$valid
-                    //console.log(scope.currNumberIndex);
-                    scope.showPickNumberPanel(scope.currNumberIndex);
-                    return false;
-                }
-                return true;
-            }
-
             scope.submitForm = function (event) {
                 event.preventDefault();
                 if (attrs.checkPhone == "true") {
-                    if (checkPhoneNumber()) {
+                    if (scope.checkPhone()) {
                         //writebdLog(scope.category, "_SelectNumber", "渠道号", scope.gh);//选择号码
                     } else {
                         $scrollTo = $('#chooseNumber');

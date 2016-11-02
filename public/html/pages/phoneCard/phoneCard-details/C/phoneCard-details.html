@@ -1,6 +1,6 @@
 <div class="page pd-details">
     <top-nav page-title="首页" page-back="menu" nav-visibility="hide"></top-nav>
-    <form id="checkoutForm" name="checkoutForm" action="{{formAction}}" method="post" ng-submit="submit()" novalidate>
+    <form id="checkoutForm" name="checkoutForm" action="{{formAction}}" method="post" novalidate>
         <input type="hidden" value="1" name="mainMonthNumber" id="mainMonthNumber">
         <gh></gh>
         <activity></activity>
@@ -12,8 +12,8 @@
             <div class="product-header" style="margin-top: 0.55rem">
                 <div class="price-area price-absolute">
                     <ins>限时特价</ins>
-                    <sub class="bold">￥</sub><em class="bold">102</em><sub class="bold">.00</sub>~<em class="bold">155</em><sub class="bold">.00</sub>
-                    <del><sub>￥</sub>174.00~304.00</del>
+                    <sub class="bold">￥</sub><em class="bold">52</em><sub class="bold">.00</sub>~<em class="bold">120</em><sub class="bold">.00</sub>
+                    <del><sub>￥</sub>78.00~195.00</del>
                     <div class="timer-area">
                         <p class="timer-label">距活动结束还剩余</p>
                         <timer></timer>
@@ -62,8 +62,8 @@
                 </ol>
             </div>
 
-            <pay-type title="选择支付" sub-title="" visibility="false"></pay-type>
             <phone-query></phone-query>
+            <pay-type title="选择支付" sub-title="" visibility="false"></pay-type>
             <sim-type title="流量卡类型" add-class="bottom" size="s"></sim-type>
             <receiver-address title="收货地址"></receiver-address>
 
@@ -101,6 +101,6 @@
             </div>
 
         </div>
-        <footer-nav-rb check-phone="true" check-address="true" order-search-url="http://m.gd189fq.com/wap/customer/searchIndexA.html?s=wap" submit="#checkoutForm"></footer-nav-rb>
+        <footer-nav-rb check-phone="true" check-address="true" cod="true" order-search-url="http://m.gd189fq.com/wap/customer/searchIndexA.html?s=wap" submit="#checkoutForm"></footer-nav-rb>
     </form>
 </div>

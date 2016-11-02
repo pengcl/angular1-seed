@@ -1,4 +1,5 @@
 <div id="phonePackage" class="phone-package">
+    <input type="hidden" name="mainProductId" id="mainProductId" value="{{pkg.productId}}" required class="weui_input">
     <input type="hidden" name="productId" id="productId" value="{{pkg.productId}}" required class="weui_input">
     <div class="weui-cells__title title-icon">
         <span class="title" ng-bind="packageTitle"></span>
@@ -9,7 +10,7 @@
     </div>
     <div class="phone-package-panel pd-w">
         <ul class="phone-package-lists item-lists minus pure-g">
-            <li class="phone-package-item list-item pure-u-1-2" ng-repeat="pkg in phone.packages">
+            <li class="phone-package-item list-item pure-u-1-2" ng-repeat="pkg in phone.packages | orderBy:'weight'">
                 <div class="item-box border margin radius" ng-click="setPhonePackage($event,pkg)"
                      ng-class="{true: 'curr', false: ''}[pkg.selected == 'curr']">
                     <p>
@@ -25,6 +26,7 @@
                 </div>
             </li>
         </ul>
+        <div class="item-lists-tips"><a href="javascript:;"><span ng-bind="pkg.network"></span>国内流量，<span ng-bind="pkg.talkTime">850</span>分钟国内通话，50条短信，全国无漫游</span></a></div>
     </div>
 
     <div id="packageInfo" style="display: none;">

@@ -117,6 +117,11 @@ p.mgt {
 }
 
 /* line 76, ../../../sass/utils/_base.scss */
+.no-pd {
+  padding: 0 !important;
+}
+
+/* line 79, ../../../sass/utils/_base.scss */
 p.tips {
   font-size: 0.1rem;
   color: #999;
@@ -1820,6 +1825,13 @@ a:hover, a:focus {
   display: block;
 }
 
+/* line 114, ../../../sass/modules/_itemLists.scss */
+.item-lists-tips {
+  font-size: 0.12rem;
+  padding-top: 0.1rem;
+  padding-bottom: 0.2rem;
+}
+
 /* line 1, ../../../sass/modules/_footerNav.scss */
 .weui_tabbar_icon {
   font-size: 24px;
@@ -1883,7 +1895,7 @@ a:hover, a:focus {
 }
 /* line 53, ../../../sass/modules/_footerNav.scss */
 .footer-nav.nav-list .nav-item.nav-button {
-  padding-top: 0;
+  padding: 0;
   line-height: 0.48rem;
   background: #d83e14;
   color: #fff;
@@ -2661,8 +2673,9 @@ a:hover, a:focus {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
+  background: #fff;
 }
-/* line 106, ../../../sass/modules/_phoneQuery.scss */
+/* line 107, ../../../sass/modules/_phoneQuery.scss */
 #phoneQuery .sbtn:before {
   content: " ";
   position: absolute;
@@ -2672,7 +2685,7 @@ a:hover, a:focus {
   border-top: 1px solid #e5e5e5;
   width: 100%;
 }
-/* line 115, ../../../sass/modules/_phoneQuery.scss */
+/* line 116, ../../../sass/modules/_phoneQuery.scss */
 #phoneQuery .sbtn:after {
   content: " ";
   position: absolute;
@@ -2682,12 +2695,12 @@ a:hover, a:focus {
   border-bottom: 1px solid #e5e5e5;
   width: 100%;
 }
-/* line 124, ../../../sass/modules/_phoneQuery.scss */
+/* line 125, ../../../sass/modules/_phoneQuery.scss */
 #phoneQuery .sbtn a {
   margin-left: 0.1rem;
   margin-right: 0.1rem;
 }
-/* line 128, ../../../sass/modules/_phoneQuery.scss */
+/* line 129, ../../../sass/modules/_phoneQuery.scss */
 #phoneQuery .sbtn li {
   display: inline-block;
   vertical-align: middle;
@@ -2698,7 +2711,7 @@ a:hover, a:focus {
   margin-right: 0.02rem;
   list-style: none;
 }
-/* line 133, ../../../sass/modules/_phoneQuery.scss */
+/* line 134, ../../../sass/modules/_phoneQuery.scss */
 #phoneQuery .sbtn li a {
   -moz-border-radius: 4px;
   -webkit-border-radius: 4px;
@@ -2710,7 +2723,7 @@ a:hover, a:focus {
   width: 0.3rem;
   height: 0.3rem;
 }
-/* line 143, ../../../sass/modules/_phoneQuery.scss */
+/* line 144, ../../../sass/modules/_phoneQuery.scss */
 #phoneQuery .sbtn li.active a {
   background: #d83e14;
   color: #fff;
@@ -2890,79 +2903,79 @@ table.border-white th:after, table.border-white td:after {
 [class*=" btn-"][class*="primary"]:hover {
   background-color: #c13712;
 }
-/* line 37, ../../../sass/modules/_button.scss */
+/* line 39, ../../../sass/modules/_button.scss */
 [class^="btn-"][class*="primary"]:active,
 [class*=" btn-"][class*="primary"]:active {
   box-shadow: rgba(0, 0, 0, 0.3) 0 1px 3px 0 inset;
 }
-/* line 40, ../../../sass/modules/_button.scss */
+/* line 44, ../../../sass/modules/_button.scss */
 [class^="btn-"][class*="secondary"],
 [class*=" btn-"][class*="secondary"] {
   background: #666;
   color: rgba(255, 255, 255, 0.4);
 }
-/* line 44, ../../../sass/modules/_button.scss */
+/* line 48, ../../../sass/modules/_button.scss */
 [class^="btn-"][class*="secondary"]:hover,
 [class*=" btn-"][class*="secondary"]:hover {
   background-color: #595959;
 }
-/* line 45, ../../../sass/modules/_button.scss */
+/* line 51, ../../../sass/modules/_button.scss */
 [class^="btn-"][class*="secondary"]:active,
 [class*=" btn-"][class*="secondary"]:active {
   box-shadow: rgba(0, 0, 0, 0.3) 0 1px 3px 0 inset;
 }
-/* line 47, ../../../sass/modules/_button.scss */
+/* line 55, ../../../sass/modules/_button.scss */
 [class^="btn-"][class*="secondary"].active, [class^="btn-"][class*="secondary"].no-state:first-child,
 [class*=" btn-"][class*="secondary"].active,
 [class*=" btn-"][class*="secondary"].no-state:first-child {
   background: #555;
   color: white;
 }
-/* line 52, ../../../sass/modules/_button.scss */
+/* line 60, ../../../sass/modules/_button.scss */
 [class^="btn-"][class*="secondary"].active:hover, [class^="btn-"][class*="secondary"].no-state:first-child:hover,
 [class*=" btn-"][class*="secondary"].active:hover,
 [class*=" btn-"][class*="secondary"].no-state:first-child:hover {
   background-color: #484848;
 }
-/* line 53, ../../../sass/modules/_button.scss */
+/* line 63, ../../../sass/modules/_button.scss */
 [class^="btn-"][class*="secondary"].active:active, [class^="btn-"][class*="secondary"].no-state:first-child:active,
 [class*=" btn-"][class*="secondary"].active:active,
 [class*=" btn-"][class*="secondary"].no-state:first-child:active {
   box-shadow: rgba(0, 0, 0, 0.3) 0 1px 3px 0 inset;
 }
-/* line 56, ../../../sass/modules/_button.scss */
+/* line 68, ../../../sass/modules/_button.scss */
 [class^="btn-"][class*="secondary"].no-state,
 [class*=" btn-"][class*="secondary"].no-state {
   color: white;
 }
-/* line 59, ../../../sass/modules/_button.scss */
+/* line 73, ../../../sass/modules/_button.scss */
 [class^="btn-"][class*="tertiary"],
 [class*=" btn-"][class*="tertiary"] {
   background: #f8f8f8;
   color: #d83e14;
 }
-/* line 63, ../../../sass/modules/_button.scss */
+/* line 77, ../../../sass/modules/_button.scss */
 [class^="btn-"][class*="tertiary"]:hover,
 [class*=" btn-"][class*="tertiary"]:hover {
   background-color: #f8f8f8;
 }
-/* line 66, ../../../sass/modules/_button.scss */
+/* line 82, ../../../sass/modules/_button.scss */
 [class^="btn-"][class*="twitter"],
 [class*=" btn-"][class*="twitter"] {
-  background-color: #d83e14;
+  background-color: #46c8f5;
   color: white;
 }
-/* line 70, ../../../sass/modules/_button.scss */
+/* line 86, ../../../sass/modules/_button.scss */
 [class^="btn-"][class*="twitter"]:hover,
 [class*=" btn-"][class*="twitter"]:hover {
   background-color: #a93110;
 }
-/* line 71, ../../../sass/modules/_button.scss */
+/* line 89, ../../../sass/modules/_button.scss */
 [class^="btn-"][class*="twitter"]:active,
 [class*=" btn-"][class*="twitter"]:active {
   box-shadow: rgba(0, 0, 0, 0.3) 0 1px 3px 0 inset;
 }
-/* line 74, ../../../sass/modules/_button.scss */
+/* line 94, ../../../sass/modules/_button.scss */
 [class^="btn-"][class*="camera"],
 [class*=" btn-"][class*="camera"] {
   border-radius: 10em;
@@ -2974,7 +2987,7 @@ table.border-white th:after, table.border-white td:after {
   text-indent: 0;
   width: 0.4rem;
 }
-/* line 84, ../../../sass/modules/_button.scss */
+/* line 104, ../../../sass/modules/_button.scss */
 [class^="btn-"][class*="camera"] .icon-camera,
 [class*=" btn-"][class*="camera"] .icon-camera {
   position: absolute;
@@ -2994,33 +3007,33 @@ table.border-white th:after, table.border-white td:after {
   display: inline-block;
   line-height: 0.35rem;
 }
-/* line 100, ../../../sass/modules/_button.scss */
+/* line 120, ../../../sass/modules/_button.scss */
 [class^="btn-"][class*="camera"]:hover,
 [class*=" btn-"][class*="camera"]:hover {
   box-shadow: #ca3a13 0 0 0px 2px inset;
 }
-/* line 102, ../../../sass/modules/_button.scss */
+/* line 122, ../../../sass/modules/_button.scss */
 [class^="btn-"][class*="camera"]:hover .icon-camera,
 [class*=" btn-"][class*="camera"]:hover .icon-camera {
   background-color: #ca3a13;
 }
-/* line 105, ../../../sass/modules/_button.scss */
+/* line 127, ../../../sass/modules/_button.scss */
 [class^="btn-"][class*="camera"]:active,
 [class*=" btn-"][class*="camera"]:active {
   box-shadow: #ca3a13 0 0 0px 2px inset;
 }
-/* line 107, ../../../sass/modules/_button.scss */
+/* line 129, ../../../sass/modules/_button.scss */
 [class^="btn-"][class*="camera"]:active .icon-camera,
 [class*=" btn-"][class*="camera"]:active .icon-camera {
   background-color: #ca3a13;
 }
-/* line 111, ../../../sass/modules/_button.scss */
+/* line 135, ../../../sass/modules/_button.scss */
 [class^="btn-"][disabled],
 [class*=" btn-"][disabled] {
   opacity: .5;
 }
 
-/* line 114, ../../../sass/modules/_button.scss */
+/* line 140, ../../../sass/modules/_button.scss */
 .btns-group {
   display: -webkit-flex;
   display: flex;
@@ -3032,10 +3045,59 @@ table.border-white th:after, table.border-white td:after {
   left: 0;
   width: 100%;
 }
-/* line 123, ../../../sass/modules/_button.scss */
+/* line 149, ../../../sass/modules/_button.scss */
 .btns-group [class*="btn-"] {
   -webkit-flex: 1;
   flex: 1;
+}
+
+/* line 155, ../../../sass/modules/_button.scss */
+.new-btn {
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: block;
+  position: relative;
+  text-decoration: none;
+  height: 0.48rem;
+  color: #666;
+  background: transparent url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuNSIgeTE9IjAuMCIgeDI9IjAuNSIgeTI9IjEuMCI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI2VlZWVlZSIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==') repeat scroll 0 0;
+  background: transparent -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ffffff), color-stop(100%, #eeeeee)) repeat scroll 0 0;
+  background: transparent -moz-linear-gradient(#ffffff, #eeeeee) repeat scroll 0 0;
+  background: transparent -webkit-linear-gradient(#ffffff, #eeeeee) repeat scroll 0 0;
+  background: transparent linear-gradient(#ffffff, #eeeeee) repeat scroll 0 0;
+  border: 1px solid #eee;
+}
+/* line 168, ../../../sass/modules/_button.scss */
+.new-btn .nav-icon {
+  margin-top: 0.03rem;
+}
+/* line 171, ../../../sass/modules/_button.scss */
+.new-btn.pure-btn {
+  background: transparent url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuNSIgeTE9IjAuMCIgeDI9IjAuNSIgeTI9IjEuMCI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzkwODhlYyIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzY2NWNlNiIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==') repeat scroll 0 0;
+  background: transparent -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #9088ec), color-stop(100%, #665ce6)) repeat scroll 0 0;
+  background: transparent -moz-linear-gradient(#9088ec, #665ce6) repeat scroll 0 0;
+  background: transparent -webkit-linear-gradient(#9088ec, #665ce6) repeat scroll 0 0;
+  background: transparent linear-gradient(#9088ec, #665ce6) repeat scroll 0 0;
+  -moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.3) inset, 0 1px 2px rgba(0, 0, 0, 0.15);
+  -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.3) inset, 0 1px 2px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.3) inset, 0 1px 2px rgba(0, 0, 0, 0.15);
+  border: 1px solid #665ce6;
+  color: #fff;
+}
+/* line 177, ../../../sass/modules/_button.scss */
+.new-btn.red-btn {
+  background: transparent url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuNSIgeTE9IjAuMCIgeDI9IjAuNSIgeTI9IjEuMCI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZmNWM2OSIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI2ZmMjkzOSIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==') repeat scroll 0 0;
+  background: transparent -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ff5c69), color-stop(100%, #ff2939)) repeat scroll 0 0;
+  background: transparent -moz-linear-gradient(#ff5c69, #ff2939) repeat scroll 0 0;
+  background: transparent -webkit-linear-gradient(#ff5c69, #ff2939) repeat scroll 0 0;
+  background: transparent linear-gradient(#ff5c69, #ff2939) repeat scroll 0 0;
+  -moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.3) inset, 0 1px 2px rgba(0, 0, 0, 0.15);
+  -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.3) inset, 0 1px 2px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.3) inset, 0 1px 2px rgba(0, 0, 0, 0.15);
+  border: 1px solid #ff2939;
+  color: #fff;
 }
 
 /* line 1, ../../../sass/modules/_productHeader.scss */
@@ -3580,6 +3642,53 @@ table.border-white th:after, table.border-white td:after {
   background: #d83e14;
   color: #fff;
   border: 1px solid #d83e14;
+}
+
+/* line 1, ../../../sass/modules/_txtLists.scss */
+.txt-list {
+  font-size: 0.12rem;
+  padding: 0.15rem;
+}
+/* line 4, ../../../sass/modules/_txtLists.scss */
+.txt-list .txt-lists {
+  margin-left: 0.15rem;
+}
+/* line 6, ../../../sass/modules/_txtLists.scss */
+.txt-list .txt-lists li {
+  color: #d83e14;
+  margin-top: 0.1rem;
+}
+/* line 9, ../../../sass/modules/_txtLists.scss */
+.txt-list .txt-lists li .list-disc {
+  font-size: 0.1rem;
+  color: #999;
+}
+/* line 12, ../../../sass/modules/_txtLists.scss */
+.txt-list .txt-lists li .list-disc b {
+  color: #333;
+}
+/* line 18, ../../../sass/modules/_txtLists.scss */
+.txt-list .list-tips {
+  border: 1px solid #bbb;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  margin-top: 0.15rem;
+  padding-left: 0.15rem;
+  padding-right: 0.15rem;
+  padding-top: 0.1rem;
+  padding-bottom: 0.1rem;
+}
+/* line 26, ../../../sass/modules/_txtLists.scss */
+.txt-list .list-tips .tips-tit {
+  margin-bottom: 0.05rem;
+  font-size: 0.12rem;
+}
+/* line 30, ../../../sass/modules/_txtLists.scss */
+.txt-list .list-tips p {
+  font-size: 0.1rem;
+  color: #999;
+  line-height: 1.4;
 }
 
 /* line 2, ../../../sass/pages/_home.scss */
@@ -4287,32 +4396,33 @@ div.module-tips {
 .page.pd-details #phoneQuery .weui-btn-area {
   display: none;
 }
-/* line 23, ../../../sass/pages/phoneCard/_phoneCardDetails.scss */
-.page.pd-details #numberPanel {
-  display: block !important;
-}
-/* line 26, ../../../sass/pages/phoneCard/_phoneCardDetails.scss */
-.page.pd-details .overlay {
+/* line 22, ../../../sass/pages/phoneCard/_phoneCardDetails.scss */
+.page.pd-details #phoneQuery .overlay {
   position: relative;
+  z-index: 0 !important;
+}
+/* line 25, ../../../sass/pages/phoneCard/_phoneCardDetails.scss */
+.page.pd-details #phoneQuery .overlay .overlay-title {
+  display: none;
 }
 /* line 28, ../../../sass/pages/phoneCard/_phoneCardDetails.scss */
-.page.pd-details .overlay .overlay-title {
+.page.pd-details #phoneQuery .overlay .overlay-dismiss {
   display: none;
 }
 /* line 31, ../../../sass/pages/phoneCard/_phoneCardDetails.scss */
-.page.pd-details .overlay .overlay-dismiss {
-  display: none;
-}
-/* line 34, ../../../sass/pages/phoneCard/_phoneCardDetails.scss */
-.page.pd-details .overlay .content-scrollable {
+.page.pd-details #phoneQuery .overlay .content-scrollable {
   position: static !important;
   padding-top: 0;
 }
-/* line 39, ../../../sass/pages/phoneCard/_phoneCardDetails.scss */
+/* line 37, ../../../sass/pages/phoneCard/_phoneCardDetails.scss */
+.page.pd-details #numberPanel {
+  display: block !important;
+}
+/* line 40, ../../../sass/pages/phoneCard/_phoneCardDetails.scss */
 .page.pd-details .spc-title {
   margin-top: 0.1rem;
 }
-/* line 42, ../../../sass/pages/phoneCard/_phoneCardDetails.scss */
+/* line 43, ../../../sass/pages/phoneCard/_phoneCardDetails.scss */
 .page.pd-details .flow-fqa {
   background: #fff;
 }

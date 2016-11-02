@@ -19,22 +19,23 @@
     .weui-btn-area {
       display: none;
     }
+    .overlay {
+      position: relative;
+      z-index: 0 !important;
+      .overlay-title {
+        display: none;
+      }
+      .overlay-dismiss {
+        display: none;
+      }
+      .content-scrollable {
+        position: static !important;
+        padding-top: 0;
+      }
+    }
   }
   #numberPanel {
     display: block !important;
-  }
-  .overlay {
-    position: relative;
-    .overlay-title {
-      display: none;
-    }
-    .overlay-dismiss {
-      display: none;
-    }
-    .content-scrollable {
-      position: static !important;
-      padding-top: 0;
-    }
   }
   .spc-title {
     margin-top: 0.1rem;

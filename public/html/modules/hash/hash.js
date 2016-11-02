@@ -8,7 +8,6 @@ app.directive("a", ['$location', function ($location) {
             var _href = attrs.href;
             var _hash;
             var i = 0;
-            //console.log(element);
 
             if (_href) {
                 //console.log(_href);

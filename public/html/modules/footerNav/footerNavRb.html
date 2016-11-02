@@ -1,0 +1,35 @@
+<div class="footer-nav nav-list">
+    <div class="nav-item no-pd nav-order">
+        <a class="new-btn" ng-click="getSearch()" href="{{orderSearchUrl}}">
+            <div class="nav-icon">
+                <span class="icon-search"></span>
+            </div>
+            <p class="nav-label">订单</p>
+        </a>
+    </div>
+    <div class="nav-item no-pd nav-comment">
+        <a class="new-btn" href="javascript:;" ng-click="getContent();">
+            <div class="nav-icon">
+                <span class="icon-comment"></span>
+            </div>
+            <p class="nav-label">客服</p>
+        </a>
+    </div>
+    <div class="pure-g">
+        <div class="nav-price nav-item no-pd pure-u-1-2" ng-if="!cod">
+            <div class="new-btn">
+                <em>
+                    <sub>￥</sub>
+                </em>
+                <em ng-if="!priceType" ng-bind-html="mainPrice | number:2 | formatMoney:-3 | trustHtml"></em>
+                <em ng-if="priceType" ng-bind-html="mainPrice/12 | number:2 | formatMoney:-3 | trustHtml"></em>
+            </div>
+        </div>
+        <div class="nav-button nav-item pure-u-1-2" ng-if="cod">
+            <a id="footerCODButton" class="new-btn pure-btn" href="javascript:;" ng-click="submitForm($event,1);" ng-bind="codName">货到付款</a>
+        </div>
+        <div class="nav-button nav-item pure-u-1-2">
+            <a id="footerPayButton" class="new-btn red-btn" href="javascript:;" ng-click="submitForm($event,0);" ng-bind="payTypeName">立即支付</a>
+        </div>
+    </div>
+</div>
