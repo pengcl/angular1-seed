@@ -130,6 +130,11 @@ p.tips {
   margin-bottom: 0.1rem;
 }
 
+/* line 87, ../../sass/utils/_base.scss */
+.font-ms {
+  font-family: "Microsoft Yahei";
+}
+
 /* line 1, ../../sass/appView/_appView.scss */
 html {
   font-size: 100px;
@@ -183,7 +188,7 @@ html {
 body {
   background: white;
   font-weight: 300;
-  font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
+  font-family: Microsoft Yahei,Helvetica Neue,Helvetica,Arial,sans-serif;
 }
 
 /* line 47, ../../sass/appView/_appView.scss */

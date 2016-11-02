@@ -1,7 +1,8 @@
 <div class="page payment">
     <top-nav page-title="收货地址" page-back="back"></top-nav>
     <!--<form id="checkoutForm" name="checkoutForm" action="http://2b2fda71.ngrok.natapp.cn/wap/taokafanghaoNew/submitOrderMachine.html" method="post" novalidate>-->
-    <form id="checkoutForm" name="checkoutForm" readonly="" action="http://m.gd189fq.com/wap/taokafanghaoNew/submitOrderMachine.html" method="post" novalidate>
+    <form id="checkoutForm" name="checkoutForm" readonly="" action="http://192.168.1.203:8082/wap/taokafanghaoNew/submitOrderMachine.html" method="post" novalidate>
+    <!--<form id="checkoutForm" name="checkoutForm" readonly="" action="http://m.gd189fq.com/wap/taokafanghaoNew/submitOrderMachine.html" method="post" novalidate>-->
         <input type="hidden" value="1" name="monthNumber" id="monthNumber">
         <input type="hidden" value="{{category}}" name="category" id="category">
         <input type="hidden" value="{{orderState.machineId}}" ng-model="phone.productId" name="machineId" id="machineId">
@@ -14,7 +15,7 @@
         <div class="content-scrollable has-header has-footer">
             <!-- <sim-type title="流量卡类型" add-class="bottom" size="s"></sim-type> -->
             <receiver-address title="收货地址"></receiver-address>
-            <pay-type title="选择支付" sub-title="" submit="#checkoutForm"></pay-type>
+            <pay-type title="选择支付" sub-title="" submit="#checkoutForm" add-class="model-overlay"></pay-type>
         </div>
     </form>
 </div>

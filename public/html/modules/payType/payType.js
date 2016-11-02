@@ -8,7 +8,7 @@ app.directive("payType", ['$location', '$compile', '$q', function ($location, $c
             //模块标题
             scope.payTypeTitle = attrs.title;
             scope.payTypeSubTitle = attrs.subTitle;
-
+            scope.class=attrs.addClass;
             //设置本模块的显示隐藏
             scope.visibility = attrs.visibility;
             if (scope.visibility === "false") {
