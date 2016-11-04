@@ -1,0 +1,31 @@
+{
+  "activityproductId": 265,
+  "deductibleMoney": "800",
+  "mainImageUrl": "",
+  "packageId": 256,
+  "phoneBillPrice": 6388,
+  "phonePrice": 6388,
+  "productList": [
+    {
+      "mainImageUrl": "",
+      "productId": 256,
+      "productMemory": "32G",
+      "productName": "iPhone7 32G",
+      "salePrice": 0,
+      "seckillImage": "",
+      "specificationValues": "6:黑色;2:银色;1:金色"
+    },
+    {
+      "mainImageUrl": "",
+      "productId": 256,
+      "productMemory": "32G",
+      "productName": "iPhone7 32G",
+      "salePrice": 0,
+      "seckillImage": "",
+      "specificationValues": "6:黑色;2:银色;1:金色"
+    }
+  ],
+  "productName": "iPhone7 plus32G+iPhone7 plus32G",
+  "salePrice": 12776,
+  "seckillImage": ""
+}

@@ -1,0 +1,27 @@
+.weui-tab {
+  background: #fff;
+}
+
+.weui-tab__item {
+  display: none;
+}
+.weui-tab__item_on {
+  display: block !important;
+}
+
+.weui-navbar {
+  position: static;
+  background: none;
+  .weui-navbar__item {
+    background: #fbf9fe;
+    &.weui-bar__item_on {
+      background: #fff;
+    }
+  }
+}
+
+.weui-tab__panel {
+  height: auto;
+  overflow: hidden;
+  padding-top: 0 !important;
+}

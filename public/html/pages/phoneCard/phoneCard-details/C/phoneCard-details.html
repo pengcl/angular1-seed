@@ -1,106 +1,101 @@
 <div class="page pd-details">
-    <top-nav page-title="首页" page-back="menu" nav-visibility="hide"></top-nav>
+    <top-nav page-title="首页" page-back="menu"></top-nav>
     <form id="checkoutForm" name="checkoutForm" action="{{formAction}}" method="post" novalidate>
         <input type="hidden" value="1" name="mainMonthNumber" id="mainMonthNumber">
         <gh></gh>
         <activity></activity>
         <redirect-url></redirect-url>
-        <div class="content-scrollable">
-            <div class="banner-image img-box">
-                <img src="//r.gd189fq.com/public/images/phoneCard/banner.jpg" />
-            </div>
-            <div class="product-header" style="margin-top: 0.55rem">
-                <div class="price-area price-absolute">
-                    <ins>限时特价</ins>
-                    <sub class="bold">￥</sub><em class="bold">52</em><sub class="bold">.00</sub>~<em class="bold">120</em><sub class="bold">.00</sub>
-                    <del><sub>￥</sub>78.00~195.00</del>
-                    <div class="timer-area">
-                        <p class="timer-label">距活动结束还剩余</p>
-                        <timer></timer>
+        <div class="content-scrollable has-header has-footer">
+            <phone-package title="选择套餐" sub-title="流量全国通用,通话全国无漫游" visibility="false"></phone-package>
+
+            <div class="weui-tab">
+                <div class="weui-navbar">
+                    <div class="weui-navbar__item weui-bar__item_on">
+                        产品介绍
+                    </div>
+                    <div class="weui-navbar__item">
+                        选择靓号
+                    </div>
+                    <div class="weui-navbar__item">
+                        收件信息
                     </div>
                 </div>
-                <h1 class="product-title">[翼分期商城] 专注于信用卡分期的商城，此次推广福利，推出5折限时套餐，为您提供全网划算的4G套餐</h1>
-                <h2 class="product-sub-title">月享5折 全国通用 号码归属地广东</h2>
+                <div class="weui-tab__panel">
+                    <div class="weui-tab__item weui-tab__item_on">
+                        <div class="weui-cells__title">独家政策，优惠周期36个月，全国通用，接听免费，无漫游 - 号码归属广州 顺丰承邮</div>
+                        <div style="margin-left: 0.15rem;margin-right: 0.15rem">
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th>所选套餐</th>
+                                    <th>运营商价</th>
+                                    <th>套餐详情</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>
+                                        <div class="package-price" style="white-space: nowrap">
+                                            102
+                                            元/月
+                                        </div>
+                                    </td>
+                                    <td class="price" style="white-space: nowrap">
+                                        204元/月
+                                    </td>
+                                    <td style="font-size: 100%;">
+                                        3.5G国内流量，
+                                        900分钟国内通话，50条短信
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="txt-list">
+                            <ol class="txt-lists">
+                                <li>
+                                    <p class="list-disc"><b>超出收费：</b>短信0.1元/条，国内通话0.15元/分，国内流量不足100MB按0.0003元/KB收费，100MB—500MB收费30元。
+                                    </p>
+                                </li>
+                                <li>
+                                    <p class="list-disc"><b>缴费时间：</b>每月8号前网上充值优惠月租 102元即可，在您已充值的前提下，剩下的
+                                        102元我们会在9-13号为您办理减免。</p>
+                                </li>
+                                <li>
+                                    <p class="list-disc"><b>优惠周期：</b>优惠期3年，套餐优惠全国通用。</p>
+                                </li>
+                                <li>
+                                    <p class="list-disc"><b>开通时间：</b>签收后2个工作日内自动开通激活。</p>
+                                </li>
+                                <li>
+                                    <p class="list-disc"><b>办理原则：</b>一个身份证只能办理一次，如已有注销、开通记录不可再次办理。</p>
+                                </li>
+                                <li>
+                                    <p class="list-disc"><b>3.5G流量可以：</b>聊天2492小时，刷图34300张，下载软件249个，浏览网页6533个，下载歌曲1166首。
+                                    </p>
+                                </li>
+                            </ol>
+                        </div>
+
+                    </div>
+                    <div class="weui-tab__item">
+                        <phone-query></phone-query>
+                        <sim-type title="流量卡类型" add-class="bottom" size="l"></sim-type>
+                    </div>
+                    <div class="weui-tab__item">
+                        <receiver-address title="收货地址"></receiver-address>
+                        <pay-type title="选择支付" sub-title=""></pay-type>
+                    </div>
+                </div>
             </div>
-            <div class="product-header-ft">运费：活动期间全国包邮</div>
 
-            <phone-package title="选择套餐" sub-title="流量全国通用,通话全国无漫游"></phone-package>
-
-            <spc-title main-title="套餐说明" sub-title="" arrow='true'></spc-title>
-
-            <div class="flow-fqa">
-                <ol class="fqa-lists">
-                    <li>
-                        <h3 class="list-tit">套餐情况</h3>
-                        <p class="list-disc">102元/月，3.5G国内流量，900分钟国内通话，50条短信</p>
-                    </li>
-                    <li>
-                        <h3 class="list-tit">套餐超出收费</h3>
-                        <p class="list-disc">国内通话：0.15元/分钟，短信：0.1元条，超出流量不足100MB按0.0003元/KB收取，100-500MB， 收费30元；超过500MB时，500MB/30元，以此类推；消费600元/15G封顶</p>
-                    </li>
-                    <li>
-                        <h3 class="list-tit">优惠资费</h3>
-                        <p class="list-disc">优惠期内，指定套餐可享5折优惠，优惠期长达36个月，为您节省2448元</p>
-                    </li>
-                    <li>
-                        <h3 class="list-tit">套餐性质</h3>
-                        <p class="list-disc">全国无漫游，接听免费，靓号任选，号码归属地广东</p>
-                    </li>
-                    <li>
-                        <h3 class="list-tit">适用范围</h3>
-                        <p class="list-disc">支持电信/三网通4G手机</p>
-                    </li>
-                    <li>
-                        <h3 class="list-tit">话费情况</h3>
-                        <p class="list-disc">电话卡激活后含一个月话费。次月起，每月8号前充值月租使用</p>
-                    </li>
-                    <li>
-                        <h3 class="list-tit">收费方式</h3>
-                        <p class="list-disc">开卡当月按剩余天数扣费</p>
-                        <p class="list-disc">(例：1月15号开通使用，只计算半月费用、半月流量，扣半月费用)</p>
-                    </li>
-                </ol>
-            </div>
-
-            <phone-query></phone-query>
-            <pay-type title="选择支付" sub-title="" visibility="false"></pay-type>
-            <sim-type title="流量卡类型" add-class="bottom" size="s"></sim-type>
-            <receiver-address title="收货地址"></receiver-address>
-
-            <spc-title main-title="购买流程" sub-title=""></spc-title>
-            <div class="img-box">
-                <img alt="" src="//r.gd189fq.com/public/images/flow/1/3.gif">
-            </div>
-
-            <spc-title main-title="购买需知" sub-title=""></spc-title>
-            <div class="img-box">
-                <img alt="" src="//r.gd189fq.com/public/images/flow/1/4.gif">
-            </div>
-
-            <div class="txt-list">
-                <ol class="txt-lists">
-                    <li>
-                        <h3 class="list-tit">电话卡到货后需上传证照为您激活，上传成功两个工作日为您开通，未激活状态下无法使用 </h3>
-                        <p class="list-disc">(例：1月15号开通使用，只计算半月费用，半月流量)</p>
-                    </li>
-                    <li>
-                        <h3 class="list-tit">上传/充值入口：关注微信公众号“翼分期商城”点击“流量卡”按提示操作即可 </h3>
-                    </li>
-                </ol>
-            </div>
-
-            <spc-title main-title="常见问题" sub-title="" arrow='true'></spc-title>
-
-            <txt-list api-url="/data/txtList/pdFqa.json"></txt-list>
-
-
-
-            <spc-title main-title="联系我们" sub-title=""></spc-title>
-            <div class="img-box">
-                <img alt="" src="//r.gd189fq.com/public/images/flow/1/6.gif">
-            </div>
 
         </div>
-        <footer-nav-rb check-phone="true" check-address="true" cod="true" order-search-url="http://m.gd189fq.com/wap/customer/searchIndexA.html?s=wap" submit="#checkoutForm"></footer-nav-rb>
+        <div class="btns-group">
+            <a class="btn-primary" ng-click="getSearch()" href="javascript:;">
+                下一步
+            </a>
+
+        </div>
     </form>
 </div>

@@ -15,6 +15,63 @@ function each(objArray, funName) {
 }
 
 //获取订单信息
+
+router.get('/getPhonesList/:activeTag', function (req, res) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Methods", "GET, POST");
+    res.header("Cache-Control: no-cache, must-reva lidate");
+    //以上两行设置跨域请求
+    request("http://127.0.0.1:8091/product/getProList.html?activeTag=" + req.params.activeTag + "&s=wap", function (error, response, body) {
+        if (!error && response.statusCode == 200) {
+            //console.log(eval(body)[0]);
+            /*var jsonData = new Array();
+             var data = new Array();
+             each(body, function (o, i) {
+             data = {
+             "orderNo": o.orderNo,
+             "receiverName": o.recieverName,
+             "recieverMobile": o.recieverMobile,
+             "receiverCity": o.receiverCity,
+             "receiverRoom": o.receiverRoom,
+             "productName": o.buyerMemo,
+             "price": o.totalAmount,
+             'color': o.color
+             };
+             jsonData.push(data);
+             });*/
+            res.send(body);
+        }
+    });
+});
+
+router.get('/getPhonesDetails/:phoneId', function (req, res) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Methods", "GET, POST");
+    res.header("Cache-Control: no-cache, must-reva lidate");
+    //以上两行设置跨域请求
+    request("http://127.0.0.1:8091/product/getProDetial.html?productId=" + req.params.phoneId + "&s=wap", function (error, response, body) {
+        if (!error && response.statusCode == 200) {
+            //console.log(eval(body)[0]);
+            /*var jsonData = new Array();
+             var data = new Array();
+             each(body, function (o, i) {
+             data = {
+             "orderNo": o.orderNo,
+             "receiverName": o.recieverName,
+             "recieverMobile": o.recieverMobile,
+             "receiverCity": o.receiverCity,
+             "receiverRoom": o.receiverRoom,
+             "productName": o.buyerMemo,
+             "price": o.totalAmount,
+             'color': o.color
+             };
+             jsonData.push(data);
+             });*/
+            res.send(body);
+        }
+    });
+});
+
 router.get('/getSalesOrder/:orderNo', function (req, res) {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Methods", "GET, POST");

@@ -9,8 +9,11 @@
     <link rel="stylesheet" href="spc.min.css">
     <link href="http://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <style>
-        .content-scrollable{background: #7733d6;}
-        .content-title{
+        .content-scrollable {
+            background: #7733d6;
+        }
+
+        .content-title {
             height: 48px;
             line-height: 48px;
             font-size: 16px;
@@ -18,44 +21,50 @@
 
             text-align: center;
             vertical-align: middle;
-            padding-top:5px;
-            padding-bottom:20px;
+            padding-top: 5px;
+            padding-bottom: 20px;
         }
-        .botton-group{
-            display:-webkit-flex;
-            display:flex;
-            position:absolute;
-            bottom:0;
+
+        .botton-group {
+            display: -webkit-flex;
+            display: flex;
+            position: absolute;
+            bottom: 0;
             left: 0;
-            width:100%;
-            background-color:#000;
-            padding:.1rem;
+            width: 100%;
+            background-color: #000;
+            padding: .1rem;
         }
-        .botton-group a{
-            -webkit-flex:1;
-            flex:1;
+
+        .botton-group a {
+            -webkit-flex: 1;
+            flex: 1;
             text-decoration: none;
-            color:#fff;
-            text-align:center;
-            display:inline-block;
-            font-size:.12rem;
-            border-right:1px solid #fff;
+            color: #fff;
+            text-align: center;
+            display: inline-block;
+            font-size: .12rem;
+            border-right: 1px solid #fff;
         }
-        .botton-group a i{
+
+        .botton-group a i {
             color: #eee;
             margin-right: 10px;
         }
-        .box{
+
+        .box {
             padding-bottom: 25px;
             padding-top: 25px;
             padding-left: 0px;
             padding-right: 0px;
         }
+
         .fqa .tip-info {
             padding-left: 0;
             padding-right: 0;
             padding-top: 0;
         }
+
         .fqa .tip-info h2.title {
             display: block;
             text-align: center;
@@ -68,23 +77,27 @@
             margin: 0;
             padding: 0;
         }
+
         .fqa .tip-info .content {
             background: none;
             margin-top: 25px;
             color: #fff;
             padding-bottom: 60px;
         }
+
         .tip-info .content ul {
             list-style: none;
             padding: 0;
             margin: 0;
         }
-         .tip-info .content ul li {
+
+        .tip-info .content ul li {
             list-style: none;
             margin: 0;
             padding: 0;
 
         }
+
         .fqa .tip-info .content ul li .list-header {
             color: #fff;
             padding-left: 32px;
@@ -94,6 +107,7 @@
             padding-right: 5%;
             position: relative
         }
+
         .fqa .tip-info .content ul li .list-header span {
             width: 24px;
             height: 24px;
@@ -107,6 +121,7 @@
             background-image: url(../images/active/new/list-head-bg.png);
             left: 0px;
         }
+
         .fqa .tip-info .content ul li .list-content {
             padding-left: 32px;
             font-size: 14px;
@@ -115,98 +130,121 @@
             padding-right: 10px;
             position: relative;
         }
+
         .fqa .tip-info .content ul li .list-content ins {
-            position:absolute;
-            left:0;
+            position: absolute;
+            left: 0;
             text-decoration: none;
         }
+
         .fqa .tip-info .content ul li .list-content .ctxt {
             opacity: 1;
             font-size: 12px;
             min-height: auto;
         }
-        .fqa .tip-info .content ul li .list-content .ctxt li{
+
+        .fqa .tip-info .content ul li .list-content .ctxt li {
             position: relative;
-            padding-left:80px;
+            padding-left: 80px;
         }
+
         .p-index-wrap .tip-info .pros-line {
             margin-left: 30px;
             margin-right: 30px;
             margin-top: 30px;
             margin-bottom: 30px;
         }
-        .packages{
-            font-size:12px;
+
+        .packages {
+            font-size: 12px;
         }
-        .packages-list{
-            padding:0;
-            margin:0;
+
+        .packages-list {
+            padding: 0;
+            margin: 0;
         }
-        .packages .packages-list li{
-            margin:0 10px 10px 10px;
+
+        .packages .packages-list li {
+            margin: 0 10px 10px 10px;
+            list-style: none;
         }
-        .packages  .packages-item .packages-main{
+
+        .packages .packages-list li a {
+            display: block;
+        }
+
+        .packages .packages-item .packages-main {
             border-radius: 3px;
-            position:relative;
-            padding-left:30%;
+            position: relative;
+            padding-left: 30%;
             box-sizing: border-box;
 
         }
-        .packages  .packages-item .packages-head{
-            position:absolute;
-            left:0;
-            top:0;
-            padding:.1rem;
+
+        .packages .packages-item .packages-head {
+            position: absolute;
+            left: 0;
+            top: 0;
+            padding: .1rem;
             background: #5511aa;
-            width:30%;
+            width: 30%;
             box-sizing: border-box;
 
         }
-        .packages  .packages-item .packages-detail{
-            position:relative;
-            padding:.1rem;
-            background:#fff;
+
+        .packages .packages-item .packages-detail {
+            position: relative;
+            padding: .1rem;
+            background: #fff;
             box-sizing: border-box;
-            line-height:1.7;
+            line-height: 1.7;
         }
-        .packages  .packages-item .item-box img{
-            width:70px;
-            display:block;
-        }
-    .price span{
-        display:block;
-        color: #f8df64;
 
-    }
-        .price span b{
-            font-weight:normal;
-            font-size:.16rem;
+        .packages .packages-item .item-box img {
+            width: 70px;
+            display: block;
         }
-    .price .price-old{
-        color:#fff;
-    }
 
-        .packages-detail em{
+        .price span {
+            display: block;
+            color: #f8df64;
+
+        }
+
+        .price span b {
+            font-weight: normal;
+            font-size: .16rem;
+        }
+
+        .price .price-old {
+            color: #fff;
+        }
+
+        .packages-detail em {
             font-style: normal;
             color: #ff4a54;
         }
-        .packages-detail em.net{
-            font-size:.18rem;
+
+        .packages-detail em.net {
+            font-size: .18rem;
         }
-        .img-log{
-            position:absolute;
-            top:0;
-            left:0;
-            width:100%;
-            background-color:#fff;
+
+        .img-log {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #fff;
         }
-        .img-log img{
+
+        .img-log img {
             height: 24px;
-            padding-left:15px;
+            padding-left: 15px;
             margin-top: 18px;
             margin-bottom: 18px;
-            display:block;
+            display: block;
         }
+
         .pure-button {
             position: absolute;
             bottom: .1rem;
@@ -228,17 +266,29 @@
             touch-action: manipulation;
             cursor: pointer;
         }
-         .item-flag {
+
+        .item-flag {
             position: absolute;
             width: 72px;
             right: -3px;
             top: -3px;
         }
+
         .item-flag img {
             width: 100%;
         }
 
     </style>
+    <script>
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "//hm.baidu.com/hm.js?ee0c67568d5c202840357783c24b820f";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+
+    </script>
 </head>
 <body>
 <div class="page p-index default">
@@ -250,86 +300,94 @@
             <img style="width:70%" src="img/indexA/package-title.png" alt="">
         </div>
         <div class="packages">
-           <ul class="packages-list">
-               <li class="packages-item">
-                   <div class="packages-main">
-                   <div class="packages-head">
-                       <div class="item-box">
-                           <img src="img/indexA/packageCartoon-3.png" alt="">
-                       </div>
-                       <div class="price">
-                            <span class="price-now">￥<b>102</b>/月</span>
-                           <span class="price-old">运营商价:<del>￥204</del></span>
-                       </div>
-                   </div>
-                   <div class="packages-detail">
-                       <em class="net">3.5G</em>全国流量<br>
-                       <em>900分钟</em>全国通话<br>
-                       50条短信
-                   </div>
-                       <span class="btn pure-button">立即选号</span>
-                       <div class="item-flag"><img src="img/indexA/tuijian.png"></div>
-                   </div>
-               </li>
-               <li class="packages-item">
-                   <div class="packages-main">
-                       <div class="packages-head">
-                           <div class="item-box">
-                               <img src="img/indexA/packageCartoon-1.png" alt="">
-                           </div>
-                           <div class="price">
-                               <span class="price-now">￥<b>156</b>/月</span>
-                               <span class="price-old">运营商价:<del>￥304</del></span>
-                           </div>
-                       </div>
-                       <div class="packages-detail">
-                           <em class="net">4.5G</em>全国流量<br>
-                           <em>1800分钟</em>全国通话<br>
-                           50条短信
-                       </div>
-                       <span class="btn pure-button">立即选号</span>
-                   </div>
-               </li>
-               <li class="packages-item">
-                   <div class="packages-main">
-                       <div class="packages-head">
-                           <div class="item-box">
-                               <img src="img/indexA/packageCartoon-2.png" alt="">
-                           </div>
-                           <div class="price">
-                               <span class="price-now">￥<b>155</b>/月</span>
-                               <span class="price-old">运营商价:<del>￥259</del></span>
-                           </div>
-                       </div>
-                       <div class="packages-detail">
-                           <em class="net">4.5G</em>全国流量<br>
-                           <em>900分钟</em>全国通话<br>
-                           50条短信
-                       </div>
-                       <span class="btn pure-button">立即选号</span>
-                   </div>
-               </li>
-               <li class="packages-item">
-                   <div class="packages-main">
-                       <div class="packages-head">
-                           <div class="item-box">
-                               <img src="img/indexA/packageCartoon-4.png" alt="">
-                           </div>
-                           <div class="price">
-                               <span class="price-now">￥<b>101</b>/月</span>
-                               <span class="price-old">运营商价:<del>￥174</del></span>
-                           </div>
-                       </div>
-                       <div class="packages-detail">
-                           <em class="net">3.5G</em>全国流量<br>
-                           <em>900分钟</em>全国通话<br>
-                           50条短信
-                       </div>
-                       <span class="btn pure-button">立即选号</span>
-                   </div>
-               </li>
+            <ul class="packages-list">
+                <li class="packages-item">
+                    <a class="rewrite-url" href="http://m.gd189fq.com/wap/taokafanghaoNew/orderNumber.html?type=3&productId=252&category=yfqwap_9.9IndexA&pageType=indexA360">
+                        <div class="packages-main">
+                            <div class="packages-head">
+                                <div class="item-box">
+                                    <img src="img/indexA/packageCartoon-3.png" alt="">
+                                </div>
+                                <div class="price">
+                                    <span class="price-now">￥<b>102</b>/月</span>
+                                    <span class="price-old">运营商价:<del>￥204</del></span>
+                                </div>
+                            </div>
+                            <div class="packages-detail">
+                                <em class="net">3.5G</em>全国流量<br>
+                                <em>900分钟</em>全国通话<br>
+                                50条短信
+                            </div>
+                            <span class="btn pure-button">立即选号</span>
+                            <div class="item-flag"><img src="img/indexA/tuijian.png"></div>
+                        </div>
+                    </a>
+                </li>
+                <li class="packages-item">
+                    <a class="rewrite-url" href="http://m.gd189fq.com/wap/taokafanghaoNew/orderNumber.html?type=1&productId=254&category=yfqwap_9.9IndexA&pageType=indexA360">
+                        <div class="packages-main">
+                            <div class="packages-head">
+                                <div class="item-box">
+                                    <img src="img/indexA/packageCartoon-1.png" alt="">
+                                </div>
+                                <div class="price">
+                                    <span class="price-now">￥<b>156</b>/月</span>
+                                    <span class="price-old">运营商价:<del>￥304</del></span>
+                                </div>
+                            </div>
+                            <div class="packages-detail">
+                                <em class="net">4.5G</em>全国流量<br>
+                                <em>1800分钟</em>全国通话<br>
+                                50条短信
+                            </div>
+                            <span class="btn pure-button">立即选号</span>
+                        </div>
+                    </a>
+                </li>
+                <li class="packages-item">
+                    <a class="rewrite-url" href="http://m.gd189fq.com/wap/taokafanghaoNew/orderNumber.html?type=2&productId=253&category=yfqwap_9.9IndexA&pageType=indexA360">
+                        <div class="packages-main">
+                            <div class="packages-head">
+                                <div class="item-box">
+                                    <img src="img/indexA/packageCartoon-2.png" alt="">
+                                </div>
+                                <div class="price">
+                                    <span class="price-now">￥<b>155</b>/月</span>
+                                    <span class="price-old">运营商价:<del>￥259</del></span>
+                                </div>
+                            </div>
+                            <div class="packages-detail">
+                                <em class="net">4.5G</em>全国流量<br>
+                                <em>900分钟</em>全国通话<br>
+                                50条短信
+                            </div>
+                            <span class="btn pure-button">立即选号</span>
+                        </div>
+                    </a>
+                </li>
+                <li class="packages-item">
+                    <a class="rewrite-url" href="http://m.gd189fq.com/wap/taokafanghaoNew/orderNumber.html?type=4&productId=251&category=yfqwap_9.9IndexA&pageType=indexA360">
+                        <div class="packages-main">
+                            <div class="packages-head">
+                                <div class="item-box">
+                                    <img src="img/indexA/packageCartoon-4.png" alt="">
+                                </div>
+                                <div class="price">
+                                    <span class="price-now">￥<b>101</b>/月</span>
+                                    <span class="price-old">运营商价:<del>￥174</del></span>
+                                </div>
+                            </div>
+                            <div class="packages-detail">
+                                <em class="net">3.5G</em>全国流量<br>
+                                <em>900分钟</em>全国通话<br>
+                                50条短信
+                            </div>
+                            <span class="btn pure-button">立即选号</span>
+                        </div>
+                    </a>
+                </li>
 
-           </ul>
+            </ul>
         </div>
         <div class="img-box">
             <img src="img/indexA/whatWeDo.gif">
@@ -342,9 +400,10 @@
                 <h2 class="title" style="padding-bottom:10px;">常见问题与解答</h2>
                 <div class="content">
                     <ul style="padding:0 20px">
-                        <li><div class="list-header">
-                            <span>01</span>套餐优惠活动什么时候结束？
-                        </div>
+                        <li>
+                            <div class="list-header">
+                                <span>01</span>套餐优惠活动什么时候结束？
+                            </div>
                             <div class="list-content">
 
                                 <div class="ctxt">
@@ -352,31 +411,37 @@
                                     11月30号</em>，凡购买用户，即可享受36个月套餐全5折优惠。
                                 </div>
                             </div>
-                            <div class="pros-line share-pros-line"></div></li>
-                        <li><div class="list-header">
-                            <span>02</span>什么手机可以用这个套餐？
-                        </div>
+                            <div class="pros-line share-pros-line"></div>
+                        </li>
+                        <li>
+                            <div class="list-header">
+                                <span>02</span>什么手机可以用这个套餐？
+                            </div>
                             <div class="list-content">
 
                                 <div class="ctxt">
                                     本产品所用芯片为电信天翼4G网络UIM卡，仅支持<em>电信4G或三网通4G手机</em>使用。
                                 </div>
                             </div>
-                            <div class="pros-line share-pros-line"></div></li>
-                        <li><div class="list-header">
-                            <span>03</span>可以同时购买多个优惠套餐吗？
-                        </div>
+                            <div class="pros-line share-pros-line"></div>
+                        </li>
+                        <li>
+                            <div class="list-header">
+                                <span>03</span>可以同时购买多个优惠套餐吗？
+                            </div>
                             <div class="list-content">
 
                                 <div class="ctxt">
                                     先感谢你对我们的支持，但本产品需要实名认证，<em>一个身份证只能申请办理一次</em>，证件如已注销、已开通优惠套餐记录不可再次办理。
                                 </div>
                             </div>
-                            <div class="pros-line share-pros-line"></div></li>
+                            <div class="pros-line share-pros-line"></div>
+                        </li>
 
-                        <li><div class="list-header">
-                            <span>04</span>套餐什么时候开通？
-                        </div>
+                        <li>
+                            <div class="list-header">
+                                <span>04</span>套餐什么时候开通？
+                            </div>
                             <div class="list-content">
 
                                 <div class="ctxt">
@@ -384,28 +449,41 @@
                                 </div>
                             </div>
                             <!-- <div class="tips-info-content" style="margin-top:0;">注：套餐需激活后才能正常使用，请确保本人签收，默认送达次日开通（公休日除外），介意者慎拍。</div> -->
-                            <div class="pros-line share-pros-line"></div></li>
-                        <li><div class="list-header">
-                            <span>05</span>每月实际需缴月租？
-                        </div>
+                            <div class="pros-line share-pros-line"></div>
+                        </li>
+                        <li>
+                            <div class="list-header">
+                                <span>05</span>每月实际需缴月租？
+                            </div>
                             <div class="list-content">
 
                                 <div class="ctxt">
                                     <em>套餐开通次月8号前</em>仅需自行网上充值所选 优惠套餐月租即可，在您已充值的前提下，原套餐月租差价由我们在<em>9-13号</em>为您办理减免。
                                 </div>
                             </div>
-                            <div class="pros-line share-pros-line"></div></li>
-                        <li><div class="list-header">
-                            <span>06</span>套餐详细说明
-                        </div>
+                            <div class="pros-line share-pros-line"></div>
+                        </li>
+                        <li>
+                            <div class="list-header">
+                                <span>06</span>套餐详细说明
+                            </div>
                             <div class="list-content">
 
                                 <div class="ctxt">
                                     <div class="aswer-tips">
                                         <ul>
-                                            <li><ins>1、使用范围：</ins>全国通用优惠，支持全国（除港澳台）范围内接听免费、拨出无漫游费，免费赠送来电显示和189邮箱。</li>
-                                            <li><ins>2、优惠期限：</ins>优惠期3年，套餐优惠全国通用。</li>
-                                            <li><ins>3、超出收费：</ins>超出套餐部分按电信标准资费收取：短信0.1/条，国内通话0.15/分，国内流量不足100MB按0.0003元/KB收费，100MB—500MB收费30元。</li>
+                                            <li>
+                                                <ins>1、使用范围：</ins>
+                                                全国通用优惠，支持全国（除港澳台）范围内接听免费、拨出无漫游费，免费赠送来电显示和189邮箱。
+                                            </li>
+                                            <li>
+                                                <ins>2、优惠期限：</ins>
+                                                优惠期3年，套餐优惠全国通用。
+                                            </li>
+                                            <li>
+                                                <ins>3、超出收费：</ins>
+                                                超出套餐部分按电信标准资费收取：短信0.1/条，国内通话0.15/分，国内流量不足100MB按0.0003元/KB收费，100MB—500MB收费30元。
+                                            </li>
                                         </ul>
                                     </div>
                                     <table class="table table-bordered" style="display:none">
@@ -441,9 +519,18 @@
                                             <td colspan="3">
                                                 <div class="aswer-tips">
                                                     <ul>
-                                                        <li><ins>1、使用范围：</ins>全国通用优惠，支持全国（除港澳台）范围内接听免费、拨出无漫游费，免费赠送来电显示和189邮箱。</li>
-                                                        <li><ins>2、优惠期限：</ins>优惠期3年，套餐优惠全国通用。</li>
-                                                        <li><ins>3、超出收费：</ins>超出套餐部分按电信标准资费收取：短信0.1/条，国内通话0.15/分，国内流量不足100MB按0.0003元/KB收费，100MB—500MB收费30元。</li>
+                                                        <li>
+                                                            <ins>1、使用范围：</ins>
+                                                            全国通用优惠，支持全国（除港澳台）范围内接听免费、拨出无漫游费，免费赠送来电显示和189邮箱。
+                                                        </li>
+                                                        <li>
+                                                            <ins>2、优惠期限：</ins>
+                                                            优惠期3年，套餐优惠全国通用。
+                                                        </li>
+                                                        <li>
+                                                            <ins>3、超出收费：</ins>
+                                                            超出套餐部分按电信标准资费收取：短信0.1/条，国内通话0.15/分，国内流量不足100MB按0.0003元/KB收费，100MB—500MB收费30元。
+                                                        </li>
                                                     </ul>
                                                 </div>
                                             </td>
@@ -456,12 +543,13 @@
                         </li>
                     </ul>
                 </div>
-            </div></div>
+            </div>
+        </div>
     </div>
     <div class="img-log">
         <img src="img/indexA/cf-header-logo.png" alt="">
     </div>
-    <div class="botton-group" >
+    <div class="botton-group">
         <a href="javascript:;">
             <i class="fa fa-search-plus"></i>
             <span style="display:inline-block">
@@ -476,6 +564,29 @@
         </a>
     </div>
 </div>
-<script src="spc.js" type="text/javascript"></script>
+<script src="//apps.bdimg.com/libs/jquery/1.11.3/jquery.min.js" type="text/javascript"></script>
+<script>
+    function getUrlParam(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
+        var r = window.location.search.substr(1).match(reg); //匹配目标参数
+        if (r != null)
+            return unescape(r[2]);
+        return null; //返回参数值
+    }
+
+    var systemName = "yfqapp";
+
+    (function () {//1.变态功能，如非必要，不推荐使用;2.对所有拥有rewrite-url 类的a标签重写href
+        var params, rewriteUrl, $a, i, _href;
+        params = window.location.search;
+        $a = $("a.rewrite-url");//获取所有拥有rewrite-url 类的a标签
+        for (i = 0; i < $a.length; i++) {
+            _href = $a.eq(i).attr("href");
+            rewriteUrl = _href + params.replace(/\?/,"&");
+            $a.eq(i).attr("href", rewriteUrl);//重写href
+            //console.log(rewriteUrl);
+        }
+    })();
+</script>
 </body>
 </html>
