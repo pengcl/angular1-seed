@@ -5,8 +5,10 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
     // 设定路由
     $stateProvider
         .state('product', { //app首页
-            url: "/pd/product",
-            templateUrl: "pages/phoneCard/phoneCard-details/default/phoneCard-details.html",
+            url: "/pd/:pageType/:productId",
+            templateUrl: function ($stateParams){
+                return 'pages/phoneCard/phoneCard-details/' + $stateParams.pageType + '/phoneCard-details.html';
+            },
             controller: "pdProController"
         });
 }]).controller('pdProController', ['$scope', '$rootScope', '$location', '$http', '$stateParams', function ($scope, $rootScope, $location, $http, $stateParams) {
@@ -14,6 +16,8 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
     //$scope.$root.title = $scope.pageTitle;
 
     $scope.pageType = $stateParams.pageType;
+
+    console.log($stateParams.pageType);
     $scope.appType = systemName + "_" + $scope.pageType + "phoneCard";
     $scope.category = $scope.appType;
 
