@@ -319,3 +319,11 @@ function checkMobileCode(code) {
 
     return flag;
 }
+
+$(function () {
+    $('.weui-navbar__item').on('click', function () {
+        $(this).addClass('weui-bar__item_on').siblings('.weui-bar__item_on').removeClass('weui-bar__item_on');
+        $(this).parent().next().find(".weui-tab__item").removeClass("weui-tab__item_on");
+        $(this).parent().next().find(".weui-tab__item").eq($(this).index()).addClass("weui-tab__item_on");
+    });
+});
