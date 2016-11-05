@@ -56,7 +56,9 @@
         text-transform: uppercase;
       }
       .how-to-pay{
-        margin:.2rem .1rem .1rem .3rem;
+        padding:.2rem .1rem .1rem .3rem;
+        background-image:url(../../../images/liuchengbg.gif);
+        background-size:100% 100%;
           ul{
             list-style:none;
             .title,.details{
