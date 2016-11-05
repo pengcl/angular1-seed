@@ -3380,8 +3380,9 @@ table.border-white th:after, table.border-white td:after {
 /* line 113, ../../../sass/modules/_overlay.scss */
 .overlay.model-overlay .notice p {
   color: #666;
+  font-size: 0.12rem;
 }
-/* line 116, ../../../sass/modules/_overlay.scss */
+/* line 117, ../../../sass/modules/_overlay.scss */
 .overlay.model-overlay .notice ins {
   position: absolute;
   right: 0;
@@ -3393,7 +3394,7 @@ table.border-white th:after, table.border-white td:after {
   width: 0.7rem;
   height: 1.2rem;
 }
-/* line 130, ../../../sass/modules/_overlay.scss */
+/* line 131, ../../../sass/modules/_overlay.scss */
 .overlay .overlay-back,
 .overlay .overlay-dismiss {
   font-size: 0;
@@ -3408,7 +3409,7 @@ table.border-white th:after, table.border-white td:after {
   width: 0.48rem;
   z-index: 1;
 }
-/* line 143, ../../../sass/modules/_overlay.scss */
+/* line 144, ../../../sass/modules/_overlay.scss */
 .overlay .overlay-back [class^="icon-"],
 .overlay .overlay-back [class*=" icon-"],
 .overlay .overlay-dismiss [class^="icon-"],
@@ -3417,15 +3418,15 @@ table.border-white th:after, table.border-white td:after {
   font-size: 0.16rem;
   line-height: 0.48rem;
 }
-/* line 150, ../../../sass/modules/_overlay.scss */
+/* line 151, ../../../sass/modules/_overlay.scss */
 .overlay .overlay-back {
   left: 0;
 }
-/* line 153, ../../../sass/modules/_overlay.scss */
+/* line 154, ../../../sass/modules/_overlay.scss */
 .overlay .overlay-dismiss {
   right: 0;
 }
-/* line 156, ../../../sass/modules/_overlay.scss */
+/* line 157, ../../../sass/modules/_overlay.scss */
 .overlay .wrapper-heading {
   bottom: auto;
   height: auto;
@@ -3441,7 +3442,7 @@ table.border-white th:after, table.border-white td:after {
   transform: translate3d(0px, -50%, 0px);
   width: 100%;
 }
-/* line 168, ../../../sass/modules/_overlay.scss */
+/* line 169, ../../../sass/modules/_overlay.scss */
 .overlay .title-overlay {
   color: #333333;
   font-family: "lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -3450,20 +3451,20 @@ table.border-white th:after, table.border-white td:after {
   line-height: 1;
   margin-bottom: 0.05rem;
 }
-/* line 176, ../../../sass/modules/_overlay.scss */
+/* line 177, ../../../sass/modules/_overlay.scss */
 .overlay .subtitle-overlay {
   color: #555555;
   font-size: 18px;
   line-height: 0.15;
 }
-/* line 181, ../../../sass/modules/_overlay.scss */
+/* line 182, ../../../sass/modules/_overlay.scss */
 .overlay.auth {
   -moz-transform: translate3d(-100%, 0px, 0px);
   -ms-transform: translate3d(-100%, 0px, 0px);
   -webkit-transform: translate3d(-100%, 0px, 0px);
   transform: translate3d(-100%, 0px, 0px);
 }
-/* line 185, ../../../sass/modules/_overlay.scss */
+/* line 186, ../../../sass/modules/_overlay.scss */
 .overlay .overlay-hook.auth-open {
   -moz-transform: translate3d(0px, 0px, 0px);
   -ms-transform: translate3d(0px, 0px, 0px);
@@ -3471,7 +3472,7 @@ table.border-white th:after, table.border-white td:after {
   transform: translate3d(0px, 0px, 0px);
 }
 
-/* line 191, ../../../sass/modules/_overlay.scss */
+/* line 192, ../../../sass/modules/_overlay.scss */
 .content-overlay {
   position: absolute;
   top: 0;
@@ -3483,7 +3484,7 @@ table.border-white th:after, table.border-white td:after {
   cursor: pointer;
 }
 
-/* line 203, ../../../sass/modules/_overlay.scss */
+/* line 204, ../../../sass/modules/_overlay.scss */
 .menu-open .content-overlay {
   -moz-transform: translate3d(45%, 0px, 0px);
   -ms-transform: translate3d(45%, 0px, 0px);
@@ -3492,12 +3493,12 @@ table.border-white th:after, table.border-white td:after {
   z-index: 1;
 }
 
-/* line 210, ../../../sass/modules/_overlay.scss */
+/* line 211, ../../../sass/modules/_overlay.scss */
 .overlay-open .content-overlay {
   background: rgba(0, 0, 0, 0.7);
   z-index: 1;
 }
-/* line 215, ../../../sass/modules/_overlay.scss */
+/* line 216, ../../../sass/modules/_overlay.scss */
 .overlay-open .overlay {
   z-index: 11;
 }
