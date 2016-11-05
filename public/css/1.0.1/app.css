@@ -3293,12 +3293,107 @@ table.border-white th:after, table.border-white td:after {
   background-image: linear-gradient(to bottom, #ffffff, #ffffff 100%);
 }
 /* line 40, ../../../sass/modules/_overlay.scss */
-.overlay.model-overlay p {
+.overlay.model-overlay p.order {
+  background-color: #FBF9FE;
+  font-size: .12rem;
+  text-align: center;
+  color: #999;
+  padding: .1rem 0;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+}
+/* line 49, ../../../sass/modules/_overlay.scss */
+.overlay.model-overlay .how-title {
+  font-family: "Microsoft Yahei";
+  font-size: 0.16rem;
+  font-weight: normal;
+  letter-spacing: 0.3em;
+  text-indent: 0.3em;
+  text-overflow: ellipsis;
+  text-transform: uppercase;
+}
+/* line 58, ../../../sass/modules/_overlay.scss */
+.overlay.model-overlay .how-to-pay {
+  margin: .2rem .1rem .1rem .3rem;
+}
+/* line 60, ../../../sass/modules/_overlay.scss */
+.overlay.model-overlay .how-to-pay ul {
+  list-style: none;
+}
+/* line 62, ../../../sass/modules/_overlay.scss */
+.overlay.model-overlay .how-to-pay ul .title, .overlay.model-overlay .how-to-pay ul .details {
+  padding-left: .3rem;
+  border-left: 1px solid #999;
+  position: relative;
+}
+/* line 68, ../../../sass/modules/_overlay.scss */
+.overlay.model-overlay .how-to-pay ul .title ins {
+  position: absolute;
+  z-index: 10;
+  left: -.2rem;
+  top: -.05rem;
+  background-size: 100% 100%;
+  width: .4rem;
+  height: .4rem;
+}
+/* line 77, ../../../sass/modules/_overlay.scss */
+.overlay.model-overlay .how-to-pay ul .title .logo1 {
+  background-image: url(../../../images/logo1.png);
+}
+/* line 80, ../../../sass/modules/_overlay.scss */
+.overlay.model-overlay .how-to-pay ul .title .logo2 {
+  background-image: url(../../../images/logo2.png);
+}
+/* line 83, ../../../sass/modules/_overlay.scss */
+.overlay.model-overlay .how-to-pay ul .title .logo3 {
+  background-image: url(../../../images/logo3.png);
+}
+/* line 86, ../../../sass/modules/_overlay.scss */
+.overlay.model-overlay .how-to-pay ul .title .logo4 {
+  background-image: url(../../../images/logo4.png);
+}
+/* line 89, ../../../sass/modules/_overlay.scss */
+.overlay.model-overlay .how-to-pay ul .title .logo5 {
+  background-image: url(../../../images/logo5.png);
+}
+/* line 93, ../../../sass/modules/_overlay.scss */
+.overlay.model-overlay .how-to-pay ul h3 {
+  font-weight: normal;
+  font-size: .16rem;
+  padding-bottom: .05rem;
+}
+/* line 98, ../../../sass/modules/_overlay.scss */
+.overlay.model-overlay .how-to-pay ul p {
   font-size: .12rem;
   color: #999;
-  padding: .1rem .2rem;
+  padding-bottom: .3rem;
 }
-/* line 47, ../../../sass/modules/_overlay.scss */
+/* line 106, ../../../sass/modules/_overlay.scss */
+.overlay.model-overlay .notice {
+  margin: 0 .2rem;
+  padding: .1rem;
+  border: 1px solid #000;
+  background-color: #fbdfdd;
+  border-radius: 10px;
+  position: relative;
+}
+/* line 113, ../../../sass/modules/_overlay.scss */
+.overlay.model-overlay .notice p {
+  color: #666;
+}
+/* line 116, ../../../sass/modules/_overlay.scss */
+.overlay.model-overlay .notice ins {
+  position: absolute;
+  right: 0;
+  top: 0;
+  background-image: url(../../../images/girl.png);
+  background-size: 100% 100%;
+  right: 0;
+  top: -1.1rem;
+  width: 0.7rem;
+  height: 1.2rem;
+}
+/* line 130, ../../../sass/modules/_overlay.scss */
 .overlay .overlay-back,
 .overlay .overlay-dismiss {
   font-size: 0;
@@ -3313,7 +3408,7 @@ table.border-white th:after, table.border-white td:after {
   width: 0.48rem;
   z-index: 1;
 }
-/* line 60, ../../../sass/modules/_overlay.scss */
+/* line 143, ../../../sass/modules/_overlay.scss */
 .overlay .overlay-back [class^="icon-"],
 .overlay .overlay-back [class*=" icon-"],
 .overlay .overlay-dismiss [class^="icon-"],
@@ -3322,15 +3417,15 @@ table.border-white th:after, table.border-white td:after {
   font-size: 0.16rem;
   line-height: 0.48rem;
 }
-/* line 67, ../../../sass/modules/_overlay.scss */
+/* line 150, ../../../sass/modules/_overlay.scss */
 .overlay .overlay-back {
   left: 0;
 }
-/* line 70, ../../../sass/modules/_overlay.scss */
+/* line 153, ../../../sass/modules/_overlay.scss */
 .overlay .overlay-dismiss {
   right: 0;
 }
-/* line 73, ../../../sass/modules/_overlay.scss */
+/* line 156, ../../../sass/modules/_overlay.scss */
 .overlay .wrapper-heading {
   bottom: auto;
   height: auto;
@@ -3346,7 +3441,7 @@ table.border-white th:after, table.border-white td:after {
   transform: translate3d(0px, -50%, 0px);
   width: 100%;
 }
-/* line 85, ../../../sass/modules/_overlay.scss */
+/* line 168, ../../../sass/modules/_overlay.scss */
 .overlay .title-overlay {
   color: #333333;
   font-family: "lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -3355,20 +3450,20 @@ table.border-white th:after, table.border-white td:after {
   line-height: 1;
   margin-bottom: 0.05rem;
 }
-/* line 93, ../../../sass/modules/_overlay.scss */
+/* line 176, ../../../sass/modules/_overlay.scss */
 .overlay .subtitle-overlay {
   color: #555555;
   font-size: 18px;
   line-height: 0.15;
 }
-/* line 98, ../../../sass/modules/_overlay.scss */
+/* line 181, ../../../sass/modules/_overlay.scss */
 .overlay.auth {
   -moz-transform: translate3d(-100%, 0px, 0px);
   -ms-transform: translate3d(-100%, 0px, 0px);
   -webkit-transform: translate3d(-100%, 0px, 0px);
   transform: translate3d(-100%, 0px, 0px);
 }
-/* line 102, ../../../sass/modules/_overlay.scss */
+/* line 185, ../../../sass/modules/_overlay.scss */
 .overlay .overlay-hook.auth-open {
   -moz-transform: translate3d(0px, 0px, 0px);
   -ms-transform: translate3d(0px, 0px, 0px);
@@ -3376,7 +3471,7 @@ table.border-white th:after, table.border-white td:after {
   transform: translate3d(0px, 0px, 0px);
 }
 
-/* line 108, ../../../sass/modules/_overlay.scss */
+/* line 191, ../../../sass/modules/_overlay.scss */
 .content-overlay {
   position: absolute;
   top: 0;
@@ -3388,7 +3483,7 @@ table.border-white th:after, table.border-white td:after {
   cursor: pointer;
 }
 
-/* line 120, ../../../sass/modules/_overlay.scss */
+/* line 203, ../../../sass/modules/_overlay.scss */
 .menu-open .content-overlay {
   -moz-transform: translate3d(45%, 0px, 0px);
   -ms-transform: translate3d(45%, 0px, 0px);
@@ -3397,12 +3492,12 @@ table.border-white th:after, table.border-white td:after {
   z-index: 1;
 }
 
-/* line 127, ../../../sass/modules/_overlay.scss */
+/* line 210, ../../../sass/modules/_overlay.scss */
 .overlay-open .content-overlay {
   background: rgba(0, 0, 0, 0.7);
   z-index: 1;
 }
-/* line 132, ../../../sass/modules/_overlay.scss */
+/* line 215, ../../../sass/modules/_overlay.scss */
 .overlay-open .overlay {
   z-index: 11;
 }
@@ -3710,6 +3805,42 @@ table.border-white th:after, table.border-white td:after {
   font-size: 0.1rem;
   color: #999;
   line-height: 1.4;
+}
+
+/* line 1, ../../../sass/modules/_tabBar.scss */
+.weui-tab {
+  background: #fff;
+}
+
+/* line 5, ../../../sass/modules/_tabBar.scss */
+.weui-tab__item {
+  display: none;
+}
+
+/* line 8, ../../../sass/modules/_tabBar.scss */
+.weui-tab__item_on {
+  display: block !important;
+}
+
+/* line 12, ../../../sass/modules/_tabBar.scss */
+.weui-navbar {
+  position: static;
+  background: none;
+}
+/* line 15, ../../../sass/modules/_tabBar.scss */
+.weui-navbar .weui-navbar__item {
+  background: #fbf9fe;
+}
+/* line 17, ../../../sass/modules/_tabBar.scss */
+.weui-navbar .weui-navbar__item.weui-bar__item_on {
+  background: #fff;
+}
+
+/* line 23, ../../../sass/modules/_tabBar.scss */
+.weui-tab__panel {
+  height: auto;
+  overflow: hidden;
+  padding-top: 0 !important;
 }
 
 /* line 2, ../../../sass/pages/_home.scss */
@@ -4446,6 +4577,11 @@ div.module-tips {
 /* line 43, ../../../sass/pages/phoneCard/_phoneCardDetails.scss */
 .page.pd-details .flow-fqa {
   background: #fff;
+}
+
+/* line 51, ../../../sass/pages/phoneCard/_phoneCardDetails.scss */
+.page.pd-details.pd-c .address.weui-cell {
+  border: 0 !important;
 }
 
 /* line 1, ../../../sass/modules/recharge/_phoneQuery.scss */
