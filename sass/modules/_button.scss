@@ -152,6 +152,10 @@
   }
 }
 
+.btn-shadow {
+  @include box-shadow(0 -3px 10px rgba(0, 0, 0, 0.3));
+}
+
 .new-btn {
   //background-color: #3bb3e0;
   top: 0;
