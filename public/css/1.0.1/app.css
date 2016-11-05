@@ -1560,7 +1560,7 @@ a:hover, a:focus {
 .weui-cells__title {
   font-size: 0.16rem;
   color: #333;
-  font-weight: bold;
+  font-weight: 400;
   line-height: 0.32rem;
 }
 /* line 7, ../../../sass/modules/_title.scss */
