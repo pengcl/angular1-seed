@@ -283,3 +283,31 @@
   }
 
 }
+.phone-d-tb {
+  .c-gy {
+    color: #999;
+  }
+  .diffrent {
+    background-color: #FBDFDD;
+    color: #d83e14;
+    font-weight: 600;
+  }
+  .notice {
+    font-size: .12rem;
+    color: #d83e14;
+    position: relative;
+    margin-top: .05rem;
+    span {
+      position: absolute;
+      top: 0;
+      left: 0;
+      border: 1px solid #d83e14;
+      border-radius: 50%;
+      width: .15rem;
+      height: .15rem;
+      text-align: center;
+      line-height: .17rem;
+      vertical-align: middle;
+    }
+  }
+}

@@ -34,6 +34,42 @@
         width: 100%;
         z-index: 1;
     }
+    &.table-overlay{
+      .border-white{
+        background-color:#FBDFDD;
+      }
+      .weui-media-box{
+      .t-title{
+        background-color:#E5E5E5;
+      }
+        .c-gy{
+          color:#999;
+        }
+        .diffrent{
+          background-color:#FBDFDD;
+          color:#d83e14;
+          font-weight:600;
+        }
+        .notice{
+          font-size: .12rem;
+          color:#d83e14;
+          position:relative;
+          margin-top:.05rem;
+            span{
+              position:absolute;
+              top:0;
+              left:0;
+              border:1px solid #d83e14;
+              border-radius: 50%;
+              width:.15rem;
+              height:.15rem;
+              text-align:center;
+              line-height: .17rem;
+              vertical-align:middle;
+            }
+        }
+      }
+    }
     &.model-overlay{
         overflow-y:scroll ;
         @include background-image(linear-gradient(to bottom, rgba(255, 255, 255, 1), rgba(255, 255, 255, 1) 100%));
@@ -41,10 +77,19 @@
           background-color:#FBF9FE;
           font-size:.12rem;
           text-align:center;
-          color:#999;
+          color:#f00;
           padding:.05rem 0;
           border-top:1px solid #eee;
           border-bottom:1px solid #eee;
+          ins{
+            vertical-align:middle;
+            display:inline-block;
+            margin-right:0.05rem;
+            background-image:url(../../images/yinlian.png);
+            background-size:100% 100%;
+            width:.4rem;
+            height:.28rem;
+          }
         }
       .how-title{
         font-family: "Microsoft Yahei";
