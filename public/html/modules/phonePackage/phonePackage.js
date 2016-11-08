@@ -10,7 +10,7 @@ app.directive("phonePackage", ['$http', '$stateParams', '$q', function ($http, $
             scope.packageTitle = attrs.title;
             scope.packageSubTitle = attrs.subTitle;
             scope.packageType = attrs.type;
-
+            scope.class=attrs.addClass;
             scope.visibility = attrs.visibility;
             if (scope.visibility === "false") {
                 $(element).addClass("hide");
