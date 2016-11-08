@@ -79,7 +79,7 @@ app.directive("phoneQuery", ["$cookieStore", function ($cookieStore) {
     //var deferred = $q.defer();
     $scope.phoneData = new Array();
 
-    $scope.phoneFilter = function (query) {
+    $scope.phoneFilter = function (query) {//查询包含query的手机号码;
         var _data = new Array();
         if (query != "") {
             $.each($scope.phoneData, function (i, k) {
@@ -96,12 +96,12 @@ app.directive("phoneQuery", ["$cookieStore", function ($cookieStore) {
         $scope.dataInit();
     };
 
-    $scope.inputNumber = function (query) {
+    $scope.inputNumber = function (query) {//输入查询的号码
         if (query == "") return;
         writebdLog($scope.category, '_InputNumber', "渠道号", $scope.gh);//输入查询号码
     };
 
-    $http.jsonp('http://m.gd189fq.com/wap/taokafanghaoNew/fetchNumber.html?callback=JSON_CALLBACK').success(function (data, status, headers, config) {
+    $http.jsonp('http://m.gd189fq.com/wap/taokafanghaoNew/fetchNumber.html?callback=JSON_CALLBACK').success(function (data, status, headers, config) {//获取所有的手机号码
         $.each(eval(data), function (i, k) {
             if (!k.t) {
                 $scope.phoneData.push(k);

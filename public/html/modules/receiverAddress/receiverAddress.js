@@ -117,7 +117,7 @@ app.directive("receiverAddress", ["$compile", "$cookieStore", '$http', '$interva
                         $(".input-vcode").addClass("weui-cell_warn");
                         return false;
                     }
-                    $cookieStore.put("activeCode",scope.activeCode);
+                    $cookieStore.put("activeCode", scope.activeCode);
                     return true;
                 }
             };
@@ -195,10 +195,13 @@ app.directive("receiverAddress", ["$compile", "$cookieStore", '$http', '$interva
                     value2 = $this.data("value");
                     getArea(dataVal, 2, value1, value2, "");
                 } else if (dataAreaValue === 2) {
-                    dataAreaShow(3);
-                    tabShow(3);
+                    //dataAreaShow(3);
+                    //tabShow(3);
                     value3 = $this.data("value");
-                    getArea(dataVal, 3, value1, value2, value3);
+                    stockHide();
+                    $("#store-text").find("div").html(value1 + value2 + value3);
+                    scope.receiver.city = value1 + value2 + value3;
+                    //getArea(dataVal, 3, value1, value2, value3);
                 } else if (dataAreaValue === 3) {
                     value4 = $this.data("value");
                     stockHide();
@@ -219,11 +222,11 @@ app.directive("receiverAddress", ["$compile", "$cookieStore", '$http', '$interva
                     //alert("请输入联系电话");
                     $(".input-mobile").addClass("weui-cell_warn");
                     return false;
-                } /*else if (!scope.checkoutForm.receiverCity.$valid) {
+                } else if (!scope.checkoutForm.receiverCity.$valid) {
                     $(".input-city").addClass("weui-cell_warn");
                     //alert("请选择收件区域");
                     return false;
-                }*/ else if (!scope.checkoutForm.receiverRoom.$valid) {
+                } else if (!scope.checkoutForm.receiverRoom.$valid) {
                     $(".input-room").addClass("weui-cell_warn");
                     //alert("请输入详细地址");
                     return false;
