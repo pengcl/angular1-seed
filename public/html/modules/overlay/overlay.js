@@ -8,7 +8,7 @@ app.directive("overlay", ['$http','$compile', function ($http,$compile) {
             var $overlayHook = $("#overlay-hook");
             var $container = $("#container");
             scope.$root.Overlay = {
-                open: function(template) {
+                open: function(template) {//template,需要传入的html
                     //console.log(scope.simList);
                     $overlayHook.html(template);
                     $container.addClass("overlay-open");
