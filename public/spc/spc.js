@@ -6,7 +6,13 @@ var systemName = "yfqapp";
     $a = $("a.rewrite-url");//获取所有拥有rewrite-url 类的a标签
     for (i = 0; i < $a.length; i++) {
         _href = $a.eq(i).attr("href");
-        rewriteUrl = "http://192.168.0.199" + _href + params;
+        console.log(params);
+        //rewriteUrl = "http://app.yfq.cn" + _href + params;
+        if(_href.indexOf("?") != -1 && params.indexOf("?") != -1){
+            rewriteUrl = "http://app.yfq.cn" + _href + params.replace(/\?/,"&");
+        }else {
+            rewriteUrl = "http://app.yfq.cn" + _href + params;
+        }
         $a.eq(i).attr("href", rewriteUrl);//重写href
         //console.log(rewriteUrl);
     }
