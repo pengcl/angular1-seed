@@ -20,15 +20,6 @@ app.directive("footerNav", ['$http', function ($http) {
                 scope.orderURL = "http://m.gd189fq.com/yfqcz/#/purchaseOrderList?redirect_uri=http://app.yfq.cn";
             }
 
-            if (scope.payType == 1) {
-                scope.payTypeName = "下一步";
-            } else if (scope.payType == 2) {
-                scope.payTypeName = "货到付款";
-            }
-            else {
-                scope.payTypeName = "立即支付";
-            }
-
             scope.checks = eval(attrs.checks);
 
             scope.getSearch = function () {
@@ -43,15 +34,15 @@ app.directive("footerNav", ['$http', function ($http) {
                 writebdLog(scope.category, "_CustConsult", "渠道号", scope.gh);//客服咨询
             };
 
-            scope.submitForm = function (event) {
+            scope.submitForm = function (event,type) {
                 event.preventDefault();
                 if (attrs.checkPhone == "true") {
                     if (scope.checkPhone()) {
                         //writebdLog(scope.category, "_SelectNumber", "渠道号", scope.gh);//选择号码
                     } else {
-                        $scrollTo = $('#chooseNumber');
+                        $scrollTo = $('#numberPanel');
                         $container.animate({
-                            scrollTop: $scrollTo.offset().top - $container.offset().top + $container.scrollTop()
+                            scrollTop: $scrollTo.offset().top - $container.offset().top + $container.scrollTop() -50
                         });
                         return false;
                     }
@@ -61,7 +52,13 @@ app.directive("footerNav", ['$http', function ($http) {
                     if (scope.$root.checkActiveCode()) {
                         writebdLog(scope.category, "_BuyNow", "渠道号", scope.gh);//立即支付
                         scope.$root.toast.open();
-                        $form.submit();
+                        if(scope.payType == 2){
+                            console.log(2);
+                            scope.showHuOverLay("payTipsPanel");
+                            return false;
+                        }else {
+                            $form.submit();
+                        }
                     }else {
                         $scrollTo = $('#receiverAddress');
                         $container.animate({
@@ -70,6 +67,7 @@ app.directive("footerNav", ['$http', function ($http) {
                     }
                 } else {
                     $scrollTo = $('#receiverAddress');
+                    console.log($scrollTo);
                     $container.animate({
                         scrollTop: $scrollTo.offset().top - $container.offset().top + $container.scrollTop()
                     });

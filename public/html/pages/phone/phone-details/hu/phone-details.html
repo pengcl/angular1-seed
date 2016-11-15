@@ -1,0 +1,52 @@
+<div class="page p-details {{pageType}}">
+    <top-nav page-title="下单" page-back="back"></top-nav>
+    <!--<form id="checkoutForm" name="checkoutForm" action="http://2b2fda71.ngrok.natapp.cn/wap/taokafanghaoNew/submitOrderMachine.html" method="post" novalidate>-->
+    <form id="checkoutForm" name="checkoutForm" action="http://192.168.0.199:8091/wap/taokafanghaoNew/submitOrderMachine.html" method="post" novalidate>
+        <input type="hidden" value="1" name="monthNumber" id="monthNumber">
+        <input type="hidden" value="{{category}}" name="category" id="category">
+        <input type="hidden" value="{{phone.productId}}" ng-model="phone.productId" name="machineId" id="machineId">
+        <input type="hidden" value="{{'hu_' + payType}}" id="bus" name="bus">
+
+        <gh></gh>
+        <activity></activity>
+        <redirect-url></redirect-url>
+        <div class="content-scrollable has-footer">
+            <div class="owl-carousel" img-urls="['/spc/hu/images/yfq_01.jpg','/spc/hu/images/banner03.jpg','/spc/hu/images/banner02.jpg']" options="{loop: true,margin: 0,autoPlay: 3000,items: 1}"></div>
+            <div class="product-header">
+                <h1 class="product-title">[翼分期]iPhone合约机新用户0元购，性价比最高套餐！</h1>
+                <h2 class="product-sub-title">全国通用无漫游 号码归属地广州</h2>
+            </div>
+            <phone-types title="手机型号" sub-title="" phone-details="false"></phone-types>
+            <phone-storages title="机身内存" sub-title=""></phone-storages>
+            <phone-colors title="机身颜色" sub-title=""></phone-colors>
+            <phone-package title="选择套餐" sub-title="" type="phone" ng-if="phone.packages"></phone-package>
+            <spc-title main-title="套餐说明" sub-title=""></spc-title>
+            <div class="flow-fqa">
+                <ol class="fqa-lists">
+                    <li>
+                        <h3 class="list-tit">套餐情况</h3>
+                        <p class="list-disc"><span ng-bind="pkg.network"></span><span>流量+</span><span ng-bind="pkg.talkTime"></span>分钟通话</p>
+                    </li>
+                    <li>
+                        <h3 class="list-tit">套餐超出收费</h3>
+                        <p class="list-disc">国内通话：0.15元/分钟，短信：0.1元条，超出流量不足100MB按0.0003元/KB收取，100-500MB， 收费30元；超过500MB时，500MB/30元，以此类推；消费600元/15G封顶</p>
+                    </li>
+                    <li>
+                        <h3 class="list-tit">优惠资费</h3>
+                        <p class="list-disc">优惠期内，指定套餐可享5折优惠，优惠期长达36个月，为您节省2448元</p>
+                    </li>
+                    <li>
+                        <h3 class="list-tit">套餐性质</h3>
+                        <p class="list-disc">全国无漫游，接听免费，靓号任选，号码归属地广东</p>
+                    </li>
+                </ol>
+            </div>
+            <pay-type title="选择支付" sub-title="" submit="#checkoutForm" visibility="false" add-class="model-overlay"></pay-type>
+
+            <phone-query></phone-query>
+            <receiver-address title="收货地址" sub-title=""></receiver-address>
+            <!--<choose-number title="请选择合约套餐手机号码"></choose-number>-->
+        </div>
+        <footer-nav check-phone="true" check-address="true" order-search-url="http://m.gd189fq.com/wap/customer/searchIndexA.html?s=wap" submit="#checkoutForm"></footer-nav>
+    </form>
+</div>

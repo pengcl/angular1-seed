@@ -281,7 +281,106 @@
       margin-left: 1rem;
     }
   }
-
+  &.hu {
+    .owl-carousel {
+      padding-bottom: 0;
+    }
+    .product-header {
+      margin-top: 0.1rem;
+      margin-bottom: 0.1rem;
+    }
+    #phoneQuery {
+      & > .weui-cells__title {
+        display: none;
+      }
+      .phone-query-panel {
+        display: none;
+      }
+      .weui-cells_form {
+        margin-top: 0;
+      }
+      .weui-btn-area {
+        display: none;
+      }
+      .overlay {
+        position: relative;
+        z-index: 0 !important;
+        .overlay-title {
+          display: none;
+        }
+        .overlay-dismiss {
+          display: none;
+        }
+        .content-scrollable {
+          position: static !important;
+          padding-top: 0;
+        }
+      }
+    }
+    #numberPanel {
+      display: block !important;
+    }
+    #phoneTypes,#phoneStorages,#phoneColors,#phonePackage,#receiverAddress {
+      background: #fff;
+      padding-top: 0.1rem;
+      padding-bottom: 0.1rem;
+      .weui-cells__title {
+        margin-top: 0;
+        padding-bottom: 0.1rem;
+        margin-bottom: 0.1rem;
+        line-height: 1;
+        &:before{
+          top:0;
+          margin-top: 0;
+          height: 0.16rem;
+        }
+        &:after {
+          content: " ";
+          position: absolute;
+          bottom: 0;
+          left: 0.15rem;
+          right:0.15rem;
+          height: 1px;
+          border-bottom: 1px solid #eee;
+        }
+      }
+      .question {
+        display: none;
+      }
+      .item-lists-tips {
+        display: none;
+      }
+    }
+    .spc-title {
+      margin-top: 0.1rem;
+      background: #fff;
+      color: $color-primary;
+      &:after {
+        content: " ";
+        position: absolute;
+        left: 0.15rem;
+        right:0.15rem;
+        bottom:0;
+        height: 1px;
+        border-bottom: 1px solid #eee;
+      }
+      span {
+        &:first-child{
+          &:after{
+            background: $color-primary;
+          }
+        }
+        &:last-child {
+          &:before {
+            background: $color-primary;
+          }
+        }
+      }
+    }
+    .flow-fqa {
+      background: #fff;
+    }
+  }
 }
 .phone-d-tb {
   .t-title{

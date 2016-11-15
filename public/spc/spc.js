@@ -1,4 +1,3 @@
-
 var systemName = "yfqapp";
 
 (function () {//1.变态功能，如非必要，不推荐使用;2.对所有拥有rewrite-url 类的a标签重写href
@@ -7,8 +6,8 @@ var systemName = "yfqapp";
     $a = $("a.rewrite-url");//获取所有拥有rewrite-url 类的a标签
     for (i = 0; i < $a.length; i++) {
         _href = $a.eq(i).attr("href");
-        rewriteUrl = "http://app.yfq.cn" + _href + params;
-        $a.eq(i).attr("href",rewriteUrl);//重写href
+        rewriteUrl = "http://192.168.0.199" + _href + params;
+        $a.eq(i).attr("href", rewriteUrl);//重写href
         //console.log(rewriteUrl);
     }
 })();
@@ -158,4 +157,88 @@ var getContact = function () {
 var indexBuy = function () {
     //$("#contactUs").show();
     writebdLog(category, "_OnlineOrder", "渠道号", getUrlParam("gh"));//客服咨询
+};
+
+function checkMobileCode(code) {
+    var flag = false;
+    $.ajax({
+        url: "http://app.yfq.cn:3099/api/checkActiveCode/" + code,
+        async: false,
+        type: "get",
+        success: function (data) {
+            if (data == 'true') {
+                flag = true;
+            }
+        }
+    });
+
+    return flag;
+}
+
+var checkReceiverMobile = function () {
+    var receiverMobile = $("#receiverMobile").val();
+    if (receiverMobile.length != 11) {
+        alert("请输入您的手机号");
+        return false;
+    }
+    return true;
+};
+
+var checkActiveCode = function () {
+    var activeCode = $("#activeCode").val();
+    if (activeCode.length != 4) {
+        alert("请输入验证码！");
+        return false;
+    } else {
+        if (!checkMobileCode(activeCode)) {
+            alert("验证码不正确，请重新输入！");
+            return false;
+        }
+        $.cookie("activeCode", activeCode, {path: '/'});
+        return true;
+    }
+};
+
+var huBuy = function (e) {
+    if (checkReceiverMobile()) {
+        if (checkActiveCode()) {
+
+        } else {
+            e.preventDefault();
+        }
+    } else {
+        e.preventDefault();
+    }
+};
+
+var paracont = "获取验证码";
+var paraclass = "but_null";
+var second = 59, timePromise = undefined;
+
+function getActiveCode() {
+    if(!checkReceiverMobile()){
+        return false;
+    }
+    var phoneNumber = $("#receiverMobile").val();
+
+    $.get("http://app.yfq.cn:3099/api/getActiveCode/" + phoneNumber).success(function (data) {
+        if (data == "") {
+            timePromise = setInterval(function () {
+                if (second <= 0) {
+                    clearInterval(timePromise);
+                    timePromise = undefined;
+
+                    second = 59;
+                    paracont = "重发验证码";
+                    paraclass = "but_null";
+                } else {
+                    paracont = second + "秒后可重发";
+                    paraclass = "not but_null";
+                    second--;
+
+                }
+                $("#activeCodeBtn").html(paracont);
+            }, 1000, 100);
+        }
+    });
 };

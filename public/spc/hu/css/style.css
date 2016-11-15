@@ -1,0 +1,418 @@
+﻿@charset "utf-8";
+/* CSS Document */
+
+* {
+	font-family: "微软雅黑";
+}
+
+body {
+	background: #fbf9fe;
+	margin-bottom: 60px;
+}
+
+.carousel {
+	border-bottom: solid 1px #ddd;
+	margin-bottom: 10px;
+}
+.carousel-control.left,
+.carousel-control.right {
+	background-image: none;
+    background-image: none;
+    background-image: none;
+    background-image: none;
+    filter: none;
+    background-repeat: repeat-x;
+}
+
+footer {
+	background: #FFF;
+	border-top: solid 1px #ddd;
+}
+footer.navbar-fixed-bottom a {
+	display: block;
+	text-align: center;
+}
+footer.navbar-fixed-bottom a span.glyphicon {
+	font-size: 18px;
+}
+footer.navbar-fixed-bottom a p {
+	display: block;
+	margin: 0;
+	font-size: 10px;
+}
+
+.yfqLogo {
+	padding: 20px 0;
+}
+
+.whiteBg {
+	background: #FFF;
+	border-bottom: solid 1px #eee;
+	padding: 10px 0;
+	margin-bottom: 10px;
+}
+
+h4.Tit {
+	border-bottom: solid 1px #eee;
+	margin: 0;
+	margin-bottom: 10px;
+	padding-bottom: 10px;
+	padding-left: 14px;
+	position: relative;
+	font-size: 14px;
+}
+h4.Tit:after {
+    content: "";
+    position: absolute;
+    height: 1em;
+    width: 4px;
+    background: #FF4521;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+    left: 0;
+    top: 0;
+}
+h4.Tit1 {
+	border-bottom: solid 1px #eee;
+	margin: 0;
+	margin-bottom: 10px;
+	padding-bottom: 10px;
+	color: #FF4521;
+	text-align: center;
+}
+
+.btn-danger {
+    background-image: -webkit-linear-gradient(top,#d9534f 0,#c12e2a 100%);
+    background-image: -o-linear-gradient(top,#d9534f 0,#c12e2a 100%);
+    background-image: -webkit-gradient(linear,left top,left bottom,from(#d9534f),to(#c12e2a));
+    background-image: linear-gradient(to bottom,#d9534f 0,#c12e2a 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffd9534f', endColorstr='#ffc12e2a', GradientType=0);
+    filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+    background-repeat: repeat-x;
+    border-color: #b92c28;
+}
+.Payment {
+	border-radius: 0;
+	display: block;
+	width: 100%;
+	font-size: 18px;
+	padding: 0;
+	line-height: 48px;
+	text-align: center;
+}
+
+#Home .shenqing h4 {
+	font-weight: bold;
+	text-align: center;
+	margin-bottom: 20px;
+}
+#Home .shenqing .step-bar {
+    height: 25px;
+	margin-bottom: 20px;
+}
+#Home .shenqing .step-bar .bar-left {
+    float: left;
+    height: 5px;
+    width: 11%;
+    background: url(../images/bar-left.jpg) left no-repeat #029bdf;
+}
+#Home .shenqing .step-bar .step-one {
+    float: left;
+    height: 5px;
+    width: 26%;
+    background: #029bdf;
+}
+#Home .shenqing .step-bar .step-two,
+#Home .shenqing .step-bar .step-three {
+    float: left;
+    height: 5px;
+    width: 26%;
+    background: #c6c2bd;
+}
+#Home .shenqing .step-bar .bar-right {
+    float: right;
+    height: 5px;
+    width: 11%;
+    background: url(../images/bar-right.jpg) right no-repeat #c6c2bd;
+}
+#Home .shenqing .step-bar img {
+    position: relative;
+    top: -10px;
+    left: 50%;
+    margin-left: -13px;
+}
+#Home .shenqing .step-bar p {
+    width: 100%;
+    margin-top: -10px;
+    text-align: center;
+    font-size: 12px;
+    color: #686868;
+}
+#Home .shenqing form {
+	margin-bottom: 20px;
+}
+#Home .shenqing form .input-group {
+	width: 100%;
+	margin-bottom: 10px;
+}
+#Home .shenqing form .btn-new {
+    background: #029bdf;
+    border-radius: 4px;
+    text-align: center;
+    width: 50%;
+	margin: 0 25%;
+    color: #ffffff;
+	font-size: 16px;
+    text-decoration: none;
+}
+#Home .fukuan {
+	text-align: center;
+	margin-bottom: 20px;
+}
+#Home .fukuan h5 {
+	margin-bottom: 0;
+}
+#Home .fukuan p {
+	color: #999;
+	font-size: 12px;
+}
+#Home .table {
+	text-align: center;
+}
+#Home .table img {
+	margin-bottom: 20px;
+}
+#Home .shiming {
+	border: solid 1px #f4593a;
+	width: 100%;
+	padding: 30px 15px 15px 15px;
+	position: relative;
+	margin-bottom: 20px;
+}
+#Home .shiming h4 {
+	display: block;
+	margin: 0;
+	position: absolute;
+	top: -14px;
+	left: 50%;
+	margin-left: -115px;
+	text-align: center;
+}
+#Home .shiming p {
+	font-size: 12px;
+}
+#Home .shiming .item {
+	text-align: center;
+}
+#Home .shiming .item h5 {
+	color: #f4593a;
+}
+
+#Product .hgroup h4 {
+	margin-top: 0;
+	margin-bottom: 10px;
+	line-height: 1.3;
+}
+#Product .hgroup small {
+	color: #FF4521;
+}
+#Product .choose .item {
+	margin-bottom: 10px;
+}
+#Product .choose .item ul {
+	margin: 0;
+}
+#Product .choose .item li {
+	border: solid 1px #ababab;
+	border-radius: 4px;
+	display: inline-block;
+	margin-bottom: 5px;
+	padding: 6px 12px;
+}
+#Product .choose .item li a {
+	color: #333;
+}
+#Product .choose .item li b {
+	font-size: 18px;
+}
+#Product .choose .item li p {
+	display:block;
+	margin: 0;
+	font-size: 10px;
+}
+#Product .choose .item li.on {
+	border-color: #FF4521;
+}
+#Product .choose .item li.on a,
+#Product .choose .item li.on p {
+	color: #FF4521;
+}
+#Product .choose .item li.forbid {
+	border: dashed 1px #ddd;
+}
+#Product .choose .item li.forbid a {
+	color: #999;
+}
+#Product .choose .color li {
+	min-width: 32%;
+}
+#Product .description section p {
+	position: relative;
+	padding-left: 14px;
+	font-size: 12px;
+	line-height: 2;
+	text-align: justify;
+}
+#Product .description section p:after {
+    content: "";
+    position: absolute;
+    height: 4px;
+    width: 4px;
+    background: #FF4521;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+    left: 0;
+    top: 10px;
+}
+#Product .description section p span {
+	color: #FF4521;
+}
+#Product .tel li {
+	display: inline-block;
+	height: 24px;
+	width: 50%;
+	padding: 10px 10px 10px 23px;
+	position: relative;
+	color: #FF4521;
+	line-height: 24px;
+}
+#Product .tel li a {
+	display: block;
+	position: absolute;
+	top: 13px;
+	left: 0;
+}
+#Product .tel li span:before {
+	content: "";
+	border: solid 1px #ababab;
+	border-radius: 9px;
+	display: block;
+	height: 18px;
+	width: 18px;
+	vertical-align: middle;
+}
+#Product .tel li.on span:before {
+	content: "";
+	background: #09bb07 url(../images/02.png) no-repeat center center;
+	color: #FFF;
+	font-family: muli;
+	line-height: 18px;
+	text-align: center;
+}
+#Prompt .step li span.glyphicon {
+	background: #F00;
+	border-radius: 18px;
+	display: inline-block;
+	height: 36px;
+	width: 36px;
+	margin-right: 10px;
+	color: #FFF;
+	line-height: 36px;
+	text-align: center;
+}
+#Prompt .step li p {
+	padding-left: 50px;
+}
+
+#Pay .summary {
+	background: #545b6a;
+	margin-bottom: 10px;
+	padding: 20px 0;
+	color: #fff;
+}
+#Pay .prices li {
+	padding-bottom: 10px;
+}
+#Pay .prices li small {
+	font-size: 10px;
+}
+#Pay .prices li b {
+	color: #F00;
+	font-weight: normal;
+}
+#Pay .way li {
+	border: solid 1px #ababab;
+	border-radius: 4px;
+	margin-bottom: 5px;
+	padding: 9px;
+	cursor: pointer;
+}
+#Pay .way li.on {
+	border-color: #FF4521;
+}
+#Pay.Cash .way li img,
+#Pay.Cash .way li span {
+	display: inline-block;
+	margin-right: 10px;
+	vertical-align: middle;
+}
+#Pay.Cash .way li span small {
+	color: #999;
+	font-size: 12px;
+}
+#Pay.Union .way li {
+	border: solid 1px #FFF;
+	display: inline-block;
+	width: 48%;
+	margin-right: 5px;
+}
+#Pay.Union .way li span.logo,
+#Pay.Union .way .modal-body span.logo {
+	display: inline-block;
+	height: 24px;
+	width: 24px;
+	margin-right: 10px;
+	vertical-align: middle;
+}
+#Pay.Union .way .modal-header {
+	background: #FF4521;
+	border-radius: 4px 4px 0 0;
+}
+#Pay.Union .way .modal-header h4 {
+	color: #fff;
+	text-align: center;
+}
+#Pay.Union .way .modal-body h4 {
+	margin-bottom: 25px;
+	text-align: center;
+}
+#Pay.Union .way .modal-body dt {
+    float: left;
+    width: 84px;
+    overflow: hidden;
+    clear: left;
+    text-align: right;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+#Pay.Union .way .modal-body dd {
+    margin-left: 94px;
+	padding-bottom: 10px;
+	color: #F00;
+	text-align: right;
+}
+#Pay.Union .way .modal-footer {
+	text-align: center;
+}
+
+#Success h4 {
+	margin: 0;
+	margin-bottom: 10px;
+}
+
+#Prompt .step h5 {
+	margin-bottom: 20px;
+	text-align: center;
+}

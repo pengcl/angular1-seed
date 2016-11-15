@@ -13,13 +13,18 @@
     </div>
     <div class="pure-g">
         <div class="nav-price nav-item pure-u-1-2">
-            <em><sub>￥</sub></em><em ng-if="!priceType" ng-bind-html="mainPrice | number:2 | formatMoney:-3 | trustHtml"></em><em ng-if="priceType" ng-bind-html="mainPrice/12 | number:2 | formatMoney:-3 | trustHtml"></em>
+            <em><sub>￥</sub></em>
+            <em ng-if="payType != 2" ng-bind-html="mainPrice | number:2 | formatMoney:-3 | trustHtml"></em>
+            <em ng-if="payType == 2" ng-bind-html="mainPrice/12 | number:2 | formatMoney:-3 | trustHtml"></em>
         </div>
-        <div class="nav-button nav-item pure-u-1-2">
-            <a id="footerCODButton" href="/payment" ng-click="submitForm($event,1);" ng-bind="payTypeName">立即支付</a>
+        <div class="nav-button nav-item pure-u-1-2" ng-if="payType != 1 && payType != 2">
+            <a id="footerPayButton" href="/payment" ng-click="submitForm($event,0);">立即支付</a>
         </div>
-        <div class="nav-button nav-item pure-u-1-2">
-            <a id="footerPayButton" href="/payment" ng-click="submitForm($event);" ng-bind="payTypeName">立即支付</a>
+        <div class="nav-button nav-item pure-u-1-2" ng-if="payType == 1">
+            <a id="footerCODButton" href="/payment" ng-click="submitForm($event,1);">货到付款</a>
+        </div>
+        <div class="nav-button nav-item pure-u-1-2" ng-if="payType == 2">
+            <a id="footerPeriodButton" href="/payment" ng-click="submitForm($event,2);">分期支付</a>
         </div>
     </div>
 </div>
