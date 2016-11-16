@@ -4,9 +4,11 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
 
     // 设定路由
     $stateProvider
-        .state('phoneIndexC', { //app首页
-            url: "/phone/indexC",
-            templateUrl: "pages/phone/index/index.html",
+        .state('phoneIndex', { //app首页
+            url: "/phone/:pageType/index",
+            templateUrl: function ($stateParams){
+                return 'pages/phone/index/' + $stateParams.pageType + '/index.html';
+            },
             controller: "pIndexController"
         });
 }]).controller('pIndexController', ['$scope', '$location', function ($scope, $location) {
