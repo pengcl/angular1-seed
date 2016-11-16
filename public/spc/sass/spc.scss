@@ -5,6 +5,17 @@
 @import "../../../sass/modules/owlCarousel";
 @import "../../../sass/modules/button";
 
+ul{
+  list-style: none;
+  padding:0;
+  margin:0;
+}
+a{
+  text-decoration: none;
+}
+p{
+  margin:0;
+}
 .page {
   &.e, &.d {
     .content-scrollable {
@@ -292,6 +303,244 @@
 
     .item-flag img {
       width: 100%;
+    }
+  }
+  &.m{
+    .buy{
+      display:-webkit-flex;
+      display:flex;
+      text-align:center;
+      margin-top:.05rem;
+      a{
+        flex:1;
+        padding:.05rem 0;
+        font-size:.14rem;
+        font-weight:bold;
+        color:#f2741d;
+        border:2px solid #f2741d;
+      }
+    }
+    .content-scrollable {
+      background: url(img/indexM/bg.jpg);
+      font-size:.1rem;
+       .roll{
+         font-size:.1rem;
+         margin:0 .12rem;
+         padding-left:25%;
+         position:relative;
+         background:#3d85c9;
+         border-radius:.2rem ;
+         color:#fff;
+         p{
+           padding:0;
+           margin:0;
+         }
+         .title{
+          position:absolute;
+           left:0;
+           padding-left:.3rem;
+           padding-top:.05rem;
+         }
+         .details{
+           background:#88888a;
+           padding:.05rem 0 .05rem .05rem;
+           border-top-right-radius:.2rem;
+           border-bottom-right-radius: .2rem;
+         }
+       }
+    }
+    .notice{
+      margin:.1rem 0;
+      text-align:center;
+      color:#00276f;
+      span{
+        display: inline-block;
+        padding:0;
+        position:relative;
+        padding:0 .05rem 0 .15rem;
+        margin-left:.05rem;
+      }
+      ins{
+        position:absolute;;
+        top:.01rem;
+        left:0;
+        width:.1rem;
+        height:.12rem;
+        margin-right:.05rem;
+      }
+      .sun{
+        border-right:1px solid #00276f;
+        .sun-logo{
+          background:url(img/indexM/sun.jpg) ;
+          background-size:100% 100%;
+        }
+      }
+      .yfq{
+        .yfq-logo{
+          background:url(img/indexM/chinanet.jpg) ;
+          background-size:100% 100%;
+        }
+      }
+    }
+    .bang2{
+      height:2.5rem;
+      background: url(img/indexM/bang2.jpg);
+      background-size:100% 100%;
+      .phone-detail{
+        padding-left:40%;
+      }
+    }
+    .bang3{
+      height:2.5rem;
+      background: url(img/indexM/bang3.jpg);
+      background-size:100% 100%;
+    }
+    .bang4{
+      height:2.5rem;
+      background: url(img/indexM/bang4.jpg);
+      background-size:100% 100%;
+      .phone-detail{
+        padding-left:40%;
+      }
+    }
+    .bang5{
+      height:2.5rem;
+      background-image: url(img/indexM/bang5.jpg);
+      background-size:100% 100%;
+    }
+    .all-buy{
+      .all-buy-list{
+        .list-item{
+          padding: .05rem;
+          margin:.05rem;
+          background:#fff;
+          font-family: Microsoft Yahei;
+          .img-box{
+            position:relative;
+            p{
+              color:white;
+              position:absolute;
+              bottom:0;
+              padding:.05rem;
+              font-size:.14rem;
+              font-weight:500;
+            }
+          }
+          .price{
+            margin:.05rem 0;
+            .phone-price{
+              color:#f2741d;
+              font-weight:bold;
+            }
+            .num{
+              color:#a9a9a9;
+            }
+          }
+          .net{
+            .net-work{
+              box-sizing: border-box;
+              position:relative;
+              padding-right:.1rem;
+              &:after{
+                content: " ";
+                position: absolute;
+                top:0;
+                right: 0;
+                width:1px;
+                height:95%;
+                border-left: 2px dashed #a9a9a9;
+                margin:0 .05rem;
+              }
+            }
+            p{
+              font-family: Microsoft Yahei;
+            }
+            .everyone{
+              color:#1065c5;
+            }
+          }
+        }
+      }
+    }
+    .phone-card-details{
+      .phone-card-list{
+        .list-item{
+          padding: .05rem;
+          margin:.05rem;
+          background:#fff;
+          font-family: Microsoft Yahei;
+          img{
+            display:block;
+            width:30%;
+          }
+          .net{
+            .net-details{
+              padding:.05rem;
+              color:#00b8f5;
+              border:2px solid #00b8f5;
+              border-radius: 5px;
+              position:relative;
+              margin-top:.05rem;
+              .net-gb{
+                font-size:.4rem;
+                font-weight:900;
+                line-height:.6rem;
+                .net-num{
+                  font-size: .6rem;
+                }
+              }
+              .net-tel{
+                font-size:.23rem;
+                font-weight:600;
+              }
+              .net-ocl{
+                position: absolute;
+                top:-.1rem;
+                right:.1rem;
+                font-size:.12rem;
+                color:#fff;
+                padding:.02rem .04rem;
+                background: #02489d;
+              }
+            }
+            .net-work{
+              font-size:.15rem;
+              text-align: center;
+              color:#fff;
+              background:#00b8f5;
+              margin-top:.05rem;
+              margin-bottom:.1rem;
+            }
+            .net-price{
+              font-size:.15rem;
+              margin-bottom:.1rem;
+              .new{
+                color:#000;
+                .cheap{
+                  font-size:.1rem;
+                  color:#fff;
+                  background:#f24a1d;
+                  padding:0 .05rem;
+                  margin-left:.02rem;
+                }
+              }
+              .price{
+                .new-price{
+                  color:#f2741d;
+                  font-weight:bold;
+                }
+                .month{
+                  font-size:.12rem;
+                  color:#f2741d;
+                  del{
+                    color:#949494;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
     }
   }
 }
