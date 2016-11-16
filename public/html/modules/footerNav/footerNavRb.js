@@ -34,7 +34,7 @@ app.directive("footerNavRb", ['$timeout', function ($timeout) {
                         //writebdLog(scope.category, "_SelectNumber", "渠道号", scope.gh);//选择号码
                     } else {
                         $scrollTo = $("#phoneQuery");
-                        console.log($scrollTo);
+                        //console.log($scrollTo);
                         $container.animate({
                             scrollTop: $scrollTo.offset().top - $container.offset().top + $container.scrollTop()
                         });

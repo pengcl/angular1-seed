@@ -327,3 +327,14 @@ $(function () {
         $(this).parent().next().find(".weui-tab__item").eq($(this).index()).addClass("weui-tab__item_on");
     });
 });
+
+$(function () {
+    $("#container").on("click", ".list-tabs .tab-item", function () {
+        var $phoneList = $(".phone-list");
+        var $this = $(this);
+        $this.siblings().removeClass("on");
+        $phoneList.hide();
+        $this.addClass("on");
+        $phoneList.eq($this.index()).show();
+    });
+});

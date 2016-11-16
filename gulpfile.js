@@ -7,7 +7,7 @@ var jshint = require('gulp-jshint');
 var minifyCSS = require('gulp-minify-css');
 var ngHtml2Js = require("gulp-ng-html2js");
 var minifyHtml = require("gulp-minify-html");
-var version = "1.0.1";
+var version = "1.0.2";
 
 
 gulp.task('html2js', function () {

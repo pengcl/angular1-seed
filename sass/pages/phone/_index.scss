@@ -57,14 +57,81 @@
   html, button, input, select, textarea,.pure-g [class *= "pure-u"] {
     font-family:Microsoft Yahei,Helvetica Neue,Helvetica,Arial,sans-serif;
   }
+  .content-scrollable {
+    background: url("/images/phones/assets/index/indexBg.jpg") repeat;
+  }
+  .spc-title {
+    background: none;
+    color: #052d52;
+    h2 {
+      font-weight: 700;
+      span {
+        &:first-child {
+          &:after {
+            height: 0.03rem;
+            background: #052d52;
+          }
+        }
+        &:last-child {
+          &:before {
+            height: 0.03rem;
+            background: #052d52;
+          }
+        }
+      }
+    }
+  }
+  .list-tabs {
+    margin-left: 0.07rem;
+    margin-right: 0.07rem;
+    border-bottom: 3px solid #f8791e;
+    margin-bottom: 0.15rem;
+    .tab-item {
+      &:first-child {
+        .img-box {
+          margin-right: 0.02rem;
+        }
+      }
+      &:last-child {
+        .img-box {
+          margin-left: 0.02rem;
+        }
+      }
+      img.on {
+        display: none;
+      }
+      &.on {
+        img {
+          display: none;
+        }
+        img.on {
+          display: block;
+        }
+      }
+    }
+  }
+  .phone-list {
+    font-size: 0;
+  }
+  .phone-item {
+    padding:0 0.07rem;
+  }
   .phone-box {
-    margin:0.1rem;
     font-size: 0.12rem;
     background: #fff;
     position: relative;
     border:1px solid #dedede;
+    border-bottom: 0;
+    position: relative;
+    .phone-box-flag {
+      position: absolute;
+      left: 0.05rem;
+      width: 0.3rem;
+      top:-1px;
+    }
     .image-box {
-      padding-top: 0.15rem;
+      padding-top: 0.1rem;
+      width: 35%;
       .image-b {
         margin-left: 0.05rem;
         margin-right: 0.05rem;
@@ -76,13 +143,17 @@
       }
     }
     .txt-box {
+      width: 65%;
       padding-top: 0.15rem;
+      .box-content {
+        padding-left: 0.03rem;
+      }
       h2 {
-        font-size: 0.16rem;
+        font-size: 0.14rem;
         line-height: 1.3;
         i {
           @include inline-block;
-          font-size: 0.14rem;
+          font-size: 0.12rem;
           padding-top: 0.01rem;
           padding-bottom: 0.01rem;
           @include border-radius(3px);
@@ -100,7 +171,7 @@
         }
       }
       div.price {
-        margin-top: 0.1rem;
+        margin-top: 0.05rem;
         .label {
           color: #333;
           font-size: 0.12rem;
@@ -120,32 +191,195 @@
           padding-bottom: 0.01rem;
           padding-left: 0.05rem;
           padding-right: 0.05rem;
+          line-height: 1.1;
+          @include inline-block;
+          vertical-align: baseline;
+        }
+        .sale-price {
+          .promotion {
+            background: #f2741d;
+            color: #fff;
+            border:1px solid #f2741d;
+          }
         }
       }
       .pkg {
-        margin-top: 0.05rem;
+        margin-top: 0.1rem;
+        margin-right: 0.20rem;
         .pkg-flag {
           font-size: 0.12rem;
           color: #fff;
           background: #052d52;
-          padding:0.05rem;
-          @include inline-block;
+          text-align: center;
+          display: block;
+          border: 2px dashed #052d52;
           span {
             display: block;
-            line-height:1.1;
+            font-size: 0.12rem;
+            line-height:0.15rem;
           }
         }
         .pkg-staff {
-          @include inline-block;
+          display: block;
+          border: 2px dashed #052d52;
+          border-left: 0;
+          padding-left: 0.08rem;
+          color: #052d52;
           span {
             display: block;
+            line-height: 0.15rem;
+            font-size: 0.12rem;
           }
         }
         .pkg-price{
-          @include inline-block;
+          display: block;
+          border: 2px dashed #052d52;
+          border-left: 0;
+          padding-left: 0.08rem;
           span {
             display: block;
           }
+          .pkg-price-box {
+            font-size: 0.16rem;
+            color: #052d52;
+            line-height: 0.18rem;
+            sub {
+              font-size: 0.1rem;
+              bottom:0;
+            }
+          }
+          .promotion {
+            font-size: 0.1rem;
+            line-height: 0.12rem;
+          }
+        }
+      }
+      .goodness {
+        margin-top: 0.1rem;
+        li {
+          list-style: disc inside;
+          margin-bottom: 0.03rem;
+          padding-left: 0.02rem;
+          .promotion {
+            font-size: 0.12rem;
+            border:1px dashed #f2741d;
+            color: #f2741d;
+            margin-left: 0.05rem;
+            padding-top: 0.01rem;
+            padding-bottom: 0.01rem;
+            padding-left: 0.05rem;
+            padding-right: 0.05rem;
+            line-height: 1.1;
+            @include inline-block;
+            vertical-align: baseline;
+            &.solid {
+              background: #f2741d;
+              border:1px solid #f2741d;
+              color: #fff;
+            }
+          }
+        }
+      }
+      .buy {
+        margin-top: 0.1rem;
+        .btn {
+          display: block;
+          color: #fff;
+          background: #f2741d;
+          margin-right: 0.2rem;
+          font-size: 0.18rem;
+          padding-top: 0.055rem;
+          padding-bottom: 0.035rem;
+        }
+      }
+    }
+  }
+  #recommend {
+    margin:0.07rem;
+    .recommend-lists {
+      margin-left: -0.03rem;
+      margin-right: -0.03rem;
+      .recommend-box {
+        margin-left: 0.03rem;
+        margin-right: 0.03rem;
+        font-size: 0.12rem;
+        padding:0.05rem;
+        background: #fff;
+        .img-box {
+          position: relative;
+          .img-title {
+            position: absolute;
+            display: block;
+            left: 0;
+            right:0;
+            top: auto;
+            bottom: 0;
+            padding:0.05rem;
+            font-size: 0.13rem;
+            color: #fff;
+            font-weight: 400;
+            line-height: 0.16rem;
+          }
+        }
+        div.price {
+          margin-top: 0.05rem;
+          line-height: 0.16rem;
+          .label {
+            color: #333;
+            padding:0;
+            font-size: 0.14rem;
+            font-weight: normal;
+          }
+          span.price {
+            color: #f2741d;
+            font-size: 0.14rem;
+
+          }
+          sub {
+            font-size: 0.14rem;
+            bottom: 0;
+            color: #999;
+          }
+        }
+        .pkg {
+          margin-top: 0.05rem;
+          line-height:0.16rem;
+          .pkg-staff {
+            display: block;
+            position: relative;
+            &:after {
+              content: " ";
+              position: absolute;
+              right:0.07rem;
+              top:0.05rem;
+              bottom: 0.04rem;
+              width: 1px;
+              border-right: 1px dashed #999;
+            }
+          }
+          .promotion {
+            font-size: 0.1rem;
+            line-height:0.16rem;
+            display: block;
+          }
+          .pkg-price-box {
+            font-size: 0.14rem;
+            line-height: 0.16rem;
+            display: block;
+            color: #1065c5;
+          }
+        }
+        .btn {
+          display: block;
+          border:2px solid #f2741d;
+          color: #f2741d;
+          font-size: 0.18rem;
+          padding-top: 0.045rem;
+          padding-bottom: 0.025rem;
+          @include border-radius(0);
+          margin-top: 0.05rem;
+          font-weight: bold;
+          margin-bottom: 0.05rem;
         }
       }
     }

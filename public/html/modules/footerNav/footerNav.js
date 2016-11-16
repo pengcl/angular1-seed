@@ -53,7 +53,6 @@ app.directive("footerNav", ['$http', function ($http) {
                         writebdLog(scope.category, "_BuyNow", "渠道号", scope.gh);//立即支付
                         scope.$root.toast.open();
                         if(scope.payType == 2){
-                            console.log(2);
                             scope.showHuOverLay("payTipsPanel");
                             return false;
                         }else {
@@ -67,7 +66,6 @@ app.directive("footerNav", ['$http', function ($http) {
                     }
                 } else {
                     $scrollTo = $('#receiverAddress');
-                    console.log($scrollTo);
                     $container.animate({
                         scrollTop: $scrollTo.offset().top - $container.offset().top + $container.scrollTop()
                     });

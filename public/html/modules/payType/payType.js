@@ -97,7 +97,6 @@ app.directive("payType", ['$location', '$compile', '$q', function ($location, $c
                     value = "_payCOD";
                 }
                 writebdLog(scope.category, value, "渠道号", scope.gh);//支付方式
-                console.log("submit");
                 $form.submit();
             };
 
