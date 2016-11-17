@@ -664,6 +664,32 @@ p{
           text-align: center;
         }
       }
+      .service{
+        margin:0 .05rem;
+        background:#fff;
+        .title{
+          padding-left:.1rem;
+          margin-left:.15rem;
+          position:relative;
+          font-size:.16rem;
+          font-weight:600;
+          &:before{
+            content:"";
+            position:absolute;
+            top:10%;
+            left:0;
+            background:#1991ee;
+            width:.05rem;
+            height:.18rem;
+          }
+        }
+        .item-box{
+          img{
+            display:block;
+            width:100%;
+          }
+        }
+      }
     }
   }
 }
