@@ -1,6 +1,6 @@
 <div id="receiverAddress" class="address">
     <input type="hidden" value="{{receiver.city + receiver.room}}" name="address" id="address">
-    <div class="adr-tab weui-cells">
+    <div class="adr-tab weui-cells" ng-click="showReceiverPn($event);">
         <a class="weui-cell weui-cell_access" href="javascript:;">
             <div class="weui-cell__bd">
                 <p>填写收货地址</p>
@@ -8,7 +8,7 @@
             <div class="weui-cell__ft">未填写</div>
         </a>
     </div>
-    <div class="weui-cells weui-cells_form">
+    <div id="receiverAddressPanel" class="weui-cells weui-cells_form">
         <div class="weui-cell input-name" ng-class="{'weui-cell_warn':checkoutForm.reciverName.$dirty== true && checkoutForm.reciverName.$valid == false,'weui-cell_success':checkoutForm.reciverName.$valid == true}">
             <div class="weui-cell__hd"><label class="weui_label">收件人：</label></div>
             <div class="weui-cell__bd weui_cell_primary">

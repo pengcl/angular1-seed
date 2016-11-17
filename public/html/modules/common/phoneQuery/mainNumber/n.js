@@ -7,8 +7,6 @@ app.directive("mainNumber", ["$cookieStore", function ($cookieStore) {
         controller: "numberController",
         link: function (scope, element, attrs) {
 
-            /*$container = $("#container");*/
-
             scope.checkPhone = function () {
                 if (!scope.checkoutForm.phoneNumber.$valid) {//原本应该用!scope.checkoutForm.phoneNumber.$valid
                     return false;
@@ -28,27 +26,16 @@ app.directive("mainNumber", ["$cookieStore", function ($cookieStore) {
                 writebdLog(scope.category, "_SelectNumber", "渠道号", scope.gh);//选择号码
             };
 
-            /*scope.getNumber = function () {
-                if (scope.checkPhone()) {
-                    scope.npHide();
-                    var $scrollTo = $('#phoneQuery');
-                    var $container = $(".content-scrollable");
-                    $container.animate({
-                        scrollTop: $scrollTo.offset().top - $container.offset().top + $container.scrollTop()
-                    });
-
-                    writebdLog(scope.category, "_ConfirmNumber", "渠道号", scope.gh);//确认号码
-                } else {
-                    scope.$root.dialog.open("", "请您选择号码！");
-                }
-            }*/
+            scope.showMNumberPn = function (e) {
+                $("#pickMainNumberPanel").slideToggle();
+            };
         }
     };
 }]).controller('numberController', ['$scope', '$cookieStore', '$http', '$compile', function ($scope, $cookieStore, $http) {
     //var deferred = $q.defer();
     $scope.phoneData = new Array();
 
-    $scope.phoneFilter = function (query) {//查询包含query的手机号码;
+    $scope.phoneMainFilter = function (query) {//查询包含query的手机号码;
         var _data = new Array();
         if (query != "") {
             $.each($scope.phoneData, function (i, k) {
@@ -60,7 +47,24 @@ app.directive("mainNumber", ["$cookieStore", function ($cookieStore) {
         } else {
             $scope.filterData = $scope.phoneData;
         }
-        $scope.items = $scope.filterData.slice(0, $scope.pageSize);
+        $scope.mainItems = $scope.filterData.slice(0, $scope.pageSize);
+
+        $scope.dataInit();
+    };
+
+    $scope.phoneSubFilter = function (query) {//查询包含query的手机号码;
+        var _data = new Array();
+        if (query != "") {
+            $.each($scope.phoneData, function (i, k) {
+                if ((k.n).indexOf(query) >= 0) {
+                    _data.push(k);
+                }
+            });
+            $scope.filterData = _data;
+        } else {
+            $scope.filterData = $scope.phoneData;
+        }
+        $scope.subItems = $scope.filterData.slice(0, $scope.pageSize);
 
         $scope.dataInit();
     };
@@ -97,15 +101,21 @@ app.directive("mainNumber", ["$cookieStore", function ($cookieStore) {
         //$scope.selPage = 1;
 
         //设置数据源(分页)
-        $scope.setData = function () {
-            $scope.items = $scope.filterData.slice(($scope.pageSize * ($scope.selPage - 1)), ($scope.selPage * $scope.pageSize));//通过当前页数筛选出表格当前显示数据
+        $scope.setData = function (type) {
+            if (type == "main") {
+                $scope.mainItems = $scope.filterData.slice(($scope.pageSize * ($scope.selPage - 1)), ($scope.selPage * $scope.pageSize));
+            }
+            else {
+                $scope.subItems = $scope.filterData.slice(($scope.pageSize * ($scope.selPage - 1)), ($scope.selPage * $scope.pageSize));
+            }
         };
 
-        $scope.items = $scope.filterData.slice(0, $scope.pageSize);
+        $scope.mainItems = $scope.filterData.slice(0, $scope.pageSize);
+        $scope.subItems = $scope.filterData.slice(0, $scope.pageSize);
 
         $scope.dataInit();
 
-        $scope.selectPage = function (page) {
+        $scope.selectPage = function (page, type) {
             //不能小于1大于最大
             if (page < 1 || page > $scope.pages) return;
             //最多显示分页数5
@@ -118,7 +128,7 @@ app.directive("mainNumber", ["$cookieStore", function ($cookieStore) {
                 $scope.pageList = newpageList;
             }
             $scope.selPage = page;
-            $scope.setData();
+            $scope.setData(type);
             $scope.isActivePage(page);
             //console.log("选择的页：" + page);
         };
@@ -127,14 +137,21 @@ app.directive("mainNumber", ["$cookieStore", function ($cookieStore) {
             return $scope.selPage == page;
         };
         //上一页
-        $scope.Previous = function () {
-            $scope.selectPage($scope.selPage - 1);
+        $scope.Previous = function (type) {
+            $scope.selectPage($scope.selPage - 1, type);
         };
         //下一页
-        $scope.Next = function () {
-            $scope.selectPage($scope.selPage + 1);
+        $scope.Next = function (type) {
+            $scope.selectPage($scope.selPage + 1, type);
             writebdLog($scope.category, "_ChangeALot", "渠道号", $scope.gh);//换一批
         };
+        $scope.ok = function (type) {
+            if (type == "main") {
+                $("#pickMainNumberPanel").slideToggle();
+            }else {
+                $("#pickSubNumberPanel").slideToggle();
+            }
+        }
 
     }).error(function (data, status, headers, config) {
         console.log(status);

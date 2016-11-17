@@ -236,6 +236,9 @@ app.directive("adr", ["$compile", "$cookieStore", '$http', '$interval', function
 
                 return true;
             };
+            scope.showReceiverPn = function (e) {
+                $("#receiverAddressPanel").slideToggle();
+            }
         }
     };
 }]);

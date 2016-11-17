@@ -1,5 +1,6 @@
 <div id="pickMainNumber" class="pick-number">
-    <div class="weui-cells">
+    <input id="mainNumber" name="mainNumber" ng-model="mainNumber" type="hidden" required value="{{mainNumber}}">
+    <div class="weui-cells" ng-click="showMNumberPn($event)">
         <a class="weui-cell weui-cell_access" href="javascript:;">
             <div class="weui-cell__bd">
                 <p>选择主卡号码</p>
@@ -7,12 +8,12 @@
             <div class="weui-cell__ft">未选择</div>
         </a>
     </div>
-    <div class="pick-panel">
+    <div id="pickMainNumberPanel" class="pick-panel">
         <div class="weui-cells weui-cells_form">
             <div class="weui-cell">
                 <div class="weui-cell__hd"><label class="weui-label">选择靓号</label></div>
                 <div class="weui-cell__bd">
-                    <input ng-change="phoneFilter(query)" ng-blur="inputNumber(query)" class="weui-input" pattern="[0-9]*" ng-model="query" placeholder="请输入2 ~ 5位您想要的数字">
+                    <input ng-change="phoneMainFilter(mainQuery)" ng-blur="inputNumber(mainQuery)" class="weui-input" pattern="[0-9]*" ng-model="mainQuery" placeholder="请输入2 ~ 5位您想要的数字">
                 </div>
                 <div class="weui-cell__ft">
                     <i class="weui-icon-warn"></i>
@@ -22,11 +23,11 @@
 
         <div class="query-panel">
             <ul class="query-lists item-lists pure-g">
-                <li class="query-item list-item pure-u-1-2" ng-repeat="numberItem in items">
-                    <div class="item-box" ng-click="setNumberItem($event,numberItem)">
+                <li class="query-item list-item pure-u-1-2" ng-repeat="numberItem in mainItems">
+                    <div class="item-box" ng-click="setMainNumber($event,numberItem)">
                         <p class="phone-number">
                             <span class="weui-icon-success weui-icon_msg"></span>
-                            <span ng-bind-html="numberItem.n | replaceInput : query | trustHtml"></span>
+                            <span ng-bind-html="numberItem.n | replaceInput : mainQuery | trustHtml"></span>
                         </p>
                         <ins class="icon-check"></ins>
                     </div>
@@ -35,8 +36,9 @@
         </div>
 
         <div class="sbtn">
-            <a href="javascript:;" ng-click="Previous()">上一批</a>
-            <a href="javascript:;" ng-click="Next()">下一批</a>
+            <a class="sb-prev" href="javascript:;" ng-click="Previous('main')"><i class="icon-arrow-left-alt"></i><span>上一页</span></a>
+            <a class="sb-next" href="javascript:;" ng-click="Next('main')"><span>下一页</span><i class="icon-arrow-right-alt"></i></a>
+            <a class="sb-ok" href="javascript:;" ng-click="ok('main')"><span>我选好了</span><i class="icon-arrow-up"></i></a>
         </div>
     </div>
 </div>

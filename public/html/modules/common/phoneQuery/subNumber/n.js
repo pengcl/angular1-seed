@@ -25,6 +25,10 @@ app.directive("subNumber", ["$cookieStore", function ($cookieStore) {
 
                 writebdLog(scope.category, "_SelectNumber", "渠道号", scope.gh);//选择号码
             };
+
+            scope.showSNumberPn = function (e) {
+                $("#pickSubNumberPanel").slideToggle();
+            };
         }
     };
 }]);
