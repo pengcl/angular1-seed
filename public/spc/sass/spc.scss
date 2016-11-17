@@ -543,4 +543,91 @@ p{
       }
     }
   }
+  &.model{
+    .content-scrollable{
+      font-size:.12rem;
+      .pay-style{
+        padding:0 .05rem;
+        .pay-style-list{
+          div{
+            border:2px solid #707070;
+            color:#707070;
+            border-radius: 5px;
+            margin-left:.03rem;
+            margin-right:.03rem;
+            p{
+              text-align: center;
+            }
+            .title{
+
+              font-size: .16rem;
+              padding:.05rem;
+              font-weight:900;
+              background:#fff;
+            }
+            .details{
+              font-size:.14rem;
+              color:#fff;
+              background:#707070;;
+              font-weight:600;
+            }
+            .active{
+              background:#cc1414;
+            }
+          }
+          .on{
+            border:2px solid #cc1414;
+            color:#cc1414;
+          }
+        }
+        .pay-style-details{
+          padding:0 .05rem;
+          color:#cc1414;
+          font-weight:600;
+          margin:.1rem 0;
+          p{
+            display:none;
+          }
+        }
+      }
+      .card-details{
+        color:#595959;
+        .card-list-item{
+          margin-left:.25rem;
+          margin-right:.05rem;
+          border:1px solid #707070;
+          border-radius: 5px;
+          padding:0 .2rem 0 .1rem;
+          .item-box{
+            .month{
+              padding:.05rem 0;
+            }
+            .line{
+              margin-left:.05rem;
+              border-left:1px dashed #595959;
+              padding:.05rem 0;
+            }
+              .month-item{
+                font-size:.15rem;
+              }
+            .month-item-small{
+              font-size: .2rem;
+              font-weight:600;
+            }
+              .big{
+                font-size:.25rem;
+                font-weight:bold;
+              }
+            b{
+              font-weight:600;
+            }
+
+          }
+        }
+        p{
+          text-align: center;
+        }
+      }
+    }
+  }
 }

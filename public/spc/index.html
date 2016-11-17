@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1"/>
+    <link rel="stylesheet" href="/css/utils/grids-min.css">
+    <link rel="stylesheet" href="http://cdn.bootcss.com/owl-carousel/1.32/owl.carousel.min.css">
+    <link rel="stylesheet" href="http://cdn.bootcss.com/owl-carousel/1.32/owl.theme.min.css">
+    <link rel="stylesheet" href="spc.min.css">
+    <script>
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "//hm.baidu.com/hm.js?ee0c67568d5c202840357783c24b820f";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+
+    </script>
+</head>
+<body>
+<div class="page p-index model default">
+    <div class="content-scrollable has-footer">
+        <div class="pay-style">
+            <ul class="pay-style-list pure-g">
+                <li class="pay pure-u-1-3 ">
+                    <div class="item">
+                        <p class="title">信用卡分期</p>
+                        <p class="details">12期免息 0现金</p>
+                    </div>
+                </li>
+                <li class="pay pure-u-1-3">
+                    <div class="item">
+                        <p class="title">一次性支付</p>
+                        <p class="details">再享95折优惠</p>
+                     </div>
+                </li>
+                <li class="pay pure-u-1-3">
+                    <div class="item">
+                        <p class="title">货到付款</p>
+                        <p class="details">预付99元抵200</p>
+                    </div>
+                </li>
+            </ul>
+            <div class="pay-style-details">
+                <p>信用卡分期：12期免息。总价<span>￥12776</span>，月供仅<span>￥1065</span></p>
+                <p>一次性支付：再享95折优惠。总价<span>￥12776</span>，劲省<span>￥638.8</span></p>
+                <p>货到付款：预付99元抵200。总价<span>￥12776</span>，月供<span>￥101</span></p>
+            </div>
+        </div>
+        <div class="card-details">
+            <div class="card">
+                <ul class="card-list">
+                    <li class="card-list-item">
+                        <div class="item-box pure-g">
+                            <div class="month pure-u-2-5">
+                                    <p class="month-item">￥<span class="big">168</span> /月</p>
+                                    <p><del>原价304 优惠期36个月</del></p>
+                            </div>
+                            <div class="net-work pure-u-3-5">
+                                <div class="line">
+                                <p class="month-item month-item-small"><span class="big">5.5GB</span>全国流量</p>
+                                <p><b>1800</b>分钟全国通话 <b>50</b>条短信</p>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="http://apps.bdimg.com/libs/jquery/1.11.3/jquery.min.js" type="text/javascript"></script>
+<script src="http://cdn.bootcss.com/jquery_lazyload/1.9.7/jquery.lazyload.min.js" type="text/javascript"></script>
+<script src="http://cdn.bootcss.com/owl-carousel/1.32/owl.carousel.min.js" type="text/javascript"></script>
+<script>
+    $(function(){
+        $(".pay-style .pay").on("click",function(){
+           var $this=$(this);
+            $this.siblings().find(".item").removeClass("on");
+            $this.find(".item").addClass("on");
+            $this.siblings().find(".details").removeClass("active");
+            $this.find(".details").addClass("active");
+            $(".pay-style-details p").eq($this.index()).show().siblings().hide();
+            console.log("a");
+        });
+    })
+</script>
+<script src="spc.js" type="text/javascript"></script>
+</body>
+</html>
