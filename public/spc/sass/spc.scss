@@ -598,13 +598,27 @@ p{
           border:1px solid #707070;
           border-radius: 5px;
           padding:0 .2rem 0 .1rem;
-          .icon-gray-5{
+          .icon{
             position:absolute;
             left:0;
             top:0;
             width:.4rem;
             height:.43rem;
+          }
+          .gray-5{
             background:url(img/indexM/icon/1.png);
+            background-size:100%;
+          }
+          .red-5{
+            background:url(img/indexM/icon/2.png);
+            background-size:100%;
+          }
+          .gray-6{
+            background:url(img/indexM/icon/3.png);
+            background-size:100%;
+          }
+          .red-6{
+            background:url(img/indexM/icon/4.png);
             background-size:100%;
           }
           .item-box{
@@ -619,6 +633,15 @@ p{
               .month-item{
                 font-size:.15rem;
               }
+            .rec{
+              position:relative;
+              .rec-t{
+                position:absolute;
+                top:0;
+                right:0;
+                font-size: .1rem;
+              }
+            }
             .month-item-small{
               font-size: .2rem;
               font-weight:600;

@@ -67,7 +67,7 @@
                                 </div>
                             </div>
                         </div>
-                        <ins class="icon-gray-5"></ins>
+                        <ins class="icon gray-5"></ins>
                     </li>
                     <li class="card-list-item">
                         <div class="item-box pure-g">
@@ -82,7 +82,7 @@
                                 </div>
                             </div>
                         </div>
-                        <ins class="icon-gray-5"></ins>
+                        <ins class="icon gray-5"></ins>
                     </li>
                     <li class="card-list-item">
                         <div class="item-box pure-g">
@@ -97,7 +97,7 @@
                                 </div>
                             </div>
                         </div>
-                        <ins class="icon-gray-5"></ins>
+                        <ins class="icon gray-6"></ins>
                     </li>
                     <li class="card-list-item">
                         <div class="item-box pure-g">
@@ -112,7 +112,7 @@
                                 </div>
                             </div>
                         </div>
-                        <ins class="icon-gray-5"></ins>
+                        <ins class="icon gray-6"></ins>
                     </li>
                     <li class="card-list-item">
                         <div class="item-box pure-g">
@@ -127,12 +127,13 @@
                                 </div>
                             </div>
                         </div>
-                        <ins class="icon-gray-5"></ins>
+                        <ins class="icon gray-6"></ins>
                     </li>
 
                 </ul>
             </div>
         </div>
+        <div></div>
     </div>
 </div>
 <script src="http://apps.bdimg.com/libs/jquery/1.11.3/jquery.min.js" type="text/javascript"></script>
@@ -149,14 +150,24 @@
             $(".pay-style-details p").eq($this.index()).show().siblings().hide();
             console.log("a");
         });
+    });
+    $(function(){
         $(".card-details .card-list-item").on("click",function(){
-            $(this).siblings().removeClass("on");
-            $(this).addClass("on");
-            $(this).siblings().find(".line").css("border-color","#595959");
-            $(this).find(".line").css("border-color","#cc1414");
+            var $this=$(this);
+            $this.siblings().find(".red-5").removeClass("red-5");
+            if($this.find("ins").hasClass("gray-5")){
+                $this.find("ins").addClass("red-5");
+            }
+            $this.siblings().find(".red-6").removeClass("red-6");
+            if($this.find("ins").hasClass("gray-6")){
+                $this.find("ins").addClass("red-6");
+            }
+            $this.siblings().removeClass("on");
+            $this.addClass("on");
+            $this.siblings().find(".line").css("border-color","#595959");
+            $this.find(".line").css("border-color","#cc1414");
 
-
-        })
+        });
     })
 </script>
 <script src="spc.js" type="text/javascript"></script>
