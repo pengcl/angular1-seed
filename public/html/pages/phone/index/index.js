@@ -60,6 +60,7 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
 
     $http.jsonp('http://192.168.1.181:8082/product/getProList.html?activeTag=mysy&s=wap&callback=JSON_CALLBACK').success(function (data, status, headers, config) {
         $scope.doublePhones = data;
+        console.log($scope.doublePhones[0].packageProductList);
     }).error(function (data, status, headers, config) {
         console.log(status);
         //deferred.reject(status)

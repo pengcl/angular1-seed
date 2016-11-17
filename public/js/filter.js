@@ -69,3 +69,14 @@ appFilters.filter('formatPhone', function () {
         //return lastVar;
     };
 });
+
+appFilters.filter('doubleName', function () {
+    return function (input, key) {
+        input = input.split(" + ");
+        if (key == 1) {
+            return input[1];
+        } else {
+            return input[0];
+        }
+    };
+});
