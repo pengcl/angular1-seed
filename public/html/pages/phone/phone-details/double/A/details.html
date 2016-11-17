@@ -1,10 +1,11 @@
 <div class="page p-details a-details">
     <top-nav page-title="下单" page-back="back"></top-nav>
     <!--<form id="checkoutForm" name="checkoutForm" action="http://2b2fda71.ngrok.natapp.cn/wap/taokafanghaoNew/submitOrderMachine.html" method="post" novalidate>-->
-    <form id="checkoutForm" name="checkoutForm" action="http://m.gd189fq.com/wap/taokafanghaoNew/submitOrderMachine.html" method="post" novalidate>
+    <!--<form id="checkoutForm" name="checkoutForm" action="http://m.yfq.na/wap/taokafanghaoNew/submitOrderDouble.html" method="post" novalidate>-->
+    <form id="checkoutForm" name="checkoutForm" action="http://192.168.1.181:8082/wap/taokafanghaoNew/submitOrderDouble.html" method="post" novalidate>
         <input type="hidden" value="1" name="monthNumber" id="monthNumber">
         <input type="hidden" value="{{category}}" name="category" id="category">
-        <input type="hidden" value="{{phone.productId}}" ng-model="phone.productId" name="machineId" id="machineId">
+        <input type="hidden" value="{{phone.activityproductId}}" ng-model="phone.productId" name="machineId" id="machineId">
         <gh></gh>
         <activity></activity>
         <redirect-url></redirect-url>
@@ -38,8 +39,50 @@
                 <sub-colors title="副机颜色" ng-if="phone"></sub-colors>
             </div>
 
+            <div id="phonePkg">
+                <input id="productId" name="productId" type="hidden" value="{{phone.packageProductList[0].productId}}">
+                <div class="weui-cells__title title-icon">
+                    <span class="title">选择靓号</span>
+                    <span class="sub-title">给您的新手机配个靓号</span>
+                </div>
+                <div class="card-details">
+                    <div class="card">
+                        <ul class="card-list">
+                            <li class="card-list-item on">
+                                <div class="item-box pure-g">
+                                    <div class="month pure-u-2-5">
+                                        <p class="month-item rec">￥<span class="big" ng-bind="phone.packageProductList[0].salesPrice | number : 0"></span><sub>套餐</sub></p>
+                                        <p><span>每人仅￥<span ng-bind="phone.packageProductList[0].salesPrice/2 | number : 0"></span></span>优惠36个月</p>
+                                    </div>
+                                    <div class="net-work pure-u-3-5">
+                                        <div class="line">
+                                            <p class="month-item month-item-small"><span class="big">5.5GB</span><sub>全国流量</sub></p>
+                                            <p><b>1800</b>分钟全国通话 <b>50</b>条短信</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <ins class="icon-gray-5">
+                                    <div class="img-box">
+                                        <img src="/images/double-flag.png">
+                                    </div>
+                                </ins>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
             <main-number></main-number>
             <sub-number></sub-number>
+
+            <div id="promise">
+                <div class="weui-cells__title title-icon">
+                    <span class="title">保障服务</span>
+                </div>
+                <div class="img-box">
+                    <img src="/images/phones/assets/details/promise.png">
+                </div>
+            </div>
 
             <adr></adr>
 

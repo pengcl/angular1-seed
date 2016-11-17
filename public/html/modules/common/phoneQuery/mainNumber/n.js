@@ -7,8 +7,15 @@ app.directive("mainNumber", ["$cookieStore", function ($cookieStore) {
         controller: "numberController",
         link: function (scope, element, attrs) {
 
-            scope.checkPhone = function () {
-                if (!scope.checkoutForm.phoneNumber.$valid) {//原本应该用!scope.checkoutForm.phoneNumber.$valid
+            var $container = $('.content-scrollable');
+
+            scope.checkMainNumber = function () {
+                if (!scope.checkoutForm.mainNumber.$valid) {//原本应该用!scope.checkoutForm.phoneNumber.$valid
+                    var $scrollTo = $('#pickMainNumber');
+                    $container.animate({
+                        scrollTop: $scrollTo.offset().top - $container.offset().top + $container.scrollTop() -50
+                    });
+                    $("#pickMainNumberPanel").slideDown();
                     return false;
                 }
                 return true;
@@ -19,6 +26,8 @@ app.directive("mainNumber", ["$cookieStore", function ($cookieStore) {
                 scope.mainNumber = numberItem.n;
 
                 var $this = $(event.currentTarget);
+
+                //$("#pickMainNumberPanel").slideToggle();
 
                 $this.parent().siblings().children().removeClass('curr');
                 $this.addClass('curr');
@@ -148,8 +157,10 @@ app.directive("mainNumber", ["$cookieStore", function ($cookieStore) {
         $scope.ok = function (type) {
             if (type == "main") {
                 $("#pickMainNumberPanel").slideToggle();
+                $("#pickMainNumber .weui-cells").toggleClass("down");
             }else {
                 $("#pickSubNumberPanel").slideToggle();
+                $("#pickSubNumber .weui-cells").toggleClass("down");
             }
         }
 

@@ -1,11 +1,11 @@
-<div id="pickMainNumber" class="pick-number">
+<div id="pickMainNumber" class="pick-number" ng-if="buyType == 1">
     <input id="mainNumber" name="mainNumber" ng-model="mainNumber" type="hidden" required value="{{mainNumber}}">
     <div class="weui-cells" ng-click="showMNumberPn($event)">
         <a class="weui-cell weui-cell_access" href="javascript:;">
             <div class="weui-cell__bd">
                 <p>选择主卡号码</p>
             </div>
-            <div class="weui-cell__ft">未选择</div>
+            <div class="weui-cell__ft"><span ng-if="!mainNumber">未选择</span><span ng-if="mainNumber" ng-bind="mainNumber"></span></div>
         </a>
     </div>
     <div id="pickMainNumberPanel" class="pick-panel">

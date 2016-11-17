@@ -1,4 +1,7 @@
 .page.p-details.a-details {
+  .content-scrollable {
+    background: #ebebeb;
+  }
   .product-txt {
     padding-left: 0.1rem;
     h1 {
@@ -134,7 +137,6 @@
     }
   }
   #pickMainNumber {
-    margin-top: 0.1rem;
   }
   .pick-panel {
     display: none;
@@ -155,6 +157,21 @@
   }
 
   #setPayType {
+    background: #fff;
+    padding-top: 0.1rem;
+    padding-bottom: 0.15rem;
+    margin-top: 0.1rem;
+    .weui-cells__title {
+      .sub-title {
+        position: absolute;
+        right: 0.15rem;
+        padding: 0;
+        border: 0;
+        color: #999;
+        font-size: 0.14rem;
+        line-height: 0.32rem;
+      }
+    }
     .paytype-list {
       div.item {
         border: 1px solid #707070;
@@ -211,6 +228,138 @@
     padding-left: 0.48rem;
     .nav-comment {
       left: 0 !important;
+    }
+    &.nav-list {
+      .nav-item {
+        &.nav-price {
+          font-size: 0.12rem;
+          line-height: 1.2;
+          text-align: left;
+          padding-top: 0.02rem;
+          padding-bottom: 0.02rem;
+        }
+      }
+    }
+  }
+  #promise {
+    background: #fff;
+    padding-top: 0.1rem;
+    margin-top: 0.1rem;
+    padding-bottom: 0.15rem;
+  }
+  .weui-cells__title {
+    margin-top: 0;
+  }
+  .has-footer {
+    &:after {
+      height: 0.58rem;
+    }
+  }
+  .weui-cell_access .weui-cell__ft::after {
+    transform:rotate(135deg);
+    -ms-transform:rotate(135deg); 	/* IE 9 */
+    -moz-transform:rotate(135deg); 	/* Firefox */
+    -webkit-transform:rotate(135deg); /* Safari 和 Chrome */
+    -o-transform:rotate(135deg);
+  }
+  .down {
+    .weui-cell_access .weui-cell__ft::after {
+      transform:rotate(-45deg);
+      -ms-transform:rotate(-45deg); 	/* IE 9 */
+      -moz-transform:rotate(-45deg); 	/* Firefox */
+      -webkit-transform:rotate(-45deg); /* Safari 和 Chrome */
+      -o-transform:rotate(-45deg);
+    }
+  }
+  .card-details{
+    .card-list-item{
+      color:#595959;
+      position:relative;
+      margin-left: 0.15rem;
+      margin-right: 0.15rem;
+      border:1px solid #707070;
+      border-radius: 5px;
+      margin-bottom: 0.05rem;
+      margin-top: 0.05rem;
+      .icon-gray-5{
+        position:absolute;
+        left:0;
+        top:0;
+        width:.4rem;
+      }
+      .item-box{
+        padding:0;
+        .month{
+          padding:.05rem 0;
+        }
+        .line{
+          margin-left:.05rem;
+          border-left:1px dashed #595959;
+          padding:.05rem 0;
+        }
+        p {
+          font-size: 0.10rem;
+          line-height: 1.4;
+        }
+        .month-item{
+          font-size:.15rem;
+        }
+        .month-item-small{
+          font-size: .2rem;
+          font-weight:600;
+        }
+        .big{
+          font-size:.2rem;
+          font-weight:bold;
+        }
+        b{
+          font-weight:600;
+        }
+
+      }
+    }
+    .on{
+      color:#cc1414;
+      border-color:#cc1414;
+      .img-box {
+        .line{
+          border-left:1px dashed #595959 !important;
+        }
+      }
+    }
+    p{
+      text-align: center;
+    }
+  }
+  #phonePkg {
+    background: #fff;
+    padding-top: 0.1rem;
+    padding-bottom: 0.15rem;
+    margin-top: 0.1rem;
+    .weui-cells__title {
+      .sub-title {
+        position: absolute;
+        right: 0.15rem;
+        padding: 0;
+        border: 0;
+        color: #999;
+        font-size: 0.14rem;
+        line-height: 0.32rem;
+      }
+    }
+  }
+  .item-box p.phone-number .weui-icon_msg::before {
+    color: #999;
+  }
+  .item-box.curr p.phone-number .weui-icon_msg::before {
+    color: #09bb07;
+  }
+  nav {
+    background: $color-primary;
+    color: #fff;
+    @include box-shadow(0px 1px 5px #888);
+    .nav-item {
+      color: #fff;
     }
   }
 }

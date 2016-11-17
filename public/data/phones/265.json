@@ -1,31 +1,78 @@
 {
-  "activityproductId": 265,
-  "deductibleMoney": "800",
-  "mainImageUrl": "",
-  "packageId": 256,
-  "phoneBillPrice": 6388,
-  "phonePrice": 6388,
-  "productList": [
+  "activityproductId": 271,
+  "deductibleMoney": "",
+  "mainImageUrl": "upload/product/20161115/gfecncccb3b4rbdct6jf3vtrdjkr.jpg",
+  "packageProductList": [
     {
-      "mainImageUrl": "",
-      "productId": 256,
-      "productMemory": "32G",
-      "productName": "iPhone7 32G",
-      "salePrice": 0,
-      "seckillImage": "",
-      "specificationValues": "6:黑色;2:银色;1:金色"
+      "message": "50",
+      "network": "4.5G",
+      "oldPrice": "304.00",
+      "productId": 266,
+      "productName": "152元/月(1800分钟通话,4.5G流量,50短信)",
+      "salesPrice": "152.00",
+      "talkTime": "1800分钟"
     },
     {
+      "message": "50",
+      "network": "4.5G",
+      "oldPrice": "259.00",
+      "productId": 267,
+      "productName": "155元/月(900分钟通话,4.5G流量,50短信)",
+      "salesPrice": "155.00",
+      "talkTime": "900分钟"
+    },
+    {
+      "message": "50",
+      "network": "3.5G",
+      "oldPrice": "204.00",
+      "productId": 268,
+      "productName": "122元/月(900分钟通话,3.5G流量,50短信)",
+      "salesPrice": "122.00",
+      "talkTime": "900分钟"
+    },
+    {
+      "message": "50",
+      "network": "3.5G",
+      "oldPrice": "174.00",
+      "productId": 269,
+      "productName": "104元/月(850分钟通话,3.5G流量,50短信)",
+      "salesPrice": "104.00",
+      "talkTime": "850分钟"
+    }
+  ],
+  "phoneBillPrice": 5388,
+  "phonePrice": 5388,
+  "phoneTypes": [
+    {
       "mainImageUrl": "",
-      "productId": 256,
-      "productMemory": "32G",
+      "mediaProductList": [
+        {
+          "mediaUrl": "upload/product/20161115/ahg8m888uguu8cll9xscga9y8d9l.jpg",
+          "name": "黑色"
+        },
+        {
+          "mediaUrl": "upload/product/20161115/lbce3ettjc5jtbwtlqmbcghpwfcb.jpg",
+          "name": "银色"
+        },
+        {
+          "mediaUrl": "upload/product/20161115/lbcektte5f5jtgleln4rfyhmh3p3.jpg",
+          "name": "金色"
+        },
+        {
+          "mediaUrl": "upload/product/20161115/gfedhcddg3bbc5dd56kfergedgej.jpg",
+          "name": "玫瑰金"
+        }
+      ],
+      "productId": 271,
+      "productMemory": "32GB",
       "productName": "iPhone7 32G",
       "salePrice": 0,
       "seckillImage": "",
-      "specificationValues": "6:黑色;2:银色;1:金色"
+      "specificationValues": "6:黑色;2:银色;1:金色;13:玫瑰金"
     }
   ],
-  "productName": "iPhone7 plus32G+iPhone7 plus32G",
-  "salePrice": 12776,
+  "productName": "iPhone7 32G",
+  "productTag": "",
+  "salePrice": 5388,
   "seckillImage": ""
 }

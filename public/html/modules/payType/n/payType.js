@@ -22,7 +22,7 @@ app.directive("nPayType", ['$location', '$compile', '$q', function ($location, $
             //设置默认payType;
             scope.setDefaultPayType = function (id, typeName) {
                 scope.payType = id;
-                scope.payTypeName = name;
+                scope.payTypeName = typeName;
             };
 
             scope.setDefaultPayType(2,"信用卡分期");
@@ -33,6 +33,9 @@ app.directive("nPayType", ['$location', '$compile', '$q', function ($location, $
                 event.preventDefault();
                 scope.payType = id;
                 scope.payTypeName = typeName;
+                var $this = $(event.currentTarget);
+                $this.addClass("on");
+                $this.siblings().removeClass("on");
             };
         }
     };

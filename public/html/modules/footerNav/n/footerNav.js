@@ -19,8 +19,19 @@ app.directive("nFooterNav", ['$http', function ($http) {
             };
 
             scope.submitForm = function (event, type) {
-                event.preventDefault();
-                $form.submit();
+                if(scope.checkMainNumber()){
+                    if(scope.checkSubNumber()){
+                        if(scope.checkAddress()){
+                            $form.submit();
+                        }else {
+                            var $scrollTo = $('#receiverAddress');
+                            $container.animate({
+                                scrollTop: $scrollTo.offset().top - $container.offset().top + $container.scrollTop() -50
+                            });
+                            $("#receiverAddressPanel").slideDown();
+                        }
+                    }
+                }
             }
         }
     };

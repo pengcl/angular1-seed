@@ -4,7 +4,7 @@
     <div class="phone-colors-panel pd-w">
         <ul class="phone-colors-lists item-lists minus pure-g">
             <li class="phone-colors-item list-item pure-u-1-4" ng-repeat="color in phone.phoneTypes[0].mediaProductList">
-                <div id="color{{$index}}" class="item-box margin border radius small {{color.selected}}" ng-click="setMainPhoneColor($event,color)">
+                <div id="color{{$index}}" class="item-box margin border radius small" ng-class="{true:'curr',false:''}[$index == 0]" ng-click="setMainPhoneColor($event,color)">
                     <p>
                         <span class="img-box"><img ng-src="http://www.yfq.cn:8899/fileserver/medias/{{color.mediaUrl}}"></span><span ng-bind="color.name"></span>
                     </p>

@@ -7,8 +7,14 @@ app.directive("subNumber", ["$cookieStore", function ($cookieStore) {
         controller: "numberController",
         link: function (scope, element, attrs) {
 
-            scope.checkPhone = function () {
-                if (!scope.checkoutForm.phoneNumber.$valid) {//原本应该用!scope.checkoutForm.phoneNumber.$valid
+            scope.checkSubNumber = function () {
+                //alert("sub");
+                if (!scope.checkoutForm.subNumber.$valid) {//原本应该用!scope.checkoutForm.phoneNumber.$valid
+                    var $scrollTo = $('#pickSubNumber');
+                    $container.animate({
+                        scrollTop: $scrollTo.offset().top - $container.offset().top + $container.scrollTop() -50
+                    });
+                    $("#pickSubNumberPanel").slideDown();
                     return false;
                 }
                 return true;
@@ -17,6 +23,8 @@ app.directive("subNumber", ["$cookieStore", function ($cookieStore) {
             scope.setSubNumber = function (event, numberItem) {
                 event.preventDefault();
                 scope.subNumber = numberItem.n;
+
+                //$("#pickSubNumberPanel").slideToggle();
 
                 var $this = $(event.currentTarget);
 

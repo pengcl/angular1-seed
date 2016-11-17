@@ -43,7 +43,7 @@ app.directive("phoneQuery", ["$cookieStore", function ($cookieStore) {
                     return false;
                 }
                 return true;
-            }
+            };
 
             scope.setNumberItem = function (event, numberItem) {
                 event.preventDefault();

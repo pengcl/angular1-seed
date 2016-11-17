@@ -7,12 +7,51 @@
     </div>
     <div class="pure-g">
         <div class="nav-price nav-item pure-u-1-2">
-            <em><sub>￥</sub></em>
-            <em ng-if="payType != 2" ng-bind-html="mainPrice | number:2 | formatMoney:-3 | trustHtml"></em>
-            <em ng-if="payType == 2" ng-bind-html="mainPrice/12 | number:2 | formatMoney:-3 | trustHtml"></em>
+            <div ng-if="payType == 2">
+                <p>
+                    <span>总分期金额：￥</span>
+                    <em ng-bind="phone.phoneBillPrice + phone.phonePrice | number:0"></em>
+                </p>
+                <p>
+                    <span>免息分期：</span>
+                    <em>12月</em>
+                </p>
+                <p>
+                    <span>月供：￥</span>
+                    <em ng-bind="(phone.phoneBillPrice + phone.phonePrice)/12 | number:0"></em>
+                </p>
+            </div>
+            <div ng-if="payType == 0">
+                <p>
+                    <span>总价：￥</span>
+                    <em ng-bind="phone.phoneBillPrice + phone.phonePrice | number:0"></em>
+                </p>
+                <p>
+                    <span>劲省：￥</span>
+                    <em ng-bind="(phone.phoneBillPrice + phone.phonePrice) * 0.05 | number:0"></em>
+                </p>
+                <p>
+                    <span>在线支付：￥</span>
+                    <em ng-bind="(phone.phoneBillPrice + phone.phonePrice) * 0.95 | number:0"></em>
+                </p>
+            </div>
+            <div ng-if="payType == 1">
+                <p>
+                    <span>总价：￥</span>
+                    <em ng-bind="phone.phoneBillPrice + phone.phonePrice - 101 | number:0"></em>
+                </p>
+                <p>
+                    <span>劲省：￥</span>
+                    <em>101</em>
+                </p>
+                <p>
+                    <span>在线支付：￥</span>
+                    <em>99</em>
+                </p>
+            </div>
         </div>
         <div class="nav-button nav-item pure-u-1-2">
-            <a id="footerPayButton" href="/payment" ng-click="submitForm();"></a>
+            <a id="footerPayButton" href="javascript:;" ng-click="submitForm();">提交订单</a>
         </div>
     </div>
 </div>
