@@ -1,0 +1,16 @@
+<div id="subPhoneColors" class="phone-colors">
+    <input type="hidden" name="subColor" id="subColor" ng-model="subColor.name" value="{{subColor.name}}" required>
+    <div class="weui-cells__title title-icon"><span class="title" ng-bind="subColorTitle"></span><span class="sub-title" ng-class="{true:'hide',false:''}[colorSubTitle == '']"><span ng-bind="phone.phoneTypes[1].productName"></span> <span ng-bind="subColor.name"></span></span></div>
+    <div class="phone-colors-panel pd-w">
+        <ul class="phone-colors-lists item-lists minus pure-g">
+            <li class="phone-colors-item list-item pure-u-1-4" ng-repeat="color in phone.phoneTypes[1].mediaProductList">
+                <div id="color{{$index}}" class="item-box margin border radius small {{color.selected}}" ng-click="setSubPhoneColor($event,color)">
+                    <p>
+                        <span class="img-box"><img ng-src="http://www.yfq.cn:8899/fileserver/medias/{{color.mediaUrl}}"></span><span ng-bind="color.name"></span>
+                    </p>
+                    <ins class="icon-check"></ins>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>

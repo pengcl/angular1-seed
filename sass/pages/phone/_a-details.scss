@@ -1,0 +1,140 @@
+.page.p-details.a-details {
+  .product-txt {
+    padding-left: 0.1rem;
+    h1 {
+      line-height: 1.4;
+      font-size: 0.14rem;
+    }
+    .label {
+      background: $color-primary;
+      color: #fff;
+      font-size: 0.1rem;
+      line-height: 1;
+      padding-left: 0.05rem;
+      padding-right: 0.05rem;
+      padding-top: 0.025rem;
+      padding-bottom: 0.005rem;
+      @include border-radius(0);
+    }
+    .product-price {
+      margin-top: 0.05rem;
+      ul {
+        li {
+          list-style: none;
+          font-size: 0.12rem;
+          padding-left: 0.2rem;
+          position: relative;
+          line-height: 1.2;
+          ins {
+            position: absolute;
+            left:0;
+            top:50%;
+            margin-top: -0.06rem;
+            display: block;
+            background: #999;
+            color: #fff;
+            font-size: 0.1rem;
+            @include border-radius(1rem);
+            width: 0.12rem;
+            height:0.12rem;
+            text-align: center;
+            line-height:0.12rem;
+            text-decoration: none;
+          }
+          .label {
+            margin-left: 0.05rem;
+            background: #26a408;
+          }
+          sub {
+            bottom:0;
+            color: #999;
+            margin-left: 0.05rem;
+          }
+          em {
+            font-size: 0.14rem;
+          }
+        }
+      }
+    }
+    .product-txt-ft {
+      font-size: 0.12rem;
+      margin-top: 0.05rem;
+      .sold {
+        @include inline-block;
+        padding-right: 0.1rem;
+        margin-right: 0.1rem;
+        position: relative;
+        &:after {
+          content: " ";
+          position: absolute;
+          top:0;
+          bottom:0;
+          right:0;
+          left: auto;
+          width: 1px;
+          border-right: 1px solid #eee;
+        }
+      }
+      .score {
+        @include inline-block;
+      }
+    }
+  }
+  .phone-colors-item {
+    p {
+      text-align: left;
+      span {
+        @include inline-block;
+        line-height:0.16rem;
+        font-size: 0.14rem;
+        &.img-box {
+          width: 0.16rem;
+        }
+      }
+    }
+  }
+  #phoneColors {
+    background: #fff;
+    padding-top: 0.1rem;
+    padding-bottom: 0.15rem;
+    margin-top: 0.1rem;
+    .weui-cells__title {
+      .sub-title {
+        border:0;
+        font-size: 0.12rem;
+        line-height:0.32rem;
+        padding:0;
+        margin: 0;
+        position: absolute;
+        right:0.15rem;
+        color: #999;
+        font-size: 0.14rem;
+      }
+    }
+  }
+  .pick-number {
+    .weui-cells {
+      margin-top: 0;
+    }
+  }
+  #pickMainNumber {
+    margin-top: 0.1rem;
+  }
+  .pick-panel {
+    display: none;
+  }
+  #receiverAddress {
+    .adr-tab {
+      margin-top: 0.1rem;
+      .weui-cell {
+        margin: 0;
+        @include border-radius(0);
+        border:0;
+      }
+    }
+  }
+  .weui-cells_form {
+    margin-top: 0;
+    background: #fff;
+  }
+}

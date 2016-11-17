@@ -1,0 +1,42 @@
+<div id="pickMainNumber" class="pick-number">
+    <div class="weui-cells">
+        <a class="weui-cell weui-cell_access" href="javascript:;">
+            <div class="weui-cell__bd">
+                <p>选择主卡号码</p>
+            </div>
+            <div class="weui-cell__ft">未选择</div>
+        </a>
+    </div>
+    <div class="pick-panel">
+        <div class="weui-cells weui-cells_form">
+            <div class="weui-cell">
+                <div class="weui-cell__hd"><label class="weui-label">选择靓号</label></div>
+                <div class="weui-cell__bd">
+                    <input ng-change="phoneFilter(query)" ng-blur="inputNumber(query)" class="weui-input" pattern="[0-9]*" ng-model="query" placeholder="请输入2 ~ 5位您想要的数字">
+                </div>
+                <div class="weui-cell__ft">
+                    <i class="weui-icon-warn"></i>
+                </div>
+            </div>
+        </div>
+
+        <div class="query-panel">
+            <ul class="query-lists item-lists pure-g">
+                <li class="query-item list-item pure-u-1-2" ng-repeat="numberItem in items">
+                    <div class="item-box" ng-click="setNumberItem($event,numberItem)">
+                        <p class="phone-number">
+                            <span class="weui-icon-success weui-icon_msg"></span>
+                            <span ng-bind-html="numberItem.n | replaceInput : query | trustHtml"></span>
+                        </p>
+                        <ins class="icon-check"></ins>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="sbtn">
+            <a href="javascript:;" ng-click="Previous()">上一批</a>
+            <a href="javascript:;" ng-click="Next()">下一批</a>
+        </div>
+    </div>
+</div>
