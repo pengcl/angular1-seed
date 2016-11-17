@@ -1,0 +1,18 @@
+<div class="footer-nav nav-list">
+    <div class="nav-item nav-comment line-r" ng-click="getContent();">
+        <div class="nav-icon">
+            <span class="icon-comment"></span>
+        </div>
+        <p class="nav-label">客服</p>
+    </div>
+    <div class="pure-g">
+        <div class="nav-price nav-item pure-u-1-2">
+            <em><sub>￥</sub></em>
+            <em ng-if="payType != 2" ng-bind-html="mainPrice | number:2 | formatMoney:-3 | trustHtml"></em>
+            <em ng-if="payType == 2" ng-bind-html="mainPrice/12 | number:2 | formatMoney:-3 | trustHtml"></em>
+        </div>
+        <div class="nav-button nav-item pure-u-1-2">
+            <a id="footerPayButton" href="/payment" ng-click="submitForm();"></a>
+        </div>
+    </div>
+</div>

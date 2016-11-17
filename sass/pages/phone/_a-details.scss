@@ -161,13 +161,13 @@
         color: #707070;
         margin-left: .03rem;
         margin-right: .03rem;
-        padding:0;
+        padding: 0;
         p {
           text-align: center;
         }
         .title {
           font-size: .14rem;
-          padding:0.03rem;
+          padding: 0.03rem;
           font-weight: 900;
           background: #fff;
           line-height: 1.4;
@@ -207,5 +207,10 @@
       }
     }
   }
-
+  .footer-nav {
+    padding-left: 0.48rem;
+    .nav-comment {
+      left: 0 !important;
+    }
+  }
 }
