@@ -11,21 +11,11 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
             },
             controller: "pIndexController"
         });
-}]).controller('pIndexController', ['$scope', '$location', '$http', function ($scope, $location, $http) {
+}]).controller('pIndexController', ['$scope', '$location', '$http', '$stateParams', function ($scope, $location, $http, $stateParams) {
 
 
-    var _path, _version;
-    _path = $location.path();
-    if (_path == "/phone/indexC") {
-        _version = "C";
-    }
-    if (_path == "/phone/indexD") {
-        _version = "D";
-    }
-    if (_path == "/phone/indexD") {
-        _version = "E";
-    }
-    $scope.appType = systemName + "_" + _version + "_index";
+    $scope.pageType = $stateParams.pageType;
+    $scope.appType = systemName + "_" + "_" + $scope.pageType + "_index";
     $scope.category = $scope.appType;
 
     //统计

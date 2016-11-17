@@ -1,0 +1,48 @@
+<div class="page p-details a-details">
+    <top-nav page-title="下单" page-back="back"></top-nav>
+    <!--<form id="checkoutForm" name="checkoutForm" action="http://2b2fda71.ngrok.natapp.cn/wap/taokafanghaoNew/submitOrderMachine.html" method="post" novalidate>-->
+    <form id="checkoutForm" name="checkoutForm" action="http://m.gd189fq.com/wap/taokafanghaoNew/submitOrderMachine.html" method="post" novalidate>
+        <input type="hidden" value="1" name="monthNumber" id="monthNumber">
+        <input type="hidden" value="{{category}}" name="category" id="category">
+        <input type="hidden" value="{{phone.productId}}" ng-model="phone.productId" name="machineId" id="machineId">
+        <gh></gh>
+        <activity></activity>
+        <redirect-url></redirect-url>
+        <div class="content-scrollable has-footer">
+
+            <div class="product-header pure-g">
+                <div class="pure-u-1-3">
+                    <div class="product-img">
+                        <div class="img-box">
+                            <img ng-src="http://www.yfq.cn:8899/fileserver/medias/{{phone.mainImageUrl}}">
+                        </div>
+                    </div>
+                </div>
+                <div class="pure-u-2-3">
+                    <div class="product-txt">
+                        <h1>买<span ng-bind="phone.phoneTypes[0].productName"></span>送<span ng-bind="phone.phoneTypes[1].productName"></span></h1>
+                        <div class="label">新开号预存话费 买一送一</div>
+                        <div class="product-price">
+                            <ul>
+                                <li><ins>1</ins><span>预存话费：</span><em>￥</em><em ng-bind="phone.phoneBillPrice"></em><span class="label">分36月返</span></li>
+                                <li><ins>2</ins><span>购机价格：</span><em>￥</em><em class="" ng-bind="phone.phonePrice"></em><sub>/2台</sub></li>
+                            </ul>
+                        </div>
+                        <div class="product-txt-ft"><span class="sold">已售 <span>2841</span></span><span class="score">评分 <span class="star"><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i></span> 4.8</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="phoneColors">
+                <main-colors title="主机颜色" ng-if="phone"></main-colors>
+                <sub-colors title="副机颜色" ng-if="phone"></sub-colors>
+            </div>
+
+            <main-number></main-number>
+            <sub-number></sub-number>
+
+            <adr></adr>
+        </div>
+        <footer-nav-rb check-phone="true" check-address="true" cod="true" order-search-url="http://m.gd189fq.com/wap/customer/searchIndexA.html?s=wap" submit="#checkoutForm"></footer-nav-rb>
+    </form>
+</div>
