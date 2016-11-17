@@ -591,13 +591,22 @@ p{
         }
       }
       .card-details{
-        color:#595959;
         .card-list-item{
-          margin-left:.25rem;
-          margin-right:.05rem;
+          color:#595959;
+          position:relative;
+          margin:.1rem .05rem .1rem .25rem;
           border:1px solid #707070;
           border-radius: 5px;
           padding:0 .2rem 0 .1rem;
+          .icon-gray-5{
+            position:absolute;
+            left:0;
+            top:0;
+            width:.4rem;
+            height:.43rem;
+            background:url(img/indexM/icon/1.png);
+            background-size:100%;
+          }
           .item-box{
             .month{
               padding:.05rem 0;
@@ -623,6 +632,10 @@ p{
             }
 
           }
+        }
+        .on{
+          color:#cc1414;
+          border-color:#cc1414;
         }
         p{
           text-align: center;
