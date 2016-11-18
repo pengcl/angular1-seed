@@ -169,36 +169,36 @@
         <div class="spc-title"><h2><span></span><span>大家都在买</span><span></span></h2></div>
         <div id="recommend">
             <ul class="recommend-lists pure-g">
-                <li class="recommend-item pure-u-1-2">
+                <li class="recommend-item pure-u-1-2" ng-repeat="doublePhone in doublePhones">
                     <div class="recommend-box">
                         <div class="img-box">
                             <img src="/images/phones/assets/index/recommend-1.jpg">
-                            <div class="img-title">新开号 iPhone7 32G+红米NOTE4全网通64G</div>
+                            <div class="img-title">新开号 <span ng-bind="doublePhone.doublePhone.productName"></span></div>
                         </div>
                         <div class="price">
                             <div class="pre-pay">
                                 <span class="label">预存话费：</span>
-                                <span class="price">￥5388</span>
+                                <span class="price">￥<span ng-bind="doublePhone.phoneBillPrice"></span></span>
                             </div>
                             <div class="sale-price">
                                 <span class="label">购机价格：</span>
-                                <span class="price">￥6388</span><sub>/2台</sub>
+                                <span class="price">￥<span ng-bind="doublePhone.phonePrice"></span></span><sub>/2台</sub>
                             </div>
                         </div>
                         <div class="pkg">
                             <div class="pure-g">
                                 <div class="pure-u-1-2">
-                                    <span class="pkg-staff"><span>5G全国流量</span><span>1500分通话</span></span>
+                                    <span class="pkg-staff"><span><span ng-bind="doublePhone.packageProductList[0].network"></span>全国流量</span><span><span ng-bind="doublePhone.packageProductList[0].talkTime"></span>分通话</span></span>
                                 </div>
                                 <div class="pure-u-1-2">
                                     <span class="pkg-price">
                                         <span class="promotion">双人共享套餐</span>
-                                        <span class="pkg-price-box">每人77元/月</span>
+                                        <span class="pkg-price-box">每人<span ng-bind="(doublePhone.packageProductList[0].salesPrice * 36 - doublePhone.phoneBillPrice)/72 | number : 0"></span>元/月</span>
                                     </span>
                                 </div>
                             </div>
                         </div>
-                        <a class="btn" href="javascript:;">立即抢购</a>
+                        <a href="/phs/db/{{pageType}}/{{doublePhone.activityproductId}}" class="btn">立即抢购</a>
                     </div>
                 </li>
                 <li class="recommend-item pure-u-1-2">
