@@ -18,6 +18,9 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
     $scope.appType = systemName + "_" + "_" + $scope.pageType + "_index";
     $scope.category = $scope.appType;
 
+    $scope.params = window.location.search;
+    console.log($scope.params);
+
     //统计
     writebdLog($scope.category, "_Load", "渠道号", $scope.gh);
 
@@ -34,21 +37,21 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
         writebdLog($scope.category, "_CustConsult", "渠道号", $scope.gh);//客服咨询
     };
 
-    $http.jsonp('http://192.168.1.181:8082/product/getPackageList.html?activeTag=bdtc&s=wap&callback=JSON_CALLBACK').success(function (data, status, headers, config) {
+    $http.jsonp('http://m.yfq.cn/product/getPackageList.html?activeTag=bdtc&s=wap&callback=JSON_CALLBACK').success(function (data, status, headers, config) {
         $scope.pkgs = data;
     }).error(function (data, status, headers, config) {
         console.log(status);
         //deferred.reject(status)
     });
 
-    $http.jsonp('http://192.168.1.181:8082/product/getProList.html?activeTag=lj&s=wap&callback=JSON_CALLBACK').success(function (data, status, headers, config) {
+    $http.jsonp('http://m.yfq.cn/product/getProList.html?activeTag=lj&s=wap&callback=JSON_CALLBACK').success(function (data, status, headers, config) {
         $scope.singlePhones = data;
     }).error(function (data, status, headers, config) {
         console.log(status);
         //deferred.reject(status)
     });
 
-    $http.jsonp('http://192.168.1.181:8082/product/getProList.html?activeTag=mysy&s=wap&callback=JSON_CALLBACK').success(function (data, status, headers, config) {
+    $http.jsonp('http://m.yfq.cn/product/getProList.html?activeTag=mysy&s=wap&callback=JSON_CALLBACK').success(function (data, status, headers, config) {
         $scope.doublePhones = data;
     }).error(function (data, status, headers, config) {
         console.log(status);

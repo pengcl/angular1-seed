@@ -139,7 +139,33 @@
   #pickMainNumber {
   }
   .pick-panel {
+    padding-top: 0.1rem;
     display: none;
+    .weui-cells {
+      border: 1px solid #ccc;
+      @include border-radius(3px);
+      margin-bottom: 0.1rem;
+      margin-right: 0.1rem;
+      position: relative;
+      .weui-cell {
+        padding-left: 0.5rem;
+        font-size: 0.14rem;
+        padding-top: 0.1rem;
+        padding-bottom: 0.1rem;
+      }
+      i {
+        position: absolute;
+        font-size: 0.28rem;
+        top: 0;
+        left: 0.05rem;
+        border-right: 1px solid #ccc;
+        padding-right: 0.05rem;
+        &:before {
+          font-size: 0.22rem;
+          vertical-align: baseline;
+        }
+      }
+    }
   }
   #receiverAddress {
     .adr-tab {
@@ -148,6 +174,7 @@
         margin: 0;
         @include border-radius(0);
         border: 0;
+        padding-left: 0;
       }
     }
   }

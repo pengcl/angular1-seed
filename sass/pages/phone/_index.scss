@@ -307,6 +307,14 @@
         background: #fff;
         .img-box {
           position: relative;
+          .img-title-bg {
+            position: absolute;
+            display: block;
+            left: 0;
+            right: 0;
+            top: auto;
+            bottom:0;
+          }
           .img-title {
             position: absolute;
             display: block;

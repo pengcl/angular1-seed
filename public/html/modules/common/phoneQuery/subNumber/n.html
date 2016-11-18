@@ -5,14 +5,14 @@
             <div class="weui-cell__bd">
                 <p>选择副卡号码</p>
             </div>
-            <div class="weui-cell__ft">未选择</div>
+            <div class="weui-cell__ft"><span ng-if="!subNumber">未选择</span><span ng-if="subNumber" ng-bind="subNumber"></span></div>
         </a>
     </div>
 
     <div id="pickSubNumberPanel" class="pick-panel">
         <div class="weui-cells weui-cells_form">
             <div class="number-query-label weui-cell no-border">
-                <div class="weui-cell__hd title-icon"><label class="weui-label">选择靓号</label></div>
+                <div class="weui-cell__hd"><i class="weui-icon-search"></i></div>
                 <div class="weui-cell__bd">
                     <input ng-change="phoneSubFilter(subQuery)" ng-blur="inputNumber(subQuery)" class="weui-input" pattern="[0-9]*" ng-model="subQuery" placeholder="请输入2 ~ 5位您想要的数字">
                 </div>
