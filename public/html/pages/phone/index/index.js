@@ -15,11 +15,10 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
 
 
     $scope.pageType = $stateParams.pageType;
-    $scope.appType = systemName + "_" + "_" + $scope.pageType + "_index";
+    $scope.appType = systemName + "_mysy_" + $scope.pageType + "_index";
     $scope.category = $scope.appType;
 
     $scope.params = window.location.search;
-    console.log($scope.params);
 
     //统计
     writebdLog($scope.category, "_Load", "渠道号", $scope.gh);

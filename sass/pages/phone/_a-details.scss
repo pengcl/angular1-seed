@@ -299,6 +299,7 @@
     }
   }
   .card-details {
+    font-size: 0.12rem;
     .card-list-item {
       color: #595959;
       position: relative;
@@ -308,6 +309,7 @@
       border-radius: 5px;
       margin-bottom: 0.05rem;
       margin-top: 0.05rem;
+      list-style: none;
       .icon-gray-5 {
         position: absolute;
         left: 0;

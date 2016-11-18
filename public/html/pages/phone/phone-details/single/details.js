@@ -30,15 +30,16 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
         container: $(".content-scrollable")
     });
     $scope.buyType = 1;
+    $scope.activeTagName = "裸机+5折话费套餐";
 
-    $scope.setSbPayType = function(id,typeName) {
+    $scope.setSbPayType = function (id, typeName) {
         $scope.payType = id;
         $scope.payTypeName = typeName;
         $(".pay-item").removeClass("on");
         $("#payType" + id).addClass("on");
     };
 
-    $scope.setBuyType = function (event, type) {
+    $scope.setBuyType = function (event, type, typeName) {
         event.preventDefault();
         $scope.buyType = type;
         var $this = $(event.currentTarget);
@@ -47,12 +48,14 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
         if (type == 0) {
             $scope.activeTag = "lj";
             $scope.totolPrice = $scope.phone.phonePrice;
-            if($scope.totolPrice < 1500){
-                $scope.setSbPayType(0,'一次性支付');
+            $scope.activeTagName = typeName;
+            if ($scope.totolPrice < 1500) {
+                $scope.setSbPayType(0, '一次性支付');
             }
         } else {
             $scope.totolPrice = $scope.phone.phoneBillPrice + $scope.phone.phonePrice;
             $scope.activeTag = "jjk";
+            $scope.activeTagName = typeName;
         }
     };
 

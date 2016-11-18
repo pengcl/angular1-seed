@@ -41,12 +41,12 @@
             <div id="phonePkg" style="padding-bottom: 0.15rem">
                 <div class="weui-cells__title title-icon">
                     <span class="title">购买方式</span>
-                    <span class="sub-title">最高赠送6388话费</span>
+                    <span class="sub-title" ng-bind="activeTagName">裸机+5折话费套餐</span>
                 </div>
                 <div class="buy-type-panel pd-w">
                     <ul class="buy-type-lists item-lists minus pure-g">
                         <li class="buy-type-item list-item pure-u-2-5">
-                            <div class="item-box margin border radius small curr" ng-click="setBuyType($event,1)">
+                            <div class="item-box margin border radius small curr" ng-click="setBuyType($event,1,'裸机+5折话费套餐')">
                                 <p>
                                     <span>裸机+5折话费套餐</span>
                                 </p>
@@ -54,7 +54,7 @@
                             </div>
                         </li>
                         <li class="buy-type-item list-item pure-u-1-4">
-                            <div class="item-box margin border radius small" ng-click="setBuyType($event,0)">
+                            <div class="item-box margin border radius small" ng-click="setBuyType($event,0,'裸机')">
                                 <p>
                                     <span>裸机</span>
                                 </p>
@@ -86,8 +86,8 @@
                                 </div>
                                 <div class="net-work pure-u-3-5">
                                     <div class="line">
-                                        <p class="month-item month-item-small"><span class="big">5.5GB</span><sub>全国流量</sub></p>
-                                        <p><b>1800</b>分钟全国通话 <b>50</b>条短信</p>
+                                        <p class="month-item month-item-small"><span class="big" ng-bind="package.network"></span><sub>GB全国流量</sub></p>
+                                        <p><b ng-bind="package.talkTime"></b>分钟全国通话 <b ng-bind="package.message"></b>条短信</p>
                                     </div>
                                 </div>
                             </div>

@@ -57,8 +57,8 @@
                                     </div>
                                     <div class="net-work pure-u-3-5">
                                         <div class="line">
-                                            <p class="month-item month-item-small"><span class="big">5.5GB</span><sub>全国流量</sub></p>
-                                            <p><b>1800</b>分钟全国通话 <b>50</b>条短信</p>
+                                            <p class="month-item month-item-small"><span class="big" ng-bind="phone.packageProductList[0].network"></span><sub>GB全国流量</sub></p>
+                                            <p><b ng-bind="phone.packageProductList[0].talkTime"></b>分钟全国通话 <b ng-bind="phone.packageProductList[0].message">50</b>条短信</p>
                                         </div>
                                     </div>
                                 </div>
