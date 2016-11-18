@@ -26,6 +26,9 @@ app.directive("nPayType", ['$location', '$compile', '$q', function ($location, $
             };
 
             scope.setDefaultPayType(2,"信用卡分期");
+            if(scope.cardPay){
+                scope.setDefaultPayType(0,"在线支付");
+            }
 
             //选择支付方式
 

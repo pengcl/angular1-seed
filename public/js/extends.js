@@ -338,3 +338,12 @@ $(function () {
         $phoneList.eq($this.index()).show();
     });
 });
+
+function getRandomName (){
+    var firstNames,lastNames;
+    firstNames = ["卢","钟","朱","彭","梁","卫","蒋","许","张","孔","沈","郑","赵","周","吕","韩","尤","秦","楮","李"];
+    lastNames = ["先生","女士"];
+    var fid = Math.round(Math.random()*19);
+    var lid = Math.round(Math.random()*1);
+    return firstNames[fid] + lastNames[lid];
+}

@@ -286,6 +286,9 @@
         left:0;
         top:0;
         width:.4rem;
+        .on {
+          display: none;
+        }
       }
       .item-box{
         padding:0;
@@ -326,6 +329,14 @@
           border-left:1px dashed #595959 !important;
         }
       }
+      .icon-gray-5 {
+        img {
+          display: none !important;
+        }
+        .on {
+          display: block !important;
+        }
+      }
     }
     p{
       text-align: center;
@@ -360,6 +371,108 @@
     @include box-shadow(0px 1px 5px #888);
     .nav-item {
       color: #fff;
+    }
+  }
+  #cards {
+    .card-lists {
+      margin-left: -0.03rem;
+      margin-right: -0.03rem;
+      .card-item {
+        list-style: none;
+      }
+      .card-box {
+        background: #fff;
+        margin-bottom: 0.06rem;
+        img {
+          display: block;
+          width: 44%;
+        }
+        .net {
+          .net-details {
+            padding: .05rem;
+            color: #00b8f5;
+            border: 2px solid #00b8f5;
+            border-radius: 5px;
+            position: relative;
+            margin-top: .05rem;
+            .net-gb {
+              font-weight: 900;
+              font-size: 0;
+              line-height: 1;
+              .net-num {
+                font-size: 0.3rem;
+                @include inline-block;
+                vertical-align: baseline;
+              }
+              sub {
+                font-size: 0.2rem;
+                @include inline-block;
+                vertical-align: baseline;
+              }
+            }
+            .net-tel {
+              font-size: .16rem;
+              font-weight: 600;
+            }
+            .net-ocl {
+              position: absolute;
+              top: -.1rem;
+              right: .1rem;
+              font-size: .10rem;
+              color: #fff;
+              padding: .0rem .04rem;
+              background: #02489d;
+            }
+          }
+          .net-work {
+            font-size: .11rem;
+            text-align: center;
+            color: #fff;
+            background: #00b8f5;
+            margin-top: .05rem;
+            margin-bottom: .1rem;
+          }
+          .net-price {
+            font-size: .15rem;
+            margin-bottom: .1rem;
+            .new {
+              color: #000;
+              .cheap {
+                font-size: .1rem;
+                color: #fff;
+                background: #f24a1d;
+                padding: 0 .05rem;
+                margin-left: .02rem;
+              }
+            }
+            .price {
+              .new-price {
+                color: #f2741d;
+                font-weight: bold;
+              }
+              .month {
+                font-size: .12rem;
+                color: #f2741d;
+                del {
+                  color: #949494;
+                }
+              }
+            }
+          }
+        }
+        .btn {
+          display: block;
+          border: 2px solid #f2741d;
+          color: #f2741d;
+          font-size: 0.18rem;
+          padding-top: 0.045rem;
+          padding-bottom: 0.025rem;
+          @include border-radius(0);
+          margin-top: 0.05rem;
+          font-weight: bold;
+          margin-bottom: 0.05rem;
+        }
+      }
     }
   }
 }

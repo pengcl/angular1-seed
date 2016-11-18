@@ -6,6 +6,12 @@
             <div class="img-box">
                 <img src="/images/phones/assets/index/indexBanner.jpg">
             </div>
+            <div class="selkillbg">
+                <div class="img-box">
+                    <img src="/images/phones/assets/index/selkillbg.png">
+                </div>
+                <div class="txt" ng-bind="selkillTxt"></div>
+            </div>
         </div>
         <div id="indexHot">
             <div class="img-box">
@@ -252,7 +258,7 @@
                                 <p class="price">￥<span class="new-price" ng-bind="pkg.salesPrice"></span><span class="month">/月&nbsp; <del>原价￥</del><del ng-bind="pkg.oldPrice"></del></span> </p>
                             </div>
                         </div>
-                        <a class="btn" href="javascript:;">立即抢购</a>
+                        <a class="btn" href="/phs/cd/A/{{pkg.productId}}">立即抢购</a>
                     </div>
                 </li>
             </ul>

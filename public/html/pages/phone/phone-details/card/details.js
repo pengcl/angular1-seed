@@ -4,21 +4,21 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
 
     // 设定路由
     $stateProvider
-        .state('phoneSingle', { //app首页
-            url: "/phs/sg/:pageType/:phoneId",
+        .state('phoneCardDetails', { //app首页
+            url: "/phs/cd/:pageType/:cardId",
             templateUrl: function ($stateParams) {
-                return 'pages/phone/phone-details/single/' + $stateParams.pageType + '/details.html';
+                return 'pages/phone/phone-details/card/' + $stateParams.pageType + '/details.html';
             },
-            controller: "pSingleProController"
+            controller: "pCardProController"
         });
-}]).controller('pSingleProController', ['$scope', '$rootScope', '$location', '$stateParams', '$http', 'Phone', function ($scope, $rootScope, $location, $stateParams, $http, Phone) {
+}]).controller('pCardProController', ['$scope', '$rootScope', '$location', '$stateParams', '$http', 'Phone', function ($scope, $rootScope, $location, $stateParams, $http, Phone) {
 
     $scope.pageType = $stateParams.pageType;
     $scope.activeTag = "jjk";
 
-    $http.jsonp("http://192.168.1.181:8082/product/getProDetial.html?productId=" + $stateParams.phoneId + "&activeTag=jjk&s=wap&callback=JSON_CALLBACK").success(function (data, status, headers, config) {
-        $scope.phone = data;
-        $scope.totolPrice = data.phoneBillPrice + data.phonePrice;
+    $http.jsonp("http://192.168.1.181:8082/product/getPackageInfo.html?productId=" + $stateParams.cardId + "&s=wap&callback=JSON_CALLBACK").success(function (data, status, headers, config) {
+        $scope.card = data;
+        $scope.totolPrice = data.salesPrice;
     }).error(function (data, status, headers, config) {
         console.log(status);
     });
@@ -29,9 +29,12 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
         skip_invisible: false,
         container: $(".content-scrollable")
     });
+
+    $scope.cardPay = true;
+
     $scope.buyType = 1;
 
-    $scope.setSbPayType = function(id,typeName) {
+    $scope.setSbPayType = function (id, typeName) {
         $scope.payType = id;
         $scope.payTypeName = typeName;
         $(".pay-item").removeClass("on");
@@ -47,8 +50,8 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
         if (type == 0) {
             $scope.activeTag = "lj";
             $scope.totolPrice = $scope.phone.phonePrice;
-            if($scope.totolPrice < 1500){
-                $scope.setSbPayType(0,'一次性支付');
+            if ($scope.totolPrice < 1500) {
+                $scope.setSbPayType(0, '一次性支付');
             }
         } else {
             $scope.totolPrice = $scope.phone.phoneBillPrice + $scope.phone.phonePrice;

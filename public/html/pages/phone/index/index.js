@@ -11,7 +11,7 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
             },
             controller: "pIndexController"
         });
-}]).controller('pIndexController', ['$scope', '$location', '$http', '$stateParams', function ($scope, $location, $http, $stateParams) {
+}]).controller('pIndexController', ['$scope', '$location', '$http', '$stateParams', '$interval', function ($scope, $location, $http, $stateParams, $interval) {
 
 
     $scope.pageType = $stateParams.pageType;
@@ -50,9 +50,12 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
 
     $http.jsonp('http://192.168.1.181:8082/product/getProList.html?activeTag=mysy&s=wap&callback=JSON_CALLBACK').success(function (data, status, headers, config) {
         $scope.doublePhones = data;
-        console.log($scope.doublePhones[0].packageProductList);
     }).error(function (data, status, headers, config) {
         console.log(status);
         //deferred.reject(status)
     });
+
+    $interval(function () {
+        $scope.selkillTxt = getRandomName() + "，刚刚购买了 iPhone7 Plus";
+    }, 2000);
 }]);

@@ -6,6 +6,7 @@
         <input type="hidden" value="1" name="monthNumber" id="monthNumber">
         <input type="hidden" value="{{category}}" name="category" id="category">
         <input type="hidden" value="{{phone.activityproductId}}" ng-model="phone.productId" name="machineId" id="machineId">
+        <input type="hidden" value="{{activeTag}}" ng-model="activeTag" name="activeTag" id="activeTag">
         <gh></gh>
         <activity></activity>
         <redirect-url></redirect-url>
@@ -22,11 +23,10 @@
                 <div class="pure-u-2-3">
                     <div class="product-txt">
                         <h1>买<span ng-bind="phone.phoneTypes[0].productName"></span>送<span ng-bind="phone.phoneTypes[1].productName"></span></h1>
-                        <div class="label">新开号预存话费 买一送一</div>
+                        <div class="label">爆款单机 搭配电信4G套餐 更划算</div>
                         <div class="product-price">
                             <ul>
-                                <li><ins>1</ins><span>预存话费：</span><em>￥</em><em ng-bind="phone.phoneBillPrice"></em><span class="label">分36月返</span></li>
-                                <li><ins>2</ins><span>购机价格：</span><em>￥</em><em class="" ng-bind="phone.phonePrice"></em><sub>/2台</sub></li>
+                                <li style="padding-left: 0"><span>现价：</span><em>￥</em><em class="" ng-bind="phone.phonePrice"></em></li>
                             </ul>
                         </div>
                         <div class="product-txt-ft"><span class="sold">已售 <span>2841</span></span><span class="score">评分 <span class="star"><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i></span> 4.8</span></div>
@@ -79,7 +79,7 @@
                 <div id="pickPackagePanel" class="card" style="display: none;padding-top: 0.1rem;padding-bottom: 0.15rem;background: #fff">
                     <ul class="card-list">
                         <li class="card-list-item" ng-class="{true:'on',false:''}[$index == 0]" ng-repeat="package in phone.packageProductList">
-                            <div class="item-box pure-g" ng-click="setPackage(package);">
+                            <div class="item-box pure-g" ng-click="setPackage($event,package);">
                                 <div class="month pure-u-2-5">
                                     <p class="month-item rec">￥<span class="big" ng-bind="package.salesPrice | number : 0"></span><sub>套餐</sub></p>
                                     <p><span>每人仅￥<span ng-bind="package.salesPrice/2 | number : 0"></span></span>优惠36个月</p>
@@ -93,8 +93,8 @@
                             </div>
                             <ins class="icon-gray-5">
                                 <div class="img-box">
-                                    <img src="/images/double-flag.png">
-                                    <img class="on" src="/images/phones/assets/icons/{{package.salesPrice*10/package.oldPrice | number : 0}}-on.png">
+                                    <img ng-src="/images/phones/assets/icons/{{package.salesPrice*10/package.oldPrice | number : 0}}.png">
+                                    <img class="on" ng-src="/images/phones/assets/icons/{{package.salesPrice*10/package.oldPrice | number : 0}}-on.png">
                                 </div>
                             </ins>
                         </li>
@@ -117,6 +117,6 @@
 
             <n-pay-type title="选择支付方式"></n-pay-type>
         </div>
-        <n-footer-nav check-phone="true" check-address="true" cod="true" order-search-url="http://m.gd189fq.com/wap/customer/searchIndexA.html?s=wap" submit="#checkoutForm"></n-footer-nav>
+        <n-footer-nav check-main-number="true" check-address="true" submit="#checkoutForm"></n-footer-nav>
     </form>
 </div>

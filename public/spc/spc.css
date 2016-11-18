@@ -1165,49 +1165,106 @@ p {
   padding: 0 .2rem 0 .1rem;
 }
 /* line 601, sass/spc.scss */
-.page.model .content-scrollable .card-details .card-list-item .icon-gray-5 {
+.page.model .content-scrollable .card-details .card-list-item .icon {
   position: absolute;
   left: 0;
   top: 0;
   width: .4rem;
   height: .43rem;
+}
+/* line 608, sass/spc.scss */
+.page.model .content-scrollable .card-details .card-list-item .gray-5 {
   background: url(img/indexM/icon/1.png);
   background-size: 100%;
 }
-/* line 611, sass/spc.scss */
+/* line 612, sass/spc.scss */
+.page.model .content-scrollable .card-details .card-list-item .red-5 {
+  background: url(img/indexM/icon/2.png);
+  background-size: 100%;
+}
+/* line 616, sass/spc.scss */
+.page.model .content-scrollable .card-details .card-list-item .gray-6 {
+  background: url(img/indexM/icon/3.png);
+  background-size: 100%;
+}
+/* line 620, sass/spc.scss */
+.page.model .content-scrollable .card-details .card-list-item .red-6 {
+  background: url(img/indexM/icon/4.png);
+  background-size: 100%;
+}
+/* line 625, sass/spc.scss */
 .page.model .content-scrollable .card-details .card-list-item .item-box .month {
   padding: .05rem 0;
 }
-/* line 614, sass/spc.scss */
+/* line 628, sass/spc.scss */
 .page.model .content-scrollable .card-details .card-list-item .item-box .line {
   margin-left: .05rem;
   border-left: 1px dashed #595959;
   padding: .05rem 0;
 }
-/* line 619, sass/spc.scss */
+/* line 633, sass/spc.scss */
 .page.model .content-scrollable .card-details .card-list-item .item-box .month-item {
   font-size: .15rem;
 }
-/* line 622, sass/spc.scss */
+/* line 636, sass/spc.scss */
+.page.model .content-scrollable .card-details .card-list-item .item-box .rec {
+  position: relative;
+}
+/* line 638, sass/spc.scss */
+.page.model .content-scrollable .card-details .card-list-item .item-box .rec .rec-t {
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: .1rem;
+}
+/* line 645, sass/spc.scss */
 .page.model .content-scrollable .card-details .card-list-item .item-box .month-item-small {
   font-size: .2rem;
   font-weight: 600;
 }
-/* line 626, sass/spc.scss */
+/* line 649, sass/spc.scss */
 .page.model .content-scrollable .card-details .card-list-item .item-box .big {
   font-size: .25rem;
   font-weight: bold;
 }
-/* line 630, sass/spc.scss */
+/* line 653, sass/spc.scss */
 .page.model .content-scrollable .card-details .card-list-item .item-box b {
   font-weight: 600;
 }
-/* line 636, sass/spc.scss */
+/* line 659, sass/spc.scss */
 .page.model .content-scrollable .card-details .on {
   color: #cc1414;
   border-color: #cc1414;
 }
-/* line 640, sass/spc.scss */
+/* line 663, sass/spc.scss */
 .page.model .content-scrollable .card-details p {
   text-align: center;
+}
+/* line 667, sass/spc.scss */
+.page.model .content-scrollable .service {
+  margin: 0 .05rem;
+  background: #fff;
+}
+/* line 670, sass/spc.scss */
+.page.model .content-scrollable .service .title {
+  padding-left: .1rem;
+  margin-left: .15rem;
+  position: relative;
+  font-size: .16rem;
+  font-weight: 600;
+}
+/* line 676, sass/spc.scss */
+.page.model .content-scrollable .service .title:before {
+  content: "";
+  position: absolute;
+  top: 10%;
+  left: 0;
+  background: #1991ee;
+  width: .05rem;
+  height: .18rem;
+}
+/* line 687, sass/spc.scss */
+.page.model .content-scrollable .service .item-box img {
+  display: block;
+  width: 100%;
 }

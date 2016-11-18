@@ -15,13 +15,13 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
 
     $scope.pageType = $stateParams.pageType;
 
+    $scope.activeTag = "mysy";
+
+    $scope.buyType = 1;
+
     $http.jsonp("http://192.168.1.181:8082/product/getProDetial.html?productId=" + $stateParams.phoneId + "&activeTag=mysy&s=wap&callback=JSON_CALLBACK").success(function (data, status, headers, config) {
         $scope.phone = data;
-        console.log($scope.phone);
-        //$scope.productId = phone.productId;
-        //$scope.appType = systemName + "_" + $scope.pageType + "_" + phone.phoneModel;
-        //$scope.category = $scope.appType;
-        //writebdLog($scope.category, "_Load", "渠道号", $scope.gh);
+        $scope.totolPrice = data.phoneBillPrice + data.phonePrice;
     }).error(function (data, status, headers, config) {
         console.log(status);
         //deferred.reject(status)

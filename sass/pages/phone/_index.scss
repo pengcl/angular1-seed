@@ -487,4 +487,23 @@
       }
     }
   }
+  #indexBanner {
+    position: relative;
+    .selkillbg {
+      width: 84%;
+      position: absolute;
+      bottom:0.34rem;
+      left:50%;
+      margin-left: -42%;
+      .txt {
+        position: absolute;
+        left: 0.84rem;
+        right:0;
+        top: 0.01rem;
+        bottom:0;
+        font-size: 0.12rem;
+        color: #eee;
+      }
+    }
+  }
 }

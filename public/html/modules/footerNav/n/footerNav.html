@@ -10,7 +10,7 @@
             <div ng-if="payType == 2">
                 <p>
                     <span>总分期金额：￥</span>
-                    <em ng-bind="phone.phoneBillPrice + phone.phonePrice | number:0"></em>
+                    <em ng-bind="totolPrice | number:0"></em>
                 </p>
                 <p>
                     <span>免息分期：</span>
@@ -18,27 +18,43 @@
                 </p>
                 <p>
                     <span>月供：￥</span>
-                    <em ng-bind="(phone.phoneBillPrice + phone.phonePrice)/12 | number:0"></em>
+                    <em ng-bind="totolPrice/12 | number:0"></em>
                 </p>
             </div>
             <div ng-if="payType == 0">
-                <p>
-                    <span>总价：￥</span>
-                    <em ng-bind="phone.phoneBillPrice + phone.phonePrice | number:0"></em>
-                </p>
-                <p>
-                    <span>劲省：￥</span>
-                    <em ng-bind="(phone.phoneBillPrice + phone.phonePrice) * 0.05 | number:0"></em>
-                </p>
-                <p>
-                    <span>在线支付：￥</span>
-                    <em ng-bind="(phone.phoneBillPrice + phone.phonePrice) * 0.95 | number:0"></em>
-                </p>
+                <div ng-if="!cardPay">
+                    <p>
+                        <span>总价：￥</span>
+                        <em ng-bind="totolPrice | number:0"></em>
+                    </p>
+                    <p>
+                        <span>劲省：￥</span>
+                        <em ng-bind="totolPrice * 0.05 | number:0"></em>
+                    </p>
+                    <p>
+                        <span>在线支付：￥</span>
+                        <em ng-bind="totolPrice * 0.95 | number:0"></em>
+                    </p>
+                </div>
+                <div ng-if="cardPay">
+                    <p>
+                        <span>原价：￥</span>
+                        <em ng-bind="card.oldPrice | number:0"></em>
+                    </p>
+                    <p>
+                        <span>劲省：￥</span>
+                        <em ng-bind="card.oldPrice - card.salesPrice | number:0"></em>
+                    </p>
+                    <p>
+                        <span>在线支付：￥</span>
+                        <em ng-bind="card.salesPrice | number:0"></em>
+                    </p>
+                </div>
             </div>
             <div ng-if="payType == 1">
                 <p>
                     <span>总价：￥</span>
-                    <em ng-bind="phone.phoneBillPrice + phone.phonePrice - 101 | number:0"></em>
+                    <em ng-bind="totolPrice - 101 | number:0"></em>
                 </p>
                 <p>
                     <span>劲省：￥</span>

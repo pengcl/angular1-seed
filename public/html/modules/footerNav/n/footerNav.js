@@ -18,18 +18,65 @@ app.directive("nFooterNav", ['$http', function ($http) {
                 writebdLog(scope.category, "_CustConsult", "渠道号", scope.gh);//客服咨询
             };
 
+            scope.checkForm = function () {
+                if (scope.$root.checkActiveCode()) {
+                    console.log("ss");
+                    //writebdLog(scope.category, "_BuyNow", "渠道号", scope.gh);//立即支付
+                    scope.$root.toast.open();
+
+                    $form.submit();
+
+                } else {
+                    $scrollTo = $('#receiverAddress');
+                    $container.animate({
+                        scrollTop: $scrollTo.offset().top - $container.offset().top + $container.scrollTop()
+                    });
+                    $("#receiverAddressPanel").slideDown();
+                    $(".adr-tab").addClass("down");
+                }
+            };
+
             scope.submitForm = function (event, type) {
-                if(scope.checkMainNumber()){
-                    if(scope.checkSubNumber()){
-                        if(scope.checkAddress()){
-                            $form.submit();
-                        }else {
-                            var $scrollTo = $('#receiverAddress');
-                            $container.animate({
-                                scrollTop: $scrollTo.offset().top - $container.offset().top + $container.scrollTop() -50
-                            });
-                            $("#receiverAddressPanel").slideDown();
+                if (attrs.checkMainNumber) {
+                    if (attrs.checkSubNumber) {
+                        if (scope.checkMainNumber()) {
+                            if (scope.checkSubNumber()) {
+                                if (scope.checkAddress()) {
+                                    scope.checkForm();
+                                } else {
+                                    var $scrollTo = $('#receiverAddress');
+                                    $container.animate({
+                                        scrollTop: $scrollTo.offset().top - $container.offset().top + $container.scrollTop() - 50
+                                    });
+                                    $("#receiverAddressPanel").slideDown();
+                                    $(".adr-tab").addClass("down");
+                                }
+                            }
                         }
+                    } else {
+                        if (scope.checkMainNumber()) {
+                            if (scope.checkAddress()) {
+                                scope.checkForm();
+                            } else {
+                                var $scrollTo = $('#receiverAddress');
+                                $container.animate({
+                                    scrollTop: $scrollTo.offset().top - $container.offset().top + $container.scrollTop() - 50
+                                });
+                                $("#receiverAddressPanel").slideDown();
+                                $(".adr-tab").addClass("down");
+                            }
+                        }
+                    }
+                } else {
+                    if (scope.checkAddress()) {
+                        scope.checkForm();
+                    } else {
+                        var $scrollTo = $('#receiverAddress');
+                        $container.animate({
+                            scrollTop: $scrollTo.offset().top - $container.offset().top + $container.scrollTop() - 50
+                        });
+                        $("#receiverAddressPanel").slideDown();
+                        $(".adr-tab").addClass("down");
                     }
                 }
             }
