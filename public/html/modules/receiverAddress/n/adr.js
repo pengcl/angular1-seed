@@ -239,6 +239,10 @@ app.directive("adr", ["$compile", "$cookieStore", '$http', '$interval', function
             scope.showReceiverPn = function (e) {
                 $("#receiverAddressPanel").slideToggle();
                 $(".adr-tab").toggleClass("down");
+            };
+
+            scope.adrOk = function () {
+                scope.showReceiverPn();
             }
         }
     };

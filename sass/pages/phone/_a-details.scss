@@ -235,7 +235,7 @@
           font-size: 0.12rem;
           line-height: 1.2;
           text-align: left;
-          padding-top: 0.02rem;
+          padding-top: 0.04rem;
           padding-bottom: 0.02rem;
         }
       }
@@ -256,77 +256,77 @@
     }
   }
   .weui-cell_access .weui-cell__ft::after {
-    transform:rotate(135deg);
-    -ms-transform:rotate(135deg); 	/* IE 9 */
-    -moz-transform:rotate(135deg); 	/* Firefox */
-    -webkit-transform:rotate(135deg); /* Safari 和 Chrome */
-    -o-transform:rotate(135deg);
+    transform: rotate(135deg);
+    -ms-transform: rotate(135deg); /* IE 9 */
+    -moz-transform: rotate(135deg); /* Firefox */
+    -webkit-transform: rotate(135deg); /* Safari 和 Chrome */
+    -o-transform: rotate(135deg);
   }
   .down {
     .weui-cell_access .weui-cell__ft::after {
-      transform:rotate(-45deg);
-      -ms-transform:rotate(-45deg); 	/* IE 9 */
-      -moz-transform:rotate(-45deg); 	/* Firefox */
-      -webkit-transform:rotate(-45deg); /* Safari 和 Chrome */
-      -o-transform:rotate(-45deg);
+      transform: rotate(-45deg);
+      -ms-transform: rotate(-45deg); /* IE 9 */
+      -moz-transform: rotate(-45deg); /* Firefox */
+      -webkit-transform: rotate(-45deg); /* Safari 和 Chrome */
+      -o-transform: rotate(-45deg);
     }
   }
-  .card-details{
-    .card-list-item{
-      color:#595959;
-      position:relative;
+  .card-details {
+    .card-list-item {
+      color: #595959;
+      position: relative;
       margin-left: 0.15rem;
       margin-right: 0.15rem;
-      border:1px solid #707070;
+      border: 1px solid #707070;
       border-radius: 5px;
       margin-bottom: 0.05rem;
       margin-top: 0.05rem;
-      .icon-gray-5{
-        position:absolute;
-        left:0;
-        top:0;
-        width:.4rem;
+      .icon-gray-5 {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: .4rem;
         .on {
           display: none;
         }
       }
-      .item-box{
-        padding:0;
-        .month{
-          padding:.05rem 0;
+      .item-box {
+        padding: 0;
+        .month {
+          padding: .05rem 0;
         }
-        .line{
-          margin-left:.05rem;
-          border-left:1px dashed #595959;
-          padding:.05rem 0;
+        .line {
+          margin-left: .05rem;
+          border-left: 1px dashed #595959;
+          padding: .05rem 0;
         }
         p {
           font-size: 0.10rem;
           line-height: 1.4;
         }
-        .month-item{
-          font-size:.15rem;
+        .month-item {
+          font-size: .15rem;
         }
-        .month-item-small{
+        .month-item-small {
           font-size: .2rem;
-          font-weight:600;
+          font-weight: 600;
         }
-        .big{
-          font-size:.2rem;
-          font-weight:bold;
+        .big {
+          font-size: .2rem;
+          font-weight: bold;
         }
-        b{
-          font-weight:600;
+        b {
+          font-weight: 600;
         }
 
       }
     }
-    .on{
-      color:#cc1414;
-      border-color:#cc1414;
+    .on {
+      color: #cc1414;
+      border-color: #cc1414;
       .img-box {
-        .line{
-          border-left:1px dashed #595959 !important;
+        .line {
+          border-left: 1px dashed #595959 !important;
         }
       }
       .icon-gray-5 {
@@ -338,7 +338,7 @@
         }
       }
     }
-    p{
+    p {
       text-align: center;
     }
   }
@@ -472,6 +472,67 @@
           font-weight: bold;
           margin-bottom: 0.05rem;
         }
+      }
+    }
+  }
+  nav .title-page {
+    letter-spacing: 0.1em;
+  }
+  #receiverAddressPanel {
+    padding-left: 0.3rem;
+    .weui-cell {
+      padding: 0;
+      border: 0;
+      .weui-cell__hd {
+        width: 0.7rem;
+      }
+      .weui-cell__bd {
+        padding-top: 0.07rem;
+        padding-bottom: 0.07rem;
+        border: 1px solid #ccc;
+        padding-left: 0.1rem;
+        @include border-radius(3px);
+        &.bd-ok {
+          border: 1px solid $color-primary;
+          @include border-radius(100px);
+          color: $color-primary;
+          text-align: center;
+          a {
+            display: block;
+          }
+        }
+      }
+      .weui-cell__ft {
+        display: none;
+      }
+      .weui-vcode-btn {
+        padding-top: 0.07rem;
+        padding-bottom: 0.07rem;
+        border: 2px solid $color-primary;
+        @include border-radius(3px);
+        color: $color-primary;
+      }
+      &.weui-cell_vcode {
+        .weui-cell__ft {
+          display: block;
+        }
+      }
+    }
+  }
+  .adr-content {
+    font-size: 0.12rem;
+    .weui-media-box {
+      padding: 0.15rem;
+      margin: 0.15rem;
+      background: #eee;
+      color: #999;
+    }
+    .weui-media-box__hd {
+      width: 0.4rem;
+      margin-right: 0.08rem;
+      font-size: 0.14rem;
+      i {
+        font-size: 0.4rem;
       }
     }
   }
