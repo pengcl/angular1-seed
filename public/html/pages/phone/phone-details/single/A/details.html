@@ -78,7 +78,7 @@
                 </div>
                 <div id="pickPackagePanel" class="card" style="display: none;padding-top: 0.1rem;padding-bottom: 0.15rem;background: #fff">
                     <ul class="card-list">
-                        <li class="card-list-item on" ng-repeat="package in phone.packageProductList">
+                        <li class="card-list-item" ng-class="{true:'on',false:''}[$index == 0]" ng-repeat="package in phone.packageProductList">
                             <div class="item-box pure-g" ng-click="setPackage(package);">
                                 <div class="month pure-u-2-5">
                                     <p class="month-item rec">￥<span class="big" ng-bind="package.salesPrice | number : 0"></span><sub>套餐</sub></p>
@@ -94,6 +94,7 @@
                             <ins class="icon-gray-5">
                                 <div class="img-box">
                                     <img src="/images/double-flag.png">
+                                    <img class="on" src="/images/phones/assets/icons/{{package.salesPrice*10/package.oldPrice | number : 0}}-on.png">
                                 </div>
                             </ins>
                         </li>
