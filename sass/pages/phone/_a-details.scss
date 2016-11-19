@@ -332,6 +332,10 @@
         p {
           font-size: 0.10rem;
           line-height: 1.4;
+          del {
+            color: #595959;
+            font-size: 0.10rem;
+          }
         }
         .month-item {
           font-size: .15rem;
@@ -365,6 +369,9 @@
         .on {
           display: block !important;
         }
+      }
+      del {
+        color: #cc1414 !important;
       }
     }
     p {

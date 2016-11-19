@@ -517,4 +517,32 @@
   nav .title-page {
     letter-spacing: 0.1em;
   }
+  .footer-nav.nav-list {
+    padding-left: 0;
+    .nav-item {
+      position: relative;
+      &.nav-button {
+        font-size: 0.14rem;
+        background: #f5f5f5;
+        color: #333;
+      }
+      &:before {
+        content: " ";
+        position: absolute;
+        bottom:0.09rem;
+        height: 2px;
+        width: 4em;
+        left: 50%;
+        margin-left: -2em;
+        background: #f2741d;
+        display: none;
+      }
+      &.curr {
+        color: #f2741d !important;
+        &:before {
+          display: block;
+        }
+      }
+    }
+  }
 }

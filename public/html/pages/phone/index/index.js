@@ -57,6 +57,32 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
         //deferred.reject(status)
     });
 
+    $scope.st = function (target) {
+        var $container = $('.content-scrollable');
+        var $scrollTo = $(target);
+        $container.animate({
+            scrollTop: $scrollTo.offset().top - $container.offset().top + $container.scrollTop()
+        });
+    };
+
+    $scope.btNavItem = function (event, index, target) {
+        var $this = $(event.currentTarget);
+        if (index == 0 || index == 1) {
+            $this.siblings().removeClass("curr");
+            $this.addClass("curr");
+            $(".tab-item").eq(index).trigger("click");
+            $scope.st(target);
+        } else if (index == 2) {
+            $this.siblings().removeClass("curr");
+            $this.addClass("curr");
+            $scope.st(target);
+        }
+        else if (index == 3) {
+            getMeiqia();
+            _MEIQIA('showPanel');
+        }
+    };
+
     $interval(function () {
         $scope.selkillTxt = getRandomName() + "，刚刚购买了 iPhone7 Plus";
     }, 2000);

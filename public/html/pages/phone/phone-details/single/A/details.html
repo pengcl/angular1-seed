@@ -29,7 +29,7 @@
                                 <li style="padding-left: 0"><span>现价：</span><em>￥</em><em class="" ng-bind="phone.phonePrice"></em></li>
                             </ul>
                         </div>
-                        <div class="product-txt-ft"><span class="sold">已售 <span>2841</span></span><span class="score">评分 <span class="star"><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i></span> 4.8</span></div>
+                        <div class="product-txt-ft"><stars></stars></div>
                     </div>
                 </div>
             </div>
@@ -72,7 +72,7 @@
                         <div class="weui-cell__bd"><p style="text-align: left">选择话费套餐</p></div>
                         <div class="weui-cell__ft">
                             <span ng-if="!package">未选择</span>
-                            <span ng-if="package" ng-bind="package.salesPrice + '元套餐'">未选择</span>
+                            <span ng-if="package">￥<span ng-bind="package.salesPrice | number : 0"></span>套餐，<span ng-bind="package.network"></span>G国内流量...</span>
                         </div>
                     </a>
                 </div>
@@ -81,8 +81,8 @@
                         <li class="card-list-item" ng-class="{true:'on',false:''}[$index == 0]" ng-repeat="package in phone.packageProductList">
                             <div class="item-box pure-g" ng-click="setPackage($event,package);">
                                 <div class="month pure-u-2-5">
-                                    <p class="month-item rec">￥<span class="big" ng-bind="package.salesPrice | number : 0"></span><sub>套餐</sub></p>
-                                    <p><span>每人仅￥<span ng-bind="package.salesPrice/2 | number : 0"></span></span>优惠36个月</p>
+                                    <p class="month-item rec">￥<span class="big" ng-bind="package.salesPrice | number : 0"></span><sub>/月</sub></p>
+                                    <p><del>原价￥<span ng-bind="package.oldPrice | number : 0"></span></del> 优惠36个月</p>
                                 </div>
                                 <div class="net-work pure-u-3-5">
                                     <div class="line">
