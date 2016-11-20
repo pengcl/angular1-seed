@@ -84,6 +84,6 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
     };
 
     $interval(function () {
-        $scope.selkillTxt = getRandomName() + "，刚刚购买了 iPhone7 Plus";
+        $scope.selkillTxt = getRandomName() + "，刚刚购买了 " + getRandomProduct();
     }, 2000);
 }]);

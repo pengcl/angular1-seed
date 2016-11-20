@@ -117,20 +117,23 @@
     padding: 0 0.07rem;
   }
   .phone-box {
+    display: block;
     font-size: 0.12rem;
     background: #fff;
     position: relative;
     border: 1px solid #dedede;
     border-bottom: 0;
     position: relative;
+    color: #333;
+    padding-bottom: 0.1rem;
     .phone-box-flag {
       position: absolute;
       left: 0.05rem;
-      width: 0.3rem;
+      width: 0.2rem;
       top: -1px;
     }
     .image-box {
-      padding-top: 0.1rem;
+      padding-top: 0.15rem;
       width: 35%;
       .image-b {
         margin-left: 0.05rem;
@@ -177,13 +180,18 @@
           font-size: 0.12rem;
           padding: 0;
           font-weight: 300;
+          @include inline-block;
+          b {
+            font-weight: 700;
+          }
         }
         span.price {
           font-size: 0.14rem;
           color: #f2741d;
+          @include inline-block;
         }
         .promotion {
-          font-size: 0.12rem;
+          font-size: 0.10rem;
           border: 1px dashed #f2741d;
           color: #f2741d;
           margin-left: 0.05rem;
@@ -193,7 +201,6 @@
           padding-right: 0.05rem;
           line-height: 1.1;
           @include inline-block;
-          vertical-align: baseline;
         }
         .sale-price {
           .promotion {
@@ -206,13 +213,21 @@
       .pkg {
         margin-top: 0.1rem;
         margin-right: 0.20rem;
+        .pu-b {
+          width: 45%;
+        }
+        .pu-s {
+          width: 35%;
+        }
         .pkg-flag {
           font-size: 0.12rem;
           color: #fff;
           background: #052d52;
           text-align: center;
           display: block;
-          border: 2px dashed #052d52;
+          border: 1px dashed #052d52;
+          padding-top: 0.02rem;
+          padding-bottom: 0.02rem;
           span {
             display: block;
             font-size: 0.12rem;
@@ -221,10 +236,15 @@
         }
         .pkg-staff {
           display: block;
-          border: 2px dashed #052d52;
+          border: 1px dashed #052d52;
           border-left: 0;
           padding-left: 0.08rem;
           color: #052d52;
+          padding-top: 0.02rem;
+          padding-bottom: 0.02rem;
+          b {
+            font-weight: 700;
+          }
           span {
             display: block;
             line-height: 0.15rem;
@@ -233,9 +253,11 @@
         }
         .pkg-price {
           display: block;
-          border: 2px dashed #052d52;
+          border: 1px dashed #052d52;
           border-left: 0;
           padding-left: 0.08rem;
+          padding-top: 0.02rem;
+          padding-bottom: 0.02rem;
           span {
             display: block;
           }
@@ -243,6 +265,9 @@
             font-size: 0.16rem;
             color: #052d52;
             line-height: 0.18rem;
+            em {
+              color: #052d52;
+            }
             sub {
               font-size: 0.1rem;
               bottom: 0;
@@ -261,9 +286,9 @@
           margin-bottom: 0.03rem;
           padding-left: 0.02rem;
           .promotion {
-            font-size: 0.12rem;
-            border: 1px dashed #f2741d;
-            color: #f2741d;
+            font-size: 0.10rem;
+            border: 1px dashed $color-primary;
+            color: $color-primary;
             margin-left: 0.05rem;
             padding-top: 0.01rem;
             padding-bottom: 0.01rem;
@@ -273,8 +298,8 @@
             @include inline-block;
             vertical-align: baseline;
             &.solid {
-              background: #f2741d;
-              border: 1px solid #f2741d;
+              background: $color-primary;
+              border: 1px solid $color-primary;
               color: #fff;
             }
           }
@@ -300,11 +325,13 @@
       margin-left: -0.03rem;
       margin-right: -0.03rem;
       .recommend-box {
-        margin-left: 0.03rem;
-        margin-right: 0.03rem;
+        display: block;
+        margin: 0.03rem;
         font-size: 0.12rem;
         padding: 0.05rem;
         background: #fff;
+        @include box-shadow(3px 3px 5px #ccc);
+        color: #333;
         .img-box {
           position: relative;
           .img-title-bg {
@@ -325,7 +352,7 @@
             padding: 0.05rem;
             font-size: 0.13rem;
             color: #fff;
-            font-weight: 400;
+            font-weight: 600;
             line-height: 0.16rem;
           }
         }
@@ -341,6 +368,7 @@
           span.price {
             color: #f2741d;
             font-size: 0.14rem;
+            font-weight: 600;
 
           }
           sub {
@@ -355,6 +383,9 @@
           .pkg-staff {
             display: block;
             position: relative;
+            b {
+              font-weight: 700;
+            }
             &:after {
               content: " ";
               position: absolute;
@@ -375,6 +406,9 @@
             line-height: 0.16rem;
             display: block;
             color: #1065c5;
+            b {
+              font-weight: 700;
+            }
           }
         }
         .btn {
@@ -398,11 +432,13 @@
       margin-left: -0.03rem;
       margin-right: -0.03rem;
       .card-box {
+        display: block;
         margin-left: 0.03rem;
         margin-right: 0.03rem;
         padding: 0.05rem;
         background: #fff;
         margin-bottom: 0.06rem;
+        @include box-shadow(3px 3px 5px #ccc);
         img {
           display: block;
           width: 44%;
@@ -445,12 +481,15 @@
             }
           }
           .net-work {
-            font-size: .15rem;
+            font-size: .14rem;
             text-align: center;
             color: #fff;
             background: #00b8f5;
             margin-top: .05rem;
             margin-bottom: .1rem;
+            font-weight: 700;
+            padding-top: 0.01rem;
+            padding-bottom: 0.01rem;
           }
           .net-price {
             font-size: .15rem;
@@ -507,7 +546,7 @@
         position: absolute;
         left: 0.84rem;
         right:0;
-        top: 0.01rem;
+        top: 0.02rem;
         bottom:0;
         font-size: 0.12rem;
         color: #eee;
