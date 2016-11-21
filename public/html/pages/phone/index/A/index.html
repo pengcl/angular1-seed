@@ -4,7 +4,7 @@
     <div class="content-scrollable has-footer">
         <div id="indexBanner">
             <div class="img-box">
-                <a href="/phs/db/A/293{{params}}">
+                <a href="/phs/db/A/293{{params}}" ng-click="writeSelectFoods(this,'293','SY');">
                     <img src="/images/phones/assets/index/indexBanner.jpg">
                 </a>
             </div>
@@ -67,7 +67,7 @@
             <!-- 双机循环开始 -->
             <ul class="phone-list">
                 <li class="phone-item" ng-repeat="doublePhone in doublePhones">
-                    <a href="/phs/db/{{pageType}}/{{doublePhone.activityproductId}}{{params}}" class="phone-box pure-g"><!-- 买一送一 -->
+                    <a href="/phs/db/{{pageType}}/{{doublePhone.activityproductId}}{{params}}" ng-click="writeSelectFoods(this,doublePhone.activityproductId,'MYSY');" class="phone-box pure-g"><!-- 买一送一 -->
                         <ins class="phone-box-flag">
                             <div class="img-box"><img src="/images/list-box-flag.png"></div>
                         </ins>
@@ -132,7 +132,7 @@
             <!-- 单机循环开始 -->
             <ul class="list_single phone-list" style="display: none">
                 <li class="phone-item single" ng-repeat="singlePhone in singlePhones">
-                    <a href="/phs/sg/{{pageType}}/{{singlePhone.activityproductId}}{{params}}" class="phone-box pure-g">
+                    <a href="/phs/sg/{{pageType}}/{{singlePhone.activityproductId}}{{params}}" ng-click="writeSelectFoods(this,singlePhone.activityproductId,'BKDJ');" class="phone-box pure-g">
                         <ins class="phone-box-flag">
                             <div class="img-box">
                                 <img src="/images/list-box-flag-single.png">
@@ -184,7 +184,7 @@
         <div id="recommend">
             <ul class="recommend-lists pure-g">
                 <li class="recommend-item pure-u-1-2" ng-repeat="doublePhone in doublePhones">
-                    <a href="/phs/db/{{pageType}}/{{doublePhone.activityproductId}}{{params}}" class="recommend-box">
+                    <a href="/phs/db/{{pageType}}/{{doublePhone.activityproductId}}{{params}}" ng-click="writeSelectFoods(this,doublePhone.activityproductId,'DJDZM');" class="recommend-box">
                         <div class="img-box">
                             <img ng-src="http://www.yfq.cn:8899/fileserver/medias/{{doublePhone.mainImageUrl}}">
                             <div class="img-title-bg">
@@ -227,7 +227,7 @@
         <div id="cards">
             <ul class="card-lists pure-g">
                 <li class="card-item pure-u-1-2" ng-repeat="pkg in pkgs">
-                    <a href="/phs/cd/A/{{pkg.productId}}{{params}}" class="card-box">
+                    <a href="/phs/cd/A/{{pkg.productId}}{{params}}" ng-click="writeSelectFoods(this,pkg.productId,'CZTC');" class="card-box">
                         <div class="img">
                             <img src="/images/phones/assets/index/tel-logo.jpg" alt="">
                         </div>
