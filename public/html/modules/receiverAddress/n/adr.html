@@ -1,5 +1,6 @@
 <div id="receiverAddress" class="address">
     <input type="hidden" value="{{receiver.city + receiver.room}}" name="address" id="address">
+    <input type="hidden" value="{{receiver.city + receiver.room}}" name="recieverAddress" id="recieverAddress">
     <div class="adr-tab weui-cells" ng-click="showReceiverPn($event);">
         <a class="weui-cell weui-cell_access" href="javascript:;">
             <div class="weui-cell__bd title-icon">
@@ -30,6 +31,7 @@
             <div class="weui-cell__hd"><label class="weui_label">收货人：</label></div>
             <div class="weui-cell__bd weui_cell_primary">
                 <input type="text" id="reciverName" name="reciverName" ng-model="receiver.name" class="weui-input" required/>
+                <input style="display: none" type="text" id="recieverName" name="recieverName" ng-model="receiver.name" class="weui-input" required/>
             </div>
             <div class="weui-cell__ft"><i class="weui-icon-warn"></i><i class="weui-icon-success"></i></div>
         </div>
@@ -37,6 +39,7 @@
             <div class="weui-cell__hd"><label class="weui-label">联系方式：</label></div>
             <div class="weui-cell__bd weui_cell_primary">
                 <input id="receiverMobile" name="receiverMobile" ng-model="receiver.mobile" ng-maxlength="11" ng-pattern="/^[0-9]*$/" pattern="[0-9]*" ng-minlength="11" class="weui-input" required/>
+                <input style="display: none;" id="recieverMobile" name="recieverMobile" ng-model="receiver.mobile" ng-maxlength="11" ng-pattern="/^[0-9]*$/" pattern="[0-9]*" ng-minlength="11" class="weui-input" required/>
             </div>
             <div class="weui-cell__ft"><i class="weui-icon-warn"></i><i class="weui-icon-success"></i></div>
         </div>

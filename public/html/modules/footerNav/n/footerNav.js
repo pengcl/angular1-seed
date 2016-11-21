@@ -20,8 +20,7 @@ app.directive("nFooterNav", ['$http', function ($http) {
 
             scope.checkForm = function () {
                 if (scope.$root.checkActiveCode()) {
-                    console.log("ss");
-                    //writebdLog(scope.category, "_BuyNow", "渠道号", scope.gh);//立即支付
+                    writebdLog(scope.category, "_BuyNow", "渠道号", scope.gh);//立即支付
                     scope.$root.toast.open();
 
                     $form.submit();
@@ -37,10 +36,25 @@ app.directive("nFooterNav", ['$http', function ($http) {
             };
 
             scope.submitForm = function (event, type) {
-                if (attrs.checkMainNumber) {
-                    if (attrs.checkSubNumber) {
-                        if (scope.checkMainNumber()) {
-                            if (scope.checkSubNumber()) {
+                if(scope.buyType == 1){
+                    if (attrs.checkMainNumber) {
+                        if (attrs.checkSubNumber) {
+                            if (scope.checkMainNumber()) {
+                                if (scope.checkSubNumber()) {
+                                    if (scope.checkAddress()) {
+                                        scope.checkForm();
+                                    } else {
+                                        var $scrollTo = $('#receiverAddress');
+                                        $container.animate({
+                                            scrollTop: $scrollTo.offset().top - $container.offset().top + $container.scrollTop() - 50
+                                        });
+                                        $("#receiverAddressPanel").slideDown();
+                                        $(".adr-tab").addClass("down");
+                                    }
+                                }
+                            }
+                        } else {
+                            if (scope.checkMainNumber()) {
                                 if (scope.checkAddress()) {
                                     scope.checkForm();
                                 } else {
@@ -54,20 +68,18 @@ app.directive("nFooterNav", ['$http', function ($http) {
                             }
                         }
                     } else {
-                        if (scope.checkMainNumber()) {
-                            if (scope.checkAddress()) {
-                                scope.checkForm();
-                            } else {
-                                var $scrollTo = $('#receiverAddress');
-                                $container.animate({
-                                    scrollTop: $scrollTo.offset().top - $container.offset().top + $container.scrollTop() - 50
-                                });
-                                $("#receiverAddressPanel").slideDown();
-                                $(".adr-tab").addClass("down");
-                            }
+                        if (scope.checkAddress()) {
+                            scope.checkForm();
+                        } else {
+                            var $scrollTo = $('#receiverAddress');
+                            $container.animate({
+                                scrollTop: $scrollTo.offset().top - $container.offset().top + $container.scrollTop() - 50
+                            });
+                            $("#receiverAddressPanel").slideDown();
+                            $(".adr-tab").addClass("down");
                         }
                     }
-                } else {
+                }else {
                     if (scope.checkAddress()) {
                         scope.checkForm();
                     } else {

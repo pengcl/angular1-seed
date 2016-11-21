@@ -81,7 +81,14 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
             getMeiqia();
             _MEIQIA('showPanel');
         }
+        writeBtNavItem(index);
     };
+    
+    var btNavItemName=['_MYSYBt','_BKDJBt','_CZTCBt','_CustConsult'];
+    function writeBtNavItem(index)
+    {
+    	writebdLog($scope.category, btNavItemName[index], "渠道号", $scope.gh);//选择模块
+    }
 
     $interval(function () {
         $scope.selkillTxt = getRandomName() + "，刚刚购买了 " + getRandomProduct();
@@ -90,6 +97,6 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
     //记录用户购买的商品：专区模块英文名称+商品id
     $scope.writeSelectFoods=function(obj,productId,modular)
     {
-    	writebdLog($scope.category, "_"+modular+productId, "渠道号", $scope.gh);//选择的商品ID
+    	writebdLog($scope.category, "_"+productId+modular, "渠道号", $scope.gh);//选择的商品ID
     };
 }]);
