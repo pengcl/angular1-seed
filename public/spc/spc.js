@@ -205,9 +205,10 @@ var checkActiveCode = function () {
 };
 
 var huBuy = function (e) {
+	console.log(e);
     if (checkReceiverMobile()) {
         if (checkActiveCode()) {
-
+        	applyButtonUv(e);
         } else {
             e.preventDefault();
         }
@@ -215,6 +216,23 @@ var huBuy = function (e) {
         e.preventDefault();
     }
 };
+
+function applyButtonUv(e)
+{
+	if(e==undefined) return;
+	if(e.srcElement==undefined) return;
+	if(e.srcElement.innerText==undefined) return;
+	if(e.srcElement.innerText.indexOf("号码")!=-1)
+		writebdLog(category, "_ApplyNextNumber", "渠道号", getUrlParam("gh"));//申请新号码
+	else
+		writebdLog(category, "_ApplyNextCOD", "渠道号", getUrlParam("gh"));//下单页
+}
+
+function writeInputNumber(obj,name)
+{
+	if($(obj).val().length<4) return;
+	writebdLog(category, name, "渠道号", getUrlParam("gh"));//输入号码
+}
 
 var paracont = "获取验证码";
 var paraclass = "but_null";
@@ -246,4 +264,5 @@ function getActiveCode() {
             }, 1000, 100);
         }
     });
+    writebdLog(category, "_VariIndexCode", "渠道号", getUrlParam("gh"));//获取验证码
 };

@@ -39,7 +39,16 @@ app.directive("nPayType", ['$location', '$compile', '$q', function ($location, $
                 var $this = $(event.currentTarget);
                 $this.addClass("on");
                 $this.siblings().removeClass("on");
+                wirtePayType(id);
             };
+            
+            var value;
+            var payTypeAry=['payAll','payCOD','payMonthly'];
+            function wirtePayType(payType)
+            {
+            	value=payTypeAry[payType];
+            	writebdLog(scope.category, "_"+value, "渠道号", scope.gh);//选择支付方式
+            }
         }
     };
 }]);

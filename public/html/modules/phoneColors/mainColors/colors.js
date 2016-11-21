@@ -24,7 +24,7 @@ app.directive("mainColors", ['$http', '$q', '$timeout', function ($http, $q, $ti
                     $this.parent().siblings().children().removeClass('curr');
                     $this.addClass('curr');
                     scope.mainColor = color;
-                    writebdLog(scope.category, "_FuselageColor", "渠道号", scope.gh);//选择机身颜色
+                    writebdLog(scope.category, "_mainFuselageColor", "渠道号", scope.gh);//选择机身颜色
                 }
             };
         }

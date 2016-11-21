@@ -16,6 +16,10 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
     $scope.pageType = $stateParams.pageType;
 
     $scope.activeTag = "mysy";
+    
+    $scope.appType = systemName + "_mysy_" + $scope.pageType+"_DoublePhones" ;
+    $scope.category = $scope.appType;
+    writebdLog($scope.category, "_Load", "渠道号", $scope.gh);
 
     $scope.buyType = 1;
 
