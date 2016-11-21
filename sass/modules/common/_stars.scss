@@ -1,0 +1,14 @@
+.stars {
+  @include inline-block;
+  .stars-content {
+    i {
+      color: #999;
+      &.on {
+        color: $color-orange;
+      }
+    }
+  }
+  .stars-point {
+    color: $color-orange;
+  }
+}

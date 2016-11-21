@@ -16,7 +16,7 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
     $scope.pageType = $stateParams.pageType;
     $scope.activeTag = "jjk";
 
-    $http.jsonp("http://192.168.1.181:8082/product/getProDetial.html?productId=" + $stateParams.phoneId + "&activeTag=jjk&s=wap&callback=JSON_CALLBACK").success(function (data, status, headers, config) {
+    $http.jsonp("http://m.yfq.cn/product/getProDetial.html?productId=" + $stateParams.phoneId + "&activeTag=jjk&s=wap&callback=JSON_CALLBACK").success(function (data, status, headers, config) {
         $scope.phone = data;
         $scope.totolPrice = data.phoneBillPrice + data.phonePrice;
     }).error(function (data, status, headers, config) {
@@ -30,15 +30,16 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
         container: $(".content-scrollable")
     });
     $scope.buyType = 1;
+    $scope.activeTagName = "裸机+5折话费套餐";
 
-    $scope.setSbPayType = function(id,typeName) {
+    $scope.setSbPayType = function (id, typeName) {
         $scope.payType = id;
         $scope.payTypeName = typeName;
         $(".pay-item").removeClass("on");
         $("#payType" + id).addClass("on");
     };
 
-    $scope.setBuyType = function (event, type) {
+    $scope.setBuyType = function (event, type, typeName) {
         event.preventDefault();
         $scope.buyType = type;
         var $this = $(event.currentTarget);
@@ -47,12 +48,14 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
         if (type == 0) {
             $scope.activeTag = "lj";
             $scope.totolPrice = $scope.phone.phonePrice;
-            if($scope.totolPrice < 1500){
-                $scope.setSbPayType(0,'一次性支付');
+            $scope.activeTagName = typeName;
+            if ($scope.totolPrice < 1500) {
+                $scope.setSbPayType(0, '一次性支付');
             }
         } else {
             $scope.totolPrice = $scope.phone.phoneBillPrice + $scope.phone.phonePrice;
             $scope.activeTag = "jjk";
+            $scope.activeTagName = typeName;
         }
     };
 
@@ -82,7 +85,7 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
 
     $scope.$watch('productId', function (n, o, $scope) {
         if (n != o) {
-            $http.get("http://192.168.1.181:8082/product/getProDetial.html?productId=" + n + "&s=wap&callback=JSON_CALLBACK").success(function (phone) {
+            $http.get("http://m.yfq.cn/product/getProDetial.html?productId=" + n + "&s=wap&callback=JSON_CALLBACK").success(function (phone) {
                 /*$scope.phone = phone;
 
                  //选择默认内存

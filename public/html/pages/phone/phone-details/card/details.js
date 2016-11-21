@@ -16,7 +16,7 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
     $scope.pageType = $stateParams.pageType;
     $scope.activeTag = "jjk";
 
-    $http.jsonp("http://192.168.1.181:8082/product/getPackageInfo.html?productId=" + $stateParams.cardId + "&s=wap&callback=JSON_CALLBACK").success(function (data, status, headers, config) {
+    $http.jsonp("http://m.yfq.cn/product/getPackageInfo.html?productId=" + $stateParams.cardId + "&s=wap&callback=JSON_CALLBACK").success(function (data, status, headers, config) {
         $scope.card = data;
         $scope.totolPrice = data.salesPrice;
     }).error(function (data, status, headers, config) {
@@ -85,7 +85,7 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
 
     $scope.$watch('productId', function (n, o, $scope) {
         if (n != o) {
-            $http.get("http://192.168.1.181:8082/product/getProDetial.html?productId=" + n + "&s=wap&callback=JSON_CALLBACK").success(function (phone) {
+            $http.get("http://m.yfq.cn/product/getProDetial.html?productId=" + n + "&s=wap&callback=JSON_CALLBACK").success(function (phone) {
                 /*$scope.phone = phone;
 
                  //选择默认内存

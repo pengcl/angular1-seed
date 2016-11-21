@@ -1,18 +1,18 @@
 <div id="receiverAddress" class="address">
     <input type="hidden" value="{{receiver.city + receiver.room}}" name="address" id="address">
     <div class="adr-tab weui-cells" ng-click="showReceiverPn($event);">
-        <a class="weui-cell weui-cell_access title-icon" href="javascript:;">
-            <div class="weui-cell__bd">
+        <a class="weui-cell weui-cell_access" href="javascript:;">
+            <div class="weui-cell__bd title-icon">
                 <p>填写收货地址</p>
             </div>
             <div class="weui-cell__ft" ng-bind="receiver.city">未填写</div>
         </a>
     </div>
 
-    <div class="adr-content" ng-show="receiver.room">
+    <div class="adr-content" ng-show="receiver.room" ng-click="showReceiverPn($event);">
         <div class="weui-panel weui-panel_access">
             <div class="weui-panel__bd">
-                <a href="javascript:void(0);" class="weui-media-box weui-media-box_appmsg">
+                <a href="javascript:;" class="weui-media-box weui-media-box_appmsg">
                     <div class="weui-media-box__hd">
                         <i class="icon-pin"></i>
                     </div>

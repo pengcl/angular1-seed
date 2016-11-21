@@ -2,7 +2,7 @@
     <top-nav page-title="中国电信●翼分期商城" page-back="back"></top-nav>
     <!--<form id="checkoutForm" name="checkoutForm" action="http://2b2fda71.ngrok.natapp.cn/wap/taokafanghaoNew/submitOrderMachine.html" method="post" novalidate>-->
     <!--<form id="checkoutForm" name="checkoutForm" action="http://m.yfq.na/wap/taokafanghaoNew/submitOrderDouble.html" method="post" novalidate>-->
-    <form id="checkoutForm" name="checkoutForm" action="http://192.168.1.181:8082/wap/taokafanghaoNew/submitOrderDouble.html" method="post" novalidate>
+    <form id="checkoutForm" name="checkoutForm" action="http://m.yfq.cn/wap/taokafanghaoNew/submitOrderDouble.html" method="post" novalidate>
         <input type="hidden" value="1" name="monthNumber" id="monthNumber">
         <input type="hidden" value="{{category}}" name="category" id="category">
         <input type="hidden" value="{{phone.activityproductId}}" ng-model="phone.productId" name="machineId" id="machineId">
@@ -29,7 +29,7 @@
                                 <li style="padding-left: 0"><span>现价：</span><em>￥</em><em class="" ng-bind="phone.phonePrice"></em></li>
                             </ul>
                         </div>
-                        <div class="product-txt-ft"><span class="sold">已售 <span>2841</span></span><span class="score">评分 <span class="star"><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i></span> 4.8</span></div>
+                        <div class="product-txt-ft"><stars></stars></div>
                     </div>
                 </div>
             </div>
@@ -41,12 +41,12 @@
             <div id="phonePkg" style="padding-bottom: 0.15rem">
                 <div class="weui-cells__title title-icon">
                     <span class="title">购买方式</span>
-                    <span class="sub-title">最高赠送6388话费</span>
+                    <span class="sub-title" ng-bind="activeTagName">裸机+5折话费套餐</span>
                 </div>
                 <div class="buy-type-panel pd-w">
                     <ul class="buy-type-lists item-lists minus pure-g">
                         <li class="buy-type-item list-item pure-u-2-5">
-                            <div class="item-box margin border radius small curr" ng-click="setBuyType($event,1)">
+                            <div class="item-box margin border radius small curr" ng-click="setBuyType($event,1,'裸机+5折话费套餐')">
                                 <p>
                                     <span>裸机+5折话费套餐</span>
                                 </p>
@@ -54,7 +54,7 @@
                             </div>
                         </li>
                         <li class="buy-type-item list-item pure-u-1-4">
-                            <div class="item-box margin border radius small" ng-click="setBuyType($event,0)">
+                            <div class="item-box margin border radius small" ng-click="setBuyType($event,0,'裸机')">
                                 <p>
                                     <span>裸机</span>
                                 </p>
@@ -72,7 +72,7 @@
                         <div class="weui-cell__bd"><p style="text-align: left">选择话费套餐</p></div>
                         <div class="weui-cell__ft">
                             <span ng-if="!package">未选择</span>
-                            <span ng-if="package" ng-bind="package.salesPrice + '元套餐'">未选择</span>
+                            <span ng-if="package">￥<span ng-bind="package.salesPrice | number : 0"></span>套餐，<span ng-bind="package.network"></span>G国内流量...</span>
                         </div>
                     </a>
                 </div>
@@ -81,13 +81,13 @@
                         <li class="card-list-item" ng-class="{true:'on',false:''}[$index == 0]" ng-repeat="package in phone.packageProductList">
                             <div class="item-box pure-g" ng-click="setPackage($event,package);">
                                 <div class="month pure-u-2-5">
-                                    <p class="month-item rec">￥<span class="big" ng-bind="package.salesPrice | number : 0"></span><sub>套餐</sub></p>
-                                    <p><span>每人仅￥<span ng-bind="package.salesPrice/2 | number : 0"></span></span>优惠36个月</p>
+                                    <p class="month-item rec">￥<span class="big" ng-bind="package.salesPrice | number : 0"></span><sub>/月</sub></p>
+                                    <p><del>原价￥<span ng-bind="package.oldPrice | number : 0"></span></del> 优惠36个月</p>
                                 </div>
                                 <div class="net-work pure-u-3-5">
                                     <div class="line">
-                                        <p class="month-item month-item-small"><span class="big">5.5GB</span><sub>全国流量</sub></p>
-                                        <p><b>1800</b>分钟全国通话 <b>50</b>条短信</p>
+                                        <p class="month-item month-item-small"><span class="big" ng-bind="package.network"></span><sub>GB全国流量</sub></p>
+                                        <p><b ng-bind="package.talkTime"></b>分钟全国通话 <b ng-bind="package.message"></b>条短信</p>
                                     </div>
                                 </div>
                             </div>

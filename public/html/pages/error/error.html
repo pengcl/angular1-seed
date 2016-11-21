@@ -1,0 +1,26 @@
+<div class="page error error-status">
+    <top-nav page-title="系统错误" page-back="menu" page-done="done" nav-visibility="hide"></top-nav>
+    <div class="content-scrollable">
+        <div class="weui-msg">
+            <div class="weui-msg__icon-area"><i class="weui-icon-warn weui-icon_msg"></i></div>
+            <div class="weui-msg__text-area">
+                <h2 class="weui-msg__title"><span ng-bind="errorStatus"></span></h2>
+                <p class="weui-msg__desc" ng-if="errorStatus=='404'">页面没有找到，请联系客服！</p>
+                <p class="weui-msg__desc" ng-if="errorStatus=='503' || errorStatus=='500'">系统错误，请联系客服</p>
+            </div>
+            <div class="weui-msg__opr-area">
+                <p class="weui-btn-area">
+                    <a href="javascript:;" ng-click="getContent();" class="weui-btn weui-btn_primary">联系客服</a>
+                </p>
+            </div>
+            <div class="weui-msg__extra-area">
+                <div class="weui-footer">
+                    <p class="weui-footer__links">
+                        <a href="javascript:;" class="weui-footer__link">微信公众号：翼分期商城</a>
+                    </p>
+                    <p class="weui-footer__text">Copyright &copy; 2008-2016</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

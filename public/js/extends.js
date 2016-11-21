@@ -347,3 +347,10 @@ function getRandomName (){
     var lid = Math.round(Math.random()*1);
     return firstNames[fid] + lastNames[lid];
 }
+
+function getRandomProduct (){
+    var productName;
+    productName = ["iPhone 7","iPhone 7 Plus","VIVO X7","OPPO R9","小米5S","华为P9"];
+    var index = Math.round(Math.random()*5);
+    return productName[index];
+}

@@ -5,26 +5,26 @@ sans-serif,
 // Gray Colors
 $color-gray-font: #666;
 //font
-$font-black:#333;
-$font-base:#666;
-$font-gray:#999;
-$font-disable:#ccc;
-$font-red:#f43530;
-$font-green:#84bf37;
-$font-orange:#fd8000;
+$font-black: #333;
+$font-base: #666;
+$font-gray: #999;
+$font-disable: #ccc;
+$font-red: #f43530;
+$font-green: #84bf37;
+$font-orange: #f6692a;
 //bg
-$bg-base:#fbf9fe;
-$bg-gray-light:#ddd;
-$bg-red:#f43530;
-$bg-green:#84bf37;
+$bg-base: #fbf9fe;
+$bg-gray-light: #ddd;
+$bg-red: #f43530;
+$bg-green: #84bf37;
 //bd
-$border-base:#d9d9d9;
-$border-gray:#ccc;
-$border-gray-light:#eee;
-$border-green:#84bf37;
+$border-base: #d9d9d9;
+$border-gray: #ccc;
+$border-gray-light: #eee;
+$border-green: #84bf37;
 
 //url
-$images-src:"/images/";
+$images-src: "/images/";
 
 // Greyscale
 $color-empty: white;
@@ -40,6 +40,7 @@ $color-full: #333;
 
 // Core
 $color-primary: #d83e14; // blood orange
+$color-orange: #f6692a;
 $color-primary-shadow: #c83e14;
 $color-secondary: $color-well; //
 $color-tertiary: $color-medium-well; //
@@ -47,8 +48,8 @@ $color-complementary: #000; //
 
 // Social Colors
 $color-twitter: #46c8f5;
-$color-twitter-shadow:#33c8f0;
+$color-twitter-shadow: #33c8f0;
 
 // Alert
 //$color-negative: #ff6622; //error, alert
-$color-negative:#ff5b29;
+$color-negative: #ff5b29;

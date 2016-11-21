@@ -6,7 +6,6 @@ app.directive("mainNumber", ["$cookieStore", function ($cookieStore) {
         templateUrl: "modules/common/phoneQuery/mainNumber/n.html",
         controller: "numberController",
         link: function (scope, element, attrs) {
-            console.log(element);
 
             var $container = $('.content-scrollable');
 
