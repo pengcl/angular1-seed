@@ -2,11 +2,21 @@
   .content-scrollable {
     background: #ebebeb;
   }
+
+}
+  .star-color{
+    color:#f00;
+  }
+  .line {
+    margin-left: .05rem;
+    border-left: 1px dashed #595959;
+    padding: .05rem 0;
+  }
   .product-txt {
     padding-left: 0.1rem;
     h1 {
       line-height: 1.4;
-      font-size: 0.14rem;
+      font-size: 0.16rem;
     }
     .label {
       background: $color-primary;
@@ -20,7 +30,8 @@
       @include border-radius(0);
     }
     .product-price {
-      margin-top: 0.05rem;
+      margin-top: 0.1rem;
+      margin-bottom:.1rem;
       ul {
         li {
           list-style: none;
@@ -91,7 +102,8 @@
         line-height: 0.16rem;
         font-size: 0.14rem;
         &.img-box {
-          width: 0.16rem;
+          width: 0.25rem;
+          padding-right:.02rem;
         }
       }
     }
@@ -116,6 +128,20 @@
     }
   }
   .pick-number {
+    .choose-number{
+      font-size:.16rem;
+      &:before{
+        border:0;
+      }
+      &:after{
+        border:0;
+      }
+      .choose-number-a{
+        padding:10px 0;
+        margin:0 15px;
+        border-top:1px solid #d9d9d9;
+      }
+    }
     .weui-cells {
       margin-top: 0;
     }
@@ -124,22 +150,21 @@
       text-align: center;
       background: #fff;
       padding-top: 0.1rem;
-      padding-bottom: 0.1rem;
+      padding-bottom: 0.2rem;
       a {
         @include inline-block;
-        padding-left: 0.2rem;
-        padding-right: 0.2rem;
+        padding:.05rem .02rem;
         margin-left: 0.05rem;
         margin-right: 0.05rem;
         @include border-radius(10rem);
-        border: 1px solid $color-primary;
+        border: 1px solid #26a408;
+        color:#26a408;
       }
     }
   }
   #pickMainNumber {
   }
   .pick-panel {
-    padding-top: 0.1rem;
     display: none;
     .weui-cells {
       border: 1px solid #ccc;
@@ -186,7 +211,7 @@
   #setPayType {
     background: #fff;
     padding-top: 0.1rem;
-    padding-bottom: 0.15rem;
+    padding-bottom: 0.1rem;
     margin-top: 0.1rem;
     .weui-cells__title {
       .sub-title {
@@ -211,12 +236,10 @@
         }
         .title {
           font-size: .14rem;
-          padding: 0.03rem;
+          padding: 0.07rem .07rem .07rem;
           font-weight: 900;
           background: #fff;
           line-height: 1.4;
-          padding-top: 0.025rem;
-          padding-bottom: 0.005rem;
         }
         .details {
           font-size: .12rem;
@@ -224,14 +247,14 @@
           background: #707070;;
           font-weight: 600;
           line-height: 1.2;
-          padding-top: 0.025rem;
-          padding-bottom: 0.005rem;
+          padding-top: 0.07rem;
+          padding-bottom: 0.07rem;
         }
         .active {
           background: #cc1414;
         }
       }
-      .on {
+      .on-paytype {
         .item {
           border: 1px solid #cc1414;
           color: #cc1414;
@@ -245,19 +268,31 @@
       padding: 0 .05rem;
       color: #cc1414;
       font-weight: 600;
-      margin: .1rem 0;
+      margin-top: .1rem ;
       p {
-        display: none;
+        font-size:.14rem;
+        .price-color{
+          color:#f6692a;
+        }
       }
     }
   }
   .footer-nav {
+    &.nav-list{
+      padding-left:.48rem;
+    }
+    .price-color{
+      font-weight:700;
+    }
     padding-left: 0.48rem;
     .nav-comment {
       left: 0 !important;
     }
     &.nav-list {
       .nav-item {
+        &.line-r:after{
+          border-right-color:#f5f5f5 ;
+        }
         &.nav-price {
           font-size: 0.12rem;
           line-height: 1.2;
@@ -273,9 +308,13 @@
     padding-top: 0.1rem;
     margin-top: 0.1rem;
     padding-bottom: 0.15rem;
+    .title-icon:before{
+      background-color:#1991ee;
+    }
   }
   .weui-cells__title {
     margin-top: 0;
+    margin-bottom:0;
   }
   .has-footer {
     &:after {
@@ -299,8 +338,24 @@
     }
   }
   .card-details {
+    .tel-details{
+      margin:0 15px;
+      padding:10px 0;
+      border-top:1px dashed #d9d9d9;
+    }
     font-size: 0.12rem;
+    .weui-cells{
+      font-size:.16rem;
+      &:before{
+        border:0;
+      }
+    &:after{
+      border:0;
+    }
+    }
     .card-list-item {
+
+      font-size: 0;
       color: #595959;
       position: relative;
       margin-left: 0.15rem;
@@ -315,20 +370,17 @@
         left: 0;
         top: 0;
         width: .4rem;
-        .on {
-          display: none;
+        .on-cardetails{
+          display:none;
         }
       }
       .item-box {
         padding: 0;
+        border-radius: 5px;
         .month {
           padding: .05rem 0;
         }
-        .line {
-          margin-left: .05rem;
-          border-left: 1px dashed #595959;
-          padding: .05rem 0;
-        }
+
         p {
           font-size: 0.10rem;
           line-height: 1.4;
@@ -354,19 +406,22 @@
 
       }
     }
-    .on {
+    .on-cardetails {
       color: #cc1414;
       border-color: #cc1414;
-      .img-box {
+      .item-box {
         .line {
-          border-left: 1px dashed #595959 !important;
+          border-left: 1px dashed #cc1414 !important;
         }
       }
       .icon-gray-5 {
         img {
           display: none !important;
         }
-        .on {
+        .d-none{
+          display:none;
+        }
+        .on-cardetails{
           display: block !important;
         }
       }
@@ -516,6 +571,7 @@
   }
   #receiverAddressPanel {
     padding-left: 0.3rem;
+    background:#fff;
     .weui-cell {
       padding: 0;
       border: 0;
@@ -523,18 +579,28 @@
         width: 0.7rem;
       }
       .weui-cell__bd {
+        &.adr-btn{
+          background:  rgba(0, 0, 0, 0) -webkit-gradient(linear, left top, left bottom, from(#fff), to(#ededed));
+          background:  rgba(0, 0, 0, 0) -moz-linear-gradient(center top , #fff, #ededed) repeat scroll 0 0;
+          background:  rgba(0, 0, 0, 0) -o-linear-gradient(center top , #fff, #ededed) repeat scroll 0 0;
+          background:  rgba(0, 0, 0, 0) linear-gradient(center top , #fff, #ededed) repeat scroll 0 0;
+        }
         padding-top: 0.07rem;
         padding-bottom: 0.07rem;
         border: 1px solid #ccc;
         padding-left: 0.1rem;
         @include border-radius(3px);
         &.bd-ok {
-          border: 1px solid $color-primary;
+          padding-top:.15rem;
+          padding-bottom:.15rem;
+          margin-bottom: .1rem;
+          border: 1px solid #26a408;
           @include border-radius(100px);
-          color: $color-primary;
+          color: #26a408;
           text-align: center;
           a {
             display: block;
+            color: #26a408;
           }
         }
       }
@@ -555,14 +621,26 @@
       }
     }
   }
+  #receiverAddress{
+    .adr-tab{
+      font-size:.16rem;
+      font-weight:400;
+     .weui-cell{
+       padding:15px 15px 15px 0;
+     }
+    }
+  }
   .weui-cell__ft {
     padding-right: 0.2rem;
   }
   .adr-content {
     font-size: 0.12rem;
+    .weui-panel:before,.weui-panel:after{
+      border:0;
+    }
     .weui-media-box {
-      padding: 0.15rem;
-      margin: 0.15rem;
+      padding: 0.1rem;
+      margin: 0 .15rem .15rem .15rem;
       background: #eee;
       color: #999;
     }
@@ -575,4 +653,3 @@
       }
     }
   }
-}

@@ -1,14 +1,14 @@
 <div id="setPayType" class="pay-type">
     <input type="hidden" name="payType" id="payType" ng-model="payType" value="{{payType}}" required>
     <div class="weui-cells__title title-icon">
-        <span class="title" ng-bind="payTitle"></span>
+        <span class="title" ng-bind="payTitle"></span><span class="star-color">*</span>
         <span class="sub-title">
             <span ng-bind="payTypeName"></span>
         </span>
     </div>
     <div class="paytype-panel pd-w">
         <ul class="paytype-list item-lists minus minus pure-g">
-            <li id="payType2" class="pay-item list-item pure-u-1-3 on" ng-if="!cardPay" ng-show="totolPrice > 1500" ng-click="setPayType($event,'2','信用卡分期');">
+            <li id="payType2" class="pay-item list-item pure-u-1-3 on-paytype" ng-if="!cardPay" ng-show="totolPrice > 1500" ng-click="setPayType($event,'2','信用卡分期');">
                 <div class="item item-box margin border radius">
                     <p class="title">信用卡分期</p>
                     <p class="details">12期免息 0现金</p>
@@ -34,9 +34,9 @@
             </li>
         </ul>
         <div class="pay-style-details">
-            <p>信用卡分期：12期免息。总价<span>￥12776</span>，月供仅<span>￥1065</span></p>
-            <p>一次性支付：再享95折优惠。总价<span>￥12776</span>，劲省<span>￥638.8</span></p>
-            <p>货到付款：预付99元抵200。总价<span>￥12776</span>，月供<span>￥101</span></p>
+            <p ng-show="payType==2">信用卡分期：12期免息。总价<span class="price-color">￥<span ng-bind="totolPrice | number:0">12776</span></span>，月供仅<span class="price-color">￥<span ng-bind="totolPrice/12 | number:0">12776</span></span></p>
+            <p ng-show="payType==0">一次性支付：再享95折优惠。总价<span class="price-color">￥<span ng-bind="totolPrice | number:0">12776</span></span>，劲省<span class="price-color">￥<span ng-bind="totolPrice*.095 | number:0">12776</span></span></p>
+            <p ng-show="payType==1">货到付款：预付99元抵200。总价<span class="price-color">￥<span ng-bind="totolPrice | number:0">12776</span></span>，劲省<span class="price-color">￥101</span></p>
         </div>
     </div>
 </div>
