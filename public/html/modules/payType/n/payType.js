@@ -37,8 +37,8 @@ app.directive("nPayType", ['$location', '$compile', '$q', function ($location, $
                 scope.payType = id;
                 scope.payTypeName = typeName;
                 var $this = $(event.currentTarget);
-                $this.addClass("on");
-                $this.siblings().removeClass("on");
+                $this.addClass("on-paytype");
+                $this.siblings().removeClass("on-paytype");
                 wirtePayType(id);
             };
             

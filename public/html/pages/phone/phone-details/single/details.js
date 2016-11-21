@@ -74,8 +74,8 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
     $scope.setPackage = function (event, pkg) {
         $scope.package = pkg;
         var $this = $(event.currentTarget);
-        $this.parent().siblings().removeClass('on');
-        $this.parent().addClass('on');
+        $this.parent().siblings().removeClass('on-cardetails');
+        $this.parent().addClass('on-cardetails');
         $("#pickPackagePanel").slideUp();
         writebdLog($scope.category, "_SelectPackage", "渠道号", $scope.gh);//选择套餐
     };

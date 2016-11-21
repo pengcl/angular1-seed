@@ -1,6 +1,6 @@
 <div id="mainPhoneColors" class="phone-colors">
     <input type="hidden" name="mainColor" id="mainColor" ng-model="mainColor.name" value="{{mainColor.name}}" required>
-    <div class="weui-cells__title title-icon"><span class="title" ng-bind="mainColorTitle"></span><span class="sub-title" ng-class="{true:'hide',false:''}[colorSubTitle == '']"><span ng-bind="phone.phoneTypes[0].productName"></span> <span ng-bind="mainColor.name"></span></span></div>
+    <div class="weui-cells__title title-icon"><span class="title" ng-bind="mainColorTitle"></span><span class="star-color">*</span><span class="sub-title" ng-class="{true:'hide',false:''}[colorSubTitle == '']"><span ng-bind="phone.phoneTypes[0].productName"></span> <span ng-bind="mainColor.name"></span></span></div>
     <div class="phone-colors-panel pd-w">
         <ul class="phone-colors-lists item-lists minus pure-g">
             <li class="phone-colors-item list-item pure-u-1-4" ng-repeat="color in phone.phoneTypes[0].mediaProductList">

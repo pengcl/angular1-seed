@@ -30,7 +30,7 @@
                                 <li><ins>2</ins><span>购机价格：</span><em>￥</em><em class="" ng-bind="phone.phonePrice"></em><sub>/2台</sub></li>
                             </ul>
                         </div>
-                        <div class="product-txt-ft"><stars></stars></div>
+                        <div class="product-txt-ft"><span class="sold">已售 <span>2841</span></span><span class="score">评分 <span class="star"><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i></span> 4.8</span></div>
                     </div>
                 </div>
             </div>
@@ -49,16 +49,16 @@
                 <div class="card-details">
                     <div class="card">
                         <ul class="card-list">
-                            <li class="card-list-item on">
+                            <li class="card-list-item on-cardetails">
                                 <div class="item-box pure-g">
                                     <div class="month pure-u-2-5">
-                                        <p class="month-item rec">￥<span class="big" ng-bind="(phone.packageProductList[0].salesPrice * 36 - phone.phoneBillPrice)/36 | number : 0"></span><sub>套餐</sub></p>
-                                        <p><span>每人仅￥<span ng-bind="(phone.packageProductList[0].salesPrice * 36 - phone.phoneBillPrice)/72 | number : 0"></span></span>优惠36个月</p>
+                                        <p class="month-item rec">￥<span class="big" ng-bind="phone.packageProductList[0].salesPrice | number : 0"></span><sub>套餐</sub></p>
+                                        <p><span>每人仅<b>￥<span ng-bind="phone.packageProductList[0].salesPrice/2 | number : 0"></span></b></span> 优惠36个月</p>
                                     </div>
                                     <div class="net-work pure-u-3-5">
                                         <div class="line">
-                                            <p class="month-item month-item-small"><span class="big" ng-bind="phone.packageProductList[0].network"></span><sub>GB全国流量</sub></p>
-                                            <p><b ng-bind="phone.packageProductList[0].talkTime"></b>分钟全国通话 <b ng-bind="phone.packageProductList[0].message">50</b>条短信</p>
+                                            <p class="month-item month-item-small"><span class="big">5.5GB</span><sub>全国流量</sub></p>
+                                            <p><b>1800</b>分钟全国通话 <b>50</b>条短信</p>
                                         </div>
                                     </div>
                                 </div>
