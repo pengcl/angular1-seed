@@ -15,6 +15,8 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
 
     $scope.pageType = $stateParams.pageType;
     $scope.activeTag = "jjk";
+    $scope.category = systemName + "_mysy_" + $scope.pageType + "_FlowPackages";
+    writebdLog($scope.category, "_Load", "渠道号", $scope.gh);
 
     $http.jsonp("http://m.yfq.cn/product/getPackageInfo.html?productId=" + $stateParams.cardId + "&s=wap&callback=JSON_CALLBACK").success(function (data, status, headers, config) {
         $scope.card = data;
@@ -39,7 +41,16 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
         $scope.payTypeName = typeName;
         $(".pay-item").removeClass("on");
         $("#payType" + id).addClass("on");
+        wirtePayType(id);
     };
+    
+    var value;
+    var payTypeAry=['payAll','payCOD','payMonthly'];
+    function wirtePayType(payType)
+    {
+    	value=payTypeAry[payType];
+    	writebdLog($scope.category, "_"+value, "渠道号", $scope.gh);//选择支付方式
+    }
 
     $scope.setBuyType = function (event, type) {
         event.preventDefault();

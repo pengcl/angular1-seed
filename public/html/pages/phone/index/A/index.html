@@ -15,21 +15,21 @@
                 <div class="txt" ng-bind="selkillTxt"></div>
             </div>
         </div>
-        <div id="indexHot">
+        <div id="indexHot"><!-- 劲爆推荐 -->
             <div class="img-box">
                 <img src="/images/phones/assets/index/indexHot_01.jpg">
             </div>
             <div class="img-box">
-                <a href="/phs/db/A/293{{params}}"><img src="/images/phones/assets/index/indexHot_02.jpg"></a>
+                <a href="/phs/db/A/293{{params}}" ng-click="writeSelectFoods(this,'293','JBTJ');"><img src="/images/phones/assets/index/indexHot_02.jpg"></a>
             </div>
             <div class="img-box">
-                <a href="/phs/db/A/305{{params}}"><img src="/images/phones/assets/index/indexHot_03.jpg"></a>
+                <a href="/phs/db/A/305{{params}}" ng-click="writeSelectFoods(this,'305','JBTJ');"><img src="/images/phones/assets/index/indexHot_03.jpg"></a>
             </div>
             <div class="img-box">
-                <a href="/phs/sg/A/271{{params}}"><img src="/images/phones/assets/index/indexHot_04.jpg"></a>
+                <a href="/phs/sg/A/271{{params}}" ng-click="writeSelectFoods(this,'271','JBTJ');"><img src="/images/phones/assets/index/indexHot_04.jpg"></a>
             </div>
             <div class="img-box">
-                <a href="/phs/sg/A/282{{params}}"><img src="/images/phones/assets/index/indexHot_05.jpg"></a>
+                <a href="/phs/sg/A/282{{params}}" ng-click="writeSelectFoods(this,'282','JBTJ');"><img src="/images/phones/assets/index/indexHot_05.jpg"></a>
             </div>
         </div>
 
@@ -67,7 +67,7 @@
             <!-- 双机循环开始 -->
             <ul class="phone-list">
                 <li class="phone-item" ng-repeat="doublePhone in doublePhones">
-                    <a href="/phs/db/{{pageType}}/{{doublePhone.activityproductId}}{{params}}" class="phone-box pure-g">
+                    <a href="/phs/db/{{pageType}}/{{doublePhone.activityproductId}}{{params}}" class="phone-box pure-g"><!-- 买一送一 -->
                         <ins class="phone-box-flag">
                             <div class="img-box"><img src="/images/list-box-flag.png"></div>
                         </ins>

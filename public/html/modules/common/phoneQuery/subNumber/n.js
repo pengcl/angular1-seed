@@ -31,11 +31,12 @@ app.directive("subNumber", ["$cookieStore", function ($cookieStore) {
                 $this.parent().siblings().children().removeClass('curr');
                 $this.addClass('curr');
 
-                writebdLog(scope.category, "_SelectNumber", "渠道号", scope.gh);//选择号码
+                writebdLog(scope.category, "_subSelectNumber", "渠道号", scope.gh);//选择号码
             };
 
             scope.showSNumberPn = function (e) {
                 $("#pickSubNumberPanel").slideToggle();
+                writebdLog(scope.category, "_subCuteNumber", "渠道号", scope.gh);//选择副卡靓号
             };
         }
     };

@@ -22,7 +22,7 @@ app.directive("subColors", ['$http', '$q', '$timeout', function ($http, $q, $tim
                     $this.parent().siblings().children().removeClass('curr');
                     $this.addClass('curr');
                     scope.subColor = color;
-                    writebdLog(scope.category, "_FuselageColor", "渠道号", scope.gh);//选择机身颜色
+                    writebdLog(scope.category, "_subFuselageColor", "渠道号", scope.gh);//选择机身颜色
                 }
             };
         }

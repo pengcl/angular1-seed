@@ -15,6 +15,8 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
 
     $scope.pageType = $stateParams.pageType;
     $scope.activeTag = "jjk";
+    $scope.category = systemName + "_mysy_" + $scope.pageType + "_SinglePhones";
+    writebdLog($scope.category, "_Load", "渠道号", $scope.gh);
 
     $http.jsonp("http://m.yfq.cn/product/getProDetial.html?productId=" + $stateParams.phoneId + "&activeTag=jjk&s=wap&callback=JSON_CALLBACK").success(function (data, status, headers, config) {
         $scope.phone = data;
@@ -37,7 +39,16 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
         $scope.payTypeName = typeName;
         $(".pay-item").removeClass("on");
         $("#payType" + id).addClass("on");
+        wirtePayType(id);
     };
+    
+    var value;
+    var payTypeAry=['payAll','payCOD','payMonthly'];
+    function wirtePayType(payType)
+    {
+    	value=payTypeAry[payType];
+    	writebdLog($scope.category, "_"+value, "渠道号", $scope.gh);//选择支付方式
+    }
 
     $scope.setBuyType = function (event, type, typeName) {
         event.preventDefault();
@@ -57,6 +68,7 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
             $scope.activeTag = "jjk";
             $scope.activeTagName = typeName;
         }
+        writebdLog($scope.category, "_SelectBuyType", "渠道号", $scope.gh);//选择购买方式
     };
 
     $scope.setPackage = function (event, pkg) {
@@ -65,6 +77,7 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
         $this.parent().siblings().removeClass('on');
         $this.parent().addClass('on');
         $("#pickPackagePanel").slideUp();
+        writebdLog($scope.category, "_SelectPackage", "渠道号", $scope.gh);//选择套餐
     };
 
     $scope.checkPackage = function () {
@@ -81,6 +94,7 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
 
     $scope.showPkgPn = function () {
         $("#pickPackagePanel").slideToggle();
+        writebdLog($scope.category, "_SelectBillPackage", "渠道号", $scope.gh);//选择话费套餐
     };
 
     $scope.$watch('productId', function (n, o, $scope) {

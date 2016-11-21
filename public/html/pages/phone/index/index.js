@@ -86,4 +86,10 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
     $interval(function () {
         $scope.selkillTxt = getRandomName() + "，刚刚购买了 " + getRandomProduct();
     }, 2000);
+    
+    //记录用户购买的商品：专区模块英文名称+商品id
+    $scope.writeSelectFoods=function(obj,productId,modular)
+    {
+    	writebdLog($scope.category, "_"+modular+productId, "渠道号", $scope.gh);//选择的商品ID
+    };
 }]);
