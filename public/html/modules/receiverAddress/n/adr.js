@@ -237,9 +237,18 @@ app.directive("adr", ["$compile", "$cookieStore", '$http', '$interval', function
                 return true;
             };
             scope.showReceiverPn = function (e) {
+            	writeAddressBar();
                 $("#receiverAddressPanel").slideToggle();
                 $(".adr-tab").toggleClass("down");
             };
+            
+            function writeAddressBar()
+            {
+            	if($("#receiverAddressPanel").is(":hidden"))
+            		writebdLog(scope.category, "_ShowAddressBar", "渠道号", scope.gh); //展开地址栏
+                else
+                	writebdLog(scope.category, "_StopAddressBar", "渠道号", scope.gh); //收起地址栏
+            }
 
             scope.adrOk = function () {
                 scope.showReceiverPn();

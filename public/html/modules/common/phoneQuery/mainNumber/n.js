@@ -13,7 +13,7 @@ app.directive("mainNumber", ["$cookieStore", function ($cookieStore) {
                 if (!scope.checkoutForm.mainNumber.$valid) {//原本应该用!scope.checkoutForm.phoneNumber.$valid
                     var $scrollTo = $('#pickMainNumber');
                     $container.animate({
-                        scrollTop: $scrollTo.offset().top - $container.offset().top + $container.scrollTop() -50
+                        scrollTop: $scrollTo.offset().top - $container.offset().top + $container.scrollTop() - 50
                     });
                     $("#pickMainNumberPanel").slideDown();
                     return false;
@@ -23,16 +23,16 @@ app.directive("mainNumber", ["$cookieStore", function ($cookieStore) {
 
             scope.setMainNumber = function (event, numberItem) {
                 event.preventDefault();
-                scope.mainNumber = numberItem.n;
-
                 var $this = $(event.currentTarget);
 
-                //$("#pickMainNumberPanel").slideToggle();
-
-                $this.parent().siblings().children().removeClass('curr');
-                $this.addClass('curr');
-
-                writebdLog(scope.category, "_mainSelectNumber", "渠道号", scope.gh);//选择号码
+                if (checkSameNumber(numberItem.n, scope.subNumber)) {
+                    scope.mainNumber = numberItem.n;
+                    $this.parent().siblings().children().removeClass('curr');
+                    $this.addClass('curr');
+                    writebdLog(scope.category, "_mainSelectNumber", "渠道号", scope.gh);//选择号码
+                } else {
+                    scope.$root.dialog.open('系统提示', '您选择的主卡号码和副卡号码相同，请重新选择');
+                }
             };
 
             scope.showMNumberPn = function (e) {
@@ -79,9 +79,9 @@ app.directive("mainNumber", ["$cookieStore", function ($cookieStore) {
         $scope.dataInit();
     };
 
-    $scope.inputNumber = function (query,type) {//输入查询的号码
+    $scope.inputNumber = function (query, type) {//输入查询的号码
         if (query == "") return;
-        writebdLog($scope.category, '_'+type+'InputNumber', "渠道号", $scope.gh);//输入查询号码
+        writebdLog($scope.category, '_' + type + 'InputNumber', "渠道号", $scope.gh);//输入查询号码
     };
 
     $http.jsonp('http://m.gd189fq.com/wap/taokafanghaoNew/fetchNumber.html?callback=JSON_CALLBACK').success(function (data, status, headers, config) {//获取所有的手机号码
@@ -153,17 +153,17 @@ app.directive("mainNumber", ["$cookieStore", function ($cookieStore) {
         //下一页
         $scope.Next = function (type) {
             $scope.selectPage($scope.selPage + 1, type);
-            writebdLog($scope.category, "_"+type+"ChangeALot", "渠道号", $scope.gh);//换一批
+            writebdLog($scope.category, "_" + type + "ChangeALot", "渠道号", $scope.gh);//换一批
         };
         $scope.ok = function (type) {
             if (type == "main") {
                 $("#pickMainNumberPanel").slideToggle();
                 $("#pickMainNumber .weui-cells").toggleClass("down");
-            }else {
+            } else {
                 $("#pickSubNumberPanel").slideToggle();
                 $("#pickSubNumber .weui-cells").toggleClass("down");
             }
-            writebdLog($scope.category, "_"+type+"ConfirmNumber", "渠道号", $scope.gh);//确认号码
+            writebdLog($scope.category, "_" + type + "ConfirmNumber", "渠道号", $scope.gh);//确认号码
         }
 
     }).error(function (data, status, headers, config) {
