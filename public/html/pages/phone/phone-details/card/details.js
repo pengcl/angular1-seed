@@ -14,7 +14,7 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
 }]).controller('pCardProController', ['$scope', '$rootScope', '$location', '$stateParams', '$http', 'Phone', function ($scope, $rootScope, $location, $stateParams, $http, Phone) {
 
     $scope.pageType = $stateParams.pageType;
-    $scope.activeTag = "jjk";
+    $scope.activeTag = "mysytc";
     $scope.category = systemName + "_mysy_" + $scope.pageType + "_FlowPackages";
     writebdLog($scope.category, "_Load", "渠道号", $scope.gh);
 

@@ -37,6 +37,7 @@ app.directive("mainNumber", ["$cookieStore", function ($cookieStore) {
 
             scope.showMNumberPn = function (e) {
                 $("#pickMainNumberPanel").slideToggle();
+                $(event.currentTarget).toggleClass("down");
                 writebdLog(scope.category, "_mainCuteNumber", "渠道号", scope.gh);//选择主卡靓号
             };
         }
