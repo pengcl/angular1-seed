@@ -280,6 +280,20 @@
   .footer-nav {
     &.nav-list{
       padding-left:.48rem;
+      .nav-item{
+        &.nav-comment{
+          .nav-label{
+            line-height:.1rem;
+          }
+          .nav-icon{
+            svg{
+              width:.3rem;
+              height:.3rem;
+              display: block;
+            }
+          }
+        }
+      }
     }
     .price-color{
       font-weight:700;
@@ -417,9 +431,6 @@
       .icon-gray-5 {
         img {
           display: none !important;
-        }
-        .d-none{
-          display:none;
         }
         .on-cardetails{
           display: block !important;
