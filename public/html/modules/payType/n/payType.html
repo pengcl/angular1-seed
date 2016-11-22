@@ -33,10 +33,10 @@
                 </div>
             </li>
         </ul>
-        <div class="pay-style-details">
+        <div class="pay-style-details" style="display:none">
             <p ng-show="payType==2">信用卡分期：12期免息。总价<span class="price-color">￥<span ng-bind="totolPrice | number:0">12776</span></span>，月供仅<span class="price-color">￥<span ng-bind="totolPrice/12 | number:0">12776</span></span></p>
-            <p ng-show="payType==0">一次性支付：再享95折优惠。总价<span class="price-color">￥<span ng-bind="totolPrice | number:0">12776</span></span>，劲省<span class="price-color">￥<span ng-bind="totolPrice*.095 | number:0">12776</span></span></p>
-            <p ng-show="payType==1">货到付款：预付99元抵200。总价<span class="price-color">￥<span ng-bind="totolPrice | number:0">12776</span></span>，劲省<span class="price-color">￥101</span></p>
+            <p ng-show="payType==0">一次性支付：再享95折优惠。总价<span class="price-color">￥<span ng-bind="totolPrice*.95 | number:0">12776</span></span>，劲省<span class="price-color">￥<span ng-bind="totolPrice*.05 | number:0">12776</span></span></p>
+            <p ng-show="payType==1">货到付款：预付99元抵200。总价<span class="price-color">￥<span ng-bind="totolPrice-101 | number:0">12776</span></span>，劲省<span class="price-color">￥101</span></p>
         </div>
     </div>
 </div>
