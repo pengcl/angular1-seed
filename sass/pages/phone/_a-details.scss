@@ -152,6 +152,10 @@
       padding-top: 0.1rem;
       padding-bottom: 0.2rem;
       a {
+        &.sb-next,&.sb-prev{
+          border-color:#cc1414;
+          color:#cc1414;
+        }
         @include inline-block;
         padding:.05rem .02rem;
         margin-left: 0.05rem;
@@ -352,9 +356,18 @@
     }
   }
   .card-details {
+    .card-details-1{
+      ul{
+        background:#fff;
+        padding:0 .15rem .1rem .15rem;
+        li{
+          margin:0;
+        }
+      }
+    }
     .tel-details{
       margin:0 15px;
-      padding:10px 0;
+      padding:10px 0 5px 0;
       border-top:1px dashed #d9d9d9;
     }
     font-size: 0.12rem;
@@ -602,8 +615,8 @@
         padding-left: 0.1rem;
         @include border-radius(3px);
         &.bd-ok {
-          padding-top:.15rem;
-          padding-bottom:.15rem;
+          padding-top:.1rem;
+          padding-bottom:.1rem;
           margin-bottom: .1rem;
           border: 1px solid #26a408;
           @include border-radius(100px);

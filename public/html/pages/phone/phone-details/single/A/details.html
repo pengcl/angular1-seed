@@ -65,16 +65,42 @@
                 </div>
             </div>
 
-            <div class="card-details" ng-if="buyType == 1">
+            <div class="card-details car-details-1" ng-if="buyType == 1">
                 <input id="productId" name="productId" ng-model="package.productId" required type="hidden" value="{{package.productId}}">
                 <div class="weui-cells" ng-click="showPkgPn($event)" style="margin-top: 0">
                     <a class="tel-details weui-cell weui-cell_access" href="javascript:;">
                         <div class="weui-cell__bd"><p style="text-align: left">选择话费套餐<span class="star-color">*</span></p></div>
                         <div class="weui-cell__ft">
                             <span ng-if="!package">未选择</span>
-                            <span ng-if="package">￥<span ng-bind="package.salesPrice | number : 0"></span>套餐，<span ng-bind="package.network"></span>G国内流量...</span>
+                            <!--<span ng-if="package">￥<span ng-bind="package.salesPrice | number : 0"></span>套餐，<span ng-bind="package.network"></span>G国内流量...</span>-->
+                            <span ng-if="package">更多套餐</span>
                         </div>
                     </a>
+                </div>
+                <div class="card-details-1" ng-show="package" ng-click="showPkgPn($event)">
+                    <div class="card">
+                        <ul class="card-list">
+                            <li class="card-list-item on-cardetails">
+                                <div class="item-box pure-g">
+                                    <div class="month pure-u-2-5">
+                                        <p class="month-item rec">￥<span class="big" ng-bind="package.salesPrice | number : 0"></span><sub>套餐</sub></p>
+                                        <p><span>原价:￥<span ng-bind="card.oldPrice | number : 0"></span></span>优惠36个月</p>
+                                    </div>
+                                    <div class="net-work pure-u-3-5">
+                                        <div class="line">
+                                            <p class="month-item month-item-small"><span class="big" ng-bind="package.network"></span><sub>全国流量</sub></p>
+                                            <p><b ng-bind="package.talkTime"></b>分钟全国通话 <b ng-bind="package.message"></b>条短信</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <ins class="icon-gray-5">
+                                    <div class="img-box">
+                                        <img class="on-cardetails" src="/images/phones/assets/icons/{{package.salesPrice*10/package.oldPrice | number:0}}-on.png">
+                                    </div>
+                                </ins>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
                 <div id="pickPackagePanel" class="card" style="display: none;padding-top: 0.1rem;padding-bottom: 0.15rem;background: #fff">
                     <ul class="card-list">
