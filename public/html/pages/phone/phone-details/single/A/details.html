@@ -65,7 +65,7 @@
                 </div>
             </div>
 
-            <div class="card-details car-details-1" ng-if="buyType == 1">
+            <div class="card-details" ng-if="buyType == 1">
                 <input id="productId" name="productId" ng-model="package.productId" required type="hidden" value="{{package.productId}}">
                 <div class="weui-cells" ng-click="showPkgPn($event)" style="margin-top: 0">
                     <a class="tel-details weui-cell weui-cell_access" href="javascript:;">
@@ -95,7 +95,7 @@
                                 </div>
                                 <ins class="icon-gray-5">
                                     <div class="img-box">
-                                        <img class="on-cardetails" src="/images/phones/assets/icons/{{package.salesPrice*10/package.oldPrice | number:0}}-on.png">
+                                        <img class="on-cardetails" ng-src="/images/phones/assets/icons/{{package.salesPrice*10/package.oldPrice | number:0}}-on.png">
                                     </div>
                                 </ins>
                             </li>
