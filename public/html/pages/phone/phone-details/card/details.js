@@ -16,7 +16,9 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
     $scope.pageType = $stateParams.pageType;
     $scope.activeTag = "mysytc";
     $scope.category = systemName + "_mysy_" + $scope.pageType + "_FlowPackages";
+    $scope.phoneQueryUrl = "http://" + $location.host() + $location.url();
     writebdLog($scope.category, "_Load", "渠道号", $scope.gh);
+
 
     $http.jsonp("http://m.yfq.cn/product/getPackageInfo.html?productId=" + $stateParams.cardId + "&s=wap&callback=JSON_CALLBACK").success(function (data, status, headers, config) {
         $scope.card = data;
