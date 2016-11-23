@@ -350,9 +350,18 @@
     }
   }
   .card-details {
+    .card-details-1{
+      ul{
+        background:#fff;
+        padding:.05rem .15rem .1rem .15rem;
+        li{
+          margin:0;
+        }
+      }
+    }
     .tel-details{
       margin:0 15px;
-      padding:10px 0;
+      padding:10px  0 5px 0;
       border-top:1px dashed #d9d9d9;
     }
     font-size: 0.12rem;
