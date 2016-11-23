@@ -20,6 +20,7 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
 
     $http.jsonp("http://m.yfq.cn/product/getProDetial.html?productId=" + $stateParams.phoneId + "&activeTag=jjk&s=wap&callback=JSON_CALLBACK").success(function (data, status, headers, config) {
         $scope.phone = data;
+        $scope.package=$scope.phone.packageProductList[0];
         $scope.totolPrice = data.phoneBillPrice + data.phonePrice;
     }).error(function (data, status, headers, config) {
         console.log(status);

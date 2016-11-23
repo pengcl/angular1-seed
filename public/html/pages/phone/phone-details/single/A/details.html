@@ -71,13 +71,13 @@
                     <a class="tel-details weui-cell weui-cell_access" href="javascript:;">
                         <div class="weui-cell__bd"><p style="text-align: left">选择话费套餐<span class="star-color">*</span></p></div>
                         <div class="weui-cell__ft">
-                            <span ng-if="!package">未选择</span>
+                            <!--<span ng-if="!package">未选择</span>-->
                             <!--<span ng-if="package">￥<span ng-bind="package.salesPrice | number : 0"></span>套餐，<span ng-bind="package.network"></span>G国内流量...</span>-->
-                            <span ng-if="package">更多套餐</span>
+                            <span >更多套餐</span>
                         </div>
                     </a>
                 </div>
-                <div class="card-details-1" ng-show="package" ng-click="showPkgPn($event)">
+                <div class="card-details-1"   ng-click="showPkgPn($event)">
                     <div class="card">
                         <ul class="card-list">
                             <li class="card-list-item on-cardetails">
