@@ -13,7 +13,7 @@ app.directive("phoneQuery", ["$cookieStore", function ($cookieStore) {
 
             if ($cookieStore.get("orderState")) {
                 var orderState = $cookieStore.get("orderState");
-                scope.phoneNumber = orderState.phoneNumber;
+                //scope.phoneNumber = orderState.phoneNumber;
             }
 
             scope.npHide = function () {

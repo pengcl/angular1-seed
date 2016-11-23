@@ -5,11 +5,14 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
     // 设定路由
     $stateProvider
         .state('phone', { //app首页
-            url: "/phones/:pageType/:phoneId",
-            templateUrl: "pages/phone/phone-details/default/phone-details.html",
+            url: "/:ghType/:pageType/:phoneId",
+            //templateUrl: "pages/phone/phone-details/default/phone-details.html",
+            templateUrl: function ($stateParams) {
+                return 'pages/phone/phone-details/' + $stateParams.ghType + '/details.html';
+            },
             controller: "pProController"
         });
-}]).controller('pProController', ['$scope', '$rootScope', '$location', '$stateParams', '$http', 'Phone', function ($scope, $rootScope, $location, $stateParams, $http, Phone) {
+}]).controller('pProController', ['$scope', '$rootScope', '$location', '$stateParams', '$http', 'Phone', '$cookieStore', function ($scope, $rootScope, $location, $stateParams, $http, Phone, $cookieStore) {
 
     $scope.pageType = $stateParams.pageType;
 
@@ -23,6 +26,11 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
         $scope.category = $scope.appType;
         writebdLog($scope.category, "_Load", "渠道号", $scope.gh);
     });
+
+    $cookieStore.put("phoneQueryUrl",window.location.href);
+    if($cookieStore.get("phoneQueryUrl")){
+        $scope.phoneQueryUrl = $cookieStore.get("phoneQueryUrl");
+    };
 
     //初始化图片按需加载
     $("img.lazy").lazyload({

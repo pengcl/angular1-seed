@@ -16,6 +16,10 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
     //$scope.appType = systemName + "_" + $stateParams.pageType + "_" + phone.phoneModel;
     //$scope.category = $scope.appType;
 
+    if($cookieStore.get("phoneQueryUrl")){
+        $scope.phoneQueryUrl = $cookieStore.get("phoneQueryUrl");
+    };
+
     if ($scope.orderNo) {
         $scope.category = "_IndexSearch";
         $http.get("http://app.yfq.cn:3099/api/getSalesOrder/" + $scope.orderNo).success(function (data) {

@@ -16,12 +16,13 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
     $scope.pageType = $stateParams.pageType;
     $scope.activeTag = "jjk";
     $scope.category = systemName + "_mysy_" + $scope.pageType + "_SinglePhones";
+    $scope.phoneQueryUrl = "http://" + $location.host() + $location.url();
     writebdLog($scope.category, "_Load", "渠道号", $scope.gh);
 
     $http.jsonp("http://m.yfq.cn/product/getProDetial.html?productId=" + $stateParams.phoneId + "&activeTag=jjk&s=wap&callback=JSON_CALLBACK").success(function (data, status, headers, config) {
         $scope.phone = data;
         $scope.package=$scope.phone.packageProductList[0];
-        $scope.totolPrice = data.phoneBillPrice + data.phonePrice;
+        $scope.totolPrice = data.salePrice;
     }).error(function (data, status, headers, config) {
         console.log(status);
     });
@@ -61,11 +62,12 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
             $scope.activeTag = "lj";
             $scope.totolPrice = $scope.phone.phonePrice;
             $scope.activeTagName = typeName;
+            $scope.totolPrice = $scope.phone.phonePrice;
             if ($scope.totolPrice < 1500) {
                 $scope.setSbPayType(0, '一次性支付');
             }
         } else {
-            $scope.totolPrice = $scope.phone.phoneBillPrice + $scope.phone.phonePrice;
+            $scope.totolPrice = $scope.phone.salePrice;
             $scope.activeTag = "jjk";
             $scope.activeTagName = typeName;
         }

@@ -19,13 +19,14 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
     
     $scope.appType = systemName + "_mysy_" + $scope.pageType+"_DoublePhones" ;
     $scope.category = $scope.appType;
+    $scope.phoneQueryUrl = window.location.href;
     writebdLog($scope.category, "_Load", "渠道号", $scope.gh);
 
     $scope.buyType = 1;
 
     $http.jsonp("http://m.yfq.cn/product/getProDetial.html?productId=" + $stateParams.phoneId + "&activeTag=mysy&s=wap&callback=JSON_CALLBACK").success(function (data, status, headers, config) {
         $scope.phone = data;
-        $scope.totolPrice = data.phoneBillPrice + data.phonePrice;
+        $scope.totolPrice = data.salePrice;
     }).error(function (data, status, headers, config) {
         console.log(status);
         //deferred.reject(status)

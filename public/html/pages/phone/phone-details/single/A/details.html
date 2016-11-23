@@ -7,6 +7,7 @@
         <input type="hidden" value="{{category}}" name="category" id="category">
         <input type="hidden" value="{{phone.activityproductId}}" ng-model="phone.productId" name="machineId" id="machineId">
         <input type="hidden" value="{{activeTag}}" ng-model="activeTag" name="activeTag" id="activeTag">
+        <input type="hidden" value="{{phoneQueryUrl}}" name="phoneQueryUrl" id="phoneQueryUrl">
         <gh></gh>
         <activity></activity>
         <redirect-url></redirect-url>
@@ -26,7 +27,7 @@
                         <div class="label">爆款单机 搭配电信4G套餐 更划算</div>
                         <div class="product-price">
                             <ul>
-                                <li style="padding-left: 0"><span>现价：</span><em>￥</em><em class="" ng-bind="phone.phonePrice"></em></li>
+                                <li style="padding-left: 0"><span>现价：</span><em>￥</em><em class="" ng-bind="totolPrice"></em></li>
                             </ul>
                         </div>
                         <div class="product-txt-ft"><stars></stars></div>
@@ -84,7 +85,7 @@
                                 <div class="item-box pure-g">
                                     <div class="month pure-u-2-5">
                                         <p class="month-item rec">￥<span class="big" ng-bind="package.salesPrice | number : 0"></span><sub>套餐</sub></p>
-                                        <p><span>原价:￥<span ng-bind="card.oldPrice | number : 0"></span></span>优惠36个月</p>
+                                        <p><span>原价:￥<span ng-bind="package.oldPrice | number : 0"></span></span>优惠36个月</p>
                                     </div>
                                     <div class="net-work pure-u-3-5">
                                         <div class="line">
