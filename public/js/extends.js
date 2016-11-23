@@ -336,6 +336,11 @@ $(function () {
         $phoneList.hide();
         $this.addClass("on");
         $phoneList.eq($this.index()).show();
+        //console.log($this.index());
+        if($this.index() == 1){
+            $("#recommend").hide();
+            $("#recommendTitle").hide();
+        }
     });
 });
 

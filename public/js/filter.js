@@ -80,3 +80,16 @@ appFilters.filter('doubleName', function () {
         }
     };
 });
+
+appFilters.filter('range', function () {
+    return function (data, start, end) {
+        if (angular.isArray(data) && angular.isNumber(start) && angular.isNumber(end)) {
+            if (data.length < start) {
+                return data;
+            }
+            else {
+                return data.slice(start, end);
+            }
+        }
+    }
+});

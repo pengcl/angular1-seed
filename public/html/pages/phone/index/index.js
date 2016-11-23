@@ -51,6 +51,7 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
     });
 
     $http.jsonp('http://m.yfq.cn/product/getProList.html?activeTag=mysy&s=wap&callback=JSON_CALLBACK').success(function (data, status, headers, config) {
+
         $scope.doublePhones = data;
     }).error(function (data, status, headers, config) {
         console.log(status);
