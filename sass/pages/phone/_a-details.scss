@@ -152,8 +152,8 @@
       a {
         @include inline-block;
         padding:.05rem .02rem;
-        margin-left: 0.05rem;
-        margin-right: 0.05rem;
+        margin-left: 0.25rem;
+        margin-right: 0.1rem;
         @include border-radius(10rem);
         border: 1px solid #26a408;
         color:#26a408;

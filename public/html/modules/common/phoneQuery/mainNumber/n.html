@@ -23,9 +23,9 @@
 
         <div class="query-panel">
             <ul class="query-lists item-lists pure-g">
-                <li class="query-item list-item pure-u-1-2" ng-repeat="numberItem in mainItems">
+                <li  class="query-item list-item pure-u-1-2" ng-repeat="numberItem in mainItems" ng-click="ok('main')" >
                     <div class="item-box" ng-click="setMainNumber($event,numberItem)">
-                        <p class="phone-number">
+                        <p class="phone-number" >
                             <span class="weui-icon-success weui-icon_msg"></span>
                             <span ng-bind-html="numberItem.n | replaceInput : mainQuery | trustHtml"></span>
                         </p>
@@ -36,9 +36,9 @@
         </div>
 
         <div class="sbtn pure-g">
-            <a class="sb-prev pure-u-1-4" href="javascript:;" ng-click="Previous('main')"><i class="icon-arrow-left-alt"></i><span>上一页</span></a>
-            <a class="sb-next pure-u-1-4" href="javascript:;" ng-click="Next('main')"><span>下一页</span><i class="icon-arrow-right-alt"></i></a>
-            <a class="sb-ok pure-u-1-4" href="javascript:;" ng-click="ok('main')"><span>我选好了</span><i class="icon-arrow-up"></i></a>
+            <a class="sb-prev pure-u-1-3" href="javascript:;" ng-click="Previous('main')"><i class="icon-arrow-left-alt"></i><span>上一页</span></a>
+            <a class="sb-next pure-u-1-3" href="javascript:;" ng-click="Next('main')"><span>下一页</span><i class="icon-arrow-right-alt"></i></a>
+            <a style="display:none" class="sb-ok pure-u-1-4" href="javascript:;" ng-click="ok('main')"><span>我选好了</span><i class="icon-arrow-up"></i></a>
         </div>
     </div>
 </div>
