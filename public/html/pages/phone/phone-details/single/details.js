@@ -7,7 +7,7 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
         .state('phoneSingle', { //app首页
             url: "/phs/sg/:pageType/:phoneId",
             templateUrl: function ($stateParams) {
-                return 'pages/phone/phone-details/single/' + $stateParams.pageType + '/details.html';
+                return 'pages/phone/phone-details/single/A/details.html';
             },
             controller: "pSingleProController"
         });

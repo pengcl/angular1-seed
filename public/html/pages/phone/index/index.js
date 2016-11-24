@@ -17,6 +17,7 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
     $scope.pageType = $stateParams.pageType;
     $scope.appType = systemName + "_mysy_" + $scope.pageType + "_index";
     $scope.category = $scope.appType;
+    //console.log($scope.category);
 
     $scope.params = window.location.search;
 

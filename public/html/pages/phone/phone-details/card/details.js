@@ -7,7 +7,7 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
         .state('phoneCardDetails', { //app首页
             url: "/phs/cd/:pageType/:cardId",
             templateUrl: function ($stateParams) {
-                return 'pages/phone/phone-details/card/' + $stateParams.pageType + '/details.html';
+                return 'pages/phone/phone-details/card/A/details.html';
             },
             controller: "pCardProController"
         });

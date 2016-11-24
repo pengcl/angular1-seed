@@ -54,8 +54,8 @@
                             <li class="card-list-item on-cardetails">
                                 <div class="item-box pure-g">
                                     <div class="month pure-u-2-5">
-                                        <p class="month-item rec">￥<span class="big" ng-bind="(phone.packageProductList[0].salesPrice * 36 - phone.phoneBillPrice)/36 | number : 0"></span><sub>套餐</sub></p>
-                                        <p><span>每人仅￥<span ng-bind="(phone.packageProductList[0].salesPrice * 36 - phone.phoneBillPrice)/72 | number : 0"></span></span>优惠36个月</p>
+                                        <p class="month-item rec">￥<span class="big" ng-bind="phone.packageProductList[0].salesPrice | number : 0"></span><sub>套餐</sub></p>
+                                        <p><span>返还后每人仅￥<span ng-bind="(phone.packageProductList[0].salesPrice * 36 - phone.phoneBillPrice)/72 | number : 0"></span></span>/月</p>
                                     </div>
                                     <div class="net-work pure-u-3-5">
                                         <div class="line">

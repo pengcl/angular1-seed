@@ -7,7 +7,7 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
         .state('phoneDouble', { //app首页
             url: "/phs/db/:pageType/:phoneId",
             templateUrl: function ($stateParams){
-                return 'pages/phone/phone-details/double/' + $stateParams.pageType + '/details.html';
+                return 'pages/phone/phone-details/double/A/details.html';
             },
             controller: "pDoubleProController"
         });
