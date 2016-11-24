@@ -10,9 +10,7 @@ app.directive("mainColors", ['$http', '$q', '$timeout', function ($http, $q, $ti
             scope.mainColorTitle = attrs.title;
             scope.mainColorSubTitle = attrs.subTitle;
 
-            //scope.phone.$promise.then(function (phone) {
-            scope.mainColor = scope.phone.phoneTypes[0].mediaProductList[0];
-            //});
+            scope.$root.mainColor = scope.phone.phoneTypes[0].mediaProductList[0];
 
             //选择手机颜色
             scope.setMainPhoneColor = function (event, color) {
@@ -23,7 +21,8 @@ app.directive("mainColors", ['$http', '$q', '$timeout', function ($http, $q, $ti
                 } else {
                     $this.parent().siblings().children().removeClass('curr');
                     $this.addClass('curr');
-                    scope.mainColor = color;
+                    //scope.mainColor = color;
+                    scope.$root.mainColor = color;
                     writebdLog(scope.category, "_mainFuselageColor", "渠道号", scope.gh);//选择机身颜色
                 }
             };
