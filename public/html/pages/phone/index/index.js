@@ -23,12 +23,6 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
     //统计
     writebdLog($scope.category, "_Load", "渠道号", $scope.gh);
 
-    $("img.lazy").lazyload({
-        effect: "fadeIn",
-        skip_invisible: false,
-        container: $(".content-scrollable")
-    });
-
     $scope.getContact = function () {
         getMeiqia();
         //$("#contactUs").show();
@@ -58,7 +52,7 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
         //deferred.reject(status)
     });
 
-    $scope.st = function (target) {
+    $scope.st = function (target) {//单双机切换回滚
         var $container = $('.content-scrollable');
         var $scrollTo = $(target);
         $container.animate({
@@ -100,4 +94,13 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
     {
     	writebdLog($scope.category, "_"+productId+modular, "渠道号", $scope.gh);//选择的商品ID
     };
+
+    $scope.$on('ngRepeatFinished', function (ngRepeatFinishedEvent) {
+        //下面是在数据 render完成后执行的js
+        $("img.lazy").lazyload({
+            effect: "fadeIn",
+            skip_invisible: false,
+            container: $(".content-scrollable")
+        });
+    });
 }]);
