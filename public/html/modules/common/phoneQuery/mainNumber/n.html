@@ -23,8 +23,8 @@
 
         <div class="query-panel">
             <ul class="query-lists item-lists pure-g">
-                <li  class="query-item list-item pure-u-1-2" ng-repeat="numberItem in mainItems" ng-click="ok('main')" >
-                    <div class="item-box" ng-click="setMainNumber($event,numberItem);">
+                <li  class="query-item list-item pure-u-1-2" ng-repeat="numberItem in mainItems" >
+                    <div class="item-box" ng-click="setMainNumber($event,numberItem)">
                         <p class="phone-number" >
                             <span class="weui-icon-success weui-icon_msg"></span>
                             <span ng-bind-html="numberItem.n | replaceInput : mainQuery | trustHtml"></span>
