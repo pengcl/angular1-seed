@@ -30,6 +30,8 @@ app.directive("subNumber", ["$cookieStore", function ($cookieStore) {
                     scope.subNumber = numberItem.n;
                     $this.parent().siblings().children().removeClass('curr');
                     $this.addClass('curr');
+                    $("#pickSubNumberPanel").slideToggle();
+                    $("#pickSubNumber .weui-cells").toggleClass("down");
                     writebdLog(scope.category, "_subSelectNumber", "渠道号", scope.gh);//选择号码
                 } else {
                     scope.$root.dialog.open('系统提示', '您选择的主卡号码和副卡号码相同，请重新选择');

@@ -29,6 +29,8 @@ app.directive("mainNumber", ["$cookieStore", function ($cookieStore) {
                     scope.mainNumber = numberItem.n;
                     $this.parent().siblings().children().removeClass('curr');
                     $this.addClass('curr');
+                    $("#pickMainNumberPanel").slideToggle();
+                    $("#pickMainNumber .weui-cells").toggleClass("down");
                     writebdLog(scope.category, "_mainSelectNumber", "渠道号", scope.gh);//选择号码
                 } else {
                     scope.$root.dialog.open('系统提示', '您选择的主卡号码和副卡号码相同，请重新选择');
@@ -156,7 +158,7 @@ app.directive("mainNumber", ["$cookieStore", function ($cookieStore) {
             $scope.selectPage($scope.selPage + 1, type);
             writebdLog($scope.category, "_" + type + "ChangeALot", "渠道号", $scope.gh);//换一批
         };
-        $scope.ok = function (type) {
+        /*$scope.ok = function (type) {
             if (type == "main") {
                 $("#pickMainNumberPanel").slideToggle();
                 $("#pickMainNumber .weui-cells").toggleClass("down");
@@ -165,7 +167,7 @@ app.directive("mainNumber", ["$cookieStore", function ($cookieStore) {
                 $("#pickSubNumber .weui-cells").toggleClass("down");
             }
             writebdLog($scope.category, "_" + type + "ConfirmNumber", "渠道号", $scope.gh);//确认号码
-        }
+        }*/
 
     }).error(function (data, status, headers, config) {
         console.log(status);
