@@ -102,8 +102,9 @@ app.directive("nFooterNav", ['$http', function ($http) {
             };
             scope.$root.tipsSubmit = function () {
                     scope.$root.toast.open();
+                    scope.$root.Overlay.close();
                     writebdLog(scope.category, "_BuyNow", "渠道号", scope.gh);
-                    $form.submit();
+                    $form.submit()
             };
         }
     };
