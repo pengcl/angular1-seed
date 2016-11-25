@@ -95,19 +95,25 @@
         </div>
     </div>
     <div id="payTipsPanel" style="display: none">
-        <div class="overlay  model-overlay">
-            <a class="js-close-overlay overlay-dismiss" href="#"><span class="icon-cross"></span></a>
-            <div class="sign-in-panel">
-                <div  style="background: none">
-                    <h3 class="how-title" style="text-align:center;line-height: .48rem">如何办理分期</h3>
+        <div class="double-overlay">
+            <div  class="main-title">
+                <div style="padding-left:23%">
+                    <h2 class="how-title">办理分期流程</h2>
                     <p class="order"> <ins  class="pay-logo"></ins>分期服务由中国银联提供</p>
                 </div>
+                <div class="img-box" style="margin:0 .1rem">
+                    <img src="../../../images/dboule/dashed.png" alt="" style="margin-top:.05rem">
+                </div>
+                <ins class="bank"></ins>
+            </div>
+            <div class="double-main">
+            <div class="sign-in-panel">
                 <div class="how-to-pay">
                     <div class="how-to-pay-list">
                         <ul>
                             <li>
-                                <div class="title">
-                                    <h3>1.选择分期银行</h3>
+                                <div class="title" style="border:0">
+                                    <h3>选择分期银行</h3>
                                     <ins class="logo1"></ins>
                                 </div>
                                 <div class="details">
@@ -116,7 +122,7 @@
                             </li>
                             <li>
                                 <div class="title">
-                                    <h3>2.申请分期</h3>
+                                    <h3>申请分期</h3>
                                     <ins class="logo2"></ins>
                                 </div>
                                 <div class="details">
@@ -125,7 +131,7 @@
                             </li>
                             <li>
                                 <div class="title">
-                                    <h3>3.等待批复</h3>
+                                    <h3>等待批复</h3>
                                     <ins class="logo3"></ins>
                                 </div>
                                 <div class="details">
@@ -134,7 +140,7 @@
                             </li>
                             <li>
                                 <div class="title">
-                                    <h3>4.申请成功</h3>
+                                    <h3>申请成功</h3>
                                     <ins class="logo4"></ins>
                                 </div>
                                 <div class="details">
@@ -143,7 +149,7 @@
                             </li>
                             <li>
                                 <div class="title">
-                                    <h3>5.收货验货</h3>
+                                    <h3>收货验货</h3>
                                     <ins class="logo5"></ins>
                                 </div>
                                 <div class="details" style="border:0">
@@ -155,18 +161,24 @@
                     </div>
                 </div>
                 <div class="notice">
-                    <p><b style="color:#000;">温馨小贴士:</b></p>
+                    <p><b>温馨小贴士:</b></p>
                     <p>1.分期购买服务仅支持合作银行信用卡办理</p>
                     <p>2.办理分期，需要冻结信用卡的等值额度，若额度不够将无法办理。(冻结的额度，每月还款后也会恢复至信用卡)</p>
                     <p>3.对信用卡分期业务存在疑问，可拨打银联官方客服电话：<a href="tel:95516">95516</a>遇到其他问题，您还可联系我们值班客服:<a href="tel:020-85599918">020-85599918</a></p>
                     <ins></ins>
                 </div>
+                <div class="img-box" style="margin-bottom:80px">
+                    <img src="../../../images/dboule/line.png" alt="">
+                </div>
             </div>
-            <div style="margin-bottom:60px"></div>
-            <div class="btns-group" style="position:fixed;bottom:0;left:0;width:100%">
-                <a  class="btn-primary btn-shadow" style="background-color:#FF4521" href="javascript:;" ng-click="tipsSubmit();">已了解，现在办理</a>
             </div>
-
+            <ins class="free"></ins>
+            <div class="double-btn" >
+                <div class="img-box" style="margin:0 .1rem .1rem .1rem">
+                    <img src="../../images/dboule/shadow.jpg" alt="">
+                </div>
+                <a href="javascript:;" ng-click="tipsSubmit();">已了解，现在办理</a>
+            </div>
         </div>
     </div>
 </div>
