@@ -28,8 +28,8 @@
                         <div class="label">新开号预存话费 买一送一</div>
                         <div class="product-price">
                             <ul>
-                                <li><ins>1</ins><span>预存话费：</span><em>￥</em><em ng-bind="phone.phoneBillPrice"></em><span class="label">分36月返</span></li>
-                                <li><ins>2</ins><span>购机价格：</span><em>￥</em><em class="" ng-bind="phone.phonePrice"></em><sub>/2台</sub></li>
+                                <li><ins>1</ins><span>预存话费：</span><em>￥</em><em ng-bind="phone.phoneBillPrice"></em></li>
+                                <li><ins>2</ins><span>购机价格：</span><em>￥</em><em class="" ng-bind="phone.phonePrice"></em></li>
                             </ul>
                         </div>
                         <div class="product-txt-ft"><stars></stars></div>
@@ -48,6 +48,7 @@
                     <span class="title">选择靓号</span>
                     <span class="sub-title">给您的新手机配个靓号</span>
                 </div>
+
                 <div class="card-details">
                     <div class="card">
                         <ul class="card-list">
@@ -55,7 +56,7 @@
                                 <div class="item-box pure-g">
                                     <div class="month pure-u-2-5">
                                         <p class="month-item rec">￥<span class="big" ng-bind="phone.packageProductList[0].salesPrice | number : 0"></span><sub>套餐</sub></p>
-                                        <p><span>返还后每人仅￥<span ng-bind="(phone.packageProductList[0].salesPrice * 36 - phone.phoneBillPrice)/72 | number : 0"></span></span>/月</p>
+                                        <p><span>返还后仅￥<span ng-bind="(phone.packageProductList[0].salesPrice * 36 - phone.phoneBillPrice)/36 | number : 0"></span></span>/月</p>
                                     </div>
                                     <div class="net-work pure-u-3-5">
                                         <div class="line">
@@ -91,6 +92,6 @@
 
             <n-pay-type title="选择支付方式"></n-pay-type>
         </div>
-        <n-footer-nav check-main-number="true" check-sub-number="true" check-address="true" submit="#checkoutForm"></n-footer-nav>
+        <n-footer-nav check-main-number="true" check-address="true" submit="#checkoutForm"></n-footer-nav>
     </form>
 </div>
