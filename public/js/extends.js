@@ -340,6 +340,9 @@ $(function () {
         if($this.index() == 1){
             $("#recommend").hide();
             $("#recommendTitle").hide();
+        }else {
+            $("#recommend").show();
+            $("#recommendTitle").show();
         }
     });
 });

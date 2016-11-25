@@ -65,14 +65,12 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
         $this.addClass('curr');
         if (type == 0) {
             $scope.activeTag = "lj";
-            $scope.totolPrice = $scope.phone.phonePrice;
+            //$scope.totolPrice = $scope.phone.phonePrice;
             $scope.activeTagName = typeName;
-            $scope.totolPrice = $scope.phone.phonePrice;
             if ($scope.totolPrice < 1500) {
                 $scope.setSbPayType(0, '一次性支付');
             }
         } else {
-            $scope.totolPrice = $scope.phone.salePrice;
             $scope.activeTag = "jjk";
             $scope.activeTagName = typeName;
         }
@@ -118,6 +116,17 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
                  $scope.phoneType = phone.phoneTypes[getIndex(phone.phoneTypes, "curr")];
 
                  $scope.mainPrice = phone.price;*/
+            });
+        }
+    });
+    $scope.$watch('activeTag', function (n, o, $scope) {
+        if (n != o) {
+            $http.jsonp("http://m.yfq.cn/product/getProDetial.html?productId=" + $stateParams.phoneId + "&activeTag=" + n + "&s=wap&callback=JSON_CALLBACK").success(function (data, status, headers, config) {
+                //$scope.phone = data;
+                //$scope.package=$scope.phone.packageProductList[0];
+                $scope.totolPrice = data.salePrice;
+            }).error(function (data, status, headers, config) {
+                console.log(status);
             });
         }
     });
