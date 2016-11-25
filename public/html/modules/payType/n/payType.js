@@ -25,12 +25,12 @@ app.directive("nPayType", ['$location', '$compile', '$q', function ($location, $
                 scope.payTypeName = typeName;
             };
 
-            scope.setDefaultPayType(2,"信用卡分期");
+            scope.setDefaultPayType(0,"一次性支付");
             if(scope.cardPay){
                 scope.setDefaultPayType(0,"在线支付");
             }
             if(scope.totolPrice < 1500){
-                scope.setDefaultPayType(0,"在线支付");
+                scope.setDefaultPayType(0,"一次性支付");
             }
 
 
