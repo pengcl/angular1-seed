@@ -143,6 +143,12 @@
     .weui-cells {
       margin-top: 0;
     }
+    .the-notice{
+      font-size:.14rem;
+      color:#f6763d;
+      margin-bottom:.1rem;
+    }
+
     .sbtn {
       font-size: 0.14rem;
       text-align: center;
@@ -277,7 +283,7 @@
   }
   .footer-nav {
     &.nav-list{
-      padding-left:.48rem;
+      padding-left:1rem;
       .nav-item{
         &.nav-comment{
           .nav-label{
@@ -298,19 +304,17 @@
     }
     padding-left: 0.48rem;
     .nav-comment {
-      left: 0 !important;
+      left: 7% !important;
     }
     &.nav-list {
       .nav-item {
-        &.line-r:after{
-          border-right-color:#f5f5f5 ;
-        }
         &.nav-price {
           font-size: 0.12rem;
           line-height: 1.2;
           text-align: left;
           padding-top: 0.04rem;
           padding-bottom: 0.02rem;
+          display: none;
         }
       }
     }

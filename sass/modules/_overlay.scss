@@ -296,7 +296,7 @@
   padding:.1rem;
   height:80%;
   z-index: 12;
-  border-radius: 16px;
+  border-radius: 10px;
   color:#939393;
   .how-to-pay{
     padding:.2rem .1rem .1rem .2rem;
@@ -304,7 +304,7 @@
       list-style:none;
       .title,.details{
         padding-left:.3rem;
-        border-left:1px solid #999;
+        border-left:1px solid #ccc;
         position:relative;
       }
       .title{
@@ -405,6 +405,7 @@
     padding-bottom:.1rem;
     z-index:20;
     background: #fff;
+    font-size:.18rem;
     a{
       display:block;
       margin:0 .1rem;
