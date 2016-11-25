@@ -14,8 +14,6 @@ app.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', functio
     $urlRouterProvider.otherwise("/phone/A/index");
 }]).run(['$rootScope', function ($rootScope) {
 
-
-
     /*$rootScope.$on('$locationChangeStart',function(){
 
     });

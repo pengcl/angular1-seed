@@ -29,6 +29,10 @@ app.directive("nPayType", ['$location', '$compile', '$q', function ($location, $
             if(scope.cardPay){
                 scope.setDefaultPayType(0,"在线支付");
             }
+            if(scope.totolPrice < 1500){
+                scope.setDefaultPayType(0,"在线支付");
+            }
+
 
             //选择支付方式
 

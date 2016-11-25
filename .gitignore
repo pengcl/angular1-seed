@@ -7,6 +7,10 @@ gulpfile.js
 .ignore
 .sass-cache
 .DS_Store
-.idea
 /build/
 bin/
+
+.settings/
+.svn/
+
+.idea/
