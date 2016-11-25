@@ -1,6 +1,6 @@
 "use strict";
 
-app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $locationProvider) {
+app.config(['$stateProvider', '$locationProvider',function ($stateProvider, $locationProvider) {
 
     // 设定路由
     $stateProvider
@@ -9,7 +9,12 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
             templateUrl: function ($stateParams){
                 return 'pages/phone/phone-details/double/A/details.html';
             },
-            controller: "pDoubleProController"
+            controller: "pDoubleProController",
+            onExit: function(){
+                console.log("a");
+                $("#container").removeClass("overlay-open");
+                $("#overlay-hook").html("");
+            }
         });
 }]).controller('pDoubleProController', ['$scope', '$rootScope', '$location', '$stateParams', '$http', 'Phone', function ($scope, $rootScope, $location, $stateParams, $http, Phone) {
 

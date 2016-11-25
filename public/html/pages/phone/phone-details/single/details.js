@@ -9,7 +9,12 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
             templateUrl: function ($stateParams) {
                 return 'pages/phone/phone-details/single/A/details.html';
             },
-            controller: "pSingleProController"
+            controller: "pSingleProController",
+            onExit: function(){
+                console.log("a");
+                $("#container").removeClass("overlay-open");
+                $("#overlay-hook").html("");
+            }
         });
 }]).controller('pSingleProController', ['$scope', '$rootScope', '$location', '$stateParams', '$http', 'Phone', function ($scope, $rootScope, $location, $stateParams, $http, Phone) {
 

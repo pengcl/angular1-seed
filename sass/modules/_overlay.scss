@@ -258,9 +258,160 @@
     .content-overlay {
         //@include transform(translate3d(45%, 0px, 0px));
         background: rgba(0,0,0,0.7);
-        z-index: 1;
+        z-index: 11;
     }
     .overlay {
         z-index: 11;
     }
+}
+.double-overlay{
+  .double-main{
+    overflow:auto;
+    position: absolute;
+    left:0;
+    rigth:0;
+    top:0;
+    bottom: 0;
+    padding:.65rem .1rem .1rem .1rem;
+  }
+  .free{
+    background-image: url(../../../images/dboule/free.png);
+    background-size:100% 100%;
+    width: .8rem;
+    height:.8rem;
+    position:absolute;
+    right:0;
+    top:0;
+    z-index:16;
+  }
+  overflow:hidden;
+  background:#fff;
+  font-size: 0.14rem;
+  height: auto;
+  position: fixed;
+  left:50%;
+  top:46%;
+  transform: translate(-50%,-50%);
+  width:3.2rem;
+  padding:.1rem;
+  height:80%;
+  z-index: 12;
+  border-radius: 16px;
+  color:#939393;
+  .how-to-pay{
+    padding:.2rem .1rem .1rem .2rem;
+    ul{
+      list-style:none;
+      .title,.details{
+        padding-left:.3rem;
+        border-left:1px solid #999;
+        position:relative;
+      }
+      .title{
+        ins{
+          position:absolute;
+          z-index:10;
+          left:-.2rem;
+          top:0;
+          background-size:100% 100%;
+          width: .4rem;
+          height:.4rem;
+        }
+        .logo1{
+          background-image:url(../../../images/dboule/1.png);
+        }
+        .logo2{
+          background-image:url(../../../images/dboule/2.png);
+        }
+        .logo3{
+          background-image:url(../../../images/dboule/3.png);
+        }
+        .logo4{
+          background-image:url(../../../images/dboule/4.png);
+        }
+        .logo5{
+          background-image:url(../../../images/dboule/right.png);
+        }
+      }
+      h3{
+        font-weight:600;
+        font-size:.15rem;
+        padding-bottom:.05rem;
+      }
+      p{
+        padding-bottom:.1rem;
+      }
+    }
+
+  }
+  .notice{
+    padding:.1rem;
+    background: #efefef;
+    color:#000;
+      p{
+        padding-bottom:.1rem;
+        b{
+          font-weight:bold;
+        }
+      }
+  }
+  ul{
+    list-style: none;
+  }
+  .main-title{
+    .bank{
+      position:absolute;
+      left:.1rem;
+      top:.1rem;
+      margin-right:0.05rem;
+      background-image:url(../../images/dboule/unionpay.png);
+      background-size:100% 100%;
+      width:.6rem;
+      height:.4rem;
+    }
+    padding-top:.08rem;
+    position:absolute;
+    left:0;
+    right:0;
+    top:0;
+    background: #fff;
+    z-index: 15;
+    line-height: .25rem;
+    .how-title{
+      color:#d83f15;
+      margin:0;
+    }
+  }
+  .sign-in-panel{
+    .how-to-pay{
+      .details{
+        padding-bottom:.05rem;
+      }
+      .title{
+        color:#000;
+        line-height: 0.15rem;
+        h2{
+          font-weight: normal;
+        }
+      }
+    }
+  }
+  .double-btn{
+    position: absolute;
+    left:0;
+    right:0;
+    bottom:0;
+    text-align:center;
+    padding-bottom:.1rem;
+    z-index:20;
+    background: #fff;
+    a{
+      display:block;
+      margin:0 .1rem;
+      background: #d83e14;
+      padding:.15rem 0;
+      color:#fff;
+      border-radius: 5px;
+    }
+  }
 }
