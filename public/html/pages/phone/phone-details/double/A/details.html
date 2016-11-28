@@ -25,7 +25,7 @@
                 <div class="pure-u-2-3">
                     <div class="product-txt">
                         <h1>买<span ng-bind="phone.phoneTypes[0].productName"></span>送<span ng-bind="phone.phoneTypes[1].productName"></span></h1>
-                        <div class="label">新开号预存话费 买一送一</div>
+                        <div class="label">新开号预存话费 月供仅<span ng-bind="totolPrice/12 | number:0"></span>元</div>
                         <div class="product-price">
                             <ul>
                                 <li><ins>1</ins><span>预存话费：</span><em>￥</em><em ng-bind="phone.phoneBillPrice"></em></li>
