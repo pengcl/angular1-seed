@@ -255,10 +255,13 @@
 }
 
 .overlay-open {
+      nav{
+        z-index: 0;
+      }
     .content-overlay {
         //@include transform(translate3d(45%, 0px, 0px));
         background: rgba(0,0,0,0.7);
-        z-index: 11;
+        z-index: 1;
     }
     .overlay {
         z-index: 11;
