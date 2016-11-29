@@ -38,7 +38,7 @@ app.directive("subNumber", ["$cookieStore", function ($cookieStore) {
                 }
             };
 
-            scope.showSNumberPn = function (e) {
+            scope.showSNumberPn = function (event) {
                 $("#pickSubNumberPanel").slideToggle();
                 $(event.currentTarget).toggleClass("down");
                 writebdLog(scope.category, "_subCuteNumber", "渠道号", scope.gh);//选择副卡靓号

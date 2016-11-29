@@ -4,9 +4,15 @@
         <div class="weui-msg">
             <div class="weui-msg__icon-area"><i class="weui-icon-warn weui-icon_msg"></i></div>
             <div class="weui-msg__text-area">
-                <h2 class="weui-msg__title"><span ng-bind="errorStatus"></span></h2>
+                <h2 class="weui-msg__title">
+                    <span ng-bind="errorStatus" ng-if="errorStatus!='server'"></span>
+                    <span ng-bind="errorData.title" ng-if="errorStatus=='server'"></span>
+                </h2>
                 <p class="weui-msg__desc" ng-if="errorStatus=='404'">页面没有找到，请联系客服！</p>
                 <p class="weui-msg__desc" ng-if="errorStatus=='503' || errorStatus=='500'">系统错误，请联系客服</p>
+                <div class="weui-msg__desc" ng-if="errorStatus=='server'">
+                    <p ng-bind="errorData.content"></p>
+                </div>
             </div>
             <div class="weui-msg__opr-area">
                 <p class="weui-btn-area">

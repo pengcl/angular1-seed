@@ -11,6 +11,11 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
         });
 }]).controller('errorController', ['$scope', '$rootScope', '$location', '$stateParams', function ($scope, $rootScope, $location, $stateParams) {
     $scope.errorStatus = $stateParams.status;
+
+    if ($location.search()) {
+        $scope.errorData = $location.search();
+    }
+
     $scope.getContent = function () {
         getMeiqia();
         //scope.$root.dialog.open("","咨询请关注微信公众号<br><em>“翼分期商城”</em>");
