@@ -10,7 +10,7 @@ app.directive("subColors", ['$http', '$q', '$timeout', function ($http, $q, $tim
             scope.subColorTitle = attrs.title;
             scope.subColorSubTitle = attrs.subTitle;
 
-            scope.subColor = scope.phone.phoneTypes[0].mediaProductList[0];
+            scope.subColor = scope.phone.phoneTypes[1].mediaProductList[0];
 
             //选择手机颜色
             scope.setSubPhoneColor = function (event, color) {
