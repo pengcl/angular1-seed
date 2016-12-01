@@ -39,7 +39,7 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
         container: $(".content-scrollable")
     });
     $scope.buyType = 1;
-    $scope.activeTagName = "裸机+5折话费套餐";
+    $scope.activeTagName = "裸机+话费套餐";
 
     $scope.setSbPayType = function (id, typeName) {
         $scope.payType = id;
