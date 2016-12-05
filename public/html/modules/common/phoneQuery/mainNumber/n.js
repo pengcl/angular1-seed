@@ -87,11 +87,9 @@ app.directive("mainNumber", ["$cookieStore", function ($cookieStore) {
         writebdLog($scope.category, '_' + type + 'InputNumber', "渠道号", $scope.gh);//输入查询号码
     };
 
-    $http.jsonp('http://m.gd189fq.com/wap/taokafanghaoNew/fetchNumber.html?callback=JSON_CALLBACK').success(function (data, status, headers, config) {//获取所有的手机号码
+    $http.jsonp('http://m.gd189fq.com/wap/taokafanghaoNew/fetchLuckNumber.html?callback=JSON_CALLBACK').success(function (data, status, headers, config) {//获取所有的手机号码
         $.each(eval(data), function (i, k) {
-            if (!k.t) {
-                $scope.phoneData.push(k);
-            }
+            $scope.phoneData.push(k);
         });
 
         $scope.dataInit = function () {
