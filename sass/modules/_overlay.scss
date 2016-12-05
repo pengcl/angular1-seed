@@ -294,7 +294,7 @@
   position: fixed;
   left:50%;
   top:46%;
-  transform: translate(-50%,-50%);
+  @include translate(-50%,-50%);
   width:3.2rem;
   padding:.1rem;
   height:80%;
