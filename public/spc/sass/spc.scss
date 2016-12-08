@@ -693,3 +693,51 @@ p{
     }
   }
 }
+
+.bc {
+  margin:0 auto;
+}
+
+body.pcd {
+  margin:0;
+  padding:0;
+  overflow: auto;
+  .page {
+    position: relative;
+    .content {
+      position: absolute;
+      top:0;
+      left:0;
+      right:0;
+      width: 100%;
+      .logo {
+        width: 40%;
+        margin-top: 0.07rem;
+        margin-left: 0.05rem;
+      }
+      .feidie {
+        margin-top: 0.07rem;
+      }
+      .wa {
+        position: absolute;
+        top:0.05rem;
+        right:0;
+        width: 15%;
+      }
+      .header-title {
+        color: #fff;
+        width: 70%;
+        margin-top: -1rem;
+        .img-box {
+          margin-left: -0.2rem;
+        }
+        h1 {
+          font-size: 0.2rem;
+        }
+        h2 {
+          font-size: 0.16rem;
+        }
+      }
+    }
+  }
+}

@@ -1268,3 +1268,62 @@ p {
   display: block;
   width: 100%;
 }
+
+/* line 697, sass/spc.scss */
+.bc {
+  margin: 0 auto;
+}
+
+/* line 701, sass/spc.scss */
+body.pcd {
+  margin: 0;
+  padding: 0;
+  overflow: auto;
+}
+/* line 705, sass/spc.scss */
+body.pcd .page {
+  position: relative;
+}
+/* line 707, sass/spc.scss */
+body.pcd .page .content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+}
+/* line 713, sass/spc.scss */
+body.pcd .page .content .logo {
+  width: 40%;
+  margin-top: 0.07rem;
+  margin-left: 0.05rem;
+}
+/* line 718, sass/spc.scss */
+body.pcd .page .content .feidie {
+  margin-top: 0.07rem;
+}
+/* line 721, sass/spc.scss */
+body.pcd .page .content .wa {
+  position: absolute;
+  top: 0.05rem;
+  right: 0;
+  width: 15%;
+}
+/* line 727, sass/spc.scss */
+body.pcd .page .content .header-title {
+  color: #fff;
+  width: 70%;
+  margin-top: -1rem;
+}
+/* line 731, sass/spc.scss */
+body.pcd .page .content .header-title .img-box {
+  margin-left: -0.2rem;
+}
+/* line 734, sass/spc.scss */
+body.pcd .page .content .header-title h1 {
+  font-size: 0.2rem;
+}
+/* line 737, sass/spc.scss */
+body.pcd .page .content .header-title h2 {
+  font-size: 0.16rem;
+}
