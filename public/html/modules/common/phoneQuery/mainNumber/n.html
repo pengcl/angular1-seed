@@ -26,13 +26,14 @@
 
         <div class="query-panel">
             <ul class="query-lists item-lists pure-g">
-                <li  class="query-item list-item pure-u-1-2" ng-repeat="numberItem in mainItems" >
+                <li  class="query-item list-item pure-u-1-2" ng-repeat="numberItem in mainItems | orderBy: -s" >
                     <div class="item-box" ng-click="setMainNumber($event,numberItem)">
                         <p class="phone-number" >
                             <span class="weui-icon-success weui-icon_msg"></span>
                             <span ng-bind-html="numberItem.n | replaceInput : mainQuery | trustHtml"></span>
+                            <span class="nd" ng-if="numberItem.s > 0"><del ng-bind="'原价' + numberItem.s"></del><em>￥0</em></span>
                         </p>
-                        <ins class="icon-check"></ins>
+                        <ins class="icon-check" ng-if="numberItem.s > 0"></ins>
                     </div>
                 </li>
             </ul>

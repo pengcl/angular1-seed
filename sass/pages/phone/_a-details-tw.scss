@@ -1,39 +1,87 @@
 .page.p-details.a-details {
-  .product-header{
+  .product-header {
     .product-txt {
-      h1{
-        font-weight:700;
+      h1 {
+        font-weight: 700;
       }
-      .product-price{
-        em{
-          color:#f6692a;
-          font-size:.16rem;
-          font-weight:700;
+      .product-price {
+        em {
+          color: #f6692a;
+          font-size: .16rem;
+          font-weight: 700;
         }
       }
-      .product-txt-ft{
-        .score{
-          color:#f6692a;
-        }
-      }
-    }
-  }
-  .pick-number{
-  .pick-panel{
-    padding-left:.5rem;
-    background:#fff;
-    .query-panel{
-      .query-lists{
-        .query-item{
-         .item-box{
-           background: #f7f7f7;
-           margin: 0 0.1rem 0.1rem 0;
-           padding: 0.1rem 0;
-         }
+      .product-txt-ft {
+        .score {
+          color: #f6692a;
         }
       }
     }
   }
+  .pick-number {
+    .pick-panel {
+      padding-left: .5rem;
+      background: #fff;
+      .query-panel {
+        .query-lists {
+          .query-item {
+            .item-box {
+              background: #f7f7f7;
+              margin: 0 0.1rem 0.1rem 0;
+              padding: 0.1rem 0;
+              position: relative;
+              padding-left: 0.3rem;
+              text-align: left;
+              .phone-number {
+                font-size: 0.14rem;
+                line-height: 1.2;
+              }
+              .nd {
+                em {
+                  font-size: 0.14rem;
+                  line-height: 1.2;
+                  color: #999;
+                }
+                del {
+                  font-size: 0.12rem;
+                  //color: $color-primary;
+                }
+              }
+              .weui-icon_msg {
+                font-size: 0.20rem;
+                position: absolute;
+                top: 50%;
+                margin-top: -0.10rem;
+                left: 0.1rem;
+                &:before {
+                  font-size: 0.20rem !important;
+                  display: block;
+                }
+              }
+              ins {
+                position: absolute;
+                top:0;
+                right:0;
+                background-image: url("/images/phones/assets/icons/liang.png");
+                width: 0.3rem;
+                height: 0.3rem;
+                background-repeat: no-repeat;
+                background-size: cover;
+                display: block;
+                &:before {
+                  display: none;
+                }
+              }
+              &.curr {
+                ins {
+                  background-image: url("/images/phones/assets/icons/liang-on.png");
+                }
+              }
+            }
+          }
+        }
+      }
+    }
   }
 }
 

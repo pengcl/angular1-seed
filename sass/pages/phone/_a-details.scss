@@ -478,12 +478,41 @@
       }
     }
   }
-  .item-box p.phone-number .weui-icon_msg::before {
-    color: #999;
+
+  .item-box {
+    p {
+      &.phone-number {
+        .weui-icon_msg {
+          &:before {
+            color: #999;
+          }
+        }
+        .nd {
+          display: block;
+        }
+      }
+    }
+    &.curr {
+      p {
+        &.phone-number {
+          .weui-icon_msg {
+            &:before {
+              color: #09bb07;
+            }
+          }
+          .nd {
+            em {
+              color: $color-primary !important;
+            }
+            del {
+              color: $color-primary;
+            }
+          }
+        }
+      }
+    }
   }
-  .item-box.curr p.phone-number .weui-icon_msg::before {
-    color: #09bb07;
-  }
+
   nav {
     background: $color-primary;
     color: #fff;

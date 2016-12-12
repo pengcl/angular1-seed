@@ -47,6 +47,7 @@ app.directive("mainNumber", ["$cookieStore", function ($cookieStore) {
 }]).controller('numberController', ['$scope', '$cookieStore', '$http', '$compile', function ($scope, $cookieStore, $http) {
     //var deferred = $q.defer();
     $scope.phoneData = new Array();
+    $scope.phoneSubData = new Array();
 
     $scope.phoneMainFilter = function (query) {//查询包含query的手机号码;
         var _data = new Array();
@@ -68,16 +69,16 @@ app.directive("mainNumber", ["$cookieStore", function ($cookieStore) {
     $scope.phoneSubFilter = function (query) {//查询包含query的手机号码;
         var _data = new Array();
         if (query != "") {
-            $.each($scope.phoneData, function (i, k) {
+            $.each($scope.phoneSubData, function (i, k) {
                 if ((k.n).indexOf(query) >= 0) {
                     _data.push(k);
                 }
             });
-            $scope.filterData = _data;
+            $scope.filterSubData = _data;
         } else {
-            $scope.filterData = $scope.phoneData;
+            $scope.filterSubData = $scope.phoneSubData;
         }
-        $scope.subItems = $scope.filterData.slice(0, $scope.pageSize);
+        $scope.subItems = $scope.filterSubData.slice(0, $scope.pageSize);
 
         $scope.dataInit();
     };
@@ -88,8 +89,16 @@ app.directive("mainNumber", ["$cookieStore", function ($cookieStore) {
     };
 
     $http.jsonp('http://m.gd189fq.com/wap/taokafanghaoNew/fetchLuckNumber.html?callback=JSON_CALLBACK').success(function (data, status, headers, config) {//获取所有的手机号码
+
+        data = data.sort(function (a,b) {
+            return b.s-a.s;
+        });
+
         $.each(eval(data), function (i, k) {
             $scope.phoneData.push(k);
+            if(k.t == 0){
+                $scope.phoneSubData.push(k);
+            }
         });
 
         $scope.dataInit = function () {
@@ -104,12 +113,8 @@ app.directive("mainNumber", ["$cookieStore", function ($cookieStore) {
         };
 
         $scope.filterData = $scope.phoneData;
-        $scope.pageSize = 10;
-        //$scope.pages = Math.ceil($scope.filterData.length / $scope.pageSize); //分页数
-
-        //$scope.newPages = $scope.pages > 5 ? 5 : $scope.pages;
-        //$scope.pageList = [];
-        //$scope.selPage = 1;
+        $scope.filterSubData = $scope.phoneSubData;
+        $scope.pageSize = 12;
 
         //设置数据源(分页)
         $scope.setData = function (type) {
@@ -117,12 +122,13 @@ app.directive("mainNumber", ["$cookieStore", function ($cookieStore) {
                 $scope.mainItems = $scope.filterData.slice(($scope.pageSize * ($scope.selPage - 1)), ($scope.selPage * $scope.pageSize));
             }
             else {
-                $scope.subItems = $scope.filterData.slice(($scope.pageSize * ($scope.selPage - 1)), ($scope.selPage * $scope.pageSize));
+                $scope.subItems = $scope.filterSubData.slice(($scope.pageSize * ($scope.selPage - 1)), ($scope.selPage * $scope.pageSize));
             }
         };
 
+        //初始化数据
         $scope.mainItems = $scope.filterData.slice(0, $scope.pageSize);
-        $scope.subItems = $scope.filterData.slice(0, $scope.pageSize);
+        $scope.subItems = $scope.filterSubData.slice(0, $scope.pageSize);
 
         $scope.dataInit();
 
@@ -156,16 +162,6 @@ app.directive("mainNumber", ["$cookieStore", function ($cookieStore) {
             $scope.selectPage($scope.selPage + 1, type);
             writebdLog($scope.category, "_" + type + "ChangeALot", "渠道号", $scope.gh);//换一批
         };
-        /*$scope.ok = function (type) {
-            if (type == "main") {
-                $("#pickMainNumberPanel").slideToggle();
-                $("#pickMainNumber .weui-cells").toggleClass("down");
-            } else {
-                $("#pickSubNumberPanel").slideToggle();
-                $("#pickSubNumber .weui-cells").toggleClass("down");
-            }
-            writebdLog($scope.category, "_" + type + "ConfirmNumber", "渠道号", $scope.gh);//确认号码
-        }*/
 
     }).error(function (data, status, headers, config) {
         console.log(status);

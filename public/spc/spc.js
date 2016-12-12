@@ -152,6 +152,12 @@ var category = systemName + "_" + pageType + "_Index";
 
 writebdLog(category, "_Load", "渠道号", getUrlParam("gh"));
 
+//根据名称写入日志
+function userTrack(name)
+{
+	writebdLog(category, name, "渠道号", getUrlParam("gh"));
+}
+
 var getContact = function () {
     getMeiqia();
     //$("#contactUs").show();
