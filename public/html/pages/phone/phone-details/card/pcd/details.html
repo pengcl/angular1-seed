@@ -3,13 +3,13 @@
     <!--<form id="checkoutForm" name="checkoutForm" action="http://2b2fda71.ngrok.natapp.cn/wap/taokafanghaoNew/submitOrderMachine.html" method="post" novalidate>-->
     <!--<form id="checkoutForm" name="checkoutForm" action="http://m.yfq.na/wap/taokafanghaoNew/submitOrderDouble.html" method="post" novalidate>-->
     <form id="checkoutForm" name="checkoutForm" action="http://m.yfq.cn/wap/taokafanghaoNew/submitOrderDouble.html" method="post" novalidate>
-        <input type="hidden" value="1" name="monthNumber" id="monthNumber">
-        <input type="hidden" value="1" name="mainMonthNumber" id="mainMonthNumber">
+        <input type="hidden" value="0" name="monthNumber" id="monthNumber">
+        <input type="hidden" value="0" name="mainMonthNumber" id="mainMonthNumber">
         <input type="hidden" value="{{mainNumber}}" name="number1" id="number1">
         <input type="hidden" value="{{category}}" name="category" id="category">
         <input type="hidden" value="indexB" name="appType" id="appType">
         <input type="hidden" value="{{phone.activityproductId}}" ng-model="phone.productId" name="machineId" id="machineId">
-        <input type="hidden" value="{{activeTag}}" ng-model="activeTag" name="activeTag" id="activeTag">
+        <input type="hidden" value="mysytca" ng-model="activeTag" name="activeTag" id="activeTag">
         <input type="hidden" value="{{phoneQueryUrl}}" name="phoneQueryUrl" id="phoneQueryUrl">
         <gh></gh>
         <activity></activity>
@@ -44,12 +44,11 @@
                 </div>
                 <div class="pure-u-2-3">
                     <div class="product-txt">
-                        <h1><span class="label"><span ng-bind="card.salesPrice*10/card.oldPrice | number:0"></span>折</span> <span>电信新入网套餐</span></h1>
+                        <h1><span>￥</span> <span  ng-bind="card.salesPrice"></span>话费套餐卡</h1>
                         <div class="label">限时6折 国内流量 全国通用 靓号任选</div>
                         <div class="product-price">
                             <ul>
-                                <li style="padding-left: 0"><del><span>原价：</span><em>￥</em><em class="" ng-bind="card.oldPrice"></em></del></li>
-                                <li style="padding-left: 0"><span>现价：</span><em>￥</em><em class="" ng-bind="card.salesPrice"></em></li>
+                                <li style="padding-left: 0"><span>现价：</span><em>￥</em><em >9.9</em></li>
                             </ul>
                         </div>
                         <div class="product-txt-ft"><stars></stars></div>
@@ -106,6 +105,6 @@
 
             <n-pay-type title="选择支付方式"></n-pay-type>
         </div>
-        <n-footer-nav check-main-number="true" check-address="true" submit="#checkoutForm"></n-footer-nav>
+        <n-footer-nav check-main-number="true" check-address="true" check-sim-card="true" submit="#checkoutForm"></n-footer-nav>
     </form>
 </div>

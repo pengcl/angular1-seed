@@ -1,42 +1,31 @@
-<div id="simType" class="sim-type">
+<div id="card-type">
     <input type="hidden" name="mainCardTypeId" id="mainCardTypeId" value="{{simItem.id}}" ng-model="simItem.id" required class="weui-input">
-
-    <div class="weui-cells__title title-icon">
-        <span ng-bind="simTitle"></span>
-        <a class="question" ng-click="showOverLay('simTypeInfo')">卡类型介绍?</a>
+    <div class="weui-cells" ng-click="showCardList($event)">
+        <a  class="weui-cell choose-number-a weui-cell_access" href="javascript:;">
+            <div class="weui-cell__bd">
+                <p>选择手机卡类型<span class="star-color">*</span></p>
+            </div>
+            <div class="weui-cell__ft"><span ng-bind="cardName"></span><span  ></span></div>
+        </a>
     </div>
-    <div class="sim-type-panel pd-w">
-        <ul class="sim-type-lists item-lists minus pure-g">
-            <li class="sim-type-item list-item" ng-class="{true:'pure-u-1-4',false:'pure-u-1-2'}[size=='s']"
-                ng-repeat="simItem in simList">
-                <div class="item-box margin radius border" ng-click="setSimType($event,$index,simItem)"
-                     ng-class="{true: 'curr', false: ''}[simItem.id == '0']">
-                    <p>
-                        <em ng-bind="simItem.txt"></em>
-                    </p>
-                    <ins class="icon-check"></ins>
-                </div>
-            </li>
-        </ul>
-    </div>
-    <div id="simTypeInfo" style="display: none;">
-        <div class="overlay sim {{class}}">
-            <a class="js-close-overlay overlay-dismiss" href="#"><span class="icon-cross"></span></a>
-            <div class="weui-panel">
-                <div class="weui-panel__hd"><a href="">SIM卡类型</a></div>
-                <div class="weui-panel__bd">
-                    <a class="weui-media-box weui-media-box_appmsg" href="javascript:;" ng-repeat="simItem in simList">
-                        <div class="weui-media__hd">
-                            <img class="weui-media__thumb" alt="" ng-src="{{simItem.pic}}">
-                        </div>
-                        <div class="weui-cell__bd">
-                            <h4 class="weui-media__title" ng-bind="simItem.txt"></h4>
-                            <p class="weui-media__desc" ng-bind-html="simItem.tips | trustHtml"></p>
-                        </div>
-                        <!--<span class="weui_cell_ft"></span>-->
-                    </a>
-                </div>
-                <div class="weui-panel__ft">仅支持三网通和电信版4G手机</div>
+    <div class="card-type-list" style="display:none;">
+        <div class="list pure-g" ng-click="setNewSimType($event,'1')">
+            <div class="list-l pure-u-1-3">
+                <ins class="big"></ins>
+            </div>
+            <div class="list-r pure-u-2-3">
+                <p><b>大卡/中卡</b>(二合一)</p>
+                <p>适用于一般手机，多数安卓手机</p>
+                <p>iPad，iPone4/4s等</p>
+            </div>
+        </div>
+        <div class="list pure-g curr" ng-click="setNewSimType($event,'0')">
+            <div class="list-l curr-b pure-u-1-3" >
+                <ins class="small"></ins>
+            </div>
+            <div class="list-r b line-curr pure-u-2-3">
+                <p ><b>小卡</b>(Nano卡)</p>
+                <p>适用于iPhone5/5s/6/6s/7等</p>
             </div>
         </div>
     </div>
