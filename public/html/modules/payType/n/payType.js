@@ -8,6 +8,7 @@ app.directive("nPayType", ['$location', '$compile', '$q', function ($location, $
             //模块标题
             scope.payTitle = attrs.title;
             scope.paySubTitle = attrs.subTitle;
+            scope.details="预付首月月租";
             //设置本模块的显示隐藏
             scope.visibility = attrs.visibility;
             if (scope.visibility === "false") {
@@ -32,7 +33,9 @@ app.directive("nPayType", ['$location', '$compile', '$q', function ($location, $
             if(scope.totolPrice < 1500){
                 scope.setDefaultPayType(0,"一次性支付");
             }
-
+            if(scope.pageType=="pcd"){
+                scope.details="在线领卡￥9.9";
+            }
 
             //选择支付方式
 

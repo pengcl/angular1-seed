@@ -58,6 +58,7 @@ app.directive("nFooterNav", ['$http', function ($http) {
                             }
                         } else {
                             if (scope.checkMainNumber()) {
+                                if(scope.checkSimType()){
                                 if (scope.checkAddress()) {
                                     scope.checkForm();
                                 } else {
@@ -67,6 +68,7 @@ app.directive("nFooterNav", ['$http', function ($http) {
                                     });
                                     $("#receiverAddressPanel").slideDown();
                                     $(".adr-tab").addClass("down");
+                                }
                                 }
                             }
                         }
