@@ -2,7 +2,7 @@
     <top-nav page-title="中国电信●翼分期商城" page-back="back"></top-nav>
     <!--<form id="checkoutForm" name="checkoutForm" action="http://2b2fda71.ngrok.natapp.cn/wap/taokafanghaoNew/submitOrderMachine.html" method="post" novalidate>-->
     <!--<form id="checkoutForm" name="checkoutForm" action="http://m.yfq.na/wap/taokafanghaoNew/submitOrderDouble.html" method="post" novalidate>-->
-    <form id="checkoutForm" name="checkoutForm" action="http://m.yfq.cn/wap/taokafanghaoNew/submitOrderDouble.html" method="post" novalidate>
+    <form id="checkoutForm" name="checkoutForm" action="http://192.168.1.203:8082/wap/taokafanghaoNew/submitOrderDouble.html" method="post" novalidate>
         <input type="hidden" value="1" name="monthNumber" id="monthNumber">
         <input type="hidden" value="{{category}}" name="category" id="category">
         <input type="hidden" value="{{phone.activityproductId}}" ng-model="phone.productId" name="machineId" id="machineId">
@@ -24,12 +24,14 @@
                 </div>
                 <div class="pure-u-2-3">
                     <div class="product-txt">
-                        <h1>买<span ng-bind="phone.phoneTypes[0].productName"></span>送<span ng-bind="phone.phoneTypes[1].productName"></span></h1>
-                        <div class="label">新开号预存话费 月供仅<span ng-bind="totolPrice/12 | number:0"></span>元</div>
+                        <h1><span ng-bind="phone.phoneTypes[0].productName"></span> + </h1>
+                        <h1><span ng-bind="phone.phoneTypes[1].productName"></span></h1>
+                        <div class="label">0利息0手续费轻松购</div>
                         <div class="product-price">
                             <ul>
-                                <li><ins>1</ins><span>预存话费：</span><em>￥</em><em ng-bind="phone.phoneBillPrice"></em><img class="img-label" src="/images/phones/assets/details/fanhuan.png"></li>
-                                <li><ins>2</ins><span>购机价格：</span><em>￥</em><em class="" ng-bind="phone.phonePrice"></em></li>
+                                <li><span>日供仅：</span><em>￥</em><em ng-bind="phone.phonePrice/365 | number:0"></em></li>
+                                <li><span>购机价格：</span><em>￥</em><em class="" ng-bind="phone.phonePrice/12 | number:0"></em><em>x12期</em></li>
+                                <li><span>赠送话费：</span><em>￥</em><em ng-bind="phone.phoneBillPrice"></em></li>
                             </ul>
                         </div>
                         <div class="product-txt-ft"><stars></stars></div>
@@ -45,8 +47,7 @@
             <div id="phonePkg">
                 <input id="productId" name="productId" type="hidden" value="{{phone.packageProductList[0].productId}}">
                 <div class="weui-cells__title title-icon">
-                    <span class="title">选择靓号</span>
-                    <span class="sub-title">给您的新手机配个靓号</span>
+                    <span class="title">选择4G优惠套餐靓号靓号</span>
                 </div>
 
                 <div class="card-details">
@@ -77,7 +78,7 @@
                 <div class="card-pkg" nf-if="phone.packageProductList[0]" ss-dd="phone.packageProductList[0]"></div>
             </div>
 
-            <main-number></main-number>
+            <main-number title="选择主机号码"></main-number>
             <sub-number></sub-number>
 
             <div id="promise">

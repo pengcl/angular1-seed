@@ -57,19 +57,32 @@ app.directive("nFooterNav", ['$http', function ($http) {
                                 }
                             }
                         } else {
+                            if(attrs.checkSimType){
                             if (scope.checkMainNumber()) {
-                                if(scope.checkSimType()){
-                                if (scope.checkAddress()) {
-                                    scope.checkForm();
-                                } else {
-                                    var $scrollTo = $('#receiverAddress');
-                                    $container.animate({
-                                        scrollTop: $scrollTo.offset().top - $container.offset().top + $container.scrollTop() - 50
-                                    });
-                                    $("#receiverAddressPanel").slideDown();
-                                    $(".adr-tab").addClass("down");
+                                if (scope.checkSimType()) {
+                                    if (scope.checkAddress()) {
+                                        scope.checkForm();
+                                    } else {
+                                        var $scrollTo = $('#receiverAddress');
+                                        $container.animate({
+                                            scrollTop: $scrollTo.offset().top - $container.offset().top + $container.scrollTop() - 50
+                                        });
+                                        $("#receiverAddressPanel").slideDown();
+                                        $(".adr-tab").addClass("down");
+                                    }
                                 }
-                                }
+                            }}else{
+                                if (scope.checkMainNumber()) {
+                                    if (scope.checkAddress()) {
+                                        scope.checkForm();
+                                    } else {
+                                        var $scrollTo = $('#receiverAddress');
+                                        $container.animate({
+                                            scrollTop: $scrollTo.offset().top - $container.offset().top + $container.scrollTop() - 50
+                                        });
+                                        $("#receiverAddressPanel").slideDown();
+                                        $(".adr-tab").addClass("down");
+                                    }   }
                             }
                         }
                     } else {

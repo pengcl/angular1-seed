@@ -11,7 +11,7 @@
             <li id="payType0" class="pay-item list-item pure-u-1-3" ng-if="!cardPay" ng-class="{true:'on-paytype',false:''}[totolPrice < 1500]" ng-click="setPayType($event,'0','一次性支付');">
                 <div class="item item-box margin border radius">
                     <p class="title" >一次性支付</p>
-                    <p class="details">再享95折优惠</p>
+                    <p class="details">官网价享95折</p>
                 </div>
             </li>
             <li id="payType0" class="pay-item list-item pure-u-1-3" ng-if="cardPay" ng-class="{true:'on-paytype',false:''}[cardPay]" ng-click="setPayType($event,'0','一次性支付');">
@@ -23,7 +23,7 @@
             <li id="payType2" class="pay-item list-item pure-u-1-3 on-paytype" ng-if="!cardPay" ng-show="totolPrice > 1500" ng-click="setPayType($event,'2','信用卡分期');">
                 <div class="item item-box margin border radius">
                     <p class="title">信用卡分期</p>
-                    <p class="details">12期免息 0现金</p>
+                    <p class="details">0首付12期免息</p>
                 </div>
             </li>
             <li id="payType1" class="pay-item list-item pure-u-1-3" ng-if="!cardPay" ng-click="setPayType($event,'1','货到付款');">
