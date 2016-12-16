@@ -1,4 +1,3 @@
-/*
 "use strict";
 
 app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $locationProvider) {
@@ -17,6 +16,8 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
         });
 }]).controller('fdProController', ['$scope', '$rootScope', '$location', function ($scope, $rootScope, $location) {
 
+
+    window.location.href = "http://m.yfq.cn/yfqcz/#/";
     $scope.appType = systemName + "_FlowPackage";
 
     if ($location.path() == "/fd/mifi") {
@@ -26,4 +27,4 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
     $scope.category = $scope.appType;
 
     writebdLog($scope.category, "_Load", "渠道号", $scope.gh);//页面载入
-}]);*/
+}]);
