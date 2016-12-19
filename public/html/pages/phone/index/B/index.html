@@ -78,37 +78,50 @@
                                     <h2 class="product-name"><i>买</i><span ng-bind="doublePhone.productName | doubleName : 0"></span></h2>
                                     <h2 class="product-name"><i>送</i><span ng-bind="doublePhone.productName | doubleName : 1"></span></h2>
                                 </div>
+                                <!--<div class="price">-->
+                                    <!--<div class="pre-pay">-->
+                                        <!--<span class="label"><b>1.</b>预存话费:</span>-->
+                                        <!--<span class="price">￥<span ng-bind="doublePhone.phoneBillPrice"></span></span>-->
+                                        <!--<span class="promotion">每月返还<span ng-bind="doublePhone.phoneBillPrice/36 | number : 0"></span>元</span>-->
+                                    <!--</div>-->
+                                    <!--<div class="sale-price">-->
+                                        <!--<span class="label"><b>2.</b>购机价格:</span>-->
+                                        <!--<span class="price">￥<span ng-bind="doublePhone.phonePrice"></span></span><sub>/2台</sub>-->
+                                        <!--<span class="promotion">总价月供￥<span ng-bind="doublePhone.salePrice/12 | number : 0"></span></span>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                                <!--<div class="pkg">-->
+                                    <!--<div class="pure-g">-->
+                                        <!--<div class="pure-u-1-5">-->
+                                            <!--<div class="pkg-flag">-->
+                                                <!--<span>双人</span><span>共享</span>-->
+                                            <!--</div>-->
+                                        <!--</div>-->
+                                        <!--<div class="pu-b pure-u-2-5">-->
+                                            <!--<span class="pkg-staff"><span ng-bind="doublePhone.packageProductList[0].network + 'G全国流量'"></span><span ng-bind="doublePhone.packageProductList[0].talkTime + '分通话'"></span></span>-->
+                                        <!--</div>-->
+                                        <!--<div class="pu-s pure-u-2-5">-->
+                                            <!--<span class="pkg-price">-->
+                                                <!--<span class="pkg-price-box"><em ng-bind="(doublePhone.packageProductList[0].salesPrice * 36 - doublePhone.phoneBillPrice)/72 | number : 0"></em><sub>元/月</sub></span>-->
+                                                <!--<span class="promotion">每人仅付</span>-->
+                                            <!--</span>-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                                <div>
+                                    裸机价格: <span ng-bind="'￥'+doublePhone.salePrice"></span>
+                                </div>
                                 <div class="price">
-                                    <div class="pre-pay">
-                                        <span class="label"><b>1.</b>预存话费:</span>
-                                        <span class="price">￥<span ng-bind="doublePhone.phoneBillPrice"></span></span>
-                                        <span class="promotion">每月返还<span ng-bind="doublePhone.phoneBillPrice/36 | number : 0"></span>元</span>
-                                    </div>
                                     <div class="sale-price">
-                                        <span class="label"><b>2.</b>购机价格:</span>
-                                        <span class="price">￥<span ng-bind="doublePhone.phonePrice"></span></span><sub>/2台</sub>
-                                        <span class="promotion">总价月供￥<span ng-bind="doublePhone.salePrice/12 | number : 0"></span></span>
+                                        <span class="label">日供仅:</span>
+                                        <span style="font-size:.18rem;font-weight:600" class="price" ng-bind="'￥'+(doublePhone.salePrice/365 | number : 0)"></span><sub></sub>
+                                        <span class="promotion">正品国行</span>
                                     </div>
                                 </div>
-                                <div class="pkg">
-                                    <div class="pure-g">
-                                        <div class="pure-u-1-5">
-                                            <div class="pkg-flag">
-                                                <span>双人</span><span>共享</span>
-                                            </div>
-                                        </div>
-                                        <div class="pu-b pure-u-2-5">
-                                            <span class="pkg-staff"><span ng-bind="doublePhone.packageProductList[0].network + 'G全国流量'"></span><span ng-bind="doublePhone.packageProductList[0].talkTime + '分通话'"></span></span>
-                                        </div>
-                                        <div class="pu-s pure-u-2-5">
-                                            <span class="pkg-price">
-                                                <span class="pkg-price-box"><em ng-bind="(doublePhone.packageProductList[0].salesPrice * 36 - doublePhone.phoneBillPrice)/72 | number : 0"></em><sub>元/月</sub></span>
-                                                <span class="promotion">每人仅付</span>
-                                            </span>
-                                        </div>
-                                    </div>
+                                <div>
+                                    双人共享套餐，送<span ng-bind="'￥'+doublePhone.phoneBillPrice"></span>
                                 </div>
-                                <div class="buy">
+                                <div class="buy" style="margin-top:.35rem">
                                     <div class="btn">立即抢购</div>
                                 </div>
                             </div>
@@ -144,19 +157,25 @@
                                 <div class="title">
                                     <h2 class="product-name"><span ng-bind="singlePhone.productName"></span></h2>
                                 </div>
+                                <div>
+                                    裸机价格<span ng-bind="'￥' + singlePhone.phonePrice"></span>
+                                </div>
                                 <div class="price">
                                     <div class="sale-price">
-                                        <span class="label">价格:</span>
-                                        <span class="price" ng-bind="'￥' + singlePhone.phonePrice"></span><sub></sub>
+                                        <span class="label">日供仅:</span>
+                                        <span style="font-size:.18rem;font-weight:600" class="price" ng-bind="'￥' + (singlePhone.phonePrice/365 | number:0)"></span><sub></sub>
                                         <span class="promotion">正品国行</span>
                                     </div>
                                 </div>
+                                <div>
+                                    搭配套餐更划算，靓号任选
+                                </div>
                                 <div class="goodness">
-                                    <ul>
-                                        <li><ins></ins><span>12期免息</span><span class="promotion solid">0现金，月供￥<span ng-bind="singlePhone.salePrice/12 | number:0"></span></span></li>
-                                        <li><ins></ins><span>一次性支付</span><span class="promotion">95折省￥<span ng-bind="singlePhone.salePrice * 0.05 | number:0">532</span></span></li>
-                                        <li><ins></ins><span>货到付款</span><span class="promotion">定金￥99抵￥200</span></li>
-                                    </ul>
+                                    <!--<ul>-->
+                                        <!--<li><ins></ins><span>12期免息</span><span class="promotion solid">0现金，月供￥<span ng-bind="singlePhone.salePrice/12 | number:0"></span></span></li>-->
+                                        <!--<li><ins></ins><span>一次性支付</span><span class="promotion">95折省￥<span ng-bind="singlePhone.salePrice * 0.05 | number:0">532</span></span></li>-->
+                                        <!--<li><ins></ins><span>货到付款</span><span class="promotion">定金￥99抵￥200</span></li>-->
+                                    <!--</ul>-->
                                 </div>
                                 <div class="buy">
                                     <div class="btn">立即抢购</div>

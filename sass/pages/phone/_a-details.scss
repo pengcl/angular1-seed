@@ -40,7 +40,6 @@
         li {
           list-style: none;
           font-size: 0.12rem;
-          padding-left: 0.2rem;
           position: relative;
           line-height: 1.2;
           ins {
@@ -719,73 +718,12 @@
     bottom:1%;
     left:43%;
   }
-  .card-p{
-    .mask{
-      position:fixed;
-      top:0;
-      right:0;
-      left:0;
-      bottom:0;
-      z-index: 1000;
-      background: rgba(0,0,0,.6);
-    }
-    .content{
-        .card-content{
-          .title{
-            background:#d73e14;
-            color:#fff;
-            text-align:center;
-            @include  border-radius(10px 10px 0 0);
-            .title-1{
-              font-size:.18rem;
-              font-weight:600;
-            }
-            .title-2{
-
-              font-weight:600;
-            }
-          }
-          .pkg{
-            padding:0 .15rem .2rem .15rem;
-            .pkg-title{
-              .price{
-                color:#d73e14;
-              }
-              padding:.1rem;
-              border:1px dashed #999;
-              margin-top:.1rem;
-              margin-bottom: .1rem;
-            }
-            .pkg-details{
-              li{
-                margin-bottom: .1rem;
-              }
-              .pure-u-3-4{
-                background: #f2f2f2;
-                padding:0 .05rem;
-                @include box-sizing(border-box);
-              }
-            }
-          }
-        }
-      background:#fff;
-      width:300px;
-      position: fixed;
-      left: 50%;
-      top: 50%;
-
-      z-index: 1001;
-      @include transform(translate(-50%,-50%));
-      @include  border-radius(10px);
-    }
-  }
   .see-content{
     margin:0 .15rem;
     color:orange;
   }
 }
 #card-type{
-
   .weui-cells{
     &:before{
       border:0;
@@ -859,3 +797,64 @@
 
   }
 }
+
+#card-close{
+  position:absolute;
+  bottom:1%;
+  left:43%;
+  z-index:20;
+}
+.content-tw{
+  ul{
+    list-style: none;
+    padding:0;
+    margin:0 ; }
+  font-size:.12rem;
+    .card-content{
+      .title{
+        background:#d73e14;
+        color:#fff;
+        text-align:center;
+        @include  border-radius(10px 10px 0 0);
+        .title-1{
+          font-size:.18rem;
+          font-weight:600;
+        }
+        .title-2{
+
+          font-weight:600;
+        }
+      }
+      .pkg{
+        padding:0 .15rem .2rem .15rem;
+        .pkg-title{
+          .price{
+            color:#d73e14;
+          }
+          padding:.1rem;
+          border:1px dashed #999;
+          margin-top:.1rem;
+          margin-bottom: .1rem;
+        }
+        .pkg-details{
+          li{
+            margin-bottom: .1rem;
+          }
+          .pure-u-3-4{
+            background: #f2f2f2;
+            padding:0 .05rem;
+            @include box-sizing(border-box);
+          }
+        }
+      }
+    }
+    background:#fff;
+    width:3.5rem;
+    position: fixed;
+    left: 50%;
+    top: 46%;
+
+    z-index: 1001;
+    @include transform(translate(-50%,-50%));
+    @include  border-radius(10px);
+  }

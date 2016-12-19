@@ -28,7 +28,8 @@
                         <div class="label">爆款单机 搭配电信4G套餐 更划算</div>
                         <div class="product-price">
                             <ul>
-                                <li style="padding-left: 0"><span>现价：</span><em>￥</em><em class="" ng-bind="totolPrice"></em></li>
+                                <li style="padding-left: 0"><span>日供仅：</span><em>￥</em><em class="" ng-bind="totolPrice/350 | number:0"></em></li>
+                                <li style="padding-left: 0"><span>月供仅：</span><em>￥</em><em class="" ng-bind="totolPrice/12 | number:0"></em><em>x12期</em></li>
                             </ul>
                         </div>
                         <div class="product-txt-ft"><stars></stars></div>
@@ -42,15 +43,15 @@
 
             <div id="phonePkg" style="padding-bottom: 0.15rem">
                 <div class="weui-cells__title title-icon">
-                    <span class="title">购买方式</span><span class="star-color">*</span>
-                    <span class="sub-title" ng-bind="activeTagName">裸机+话费套餐</span>
+                    <span class="title">促销方式</span><span class="star-color">*</span>
+                    <span class="sub-title" ng-bind="activeTagName">裸机+4G优惠套餐购</span>
                 </div>
                 <div class="buy-type-panel pd-w">
                     <ul class="buy-type-lists item-lists minus pure-g">
                         <li class="buy-type-item list-item pure-u-2-5">
-                            <div class="item-box margin border radius small curr" ng-click="setBuyType($event,1,'裸机+话费套餐')">
+                            <div class="item-box margin border radius small curr" ng-click="setBuyType($event,1,'裸机+4G优惠套餐购')">
                                 <p>
-                                    <span>裸机+话费套餐</span>
+                                    <span>裸机+4G优惠套餐购</span>
                                 </p>
                                 <ins class="icon-check"></ins>
                             </div>
@@ -71,7 +72,7 @@
                 <input id="productId" name="productId" ng-model="package.productId" required type="hidden" value="{{package.productId}}">
                 <div class="weui-cells" ng-click="showPkgPn($event)" style="margin-top: 0">
                     <a class="tel-details weui-cell weui-cell_access" href="javascript:;">
-                        <div class="weui-cell__bd"><p style="text-align: left">选择话费套餐<span class="star-color">*</span></p></div>
+                        <div class="weui-cell__bd"><p style="text-align: left">4G优惠套餐购<span class="star-color">*</span></p></div>
                         <div class="weui-cell__ft">
                             <!--<span ng-if="!package">未选择</span>-->
                             <!--<span ng-if="package">￥<span ng-bind="package.salesPrice | number : 0"></span>套餐，<span ng-bind="package.network"></span>G国内流量...</span>-->
@@ -103,8 +104,10 @@
                             </li>
                         </ul>
                     </div>
+
                 </div>
-                <div id="pickPackagePanel" class="card" style="display: none;padding-top: 0.1rem;padding-bottom: 0.15rem;background: #fff">
+                <div style="padding-bottom: .1rem;background:#fff" ng-if="package" class="card-pkg" ss-dd="package"></div>
+                <div id="pickPackagePanel" class="card" style="display: none;padding-top: 0.25rem;padding-bottom: 0.15rem;background: #fff">
                     <ul class="card-list">
                         <li class="card-list-item" ng-class="{true:'on-cardetails',false:''}[$index == 0]" ng-repeat="package in phone.packageProductList">
                             <div class="item-box pure-g" ng-click="setPackage($event,package);">
@@ -128,10 +131,10 @@
                         </li>
                     </ul>
                 </div>
-                <div style="padding-bottom: .1rem;background:#fff" ng-if="package" class="card-pkg" ss-dd="package"></div>
+
             </div>
 
-            <main-number></main-number>
+            <main-number title="选择4G优惠套餐靓号"></main-number>
 
             <div id="promise">
                 <div class="weui-cells__title title-icon">
