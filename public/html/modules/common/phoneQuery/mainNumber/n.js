@@ -9,7 +9,7 @@ app.directive("mainNumber", ["$cookieStore", function ($cookieStore) {
             scope.phoneTitle=attrs.title;
             var $container = $('.content-scrollable');
 
-            scope.checkMainNumber = function () {
+            scope.$root.checkMainNumber = function () {
                 if (!scope.checkoutForm.mainNumber.$valid) {//原本应该用!scope.checkoutForm.phoneNumber.$valid
                     var $scrollTo = $('#pickMainNumber');
                     $container.animate({

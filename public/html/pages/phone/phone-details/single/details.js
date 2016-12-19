@@ -11,7 +11,6 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
             },
             controller: "pSingleProController",
             onExit: function(){
-                console.log("a");
                 $("#container").removeClass("overlay-open");
                 $("#overlay-hook").html("");
             }
