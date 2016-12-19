@@ -34,7 +34,7 @@ app.directive("nPayType", ['$location', '$compile', '$q', function ($location, $
                 scope.setDefaultPayType(0,"一次性支付");
             }
             if(scope.pageType=="pcd"){
-                scope.details="在线领卡￥9.9";
+                scope.details="付邮领卡￥9.9";
             }
 
             //选择支付方式
