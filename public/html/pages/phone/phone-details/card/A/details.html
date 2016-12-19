@@ -91,7 +91,7 @@
                 <div ng-if="card" class="card-pkg" ss-dd="card"></div>
             </div>
 
-            <main-number ng-if="buyType == 1"></main-number>
+            <main-number ng-if="buyType == 1" title="选择主机号码"></main-number>
             <sim-type></sim-type>
             <div id="promise">
                 <div class="weui-cells__title title-icon">
@@ -106,6 +106,6 @@
 
             <n-pay-type title="选择支付方式"></n-pay-type>
         </div>
-        <n-footer-nav check-main-number="true" check-address="true" submit="#checkoutForm"></n-footer-nav>
+        <n-footer-nav check-main-number="true" check-address="true" check-sim-type="true" submit="#checkoutForm"></n-footer-nav>
     </form>
 </div>
