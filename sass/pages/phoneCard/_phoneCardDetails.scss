@@ -254,6 +254,9 @@
           }
         }
       }
+      .star-color {
+        color: $color-primary;
+      }
     }
     #card-type, .block-list {
       .weui-cells {
@@ -333,6 +336,60 @@
     .shipping-tips {
       width: 80%;
       margin: 0 auto;
+    }
+    .buyers {
+      font-size: 0.12rem;
+      margin-top: 0.3rem;
+      .content-bd {
+        background-image: url("/images/phoneCard/buyersBoxBd.png");
+        background-repeat: repeat-y;
+        background-size: 100%;
+        .content-bd-box {
+          padding-left: 0.2rem;
+          padding-right: 0.2rem;
+          table {
+            width: 100%;
+            &:before {
+              display: none;
+            }
+            &:after {
+              display: none;
+            }
+            tbody {
+              tr {
+                &:nth-child(odd) {
+                  background: #320f4d;
+                }
+                &:nth-child(even) {
+                }
+                td {
+                  &:last-child {
+                    color: #edd00d;
+                  }
+                }
+              }
+            }
+            th {
+              color: #3ca3f1;
+              &:before {
+                display: none;
+              }
+              &:after {
+                display: none;
+              }
+            }
+            td {
+              color: #bd82ff;
+              &:before {
+                display: none;
+              }
+              &:after {
+                display: none;
+              }
+            }
+          }
+        }
+      }
     }
   }
 }
