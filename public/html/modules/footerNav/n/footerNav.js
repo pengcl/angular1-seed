@@ -20,13 +20,13 @@ app.directive("nFooterNav", ['$http', function ($http) {
 
             scope.checkForm = function () {
                 if (scope.$root.checkActiveCode()) {
-                    if($("#payType").val()==2){
+                    if ($("#payType").val() == 2) {
                         scope.showOverLay("payTipsPanel");
-                    }else{
-                    writebdLog(scope.category, "_BuyNow", "渠道号", scope.gh);//立即支付
-                    scope.$root.toast.open();
+                    } else {
+                        writebdLog(scope.category, "_BuyNow", "渠道号", scope.gh);//立即支付
+                        scope.$root.toast.open();
 
-                    $form.submit();
+                        $form.submit();
                     }
                 } else {
                     $scrollTo = $('#receiverAddress');
@@ -39,7 +39,7 @@ app.directive("nFooterNav", ['$http', function ($http) {
             };
 
             scope.submitForm = function (event, type) {
-                if(scope.buyType == 1){
+                if (scope.buyType == 1) {
                     if (attrs.checkMainNumber) {
                         if (attrs.checkSubNumber) {
                             if (scope.checkMainNumber()) {
@@ -58,17 +58,17 @@ app.directive("nFooterNav", ['$http', function ($http) {
                             }
                         } else {
                             if (scope.checkMainNumber()) {
-                                if(scope.checkSimType()){
-                                if (scope.checkAddress()) {
-                                    scope.checkForm();
-                                } else {
-                                    var $scrollTo = $('#receiverAddress');
-                                    $container.animate({
-                                        scrollTop: $scrollTo.offset().top - $container.offset().top + $container.scrollTop() - 50
-                                    });
-                                    $("#receiverAddressPanel").slideDown();
-                                    $(".adr-tab").addClass("down");
-                                }
+                                if (scope.checkSimType()) {
+                                    if (scope.checkAddress()) {
+                                        scope.checkForm();
+                                    } else {
+                                        var $scrollTo = $('#receiverAddress');
+                                        $container.animate({
+                                            scrollTop: $scrollTo.offset().top - $container.offset().top + $container.scrollTop() - 50
+                                        });
+                                        $("#receiverAddressPanel").slideDown();
+                                        $(".adr-tab").addClass("down");
+                                    }
                                 }
                             }
                         }
@@ -84,7 +84,7 @@ app.directive("nFooterNav", ['$http', function ($http) {
                             $(".adr-tab").addClass("down");
                         }
                     }
-                }else {
+                } else {
                     if (scope.checkAddress()) {
                         scope.checkForm();
                     } else {
@@ -96,17 +96,17 @@ app.directive("nFooterNav", ['$http', function ($http) {
                         $(".adr-tab").addClass("down");
                     }
                 }
-            }
+            };
             scope.showOverLay = function (targetId) {
                 var targetHtml = $("#" + targetId).html();
                 scope.$root.Overlay.openCompile(targetHtml);
                 writebdLog(scope.category, "_IsContractPackage", "渠道号", scope.gh);
             };
             scope.$root.tipsSubmit = function () {
-                    scope.$root.toast.open();
-                    scope.$root.Overlay.close();
-                    writebdLog(scope.category, "_BuyNow", "渠道号", scope.gh);
-                    $form.submit()
+                scope.$root.toast.open();
+                scope.$root.Overlay.close();
+                writebdLog(scope.category, "_BuyNow", "渠道号", scope.gh);
+                $form.submit()
             };
         }
     };

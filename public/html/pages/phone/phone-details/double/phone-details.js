@@ -11,7 +11,6 @@ app.config(['$stateProvider', '$locationProvider',function ($stateProvider, $loc
             },
             controller: "pDoubleProController",
             onExit: function(){
-                console.log("a");
                 $("#container").removeClass("overlay-open");
                 $("#overlay-hook").html("");
             }

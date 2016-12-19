@@ -238,8 +238,10 @@ app.directive("adr", ["$compile", "$cookieStore", '$http', '$interval', function
             };
             scope.showReceiverPn = function (e) {
             	writeAddressBar();
-                $("#receiverAddressPanel").slideToggle();
-                $(".adr-tab").toggleClass("down");
+                if(!(attrs.noAnimate == "true")){
+                    $("#receiverAddressPanel").slideToggle();
+                    $(".adr-tab").toggleClass("down");
+                }
             };
             
             function writeAddressBar()

@@ -784,7 +784,7 @@
     color:orange;
   }
 }
-#card-type{
+#card-type,.block-list{
 
   .weui-cells{
     &:before{
@@ -799,7 +799,7 @@
       padding-right:0;
     }
   }
-  .card-type-list{
+  .card-type-list,.item-lists{
     font-size:.1rem;
     background: #fff;
     padding:.1rem .18rem .1rem .5rem;

@@ -29,8 +29,10 @@ app.directive("mainNumber", ["$cookieStore", function ($cookieStore) {
                     scope.mainNumber = numberItem.n;
                     $this.parent().siblings().children().removeClass('curr');
                     $this.addClass('curr');
-                    $("#pickMainNumberPanel").slideToggle();
-                    $("#pickMainNumber .weui-cells").toggleClass("down");
+                    if(!(attrs.noAnimate == "true")){
+                        $("#pickMainNumberPanel").slideToggle();
+                        $("#pickMainNumber .weui-cells").toggleClass("down");
+                    }
                     writebdLog(scope.category, "_mainSelectNumber", "渠道号", scope.gh);//选择号码
                 } else {
                     scope.$root.dialog.open('系统提示', '您选择的主卡号码和副卡号码相同，请重新选择');
@@ -38,8 +40,10 @@ app.directive("mainNumber", ["$cookieStore", function ($cookieStore) {
             };
 
             scope.showMNumberPn = function (event) {
-                $("#pickMainNumberPanel").slideToggle();
-                $(event.currentTarget).toggleClass("down");
+                if(!(attrs.noAnimate == "true")){
+                    $("#pickMainNumberPanel").slideToggle();
+                    $(event.currentTarget).toggleClass("down");
+                }
                 writebdLog(scope.category, "_mainCuteNumber", "渠道号", scope.gh);//选择主卡靓号
             };
         }
