@@ -355,6 +355,26 @@ function getRandomName() {
     var lid = Math.round(Math.random() * 1);
     return firstNames[fid] + lastNames[lid];
 }
+var baseTime = 0;
+function getRanDomTime(){
+    var addTime = Math.round(Math.random()*1);
+    baseTime = baseTime + addTime;
+    if(baseTime > 10){
+        baseTime = Math.round(Math.random()*1) + 1;
+    }
+    return baseTime;
+}
+
+function getRandomPkg(){
+    var pkgs,pid;
+    pkgs = [101,102,155,156];
+    pid = Math.round(Math.random()*3);
+    return pkgs[pid];
+}
+
+function getRandomPhone(){
+    return ((("18122XXX" + Math.round(Math.random()*9)) + Math.round(Math.random()*9)) + Math.round(Math.random()*9)) + Math.round(Math.random()*9);
+}
 
 function getRandomProduct() {
     var productName;

@@ -1,0 +1,24 @@
+<div id="buyers" class="banner-tips">
+    <table>
+        <thead>
+        <tr>
+            <th>
+                领取用户
+            </th>
+            <th>
+                领取套餐
+            </th>
+            <th>
+                时间
+            </th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="buyer in buyers">
+            <td><span ng-bind="buyer.name"></span>(<span ng-bind="buyer.phone"></span>)</td>
+            <td>领取了<span ng-bind="buyer.pkg"></span>套餐</td>
+            <td><span ng-bind="buyer.time"></span>分钟前</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
