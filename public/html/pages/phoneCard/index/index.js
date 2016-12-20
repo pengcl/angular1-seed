@@ -64,10 +64,11 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
             $scope.toast.close();
             return false;
         }
-        $scope.submitUrl = "http://192.168.1.181:8082/wap/taokafanghaoNew/submitOrderCommon.html?mainNumber=" + $scope.mainNumber + "&activeTag=" + $scope.activeTag + "&category=" + $scope.category + "&gh=" + $scope.gh + "&activity=" + $scope.activity + "&productId=" + $scope.pkgId + "&reciverName=" + $scope.receiver.name + "&receiverMobile=" + $scope.receiver.mobile + "&recieverAddress=" + $scope.receiver.city + $scope.receiver.room + "&callback=JSON_CALLBACK";
+        //console.log(encodeURI(encodeURI($scope.receiver.name)));
+        $scope.submitUrl = "http://m.yfq.cn/wap/taokafanghaoNew/submitOrderCommon.html?mainNumber=" + $scope.mainNumber + "&activeTag=" + $scope.activeTag + "&category=" + $scope.category + "&gh=" + $scope.gh + "&activity=" + $scope.activity + "&productId=" + $scope.pkgId + "&reciverName=" + encodeURI(encodeURI($scope.receiver.name)) + "&receiverMobile=" + $scope.receiver.mobile + "&receiverCity=" + encodeURI(encodeURI($scope.receiver.city)) + "&receiverRoom=" + encodeURI(encodeURI($scope.receiver.room)) + "&callback=JSON_CALLBACK";
         $scope.toast.close();
         $http.jsonp($scope.submitUrl).success(function (data, status, headers, config) {
-            console.log(data[0].resultCode);
+            //console.log(data[0].resultCode);
             if (data[0].resultCode == "0") {
                 $scope.orderNo = data[0].resultMsg;
                 var timer = $timeout(
@@ -85,6 +86,11 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
             //deferred.reject(status)
         });
     };
+
+    $(".fqa-more").click(function () {
+        $(".fqa-lists").toggleClass("close");
+        $(this).toggleClass("close");
+    });
 
     androidInputBugFix();
 }]);
