@@ -547,6 +547,15 @@
     }
     font-size:.14rem;
     .content-scrollable{
+      .img-today{
+        position:relative;
+        .today{
+          position:absolute;
+          top:1%;
+          right:3%;
+          width:20%;
+        }
+      }
       background:#2aa7ff;
       .buy-now{
         background:#fff;
