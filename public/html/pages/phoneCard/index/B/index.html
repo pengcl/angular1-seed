@@ -1,0 +1,45 @@
+<div class="page ci-b">
+    <top-nav page-title="首页" page-back="menu" nav-visibility="hide"></top-nav>
+    <form id="checkoutForm" name="checkoutForm" action="http://m.yfq.cn/wap/taokafanghaoNew/submitOrderDouble.html" method="post" novalidate>
+        <input type="hidden" value="1" name="monthNumber" id="monthNumber">
+        <input type="hidden" value="1" name="mainMonthNumber" id="mainMonthNumber">
+        <input type="hidden" value="{{mainNumber}}" name="number1" id="number1">
+        <input type="hidden" value="{{category}}" name="category" id="category">
+        <input type="hidden" value="{{activeTag}}" ng-model="activeTag" name="activeTag" id="activeTag">
+        <input type="hidden" value="{{phoneQueryUrl}}" name="phoneQueryUrl" id="phoneQueryUrl">
+        <gh></gh>
+        <activity></activity>
+        <redirect-url></redirect-url>
+        <div class="content-scrollable">
+            <div class="img-box">
+                <img src="/spc/img/pcdn/banner.jpg">
+            </div>
+            <div class="img-box">
+                <img src="/spc/img/pcdn/4.jpg">
+            </div>
+            <div class="buy-now">
+                <div class="buy-now-content">
+                    <div class="time">
+                        <div class="time-main pure-g">
+                            <div class="time-main-l pure-u-1-2">
+                                <div class="img-box">
+                                    <img src="" alt="">
+                                </div>
+                            </div>
+                            <div class="time-main-r pure-u-1-2">
+                                <p><span class="dat"></span>天 <span class="hour"></span>时 <span class="min"></span>分 <span class="miao"></span>秒</p>
+                                <p>仅剩<span>99</span>个名额</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="buy">
+                        <div>
+                            <p>【<span>756</span>人已办理】</p>
+                            <a class="buy-bow-btn" href="#">立即抢购办理</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

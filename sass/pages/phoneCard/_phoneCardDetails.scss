@@ -393,6 +393,14 @@
     }
   }
 }
+.page{
+  &.ci-b{
+    font-size:.14rem;
+    .content-scrollable{
+      background:#2aa7ff;
+    }
+  }
+}
 
 .overlay.overlay-code {
   background-image: none;
