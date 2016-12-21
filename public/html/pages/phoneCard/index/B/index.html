@@ -14,9 +14,14 @@
             <div class="img-box">
                 <img src="/spc/img/pcdn/banner.jpg">
             </div>
-            <div class="img-box">
-                <img src="/spc/img/pcdn/4.jpg">
-            </div>
+          <div class="img-today">
+              <div class="img-box">
+                  <img src="/spc/img/pcdn/4.jpg">
+              </div>
+              <div class="img-box today">
+                  <img src="/spc/img/pcdn/tody5.png">
+              </div>
+          </div>
             <div class="buy-now">
                 <div class="buy-now-content">
                     <div class="time">
@@ -28,7 +33,7 @@
                                 </div>
                             </div>
                             <div class="time-main-r pure-u-1-2">
-                                <p style="margin-bottom:.15rem"><span class="dat"></span>天 <span class="hour"></span>时 <span class="min"></span>分 <span class="miao"></span>秒</p>
+                                <timer></timer>
                                 <p>仅剩<span>99</span>个名额</p>
                             </div>
                         </div>
@@ -63,7 +68,7 @@
                 <img src="/spc/img/pcdn/5.jpg">
             </div>
             </a>
-            <a href="javascript:;" ng-click="setPkg($event,255)">
+            <a href="javascript:;" ng-click="setPkg($event,253)">
             <div class="img-box">
                 <img src="/spc/img/pcdn/6.jpg">
             </div>
@@ -176,30 +181,17 @@
 
             <div id="wxQrCode" style="display: none">
                 <div class="overlay overlay-code">
-                    <a class="js-close-overlay overlay-dismiss" href="javascript:;"><span class="icon-cross"></span></a>
-                    <div class="qrcode-content">
-                        <div class="qrcode-title">
-                            <div class="img-box">
-                                <img src="/images/phoneCard/qrCodeTitle.gif">
-                            </div>
-                        </div>
-                        <div class="qrcode-title-txt">
-                            <p><span>查看物流信息、进行电话卡实名认证</span></p>
-                            <p style="font-size: 0.2rem"><span>请关注微信公众号：</span><em>翼分期商城</em></p>
-                        </div>
-                        <div class="qrcode-img">
-                            <div class="img-box">
-                                <img src="/images/phoneCard/qrCode.png">
-                            </div>
-                        </div>
-                        <div class="qrcode-url">
-                            <div class="img-box">
-                                <a href="http://localhost:8082/wap/taokafanghaoNew/uploadCardA.html?orderNo={{orderNo}}&s=wap">
-                                    <img src="/images/phoneCard/qrCodeBtn.png">
-                                </a>
-                            </div>
-                        </div>
-                    </div>
+                    <a class="js-close-overlay overlay-dismiss" href="#"><span class="icon-cross"></span></a>
+                   <div class="wx qrcode-content" style="top:45%">
+                       <div class="img-box">
+                           <img style="height: 90%" src="/spc/img/pcdn/tanchuang.png" alt="">
+                       </div>
+                       <div class="img-box wx-c" style="position:absolute;width:60%;bottom:5%;left:20%">
+                           <a href="http://m.yfq.cn/wap/taokafanghaoNew/uploadCardA.html?orderNo={{orderNo}}&s=wap">
+                           <img src="/spc/img/pcdn/user.png" alt="">
+                           </a>
+                       </div>
+                   </div>
                 </div>
             </div>
         </div>
