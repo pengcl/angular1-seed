@@ -59,6 +59,17 @@
   }
   .content-scrollable {
     background: url("/images/phones/assets/index/indexBg.jpg") repeat;
+    .sales-banner{
+      font-size:.2rem;
+      color:#e25527;
+      position: absolute;
+      left:18%;
+      bottom:40%;
+      padding:.01rem .5rem;
+      border:1px solid #e25527;
+      @include border-radius(20px);
+
+    }
   }
   .spc-title {
     background: none;

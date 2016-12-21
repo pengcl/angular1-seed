@@ -714,6 +714,7 @@
   ul{padding:0;margin:0;list-style: none};
   font-size:.14rem;
   .card-close{
+
     position:absolute;
     bottom:1%;
     left:43%;
@@ -799,8 +800,9 @@
 }
 
 #card-close{
+  font-size:0;
   position:absolute;
-  bottom:1%;
+  bottom:5%;
   left:43%;
   z-index:20;
 }
