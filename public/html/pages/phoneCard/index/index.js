@@ -20,7 +20,7 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
     $scope.pageType = $stateParams.pageType;
 
     $scope.activeTag = "mysytcb";
-    $scope.appType = systemName + "_" + $scope.pageType + "_9.9IndexCOD";
+    $scope.appType = systemName + "_" + $scope.pageType + "_0ylk";
     $scope.category = $scope.appType;
     
     writebdLog($scope.category, "_Load", "渠道号", $scope.gh);
