@@ -20,8 +20,10 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
     $scope.pageType = $stateParams.pageType;
 
     $scope.activeTag = "mysytcb";
-    $scope.appType = systemName + "_" + $scope.pageType + "phoneCard";
+    $scope.appType = systemName + "_" + $scope.pageType + "_9.9IndexCOD";
     $scope.category = $scope.appType;
+    
+    writebdLog($scope.category, "_Load", "渠道号", $scope.gh);
 
     $scope.setPkg = function (event, pkgId) {
         $scope.pkgId = pkgId;
@@ -29,6 +31,7 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
         $container.animate({
             scrollTop: $scrollTo.offset().top - $container.offset().top + $container.scrollTop() - 50
         });
+        writebdLog($scope.category, "_SelectPackage"+pkgId, "渠道号", $scope.gh);
     };
 
     $scope.checkMainPkg = function () {
@@ -64,8 +67,8 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
             $scope.toast.close();
             return false;
         }
-        //console.log(encodeURI(encodeURI($scope.receiver.name)));
-        $scope.submitUrl = "http://m.yfq.cn/wap/taokafanghaoNew/submitOrderCommon.html?mainNumber=" + $scope.mainNumber + "&activeTag=" + $scope.activeTag + "&category=" + $scope.category + "&gh=" + $scope.gh + "&activity=" + $scope.activity + "&productId=" + $scope.pkgId + "&reciverName=" + encodeURI(encodeURI($scope.receiver.name)) + "&receiverMobile=" + $scope.receiver.mobile + "&receiverCity=" + encodeURI(encodeURI($scope.receiver.city)) + "&receiverRoom=" + encodeURI(encodeURI($scope.receiver.room)) + "&callback=JSON_CALLBACK";
+        $scope.submitUrl = "http://m.yfq.cn/wap/taokafanghaoNew/submitOrderCommon.html?mainNumber=" + $scope.mainNumber + "&activeTag=" + $scope.activeTag + "&category=" + $scope.category + "&gh=" + $scope.gh + "&activity=" + $scope.activity + "&productId=" + $scope.pkgId + "&reciverName=" + encodeURI(encodeURI($scope.receiver.name)) + "&receiverMobile=" + $scope.receiver.mobile + "&receiverCity=" + encodeURI(encodeURI($scope.receiver.city)) + "&receiverRoom=" + encodeURI(encodeURI($scope.receiver.room)) + "&mainCardTypeId=" + $scope.simItem.id + "&payType=1&category="+$scope.category + "&callback=JSON_CALLBACK";
+        console.log($scope.submitUrl);
         $scope.toast.close();
         $http.jsonp($scope.submitUrl).success(function (data, status, headers, config) {
             //console.log(data[0].resultCode);
@@ -85,6 +88,8 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
             console.log(status);
             //deferred.reject(status)
         });
+        
+        writebdLog($scope.category, "_BuyNow", "渠道号", $scope.gh); //免费领卡
     };
 
     $(".fqa-more").click(function () {

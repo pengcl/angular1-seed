@@ -35,6 +35,11 @@ app.directive("simType", ['$http', '$compile', function ($http, $compile) {
                 return true;
             };
             scope.showCardList= function () {
+            	if($(".card-type-list").is(":hidden"))
+                    writebdLog(scope.category,"_ShowCardTypeBar","渠道号",scope.gh);//展示选卡类型
+                else
+                	writebdLog(scope.category,"_StopCardTypeBar","渠道号",scope.gh);//收缩选卡类型
+            	
                 if(!(attrs.noAnimate == "true")){
                     $(".card-type-list").slideToggle();
                     $(event.currentTarget).toggleClass("down");
@@ -52,7 +57,7 @@ app.directive("simType", ['$http', '$compile', function ($http, $compile) {
                 $item.eq(index).addClass('curr');
                 scope.simItem = simItem;
                 scope.$root.Overlay.close();
-                writebdLog(scope.category,"_SelectCardType","渠道号",scope.gh);//流量卡类型
+                writebdLog(scope.category,"_SelectCardType"+index,"渠道号",scope.gh);//选择卡类型
             };
             scope.$root.setNewSimType=function(event,index){
                 var $this = $(event.currentTarget);
@@ -64,6 +69,7 @@ app.directive("simType", ['$http', '$compile', function ($http, $compile) {
                     $(".card-type-list").slideUp();
                 }
                 scope.cardName=scope.cardGroup[index];
+                writebdLog(scope.category,"_SelectCardType"+index,"渠道号",scope.gh);//选择卡类型
             };
 
             scope.showOverLay = function (targetId) {
