@@ -104,4 +104,8 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
             container: $(".content-scrollable")
         });
     });
+    $scope.openCardPkg=function(targetId) {
+        var targetHtml = $("#" + targetId).html();
+        $scope.$root.Overlay.open(targetHtml);
+    }
 }]);
