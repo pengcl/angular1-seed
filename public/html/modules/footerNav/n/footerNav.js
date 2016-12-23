@@ -14,7 +14,9 @@ app.directive("nFooterNav", ['$http', function ($http) {
             scope.getContent = function () {
                 getMeiqia();
                 //scope.$root.dialog.open("","咨询请关注微信公众号<br><em>“翼分期商城”</em>");
-                _MEIQIA('showPanel');
+                _MEIQIA('showPanel',{
+                    groupToken: '93b053a08494a8319cba2ce52b3d1e58'
+                });
                 writebdLog(scope.category, "_CustConsult", "渠道号", scope.gh);//客服咨询
             };
 
