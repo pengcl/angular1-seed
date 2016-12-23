@@ -1,0 +1,73 @@
+.page.referrer-sys {
+  .content-scrollable {
+    background-image: url("/images/referrerSys/referrerBg.jpg");
+    background-repeat: no-repeat;
+    background-color: #e6e6e6;
+    background-size: 100% auto;
+    background-position: 0 bottom;
+    .top-nav {
+      position: absolute;
+      left: 0;
+      top:0;
+      width: 100%;
+      height: 0.5rem;
+      background: #02489d;
+      .logo {
+        height: 0.34rem;
+        background: none;
+        position: absolute;
+        top:0.08rem;
+        left: 5%;
+        img {
+          height: 100%;
+          width: auto;
+        }
+      }
+    }
+    .login-panel {
+      font-size: 0.12rem;
+      top:30%;
+      position: absolute;
+      width: 90%;
+      left: 5%;
+      .login-box {
+        padding:0.15rem;
+        background: #fff;
+        @include box-shadow(0px 0px 10px #999);
+        @include border-radius(0.1rem);
+        .login-hd {
+          font-size: 0.18rem;
+          color: #003474;
+          b {
+            font-weight: bold;
+            letter-spacing: 0.03rem;
+          }
+        }
+        .login-bd {
+          #referrerNo {
+            margin-top: 0.15rem;
+          }
+          input {
+            @include border-radius(0.04rem);
+            padding:0.1rem;
+            border:1px solid #003474;
+            @include box-sizing(border-box);
+            height: auto;
+
+          }
+          .referrer-btn {
+            @include border-radius(0.03rem);
+            background: #003474;
+            color: #fff;
+            display: block;
+            margin-top: 0.15rem;
+            text-align: center;
+            padding:0.1rem;
+            font-size: 0.16rem;
+            @include background-image(linear-gradient(to bottom, #377eee, #1888ec));
+          }
+        }
+      }
+    }
+  }
+}
