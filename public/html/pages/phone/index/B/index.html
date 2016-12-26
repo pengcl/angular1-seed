@@ -277,7 +277,7 @@
         <div id="cards">
             <ul class="card-lists pure-g">
                 <li class="card-item pure-u-1-2" ng-repeat="pkg in pkgs">
-                    <a href="/phs/cd/A/{{pkg.productId}}{{params}}" ng-click="writeSelectFoods(this,pkg.productId,'CZTC');" class="card-box">
+                    <a href="/phs/cd/{{pageType}}/{{pkg.productId}}{{params}}" ng-click="writeSelectFoods(this,pkg.productId,'CZTC');" class="card-box">
                         <div class="img">
                             <img src="/images/phones/assets/index/tel-logo.jpg" alt="">
                         </div>

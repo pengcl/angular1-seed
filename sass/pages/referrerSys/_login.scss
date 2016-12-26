@@ -71,3 +71,21 @@
     }
   }
 }
+
+.referrer-dialog {
+  .weui-dialog__bd {
+    a {
+      text-decoration: underline;
+    }
+  }
+  .img-box {
+    width: 60%;
+    margin:0 auto;
+  }
+  .weui-dialog__ft {
+    background: #02489d;
+    a {
+      color: #fff;
+    }
+  }
+}

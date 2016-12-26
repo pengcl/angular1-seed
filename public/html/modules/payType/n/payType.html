@@ -26,15 +26,23 @@
                     <p class="details">0首付12期免息</p>
                 </div>
             </li>
-            <li id="payType1" class="pay-item list-item pure-u-1-3" ng-if="!cardPay" ng-click="setPayType($event,'1','货到付款');">
+            <!--<li id="payType1" class="pay-item list-item pure-u-1-3" ng-if="!cardPay && receiver.city.indexOf('广州市') != -1" ng-click="setPayType($event,'1','同城验货');">
                 <div class="item item-box margin border radius">
                     <p class="title">
                         <span ng-if="receiver.city.indexOf('广州市') != -1">同城验货</span>
-                        <span ng-if="receiver.city.indexOf('广州市') == -1">货到付款</span>
                     </p>
                     <p class="details">
                         <span ng-if="receiver.city.indexOf('广州市') != -1">广州电信上门服务</span>
-                        <span ng-if="receiver.city.indexOf('广州市') == -1">预付99元抵200</span>
+                    </p>
+                </div>
+            </li>-->
+            <li id="payType1" class="pay-item list-item pure-u-1-3" ng-if="!cardPay" ng-click="setPayType($event,'1','货到付款');">
+                <div class="item item-box margin border radius">
+                    <p class="title">
+                        <span>货到付款</span>
+                    </p>
+                    <p class="details">
+                        <span>预付99元抵200</span>
                     </p>
                 </div>
             </li>
