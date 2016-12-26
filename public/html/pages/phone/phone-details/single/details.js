@@ -38,7 +38,7 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
         container: $(".content-scrollable")
     });
     $scope.buyType = 1;
-    $scope.activeTagName = "裸机+4G优惠套餐购";
+    $scope.activeTagName = "裸机送0元优惠卡";
 
     $scope.setSbPayType = function (id, typeName) {
         $scope.payType = id;
