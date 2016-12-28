@@ -97,15 +97,31 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
 
     $scope.$on('ngRepeatFinished', function (ngRepeatFinishedEvent) {
         //下面是在数据 render完成后执行的js
+        console.log("1");
         $("img.lazy").lazyload({
             effect: "fadeIn",
             skip_invisible: false,
             container: $(".content-scrollable")
         });
     });
+
+    $("img.lazy").lazyload({
+        effect: "fadeIn",
+        skip_invisible: false,
+        container: $(".content-scrollable")
+    });
+
     $scope.openCardPkg = function (targetId) {
         var targetHtml = $("#" + targetId).html();
         $scope.$root.Overlay.open(targetHtml);
+    };
+
+    $scope.gotoOrderContent = function () {
+        var $container = $('.content-scrollable');
+        var $scrollTo = $('.order-content');
+        $container.animate({
+            scrollTop: $scrollTo.offset().top - $container.offset().top + $container.scrollTop() - 50
+        });
     };
 
     $scope.submitFormCommon = function () {
@@ -116,8 +132,6 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
             $scope.toast.close();
             return false;
         }
-
-        console.log("1");
 
         if (!$scope.checkAddress()) {
             $scope.toast.close();
