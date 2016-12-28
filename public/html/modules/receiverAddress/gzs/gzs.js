@@ -1,9 +1,9 @@
 'use strict';
 
-app.directive("adr", ["$compile", "$cookieStore", '$http', '$interval', function ($compile, $cookieStore, $http, $interval) {
+app.directive("gzs", ["$compile", "$cookieStore", '$http', '$interval', function ($compile, $cookieStore, $http, $interval) {
     return {
         restrict: 'E',
-        templateUrl: "modules/receiverAddress/n/adr.html",
+        templateUrl: "modules/receiverAddress/gzs/gzs.html",
         link: function (scope, element, attrs) {
 
             //模块标题
@@ -159,10 +159,10 @@ app.directive("adr", ["$compile", "$cookieStore", '$http', '$interval', function
 
             //收件区域点击事件
             $inputsStoreSelect.click(function () {
-                getArea(0, 0, "", "", "");
+                getArea('广州市', 2, '广东省', '广州市', "");
                 stockShow();
-                dataAreaShow(0);
-                tabShow(0);
+                dataAreaShow(2);
+                tabShow(2);
             });
 
             //址选择器顶栏点击事件
@@ -199,8 +199,8 @@ app.directive("adr", ["$compile", "$cookieStore", '$http', '$interval', function
                     //tabShow(3);
                     value3 = $this.data("value");
                     stockHide();
-                    $("#store-text").find("div").html(value1 + value2 + value3);
-                    scope.receiver.city = value1 + value2 + value3;
+                    $("#store-text").find("div").html('广东省' + '广州市' + value3);
+                    scope.receiver.city = '广东省' + '广州市' + value3;
                     //getArea(dataVal, 3, value1, value2, value3);
                 } else if (dataAreaValue === 3) {
                     value4 = $this.data("value");
@@ -237,19 +237,19 @@ app.directive("adr", ["$compile", "$cookieStore", '$http', '$interval', function
                 return true;
             };
             scope.showReceiverPn = function (e) {
-            	writeAddressBar();
+                writeAddressBar();
                 if(!(attrs.noAnimate == "true")){
                     $("#receiverAddressPanel").slideToggle();
                     $(".adr-tab").toggleClass("down");
                 }
             };
-            
+
             function writeAddressBar()
             {
-            	if($("#receiverAddressPanel").is(":hidden"))
-            		writebdLog(scope.category, "_ShowAddressBar", "渠道号", scope.gh); //展开地址栏
+                if($("#receiverAddressPanel").is(":hidden"))
+                    writebdLog(scope.category, "_ShowAddressBar", "渠道号", scope.gh); //展开地址栏
                 else
-                	writebdLog(scope.category, "_StopAddressBar", "渠道号", scope.gh); //收起地址栏
+                    writebdLog(scope.category, "_StopAddressBar", "渠道号", scope.gh); //收起地址栏
             }
 
             scope.adrOk = function () {

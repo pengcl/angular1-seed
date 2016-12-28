@@ -1,0 +1,111 @@
+<div class="page pic">
+    <!-- pia phone-index-c -->
+    <top-nav page-title="中国电信●翼分期商城" page-back="menu" nav-visibility="hide"></top-nav>
+    <form id="checkoutForm" name="checkoutForm" action="http://m.yfq.cn/wap/taokafanghaoNew/submitOrderDouble.html" method="post" novalidate>
+        <input type="hidden" value="1" name="monthNumber" id="monthNumber">
+        <input type="hidden" value="1" name="mainMonthNumber" id="mainMonthNumber">
+        <input type="hidden" value="{{mainNumber}}" name="number1" id="number1">
+        <input type="hidden" value="{{category}}" name="category" id="category">
+        <input type="hidden" value="{{activeTag}}" ng-model="activeTag" name="activeTag" id="activeTag">
+        <input type="hidden" value="{{phoneQueryUrl}}" name="phoneQueryUrl" id="phoneQueryUrl">
+        <gh></gh>
+        <activity></activity>
+        <redirect-url></redirect-url>
+        <div class="content-scrollable">
+            <div id="indexBanner">
+                <div class="img-box">
+                    <a href="/phs/db/A/293{{params}}" ng-click="writeSelectFoods(this,'293','SY');">
+                        <img src="/images/phones/C/1.jpg">
+                    </a>
+                </div>
+            </div>
+
+            <div class="img-box">
+                <img src="/images/phones/C/6.jpg">
+            </div>
+
+            <div class="img-box">
+                <img src="/images/phones/C/2.jpg">
+            </div>
+
+            <div class="img-box">
+                <img src="/images/phones/C/3.jpg">
+            </div>
+
+            <div class="img-box">
+                <img src="/images/phones/C/4.jpg">
+            </div>
+
+            <div class="order-content">
+                <div class="content-hd">
+                    <div class="img-box">
+                        <img src="/images/phones/C/indexBoxHd.jpg">
+                    </div>
+                </div>
+                <div class="content-bd">
+                    <div class="content-bd-box">
+                        <h2>提交订单</h2>
+                        <spc-phone ng-if="singlePhones"></spc-phone>
+
+                        <gzs no-animate="true"></gzs>
+                        <div class="submit-form">
+                            <a href="javascript:;" ng-click="submitFormCommon();" class="img-box">
+                                <img src="/images/phones/C/submitBtn.png">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="content-ft">
+                    <div class="img-box">
+                        <img src="/images/phones/C/indexBoxFt.png">
+                    </div>
+                </div>
+            </div>
+
+            <div class="buyers">
+                <div class="content-hd">
+                    <div class="img-box">
+                        <img src="/images/phones/C/buyersBoxHd.jpg">
+                    </div>
+                </div>
+                <div class="content-bd">
+                    <div class="content-bd-box">
+                        <buyers type="phone"></buyers>
+                    </div>
+                </div>
+                <div class="content-ft">
+                    <div class="img-box">
+                        <img src="/images/phones/C/buyersBoxFt.jpg">
+                    </div>
+                </div>
+            </div>
+
+            <div class="promise">
+                <div class="img-box">
+                    <img src="/images/phones/C/5.jpg">
+                </div>
+            </div>
+
+            <div id="wxQrCode" style="display: none">
+                <div class="overlay overlay-code overlay-c">
+                    <a class="js-close-overlay overlay-dismiss" href="javascript:;"><span class="icon-cross"></span></a>
+                    <div class="qrcode-content">
+                        <div class="qrcode-img">
+                            <div class="img-box">
+                                <img src="/images/phones/C/qrCode.png">
+                            </div>
+                        </div>
+                        <div class="qrcode-url">
+                            <div class="img-box">
+                                <a href="http://m.yfq.cn/wap/taokafanghaoNew/uploadCardA.html?orderNo={{orderNo}}&s=wap&category={{category}}">
+                                    <img src="/images/phones/C/qrCodeBtn.png">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </form>
+</div>

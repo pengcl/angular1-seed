@@ -5,14 +5,16 @@ app.directive("buyers", ['$interval', function ($interval) {
         restrict: 'E',
         templateUrl: "modules/buyers/buyers.html",
         link: function (scope, element, attrs) {
-            scope.getBuyers = function(){
+            scope.productType = attrs.type;
+            scope.getBuyers = function () {
                 var getBuyers = new Array();
-                for(var i=0;i<4;i++){
+                for (var i = 0; i < 4; i++) {
                     var obj = {
-                        name:getRandomName (),
-                        phone:getRandomPhone(),
-                        pkg:getRandomPkg(),
-                        time:getRanDomTime()
+                        name: getRandomName(),
+                        phone: getRandomPhone(),
+                        pkg: getRandomPkg(),
+                        time: getRanDomTime(),
+                        product: getRandomProduct()
                     };
                     getBuyers.push(obj);
                 }
@@ -21,7 +23,7 @@ app.directive("buyers", ['$interval', function ($interval) {
 
             scope.buyers = scope.getBuyers();
 
-            $interval(function() {
+            $interval(function () {
                 scope.buyers = scope.getBuyers();
             }, 1000);
         }

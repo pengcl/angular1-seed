@@ -16,7 +16,8 @@
         <tbody>
         <tr ng-repeat="buyer in buyers">
             <td><span ng-bind="buyer.name"></span>(<span ng-bind="buyer.phone"></span>)</td>
-            <td>领取了<span ng-bind="buyer.pkg"></span>套餐</td>
+            <td ng-if="productType=='pkg'">领取了<span ng-bind="buyer.pkg"></span>套餐</td>
+            <td ng-if="productType=='phone'">领取了<span ng-bind="buyer.product"></span></td>
             <td><span ng-bind="buyer.time"></span>分钟前</td>
         </tr>
         </tbody>

@@ -11,7 +11,7 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
             },
             controller: "pIndexController"
         });
-}]).controller('pIndexController', ['$scope', '$location', '$http', '$stateParams', '$interval', function ($scope, $location, $http, $stateParams, $interval) {
+}]).controller('pIndexController', ['$scope', '$location', '$http', '$stateParams', '$interval', '$timeout', function ($scope, $location, $http, $stateParams, $interval, $timeout) {
 
 
     $scope.pageType = $stateParams.pageType;
@@ -79,21 +79,20 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
         }
         writeBtNavItem(index);
     };
-    
-    var btNavItemName=['_MYSYBt','_BKDJBt','_CZTCBt','_CustConsult'];
-    function writeBtNavItem(index)
-    {
-    	writebdLog($scope.category, btNavItemName[index], "渠道号", $scope.gh);//选择模块
+
+    var btNavItemName = ['_MYSYBt', '_BKDJBt', '_CZTCBt', '_CustConsult'];
+
+    function writeBtNavItem(index) {
+        writebdLog($scope.category, btNavItemName[index], "渠道号", $scope.gh);//选择模块
     }
 
     $interval(function () {
         $scope.selkillTxt = getRandomName() + "，刚刚购买了 " + getRandomProduct();
     }, 2000);
-    
+
     //记录用户购买的商品：专区模块英文名称+商品id
-    $scope.writeSelectFoods=function(obj,productId,modular)
-    {
-    	writebdLog($scope.category, "_"+productId+modular, "渠道号", $scope.gh);//选择的商品ID
+    $scope.writeSelectFoods = function (obj, productId, modular) {
+        writebdLog($scope.category, "_" + productId + modular, "渠道号", $scope.gh);//选择的商品ID
     };
 
     $scope.$on('ngRepeatFinished', function (ngRepeatFinishedEvent) {
@@ -104,8 +103,53 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
             container: $(".content-scrollable")
         });
     });
-    $scope.openCardPkg=function(targetId) {
+    $scope.openCardPkg = function (targetId) {
         var targetHtml = $("#" + targetId).html();
         $scope.$root.Overlay.open(targetHtml);
-    }
+    };
+
+    $scope.submitFormCommon = function () {
+        //console.log($scope.checkAddress());
+        $scope.toast.open();
+        //console.log($scope.checkAddress());
+        if (!$scope.checkMachineName()) {
+            $scope.toast.close();
+            return false;
+        }
+
+        console.log("1");
+
+        if (!$scope.checkAddress()) {
+            $scope.toast.close();
+            return false;
+        }
+        if (!$scope.checkActiveCode()) {
+            $scope.toast.close();
+            return false;
+        }
+
+        $scope.submitUrl = "http://192.168.1.181:8082/wap/taokafanghaoNew/submitOrderCommon.html?activeTag=sdhd&brand=" + encodeURI(encodeURI($scope.machineName)) + "&gh=" + $scope.gh + "&activity=" + $scope.activity + "&reciverName=" + encodeURI(encodeURI($scope.receiver.name)) + "&receiverMobile=" + $scope.receiver.mobile + "&receiverCity=" + encodeURI(encodeURI($scope.receiver.city)) + "&receiverRoom=" + encodeURI(encodeURI($scope.receiver.room)) + "&payType=1&category=" + $scope.category + "&callback=JSON_CALLBACK";
+
+        $http.jsonp($scope.submitUrl).success(function (data, status, headers, config) {
+            $scope.toast.close();
+            if (data[0].resultCode == "0") {
+                $scope.orderNo = data[0].resultMsg;
+                var timer = $timeout(
+                    function () {
+                        var targetHtml = $("#wxQrCode").html();
+                        $scope.Overlay.open(targetHtml);
+                    },
+                    100
+                );
+            } else {
+                $scope.dialog.open("系统提示", data[0].resultMsg);
+            }
+        }).error(function (data, status, headers, config) {
+            console.log(status);
+            //deferred.reject(status)
+        });
+
+        writebdLog($scope.category, "_BuyNow", "渠道号", $scope.gh); //免费领卡
+    };
+
 }]);
