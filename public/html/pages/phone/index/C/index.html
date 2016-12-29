@@ -20,7 +20,7 @@
                 </div>
             </div>
 
-            <div class="img-box">
+            <div class="img-box" ng-click="gotoOrderContent()">
                 <img class="lazy" data-original="/images/phones/C/6.jpg">
             </div>
 
@@ -97,9 +97,10 @@
                         </div>
                         <div class="qrcode-url">
                             <div class="img-box">
-                                <a href="http://m.yfq.cn/wap/taokafanghaoNew/uploadCardA.html?orderNo={{orderNo}}&s=wap&category={{category}}">
+                                <!--<a href="http://m.yfq.cn/wap/taokafanghaoNew/uploadCardA.html?orderNo={{orderNo}}&s=wap&category={{category}}">-->
+                                <span href="javascript" class="js-close-overlay">
                                     <img src="/images/phones/C/qrCodeBtn.png">
-                                </a>
+                                </span>
                             </div>
                         </div>
                     </div>
