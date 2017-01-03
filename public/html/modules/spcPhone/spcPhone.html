@@ -1,27 +1,27 @@
 <p class="sp-title">选择手机品牌<span class="star-color">*</span></p>
 <ul class="spc-list pure-g">
     <li class="pure-u-1-3">
-        <div class="item-box" ng-class="{true:'curr',false:''}[filterPhoneName == 'iPhone7']" ng-click="filterPhone('iPhone7')">
+        <div class="item-box" ng-class="{true:'curr',false:''}[filterPhoneName == 'iPhone7']" ng-click="filterPhone('iPhone7','apple')">
             苹果(apple)
         </div>
     </li>
     <li class="pure-u-1-3">
-        <div class="item-box" ng-class="{true:'curr',false:''}[filterPhoneName == '华为']" ng-click="filterPhone('华为')">
+        <div class="item-box" ng-class="{true:'curr',false:''}[filterPhoneName == '华为']" ng-click="filterPhone('华为','huawei')">
             华为(huawei)
         </div>
     </li>
     <li class="pure-u-1-3">
-        <div class="item-box" ng-class="{true:'curr',false:''}[filterPhoneName == '小米']" ng-click="filterPhone('小米')">
+        <div class="item-box" ng-class="{true:'curr',false:''}[filterPhoneName == '小米']" ng-click="filterPhone('小米','mi')">
             小米(mi)
         </div>
     </li>
     <li class="pure-u-1-3">
-        <div class="item-box" ng-class="{true:'curr',false:''}[filterPhoneName == 'OPPO']" ng-click="filterPhone('OPPO')">
+        <div class="item-box" ng-class="{true:'curr',false:''}[filterPhoneName == 'OPPO']" ng-click="filterPhone('OPPO','oppo')">
             OPPO
         </div>
     </li>
     <li class="pure-u-1-3">
-        <div class="item-box" ng-class="{true:'curr',false:''}[filterPhoneName == 'vivo']" ng-click="filterPhone('vivo')">
+        <div class="item-box" ng-class="{true:'curr',false:''}[filterPhoneName == 'vivo']" ng-click="filterPhone('vivo','vivo')">
             vivo
         </div>
     </li>
@@ -31,7 +31,7 @@
 <input type="text" style="display: none;" id="machineName" name="machineName" ng-model="machineName" value="{{machineName}}" class="weui-input" required/>
 <ul class="spc-list pure-g">
     <li class="pure-u-1-2" ng-repeat="singlePhone in singlePhones | filter : filterPhoneName">
-        <div class="item-box" ng-class="{true:'curr',false:''}[machineName == singlePhone.productName]" ng-click="setMachine(singlePhone.productName)">
+        <div class="item-box" ng-class="{true:'curr',false:''}[machineName == singlePhone.productName]" ng-click="setMachine(singlePhone.productName,singlePhone.activityproductId)">
             {{singlePhone.productName}}
         </div>
     </li>

@@ -17,7 +17,6 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
 
     $scope.pageType = $stateParams.pageType;
 
-    console.log($stateParams.pageType);
     $scope.appType = systemName + "_" + $scope.pageType + "phoneCard";
     $scope.category = $scope.appType;
 

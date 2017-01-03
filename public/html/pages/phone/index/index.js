@@ -15,7 +15,10 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
 
 
     $scope.pageType = $stateParams.pageType;
-    $scope.appType = systemName + "_mysy_" + $scope.pageType + "_index";
+    if($scope.pageType !=undefined && $scope.pageType == "C")
+    	$scope.appType = systemName + "_sdhd_" + $scope.pageType + "_index";
+    else
+    	$scope.appType = systemName + "_mysy_" + $scope.pageType + "_index";
     $scope.category = $scope.appType;
     //console.log($scope.category);
 
@@ -97,7 +100,6 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
 
     $scope.$on('ngRepeatFinished', function (ngRepeatFinishedEvent) {
         //下面是在数据 render完成后执行的js
-        console.log("1");
         $("img.lazy").lazyload({
             effect: "fadeIn",
             skip_invisible: false,
@@ -122,6 +124,8 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
         $container.animate({
             scrollTop: $scrollTo.offset().top - $container.offset().top + $container.scrollTop() - 50
         });
+        
+        writebdLog($scope.category, "_ClickReceive", "渠道号", $scope.gh);//点击领取
     };
 
     $scope.submitFormCommon = function () {
@@ -150,9 +154,9 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
             $scope.activity ="sdhd";
         }
 
-        console.log($scope.gh,$scope.activity);
+        //console.log($scope.gh,$scope.activity);
 
-        $scope.submitUrl = "http://www.yfq.cn/wap/taokafanghaoNew/submitOrderCommon.html?activeTag=sdhd&brand=" + encodeURI(encodeURI($scope.machineName)) + "&gh=" + $scope.gh + "&activity=" + $scope.activity + "&reciverName=" + encodeURI(encodeURI($scope.receiver.name)) + "&receiverMobile=" + $scope.receiver.mobile + "&receiverCity=" + encodeURI(encodeURI($scope.receiver.city)) + "&receiverRoom=" + encodeURI(encodeURI($scope.receiver.room)) + "&payType=1&category=" + $scope.category + "&callback=JSON_CALLBACK";
+        $scope.submitUrl = "http://m.yfq.cn/wap/taokafanghaoNew/submitOrderCommon.html?activeTag=sdhd&brand=" + encodeURI(encodeURI($scope.machineName)) + "&gh=" + $scope.gh + "&activity=" + $scope.activity + "&reciverName=" + encodeURI(encodeURI($scope.receiver.name)) + "&receiverMobile=" + $scope.receiver.mobile + "&receiverCity=" + encodeURI(encodeURI($scope.receiver.city)) + "&receiverRoom=" + encodeURI(encodeURI($scope.receiver.room)) + "&payType=1&category=" + $scope.category + "&callback=JSON_CALLBACK";
 
         $http.jsonp($scope.submitUrl).success(function (data, status, headers, config) {
             $scope.toast.close();

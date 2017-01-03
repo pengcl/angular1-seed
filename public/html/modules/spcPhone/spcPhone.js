@@ -8,8 +8,9 @@ app.directive("spcPhone", ['$http', '$compile', function ($http, $compile) {
             var $container = $('.content-scrollable');
             scope.filterPhoneName = "iPhone7";
 
-            scope.filterPhone = function (brand) {
+            scope.filterPhone = function (brand,notes) {
                 scope.filterPhoneName = brand;
+                writebdLog(scope.category, "_" + notes, "渠道号", scope.gh);//选择的手机品牌
             };
 
             scope.$root.checkMachineName = function () {
@@ -24,9 +25,9 @@ app.directive("spcPhone", ['$http', '$compile', function ($http, $compile) {
                 return true;
             };
 
-            scope.setMachine = function (machine) {
-                console.log(machine);
+            scope.setMachine = function (machine,productId) {
                 scope.$root.machineName = machine;
+                writebdLog(scope.category, "_" + productId, "渠道号", scope.gh);//选择的商品ID
             }
         }
     };
