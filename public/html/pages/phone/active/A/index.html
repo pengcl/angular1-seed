@@ -1,0 +1,135 @@
+<div class="page active-a">
+    <!-- pia phone-index-c -->
+    <top-nav page-title="中国电信●翼分期商城" page-back="menu" nav-visibility="hide"></top-nav>
+    <div class="content-scrollable has-footer">
+        <div id="indexBanner">
+            <div class="img-box">
+                <img src="/images/active/1.jpg">
+            </div>
+            <div class="img-box" ng-click="showFudai()">
+                <img src="/images/active/2.jpg">
+            </div>
+            <div class="active-fqa">
+                <div class="fqa-hd">
+
+                </div>
+                <div class="fqa-bd">
+                    <p class="fqa-bd-title">剩余红包数<sub>(每小时限量500个)：</sub><span><em>73</em> 个</span></p>
+                    <p class="toggle-title" ng-click="fqaToggleClose();">优惠券说明 <i class="icon-arrow-up" ng-show="!toggleClose"></i><i class="icon-arrow-down" ng-show="toggleClose"></i></p>
+                    <div class="fqa-content" ng-show="!toggleClose">
+                        <ul>
+                            <li>1、1888元大红包每小时限量500个，抢完即止；</li>
+                            <li>2、每位用户（同个手机号码）限领1次；</li>
+                            <li>3、优惠券领取后有效期为半年，过期则券失效将无法使用；</li>
+                            <li>4、优惠券直接抵扣订单金额，购买以下所有机型均可享受优惠；</li>
+                            <li>5、优惠券请至“翼分期商城”公众号【我】-【我的优惠券】-【输入手机号码】查看；</li>
+                            <li>6、优惠券不兑换现金，仅限于抵扣购机价格所享受的优惠；</li>
+                            <li>7、如有疑问，请关注“翼分期商城”公众号向客服咨询；</li>
+                            <li>8、本次活动解释权归翼分期商城所有。</li>
+                        </ul>
+                        <p class="toggle-ft" ng-click="fqaToggleClose();">收起 <i class="icon-arrow-up"></i></p>
+                    </div>
+                </div>
+                <div class="fqa-ft">
+                </div>
+            </div>
+            <div class="img-box">
+                <img src="/images/active/4.jpg">
+            </div>
+
+            <div class="getters" ng-bind-html="getters | trustHtml">
+
+            </div>
+
+            <div class="hot-phone img-box">
+                <img src="/images/active/5.jpg">
+            </div>
+            <div class="img-box">
+                <img src="/images/active/6.gif">
+            </div>
+        </div>
+
+        <div class="phones-content">
+            <spc-phone-b ng-if="singlePhones"></spc-phone-b>
+        </div>
+
+        <div class="promise">
+            <div class="img-box">
+                <img class="lazy" data-original="/images/active/7.gif">
+            </div>
+        </div>
+
+        <div id="wxQrCode" style="display: none">
+            <div class="overlay overlay-code overlay-active-c">
+                <a class="js-close-overlay overlay-dismiss" href="javascript:;"><span class="icon-cross"></span></a>
+                <div class="qrcode-content">
+                    <div class="qrcode-img">
+                        <div class="img-box">
+                            <img src="/images/active/fudai.gif">
+                        </div>
+                    </div>
+                    <div class="qrcode-txt">
+                        <div class="quan-form">
+                            <form id="checkoutForm" name="checkoutForm" action="http://m.yfq.cn/wap/taokafanghaoNew/submitOrderDouble.html" method="post" novalidate>
+                                <input type="hidden" value="1" name="monthNumber" id="monthNumber">
+                                <input type="hidden" value="1" name="mainMonthNumber" id="mainMonthNumber">
+                                <input type="hidden" value="{{mainNumber}}" name="number1" id="number1">
+                                <input type="hidden" value="{{category}}" name="category" id="category">
+                                <input type="hidden" value="{{activeTag}}" ng-model="activeTag" name="activeTag" id="activeTag">
+                                <input type="hidden" value="{{phoneQueryUrl}}" name="phoneQueryUrl" id="phoneQueryUrl">
+                                <gh></gh>
+                                <activity></activity>
+                                <redirect-url></redirect-url>
+                                <div class="qrcode-txt-title">输入手机号码立即领券</div>
+                                <div class="weui-cell input-mobile" ng-class="{'weui-cell_warn':checkoutForm.receiverMobile.$dirty== true && checkoutForm.receiverMobile.$valid == false,'weui-cell_success':checkoutForm.receiverMobile.$valid == true}">
+                                    <div class="weui-cell__bd weui_cell_primary">
+                                        <input id="receiverMobile" name="receiverMobile" ng-model="receiver.mobile" ng-maxlength="11" ng-pattern="/^[0-9]*$/" pattern="[0-9]*" ng-minlength="11" placeholder="请填写手机号码..." class="weui-input" required/>
+                                        <input style="display: none;" id="recieverMobile" name="recieverMobile" ng-model="receiver.mobile" ng-maxlength="11" ng-pattern="/^[0-9]*$/" pattern="[0-9]*" ng-minlength="11" class="weui-input" required/>
+                                    </div>
+                                    <div class="weui-cell__ft"><i class="weui-icon-warn" ng-if="checkoutForm.receiverMobile.$dirty== true && checkoutForm.receiverMobile.$valid == false"></i><i class="weui-icon-success" ng-if="checkoutForm.receiverMobile.$valid == true"></i></div>
+                                </div>
+
+                                <div class="weui-cell weui-cell_vcode input-vcode" ng-class="{'weui-cell_warn':checkoutForm.activeCode.$dirty== true && checkoutForm.activeCode.$valid == false,'weui-cell_success':checkoutForm.activeCode.$valid == true}">
+                                    <div class="weui-cell__bd weui_cell_primary">
+                                        <input id="activeCode" name="activeCode" ng-blur="inputHomeCode()" ng-model="activeCode" ng-maxlength="4" ng-pattern="/^[0-9]*$/" pattern="[0-9]*" ng-minlength="4" placeholder="请输入验证码..." class="weui-input" required/>
+                                    </div>
+                                    <div class="weui-cell__ft"><a href="javascript:;" class="weui-vcode-btn" ng-click="getActiveCode(receiver.mobile)" ng-class="paraclass" ng-bind="paracont">获取验证码</a></div>
+                                </div>
+
+                                <div class="lingquan img-box" ng-click="getQuan()">
+                                    <img src="/images/active/lingquan.gif">
+                                </div>
+                            </form>
+                        </div>
+                        <div class="quan-result hide">
+                            <div class="qrcode-txt-title">领券成功</div>
+                            <p class="qrcode-txt-disc">已有<em>12454</em>人转赠送给朋友<br>好东西转赠给朋友，炫耀一下</p>
+                            <div class="lingquan img-box" ng-click="shareQuan()">
+                                <img src="/images/active/shareQuan.gif">
+                            </div>
+                            <div class="lingquan img-box" ng-click="usingQuan()">
+                                <img src="/images/active/usingQuan.gif">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="right-nav" ng-click="goToTop()">
+        <div class="img-box">
+            <img src="/images/active/11.png">
+        </div>
+        <div class="img-box">
+            <img src="/images/active/22.png">
+        </div>
+    </div>
+    <div class="footer-nav nav-list">
+        <div class="pure-g">
+            <div class="nav-button nav-item line-r pure-u-1-3" ng-click="btNavItem($event,0,'#homePhoneLists');">我的优惠券</div>
+            <div class="nav-button nav-item line-r pure-u-1-3" ng-click="btNavItem($event,1,'#homePhoneLists');">我的订单</div>
+            <div class="nav-button nav-item pure-u-1-3" ng-click="getContact();"><i class="icon-comment"></i><span> 在线客服</span></div>
+        </div>
+    </div>
+</div>

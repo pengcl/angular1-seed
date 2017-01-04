@@ -1,0 +1,208 @@
+.page.active-a {
+  .content-scrollable {
+    background: #ff5238;
+    .sp-title {
+      display: none;
+    }
+    .phones-content {
+      padding-left: 0.1rem;
+      padding-right: 0.1rem;
+      .spc-list {
+        margin-left: -0.02rem;
+        margin-right: -0.02rem;
+        .img-box {
+          padding: 0;
+          margin: 0.02rem;
+        }
+        .pure-u-1-2 {
+          .item-box {
+            border: 2px solid #000;
+            margin-left: -2px;
+            margin-top: -2px;
+          }
+        }
+        &.spc-phone {
+          margin-left: 1px;
+          margin-top: 0.1rem;
+          margin-bottom: 0.2rem;
+          .item-box {
+            display: block;
+            color: #333;
+          }
+          .img-box {
+            img {
+              height: 1.2rem;
+              width: auto;
+              margin: 0 auto;
+            }
+          }
+          .title {
+            font-size: 0.12rem;
+            margin-left: -0.05rem;
+            margin-right: -0.05rem;
+            text-align: left;
+            margin-top: 0.05rem;
+          }
+          .price {
+            font-size: 0.14rem;
+            margin-left: -0.05rem;
+            margin-right: -0.05rem;
+            margin-top: 0.1rem;
+            em {
+              color: $color-primary;
+              font-size: 0.14rem;
+            }
+          }
+        }
+      }
+    }
+  }
+  .footer-nav {
+    @include box-shadow(0px -3px 3px #cf3333);
+    border-top: 1px solid #ff5238;
+    &.nav-list {
+      padding-left: 0;
+      .nav-item {
+        font-size: 0.16rem;
+        .icon-comment {
+          position: relative;
+          bottom: -0.02rem;
+          margin-right: 0.02rem;
+          font-size: 0.18rem;
+        }
+        &.nav-button {
+          background-image: url("/images/active/bt-bg.gif");
+          background-position: top left;
+          background-size: 100% 100%;
+        }
+      }
+    }
+  }
+  .right-nav {
+    position: absolute;
+    width: 16%;
+    right: 0.05rem;
+    top: 60%;
+    .img-box {
+      margin-top: 0.1rem;
+    }
+  }
+  .active-fqa {
+    font-size: 0.14rem;
+    background-image: url("/images/active/3.jpg");
+    background-repeat: repeat-y;
+    background-size: 100% 1px;
+    background-position: left top;
+    padding-left: 0.4rem;
+    padding-right: 0.4rem;
+    .fqa-bd-title {
+      color: #fad19f;
+      &:after {
+        content: " ";
+        display: block;
+        clear: both;
+      }
+      span {
+        float: right;
+        em {
+          @include inline-block;
+          width: 0.5rem;
+          line-height: 0.2rem;
+          background: #a10000;
+          color: #fff000;
+          text-align: center;
+        }
+      }
+    }
+    .toggle-title {
+      font-size: 0.18rem;
+      color: #fff000;
+      text-align: center;
+      margin-top: 0.1rem;
+    }
+    .fqa-content {
+      ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        li {
+          list-style: none;
+          color: #fff;
+          margin-top: 0.05rem;
+          font-size: 0.12rem;
+        }
+      }
+      .toggle-ft {
+        color: #fff000;
+        margin-top: 0.05rem;
+        font-size: 0.16rem;
+        text-align: right;
+      }
+    }
+  }
+
+  .getters {
+    margin-left: 0.26rem;
+    margin-right: 0.26rem;
+    height: 0.3rem;
+    line-height:0.3rem;
+    @include border-radius(10em);
+    background: #b23927;
+    color: #fff;
+    margin-top: 0.1rem;
+    font-size: 0.12rem;
+    padding-left: 0.1rem;
+    padding-right: 0.1rem;
+    position: relative;
+    span {
+      position: absolute;
+      right: 0.1rem;
+      color: #fff000;
+    }
+  }
+}
+
+.overlay.overlay-code.overlay-active-c .qrcode-content {
+  top: 0;
+  @include transform(translate3d(0px, 0px, 0px));
+  .qrcode-txt {
+    position: absolute;
+    top: 50%;
+    width: 64%;
+    left: 18%;
+    .qrcode-txt-title {
+      font-size: 0.22rem;
+      color: #fff;
+      text-align: center;
+    }
+    .qrcode-txt-disc {
+      color: #fff;
+      margin-top: 0.1rem;
+      text-align: center;
+      em {
+        font-style: normal;
+        color: #ffe509;
+      }
+    }
+    .weui-cell {
+      padding: 0;
+      margin-top: 0.1rem;
+      &:before {
+        display: none;
+      }
+      .weui-cell__bd {
+        padding: 0.1rem 0.15rem;
+        background: #fff;
+        @include border-radius(4px);
+      }
+    }
+    .lingquan {
+      margin-top: 0.15rem;
+    }
+  }
+  .weui-vcode-btn {
+    border-left: none;
+    color: #ffe509;
+    font-size: 0.14rem;
+  }
+}
