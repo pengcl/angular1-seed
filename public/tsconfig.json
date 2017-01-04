@@ -1,0 +1,80 @@
+[
+  {
+    "activeTime": null,
+    "activeUserId": 0,
+    "activeUsername": "18316025841",
+    "assignedTime": {
+      "date": 3,
+      "day": 2,
+      "hours": 18,
+      "minutes": 4,
+      "month": 0,
+      "nanos": 0,
+      "seconds": 38,
+      "time": 1483437878000,
+      "timezoneOffset": -480,
+      "year": 117
+    },
+    "auditStatus": 0,
+    "couponBatchName": "HF",
+    "couponId": 73,
+    "couponNo": "6696109390037690",
+    "createTime": {
+      "date": 3,
+      "day": 2,
+      "hours": 10,
+      "minutes": 48,
+      "month": 0,
+      "nanos": 0,
+      "seconds": 58,
+      "time": 1483411738000,
+      "timezoneOffset": -480,
+      "year": 117
+    },
+    "displayInfo": "6696109390037690",
+    "id": 73,
+    "isDeleted": 0,
+    "isMultipleCustomers": 0,
+    "isUsed": 0,
+    "obtainMode": 1,
+    "status": 0,
+    "times": 0,
+    "updateTime": {
+      "date": 3,
+      "day": 2,
+      "hours": 18,
+      "minutes": 4,
+      "month": 0,
+      "nanos": 0,
+      "seconds": 38,
+      "time": 1483437878000,
+      "timezoneOffset": -480,
+      "year": 117
+    },
+    "usedTimes": 0,
+    "validEndTime": {
+      "date": 19,
+      "day": 4,
+      "hours": 10,
+      "minutes": 48,
+      "month": 0,
+      "nanos": 0,
+      "seconds": 0,
+      "time": 1484794080000,
+      "timezoneOffset": -480,
+      "year": 117
+    },
+    "validStartTime": {
+      "date": 2,
+      "day": 1,
+      "hours": 10,
+      "minutes": 48,
+      "month": 0,
+      "nanos": 0,
+      "seconds": 0,
+      "time": 1483325280000,
+      "timezoneOffset": -480,
+      "year": 117
+    }
+  }
+]
