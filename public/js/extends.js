@@ -316,7 +316,6 @@ function checkMobileCode(code) {
             }
         }
     });
-
     return flag;
 }
 
