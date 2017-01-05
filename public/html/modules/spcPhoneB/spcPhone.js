@@ -6,7 +6,7 @@ app.directive("spcPhoneB", ['$http', '$compile', function ($http, $compile) {
         templateUrl: "modules/spcPhoneB/spcPhone.html",
         link: function (scope, element, attrs) {
             var $container = $('.content-scrollable');
-            scope.filterPhoneName = "iPhone7";
+            scope.filterPhoneName = "";
 
             scope.filterPhone = function (brand,notes) {
                 scope.filterPhoneName = brand;

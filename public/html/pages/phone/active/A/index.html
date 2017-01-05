@@ -93,7 +93,7 @@
                                     <div class="weui-cell__bd weui_cell_primary">
                                         <input id="activeCode" name="activeCode" ng-blur="inputHomeCode()" ng-model="activeCode" ng-maxlength="4" ng-pattern="/^[0-9]*$/" pattern="[0-9]*" ng-minlength="4" placeholder="请输入验证码..." class="weui-input" required/>
                                     </div>
-                                    <div class="weui-cell__ft"><a href="javascript:;" class="weui-vcode-btn" ng-click="getActiveCode(receiver.mobile)" ng-class="paraclass" ng-bind="paracont">获取验证码</a></div>
+                                    <div class="weui-cell__ft"><a href="javascript:;" class="weui-vcode-btn" ng-click="getActiveCode($event,receiver.mobile)" ng-class="paraclass" ng-bind="paracont">获取验证码</a></div>
                                 </div>
 
                                 <div class="lingquan img-box" ng-click="getQuan()">

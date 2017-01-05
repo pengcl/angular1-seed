@@ -41,6 +41,10 @@ app.directive("nFooterNav", ['$http', function ($http) {
             };
 
             scope.submitForm = function (event, type) {
+                var $this = $(event.currentTarget);
+                if($this.hasClass("disabled")){
+                    return false;
+                }
                 if (scope.buyType == 1) {
                     if (attrs.checkMainNumber) {
                         if (attrs.checkSubNumber) {
