@@ -183,7 +183,7 @@
         <div id="recommendTitle" class="spc-title"><h2><span></span><span>大家都在买</span><span></span></h2></div>
         <div id="recommend">
             <ul class="recommend-lists pure-g">
-                <li class="recommend-item pure-u-1-2" ng-repeat="doublePhone in doublePhones | orderBy : 'sortOrder' | range : 12 : 30">
+                <li class="recommend-item pure-u-1-2" ng-repeat="doublePhone in doublePhones | orderBy : 'sortOrder' | range : 12 : 100">
                     <a href="/phs/db/{{pageType}}/{{doublePhone.activityproductId}}{{params}}" ng-click="writeSelectFoods(this,doublePhone.activityproductId,'DJDZM');" class="recommend-box">
                         <div class="img-box">
                             <img class="lazy" data-original="http://www.yfq.cn:8899/fileserver/medias/{{doublePhone.mainImageUrl}}">

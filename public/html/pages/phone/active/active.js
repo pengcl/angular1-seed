@@ -45,9 +45,33 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
     $scope.$root.paraclass = "but_null";
     var second = 59, timePromise = undefined;
 
-    $scope.$root.getActiveCode = function (phoneNumber) {
+    $scope.$root.checkAddress = function () {
+        $("#receiverAddress").find(".weui_cell").removeClass("weui-cell_warn");
+        if (!$scope.checkoutForm.receiverMobile.$valid) {
+            //alert("请输入联系电话");
+            $(".input-mobile").addClass("weui-cell_warn");
+            return false;
+        }
+
+        return true;
+    };
+
+    $scope.$root.getActiveCode = function (event,phoneNumber) {
+        $scope.toast.open();
+
+        if($(event.currentTarget).hasClass("not")){
+            $scope.toast.close();
+            return false;
+        }
+
+        if (!$scope.$root.checkAddress()) {
+            $scope.toast.close();
+            $scope.dialog.open("系统提示", "请输入正确的手机号码！");
+            return false;
+        }
         $http.get("http://app.yfq.cn:3099/api/getActiveCode/" + phoneNumber).success(function (data) {
             if (data == "") {
+                $scope.toast.close();
                 timePromise = $interval(function () {
                     if (second <= 0) {
                         $interval.cancel(timePromise);
@@ -67,17 +91,6 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
         });
 
         writebdLog(scope.category, "_VariHomeCode", "渠道号", scope.gh); //获取下单页验证码
-    };
-
-    $scope.$root.checkAddress = function () {
-        $("#receiverAddress").find(".weui_cell").removeClass("weui-cell_warn");
-        if (!$scope.checkoutForm.receiverMobile.$valid) {
-            //alert("请输入联系电话");
-            $(".input-mobile").addClass("weui-cell_warn");
-            return false;
-        }
-
-        return true;
     };
 
     $scope.$root.checkActiveCode = function () {
@@ -108,18 +121,21 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
     };
 
     $scope.$root.getQuan = function () {
+        $scope.toast.open();
         if (!$scope.$root.checkAddress()) {
+            $scope.toast.close();
             $scope.dialog.open("系统提示", "请输入正确的手机号码！");
             return false;
-
         }
 
         if (!$scope.$root.checkActiveCode()) {
+            $scope.toast.close();
             $scope.dialog.open("系统提示", "请输入正确的验证码！");
             return false;
         }
 
         $http.jsonp('http://192.168.1.181:8082/product/doReceiveMultipleCoupon.html?recieverMobile=' + $scope.receiver.mobile + '&couponType=HF-MX-JM&s=wap&callback=JSON_CALLBACK').success(function (data, status, headers, config) {
+            $scope.toast.close();
             $scope.$root.apiCode = 0;
             $scope.dialog.open("系统提示", data[0].resultMsg);
             if (data[0].resultCode == 0) {

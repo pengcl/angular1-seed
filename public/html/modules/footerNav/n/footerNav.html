@@ -91,7 +91,10 @@
             </div>
         </div>
         <div class="nav-button nav-item pure-u-1-1">
-            <a id="footerPayButton" href="javascript:;" ng-click="submitForm();">提交订单</a>
+            <a id="footerPayButton" href="javascript:;" ng-class="{true:'disabled',false:''}[phone.phoneTypes[0].status == 0]" ng-click="submitForm($event);">
+                <span ng-if="phone.phoneTypes[0].status != 0">提交订单</span>
+                <span ng-if="phone.phoneTypes[0].status == 0">已售光</span>
+            </a>
         </div>
     </div>
     <div id="payTipsPanel" style="display: none">
