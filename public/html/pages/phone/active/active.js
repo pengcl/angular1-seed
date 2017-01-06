@@ -173,7 +173,7 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
     });
 
     $scope.btNavItem = function (event, index, target) {
-        var $this = $(event.currentTarget);
+        /*var $this = $(event.currentTarget);
         if (index == 0 || index == 1) {
             $this.siblings().removeClass("curr");
             $this.addClass("curr");
@@ -188,7 +188,7 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
             getMeiqia();
             _MEIQIA('showPanel');
         }
-        writeBtNavItem(index);
+        writeBtNavItem(index);*/
     };
 
     var btNavItemName = ['_MYSYBt', '_BKDJBt', '_CZTCBt', '_CustConsult'];
