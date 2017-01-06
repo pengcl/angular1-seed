@@ -31,7 +31,25 @@
 <input type="text" style="display: none;" id="machineName" name="machineName" ng-model="machineName" value="{{machineName}}" class="weui-input" required/>
 <ul class="spc-list spc-phone pure-g">
     <li class="pure-u-1-2" ng-repeat="singlePhone in singlePhones | filter : filterPhoneName">
-        <a class="item-box" href="/phs/sg/{{pageType}}/{{singlePhone.activityproductId}}{{params}}" ng-class="{true:'curr',false:''}[machineName == singlePhone.productName]" ng-click="setMachine(singlePhone.productName,singlePhone.activityproductId)">
+        <a class="item-box" ng-if="params.length == 0" href="/phs/sg/{{pageType}}/{{singlePhone.activityproductId}}{{params}}?category=1233" ng-class="{true:'curr',false:''}[machineName == singlePhone.productName]" ng-click="setMachine(singlePhone.productName,singlePhone.activityproductId)">
+            <div class="img-box">
+                <img ng-src="http://www.yfq.cn:8899/fileserver/medias/{{singlePhone.mainImageUrl}}">
+            </div>
+            <div class="title">
+                <span ng-bind="singlePhone.productSubName"></span>
+            </div>
+            <div class="price">
+                <div class="pure-g">
+                    <div class="text-l pure-u-2-5">
+                        <span>￥</span><span ng-bind="singlePhone.phonePrice"></span>
+                    </div>
+                    <div class="text-r pure-u-3-5">
+                        <span>日供</span><em>￥</em><em ng-bind="singlePhone.phonePrice/365 | number : 1"></em>
+                    </div>
+                </div>
+            </div>
+        </a>
+        <a class="item-box" ng-if="params.length != 0" href="/phs/sg/{{pageType}}/{{singlePhone.activityproductId}}{{params}}&category=1233" ng-class="{true:'curr',false:''}[machineName == singlePhone.productName]" ng-click="setMachine(singlePhone.productName,singlePhone.activityproductId)">
             <div class="img-box">
                 <img ng-src="http://www.yfq.cn:8899/fileserver/medias/{{singlePhone.mainImageUrl}}">
             </div>

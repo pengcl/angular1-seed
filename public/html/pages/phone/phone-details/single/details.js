@@ -66,9 +66,9 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
             $scope.activeTag = "lj";
             //$scope.totolPrice = $scope.phone.phonePrice;
             $scope.activeTagName = typeName;
-            if ($scope.totolPrice < 1500) {
+            //if ($scope.totolPrice < 1500) {
                 $scope.setSbPayType(0, '一次性支付');
-            }
+            //}
         } else {
             $scope.activeTag = "jjk";
             $scope.activeTagName = typeName;
