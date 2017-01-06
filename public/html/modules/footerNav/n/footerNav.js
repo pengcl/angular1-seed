@@ -1,6 +1,6 @@
 'use strict';
 
-app.directive("nFooterNav", ['$http', function ($http) {
+app.directive("nFooterNav", ['$http', '$location', function ($http, $location) {
     return {
         restrict: 'E',
         templateUrl: "modules/footerNav/n/footerNav.html",
@@ -9,12 +9,21 @@ app.directive("nFooterNav", ['$http', function ($http) {
             var $container = $('.content-scrollable');
             var $scrollTo;
 
+            //console.log($location.search().duplicateNum);
+            if ($location.search().duplicateNum) {
+                if(Array.isArray($location.search().duplicateNum)){
+                    scope.dialog.open("系统提示", "您选择的号码：" + $location.search().duplicateNum[0] + "已被购买，请重新选择");
+                }else {
+                    scope.dialog.open("系统提示", "您选择的号码：" + $location.search().duplicateNum + "已被购买，请重新选择");
+                }
+            }
+
             scope.checks = eval(attrs.checks);
 
             scope.getContent = function () {
                 getMeiqia();
                 //scope.$root.dialog.open("","咨询请关注微信公众号<br><em>“翼分期商城”</em>");
-                _MEIQIA('showPanel',{
+                _MEIQIA('showPanel', {
                     groupToken: '93b053a08494a8319cba2ce52b3d1e58'
                 });
                 writebdLog(scope.category, "_CustConsult", "渠道号", scope.gh);//客服咨询
@@ -42,7 +51,7 @@ app.directive("nFooterNav", ['$http', function ($http) {
 
             scope.submitForm = function (event, type) {
                 var $this = $(event.currentTarget);
-                if($this.hasClass("disabled")){
+                if ($this.hasClass("disabled")) {
                     return false;
                 }
                 if (scope.buyType == 1) {
