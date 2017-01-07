@@ -175,7 +175,7 @@
 
             <!-- 单机循环开始 -->
             <ul class="list_single phone-list">
-                <li class="phone-item single" ng-repeat="singlePhone in singlePhones" ng-if="singlePhone.salePrice >= 1500" on-finish>
+                <li class="phone-item single" ng-repeat="singlePhone in singlePhones" ng-show="singlePhone.salePrice >= 1500" on-finish>
                     <a href="/phs/sg/{{pageType}}/{{singlePhone.activityproductId}}{{params}}" ng-click="writeSelectFoods(this,singlePhone.activityproductId,'BKDJ');" class="phone-box pure-g">
                         <ins class="phone-box-flag">
                             <div class="img-box">

@@ -388,3 +388,17 @@ function checkSameNumber(number1, number2) {
     }
     return true;
 }
+
+function getJM(price,max){
+    for(var i = 0;i <= max/5;i++){
+        if(i*100 == price){
+            return i*5;
+        }
+        if(i*100 > price) {
+            return (i-1)*5;
+        }
+        if(i*100 < price && i*5 >= max){
+            return max;
+        }
+    };
+};

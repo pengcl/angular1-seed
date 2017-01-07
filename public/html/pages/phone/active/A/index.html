@@ -37,13 +37,52 @@
                 <img src="/images/active/4.jpg">
             </div>
 
-            <div class="getters" ng-bind-html="getters | trustHtml">
-
-            </div>
+            <div class="getters" ng-bind-html="getters | trustHtml"></div>
 
             <div class="hot-phone img-box">
                 <img src="/images/active/5.jpg">
             </div>
+
+            <div class="hot-phone">
+                <ul class="spc-list hot-phone">
+                    <li ng-repeat="singlePhone in singlePhones | filter:{ifRecommend: 1}" ng-show="singlePhone.salePrice >= 1500">
+                        <a class="item-box pure-g" ng-if="params.length == 0" href="/phs/sg/{{pageType}}/{{singlePhone.activityproductId}}{{params}}?headCategory={{category}}" ng-class="{true:'curr',false:''}[machineName == singlePhone.productName]" ng-click="setMachine(singlePhone.productName,singlePhone.activityproductId)">
+                            <div class="img-box pure-u-1-3">
+                                <img ng-src="http://www.yfq.cn:8899/fileserver/medias/{{singlePhone.mainImageUrl}}">
+                            </div>
+                            <div class="item-txt pure-u-2-3">
+                                <div class="title" ng-bind="singlePhone.productSubName"></div>
+                                <div class="tips">
+                                    <span>领券立减</span><em>￥</em><em ng-bind="singlePhone.phonePrice | jm : 400"></em><span>，每月再送20元话费</span>
+                                </div>
+                                <div class="price">
+                                    <span>￥</span><span ng-bind="singlePhone.phonePrice" style="margin-right: 0.2rem"></span>
+                                    <span>日供</span><em>￥</em><em ng-bind="singlePhone.phonePrice / 365 | number : 0"></em>
+                                </div>
+                            </div>
+                        </a>
+                        <!--<a class="item-box" ng-if="params.length != 0" href="/phs/sg/{{pageType}}/{{singlePhone.activityproductId}}{{params}}&headCategory={{category}}" ng-class="{true:'curr',false:''}[machineName == singlePhone.productName]" ng-click="setMachine(singlePhone.productName,singlePhone.activityproductId)">
+                            <div class="img-box">
+                                <img ng-src="http://www.yfq.cn:8899/fileserver/medias/{{singlePhone.mainImageUrl}}">
+                            </div>
+                            <div class="title">
+                                <span ng-bind="singlePhone.productName"></span>
+                            </div>
+                            <div class="price">
+                                <div class="pure-g">
+                                    <div class="text-l pure-u-2-5">
+                                        <span>￥</span><span ng-bind="singlePhone.phonePrice"></span>
+                                    </div>
+                                    <div class="text-r pure-u-3-5">
+                                        <span>日供</span><em>￥</em><em ng-bind="singlePhone.phonePrice/365 | number : 1"></em>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>-->
+                    </li>
+                </ul>
+            </div>
+
             <div class="img-box">
                 <img src="/images/active/6.gif">
             </div>
@@ -72,8 +111,8 @@
     </div>
     <div class="footer-nav nav-list">
         <div class="pure-g">
-            <a href="http://192.168.1.181:8082/wap/customer/searchIndexA.html?s=wap" class="nav-button nav-item line-r pure-u-1-3" ng-click="btNavItem($event,0,'#homePhoneLists');">我的优惠券</a>
-            <a href="http://192.168.1.181:8082/wap/customer/searchIndexA.html?s=wap" class="nav-button nav-item line-r pure-u-1-3" ng-click="btNavItem($event,1,'#homePhoneLists');">我的订单</a>
+            <a href="http://192.168.1.181:8082/wap/customer/searchIndexA.html?s=wap" class="nav-button nav-item line-r pure-u-1-3" ng-click="btNavItem(0);">我的优惠券</a>
+            <a href="http://192.168.1.181:8082/wap/customer/searchIndexA.html?s=wap" class="nav-button nav-item line-r pure-u-1-3" ng-click="btNavItem(1);">我的订单</a>
             <div class="nav-button nav-item pure-u-1-3" ng-click="getContact();"><i class="icon-comment"></i><span> 在线客服</span></div>
         </div>
     </div>

@@ -13,10 +13,19 @@ app.directive("ngCoupon", ['$location', '$interval', '$http', function ($locatio
             scope.showFudai = function () {
                 var targetHtml = $("#wxQrCode").html();
                 scope.Overlay.openCompile(targetHtml);
+                writebdLog(scope.category, "_ShowCouponBar", "渠道号", scope.gh); //展示领券栏
             };
 
             scope.$root.shareQuan = function () {
                 scope.showShare();
+                writebdLog(scope.category, "_Share", "渠道号", scope.gh); //点击分享
+            };
+            
+            var homeArgs = ['_InputIndexCode', '_InputIndexNumber'];
+            //记录落地页输入的操作
+            scope.$root.inputHomeArgs = function (type) 
+            {
+            	writebdLog(scope.category, homeArgs[type], "渠道号", scope.gh); //输入操作
             };
 
             scope.$root.getQuan = function () {
@@ -41,11 +50,14 @@ app.directive("ngCoupon", ['$location', '$interval', '$http', function ($locatio
                     if (data[0].resultCode == 0) {
                         $(".quan-result").removeClass("hide");
                         $(".quan-form").addClass("hide");
+                        writebdLog(scope.category, "_ReceiveCoupons", "渠道号", scope.gh); //领券成功
                     }
                 }).error(function (data, status, headers, config) {
                     console.log(status);
                     //deferred.reject(status)
                 });
+                
+                writebdLog(scope.category, "_ClickCoupons", "渠道号", scope.gh); //点击领券
             };
 
             scope.$root.usingQuan = function () {
@@ -55,6 +67,7 @@ app.directive("ngCoupon", ['$location', '$interval', '$http', function ($locatio
                 $container.animate({
                     scrollTop: $scrollTo.offset().top - $container.offset().top + $container.scrollTop()
                 });
+                writebdLog(scope.category, "_UseCoupons", "渠道号", scope.gh); //使用我的优惠券
             };
 
             scope.$root.checkCouponMobile = function () {
@@ -102,7 +115,7 @@ app.directive("ngCoupon", ['$location', '$interval', '$http', function ($locatio
                     }
                 });
 
-                writebdLog(scope.category, "_VariHomeCode", "渠道号", scope.gh); //获取下单页验证码
+                writebdLog(scope.category, "_VariIndexCode", "渠道号", scope.gh); //获取下单页验证码
             };
 
             scope.$root.checkCouponActiveCode = function () {

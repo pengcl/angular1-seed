@@ -19,7 +19,11 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
 
     $scope.pageType = $stateParams.pageType;
     $scope.activeTag = "jjk";
-    $scope.category = systemName + "_mysy_" + $scope.pageType + "_SinglePhones";
+    var headCategory = $location.search().headCategory;
+    if(headCategory != undefined && headCategory != null)
+	    $scope.category = headCategory + "_SinglePhones";
+    else
+    	$scope.category = systemName + "_mysy_" + $scope.pageType + "_SinglePhones";
     $scope.phoneQueryUrl = "http://" + $location.host() + $location.url();
     writebdLog($scope.category, "_Load", "渠道号", $scope.gh);
 

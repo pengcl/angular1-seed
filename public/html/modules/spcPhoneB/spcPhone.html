@@ -31,12 +31,12 @@
 <input type="text" style="display: none;" id="machineName" name="machineName" ng-model="machineName" value="{{machineName}}" class="weui-input" required/>
 <ul class="spc-list spc-phone pure-g">
     <li class="pure-u-1-2" ng-repeat="singlePhone in singlePhones | filter : filterPhoneName" ng-if="singlePhone.salePrice >= 1500">
-        <a class="item-box" ng-if="params.length == 0" href="/phs/sg/{{pageType}}/{{singlePhone.activityproductId}}{{params}}?category=1233" ng-class="{true:'curr',false:''}[machineName == singlePhone.productName]" ng-click="setMachine(singlePhone.productName,singlePhone.activityproductId)">
+        <a class="item-box" ng-if="params.length == 0" href="/phs/sg/{{pageType}}/{{singlePhone.activityproductId}}{{params}}?headCategory={{category}}" ng-class="{true:'curr',false:''}[machineName == singlePhone.productName]" ng-click="setMachine(singlePhone.productName,singlePhone.activityproductId)">
             <div class="img-box">
                 <img ng-src="http://www.yfq.cn:8899/fileserver/medias/{{singlePhone.mainImageUrl}}">
             </div>
             <div class="title">
-                <span ng-bind="singlePhone.productSubName"></span>
+                <span ng-bind="singlePhone.productName"></span>
             </div>
             <div class="price">
                 <div class="pure-g">
@@ -49,12 +49,12 @@
                 </div>
             </div>
         </a>
-        <a class="item-box" ng-if="params.length != 0" href="/phs/sg/{{pageType}}/{{singlePhone.activityproductId}}{{params}}&category=1233" ng-class="{true:'curr',false:''}[machineName == singlePhone.productName]" ng-click="setMachine(singlePhone.productName,singlePhone.activityproductId)">
+        <a class="item-box" ng-if="params.length != 0" href="/phs/sg/{{pageType}}/{{singlePhone.activityproductId}}{{params}}&headCategory={{category}}" ng-class="{true:'curr',false:''}[machineName == singlePhone.productName]" ng-click="setMachine(singlePhone.productName,singlePhone.activityproductId)">
             <div class="img-box">
                 <img ng-src="http://www.yfq.cn:8899/fileserver/medias/{{singlePhone.mainImageUrl}}">
             </div>
             <div class="title">
-                <span ng-bind="singlePhone.productSubName"></span>
+                <span ng-bind="singlePhone.productName"></span>
             </div>
             <div class="price">
                 <div class="pure-g">

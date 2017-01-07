@@ -14,12 +14,8 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
 }]).controller('pActiveController', ['$scope', '$location', '$http', '$stateParams', '$interval', '$timeout', function ($scope, $location, $http, $stateParams, $interval, $timeout) {
 
     $scope.pageType = $stateParams.pageType;
-    if ($scope.pageType != undefined && $scope.pageType == "C")
-        $scope.appType = systemName + "_sdhd_" + $scope.pageType + "_index";
-    else
-        $scope.appType = systemName + "_mysy_" + $scope.pageType + "_index";
+    $scope.appType = systemName + "_coupon_" + $scope.pageType;
     $scope.category = $scope.appType;
-    //console.log($scope.category);
 
     $scope.params = window.location.search;
 
@@ -29,6 +25,10 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
 
     $scope.fqaToggleClose = function () {
         $scope.toggleClose = !$scope.toggleClose;
+        if($scope.toggleClose)
+        	writebdLog($scope.category, "_CouExplainStop", "渠道号", $scope.gh);//收起优惠券说明
+        else
+        	writebdLog($scope.category, "_CouExplainShow", "渠道号", $scope.gh);//展示优惠券说明
     };
 
     //统计
@@ -60,26 +60,11 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
         //deferred.reject(status)
     });
 
-    $scope.btNavItem = function (event, index, target) {
-        /*var $this = $(event.currentTarget);
-        if (index == 0 || index == 1) {
-            $this.siblings().removeClass("curr");
-            $this.addClass("curr");
-            $(".tab-item").eq(index).trigger("click");
-            $scope.st(target);
-        } else if (index == 2) {
-            $this.siblings().removeClass("curr");
-            $this.addClass("curr");
-            $scope.st(target);
-        }
-        else if (index == 3) {
-            getMeiqia();
-            _MEIQIA('showPanel');
-        }
-        writeBtNavItem(index);*/
+    $scope.$root.btNavItem = function (index) {
+        writeBtNavItem(index);
     };
 
-    var btNavItemName = ['_MYSYBt', '_BKDJBt', '_CZTCBt', '_CustConsult'];
+    var btNavItemName = ['_MyCoupon', '_MyOrder', '_CustConsult'];
 
     function writeBtNavItem(index) {
         writebdLog($scope.category, btNavItemName[index], "渠道号", $scope.gh);//选择模块

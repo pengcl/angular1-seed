@@ -43,9 +43,9 @@
             text-align: left;
             margin-top: 0.05rem;
             line-height: 0.18rem;
-            min-height: 0.54rem;
-            max-height: 0.54rem;
             overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
           }
           .price {
             font-size: 0.14rem;
@@ -153,6 +153,70 @@
       position: absolute;
       right: 0.1rem;
       color: #fff000;
+    }
+  }
+  .hot-phone {
+    font-size: 0.12rem;
+    .spc-list {
+      padding:0;
+      margin-left: 0.1rem;
+      margin-right: 0.1rem;
+      margin-top: 2px;
+      margin-bottom: 0;
+      li {
+        list-style: none;
+        padding:0;
+        margin:0;
+        margin-top: -2px;
+      }
+      .item-box {
+        border:2px solid #000;
+        .img-box {
+          @include box-sizing(border-box);
+          padding-right: 0.1rem;
+          img {
+            height: 0.9rem;
+            width: auto;
+            margin: 0 auto;
+          }
+        }
+        .item-txt {
+          text-align: left;
+          .title {
+            color: #000;
+            font-weight: bold;
+            font-size: 0.14rem;
+            line-height: 1.3;
+          }
+          .tips {
+            font-size: 0.12rem;
+            @include border-radius(10rem);
+            color: #333;
+            background: #fff000;
+            padding-left: 0.08rem;
+            padding-top: 0.03rem;
+            padding-bottom: 0.01rem;
+            margin-top: 0.05rem;
+            margin-bottom: 0.05rem;
+            em {
+              font-size: 0.12rem;
+              color: $color-primary;
+            }
+          }
+          .price {
+            line-height: 1;
+            margin-top: 0.1rem;
+            span {
+              font-size: 0.16rem;
+              color: #333;
+            }
+            em {
+              font-size: 0.2rem;
+              color: $color-primary;
+            }
+          }
+        }
+      }
     }
   }
 }
