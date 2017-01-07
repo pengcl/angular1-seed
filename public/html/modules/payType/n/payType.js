@@ -39,13 +39,13 @@ app.directive("nPayType", ['$location', '$compile', '$q', function ($location, $
 
             //选择支付方式
 
-            scope.setPayType = function (event, id, typeName) {
+            scope.setPayType = function (event, id) {
                 event.preventDefault();
                 scope.payType = id;
-                scope.payTypeName = typeName;
+                //scope.payTypeName = typeName;
                 var $this = $(event.currentTarget);
-                $this.addClass("on-paytype");
-                $this.siblings().removeClass("on-paytype");
+                //console.log($this.find(".title").html());
+                scope.payTypeName = $this.find(".title").html();
                 wirtePayType(id);
             };
             

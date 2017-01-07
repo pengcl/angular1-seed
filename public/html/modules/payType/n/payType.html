@@ -8,42 +8,34 @@
     </div>
     <div class="paytype-panel pd-w">
         <ul class="paytype-list item-lists minus minus pure-g">
-            <li id="payType0" class="pay-item list-item pure-u-1-3" ng-if="!cardPay" ng-class="{true:'on-paytype',false:''}[totolPrice < 1500 || activeTag == 'lj']" ng-click="setPayType($event,'0','一次性支付');">
+            <li id="payType0" class="pay-item list-item pure-u-1-3" ng-if="!cardPay" ng-class="{true:'on-paytype',false:''}[payType == 0]" ng-click="setPayType($event,0);">
                 <div class="item item-box margin border radius">
-                    <p class="title" >一次性支付</p>
-                    <p class="details">官网价享95折</p>
+                    <div ng-if="cardPay">
+                        <p class="title">在线支付</p>
+                        <p class="details" ng-bind="details">预付首月月租</p>
+                    </div>
+                    <div ng-if="!cardPay">
+                        <p class="title">一次性支付</p>
+                        <p class="details">领券立减</p>
+                    </div>
                 </div>
             </li>
-            <li id="payType0" class="pay-item list-item pure-u-1-3" ng-if="cardPay" ng-class="{true:'on-paytype',false:''}[cardPay]" ng-click="setPayType($event,'0','一次性支付');">
-                <div class="item item-box margin border radius">
-                    <p class="title">在线支付</p>
-                    <p class="details" ng-bind="details">预付首月月租</p>
-                </div>
-            </li>
-            <li id="payType2" class="pay-item list-item pure-u-1-3 on-paytype" ng-if="!cardPay && activeTag !='lj'" ng-show="totolPrice > 1500" ng-click="setPayType($event,'2','信用卡分期');">
+            <li id="payType2" class="pay-item list-item pure-u-1-3 on-paytype" ng-if="!cardPay" ng-show="activeTag !='lj'" ng-class="{true:'on-paytype',false:''}[payType == 2]" ng-show="totolPrice > 1500" ng-click="setPayType($event,2);">
                 <div class="item item-box margin border radius">
                     <p class="title">信用卡分期</p>
-                    <p class="details">0首付12期免息</p>
+                    <p class="details">领券免息</p>
                 </div>
             </li>
-            <li id="payType1" class="pay-item list-item pure-u-1-3" ng-if="!cardPay && receiver.city.indexOf('广州市') != -1" ng-click="setPayType($event,'1','同城验货');">
+            <li id="payType1" class="pay-item list-item pure-u-1-3" ng-if="!cardPay" ng-class="{true:'on-paytype',false:''}[payType == 1]" ng-click="setPayType($event,1);">
                 <div class="item item-box margin border radius">
-                    <p class="title">
-                        <span ng-if="receiver.city.indexOf('广州市') != -1">同城验货</span>
-                    </p>
-                    <p class="details">
-                        <span ng-if="receiver.city.indexOf('广州市') != -1">广州电信上门服务</span>
-                    </p>
-                </div>
-            </li>
-            <li id="payType1" class="pay-item list-item pure-u-1-3" ng-if="!cardPay && receiver.city.indexOf('广州市') == -1" ng-click="setPayType($event,'1','货到付款');">
-                <div class="item item-box margin border radius">
-                    <p class="title">
-                        <span>货到付款</span>
-                    </p>
-                    <p class="details">
-                        <span>预付99元抵200</span>
-                    </p>
+                    <div ng-if="receiver.city.indexOf('广州市') != -1">
+                        <p class="title">同城验货</p>
+                        <p class="details">广州电信上门服务</p>
+                    </div>
+                    <div ng-if="receiver.city.indexOf('广州市') == -1">
+                        <p class="title">货到付款</p>
+                        <p class="details">预付99元抵200</p>
+                    </div>
                 </div>
             </li>
         </ul>

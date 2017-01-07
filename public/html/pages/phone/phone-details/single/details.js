@@ -43,8 +43,6 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
     $scope.setSbPayType = function (id, typeName) {
         $scope.payType = id;
         $scope.payTypeName = typeName;
-        $(".pay-item").removeClass("on");
-        $("#payType" + id).addClass("on");
         wirtePayType(id);
     };
     
@@ -66,8 +64,14 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
             $scope.activeTag = "lj";
             //$scope.totolPrice = $scope.phone.phonePrice;
             $scope.activeTagName = typeName;
+
             //if ($scope.totolPrice < 1500) {
+            if($scope.payType == 2){
                 $scope.setSbPayType(0, '一次性支付');
+            }else {
+                //$scope.setSbPayType(0, '一次性支付');
+            }
+
             //}
         } else {
             $scope.activeTag = "jjk";

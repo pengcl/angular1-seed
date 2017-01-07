@@ -28,6 +28,9 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
     $scope.setPkg = function (event, pkgId) {
         $scope.pkgId = pkgId;
         var $scrollTo = $('#pickMainPkg');
+        if($scope.pageType == 'B'){
+            var $scrollTo = $('.go-here');
+        }
         $container.animate({
             scrollTop: $scrollTo.offset().top - $container.offset().top + $container.scrollTop() - 50
         });
