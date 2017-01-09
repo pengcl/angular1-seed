@@ -4,13 +4,14 @@
         <div class="qrcode-content">
             <div class="qrcode-img">
                 <div class="img-box">
-                    <img src="/images/active/fudai.gif">
+                    <img class="fudai-1" src="/images/active/fudai.gif">
+                    <img class="fudai-2" style="display: none;" src="/images/active/fudai_unpack.gif">
                 </div>
             </div>
             <div class="qrcode-txt">
                 <div class="quan-form">
                     <form id="couponForm" name="couponForm" action="#" method="post" novalidate>
-                        <div class="qrcode-txt-title">输入手机号码立即领券 {{coupon.mobile}}</div>
+                        <div class="qrcode-txt-title">输入手机号码立即领券</div>
                         <div class="weui-cell input-mobile" ng-class="{'weui-cell_warn':couponForm.couponMobile.$dirty== true && couponForm.couponMobile.$valid == false,'weui-cell_success':couponForm.couponMobile.$valid == true}">
                             <div class="weui-cell__bd weui_cell_primary">
                                 <input id="couponMobile" name="couponMobile" ng-blur="inputHomeArgs(1)" ng-model="coupon.mobile" ng-maxlength="11" ng-pattern="/^[0-9]*$/" pattern="[0-9]*" ng-minlength="11" placeholder="请填写手机号码..." class="weui-input" required/>
@@ -31,7 +32,6 @@
                     </form>
                 </div>
                 <div class="quan-result hide">
-                    <div class="qrcode-txt-title">领券成功</div>
                     <p class="qrcode-txt-disc">已有<em>12454</em>人转赠送给朋友<br>好东西转赠给朋友，炫耀一下</p>
                     <div class="lingquan img-box" ng-click="shareQuan()">
                         <img src="/images/active/shareQuan.gif">

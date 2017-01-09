@@ -5,7 +5,11 @@ app.directive("gh", ['$location', function ($location) {
         restrict: 'E',
         templateUrl: "modules/gh/gh.html",
         link: function (scope, element, attrs) {
-            scope.gh = $location.search().gh;
+            if ($location.search().gh == undefined) {
+                scope.gh = "";
+            } else {
+                scope.gh = $location.search().gh;
+            }
         }
     };
 }]);

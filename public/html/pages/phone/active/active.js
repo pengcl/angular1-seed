@@ -146,5 +146,9 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
 
         writebdLog($scope.category, "_BuyNow", "渠道号", $scope.gh); //免费领卡
     };
+    
+    $scope.setMachine = function (machine,productId) {
+        writebdLog($scope.category, "_" + productId, "渠道号", $scope.gh);//选择的商品ID
+    }
 
 }]);

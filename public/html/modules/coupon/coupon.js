@@ -16,6 +16,12 @@ app.directive("ngCoupon", ['$location', '$interval', '$http', function ($locatio
                 writebdLog(scope.category, "_ShowCouponBar", "渠道号", scope.gh); //展示领券栏
             };
 
+            if($location.search().gh !== undefined){//判断是否需要执行showFudai;
+                if($location.search().gh.indexOf("yjtth5") != -1 && $location.path() === "/phone/active/A"){
+                    scope.showFudai();
+                }
+            }
+
             scope.$root.shareQuan = function () {
                 scope.showShare();
                 writebdLog(scope.category, "_Share", "渠道号", scope.gh); //点击分享
@@ -29,7 +35,6 @@ app.directive("ngCoupon", ['$location', '$interval', '$http', function ($locatio
             };
 
             scope.$root.getQuan = function () {
-                console.log(scope.coupon.mobile);
                 scope.toast.open();
                 if (!scope.$root.checkCouponMobile()) {
                     scope.toast.close();
@@ -43,13 +48,16 @@ app.directive("ngCoupon", ['$location', '$interval', '$http', function ($locatio
                     return false;
                 }
 
-                $http.jsonp('http://192.168.1.181:8082/product/doReceiveMultipleCoupon.html?recieverMobile=' + scope.coupon.mobile + '&couponType=HF-MX-JM&s=wap&callback=JSON_CALLBACK').success(function (data, status, headers, config) {
+                $http.jsonp('http://m.yfq.cn/product/doReceiveMultipleCoupon.html?recieverMobile=' + scope.coupon.mobile + '&couponType=HF-MX-JM&s=wap&callback=JSON_CALLBACK').success(function (data, status, headers, config) {
                     scope.toast.close();
                     scope.$root.apiCode = 0;
                     scope.dialog.open("系统提示", data[0].resultMsg);
                     if (data[0].resultCode == 0) {
                         $(".quan-result").removeClass("hide");
                         $(".quan-form").addClass("hide");
+                        $(".fudai-1").hide();
+                        $(".fudai-2").show();
+
                         writebdLog(scope.category, "_ReceiveCoupons", "渠道号", scope.gh); //领券成功
                     }
                 }).error(function (data, status, headers, config) {
@@ -131,6 +139,9 @@ app.directive("ngCoupon", ['$location', '$interval', '$http', function ($locatio
                     return true;
                 }
             };
+
+
+
         }
     };
 }]);
