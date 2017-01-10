@@ -1,6 +1,6 @@
 'use strict';
 
-app.directive("ngCoupon", ['$location', '$interval', '$http', function ($location, $interval, $http) {
+app.directive("ngCoupon", ['$location', '$interval', '$http', '$cookieStore', '$timeout', function ($location, $interval, $http, $cookieStore, $timeout) {
     return {
         restrict: 'E',
         templateUrl: "modules/coupon/coupon.html",
@@ -16,8 +16,8 @@ app.directive("ngCoupon", ['$location', '$interval', '$http', function ($locatio
                 writebdLog(scope.category, "_ShowCouponBar", "渠道号", scope.gh); //展示领券栏
             };
 
-            if($location.search().gh !== undefined){//判断是否需要执行showFudai;
-                if($location.search().gh.indexOf("yjtth5") != -1 && $location.path() === "/phone/active/A"){
+            if ($location.search().gh !== undefined) {//判断是否需要执行showFudai;
+                if ($location.search().gh.indexOf("yjtth5") != -1 && $location.path() === "/phone/active/A") {
                     scope.showFudai();
                 }
             }
@@ -26,12 +26,11 @@ app.directive("ngCoupon", ['$location', '$interval', '$http', function ($locatio
                 scope.showShare();
                 writebdLog(scope.category, "_Share", "渠道号", scope.gh); //点击分享
             };
-            
+
             var homeArgs = ['_InputIndexCode', '_InputIndexNumber'];
             //记录落地页输入的操作
-            scope.$root.inputHomeArgs = function (type) 
-            {
-            	writebdLog(scope.category, homeArgs[type], "渠道号", scope.gh); //输入操作
+            scope.$root.inputHomeArgs = function (type) {
+                writebdLog(scope.category, homeArgs[type], "渠道号", scope.gh); //输入操作
             };
 
             scope.$root.getQuan = function () {
@@ -51,20 +50,25 @@ app.directive("ngCoupon", ['$location', '$interval', '$http', function ($locatio
                 $http.jsonp('http://m.yfq.cn/product/doReceiveMultipleCoupon.html?recieverMobile=' + scope.coupon.mobile + '&couponType=HF-MX-JM&s=wap&callback=JSON_CALLBACK').success(function (data, status, headers, config) {
                     scope.toast.close();
                     scope.$root.apiCode = 0;
-                    scope.dialog.open("系统提示", data[0].resultMsg);
                     if (data[0].resultCode == 0) {
                         $(".quan-result").removeClass("hide");
                         $(".quan-form").addClass("hide");
                         $(".fudai-1").hide();
                         $(".fudai-2").show();
 
+                        $cookieStore.put("couponStore", $cookieStore.get("couponStore") - 1);
+
+                        scope.couponStore = $cookieStore.get("couponStore") - 1;
+
                         writebdLog(scope.category, "_ReceiveCoupons", "渠道号", scope.gh); //领券成功
+                    }else {
+                        scope.dialog.open("系统提示", data[0].resultMsg);
                     }
                 }).error(function (data, status, headers, config) {
                     console.log(status);
                     //deferred.reject(status)
                 });
-                
+
                 writebdLog(scope.category, "_ClickCoupons", "渠道号", scope.gh); //点击领券
             };
 
@@ -139,7 +143,6 @@ app.directive("ngCoupon", ['$location', '$interval', '$http', function ($locatio
                     return true;
                 }
             };
-
 
 
         }

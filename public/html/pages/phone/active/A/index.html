@@ -14,7 +14,7 @@
 
                 </div>
                 <div class="fqa-bd">
-                    <p class="fqa-bd-title">剩余红包数<sub>(每小时限量500个)：</sub><span><em>73</em> 个</span></p>
+                    <p class="fqa-bd-title">剩余红包数<sub>(每小时限量500个)：</sub><span><em ng-bind="cookieStore"></em> 个</span></p>
                     <p class="toggle-title" ng-click="fqaToggleClose();">优惠券说明 <i class="icon-arrow-up" ng-show="!toggleClose"></i><i class="icon-arrow-down" ng-show="toggleClose"></i></p>
                     <div class="fqa-content" ng-show="!toggleClose">
                         <ul>
