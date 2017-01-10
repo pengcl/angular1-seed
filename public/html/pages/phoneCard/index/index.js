@@ -1,17 +1,17 @@
 "use strict";
 
-app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $locationProvider) {
+app.config(['$stateProvider', '$locationProvider', function($stateProvider, $locationProvider) {
 
     // 设定路由
     $stateProvider
         .state('phoneCardIndex', { //app首页
             url: "/pcd/:pageType/index",
-            templateUrl: function ($stateParams) {
+            templateUrl: function($stateParams) {
                 return 'pages/phoneCard/index/' + $stateParams.pageType + '/index.html';
             },
             controller: "phoneCardIndexController"
         });
-}]).controller('phoneCardIndexController', ['$scope', '$rootScope', '$location', '$http', '$stateParams', '$timeout', function ($scope, $rootScope, $location, $http, $stateParams, $timeout) {
+}]).controller('phoneCardIndexController', ['$scope', '$rootScope', '$location', '$http', '$stateParams', '$timeout', '$interval', function($scope, $rootScope, $location, $http, $stateParams, $timeout, $interval) {
     //$scope.pageTitle = "首页";
     //$scope.$root.title = $scope.pageTitle;
 
@@ -22,10 +22,10 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
     $scope.activeTag = "mysytcb";
     $scope.appType = systemName + "_" + $scope.pageType + "_0ylk";
     $scope.category = $scope.appType;
-
+    $scope.second = 5;
     writebdLog($scope.category, "_Load", "渠道号", $scope.gh);
 
-    $scope.setPkg = function (event, pkgId) {
+    $scope.setPkg = function(event, pkgId) {
         $scope.pkgId = pkgId;
         //var $scrollTo = $('#pickMainPkg');
         var $scrollTo = $('.go-here');
@@ -35,8 +35,8 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
         writebdLog($scope.category, "_SelectPackage" + pkgId, "渠道号", $scope.gh);
     };
 
-    $scope.checkMainPkg = function () {
-        if (!$scope.checkoutForm.productId.$valid) {//原本应该用!scope.checkoutForm.phoneNumber.$valid
+    $scope.checkMainPkg = function() {
+        if (!$scope.checkoutForm.productId.$valid) { //原本应该用!scope.checkoutForm.phoneNumber.$valid
             var $scrollTo = $('#pickMainPkg');
             $container.animate({
                 scrollTop: $scrollTo.offset().top - $container.offset().top + $container.scrollTop() - 50
@@ -46,7 +46,9 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
         return true;
     };
 
-    $scope.submitForm = function () {
+
+
+    $scope.submitForm = function() {
         $scope.toast.open();
         if (!$scope.checkMainPkg()) {
             $scope.toast.close();
@@ -69,21 +71,31 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
             return false;
         }
         $scope.submitUrl = "http://m.yfq.cn/wap/taokafanghaoNew/submitOrderCommon.html?mainNumber=" + $scope.mainNumber + "&activeTag=" + $scope.activeTag + "&category=" + $scope.category + "&gh=" + $scope.gh + "&activity=" + $scope.activity + "&productId=" + $scope.pkgId + "&reciverName=" + encodeURI(encodeURI($scope.receiver.name)) + "&receiverMobile=" + $scope.receiver.mobile + "&receiverCity=" + encodeURI(encodeURI($scope.receiver.city)) + "&receiverRoom=" + encodeURI(encodeURI($scope.receiver.room)) + "&mainCardTypeId=" + $scope.simItem.id + "&payType=1&category=" + $scope.category + "&callback=JSON_CALLBACK";
-        $http.jsonp($scope.submitUrl).success(function (data, status, headers, config) {
+        $http.jsonp($scope.submitUrl).success(function(data, status, headers, config) {
             $scope.toast.close();
             if (data[0].resultCode == "0") {
                 $scope.orderNo = data[0].resultMsg;
                 var timer = $timeout(
-                    function () {
+                    function() {
                         var targetHtml = $("#wxQrCode").html();
                         $scope.Overlay.open(targetHtml);
                     },
                     100
                 );
+
+                $interval(function() {
+                    $scope.second--;
+                    if ($scope.second <0) {
+                        window.location.href = "http://m.yfq.cn/wap/taokafanghaoNew/uploadCardA.html?orderNo=" + $scope.orderNo + "&s=wap";
+                        return false;
+                    }
+                        $("#time-new").html($scope.second);
+                }, 1000);
+                
             } else {
                 $scope.dialog.open("系统提示", data[0].resultMsg);
             }
-        }).error(function (data, status, headers, config) {
+        }).error(function(data, status, headers, config) {
             console.log(status);
             //deferred.reject(status)
         });
@@ -91,10 +103,11 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
         writebdLog($scope.category, "_BuyNow", "渠道号", $scope.gh); //免费领卡
     };
 
-    $(".fqa-more").click(function () {
+    $(".fqa-more").click(function() {
         $(".fqa-lists").toggleClass("close");
         $(this).toggleClass("close");
     });
+
 
     androidInputBugFix();
 }]);
