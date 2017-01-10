@@ -61,6 +61,19 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
         });
     };
 
+    $(".content-scrollable").bind("scroll", function () {
+        var $footerNav = $(".footer-nav");
+        var $rightNav = $(".right-nav");
+        var targetTop = $(".hot-phone").offset().top;
+        if ($(this).scrollTop() > targetTop) {
+            $rightNav.show(300);
+            $footerNav.show(300);
+        }else {
+            $rightNav.hide(300);
+            $footerNav.hide(300);
+        }
+    });
+
     $http.jsonp('http://m.yfq.cn/product/getProList.html?activeTag=lj&s=wap&callback=JSON_CALLBACK').success(function (data, status, headers, config) {
         $scope.singlePhones = data;
     }).error(function (data, status, headers, config) {

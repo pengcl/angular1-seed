@@ -6,6 +6,7 @@
                 <div class="img-box">
                     <img class="fudai-1" src="/images/active/fudai.gif">
                     <img class="fudai-2" style="display: none;" src="/images/active/fudai_unpack.gif">
+                    <img class="fudai-3" style="display: none;" src="/images/active/fudai_error.gif">
                 </div>
             </div>
             <div class="qrcode-txt">
@@ -30,6 +31,13 @@
                             <img src="/images/active/lingquan.gif">
                         </div>
                     </form>
+                </div>
+                <div class="quan-error hide">
+                    <p class="qrcode-txt-title">您已经领取该购机红包</p>
+                    <p class="qrcode-txt-disc">每人限领1个</p>
+                    <div class="lingquan img-box" ng-click="usingQuan()">
+                        <img src="/images/active/buy-phone.gif">
+                    </div>
                 </div>
                 <div class="quan-result hide">
                     <p class="qrcode-txt-disc">已有<em>12454</em>人转赠送给朋友<br>好东西转赠给朋友，炫耀一下</p>

@@ -87,7 +87,7 @@
         &.line-r {
           &:after {
             border-right: 1px solid #ff5238;
-            @include scaleX(0);
+            @include scaleX(1);
           }
         }
         .icon-comment {
@@ -279,6 +279,14 @@
     }
     .lingquan {
       margin-top: 0.15rem;
+    }
+    .quan-error {
+      .qrcode-txt-title {
+        margin-top: 0.4rem;
+      }
+      .qrcode-txt-disc {
+        margin-top: 0.15rem;
+      }
     }
   }
   .weui-vcode-btn {
