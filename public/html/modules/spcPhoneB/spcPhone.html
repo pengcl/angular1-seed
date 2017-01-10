@@ -1,27 +1,27 @@
 <p class="sp-title">选择手机品牌<span class="star-color">*</span></p>
 <ul class="spc-list pure-g">
     <li class="pure-u-1-5">
-        <div class="item-box img-box" ng-class="{true:'curr',false:''}[filterPhoneName == 'iPhone7']" ng-click="filterPhone('iPhone7','apple')">
+        <div class="item-box img-box" ng-class="{true:'curr',false:''}[filterPhoneName == 'iPhone7']">
             <img src="/images/active/phone-1.gif">
         </div>
     </li>
     <li class="pure-u-1-5">
-        <div class="item-box img-box" ng-class="{true:'curr',false:''}[filterPhoneName == '华为']" ng-click="filterPhone('华为','huawei')">
+        <div class="item-box img-box" ng-class="{true:'curr',false:''}[filterPhoneName == '华为']">
             <img src="/images/active/phone-2.gif">
         </div>
     </li>
     <li class="pure-u-1-5">
-        <div class="item-box img-box" ng-class="{true:'curr',false:''}[filterPhoneName == '小米']" ng-click="filterPhone('小米','mi')">
+        <div class="item-box img-box" ng-class="{true:'curr',false:''}[filterPhoneName == '小米']">
             <img src="/images/active/phone-3.gif">
         </div>
     </li>
     <li class="pure-u-1-5">
-        <div class="item-box img-box" ng-class="{true:'curr',false:''}[filterPhoneName == 'OPPO']" ng-click="filterPhone('OPPO','oppo')">
+        <div class="item-box img-box" ng-class="{true:'curr',false:''}[filterPhoneName == 'OPPO']">
             <img src="/images/active/phone-4.gif">
         </div>
     </li>
     <li class="pure-u-1-5">
-        <div class="item-box img-box" ng-class="{true:'curr',false:''}[filterPhoneName == 'vivo']" ng-click="filterPhone('vivo','vivo')">
+        <div class="item-box img-box" ng-class="{true:'curr',false:''}[filterPhoneName == 'vivo']">
             <img src="/images/active/phone-5.gif">
         </div>
     </li>
@@ -34,6 +34,11 @@
         <a class="item-box" ng-if="params.length == 0" href="/phs/sg/{{pageType}}/{{singlePhone.activityproductId}}{{params}}?headCategory={{category}}" ng-class="{true:'curr',false:''}[machineName == singlePhone.productName]" ng-click="setMachine(singlePhone.productName,singlePhone.activityproductId)">
             <div class="img-box">
                 <img ng-src="http://www.yfq.cn:8899/fileserver/medias/{{singlePhone.mainImageUrl}}">
+                <span class="flag">
+                    <p><span>领券</span></p>
+                    <p><span>减</span><span ng-bind="singlePhone.phonePrice | jm : 400"></span></p>
+                    <p><span>元</span></p>
+                </span>
             </div>
             <div class="title">
                 <span ng-bind="singlePhone.productName"></span>

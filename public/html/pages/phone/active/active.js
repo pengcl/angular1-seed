@@ -11,11 +11,19 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
             },
             controller: "pActiveController"
         });
-}]).controller('pActiveController', ['$scope', '$location', '$http', '$stateParams', '$interval', '$timeout', function ($scope, $location, $http, $stateParams, $interval, $timeout) {
+}]).controller('pActiveController', ['$scope', '$location', '$http', '$stateParams', '$interval', '$timeout', '$cookieStore', function ($scope, $location, $http, $stateParams, $interval, $timeout, $cookieStore) {
 
     $scope.pageType = $stateParams.pageType;
     $scope.appType = systemName + "_coupon_" + $scope.pageType;
     $scope.category = $scope.appType;
+
+    if ($cookieStore.get("couponStore")) {
+        $scope.cookieStore = $cookieStore.get("couponStore");
+    } else {
+        $scope.cookieStore = $cookieStore.put("couponStore", 199);
+    }
+
+    $scope.cookieStore = $cookieStore.get("couponStore");
 
     $scope.params = window.location.search;
 
@@ -25,10 +33,10 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
 
     $scope.fqaToggleClose = function () {
         $scope.toggleClose = !$scope.toggleClose;
-        if($scope.toggleClose)
-        	writebdLog($scope.category, "_CouExplainStop", "渠道号", $scope.gh);//收起优惠券说明
+        if ($scope.toggleClose)
+            writebdLog($scope.category, "_CouExplainStop", "渠道号", $scope.gh);//收起优惠券说明
         else
-        	writebdLog($scope.category, "_CouExplainShow", "渠道号", $scope.gh);//展示优惠券说明
+            writebdLog($scope.category, "_CouExplainShow", "渠道号", $scope.gh);//展示优惠券说明
     };
 
     //统计
@@ -146,8 +154,8 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
 
         writebdLog($scope.category, "_BuyNow", "渠道号", $scope.gh); //免费领卡
     };
-    
-    $scope.setMachine = function (machine,productId) {
+
+    $scope.setMachine = function (machine, productId) {
         writebdLog($scope.category, "_" + productId, "渠道号", $scope.gh);//选择的商品ID
     }
 
