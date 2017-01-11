@@ -22,6 +22,18 @@ app.directive("ngCoupon", ['$location', '$interval', '$http', '$cookieStore', '$
                 }
             }
 
+            $timeout(function () {
+                if($location.search().fromsearch !== undefined){
+                    var $container = $('.content-scrollable');
+                    var $scrollTo = $('.hot-phone');
+                    if($location.search().fromsearch == 1){
+                        $container.animate({
+                            scrollTop: $scrollTo.offset().top - $container.offset().top + $container.scrollTop()
+                        });
+                    }
+                }
+            },500);
+
             scope.$root.shareQuan = function () {
                 scope.showShare();
                 writebdLog(scope.category, "_Share", "渠道号", scope.gh); //点击分享
@@ -62,7 +74,11 @@ app.directive("ngCoupon", ['$location', '$interval', '$http', '$cookieStore', '$
 
                         writebdLog(scope.category, "_ReceiveCoupons", "渠道号", scope.gh); //领券成功
                     }else {
-                        scope.dialog.open("系统提示", data[0].resultMsg);
+                        $(".quan-error").removeClass("hide");
+                        $(".quan-form").addClass("hide");
+                        $(".fudai-1").hide();
+                        $(".fudai-3").show();
+                        //scope.dialog.open("系统提示", data[0].resultMsg);
                     }
                 }).error(function (data, status, headers, config) {
                     console.log(status);
@@ -74,7 +90,12 @@ app.directive("ngCoupon", ['$location', '$interval', '$http', '$cookieStore', '$
 
             scope.$root.usingQuan = function () {
                 var $container = $('.content-scrollable');
-                var $scrollTo = $('.hot-phone');
+
+                if($('.hot-phone').length > 0){
+                    var $scrollTo = $('.hot-phone');
+                }else {
+                    var $scrollTo = $('#receiverAddress');
+                }
                 scope.Overlay.close();
                 $container.animate({
                     scrollTop: $scrollTo.offset().top - $container.offset().top + $container.scrollTop()

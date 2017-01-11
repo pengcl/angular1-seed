@@ -57,6 +57,11 @@
         <a class="item-box" ng-if="params.length != 0" href="/phs/sg/{{pageType}}/{{singlePhone.activityproductId}}{{params}}&headCategory={{category}}" ng-class="{true:'curr',false:''}[machineName == singlePhone.productName]" ng-click="setMachine(singlePhone.productName,singlePhone.activityproductId)">
             <div class="img-box">
                 <img ng-src="http://www.yfq.cn:8899/fileserver/medias/{{singlePhone.mainImageUrl}}">
+                <span class="flag">
+                    <p><span>领券</span></p>
+                    <p><span>减</span><span ng-bind="singlePhone.phonePrice | jm : 400"></span></p>
+                    <p><span>元</span></p>
+                </span>
             </div>
             <div class="title">
                 <span ng-bind="singlePhone.productName"></span>
