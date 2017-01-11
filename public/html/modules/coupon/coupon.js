@@ -5,7 +5,7 @@ app.directive("ngCoupon", ['$location', '$interval', '$http', '$cookieStore', '$
         restrict: 'E',
         templateUrl: "modules/coupon/coupon.html",
         link: function (scope, element, attrs) {
-
+            scope.showPhones=false;
             scope.$root.paracont = "获取验证码";
             scope.$root.paraclass = "but_null";
             var second = 59, timePromise = undefined;
@@ -22,17 +22,19 @@ app.directive("ngCoupon", ['$location', '$interval', '$http', '$cookieStore', '$
                 }
             }
 
-            $timeout(function () {
+
                 if($location.search().fromsearch !== undefined){
-                    var $container = $('.content-scrollable');
-                    var $scrollTo = $('.hot-phone');
                     if($location.search().fromsearch == 1){
+                        scope.showPhones=true;
+                        $timeout(function () {
+                            var $container = $('.content-scrollable');
+                            var $scrollTo = $('.hot-phone');
                         $container.animate({
                             scrollTop: $scrollTo.offset().top - $container.offset().top + $container.scrollTop()
                         });
+                        },500);
                     }
                 }
-            },500);
 
             scope.$root.shareQuan = function () {
                 scope.showShare();
@@ -67,7 +69,7 @@ app.directive("ngCoupon", ['$location', '$interval', '$http', '$cookieStore', '$
                         $(".quan-form").addClass("hide");
                         $(".fudai-1").hide();
                         $(".fudai-2").show();
-
+                        scope.showPhones=true;
                         $cookieStore.put("couponStore", $cookieStore.get("couponStore") - 1);
 
                         scope.couponStore = $cookieStore.get("couponStore") - 1;
