@@ -11,7 +11,6 @@
             </div>
             <div class="active-fqa">
                 <div class="fqa-hd">
-
                 </div>
                 <div class="fqa-bd">
                     <p class="fqa-bd-title">剩余红包数<sub>(每小时限量500个)：</sub><span><em ng-bind="cookieStore"></em> 个</span></p>
@@ -36,13 +35,12 @@
             <div class="img-box">
                 <img src="/images/active/4.jpg">
             </div>
-
             <div class="getters" ng-bind-html="getters | trustHtml"></div>
-
+        </div>
+        <div ng-if="showPhones">
             <div class="hot-phone img-box">
                 <img src="/images/active/5.jpg">
             </div>
-
             <div class="hot-phone">
                 <ul class="spc-list hot-phone">
                     <li ng-repeat="singlePhone in singlePhones | filter:{ifRecommend: 1}" ng-show="singlePhone.salePrice >= 1500">
@@ -79,24 +77,20 @@
                     </li>
                 </ul>
             </div>
-
             <div class="img-box">
                 <img src="/images/active/6.gif">
             </div>
-        </div>
-
-        <div class="phones-content">
-            <spc-phone-b ng-if="singlePhones"></spc-phone-b>
-        </div>
-
-        <div class="promise">
-            <div class="img-box">
-                <img class="lazy" data-original="/images/active/7.gif">
+            <div class="phones-content">
+                <spc-phone-b ng-if="singlePhones"></spc-phone-b>
+            </div>
+            <div class="promise">
+                <div class="img-box">
+                    <img src="/images/active/7.gif">
+                </div>
             </div>
         </div>
 
         <ng-coupon></ng-coupon>
-
     </div>
     <div class="right-nav" style="display: none">
         <div class="img-box" ng-click="showFudai()">
