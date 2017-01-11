@@ -64,13 +64,13 @@
             text-overflow: ellipsis;
           }
           .price {
-            font-size: 0.14rem;
+            font-size: 0.16rem;
             margin-left: -0.05rem;
             margin-right: -0.05rem;
             margin-top: 0.1rem;
             em {
               color: $color-primary;
-              font-size: 0.14rem;
+              font-size: 0.16rem;
             }
           }
         }
@@ -196,10 +196,21 @@
         .img-box {
           @include box-sizing(border-box);
           padding-right: 0.1rem;
+          position: relative;
           img {
             height: 0.9rem;
             width: auto;
             margin: 0 auto;
+          }
+          .flag {
+            position: absolute;
+            left: -0.15rem;
+            top: 0;
+            width: 0.8rem;
+            img {
+              width: 100%;
+              height: auto;
+            }
           }
         }
         .item-txt {

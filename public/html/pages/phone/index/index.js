@@ -34,21 +34,21 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
         writebdLog($scope.category, "_CustConsult", "渠道号", $scope.gh);//客服咨询
     };
 
-    $http.jsonp('http://m.yfq.cn/product/getPackageList.html?activeTag=bdtc&s=wap&callback=JSON_CALLBACK').success(function (data, status, headers, config) {
+    $http.jsonp(cfApi.apiHost + '/product/getPackageList.html?activeTag=bdtc&s=wap&callback=JSON_CALLBACK').success(function (data, status, headers, config) {
         $scope.pkgs = data;
     }).error(function (data, status, headers, config) {
         console.log(status);
         //deferred.reject(status)
     });
 
-    $http.jsonp('http://m.yfq.cn/product/getProList.html?activeTag=lj&s=wap&callback=JSON_CALLBACK').success(function (data, status, headers, config) {
+    $http.jsonp(cfApi.apiHost + '/product/getProList.html?activeTag=lj&s=wap&callback=JSON_CALLBACK').success(function (data, status, headers, config) {
         $scope.singlePhones = data;
     }).error(function (data, status, headers, config) {
         console.log(status);
         //deferred.reject(status)
     });
 
-    $http.jsonp('http://m.yfq.cn/product/getProList.html?activeTag=mysy&s=wap&callback=JSON_CALLBACK').success(function (data, status, headers, config) {
+    $http.jsonp(cfApi.apiHost + '/product/getProList.html?activeTag=mysy&s=wap&callback=JSON_CALLBACK').success(function (data, status, headers, config) {
 
         $scope.doublePhones = data;
     }).error(function (data, status, headers, config) {
@@ -156,7 +156,7 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
 
         //console.log($scope.gh,$scope.activity);
 
-        $scope.submitUrl = "http://m.yfq.cn/wap/taokafanghaoNew/submitOrderCommon.html?activeTag=sdhd&brand=" + encodeURI(encodeURI($scope.machineName)) + "&gh=" + $scope.gh + "&activity=" + $scope.activity + "&reciverName=" + encodeURI(encodeURI($scope.receiver.name)) + "&receiverMobile=" + $scope.receiver.mobile + "&receiverCity=" + encodeURI(encodeURI($scope.receiver.city)) + "&receiverRoom=" + encodeURI(encodeURI($scope.receiver.room)) + "&payType=1&category=" + $scope.category + "&callback=JSON_CALLBACK";
+        $scope.submitUrl = cfApi.apiHost + "/wap/taokafanghaoNew/submitOrderCommon.html?activeTag=sdhd&brand=" + encodeURI(encodeURI($scope.machineName)) + "&gh=" + $scope.gh + "&activity=" + $scope.activity + "&reciverName=" + encodeURI(encodeURI($scope.receiver.name)) + "&receiverMobile=" + $scope.receiver.mobile + "&receiverCity=" + encodeURI(encodeURI($scope.receiver.city)) + "&receiverRoom=" + encodeURI(encodeURI($scope.receiver.room)) + "&payType=1&category=" + $scope.category + "&callback=JSON_CALLBACK";
 
         $http.jsonp($scope.submitUrl).success(function (data, status, headers, config) {
             $scope.toast.close();

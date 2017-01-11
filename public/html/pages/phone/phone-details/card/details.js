@@ -7,7 +7,7 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
         .state('phoneCardDetails', { //app首页
             url: "/phs/cd/:pageType/:cardId",
             templateUrl: function ($stateParams) {
-                return 'pages/phone/phone-details/card/'+$stateParams.pageType+'/details.html';
+                return 'pages/phone/phone-details/card/' + $stateParams.pageType + '/details.html';
             },
             controller: "pCardProController"
         });
@@ -20,7 +20,7 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
     writebdLog($scope.category, "_Load", "渠道号", $scope.gh);
 
 
-    $http.jsonp("http://m.yfq.cn/product/getPackageInfo.html?productId=" + $stateParams.cardId + "&s=wap&callback=JSON_CALLBACK").success(function (data, status, headers, config) {
+    $http.jsonp(cfApi.apiHost + "/product/getPackageInfo.html?productId=" + $stateParams.cardId + "&s=wap&callback=JSON_CALLBACK").success(function (data, status, headers, config) {
         $scope.card = data;
         $scope.totolPrice = data.salesPrice;
     }).error(function (data, status, headers, config) {
@@ -45,13 +45,13 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
         $("#payType" + id).addClass("on");
         wirtePayType(id);
     };
-    
+
     var value;
-    var payTypeAry=['payAll','payCOD','payMonthly'];
-    function wirtePayType(payType)
-    {
-    	value=payTypeAry[payType];
-    	writebdLog($scope.category, "_"+value, "渠道号", $scope.gh);//选择支付方式
+    var payTypeAry = ['payAll', 'payCOD', 'payMonthly'];
+
+    function wirtePayType(payType) {
+        value = payTypeAry[payType];
+        writebdLog($scope.category, "_" + value, "渠道号", $scope.gh);//选择支付方式
     }
 
     $scope.setBuyType = function (event, type) {
@@ -98,7 +98,7 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
 
     $scope.$watch('productId', function (n, o, $scope) {
         if (n != o) {
-            $http.get("http://m.yfq.cn/product/getProDetial.html?productId=" + n + "&s=wap&callback=JSON_CALLBACK").success(function (phone) {
+            $http.get(cfApi.apiHost + "/product/getProDetial.html?productId=" + n + "&s=wap&callback=JSON_CALLBACK").success(function (phone) {
                 /*$scope.phone = phone;
 
                  //选择默认内存

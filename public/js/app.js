@@ -11,7 +11,7 @@ var baseApiUri = "http://app.gd189fq.com:3099/api";
 app.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', function ($stateProvider, $urlRouterProvider, $locationProvider) {
     $locationProvider.html5Mode(true).hashPrefix('!');
 
-    $urlRouterProvider.otherwise("/phone/A/index");
+    $urlRouterProvider.otherwise("/phone/active/A");
 }]).run(['$rootScope', function ($rootScope) {
 
     /*$rootScope.$on('$locationChangeStart',function(){

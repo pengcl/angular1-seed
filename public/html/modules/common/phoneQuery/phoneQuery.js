@@ -101,7 +101,7 @@ app.directive("phoneQuery", ["$cookieStore", function ($cookieStore) {
         writebdLog($scope.category, '_InputNumber', "渠道号", $scope.gh);//输入查询号码
     };
 
-    $http.jsonp('http://m.gd189fq.com/wap/taokafanghaoNew/fetchNumber.html?callback=JSON_CALLBACK').success(function (data, status, headers, config) {//获取所有的手机号码
+    $http.jsonp(cfApi.apiHost + '/wap/taokafanghaoNew/fetchNumber.html?callback=JSON_CALLBACK').success(function (data, status, headers, config) {//获取所有的手机号码
         $.each(eval(data), function (i, k) {
             if (!k.t) {
                 $scope.phoneData.push(k);

@@ -70,7 +70,7 @@ app.config(['$stateProvider', '$locationProvider', function($stateProvider, $loc
             $scope.toast.close();
             return false;
         }
-        $scope.submitUrl = "http://m.yfq.cn/wap/taokafanghaoNew/submitOrderCommon.html?mainNumber=" + $scope.mainNumber + "&activeTag=" + $scope.activeTag + "&category=" + $scope.category + "&gh=" + $scope.gh + "&activity=" + $scope.activity + "&productId=" + $scope.pkgId + "&reciverName=" + encodeURI(encodeURI($scope.receiver.name)) + "&receiverMobile=" + $scope.receiver.mobile + "&receiverCity=" + encodeURI(encodeURI($scope.receiver.city)) + "&receiverRoom=" + encodeURI(encodeURI($scope.receiver.room)) + "&mainCardTypeId=" + $scope.simItem.id + "&payType=1&category=" + $scope.category + "&callback=JSON_CALLBACK";
+        $scope.submitUrl = cfApi.apiHost + "/wap/taokafanghaoNew/submitOrderCommon.html?mainNumber=" + $scope.mainNumber + "&activeTag=" + $scope.activeTag + "&category=" + $scope.category + "&gh=" + $scope.gh + "&activity=" + $scope.activity + "&productId=" + $scope.pkgId + "&reciverName=" + encodeURI(encodeURI($scope.receiver.name)) + "&receiverMobile=" + $scope.receiver.mobile + "&receiverCity=" + encodeURI(encodeURI($scope.receiver.city)) + "&receiverRoom=" + encodeURI(encodeURI($scope.receiver.room)) + "&mainCardTypeId=" + $scope.simItem.id + "&payType=1&category=" + $scope.category + "&callback=JSON_CALLBACK";
         $http.jsonp($scope.submitUrl).success(function(data, status, headers, config) {
             $scope.toast.close();
             if (data[0].resultCode == "0") {

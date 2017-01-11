@@ -23,16 +23,16 @@ app.directive("ngCoupon", ['$location', '$interval', '$http', '$cookieStore', '$
             }
 
             $timeout(function () {
-                if($location.search().fromsearch !== undefined){
+                if ($location.search().fromsearch !== undefined) {
                     var $container = $('.content-scrollable');
                     var $scrollTo = $('.hot-phone');
-                    if($location.search().fromsearch == 1){
+                    if ($location.search().fromsearch == 1) {
                         $container.animate({
                             scrollTop: $scrollTo.offset().top - $container.offset().top + $container.scrollTop()
                         });
                     }
                 }
-            },500);
+            }, 500);
 
             scope.$root.shareQuan = function () {
                 scope.showShare();
@@ -59,7 +59,12 @@ app.directive("ngCoupon", ['$location', '$interval', '$http', '$cookieStore', '$
                     return false;
                 }
 
-                $http.jsonp('http://m.yfq.cn/product/doReceiveMultipleCoupon.html?recieverMobile=' + scope.coupon.mobile + '&couponType=HF-MX-JM&s=wap&callback=JSON_CALLBACK').success(function (data, status, headers, config) {
+                var headCategory = $location.search().headCategory;
+                var category = scope.category;
+                if (headCategory != undefined && headCategory != null)
+                    category = headCategory;
+
+                $http.jsonp(cfApi.apiHost + '/product/doReceiveMultipleCoupon.html?recieverMobile=' + scope.coupon.mobile + '&couponType=HF-MX-JM&gh=' + scope.gh + '&category=' + category + '&s=wap&callback=JSON_CALLBACK').success(function (data, status, headers, config) {
                     scope.toast.close();
                     scope.$root.apiCode = 0;
                     if (data[0].resultCode == 0) {
@@ -73,7 +78,7 @@ app.directive("ngCoupon", ['$location', '$interval', '$http', '$cookieStore', '$
                         scope.couponStore = $cookieStore.get("couponStore") - 1;
 
                         writebdLog(scope.category, "_ReceiveCoupons", "渠道号", scope.gh); //领券成功
-                    }else {
+                    } else {
                         $(".quan-error").removeClass("hide");
                         $(".quan-form").addClass("hide");
                         $(".fudai-1").hide();
@@ -91,9 +96,9 @@ app.directive("ngCoupon", ['$location', '$interval', '$http', '$cookieStore', '$
             scope.$root.usingQuan = function () {
                 var $container = $('.content-scrollable');
 
-                if($('.hot-phone').length > 0){
+                if ($('.hot-phone').length > 0) {
                     var $scrollTo = $('.hot-phone');
-                }else {
+                } else {
                     var $scrollTo = $('#receiverAddress');
                 }
                 scope.Overlay.close();
@@ -115,12 +120,12 @@ app.directive("ngCoupon", ['$location', '$interval', '$http', '$cookieStore', '$
             };
 
             scope.$root.getCouponActiveCode = function (event, phoneNumber) {
-                scope.toast.open();
-
                 if ($(event.currentTarget).hasClass("not")) {
-                    scope.toast.close();
+                    //scope.toast.close();
                     return false;
                 }
+
+                scope.toast.openUnLimit();
 
                 if (!scope.$root.checkCouponMobile()) {
                     scope.toast.close();

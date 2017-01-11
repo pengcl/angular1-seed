@@ -27,7 +27,7 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
     $scope.phoneQueryUrl = "http://" + $location.host() + $location.url();
     writebdLog($scope.category, "_Load", "渠道号", $scope.gh);
 
-    $http.jsonp("http://m.yfq.cn/product/getProDetial.html?productId=" + $stateParams.phoneId + "&activeTag=jjk&s=wap&callback=JSON_CALLBACK").success(function (data, status, headers, config) {
+    $http.jsonp(cfApi.apiHost + "/product/getProDetial.html?productId=" + $stateParams.phoneId + "&activeTag=jjk&s=wap&callback=JSON_CALLBACK").success(function (data, status, headers, config) {
         $scope.phone = data;
         $scope.package=$scope.phone.packageProductList[0];
         $scope.totolPrice = data.salePrice;
@@ -112,7 +112,7 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
 
     $scope.$watch('productId', function (n, o, $scope) {
         if (n != o) {
-            $http.get("http://m.yfq.cn/product/getProDetial.html?productId=" + n + "&s=wap&callback=JSON_CALLBACK").success(function (phone) {
+            $http.get(cfApi.apiHost + "/product/getProDetial.html?productId=" + n + "&s=wap&callback=JSON_CALLBACK").success(function (phone) {
                 /*$scope.phone = phone;
 
                  //选择默认内存
@@ -128,7 +128,7 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
     });
     $scope.$watch('activeTag', function (n, o, $scope) {
         if (n != o) {
-            $http.jsonp("http://m.yfq.cn/product/getProDetial.html?productId=" + $stateParams.phoneId + "&activeTag=" + n + "&s=wap&callback=JSON_CALLBACK").success(function (data, status, headers, config) {
+            $http.jsonp(cfApi.apiHost + "/product/getProDetial.html?productId=" + $stateParams.phoneId + "&activeTag=" + n + "&s=wap&callback=JSON_CALLBACK").success(function (data, status, headers, config) {
                 //$scope.phone = data;
                 //$scope.package=$scope.phone.packageProductList[0];
                 $scope.totolPrice = data.salePrice;
