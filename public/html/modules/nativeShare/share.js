@@ -8,9 +8,9 @@ app.directive("nativeShare", ['$cookieStore', function ($cookieStore) {
             var homeLink, picUrl, shareTitle, shareDisc;
 
             homeLink = 'http://app.yfq.cn/phone/active/A';
-            shareTitle = '我在翼分期购买了一个不错的产品，绝对适合你→_→';
-            shareDisc = '这里有全国流量卡、888手机号，速来围观';
-            picUrl = 'http://www.cz.com/images/active/1.jpg';
+            shareTitle = '1888元年终奖大派送！翼分期商城，购机最高立减400元!送720元话费！';
+            shareDisc = '苹果、OPPO、华为、VIVO等大牌手机直降！领券再立减！支持0息信用卡分期，点击直入>>';
+            picUrl = 'http://m.yfq.cn/images/active/1.jpg';
 
             var $nativeShare = $("#nativeShare");
             var $nativeShareClose = $("#nativeShareClose");

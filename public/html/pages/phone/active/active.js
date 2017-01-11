@@ -50,7 +50,7 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
     };
 
     $interval(function () {
-        $scope.getters = getRandomPhone() + " 领取了1888元大红包 <span>" + getRanDomTime() + "秒前</span>";
+        $scope.getters = getRandomReceiverPhone() + " 领取了1888元大红包 <span>" + getRanDomTime() + "秒前</span>";
     }, 2000);
 
     $scope.goToTop = function () {
@@ -68,13 +68,13 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
         if ($(this).scrollTop() > targetTop) {
             $rightNav.show(300);
             $footerNav.show(300);
-        }else {
+        } else {
             $rightNav.hide(300);
             $footerNav.hide(300);
         }
     });
 
-    $http.jsonp('http://m.yfq.cn/product/getProList.html?activeTag=lj&s=wap&callback=JSON_CALLBACK').success(function (data, status, headers, config) {
+    $http.jsonp(cfApi.apiHost + '/product/getProList.html?activeTag=lj&s=wap&callback=JSON_CALLBACK').success(function (data, status, headers, config) {
         $scope.singlePhones = data;
     }).error(function (data, status, headers, config) {
         console.log(status);
@@ -144,7 +144,7 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
 
         //console.log($scope.gh,$scope.activity);
 
-        $scope.submitUrl = "http://m.yfq.cn/wap/taokafanghaoNew/submitOrderCommon.html?activeTag=sdhd&brand=" + encodeURI(encodeURI($scope.machineName)) + "&gh=" + $scope.gh + "&activity=" + $scope.activity + "&reciverName=" + encodeURI(encodeURI($scope.receiver.name)) + "&receiverMobile=" + $scope.receiver.mobile + "&receiverCity=" + encodeURI(encodeURI($scope.receiver.city)) + "&receiverRoom=" + encodeURI(encodeURI($scope.receiver.room)) + "&payType=1&category=" + $scope.category + "&callback=JSON_CALLBACK";
+        $scope.submitUrl = cfApi.apiHost + "/wap/taokafanghaoNew/submitOrderCommon.html?activeTag=sdhd&brand=" + encodeURI(encodeURI($scope.machineName)) + "&gh=" + $scope.gh + "&activity=" + $scope.activity + "&reciverName=" + encodeURI(encodeURI($scope.receiver.name)) + "&receiverMobile=" + $scope.receiver.mobile + "&receiverCity=" + encodeURI(encodeURI($scope.receiver.city)) + "&receiverRoom=" + encodeURI(encodeURI($scope.receiver.room)) + "&payType=1&category=" + $scope.category + "&callback=JSON_CALLBACK";
 
         $http.jsonp($scope.submitUrl).success(function (data, status, headers, config) {
             $scope.toast.close();

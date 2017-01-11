@@ -126,13 +126,13 @@ app.directive("gzs", ["$compile", "$cookieStore", '$http', '$interval', function
             var getArea = function (id, index, province, city, district) {
                 var url, thisHtml;
                 if (index === 0) {
-                    url = "http://m.gd189fq.com/wap/comm/czCommonController/getRegion.html?need=province&key=" + new Date();
+                    url = cfApi.apiHost + "/wap/comm/czCommonController/getRegion.html?need=province&key=" + new Date();
                 } else if (index === 1) {
-                    url = "http://m.gd189fq.com/wap/comm/czCommonController/getRegion.html?need=city&province=" + encodeURI(province) + "&key=" + new Date();
+                    url = cfApi.apiHost + "/wap/comm/czCommonController/getRegion.html?need=city&province=" + encodeURI(province) + "&key=" + new Date();
                 } else if (index === 2) {
-                    url = "http://m.gd189fq.com/wap/comm/czCommonController/getRegion.html?need=district&province=" + encodeURI(province) + "&city=" + encodeURI(city) + "&key=" + new Date();
+                    url = cfApi.apiHost + "/wap/comm/czCommonController/getRegion.html?need=district&province=" + encodeURI(province) + "&city=" + encodeURI(city) + "&key=" + new Date();
                 } else {
-                    url = "http://m.gd189fq.com/wap/comm/czCommonController/getRegion.html?need=street&province=" + encodeURI(province) + "&city=" + encodeURI(city) + "&district=" + encodeURI(district) + "&key=" + new Date();
+                    url = cfApi.apiHost + "/wap/comm/czCommonController/getRegion.html?need=street&province=" + encodeURI(province) + "&city=" + encodeURI(city) + "&district=" + encodeURI(district) + "&key=" + new Date();
                 }
                 $areaList.eq(index).html("");
                 $.ajax({

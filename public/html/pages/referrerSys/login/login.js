@@ -21,9 +21,9 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
 
     $scope.login = function (event, referrerNo) {
         if ($scope.referrerForm.referrerNo.$valid) {
-            $http.jsonp('http://m.yfq.cn/product/getQrCode.html?referrerNo=' + referrerNo + '&gh=cfps&activity=cfps&url=' + $scope.homeUrl + '&callback=JSON_CALLBACK').success(function (data, status, headers, config) {
+            $http.jsonp(cfApi.apiHost + '/product/getQrCode.html?referrerNo=' + referrerNo + '&gh=cfps&activity=cfps&url=' + $scope.homeUrl + '&callback=JSON_CALLBACK').success(function (data, status, headers, config) {
                 var html = "<div class='img-box'><img src='" + data[0].upCodePath + "'></div><p><a href='" + $scope.homeUrl + "?gh=cfps&activity=cfps&referrerNo=" + referrerNo + "'>进入官网</a></p>";
-                $http.jsonp('http://m.yfq.cn/product/getQrCode.html?referrerNo=' + referrerNo + '&gh=cfps&activity=cfps&url=' + $scope.searchOrder + '&callback=JSON_CALLBACK').success(function (data, status, headers, config) {
+                $http.jsonp(cfApi.apiHost + '/product/getQrCode.html?referrerNo=' + referrerNo + '&gh=cfps&activity=cfps&url=' + $scope.searchOrder + '&callback=JSON_CALLBACK').success(function (data, status, headers, config) {
                     html = html + "<div class='img-box'><img src='" + data[0].upCodePath + "'></div><p><a href='" + $scope.searchOrder + "?gh=cfps&activity=cfps&referrerNo=" + referrerNo + "'>查询订单</a></p>";
                     $scope.dialog.open("", html);
                 }).error(function (data, status, headers, config) {

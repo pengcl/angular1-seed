@@ -168,7 +168,7 @@ function operation() {
     this.writeOperation = function () {
         var flag = false;
         var info = "flow=" + loc + "&operation=" + map.get('operation');
-        var url = "http://m.gd189fq.com/record/writeLog.html?" + info + "&s=wap";
+        var url = cfApi.apiHost + "/record/writeLog.html?" + info + "&s=wap";
         $.ajax({
             type: "get",
             url: url,
@@ -185,7 +185,7 @@ function operation() {
         return flag;
     };
     this.writeIntentionMsg = function (operationName, operationValue, dataType, opSeq) {
-        var url = "http://m.gd189fq.com/record/intentionLog.html";
+        var url = cfApi.apiHost + "/record/intentionLog.html";
         $.get(url, {operationName: operationName, operationValue: operationValue, dataType: dataType, opSeq: opSeq},
             function (data) {
 
@@ -371,8 +371,19 @@ function getRandomPkg(){
     return pkgs[pid];
 }
 
+function getRandomPrePhone(){
+    var pkgs,pid;
+    pkgs = ['130','131','132','138','139','150'];
+    pid = Math.round(Math.random()*5);
+    return pkgs[pid];
+}
+
 function getRandomPhone(){
     return ((("18122XXX" + Math.round(Math.random()*9)) + Math.round(Math.random()*9)) + Math.round(Math.random()*9)) + Math.round(Math.random()*9);
+}
+
+function getRandomReceiverPhone(){
+    return (((getRandomPrePhone() + Math.round(Math.random()*9) + Math.round(Math.random()*9) + "XXX" + Math.round(Math.random()*9)) + Math.round(Math.random()*9)) + Math.round(Math.random()*9)) + Math.round(Math.random()*9);
 }
 
 function getRandomProduct() {
