@@ -1,0 +1,90 @@
+<div class="page pcd-recharge-a">
+    <!-- cia card-index-pageType -->
+    <top-nav page-title="首页" page-back="menu" nav-visibility="hide"></top-nav>
+    <form id="checkoutForm" name="checkoutForm" action="http://m.yfq.cn/wap/taokafanghaoNew/submitOrderDouble.html"
+          method="post" novalidate>
+        <gh></gh>
+        <activity></activity>
+        <redirect-url></redirect-url>
+        <div class="content-scrollable">
+            <div id="rechargePhone">
+                <div class="weui-cells weui-cells_form">
+                    <div class="weui-cell" ng-class="{'weui-cell_warn':checkoutForm.iccid.$dirty== true && checkoutForm.iccid.$valid == false,'weui-cell_success':checkoutForm.iccid.$dirty== true && checkoutForm.iccid.$valid == true}">
+                        <div class="weui-cell__bd">
+                            <input id="iccid" name="iccid" ng-model="iccid"
+                                   ng-maxlength="11" ng-pattern="/^[0-9]*$/" pattern="[0-9]*" ng-minlength="11"
+                                   placeholder="请输入您要充值的手机号" class="weui-input" ng-change="rechargeMobile(iccid)">
+                        </div>
+                        <div class="weui-cell__ft">
+                            <i class="icon-user"></i>
+                        </div>
+                    </div>
+                    <p class="recharge-tips">新号码，还不赶快充值，快快快 ~</p>
+                </div>
+            </div>
+
+            <div id="phoneRecharge">
+                <input name="pid" id="pid" ng-model="product.pid" required type="hidden">
+                <div class="fst-recharge">
+                    <div class="weui-cells__title">
+                        <span>首次充值优惠</span>
+                    </div>
+                    <div class="pd-w">
+                        <ul class="item-lists minus pure-g">
+                            <li class="list-item pure-u-1-2" ng-repeat="rechargeProduct in rechargeProducts | filter : {salesOff : 0}">
+                                <div class="item-box margin border radius small" ng-click="setProduct($event,rechargeProduct)">
+                                    {{rechargeProduct.name}}
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="weui-cells__title">
+                        <span>经微信充值优惠100倍</span>
+                    </div>
+                    <div class="pd-w">
+                        <ul class="item-lists minus pure-g">
+                            <li class="list-item pure-u-1-2" ng-repeat="rechargeProduct in rechargeProducts | filter : {salesOff : 1}">
+                                <div class="item-box margin border radius small" ng-click="setProduct($event,rechargeProduct)">
+                                    {{rechargeProduct.name}}
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="weui-cells__title">
+                        <span>领新卡做新人</span>
+                    </div>
+                    <div class="pd-w">
+                        <ul class="item-lists minus pure-g">
+                            <li class="list-item pure-u-5-8">
+                                <div class="item-box margin border radius small" ng-click="setProduct($event,color)">
+                                    9.9元领卡，享充值优惠
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="txt-list">
+                <ul class="txt-lists">
+                    <li>
+                        <h3 class="list-tit"><ins class="icon-question"></ins>怎么才享受首次充值优惠？</h3>
+                        <p class="list-disc">
+                            答：2016/12/20号起新办理激活未充值使用的4G号码卡用户；
+                        </p>
+                    </li>
+                    <li>
+                        <h3 class="list-tit"><a href="javascript:;">如有其它疑问，查看活动详情</a></h3>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="weui-footer weui-footer_fixed-bottom">
+                <p class="weui-footer__text">本活动最终解释权归翼分期商城所有</p>
+            </div>
+        </div>
+    </form>
+</div>

@@ -86,7 +86,7 @@ app.config(['$stateProvider', '$locationProvider', function($stateProvider, $loc
                 $interval(function() {
                     $scope.second--;
                     if ($scope.second <0) {
-                        window.location.href = "http://m.yfq.cn/wap/taokafanghaoNew/uploadCardA.html?orderNo=" + $scope.orderNo + "&s=wap";
+                        window.location.href = "http://m.yfq.cn/wap/taokafanghaoNew/uploadCardA.html?orderNo=" + $scope.orderNo + "&category=" + $scope.category + "&s=wap";
                         return false;
                     }
                         $("#time-new").html($scope.second);

@@ -161,9 +161,8 @@
   .getters {
     margin-left: 0.26rem;
     margin-right: 0.26rem;
-    height: 0.3rem;
     line-height: 0.3rem;
-    @include border-radius(10em);
+    @include border-radius(4px);
     background: #b23927;
     color: #fff;
     margin-top: 0.1rem;
@@ -176,6 +175,9 @@
       right: 0.1rem;
       color: #fff000;
     }
+  }
+  #indexBanner {
+    padding-bottom: 0.2rem;
   }
   .hot-phone {
     font-size: 0.12rem;
@@ -269,8 +271,12 @@
     }
     .qrcode-txt-disc {
       color: #fff;
-      margin-top: 0.3rem;
+      margin-top: 0.09rem;
       text-align: center;
+      font-size: 0.13rem;
+      &:first-child {
+        margin-top: -0.09rem;
+      }
       em {
         font-style: normal;
         color: #ffe509;

@@ -16,6 +16,30 @@ function each(objArray, funName) {
 
 //获取订单信息
 
+router.get('/findRechargeProducts', function (req, res) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Methods", "GET, POST");
+    res.header("Cache-Control: no-cache, must-reva lidate");
+    //以上两行设置跨域请求
+    request("http://192.168.1.181:8080/yfqcz/czProdProductsController.do?findRechargeProducts", function (error, response, body) {
+        if (!error && response.statusCode == 200) {
+            res.send(body);
+        }
+    });
+});
+
+router.get('/checkFirstCharge/:rechargeMobile', function (req, res) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Methods", "GET, POST");
+    res.header("Cache-Control: no-cache, must-reva lidate");
+    //以上两行设置跨域请求
+    request("http://192.168.1.182:8090/yfqcz/czOrdRechargeController.do?checkFirstCharge&rechargeMobile=" + req.params.rechargeMobile, function (error, response, body) {
+        if (!error && response.statusCode == 200) {
+            res.send(body);
+        }
+    });
+});
+
 router.get('/getPhonesList/:activeTag', function (req, res) {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Methods", "GET, POST");
@@ -81,20 +105,20 @@ router.get('/getSalesOrder/:orderNo', function (req, res) {
         if (!error && response.statusCode == 200) {
             //console.log(eval(body)[0]);
             /*var jsonData = new Array();
-            var data = new Array();
-            each(body, function (o, i) {
-                data = {
-                    "orderNo": o.orderNo,
-                    "receiverName": o.recieverName,
-                    "recieverMobile": o.recieverMobile,
-                    "receiverCity": o.receiverCity,
-                    "receiverRoom": o.receiverRoom,
-                    "productName": o.buyerMemo,
-                    "price": o.totalAmount,
-                    'color': o.color
-                };
-                jsonData.push(data);
-            });*/
+             var data = new Array();
+             each(body, function (o, i) {
+             data = {
+             "orderNo": o.orderNo,
+             "receiverName": o.recieverName,
+             "recieverMobile": o.recieverMobile,
+             "receiverCity": o.receiverCity,
+             "receiverRoom": o.receiverRoom,
+             "productName": o.buyerMemo,
+             "price": o.totalAmount,
+             'color': o.color
+             };
+             jsonData.push(data);
+             });*/
             res.send(body);
         }
     });

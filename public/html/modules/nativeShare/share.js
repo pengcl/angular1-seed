@@ -1,11 +1,12 @@
 'use strict';
 
-app.directive("nativeShare", ['$cookieStore', function ($cookieStore) {
+app.directive("nativeShare", ['$cookieStore', '$http', function ($cookieStore, $http) {
     return {
         restrict: 'E',
         templateUrl: "modules/nativeShare/share.html",
         link: function (scope, element, attrs) {
             var homeLink, picUrl, shareTitle, shareDisc;
+            var UA = navigator.appVersion;
 
             homeLink = 'http://app.yfq.cn/phone/active/A';
             shareTitle = '1888元年终奖大派送！翼分期商城，购机最高立减400元!送720元话费！';
@@ -85,6 +86,15 @@ app.directive("nativeShare", ['$cookieStore', function ($cookieStore) {
                 $("#targetTips").html(targetTips);
                 $(".weixinShareImg").show();
             });
+
+            /*scope.isWeixin = function () {
+                var a = UA.toLowerCase();
+                if (a.match(/MicroMessenger/i) == "micromessenger") {
+                    return true
+                } else {
+                    return false
+                }
+            };*/
 
             var share_obj = new nativeShare('nativeShare', config);
 

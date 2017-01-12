@@ -36,7 +36,9 @@
             <div class="img-box">
                 <img src="/images/active/4.jpg">
             </div>
-            <div class="getters" ng-bind-html="getters | trustHtml"></div>
+            <div class="getters">
+                <p ng-repeat="getter in getters" ng-bind-html="getter.txt | trustHtml"></p>
+            </div>
         </div>
         <div ng-show="showPhones">
             <div class="hot-phone img-box">
@@ -96,7 +98,7 @@
 
         <ng-coupon></ng-coupon>
     </div>
-    <div class="right-nav" style="display: none">
+    <div class="right-nav" ng-show="showPhones">
         <div class="img-box" ng-click="showFudai()">
             <img src="/images/active/11.png">
         </div>
@@ -104,7 +106,7 @@
             <img src="/images/active/22.png">
         </div>
     </div>
-    <div class="footer-nav nav-list" style="display: none;">
+    <div class="footer-nav nav-list" ng-show="showPhones">
         <div class="pure-g">
             <a href="http://m.yfq.cn/wap/customer/searchIndexA.html?s=wap" class="nav-button nav-item line-r pure-u-1-3" ng-click="btNavItem(0);">我的优惠券</a>
             <a href="http://m.yfq.cn/wap/customer/searchIndexA.html?s=wap" class="nav-button nav-item line-r pure-u-1-3" ng-click="btNavItem(1);">我的订单</a>

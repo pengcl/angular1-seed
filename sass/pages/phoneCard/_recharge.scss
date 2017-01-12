@@ -1,0 +1,76 @@
+.pcd-recharge-a {
+  #rechargePhone {
+    .weui-cells_form {
+      .weui-cell {
+        border: none !important;
+        .weui-input {
+          font-size: 0.18rem;
+        }
+        .weui-cell__ft {
+          i {
+            font-size: 0.24rem;
+          }
+        }
+      }
+    }
+    .recharge-tips {
+      margin-top: 0;
+      margin-bottom: 0.1rem;
+      line-height: 0.16rem;
+      font-size: 0.12rem;
+      min-height: 0.32rem;
+      padding-left: 15px;
+      padding-right: 15px;
+    }
+  }
+  .fst-recharge {
+    background: #fff;
+    padding-bottom: 0.2rem;
+    padding-top: 0.05rem;
+    .item-lists {
+      .item-box {
+        font-size: 0.14rem;
+        text-align: left;
+        padding-left: 0.15rem;
+        padding-right: 0.15rem;
+      }
+    }
+    .weui-cells__title {
+      font-size: 0.12rem;
+    }
+  }
+
+  .txt-list {
+    .txt-lists {
+      margin: 0;
+      list-style: none;
+      li {
+        padding-left: 0.2rem;
+        position: relative;
+        &:first-child {
+          margin-top: 0;
+        }
+        .list-tit {
+          color: #2a3887;
+          font-size: 0.12rem;
+          font-weight: normal;
+          a {
+            color: #2a3887;
+            text-decoration: underline;
+          }
+        }
+        .list-disc {
+          color: #2a3887;
+          font-size: 0.11rem;
+        }
+        ins {
+          position: absolute;
+          left: 0;
+          text-decoration: none;
+          top: 0.03rem;
+          font-size: 0.18rem;
+        }
+      }
+    }
+  }
+}

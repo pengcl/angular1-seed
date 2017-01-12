@@ -50,7 +50,23 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
     };
 
     $interval(function () {
-        $scope.getters = getRandomReceiverPhone() + " 领取了1888元大红包 <span>" + getRanDomTime() + "秒前</span>";
+        $scope.getters = [
+            {
+                txt: getRandomReceiverPhone() + " 领取了1888元大红包 <span>" + getRanDomTime() + "秒前</span>"
+            },
+            {
+                txt: getRandomReceiverPhone() + " 领取了1888元大红包 <span>" + getRanDomTime() + "秒前</span>"
+            },
+            {
+                txt: getRandomReceiverPhone() + " 领取了1888元大红包 <span>" + getRanDomTime() + "秒前</span>"
+            },
+            {
+                txt: getRandomReceiverPhone() + " 领取了1888元大红包 <span>" + getRanDomTime() + "秒前</span>"
+            },
+            {
+                txt: getRandomReceiverPhone() + " 领取了1888元大红包 <span>" + getRanDomTime() + "秒前</span>"
+            }
+        ];
     }, 2000);
 
     $scope.goToTop = function () {
@@ -61,18 +77,20 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
         });
     };
 
-    $(".content-scrollable").bind("scroll", function () {
+    /*$(".content-scrollable").bind("scroll", function () {
         var $footerNav = $(".footer-nav");
         var $rightNav = $(".right-nav");
         var targetTop = $(".hot-phone").offset().top;
-        if ($(this).scrollTop() > targetTop) {
+        if ($(this).scrollTop() > 500) {
             $rightNav.show(300);
             $footerNav.show(300);
         } else {
             $rightNav.hide(300);
             $footerNav.hide(300);
         }
-    });
+    });*/
+
+
 
     $http.jsonp(cfApi.apiHost + '/product/getProList.html?activeTag=lj&s=wap&callback=JSON_CALLBACK').success(function (data, status, headers, config) {
         $scope.singlePhones = data;
@@ -144,7 +162,7 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
 
         //console.log($scope.gh,$scope.activity);
 
-        $scope.submitUrl = cfApi.apiHost + "/wap/taokafanghaoNew/submitOrderCommon.html?activeTag=sdhd&brand=" + encodeURI(encodeURI($scope.machineName)) + "&gh=" + $scope.gh + "&activity=" + $scope.activity + "&reciverName=" + encodeURI(encodeURI($scope.receiver.name)) + "&receiverMobile=" + $scope.receiver.mobile + "&receiverCity=" + encodeURI(encodeURI($scope.receiver.city)) + "&receiverRoom=" + encodeURI(encodeURI($scope.receiver.room)) + "&payType=1&category=" + $scope.category + "&callback=JSON_CALLBACK";
+        $scope.submitUrl = cfApiapiHost + "/wap/taokafanghaoNew/submitOrderCommon.html?activeTag=sdhd&brand=" + encodeURI(encodeURI($scope.machineName)) + "&gh=" + $scope.gh + "&activity=" + $scope.activity + "&reciverName=" + encodeURI(encodeURI($scope.receiver.name)) + "&receiverMobile=" + $scope.receiver.mobile + "&receiverCity=" + encodeURI(encodeURI($scope.receiver.city)) + "&receiverRoom=" + encodeURI(encodeURI($scope.receiver.room)) + "&payType=1&category=" + $scope.category + "&callback=JSON_CALLBACK";
 
         $http.jsonp($scope.submitUrl).success(function (data, status, headers, config) {
             $scope.toast.close();

@@ -57,7 +57,6 @@ var nativeShare = function (elementNode, config) {
             img_title = this.img_title,
             from = this.from;
         if (isucBrowser) {
-        	alert("1");
             to_app = to_app == '' ? '' : (platform_os == 'iPhone' ? this.ucAppList[to_app][0] : this.ucAppList[to_app][1]);
             if (to_app == 'QZone') {
                 B = "mqqapi://share/to_qzone?src_type=web&version=1&file_type=news&req_type=1&image_url=" + img + "&title=" + title + "&description=" + desc + "&url=" + url + "&app_name=" + from;
@@ -70,7 +69,8 @@ var nativeShare = function (elementNode, config) {
             } else {
                 if (typeof (ucbrowser) != "undefined") {
                     ucbrowser.web_share(title, desc, url, to_app, "", "@" + from, '')
-                } else {}
+                } else {
+                }
             }
         } else {
             if (isqqBrowser && !isWeixin) {
@@ -92,9 +92,11 @@ var nativeShare = function (elementNode, config) {
                 } else {
                     if (typeof (window.qb) != "undefined" && isqqBrowser == bLevel.qq.lower) {
                         window.qb.share(ah)
-                    } else {}
+                    } else {
+                    }
                 }
-            } else {}
+            } else {
+            }
         }
     };
 
@@ -187,13 +189,13 @@ var nativeShare = function (elementNode, config) {
         if (isqqBrowser || isucBrowser) {
             if (isWeixin) {
                 this.noHtml();
-                with(document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?cdnversion=' + ~(-new Date() / 36e5)];
+                with (document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?cdnversion=' + ~(-new Date() / 36e5)];
             } else {
                 this.html();
             }
         } else {
             this.noHtml();
-            with(document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?cdnversion=' + ~(-new Date() / 36e5)];
+            with (document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?cdnversion=' + ~(-new Date() / 36e5)];
         }
     };
 
