@@ -824,3 +824,71 @@ body.pcd {
     }
   }
 }
+.yaw-mask-tw{
+  .mask{
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index:1;
+    background: rgba(0,0,0,.7);
+  }
+  .mask-content{
+    position: fixed;
+    left:50%;
+    top:50%;
+    width:90%;
+    @include transform(translate(-50%,-50%));
+    z-index: 2;
+    .mask-text{
+      font-size:0;
+      position:absolute;
+      left:13%;
+      top:28%;
+      width:76%;
+      input{
+        border:none;
+        outline: none;
+      }
+      div.name{
+        margin-top:.1rem;
+        padding:.1rem .15rem;
+        background: #fff;
+        @include border-radius(4px);
+      }
+    }
+  }
+}
+.yaw-1{
+  position:absolute;
+  left:0;
+  right:0;
+  top:0;
+  bottom:0;
+  background-image: url(img/yearAward/1.png);
+  background-size:100% auto;
+}
+.yaw-2{
+-webkit-overflow-scrolling: touch;
+  .text{
+    position:absolute;
+    left:42%;
+    top:48%;
+    font-size:.14rem;
+    h4{
+      margin:0;
+    }
+  }
+ .company{
+   font-size: .12rem;
+   position: absolute;
+   right:10%;
+   top:41%;
+ }
+ .try-again{
+   position: absolute;
+   bottom:1%;
+  
+ }
+}
