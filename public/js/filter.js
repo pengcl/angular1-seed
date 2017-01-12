@@ -109,3 +109,14 @@ appFilters.filter('jm', function () {
         }
     }
 });
+
+appFilters.filter('mx',function(){
+    return function(price){
+        
+	if(price > 7680){
+		return 768;
+	}else {
+		return Math.round(price * 0.1);
+	}
+    }
+})

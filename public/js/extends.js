@@ -413,3 +413,15 @@ function getJM(price,max){
         }
     };
 };
+function getMX(price,max,rates){
+	var _rates = 0.1;//设置默认利率
+	if(rates){//如果rates存在，使用rates值，如果不存在，tates=0.1;
+		_rates = rates;
+	}
+	
+	if(price > 7680){
+		return 768;
+	}else {
+		return Math.round(price * _rates);
+	}
+}
