@@ -856,6 +856,9 @@ body.pcd {
         padding:.1rem .15rem;
         background: #fff;
         @include border-radius(4px);
+        input{
+          font-size:.14rem;
+        }
       }
     }
   }
@@ -870,25 +873,34 @@ body.pcd {
   background-size:100% auto;
 }
 .yaw-2{
+  position:absolute;
+  left:0;
+  right:0;
+  top:0;
+  bottom: 0;
 -webkit-overflow-scrolling: touch;
   .text{
     position:absolute;
     left:42%;
-    top:48%;
-    font-size:.14rem;
+    top:49%;
+    font-size:.1rem;
+    color:#725100;
     h4{
       margin:0;
     }
   }
  .company{
-   font-size: .12rem;
+   color: #725100;
+   font-size: .1rem;
    position: absolute;
    right:10%;
-   top:41%;
+   top:40%;
  }
  .try-again{
    position: absolute;
    bottom:1%;
+   left:0;
+   right:0;
   
  }
 }

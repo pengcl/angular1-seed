@@ -31,14 +31,14 @@ app.directive("nFooterNav", ['$http', '$location', function ($http, $location) {
 
             scope.checkForm = function () {
                 if (scope.$root.checkActiveCode()) {
-                    if ($("#payType").val() == 2) {
-                        scope.showOverLay("payTipsPanel");
-                    } else {
+                    // if ($("#payType").val() == 2) {
+                    //      scope.showOverLay("payTipsPanel");
+                    // } else {
                         writebdLog(scope.category, "_BuyNow", "渠道号", scope.gh);//立即支付
                         scope.$root.toast.open();
-
+                        
                         $form.submit();
-                    }
+                    // }
                 } else {
                     $scrollTo = $('#receiverAddress');
                     $container.animate({
@@ -127,17 +127,17 @@ app.directive("nFooterNav", ['$http', '$location', function ($http, $location) {
                     }
                 }
             };
-            scope.showOverLay = function (targetId) {
-                var targetHtml = $("#" + targetId).html();
-                scope.$root.Overlay.openCompile(targetHtml);
-                writebdLog(scope.category, "_IsContractPackage", "渠道号", scope.gh);
-            };
-            scope.$root.tipsSubmit = function () {
-                scope.$root.toast.open();
-                scope.$root.Overlay.close();
-                writebdLog(scope.category, "_BuyNow", "渠道号", scope.gh);
-                $form.submit()
-            };
+            // scope.showOverLay = function (targetId) {
+            //     var targetHtml = $("#" + targetId).html();
+            //     scope.$root.Overlay.openCompile(targetHtml);
+            //     writebdLog(scope.category, "_IsContractPackage", "渠道号", scope.gh);
+            // };
+            // scope.$root.tipsSubmit = function () {
+            //     scope.$root.toast.open();
+            //      scope.$root.Overlay.close();
+            //      writebdLog(scope.category, "_BuyNow", "渠道号", scope.gh);
+            //     $form.submit()
+            //  };
         }
     };
 }]);
