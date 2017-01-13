@@ -22,7 +22,7 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
     $("#iccid").focus();
 
     $scope.rechargeMobile = function (rechargeMobile) {
-        $http.jsonp('http://192.168.1.182:8090/yfqcz/czOrdRechargeController.do?checkAllowCharge&rechargeMobile=' + rechargeMobile + '&callback=JSON_CALLBACK').success(function (data, status, headers, config) {
+        $http.jsonp('http://192.168.1.181:8080/yfqcz/czOrdRechargeController.do?checkAllowCharge&rechargeMobile=' + rechargeMobile + '&callback=JSON_CALLBACK').success(function (data, status, headers, config) {
             $scope.rechargeStatus = data.resultCode;
 
         }).error(function (data, status, headers, config) {
