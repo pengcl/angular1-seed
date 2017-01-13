@@ -102,19 +102,18 @@ app.directive("ngCoupon", ['$location', '$interval', '$http', '$cookieStore', '$
                 scope.showPhones = true;
                 scope.Overlay.close();
 
-                $timeout(function () {
-                    var $container = $('.content-scrollable');
+                writebdLog(scope.category, "_UseCoupons", "渠道号", scope.gh); //使用我的优惠券
 
-                    if ($('.hot-phone').length > 0) {
-                        var $scrollTo = $('.hot-phone');
-                    } else {
-                        var $scrollTo = $('#receiverAddress');
-                    }
+                if (scope.activePage == 'index') {
+                    $location.path('/phone/active/A/phones');
+                } else if (scope.activePage == 'hotPhones') {
+
+                } else {
+                    var $scrollTo = $('#receiverAddress');
                     $container.animate({
                         scrollTop: $scrollTo.offset().top - $container.offset().top + $container.scrollTop()
                     });
-                }, 500);
-                writebdLog(scope.category, "_UseCoupons", "渠道号", scope.gh); //使用我的优惠券
+                }
             };
 
             scope.$root.checkCouponMobile = function () {

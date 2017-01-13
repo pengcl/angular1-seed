@@ -17,6 +17,8 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
     $scope.appType = systemName + "_coupon_" + $scope.pageType;
     $scope.category = $scope.appType;
 
+    $scope.activePage = 'index';
+
     if ($cookieStore.get("couponStore")) {
         $scope.cookieStore = $cookieStore.get("couponStore");
     } else {
@@ -63,17 +65,17 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
     }, 2000);
 
     /*$(".content-scrollable").bind("scroll", function () {
-        var $footerNav = $(".footer-nav");
-        var $rightNav = $(".right-nav");
-        var targetTop = $(".hot-phone").offset().top;
-        if ($(this).scrollTop() > 500) {
-            $rightNav.show(300);
-            $footerNav.show(300);
-        } else {
-            $rightNav.hide(300);
-            $footerNav.hide(300);
-        }
-    });*/
+     var $footerNav = $(".footer-nav");
+     var $rightNav = $(".right-nav");
+     var targetTop = $(".hot-phone").offset().top;
+     if ($(this).scrollTop() > 500) {
+     $rightNav.show(300);
+     $footerNav.show(300);
+     } else {
+     $rightNav.hide(300);
+     $footerNav.hide(300);
+     }
+     });*/
 
     $interval(function () {
         $scope.selkillTxt = getRandomName() + "，刚刚购买了 " + getRandomProduct();

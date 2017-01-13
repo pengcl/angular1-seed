@@ -17,6 +17,8 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
     $scope.appType = systemName + "_coupon_" + $scope.pageType;
     $scope.category = $scope.appType;
 
+    $scope.activePage = 'hotPhones';
+
     $scope.params = window.location.search;
 
     writebdLog($scope.category, "_Load", "渠道号", $scope.gh);
