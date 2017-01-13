@@ -37,7 +37,7 @@
                     </div>
                     <div class="pd-w">
                         <ul class="item-lists minus pure-g">
-                            <li class="list-item pure-u-1-2" ng-repeat="rechargeProduct in rechargeProducts | filter : {salesOff : 0}">
+                            <li class="list-item pure-u-1-2" ng-repeat="rechargeProduct in rechargeProducts | orderBy : '-salesPrice' | filter : {salesOff : 0}">
                                 <div class="item-box margin border radius small" ng-class="{true:'active',false:'disabled'}[rechargeStatus == 1]" ng-click="setProduct($event,rechargeProduct)">
                                     {{rechargeProduct.name}}
                                     <ins ng-if="$index == 0"><img src="/images/phoneCard/recharge/flag.png"></ins>
@@ -47,7 +47,7 @@
                     </div>
 
                     <div class="weui-cells__title">
-                        <span>经微信充值优惠100倍</span>
+                        <span>比微信充值优惠100倍</span>
                     </div>
                     <div class="pd-w">
                         <ul class="item-lists minus pure-g">
@@ -65,7 +65,7 @@
                     <div class="pd-w">
                         <ul class="item-lists minus pure-g">
                             <li class="list-item pure-u-5-8">
-                                <a href="http://app.yfq.cn/spc/pcd/index.html{{params}}" class="item-box margin border radius small" ng-class="{true:'active',false:'disabled'}[rechargeStatus == 0]">
+                                <a href="/spc/pcd/index.html{{params}}" class="item-box margin border radius small" ng-class="{true:'active',false:'disabled'}[rechargeStatus == 0] ng-click="writeClickEvent('9.9Page')">
                                     9.9元领卡，享充值优惠
                                 </a>
                             </li>

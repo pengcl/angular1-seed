@@ -56,9 +56,9 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
 
     $scope.getters = objGetters;
 
-    //记录用户购买的商品：专区模块英文名称+商品id
-    $scope.writeSelectFoods = function (obj, productId, modular) {
-        writebdLog($scope.category, "_" + productId + modular, "渠道号", $scope.gh);//选择的商品ID
+    //记录点击事件
+    $scope.writeClickEvent = function (name) {
+        writebdLog($scope.category, "_" + name, "渠道号", $scope.gh);//记录点击事件
     };
 
     $scope.$on('ngRepeatFinished', function (ngRepeatFinishedEvent) {
