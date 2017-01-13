@@ -5,17 +5,22 @@
             <div class="weui-msg__icon-area"><i class="weui-icon-success weui-icon_msg"></i></div>
             <div class="weui-msg__text-area">
                 <h2 class="weui-msg__title">
+                    <span ng-if="payStatus == 'success'">提交成功</span>
+                    <span ng-if="payStatus == 'passport'">提交成功</span>
                     <span ng-if="payStatus == 'recharge'">充值成功</span>
-                    <span ng-if="payStatus != 'recharge'">提交成功</span>
+                    <span ng-if="payStatus == 'noPassport'">支付成功</span>
                 </h2>
                 <p class="weui-msg__desc" ng-if="payStatus=='success'">已提交银行审核，实际支付以银行扣款成功为准我们将第一时间为您安排发货，请保持手机畅通</p>
                 <p class="weui-msg__desc" ng-if="payStatus=='passport'">您的认证电信后台会在1-2个工作日内受理审核激活，请稍等激活短信提醒</p>
                 <p class="weui-msg__desc" ng-if="payStatus=='recharge'">尊敬的客户，您的充值已成功！已成功享受新老用户充值话费优惠！话费将在24小时内到账，请留意相关短信提醒。如有疑问请关注“翼分期商城”公众号咨询，谢谢！</p>
+                <p class="weui-msg__desc" ng-if="payStatus=='noPassport'"></p>
             </div>
             <div class="weui-msg__opr-area">
                 <p class="weui-btn-area">
                     <a ng-if="payStatus=='success'" href="http://m.gd189fq.com/wap/taokafanghaoNew/uploadCardA.html?orderNo={{orderNo}}&s=wap" class="weui-btn weui-btn_primary">上传证照</a>
                     <a ng-if="payStatus=='passport'" href="{{callbackUrl}}" class="weui-btn weui-btn_primary">返回首页</a>
+                    <a ng-if="payStatus=='recharge'" href="/pcdRecharge/index" class="weui-btn weui-btn_primary">返回首页</a>
+                    <a ng-if="payStatus=='noPassport'" href="/phone/active/A" class="weui-btn weui-btn_primary">返回首页</a>
                 </p>
                 <p class="weui-msg__desc" ng-if="payStatus=='success'">根据工信部《电话用户真实身份登记》要求，入网需上传身份证实名登记，以保障您的合法权益。</p>
             </div>

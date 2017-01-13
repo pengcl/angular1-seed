@@ -359,4 +359,12 @@ router.get('/getNumber', function (req, res) {
     });
 });
 
+router.post('/wechat', function (req, res) {
+    var clientUrl = req.body.url;
+
+    getJsApiData(clientUrl).then(function (data) {
+        res.send({signature: data[0], timestamp: data[1], nonceStr: data[2]});
+    });
+});
+
 module.exports = router;
