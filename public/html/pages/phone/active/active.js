@@ -44,46 +44,34 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
     //统计
     writebdLog($scope.category, "_Load", "渠道号", $scope.gh);
 
-    $interval(function () {
-        $scope.getters = [
-            {
-                txt: getRandomReceiverPhone() + " 领取了1888元大红包 <span>" + getRanDomTime() + "秒前</span>"
-            },
-            {
-                txt: getRandomReceiverPhone() + " 领取了1888元大红包 <span>" + getRanDomTime() + "秒前</span>"
-            },
-            {
-                txt: getRandomReceiverPhone() + " 领取了1888元大红包 <span>" + getRanDomTime() + "秒前</span>"
-            },
-            {
-                txt: getRandomReceiverPhone() + " 领取了1888元大红包 <span>" + getRanDomTime() + "秒前</span>"
-            },
+    var objGetters = new Array();
+
+    for (var i = 0; i <= 10; i++) {
+        objGetters.push(
             {
                 txt: getRandomReceiverPhone() + " 领取了1888元大红包 <span>" + getRanDomTime() + "秒前</span>"
             }
-        ];
-    }, 2000);
+        );
+    }
 
-    /*$(".content-scrollable").bind("scroll", function () {
-     var $footerNav = $(".footer-nav");
-     var $rightNav = $(".right-nav");
-     var targetTop = $(".hot-phone").offset().top;
-     if ($(this).scrollTop() > 500) {
-     $rightNav.show(300);
-     $footerNav.show(300);
-     } else {
-     $rightNav.hide(300);
-     $footerNav.hide(300);
-     }
-     });*/
-
-    $interval(function () {
-        $scope.selkillTxt = getRandomName() + "，刚刚购买了 " + getRandomProduct();
-    }, 2000);
+    $scope.getters = objGetters;
 
     //记录用户购买的商品：专区模块英文名称+商品id
     $scope.writeSelectFoods = function (obj, productId, modular) {
         writebdLog($scope.category, "_" + productId + modular, "渠道号", $scope.gh);//选择的商品ID
     };
+
+    $scope.$on('ngRepeatFinished', function (ngRepeatFinishedEvent) {
+        //下面是在数据 render完成后执行的js
+        console.log("1");
+        $(".getters").slide({
+            mainCell: "ul",
+            autoPage: true,
+            effect: "topMarquee",
+            autoPlay: true,
+            interTime: 50,
+            vis: 5
+        });
+    });
 
 }]);

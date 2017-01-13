@@ -359,11 +359,20 @@ router.get('/getNumber', function (req, res) {
     });
 });
 
-router.post('/wechat', function (req, res) {
-    var clientUrl = req.body.url;
+router.get('/wechat/:surl', function (req, res) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Methods", "GET, POST");
+    //以上两行设置跨域请求
+
+    var clientUrl = req.params.surl;
+
+    console.log(clientUrl);
 
     getJsApiData(clientUrl).then(function (data) {
         res.send({signature: data[0], timestamp: data[1], nonceStr: data[2]});
+        console.log(
+            {signature: data[0], timestamp: data[1], nonceStr: data[2]}
+        );
     });
 });
 
