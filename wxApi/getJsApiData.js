@@ -5,7 +5,6 @@ const getToken = require('getWebToken');
 const sha1 = require('sha1');
 const db = require('radis');
 
-
 function getJsApiTicket() {
     return new Promise(function (resolve, reject) {
         getToken().then(function (body) {
