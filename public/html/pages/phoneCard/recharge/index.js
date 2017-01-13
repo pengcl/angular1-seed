@@ -8,26 +8,41 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
         templateUrl: "pages/phoneCard/recharge/index.html",
         controller: "pdRechargeController"
     });
-}]).controller('pdRechargeController', ['$scope', '$rootScope', '$location', '$http', function ($scope, $rootScope, $location, $http) {
+}]).controller('pdRechargeController', ['$scope', '$rootScope', '$location', '$http', '$timeout', function ($scope, $rootScope, $location, $http, $timeout) {
     //$scope.pageTitle = "首页";
     //$scope.$root.title = $scope.pageTitle;
     //console.log($scope.referrerForm.referrerNo);
 
-    $scope.rechargeMobile = function (rechargeMobile) {
-        $http.get('http://www.cz.com:3099/api/checkFirstCharge/' + rechargeMobile).success(function (data) {
-            /*$scope.rechargeCards = data[0];
-             console.log($scope.rechargeCards);*/
+    $scope.pageType = "pcdRecharge";
+    $scope.appType = systemName + "_pcdRecharge_" + $scope.pageType;
+    $scope.category = $scope.appType;
 
+    $scope.params = window.location.search;
+
+    $("#iccid").focus();
+
+    $scope.rechargeMobile = function (rechargeMobile) {
+        $http.jsonp('http://192.168.1.182:8090/yfqcz/czOrdRechargeController.do?checkAllowCharge&rechargeMobile=' + rechargeMobile + '&callback=JSON_CALLBACK').success(function (data, status, headers, config) {
+            $scope.rechargeStatus = data.resultCode;
+
+        }).error(function (data, status, headers, config) {
+            console.log(status);
+            //deferred.reject(status)
         });
     };
 
-    $http.get('http://www.cz.com:3099/api/findRechargeProducts').success(function (data) {
-        console.log(data);
-
+    $http.jsonp('http://192.168.1.181:8080/yfqcz/czProdProductsController.do?findRechargeProducts&callback=JSON_CALLBACK').success(function (data, status, headers, config) {
         $scope.rechargeProducts = data;
-        /*$scope.rechargeCards = data[0];
-         console.log($scope.rechargeCards);*/
-
+    }).error(function (data, status, headers, config) {
+        console.log(status);
+        //deferred.reject(status)
     });
+
+    $scope.setProduct = function (event, product) {
+        $scope.product = product;
+        $timeout(function () {
+            $("#checkoutForm").submit();
+        });
+    }
 
 }]);

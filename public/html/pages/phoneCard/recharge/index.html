@@ -1,8 +1,10 @@
 <div class="page pcd-recharge-a">
     <!-- cia card-index-pageType -->
     <top-nav page-title="首页" page-back="menu" nav-visibility="hide"></top-nav>
-    <form id="checkoutForm" name="checkoutForm" action="http://m.yfq.cn/wap/taokafanghaoNew/submitOrderDouble.html"
+    <form id="checkoutForm" name="checkoutForm" action="http://192.168.1.181:8080/yfqcz/czOrdRechargeController.do?gotoPayGateWay"
           method="post" novalidate>
+        <input type="hidden" value="{{appType}}" name="appType" id="appType">
+        <input type="hidden" value="{{category}}" name="category" id="category">
         <gh></gh>
         <activity></activity>
         <redirect-url></redirect-url>
@@ -19,12 +21,16 @@
                             <i class="icon-user"></i>
                         </div>
                     </div>
-                    <p class="recharge-tips">新号码，还不赶快充值，快快快 ~</p>
+                    <p class="recharge-tips">
+                        <span ng-if="rechargeStatus == 0">对不起，此次充值福利仅限在"翼分期商城"办理<br>4G号码卡的用户</span>
+                        <span ng-if="rechargeStatus == 1">新号码，还不赶快充值，快快快 ~</span>
+                        <span ng-if="rechargeStatus == 2">老用户，欢迎回来，要才回来看看 ~</span>
+                    </p>
                 </div>
             </div>
 
             <div id="phoneRecharge">
-                <input name="pid" id="pid" ng-model="product.pid" required type="hidden">
+                <input name="pid" id="pid" ng-model="product.id" value="{{product.id}}" required type="hidden">
                 <div class="fst-recharge">
                     <div class="weui-cells__title">
                         <span>首次充值优惠</span>
@@ -32,8 +38,9 @@
                     <div class="pd-w">
                         <ul class="item-lists minus pure-g">
                             <li class="list-item pure-u-1-2" ng-repeat="rechargeProduct in rechargeProducts | filter : {salesOff : 0}">
-                                <div class="item-box margin border radius small" ng-click="setProduct($event,rechargeProduct)">
+                                <div class="item-box margin border radius small" ng-class="{true:'active',false:'disabled'}[rechargeStatus == 1]" ng-click="setProduct($event,rechargeProduct)">
                                     {{rechargeProduct.name}}
+                                    <ins ng-if="$index == 0"><img src="/images/phoneCard/recharge/flag.png"></ins>
                                 </div>
                             </li>
                         </ul>
@@ -45,7 +52,7 @@
                     <div class="pd-w">
                         <ul class="item-lists minus pure-g">
                             <li class="list-item pure-u-1-2" ng-repeat="rechargeProduct in rechargeProducts | filter : {salesOff : 1}">
-                                <div class="item-box margin border radius small" ng-click="setProduct($event,rechargeProduct)">
+                                <div class="item-box margin border radius small" ng-class="{true:'active',false:'disabled'}[rechargeStatus == 2]" ng-click="setProduct($event,rechargeProduct)">
                                     {{rechargeProduct.name}}
                                 </div>
                             </li>
@@ -58,9 +65,9 @@
                     <div class="pd-w">
                         <ul class="item-lists minus pure-g">
                             <li class="list-item pure-u-5-8">
-                                <div class="item-box margin border radius small" ng-click="setProduct($event,color)">
+                                <a href="http://app.yfq.cn/spc/pcd/index.html{{params}}" class="item-box margin border radius small active">
                                     9.9元领卡，享充值优惠
-                                </div>
+                                </a>
                             </li>
                         </ul>
                     </div>
