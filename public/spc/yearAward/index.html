@@ -20,7 +20,7 @@
 </head>
 
 <body style="margin:0;">
-    <div class="yaw-1" id="guess">
+    <div class="yaw-1" id="guess" >
         <div class="yaw-mask-tw" style="display: none">
             <div class="mask"></div>
             <div class="mask-content">
@@ -42,29 +42,33 @@
         </div>
     </div>
     <div class="yaw-2" style="display: none">
-        <div class="img-box" style="position:relative;">
-            <img src="../img/yearAward/huodong.jpg" alt="">
-            
-              <div class="text">
-            <h4>奖品：<span id="text-1">宝马X5</span></h4>
-            <h4>获奖人：<span id="text-2">唐文</span></h4>
-        </div>
-        <div class="company">
-            <p id="company"></p>
-        </div>
-        <div class="try-again" >
-            <div id="try-again" class="img-box" style="width:60%;margin:0 auto" >
-                <img src="../img/yearAward/try.png" alt="">
+        <div class="img-box" id="new-m" style="position:relative;">
+            <input id="src-val" type="hidden" value="../img/yearAward/huodong.jpg">
+            <img id="new-m-1"  src="../img/yearAward/huodong.jpg" alt="">
+            <div class="text">
+                <h4>奖品：<span id="text-1">宝马X5</span></h4>
+                <h4>获奖人：<span id="text-2">唐文</span></h4>
             </div>
-            <a href="app.yfq.cn/phone/active/A"><div class="img-box" style="width:90%;margin:0 auto;margin-top:.1rem">
-                <img src="../img/yearAward/notice.png" alt="">
+            <div class="company">
+                <p id="company"></p>
             </div>
-            </a>
         </div>
+        <div class="img-box"  style="position:relative;">
+            <img  src="../img/yearAward/huodong-1.jpg" alt="">
+             <div class="try-again">
+                <div id="try-again" class="img-box" style="width:60%;margin:0 auto">
+                    <img src="../img/yearAward/try.png" alt="">
+                </div>
+                <a href="app.yfq.cn/phone/active/A">
+                    <div class="img-box" style="width:90%;margin:0 auto;margin-top:.1rem">
+                        <img src="../img/yearAward/notice.png" alt="">
+                    </div>
+                </a>
+            </div>
         </div>
-      
     </div>
     <script src="//apps.bdimg.com/libs/jquery/1.11.3/jquery.min.js" type="text/javascript"></script>
+    <script src="http://html2canvas.hertzen.com/build/html2canvas.js"></script>
     <script>
     pageType = "yaw";
     $(document).ready(function() {
@@ -72,7 +76,7 @@
 
         function getRandomName() {
             var things;
-            things = ["美国游","欧洲游","日韩游","马尔代夫游","贺岁金条","凤姐的吻","苍老师的祝福","迟到券","免炒金牌","1888元优惠券","2元彩票","纸巾一份","保时捷卡宴一台","特斯拉一台"];
+            things = ["美国游", "欧洲游", "日韩游", "马尔代夫游", "贺岁金条", "凤姐的吻", "苍老师的祝福", "迟到券", "免炒金牌", "1888元优惠券", "2元彩票", "纸巾一份", "保时捷卡宴一台", "特斯拉一台"];
 
             var i = Math.round(Math.random() * 13);
 
@@ -89,18 +93,38 @@
             } else if (cName == "") {
                 alert("请输入你的公司名字");
             } else {
+                html2canvas($("#new-m"), {
+                    onrendered: function (canvas) {
+                        var url = canvas.toDataURL();
+                        $("#new-m-1").attr("src",url);
+                        $("body").scrollTop(10000);
+
+                    }
+                });
+
                 $(".yaw-1").hide();
                 $(".yaw-mask-tw").hide();
                 $(".yaw-2").show();
-                $("body").scrollTop(10000);
+
             }
             $("#text-1").html(getRandomName());
             $("#text-2").html(userName);
             $("#company").html(cName);
         });
-        $("#try-again").click(function(){
+        var srcVal=$("#src-val").val();
+        console.log(srcVal);
+        $("#try-again").click(function() {
             $("#text-1").html(getRandomName());
+            $("#new-m-1").attr("src",srcVal);
+            html2canvas($("#new-m"), {
+                onrendered: function (canvas) {
+                    var url = canvas.toDataURL();
+                    $("#new-m-1").attr("src",url);
+                    $("body").scrollTop(10000);
+                }
+            });
         });
+
 
     });
     </script>

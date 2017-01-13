@@ -873,16 +873,11 @@ body.pcd {
   background-size:100% auto;
 }
 .yaw-2{
-  position:absolute;
-  left:0;
-  right:0;
-  top:0;
-  bottom: 0;
 -webkit-overflow-scrolling: touch;
   .text{
     position:absolute;
     left:42%;
-    top:49%;
+    top:56%;
     font-size:.1rem;
     color:#725100;
     h4{
@@ -894,11 +889,11 @@ body.pcd {
    font-size: .1rem;
    position: absolute;
    right:10%;
-   top:40%;
+   top:47%;
  }
  .try-again{
    position: absolute;
-   bottom:1%;
+   bottom:3%;
    left:0;
    right:0;
   
