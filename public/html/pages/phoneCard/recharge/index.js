@@ -39,6 +39,12 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
     });
 
     $scope.setProduct = function (event, product) {
+        var $this = $(event.currentTarget);
+
+        if ($this.hasClass("disabled")) {
+            return false;
+        }
+
         $scope.product = product;
         $timeout(function () {
             $("#checkoutForm").submit();

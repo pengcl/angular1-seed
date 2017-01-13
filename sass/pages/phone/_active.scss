@@ -112,24 +112,21 @@
     background-position: left top;
     padding-left: 0.4rem;
     padding-right: 0.4rem;
+    overflow: hidden;
     .fqa-bd-title {
-      color: #fad19f;
-      &:after {
-        content: " ";
-        display: block;
-        clear: both;
-      }
-      span {
-        float: right;
-        em {
-          @include inline-block;
-          width: 0.5rem;
-          line-height: 0.2rem;
-          background: #a10000;
-          color: #fff000;
-          text-align: center;
-        }
-      }
+      text-align: center;
+      @include border-radius(10em);
+      line-height: 0.2rem;
+      border:1px solid #fff000;
+      color: #fff000;
+      padding-top: 0.07rem;
+      padding-bottom: 0.07rem;
+      margin-top: 0.12rem;
+      margin-bottom: 0.02rem;
+      margin-left: auto;
+      margin-right: auto;
+      display: block;
+      width: 60%;
     }
     .toggle-title {
       font-size: 0.18rem;
