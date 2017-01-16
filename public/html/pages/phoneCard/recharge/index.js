@@ -18,15 +18,20 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
     $scope.category = $scope.appType;
 
     $scope.params = window.location.search;
-    
+
     //统计
     writebdLog($scope.category, "_Load", "渠道号", $scope.gh);
 
-    $("#iccid").focus();
-
     $scope.rechargeMobile = function (rechargeMobile) {
-        $http.jsonp('http://192.168.1.182:8090/yfqcz/czOrdRechargeController.do?checkAllowCharge&rechargeMobile=' + rechargeMobile + '&callback=JSON_CALLBACK').success(function (data, status, headers, config) {
+        $scope.rechargeStatus = undefined;
+        if (!$scope.checkoutForm.iccid.$valid) {
+            return false;
+        } else {
+            $("#iccid").blur();
+        }
+        $http.jsonp(cfApi.apiHost + '/yfqcz/czOrdRechargeController.do?checkAllowCharge&rechargeMobile=' + rechargeMobile + '&callback=JSON_CALLBACK').success(function (data, status, headers, config) {
             $scope.rechargeStatus = data.resultCode;
+
             writebdLog($scope.category, "_InputIndexNumber", "渠道号", $scope.gh);
 
         }).error(function (data, status, headers, config) {
@@ -35,8 +40,9 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
         });
     };
 
-    $http.jsonp('http://192.168.1.181:8080/yfqcz/czProdProductsController.do?findRechargeProducts&callback=JSON_CALLBACK').success(function (data, status, headers, config) {
+    $http.jsonp(cfApi.apiHost + '/yfqcz/czProdProductsController.do?findRechargeProducts&callback=JSON_CALLBACK').success(function (data, status, headers, config) {
         $scope.rechargeProducts = data;
+
     }).error(function (data, status, headers, config) {
         console.log(status);
         //deferred.reject(status)
@@ -48,21 +54,41 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
         if ($this.hasClass("disabled")) {
             return false;
         }
-        
+
+        $scope.$root.toast.open();
+
         var name = "";
-        if(product.name.indexOf("送 5 元") != -1) name = "Give5Y";
-        if(product.name.indexOf("送 50 元") != -1) name = "Give50Y";
-        if(product.name.indexOf("送 100 元") != -1) name = "Give100Y";
+        if (product.name.indexOf("送 5 元") != -1) name = "Give5Y";
+        if (product.name.indexOf("送 50 元") != -1) name = "Give50Y";
+        if (product.name.indexOf("送 100 元") != -1) name = "Give100Y";
         writebdLog($scope.category, "_" + name, "渠道号", $scope.gh);
 
         $scope.product = product;
         $timeout(function () {
             $("#checkoutForm").submit();
+            //$scope.$root.toast.close();
         });
-    }
-    
+    };
+
+    $scope.showRechargeTip = function (e) {
+        var targetHtml = $("#rechargeTipsPanel").html();
+        $scope.$root.Overlay.open(targetHtml);
+    };
+
+    $scope.getContact = function (e) {
+        getMeiqia();
+        //$("#contactUs").show();
+        _MEIQIA('showPanel');
+        writebdLog(scope.category, "_CustConsult", "渠道号", $scope.gh);//客服咨询
+    };
+
     //记录点击事件
-    $scope.writeClickEvent = function (name) {
+    $scope.writeClickEvent = function (event, name) {
+        var $this = $(event.currentTarget);
+        if ($this.hasClass("disabled")) {
+            event.preventDefault();
+            return false;
+        }
         writebdLog($scope.category, "_" + name, "渠道号", $scope.gh);//记录点击事件
     };
 

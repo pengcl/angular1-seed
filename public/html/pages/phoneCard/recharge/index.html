@@ -1,7 +1,7 @@
 <div class="page pcd-recharge-a">
     <!-- cia card-index-pageType -->
     <top-nav page-title="首页" page-back="menu" nav-visibility="hide"></top-nav>
-    <form id="checkoutForm" name="checkoutForm" action="http://192.168.1.181:8080/yfqcz/czOrdRechargeController.do?gotoPayGateWay"
+    <form id="checkoutForm" name="checkoutForm" action="http://m.yfq.cn/yfqcz/czOrdRechargeController.do?gotoPayGateWay"
           method="post" novalidate>
         <input type="hidden" value="{{appType}}" name="appType" id="appType">
         <input type="hidden" value="{{category}}" name="category" id="category">
@@ -15,16 +15,18 @@
                         <div class="weui-cell__bd">
                             <input id="iccid" name="iccid" ng-model="iccid"
                                    ng-maxlength="11" ng-pattern="/^[0-9]*$/" pattern="[0-9]*" ng-minlength="11"
-                                   placeholder="请输入您要充值的手机号" class="weui-input" ng-change="rechargeMobile(iccid)">
+                                   placeholder="请输入您要充值的手机号" class="weui-input" ng-change="rechargeMobile(iccid)" autofocus="true" required>
                         </div>
                         <div class="weui-cell__ft">
                             <i class="icon-user"></i>
                         </div>
                     </div>
                     <p class="recharge-tips">
-                        <span ng-if="rechargeStatus == 0">对不起，此次充值福利仅限在"翼分期商城"办理<br>4G号码卡的用户</span>
-                        <span ng-if="rechargeStatus == 1">新号码，还不赶快充值，快快快 ~</span>
-                        <span ng-if="rechargeStatus == 2">老用户，欢迎回来，要才回来看看 ~</span>
+                        <span ng-if="rechargeStatus == 0 && checkoutForm.iccid.$valid == true">充值福利仅限在"翼分期商城"办理4G号码卡的用户</span>
+                        <span ng-if="rechargeStatus == 1 && checkoutForm.iccid.$valid == true">新号码，还不赶快充值，快快快 ~</span>
+                        <span ng-if="rechargeStatus == 2 && checkoutForm.iccid.$valid == true">老用户，欢迎回来，要常回来看看 ~</span>
+                        <span ng-if="rechargeStatus == 3 && checkoutForm.iccid.$valid == true">未知错误，请<a href="javascript:;" ng-click="getContact($event);">联系客服</a> ~</span>
+                        <span ng-if="rechargeStatus == 4 && checkoutForm.iccid.$valid == true">您的卡还没实名认证受理激活成功 ~</span>
                     </p>
                 </div>
             </div>
@@ -47,7 +49,7 @@
                     </div>
 
                     <div class="weui-cells__title">
-                        <span>比微信充值优惠100倍</span>
+                        <span>比微信充值优惠10倍</span>
                     </div>
                     <div class="pd-w">
                         <ul class="item-lists minus pure-g">
@@ -65,7 +67,7 @@
                     <div class="pd-w">
                         <ul class="item-lists minus pure-g">
                             <li class="list-item pure-u-5-8">
-                                <a href="/spc/pcd/index.html{{params}}" class="item-box margin border radius small" ng-class="{true:'active',false:'disabled'}[rechargeStatus == 0] ng-click="writeClickEvent('9.9Page')">
+                                <a ng-href="/spc/pcd/index.html{{params}}" target="_blank" class="item-box margin border radius small" ng-class="{true:'active',false:'disabled'}[rechargeStatus == 0]" ng-click="writeClickEvent($event,'9.9Page')">
                                     9.9元领卡，享充值优惠
                                 </a>
                             </li>
@@ -75,16 +77,25 @@
 
             </div>
 
+            <div id="rechargeTipsPanel" style="display: none">
+                <div class="overlay recharge-overlay">
+                    <a class="js-close-overlay overlay-dismiss" href="#"><span class="icon-cross"></span></a>
+                    <div class="img-box">
+                        <img src="/images/recharge/tips.gif">
+                    </div>
+                </div>
+            </div>
+
             <div class="txt-list">
                 <ul class="txt-lists">
                     <li>
-                        <h3 class="list-tit"><ins class="icon-question"></ins>怎么才享受首次充值优惠？</h3>
+                        <h3 class="list-tit"><ins class="icon-question"></ins>怎么才享受"翼分期商城"公众号首次充值优惠？</h3>
                         <p class="list-disc">
-                            答：2016/12/20号起新办理激活未充值使用的4G号码卡用户；
+                            答：2016/12/20号起"翼分期商城"新办理激活未充值使用的4G号码卡用户；
                         </p>
                     </li>
                     <li>
-                        <h3 class="list-tit"><a href="javascript:;">如有其它疑问，查看活动详情</a></h3>
+                        <h3 class="list-tit"><a ng-click="showRechargeTip($event)" href="javascript:;">如有其它疑问，查看活动详情</a></h3>
                     </li>
                 </ul>
             </div>

@@ -63,7 +63,6 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
 
     $scope.$on('ngRepeatFinished', function (ngRepeatFinishedEvent) {
         //下面是在数据 render完成后执行的js
-        console.log("1");
         $(".getters").slide({
             mainCell: "ul",
             autoPage: true,
