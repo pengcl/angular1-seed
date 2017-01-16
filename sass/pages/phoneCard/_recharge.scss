@@ -8,8 +8,9 @@
       }
       .weui-cell {
         border: none !important;
+        padding-bottom: 0;
         .weui-input {
-          font-size: 0.18rem;
+          font-size: 0.24rem;
         }
         .weui-cell__ft {
           i {
@@ -19,11 +20,11 @@
       }
     }
     .recharge-tips {
-      margin-top: 0;
-      margin-bottom: 0.1rem;
+      margin-top: -0.05rem;
+      margin-bottom: 0.05rem;
       line-height: 0.16rem;
       font-size: 0.12rem;
-      min-height: 0.32rem;
+      min-height: 0.16rem;
       padding-left: 15px;
       padding-right: 15px;
     }
@@ -49,7 +50,7 @@
           }
         }
         &.active {
-          border:1px solid $color-green;
+          border: 1px solid $color-green;
           color: $color-green;
         }
       }
@@ -90,6 +91,20 @@
           font-size: 0.18rem;
         }
       }
+    }
+  }
+}
+
+.overlay.recharge-overlay {
+  background: none;
+  .img-box {
+    position: absolute;
+    top: 50%;
+    @include transform( translate3d(0px, -50%, 0px));
+  }
+  .overlay-dismiss {
+    span {
+      color: #fff;
     }
   }
 }
