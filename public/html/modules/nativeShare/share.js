@@ -1,6 +1,6 @@
 'use strict';
 
-app.directive("nativeShare", ['$cookieStore', '$http', function ($cookieStore, $http) {
+app.directive("nativeShare", ['$cookieStore', '$http', '$location', function ($cookieStore, $http, $location) {
     return {
         restrict: 'E',
         templateUrl: "modules/nativeShare/share.html",
@@ -11,7 +11,7 @@ app.directive("nativeShare", ['$cookieStore', '$http', function ($cookieStore, $
             homeLink = 'http://app.yfq.cn/phone/active/A';
             shareTitle = '1888元年终奖大派送！翼分期商城，购机最高立减400元!送720元话费！';
             shareDisc = '苹果、OPPO、华为、VIVO等大牌手机直降！领券再立减！支持0息信用卡分期，点击直入>>';
-            picUrl = 'http://m.yfq.cn/images/active/1.jpg';
+            picUrl = 'http://app.yfq.cn/images/active/1.jpg';
 
             var $nativeShare = $("#nativeShare");
             var $nativeShareClose = $("#nativeShareClose");
@@ -87,14 +87,53 @@ app.directive("nativeShare", ['$cookieStore', '$http', function ($cookieStore, $
                 $(".weixinShareImg").show();
             });
 
-            /*scope.isWeixin = function () {
-                var a = UA.toLowerCase();
-                if (a.match(/MicroMessenger/i) == "micromessenger") {
-                    return true
-                } else {
-                    return false
-                }
-            };*/
+            var a = UA.toLowerCase();
+            var shareUrl = $location.absUrl().split("#")[0].replace(/&/gi,"AND");
+            console.log(shareUrl);
+            if (a.match(/MicroMessenger/i) == "micromessenger") {
+                $http.jsonp(cfApi.apiHost + "/product/getWxParameter.html?shareUrl=" + shareUrl + "&s=wap&callback=JSON_CALLBACK").success(function (data, status, headers, config) {
+                    wx.config({
+                        debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+                        appId: data[0].appId, // 必填，公众号的唯一标识
+                        timestamp: data[0].timestamp, // 必填，生成签名的时间戳
+                        nonceStr: data[0].nonceStr, // 必填，生成签名的随机串
+                        signature: data[0].signature,// 必填，签名，见附录1
+                        jsApiList: ['checkJsApi', 'onMenuShareTimeline', 'onMenuShareAppMessage'] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+                    });
+
+                    wx.ready(function () {
+                        wx.onMenuShareTimeline({
+                            title: shareTitle, // 分享标题
+                            link: homeLink, // 分享链接
+                            imgUrl: picUrl, // 分享图标
+                            success: function () {
+                                // 用户确认分享后执行的回调函数
+                            },
+                            cancel: function () {
+                                // 用户取消分享后执行的回调函数
+                            }
+                        });
+
+                        wx.onMenuShareAppMessage({
+                            title: shareTitle, // 分享标题
+                            desc: shareDisc, // 分享描述
+                            link: homeLink, // 分享链接
+                            imgUrl: picUrl, // 分享图标
+                            type: '', // 分享类型,music、video或link，不填默认为link
+                            dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+                            success: function () {
+                                // 用户确认分享后执行的回调函数
+                            },
+                            cancel: function () {
+                                // 用户取消分享后执行的回调函数
+                            }
+                        });
+                    });
+
+                }).error(function (data, status, headers, config) {
+                    console.log(status);
+                });
+            }
 
             var share_obj = new nativeShare('nativeShare', config);
 
