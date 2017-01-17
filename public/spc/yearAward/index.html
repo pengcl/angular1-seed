@@ -46,8 +46,8 @@
             <input id="src-val" type="hidden" value="../img/yearAward/huodong.jpg">
             <img id="new-m-1"  src="../img/yearAward/huodong.jpg" alt="">
             <div class="text">
-                <h4>奖品：<span id="text-1">宝马X5</span></h4>
-                <h4>获奖人：<span id="text-2">唐文</span></h4>
+                <h4><span id="jiangpin">奖品：</span><span id="text-1"></span></h4>
+                <h4><span id="huojiang">获奖人：</span><span id="text-2"></span></h4>
             </div>
             <div class="company">
                 <p id="company"></p>
@@ -68,7 +68,7 @@
         </div>
     </div>
     <script src="//apps.bdimg.com/libs/jquery/1.11.3/jquery.min.js" type="text/javascript"></script>
-    <script src="http://html2canvas.hertzen.com/build/html2canvas.js"></script>
+    <script src="http://cdn.bootcss.com/html2canvas/0.5.0-beta4/html2canvas.min.js"></script>
     <script>
     pageType = "yaw";
     $(document).ready(function() {
@@ -85,6 +85,7 @@
         $("#guess").click(function() {
             $(".yaw-mask-tw").show();
         });
+
         $("#submit").click(function() {
             var userName = $("#userName").val();
             var cName = $("#cName").val();
@@ -93,7 +94,26 @@
             } else if (cName == "") {
                 alert("请输入你的公司名字");
             } else {
+                $(".yaw-1").hide();
+                $(".yaw-mask-tw").hide();
+                $(".yaw-2").show();
+                var w=$('#new-m').width();
+                var h=$("#new-m").height();
+
+                $("#text-1").html(getRandomName());
+                $("#text-2").html(userName);
+                $("#company").html(cName);
+
+                var canvas = document.createElement("canvas");
+                canvas.width = w * 2;
+                canvas.height = h * 2;
+                canvas.style.width = w + "px";
+                canvas.style.height = h + "px";
+                var context = canvas.getContext("2d");
+
+                context.scale(2,2);
                 html2canvas($("#new-m"), {
+                    canvas: canvas,
                     onrendered: function (canvas) {
                         var url = canvas.toDataURL();
                         $("#new-m-1").attr("src",url);
@@ -102,28 +122,46 @@
                     }
                 });
 
-                $(".yaw-1").hide();
-                $(".yaw-mask-tw").hide();
-                $(".yaw-2").show();
+                var srcVal=$("#src-val").val();
+
+                $("#try-again").click(function() {
+
+                    $("#new-m-1").attr("src",srcVal);
+                    $("#text-1").html(getRandomName());
+                    $("#text-2").html(userName);
+                    $("#company").html(cName);
+                    $("#jiangpin").html("奖品：");
+                    $("#huojiang").html("获奖人：");
+                    var w=$('#new-m').width();
+                    var h=$("#new-m").height()-60;
+                    var canvas = document.createElement("canvas");
+                    canvas.width = w * 2;
+                    canvas.height = h * 2;
+                    canvas.style.width = w + "px";
+                    canvas.style.height = h + "px";
+                    var context = canvas.getContext("2d");
+
+                    context.scale(2,2);
+                    html2canvas($("#new-m"), {
+                        canvas: canvas,
+                        onrendered: function (canvas) {
+                            $("#jiangpin").html("");
+                            $("#huojiang").html("");
+                            $("#text-1").html("");
+                            $("#text-2").html("");
+                            $("#company").html("");
+                            var url = canvas.toDataURL();
+                            $("#new-m-1").attr("src",url);
+                            $("body").scrollTop(10000);
+                        }
+                    });
+
+                });
 
             }
-            $("#text-1").html(getRandomName());
-            $("#text-2").html(userName);
-            $("#company").html(cName);
+
         });
-        var srcVal=$("#src-val").val();
-        console.log(srcVal);
-        $("#try-again").click(function() {
-            $("#text-1").html(getRandomName());
-            $("#new-m-1").attr("src",srcVal);
-            html2canvas($("#new-m"), {
-                onrendered: function (canvas) {
-                    var url = canvas.toDataURL();
-                    $("#new-m-1").attr("src",url);
-                    $("body").scrollTop(10000);
-                }
-            });
-        });
+
 
 
     });
