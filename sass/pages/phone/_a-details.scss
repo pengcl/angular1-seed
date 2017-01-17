@@ -13,7 +13,7 @@
   }
   .line {
     margin-left: .05rem;
-    border-left: 1px dashed #595959;
+    border-right: 1px dashed #595959;
     padding: .05rem 0;
   }
   .product-txt {
@@ -423,8 +423,12 @@
           font-size: .15rem;
         }
         .month-item-small {
-          font-size: .2rem;
+          font-size: .3rem;
           font-weight: 600;
+          sub{
+            font-size: .2rem;
+          padding-left:.05rem;
+          }
         }
         .big {
           font-size: .2rem;
@@ -441,7 +445,7 @@
       border-color: #cc1414;
       .item-box {
         .line {
-          border-left: 1px dashed #cc1414 !important;
+          border-right: 1px dashed #cc1414 !important;
         }
       }
       .icon-gray-5 {

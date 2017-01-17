@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title></title>
+    <title>年终奖猜一猜</title>
     <meta name="description" content="">
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1" />
     <link rel="stylesheet" href="../spc.min.css">
@@ -46,7 +46,7 @@
             <input id="src-val" type="hidden" value="../img/yearAward/huodong.jpg">
             <img id="new-m-1"  src="../img/yearAward/huodong.jpg" alt="">
             <div class="text">
-                <h4><span id="jiangpin">奖品：</span><span id="text-1"></span></h4>
+                <h4 style="padding-bottom:5px"><span id="jiangpin">奖品：</span><span id="text-1"></span></h4>
                 <h4><span id="huojiang">获奖人：</span><span id="text-2"></span></h4>
             </div>
             <div class="company">
@@ -133,7 +133,7 @@
                     $("#jiangpin").html("奖品：");
                     $("#huojiang").html("获奖人：");
                     var w=$('#new-m').width();
-                    var h=$("#new-m").height()-60;
+                    var h=$("#new-m").height()-105;
                     var canvas = document.createElement("canvas");
                     canvas.width = w * 2;
                     canvas.height = h * 2;
@@ -152,6 +152,7 @@
                             $("#company").html("");
                             var url = canvas.toDataURL();
                             $("#new-m-1").attr("src",url);
+
                             $("body").scrollTop(10000);
                         }
                     });

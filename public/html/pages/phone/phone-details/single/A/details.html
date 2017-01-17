@@ -86,15 +86,17 @@
                         <ul class="card-list">
                             <li class="card-list-item on-cardetails">
                                 <div class="item-box pure-g">
-                                    <div class="month pure-u-2-5">
-                                        <p class="month-item rec">￥<span class="big" ng-bind="package.salesPrice | number : 0"></span><sub>套餐</sub></p>
-                                        <p><span>原价:￥<span ng-bind="package.oldPrice | number : 0"></span></span>优惠36个月</p>
-                                    </div>
+
                                     <div class="net-work pure-u-3-5">
                                         <div class="line">
-                                            <p class="month-item month-item-small"><span class="big" ng-bind="package.network"></span><sub>GB全国流量</sub></p>
-                                            <p><b ng-bind="package.talkTime"></b>分钟全国通话 <b ng-bind="package.message"></b>条短信</p>
+                                            <p class="month-item month-item-small"><span style="font-size:.3rem;" class="big" ng-bind="package.network"></span>GB<sub>全国流量</sub></p>
+                                            <p style="font-size:.12rem;line-height:1;"><b ng-bind="package.talkTime"></b>分钟全国通话 <b ng-bind="package.message"></b>条短信</p>
                                         </div>
+                                    </div>
+                                    <div class="month pure-u-2-5">
+                                        <p class="month-item rec">￥<span class="big" ng-bind="package.salesPrice | number : 0"></span><sub>套餐</sub></p>
+                                        <p><p>原价:￥<span ng-bind="package.oldPrice | number : 0"></span></p>
+                                        <p>优惠36个月</p>
                                     </div>
                                 </div>
                                 <!--<ins class="icon-gray-5">
@@ -112,15 +114,16 @@
                     <ul class="card-list">
                         <li class="card-list-item" ng-class="{true:'on-cardetails',false:''}[$index == 0]" ng-repeat="package in phone.packageProductList">
                             <div class="item-box pure-g" ng-click="setPackage($event,package);">
-                                <div class="month pure-u-2-5">
-                                    <p class="month-item rec">￥<span class="big" ng-bind="package.salesPrice | number : 0"></span><sub>/月</sub></p>
-                                    <p><del>原价￥<span ng-bind="package.oldPrice | number : 0"></span></del> 优惠36个月</p>
-                                </div>
                                 <div class="net-work pure-u-3-5">
                                     <div class="line">
-                                        <p class="month-item month-item-small"><span class="big" ng-bind="package.network"></span><sub>GB全国流量</sub></p>
-                                        <p><b ng-bind="package.talkTime"></b>分钟全国通话 <b ng-bind="package.message"></b>条短信</p>
+                                        <p class="month-item month-item-small"><span style="font-size:.3rem;" class="big" ng-bind="package.network"></span>GB<sub>全国流量</sub></p>
+                                        <p style="font-size:.12rem;line-height:1;"><b ng-bind="package.talkTime"></b>分钟全国通话 <b ng-bind="package.message"></b>条短信</p>
                                     </div>
+                                </div>
+                                <div class="month pure-u-2-5">
+                                    <p class="month-item rec">￥<span class="big" ng-bind="package.salesPrice | number : 0"></span><sub>/月</sub></p>
+                                    <p><del>原价￥<span ng-bind="package.oldPrice | number : 0"></span></del></p>
+                                    <p>优惠36个月</p>
                                 </div>
                             </div>
                             <!--<ins class="icon-gray-5">
