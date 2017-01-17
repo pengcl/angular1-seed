@@ -8,7 +8,7 @@ app.directive("nativeShare", ['$cookieStore', '$http', '$location', function ($c
             var homeLink, picUrl, shareTitle, shareDisc;
             var UA = navigator.appVersion;
 
-            homeLink = 'http://app.yfq.cn/phone/active/A';
+            homeLink = 'http://app.yfq.cn/phone/active/A' + window.location.search;
             shareTitle = '1888元年终奖大派送！翼分期商城，购机最高立减400元!送720元话费！';
             shareDisc = '苹果、OPPO、华为、VIVO等大牌手机直降！领券再立减！支持0息信用卡分期，点击直入>>';
             picUrl = 'http://app.yfq.cn/images/active/1.jpg';
@@ -89,7 +89,6 @@ app.directive("nativeShare", ['$cookieStore', '$http', '$location', function ($c
 
             var a = UA.toLowerCase();
             var shareUrl = $location.absUrl().split("#")[0].replace(/&/gi,"AND");
-            console.log(shareUrl);
             if (a.match(/MicroMessenger/i) == "micromessenger") {
                 $http.jsonp(cfApi.apiHost + "/product/getWxParameter.html?shareUrl=" + shareUrl + "&s=wap&callback=JSON_CALLBACK").success(function (data, status, headers, config) {
                     wx.config({

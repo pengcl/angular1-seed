@@ -27,10 +27,15 @@
                     <div class="product-txt">
                         <h1><span ng-bind="phone.phoneTypes[0].productName"></span><span ng-bind="phone.phoneTypes[1].productName"></span></h1>
                         <div class="label">爆款单机 搭配电信4G套餐 更划算</div>
-                        <div class="product-price">
+                        <div class="product-price" ng-if="buyType == 1">
                             <ul>
                                 <li style="padding-left: 0"><span>日供仅：</span><em>￥</em><em class="" ng-bind="totolPrice/365 | number:0"></em></li>
                                 <li style="padding-left: 0"><span>月供仅：</span><em>￥</em><em class="" ng-bind="totolPrice/12 | number:0"></em><em>x12期</em></li>
+                            </ul>
+                        </div>
+                        <div class="product-price" ng-if="buyType != 1">
+                            <ul>
+                                <li style="padding-left: 0"><span>购机价：</span><em>￥</em><em class="" ng-bind="totolPrice | number:0"></em></li>
                             </ul>
                         </div>
                         <div class="product-txt-ft"><stars></stars></div>
@@ -39,7 +44,7 @@
             </div>
 
             <div id="phoneColors">
-                <main-colors title="主机颜色" ng-if="phone"></main-colors>
+                <main-colors title="选择颜色" ng-if="phone"></main-colors>
             </div>
 
             <div id="phonePkg" style="padding-bottom: 0.15rem">
