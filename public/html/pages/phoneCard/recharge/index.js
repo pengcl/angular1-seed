@@ -20,7 +20,11 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
     $scope.params = window.location.search;
 
     //统计
-    writebdLog($scope.category, "_Load", "渠道号", $scope.gh);
+
+    $timeout(function () {
+        writebdLog($scope.category, "_Load", "渠道号", $scope.gh);
+        //$scope.$root.toast.close();
+    });
 
     $scope.rechargeMobile = function (rechargeMobile) {
         $scope.rechargeStatus = undefined;

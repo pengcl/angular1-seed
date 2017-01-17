@@ -10,7 +10,9 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
             controller: "aboutController"
         });
 }]).controller('aboutController', ['$scope', '$rootScope', '$location', '$http', function ($scope, $rootScope, $location, $http) {
-    $http.jsonp(cfApi.apiHost + "/product/getWxParameter.html?s=wap&callback=JSON_CALLBACK").success(function (data, status, headers, config) {
+    var shareUrl = $location.absUrl().split("#")[0];
+    $http.jsonp(cfApi.apiHost + "/product/getWxParameter.html?shareUrl=" + shareUrl + "&s=wap&callback=JSON_CALLBACK").success(function (data, status, headers, config) {
+    /*$http.jsonp(cfApi.apiHost + "/product/getWxParameter.html?shareUrl=" + shareUrl + "s=wap&callback=JSON_CALLBACK").success(function (data, status, headers, config) {*/
         //console.log(data[0]);
 
 
