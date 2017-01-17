@@ -27,10 +27,15 @@
                     <div class="product-txt">
                         <h1><span ng-bind="phone.phoneTypes[0].productName"></span><span ng-bind="phone.phoneTypes[1].productName"></span></h1>
                         <div class="label">爆款单机 搭配电信4G套餐 更划算</div>
-                        <div class="product-price">
+                        <div class="product-price" ng-if="buyType == 1">
                             <ul>
                                 <li style="padding-left: 0"><span>日供仅：</span><em>￥</em><em class="" ng-bind="totolPrice/365 | number:0"></em></li>
                                 <li style="padding-left: 0"><span>月供仅：</span><em>￥</em><em class="" ng-bind="totolPrice/12 | number:0"></em><em>x12期</em></li>
+                            </ul>
+                        </div>
+                        <div class="product-price" ng-if="buyType != 1">
+                            <ul>
+                                <li style="padding-left: 0"><span>购机价：</span><em>￥</em><em class="" ng-bind="totolPrice | number:0"></em></li>
                             </ul>
                         </div>
                         <div class="product-txt-ft"><stars></stars></div>
@@ -38,8 +43,40 @@
                 </div>
             </div>
 
+            <div id="coupons" style="padding-bottom: 0.15rem">
+                <div class="weui-cells__title title-icon">
+                    <span class="title">领券优惠</span><span class="star-color"></span>
+                </div>
+                <div class="coupon-panel pd-w">
+                    <ul class="coupon-lists item-lists minus pure-g" ng-click="showFudai()">
+                        <li class="coupon-item list-item pure-u-1-3">
+                            <div class="item-box margin small">
+                                <p>
+                                    <span>购机优惠券</span>
+                                </p>
+                            </div>
+                        </li>
+                        <li class="coupon-item list-item pure-u-1-3">
+                            <div class="item-box margin small">
+                                <p>
+                                    <span>购机免息券</span>
+                                </p>
+                            </div>
+                        </li>
+                        <li class="coupon-item list-item pure-u-1-3">
+                            <div class="item-box margin small">
+                                <p>
+                                    <span>4G卡话费券</span>
+                                </p>
+                            </div>
+                        </li>
+                    </ul>
+                    <p class="tips">还不赶快，买个新手机过大年</p>
+                </div>
+            </div>
+
             <div id="phoneColors">
-                <main-colors title="主机颜色" ng-if="phone"></main-colors>
+                <main-colors title="选择颜色" ng-if="phone"></main-colors>
             </div>
 
             <div id="phonePkg" style="padding-bottom: 0.15rem">
@@ -161,5 +198,5 @@
         </div>-->
         <n-footer-nav check-main-number="true" check-address="true" submit="#checkoutForm"></n-footer-nav>
     </form>
-    <!--<ng-coupon></ng-coupon>-->
+    <ng-coupon></ng-coupon>
 </div>
