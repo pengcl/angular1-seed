@@ -67,7 +67,7 @@
                     <div class="pd-w">
                         <ul class="item-lists minus pure-g">
                             <li class="list-item pure-u-5-8">
-                                <a ng-href="/spc/pcd/index.html{{params}}" target="_blank" class="item-box margin border radius small" ng-class="{true:'active',false:'disabled'}[rechargeStatus == 0]" ng-click="writeClickEvent($event,'9.9Page')">
+                                <a ng-href="/spc/pcd/index.html{{params}}" target="_blank" class="item-box margin border radius small" ng-class="{true:'active',false:'disabled'}[rechargeStatus == 0||rechargeStatus == undefined]" ng-click="writeClickEvent($event,'9.9Page')">
                                     9.9元领卡，享充值优惠
                                 </a>
                             </li>

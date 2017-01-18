@@ -82,14 +82,14 @@
             <div id="phonePkg" style="padding-bottom: 0.15rem">
                 <div class="weui-cells__title title-icon">
                     <span class="title">促销方式</span><span class="star-color">*</span>
-                    <span class="sub-title" ng-bind="activeTagName">裸机送0元4G优惠卡</span>
+                    <span class="sub-title" ng-bind="activeTagName">裸机送0元4G流量卡</span>
                 </div>
                 <div class="buy-type-panel pd-w">
                     <ul class="buy-type-lists item-lists minus pure-g">
                         <li class="buy-type-item list-item pure-u-2-5">
-                            <div class="item-box margin border radius small curr" ng-click="setBuyType($event,1,'裸机送0元4G优惠卡')">
+                            <div class="item-box margin border radius small curr" ng-click="setBuyType($event,1,'裸机送0元4G流量卡')">
                                 <p>
-                                    <span>裸机送0元4G优惠卡</span>
+                                    <span>裸机送0元4G流量卡</span>
                                 </p>
                                 <ins class="icon-check"></ins>
                             </div>
@@ -110,7 +110,7 @@
                 <input id="productId" name="productId" ng-model="package.productId" required type="hidden" value="{{package.productId}}">
                 <div class="weui-cells" ng-click="showPkgPn($event)" style="margin-top: 0">
                     <a class="tel-details weui-cell weui-cell_access" href="javascript:;">
-                        <div class="weui-cell__bd"><p style="text-align: left">4G卡优惠套餐选购<span class="star-color">*</span></p></div>
+                        <div class="weui-cell__bd"><p style="text-align: left">选择4G卡流量套餐<span class="star-color">*</span></p></div>
                         <div class="weui-cell__ft">
                             <!--<span ng-if="!package">未选择</span>-->
                             <!--<span ng-if="package">￥<span ng-bind="package.salesPrice | number : 0"></span>套餐，<span ng-bind="package.network"></span>G国内流量...</span>-->
@@ -175,7 +175,7 @@
 
             </div>
 
-            <main-number ng-if="buyType == 1" title="选择4G卡优惠套餐靓号"></main-number>
+            <main-number ng-if="buyType == 1" title="选择4G卡靓号"></main-number>
 
             <div id="promise">
                 <div class="weui-cells__title title-icon">
