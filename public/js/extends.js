@@ -426,3 +426,11 @@ function getMX(price,max,rates){
 		return Math.round(price * _rates);
 	}
 }
+$(document).ready(function(){
+    var dateTw=new Date("2017-1-24").getTime();
+    var showDateTw=new Date().getTime();
+    if(showDateTw>=dateTw) {
+        $(".pcd-recharge-a").addClass("open-new");
+        $(".new-year-notice").show();
+    }
+})
