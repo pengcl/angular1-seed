@@ -427,10 +427,23 @@ function getMX(price,max,rates){
 	}
 }
 $(document).ready(function(){
-    var dateTw=new Date("2017-1-24").getTime();
-    var showDateTw=new Date().getTime();
-    if(showDateTw>=dateTw) {
-        $(".pcd-recharge-a").addClass("open-new");
-        $(".new-year-notice").show();
-    }
+    $.ajax({
+        type:"get",
+        url:"http://m.yfq.cn/product/getServerTime.html?s=wap",
+        dataType:"jsonp",
+     success:function (data) {
+        var showDateTw1=data[0].serverTime;
+        var showDateTw2=showDateTw1.replace(/-/g,"/");
+
+        var showDateTw=new Date(showDateTw2).getTime();
+         console.log(showDateTw);
+            var dateTw=new Date("2017/1/24").getTime();
+            console.log(dateTw);
+            if(showDateTw>=dateTw) {
+                $(".pcd-recharge-a").addClass("open-new");
+                $(".new-year-notice").show();
+            }
+        }
+    })
+
 })
