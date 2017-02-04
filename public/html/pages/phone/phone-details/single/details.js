@@ -42,7 +42,7 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
         container: $(".content-scrollable")
     });
     $scope.buyType = 1;
-    $scope.activeTagName = "裸机送0元4G优惠卡";
+    $scope.activeTagName = "裸机送0元4G流量卡";
 
     $scope.setSbPayType = function (id, typeName) {
         $scope.payType = id;

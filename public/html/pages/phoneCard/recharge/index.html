@@ -1,5 +1,13 @@
 <div class="page pcd-recharge-a">
     <!-- cia card-index-pageType -->
+    <!--新年遮罩层start-->
+    <div class="new-year-notice" style="display: none">
+        <div class="img-box">
+            <img src="images/notice.png" alt="">
+        </div>
+    </div>
+    <div class="new-year-mask"></div>
+    <!--新年遮罩层end-->
     <top-nav page-title="首页" page-back="menu" nav-visibility="hide"></top-nav>
     <form id="checkoutForm" name="checkoutForm" action="http://m.yfq.cn/yfqcz/czOrdRechargeController.do?gotoPayGateWay"
           method="post" novalidate>
@@ -67,7 +75,7 @@
                     <div class="pd-w">
                         <ul class="item-lists minus pure-g">
                             <li class="list-item pure-u-5-8">
-                                <a ng-href="/spc/pcd/index.html{{params}}" target="_blank" class="item-box margin border radius small" ng-class="{true:'active',false:'disabled'}[rechargeStatus == 0]" ng-click="writeClickEvent($event,'9.9Page')">
+                                <a ng-href="/spc/pcd/index.html{{params}}" target="_blank" class="item-box margin border radius small" ng-class="{true:'active',false:'disabled'}[rechargeStatus == 0||rechargeStatus ==undefined]" ng-click="writeClickEvent($event,'9.9Page')">
                                     9.9元领卡，享充值优惠
                                 </a>
                             </li>
