@@ -7,9 +7,9 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
         .state('activeIndex', { //app首页
             url: "/phone/active/:pageType",
             templateUrl: function ($stateParams) {
-                return 'pages/phone/active/' + $stateParams.pageType + '/index.html';
+                return 'pages/phone/active/' + $stateParams.pageType + '/hotPhones/hotPhones.html';
             },
-            controller: "pActiveController"
+            controller: "pActivePhonesController"
         });
 }]).controller('pActiveController', ['$scope', '$location', '$http', '$stateParams', '$interval', '$timeout', '$cookieStore', function ($scope, $location, $http, $stateParams, $interval, $timeout, $cookieStore) {
 

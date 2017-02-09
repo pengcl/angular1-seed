@@ -42,7 +42,6 @@
     "serve-favicon": "~2.3.0"
   },
   "scripts": {
-    "postinstall": "bower install",
     "prestart": "npm install",
     "start": "http-server -a localhost -p 8000 -c-1 ./public",
     "pretest": "npm install",

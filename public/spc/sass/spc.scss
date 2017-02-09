@@ -699,35 +699,6 @@ p{
 }
 
 body.pcd {
-  #happy-new-year{
-    font-size: .14rem;
-    position:fixed;
-    top:0;
-    left:0;
-    right:0;
-    background: rgba(255,10,10,.7);
-    z-index:10;
-    padding:.1rem;
-    color:#fff;
-    p{
-      line-height: 1.5;
-    }
-    .close{
-      font-size:.2rem;
-      font-weight: bold;
-      color:#000;
-      width:.25rem;
-      height:.25rem;
-      background: #fff;
-      position:absolute;
-      right:3%;
-      bottom: 10%;
-      @include border-radius(50%);
-      text-align: center;
-      line-height: .24rem;
-      z-index: 11;
-    }
-  }
   margin:0;
   padding:0;
   overflow: auto;

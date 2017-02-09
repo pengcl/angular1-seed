@@ -1,13 +1,6 @@
 <div class="page pcd-recharge-a">
     <!-- cia card-index-pageType -->
-    <!--新年遮罩层start-->
-    <div class="new-year-notice" style="display: none">
-        <div class="img-box">
-            <img src="images/notice.png" alt="">
-        </div>
-    </div>
-    <div class="new-year-mask"></div>
-    <!--新年遮罩层end-->
+
     <top-nav page-title="首页" page-back="menu" nav-visibility="hide"></top-nav>
     <form id="checkoutForm" name="checkoutForm" action="http://m.yfq.cn/yfqcz/czOrdRechargeController.do?gotoPayGateWay"
           method="post" novalidate>
@@ -47,11 +40,12 @@
                     </div>
                     <div class="pd-w">
                         <ul class="item-lists minus pure-g">
-                            <li class="list-item pure-u-1-2" ng-repeat="rechargeProduct in rechargeProducts | orderBy : '-salesPrice' | filter : {salesOff : 0}">
+                            <li class="list-item pure-u-1-2" ng-repeat="rechargeProduct in rechargeProducts | orderBy : 'monthRent' | filter : {salesOff : 0}">
                                 <div class="item-box margin border radius small" ng-class="{true:'active',false:'disabled'}[rechargeStatus == 1]" ng-click="setProduct($event,rechargeProduct)">
                                     {{rechargeProduct.name}}
-                                    <ins ng-if="$index == 0"><img src="/images/phoneCard/recharge/flag.png"></ins>
+                                    <ins ng-if="rechargeProduct.isRecommend == 1"><img src="/images/phoneCard/recharge/flag.png"></ins>
                                 </div>
+                                <p class="tips" ng-bind="rechargeProduct.remark"></p>
                             </li>
                         </ul>
                     </div>
@@ -108,7 +102,7 @@
                 </ul>
             </div>
 
-            <div class="weui-footer weui-footer_fixed-bottom">
+            <div class="weui-footer">
                 <p class="weui-footer__text">本活动最终解释权归翼分期商城所有</p>
             </div>
         </div>

@@ -107,7 +107,11 @@ app.directive("ngCoupon", ['$location', '$interval', '$http', '$cookieStore', '$
                 if (scope.activePage == 'index') {
                     $location.path('/phone/active/A/phones');
                 } else if (scope.activePage == 'hotPhones') {
-
+                    var $container = $('.content-scrollable');
+                    var $scrollTo = $('#hotPhone');
+                    $container.animate({
+                        scrollTop: $scrollTo.offset().top - $container.offset().top + $container.scrollTop()
+                    });
                 } else {
                     var $container = $('.content-scrollable');
                     var $scrollTo = $('#receiverAddress');

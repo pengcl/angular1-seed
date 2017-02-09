@@ -272,6 +272,3 @@ function getActiveCode() {
     });
     writebdLog(category, "_VariIndexCode", "渠道号", getUrlParam("gh"));//获取验证码
 };
-$("#happy-new-year .close").click(function () {
-    $("#happy-new-year").hide();
-})

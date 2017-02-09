@@ -168,7 +168,7 @@ function operation() {
     this.writeOperation = function () {
         var flag = false;
         var info = "flow=" + loc + "&operation=" + map.get('operation');
-        info = info.replace("?","&");//将链接里的？字符转换为&，可以让后台获取
+        info = info.replace("?", "&");//将链接里的？字符转换为&，可以让后台获取
         var url = cfApi.apiHost + "/record/writeLog.html?" + info + "&s=wap";
         $.ajax({
             type: "get",
@@ -337,10 +337,10 @@ $(function () {
         $this.addClass("on");
         $phoneList.eq($this.index()).show();
         //console.log($this.index());
-        if($this.index() == 1){
+        if ($this.index() == 1) {
             $("#recommend").hide();
             $("#recommendTitle").hide();
-        }else {
+        } else {
             $("#recommend").show();
             $("#recommendTitle").show();
         }
@@ -356,35 +356,35 @@ function getRandomName() {
     return firstNames[fid] + lastNames[lid];
 }
 var baseTime = 0;
-function getRanDomTime(){
-    var addTime = Math.round(Math.random()*1);
+function getRanDomTime() {
+    var addTime = Math.round(Math.random() * 1);
     baseTime = baseTime + addTime;
-    if(baseTime > 10){
-        baseTime = Math.round(Math.random()*1) + 1;
+    if (baseTime > 10) {
+        baseTime = Math.round(Math.random() * 1) + 1;
     }
     return baseTime;
 }
 
-function getRandomPkg(){
-    var pkgs,pid;
-    pkgs = [101,102,155,156];
-    pid = Math.round(Math.random()*3);
+function getRandomPkg() {
+    var pkgs, pid;
+    pkgs = [101, 102, 155, 156];
+    pid = Math.round(Math.random() * 3);
     return pkgs[pid];
 }
 
-function getRandomPrePhone(){
-    var pkgs,pid;
-    pkgs = ['130','131','132','138','139','150'];
-    pid = Math.round(Math.random()*5);
+function getRandomPrePhone() {
+    var pkgs, pid;
+    pkgs = ['130', '131', '132', '138', '139', '150'];
+    pid = Math.round(Math.random() * 5);
     return pkgs[pid];
 }
 
-function getRandomPhone(){
-    return ((("18122XXX" + Math.round(Math.random()*9)) + Math.round(Math.random()*9)) + Math.round(Math.random()*9)) + Math.round(Math.random()*9);
+function getRandomPhone() {
+    return ((("18122XXX" + Math.round(Math.random() * 9)) + Math.round(Math.random() * 9)) + Math.round(Math.random() * 9)) + Math.round(Math.random() * 9);
 }
 
-function getRandomReceiverPhone(){
-    return (((getRandomPrePhone() + Math.round(Math.random()*9) + Math.round(Math.random()*9) + "XXX" + Math.round(Math.random()*9)) + Math.round(Math.random()*9)) + Math.round(Math.random()*9)) + Math.round(Math.random()*9);
+function getRandomReceiverPhone() {
+    return (((getRandomPrePhone() + Math.round(Math.random() * 9) + Math.round(Math.random() * 9) + "XXX" + Math.round(Math.random() * 9)) + Math.round(Math.random() * 9)) + Math.round(Math.random() * 9)) + Math.round(Math.random() * 9);
 }
 
 function getRandomProduct() {
@@ -401,49 +401,29 @@ function checkSameNumber(number1, number2) {
     return true;
 }
 
-function getJM(price,max){
-    for(var i = 0;i <= max/5;i++){
-        if(i*100 == price){
-            return i*5;
+function getJM(price, max) {
+    for (var i = 0; i <= max / 5; i++) {
+        if (i * 100 == price) {
+            return i * 5;
         }
-        if(i*100 > price) {
-            return (i-1)*5;
+        if (i * 100 > price) {
+            return (i - 1) * 5;
         }
-        if(i*100 < price && i*5 >= max){
+        if (i * 100 < price && i * 5 >= max) {
             return max;
         }
-    };
+    }
+    ;
 };
-function getMX(price,max,rates){
-	var _rates = 0.1;//设置默认利率
-	if(rates){//如果rates存在，使用rates值，如果不存在，tates=0.1;
-		_rates = rates;
-	}
-	
-	if(price > 7680){
-		return 768;
-	}else {
-		return Math.round(price * _rates);
-	}
+function getMX(price, max, rates) {
+    var _rates = 0.1;//设置默认利率
+    if (rates) {//如果rates存在，使用rates值，如果不存在，tates=0.1;
+        _rates = rates;
+    }
+
+    if (price > 7680) {
+        return 768;
+    } else {
+        return Math.round(price * _rates);
+    }
 }
-$(document).ready(function(){
-    $.ajax({
-        type:"get",
-        url:"http://m.yfq.cn/product/getServerTime.html?s=wap",
-        dataType:"jsonp",
-     success:function (data) {
-        var showDateTw1=data[0].serverTime;
-        var showDateTw2=showDateTw1.replace(/-/g,"/");
-
-        var showDateTw=new Date(showDateTw2).getTime();
-         console.log(showDateTw);
-            var dateTw=new Date("2017/1/24").getTime();
-            console.log(dateTw);
-            if(showDateTw>=dateTw) {
-                $(".pcd-recharge-a").addClass("open-new");
-                $(".new-year-notice").show();
-            }
-        }
-    })
-
-})
