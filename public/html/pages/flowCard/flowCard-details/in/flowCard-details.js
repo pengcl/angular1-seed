@@ -12,7 +12,7 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
     //$scope.pageTitle = "首页";
     //$scope.$root.title = $scope.pageTitle;
 
-    window.location.href = "http://m.yfq.cn/yfqcz/#/";
+    window.location.href = cfApi.apiHost + "/yfqcz/#/";
 
     $scope.appType = systemName+"_FlowPackage";
     $scope.category = $scope.appType;

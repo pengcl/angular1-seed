@@ -50,10 +50,10 @@ app.directive("footerNavRb", ['$timeout', function ($timeout) {
 
                             if (type == 1) {
                                 //scope.formAction = "http://m.yfq.cn/wap/taokafanghaoNew/uploadCard.html";
-                                $form.attr("action","http://m.yfq.cn/wap/taokafanghaoNew/uploadCardB.html");
+                                $form.attr("action",cfApi.apiHost + "/wap/taokafanghaoNew/uploadCardB.html");
                             } else if (type == 0) {
                                 //scope.formAction = "http://m.yfq.cn/wap/taokafanghaoNew/submitOrder.html";
-                                $form.attr("action","http://m.yfq.cn/wap/taokafanghaoNew/submitOrderSingle.html");
+                                $form.attr("action",cfApi.apiHost + "/wap/taokafanghaoNew/submitOrderSingle.html");
                             }
 
                             //console.log(scope.formAction);

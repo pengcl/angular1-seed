@@ -59,6 +59,7 @@
                                 <div class="item-box margin border radius small" ng-class="{true:'active',false:'disabled'}[rechargeStatus == 2]" ng-click="setProduct($event,rechargeProduct)">
                                     {{rechargeProduct.name}}
                                 </div>
+                                <p class="tips" ng-bind="rechargeProduct.remark"></p>
                             </li>
                         </ul>
                     </div>
@@ -82,8 +83,11 @@
             <div id="rechargeTipsPanel" style="display: none">
                 <div class="overlay recharge-overlay">
                     <a class="js-close-overlay overlay-dismiss" href="#"><span class="icon-cross"></span></a>
-                    <div class="img-box">
-                        <img src="/images/recharge/tips.gif">
+                    <div class="title-404 img-box">
+                        <img src="/images/recharge/404-title.png">
+                    </div>
+                    <div class="tips-box img-box">
+                        <img src="/images/recharge/chongzhi.gif">
                     </div>
                 </div>
             </div>

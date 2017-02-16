@@ -17,7 +17,7 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
 }]).controller('fdProController', ['$scope', '$rootScope', '$location', function ($scope, $rootScope, $location) {
 
 
-    window.location.href = "http://m.yfq.cn/yfqcz/#/";
+    window.location.href = cfApi.apiHost + "/yfqcz/#/";
     $scope.appType = systemName + "_FlowPackage";
 
     if ($location.path() == "/fd/mifi") {

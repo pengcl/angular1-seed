@@ -36,7 +36,7 @@
     .item-lists {
       .item-box {
         font-size: 0.14rem;
-        text-align: left;
+        text-align: center;
         padding-left: 0.15rem;
         padding-right: 0.15rem;
         ins {
@@ -101,10 +101,26 @@
 
 .overlay.recharge-overlay {
   background: none;
-  .img-box {
+  .title-404 {
     position: absolute;
-    top: 50%;
-    @include transform( translate3d(0px, -50%, 0px));
+    z-index: 1;
+    top: 5%;
+    width: 100%;
+  }
+  .tips-box {
+    position: absolute;
+    top: 15%;
+    left: 5%;
+    right: 5%;
+    bottom: 5%;
+    @include border-radius(10px);
+    overflow-y: auto;
+    overflow-x: hidden;
+    background: #ff4800;
+    padding-top:0.3rem;
+    img {
+      margin-bottom: 0.2rem;
+    }
   }
   .overlay-dismiss {
     span {

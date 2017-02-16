@@ -14,7 +14,7 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
     //$scope.$root.title = $scope.pageTitle;
     //console.log($scope.referrerForm.referrerNo);
     $scope.homeUrl = "http://app.yfq.cn/phone/A/index";
-    $scope.searchOrder = "http://m.yfq.cn/wap/customer/searchIndexA.html";
+    $scope.searchOrder = cfApi.apiHost + "/wap/customer/searchIndexA.html";
     $scope.$root.dialogClass = "referrer-dialog";
 
     $scope.$root.hasMoreBtn = true;
