@@ -119,4 +119,4 @@ appFilters.filter('mx',function(){
 		return Math.round(price * 0.1);
 	}
     }
-})
+});

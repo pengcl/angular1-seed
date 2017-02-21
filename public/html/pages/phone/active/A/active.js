@@ -5,9 +5,9 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
     // 设定路由
     $stateProvider
         .state('activeIndex', { //app首页
-            url: "/phone/active/:pageType",
+            url: "/phone/active/A",
             templateUrl: function ($stateParams) {
-                return 'pages/phone/active/' + $stateParams.pageType + '/hotPhones/hotPhones.html';
+                return 'pages/phone/active/A/hotPhones/hotPhones.html';
             },
             controller: "pActivePhonesController"
         });

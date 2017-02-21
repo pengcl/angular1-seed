@@ -5,15 +5,15 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
     // 设定路由
     $stateProvider
         .state('activePhones', { //app首页
-            url: "/phone/active/:pageType/phones",
+            url: "/phone/active/A/phones",
             templateUrl: function ($stateParams) {
-                return 'pages/phone/active/' + $stateParams.pageType + '/hotPhones/hotPhones.html';
+                return 'pages/phone/active/A/hotPhones/hotPhones.html';
             },
             controller: "pActivePhonesController"
         });
 }]).controller('pActivePhonesController', ['$scope', '$location', '$http', '$stateParams', '$interval', '$timeout', '$cookieStore', function ($scope, $location, $http, $stateParams, $interval, $timeout, $cookieStore) {
 
-    $scope.pageType = $stateParams.pageType;
+    $scope.pageType = "A";
     $scope.appType = systemName + "_coupon_" + $scope.pageType;
     $scope.category = $scope.appType;
 
