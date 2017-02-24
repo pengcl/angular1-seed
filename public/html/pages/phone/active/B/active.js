@@ -13,8 +13,8 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
         });
 }]).controller('pBctiveController', ['$scope', '$location', '$http', '$stateParams', '$interval', '$timeout', '$cookieStore', function ($scope, $location, $http, $stateParams, $interval, $timeout, $cookieStore) {
 
-    $scope.pageType = $stateParams.pageType;
-    $scope.appType = systemName + "_coupon_" + $scope.pageType;
+    $scope.pageType = 'B';
+    $scope.appType = systemName + "_xxyx_" + $scope.pageType;
     $scope.category = $scope.appType;
 
     $scope.activePage = 'index';
@@ -25,6 +25,30 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
     $scope.paraclass = "but_null";
     var second = 59, timePromise = undefined;
 
+    $scope.$root.share = {
+        homeLink: 'http://app.yfq.cn/phone/active/B' + window.location.search,
+        shareTitle: '中国电信“0”机价即可拿iPhone，最高还送6388元话费！先到先得！',
+        shareDisc: '多重优惠！广州地区可送货上门验机，今日下单可享12期0息分期！',
+        picUrl: 'http://app.yfq.cn/images/active/share_active-1.png'
+    };
+
+    if ($cookieStore.get("couponStore")) {
+        $scope.couponStore = $cookieStore.get("couponStore");
+    } else {
+        $scope.couponStore = $cookieStore.put("couponStore", 35);
+    }
+    
+    //统计
+    writebdLog($scope.category, "_Load", "渠道号", $scope.gh);
+
+    $scope.couponStore = $cookieStore.get("couponStore");
+
+    var homeArgs = ['_InputIndexName', '_InputIndexNumber','_InputIndexCode'];
+    //记录落地页输入的操作
+    $scope.$root.inputHomeArgs = function (type) {
+        writebdLog($scope.category, homeArgs[type], "渠道号", $scope.gh); //输入操作
+    };
+    
     $scope.checkCouponMobile = function () {
         $("#couponForm").find(".weui_cell").removeClass("weui-cell_warn");
         if (!$scope.couponForm.couponMobile.$valid) {
@@ -52,7 +76,7 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
             $(".input-vcode").addClass("weui-cell_warn");
             return false;
         } else {
-            if (!checkMobileCode($scope.coupon.activeCode)) {
+            if (!checkMobileCode($scope.coupon.mobile, $scope.coupon.activeCode)) {
                 $(".input-vcode").removeClass("weui-cell_success");
                 $(".input-vcode").addClass("weui-cell_warn");
                 return false;
@@ -74,7 +98,7 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
             $scope.dialog.open("系统提示", "请输入正确的手机号码！");
             return false;
         }
-        $http.get("http://app.yfq.cn:3099/api/getActiveCode/" + phoneNumber).success(function (data) {
+        $http.get("http://m.yfq.cn:3099/api/getActiveCode/" + phoneNumber).success(function (data) {
             if (data == "") {
                 $scope.toast.close();
                 timePromise = $interval(function () {
@@ -124,9 +148,10 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
         if (headCategory != undefined && headCategory != null)
             category = headCategory;
 
-        $http.jsonp('http://192.168.1.181:8082/product/doReceiveMultipleCoupon.html?recieverMobile=' + $scope.coupon.mobile + '&couponType=HF-MX-JM&gh=' + $scope.gh + '&category=' + category + '&s=wap&callback=JSON_CALLBACK').success(function (data, status, headers, config) {
-            console.log(data, $scope.coupon.name, $scope.coupon.mobile);
-            $http.jsonp('http://192.168.1.181:8082/product/intentionLog.html?activeTag=jktchd&dataType=tchd&operationName=' + $scope.coupon.mobile + '&operationValue=' + encodeURI($scope.coupon.name) + '&s=wap&s=wap&callback=JSON_CALLBACK').success(function (data, status, headers, config) {
+        $http.jsonp(cfApi.apiHost + '/product/doReceiveMultipleCoupon.html?recieverMobile=' + $scope.coupon.mobile + '&couponType=HF-MX-JM&gh=' + $scope.gh + '&category=' + category + '&s=wap&callback=JSON_CALLBACK').success(function (data, status, headers, config) {
+            $cookieStore.put("couponStore", $cookieStore.get("couponStore") - 1);
+            $scope.couponStore = $cookieStore.get("couponStore") - 1;
+            $http.jsonp(cfApi.apiHost + '/product/intentionLog.html?activeTag=jktchd&dataType=tchd&operationName=' + $scope.coupon.mobile + '&operationValue=' + encodeURI($scope.coupon.name) + '&s=wap&s=wap&callback=JSON_CALLBACK').success(function (data, status, headers, config) {
                 $scope.toast.close();
                 var _params;
                 if ($scope.params == '') {
@@ -148,7 +173,7 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
             //deferred.reject(status)
         });
 
-        //writebdLog($scope.category, "_ClickCoupons", "渠道号", $scope.gh); //点击领券
+        writebdLog($scope.category, "_NextOrder", "渠道号", $scope.gh); //点击进入下单页
     };
 
 }]);

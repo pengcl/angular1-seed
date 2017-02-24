@@ -7,9 +7,9 @@ var systemName = "yfqapp";
     for (i = 0; i < $a.length; i++) {
         _href = $a.eq(i).attr("href");
         //rewriteUrl = "http://app.yfq.cn" + _href + params;
-        if(_href.indexOf("?") != -1 && params.indexOf("?") != -1){
-            rewriteUrl = "http://app.yfq.cn" + _href + params.replace(/\?/,"&");
-        }else {
+        if (_href.indexOf("?") != -1 && params.indexOf("?") != -1) {
+            rewriteUrl = "http://app.yfq.cn" + _href + params.replace(/\?/, "&");
+        } else {
             rewriteUrl = "http://app.yfq.cn" + _href + params;
         }
         $a.eq(i).attr("href", rewriteUrl);//重写href
@@ -153,9 +153,8 @@ var category = systemName + "_" + pageType + "_Index";
 writebdLog(category, "_Load", "渠道号", getUrlParam("gh"));
 
 //根据名称写入日志
-function userTrack(name)
-{
-	writebdLog(category, name, "渠道号", getUrlParam("gh"));
+function userTrack(name) {
+    writebdLog(category, name, "渠道号", getUrlParam("gh"));
 }
 
 var getContact = function () {
@@ -170,10 +169,10 @@ var indexBuy = function () {
     writebdLog(category, "_OnlineOrder", "渠道号", getUrlParam("gh"));//客服咨询
 };
 
-function checkMobileCode(code) {
+function checkMobileCode(receiverMobile, code) {
     var flag = false;
     $.ajax({
-        url: "http://app.yfq.cn:3099/api/checkActiveCode/" + code,
+        url: "http://app.yfq.cn:3099/api/checkActiveCode/" + receiverMobile + '/' + code,
         async: false,
         type: "get",
         success: function (data) {
@@ -195,13 +194,13 @@ var checkReceiverMobile = function () {
     return true;
 };
 
-var checkActiveCode = function () {
+var checkActiveCode = function (receiverMobile) {
     var activeCode = $("#activeCode").val();
     if (activeCode.length != 4) {
         alert("请输入验证码！");
         return false;
     } else {
-        if (!checkMobileCode(activeCode)) {
+        if (!checkMobileCode(receiverMobile, activeCode)) {
             alert("验证码不正确，请重新输入！");
             return false;
         }
@@ -211,10 +210,10 @@ var checkActiveCode = function () {
 };
 
 var huBuy = function (e) {
-	console.log(e);
+    var phoneNumber = $("#receiverMobile").val();
     if (checkReceiverMobile()) {
-        if (checkActiveCode()) {
-        	applyButtonUv(e);
+        if (checkActiveCode(phoneNumber)) {
+            applyButtonUv(e);
         } else {
             e.preventDefault();
         }
@@ -223,21 +222,19 @@ var huBuy = function (e) {
     }
 };
 
-function applyButtonUv(e)
-{
-	if(e==undefined) return;
-	if(e.srcElement==undefined) return;
-	if(e.srcElement.innerText==undefined) return;
-	if(e.srcElement.innerText.indexOf("号码")!=-1)
-		writebdLog(category, "_ApplyNextNumber", "渠道号", getUrlParam("gh"));//申请新号码
-	else
-		writebdLog(category, "_ApplyNextCOD", "渠道号", getUrlParam("gh"));//下单页
+function applyButtonUv(e) {
+    if (e == undefined) return;
+    if (e.srcElement == undefined) return;
+    if (e.srcElement.innerText == undefined) return;
+    if (e.srcElement.innerText.indexOf("号码") != -1)
+        writebdLog(category, "_ApplyNextNumber", "渠道号", getUrlParam("gh"));//申请新号码
+    else
+        writebdLog(category, "_ApplyNextCOD", "渠道号", getUrlParam("gh"));//下单页
 }
 
-function writeInputNumber(obj,name)
-{
-	if($(obj).val().length<4) return;
-	writebdLog(category, name, "渠道号", getUrlParam("gh"));//输入号码
+function writeInputNumber(obj, name) {
+    if ($(obj).val().length < 4) return;
+    writebdLog(category, name, "渠道号", getUrlParam("gh"));//输入号码
 }
 
 var paracont = "获取验证码";
@@ -245,7 +242,7 @@ var paraclass = "but_null";
 var second = 59, timePromise = undefined;
 
 function getActiveCode() {
-    if(!checkReceiverMobile()){
+    if (!checkReceiverMobile()) {
         return false;
     }
     var phoneNumber = $("#receiverMobile").val();

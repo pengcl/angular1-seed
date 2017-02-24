@@ -254,12 +254,18 @@
 }
 
 .page.active-b {
+  .address-overlay {
+    z-index: 10000;
+  }
   .content-scrollable {
     background: #f3e5e1 !important;
     font-size: 0.12rem;
     .active-b-content {
       background: #f8f8f8 !important;
       color: #999;
+    }
+    .item-box {
+      font-size: 0.14rem;
     }
     .header {
       text-align: center;
@@ -285,19 +291,30 @@
       padding-bottom: 0.08rem;
       img, span {
         @include inline-block;
+        vertical-align: baseline;
       }
       img {
         height: 0.2rem;
+        vertical-align: middle;
       }
       span {
         line-height: 0.2rem;
         font-size: 0.14rem;
-        .o {
+        color: #333;
+        &.o {
           color: $color-orange;
+          font-size: 0.18rem;
         }
       }
     }
-
+    .weui-cells__title {
+      &:before {
+        background: #1495eb;
+      }
+      .star-color {
+        display: none;
+      }
+    }
     #phoneBrands {
       background: #fff;
       @include box-shadow(0px 3px 3px #ddd);
@@ -400,17 +417,24 @@
         padding-right: 0.15rem;
         .addr-tip {
           position: relative;
-          padding-left: 0.4rem;
+          padding-left: 1rem;
           padding-top: 0.1rem;
           padding-right: 0.1rem;
           padding-bottom: 0.1rem;
           border: 1px solid #d8d8d8;
           @include border-radius(2px);
-          .icon-admin {
+          font-size: 0.14rem;
+          div {
             position: absolute;
             left: 0.1rem;
-            top: 0.15rem;
-            font-size: 0.16rem;
+            top: 0.11rem;
+            line-height: 1;
+            span {
+              @include inline-block;
+            }
+          }
+          p {
+            color: $color-orange;
           }
         }
       }
@@ -418,6 +442,14 @@
         padding-left: 0;
         padding-right: 0;
         background: #fff;
+        .weui-cell__hd {
+          span {
+            @include inline-block;
+            &.icon-pin, &.icon-globe, &.icon-admin {
+              font-size: 0.18rem;
+            }
+          }
+        }
         .pay-type-list {
           padding-bottom: 0.1rem;
           position: relative;
@@ -437,6 +469,9 @@
         padding-top: 0.1rem;
         padding-bottom: 0.1rem;
         margin-bottom: 0.77em;
+        &:before {
+          background: #1495eb;
+        }
         &:after {
           content: " ";
           position: absolute;
@@ -446,6 +481,9 @@
           height: 1px;
           border-bottom: 1px solid #d8d8d8;
           @include scaleY(0.5);
+        }
+        .star-color {
+          display: none;
         }
       }
       .weui-cell {
@@ -505,6 +543,13 @@
         border: 1px solid #1495eb;
         @include border-radius(2px);
       }
+
+      .weui-cell_success {
+        .weui-cell__bd {
+          color: #333 !important;
+        }
+      }
+
     }
 
     .progress-bar {
@@ -545,13 +590,19 @@
         .weui-badge {
           @include inline-block;
           @include border-radius(10em);
-          background: #1495eb;
+          background: #ccc;
           padding-left: 0.5em;
           padding-right: 0.5em;
           padding-top: 0.055rem;
           padding-bottom: 0.025rem;
           line-height: 1;
           color: #fff;
+        }
+        &.active {
+          .weui-badge {
+            background: #1495eb;
+            color: #fff;
+          }
         }
       }
     }
@@ -597,7 +648,7 @@
   .balance {
     background: #fff;
     @include box-shadow(0px 3px 3px #ddd);
-    padding-bottom: 0.77em;
+    padding-bottom: 0.15rem;
     font-size: 0.14rem;
     .weui-cells__title {
       padding-top: 0.1rem;
@@ -615,6 +666,34 @@
       }
     }
   }
+
+  .phone-pkgs-item {
+    line-height: 0.24rem;
+    .pure-u-1-5 {
+      del {
+        font-size: 0.12rem;
+      }
+    }
+    .item-box {
+      &.curr {
+        color: #333;
+        del {
+          color: #999;
+        }
+        .rd {
+          color: $color-orange;
+        }
+      }
+    }
+    &.fst {
+      .item-box {
+        background: $color-orange;
+        color: #fff;
+        border: 1px solid $color-orange;
+      }
+    }
+  }
+
   .balance-content {
     img {
       @include inline-block;
@@ -627,6 +706,8 @@
       margin-bottom: 0.77em;
       .pr {
         text-align: right;
+        font-size: 0.18rem;
+        font-weight: bold;
         color: $color-orange;
       }
       .tp {
@@ -646,6 +727,8 @@
       padding-right: 0.15rem;
       .pr {
         text-align: right;
+        font-size: 0.18rem;
+        font-weight: bold;
         color: $color-orange;
       }
       .tp {
@@ -679,8 +762,9 @@
         @include scaleY(0.5);
       }
       .pr-box {
-        font-size: 0.16rem;
+        font-size: 0.18rem;
         color: $color-orange;
+        font-weight: bold;
       }
       .rtp {
         color: #fff;
@@ -708,11 +792,27 @@
     padding-top: 0.1rem;
     padding-bottom: 0.1rem;
     text-align: center;
+    p {
+      span {
+        color: $color-orange;
+      }
+    }
   }
 
   .inst-progress {
     margin-top: 0.1rem;
     background: #fff;
+
+    .spc-title h2 span:first-child::after, .spc-title h2 span:last-child::before {
+      background: #333;
+    }
+    .spc-title {
+      background: none;
+      color: #333;
+      span {
+        color: #333333;
+      }
+    }
     .inst-progress-pros {
       padding-bottom: 0.1rem;
       padding-top: 0.1rem;
@@ -751,6 +851,9 @@
     }
     .weui-flex__item {
       color: #333;
+      span {
+        color: $color-orange;
+      }
     }
   }
 

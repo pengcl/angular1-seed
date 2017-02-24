@@ -174,7 +174,7 @@ app.directive("ngCoupon", ['$location', '$interval', '$http', '$cookieStore', '$
                     $(".input-vcode").addClass("weui-cell_warn");
                     return false;
                 } else {
-                    if (!checkMobileCode(scope.coupon.activeCode)) {
+                    if (!checkMobileCode(scope.coupon.mobile, scope.coupon.activeCode)) {
                         $(".input-vcode").removeClass("weui-cell_success");
                         $(".input-vcode").addClass("weui-cell_warn");
                         return false;

@@ -21,10 +21,10 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
 
     $scope.login = function (event, referrerNo) {
         if ($scope.referrerForm.referrerNo.$valid) {
-            $http.jsonp(cfApi.apiHost + '/product/getQrCode.html?referrerNo=' + referrerNo + '&gh=cfps&activity=cfps&url=' + $scope.homeUrl + '&callback=JSON_CALLBACK').success(function (data, status, headers, config) {
-                var html = "<div class='img-box'><img src='" + data[0].upCodePath + "'></div><p><a href='" + $scope.homeUrl + "?gh=cfps&activity=cfps&referrerNo=" + referrerNo + "'>进入官网</a></p>";
-                $http.jsonp(cfApi.apiHost + '/product/getQrCode.html?referrerNo=' + referrerNo + '&gh=cfps&activity=cfps&url=' + $scope.searchOrder + '&callback=JSON_CALLBACK').success(function (data, status, headers, config) {
-                    html = html + "<div class='img-box'><img src='" + data[0].upCodePath + "'></div><p><a href='" + $scope.searchOrder + "?gh=cfps&activity=cfps&referrerNo=" + referrerNo + "'>查询订单</a></p>";
+            $http.jsonp(cfApi.apiHost + '/product/getQrCode.html?referrerNo=' + referrerNo + '&gh=jktchd&activity=jktchd&url=' + $scope.homeUrl + '&callback=JSON_CALLBACK').success(function (data, status, headers, config) {
+                var html = "<div class='img-box'><img src='" + data[0].upCodePath + "'></div><p><a href='" + $scope.homeUrl + "?gh=jktchd&activity=jktchd&referrerNo=" + referrerNo + "'>进入官网</a></p>";
+                $http.jsonp(cfApi.apiHost + '/product/getQrCode.html?referrerNo=' + referrerNo + '&gh=jktchd&activity=jktchd&url=' + $scope.searchOrder + '&callback=JSON_CALLBACK').success(function (data, status, headers, config) {
+                    html = html + "<div class='img-box'><img src='" + data[0].upCodePath + "'></div><p><a href='" + $scope.searchOrder + "?gh=jktchd&activity=jktchd&referrerNo=" + referrerNo + "'>查询订单</a></p>";
                     $scope.dialog.open("", html);
                 }).error(function (data, status, headers, config) {
                     console.log("error");

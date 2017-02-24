@@ -15,7 +15,7 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
 
     $scope.pageType = "B";
     $scope.activeTag = "jktchd";
-    $scope.appType = systemName + "_coupon_" + $scope.pageType;
+    $scope.appType = systemName + "_xxyx_" + $scope.pageType;
     $scope.category = $scope.appType;
 
     $scope.payType = 0;
@@ -23,6 +23,13 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
     $scope.activePage = 'hotPhones';
 
     $scope.params = window.location.search;
+
+    $scope.$root.share = {
+        homeLink: 'http://app.yfq.cn/phone/active/B' + window.location.search,
+        shareTitle: '中国电信“0”机价即可拿iPhone，最高还送6388元话费！先到先得！',
+        shareDisc: '多重优惠！广州地区可送货上门验机，今日下单可享12期0息分期！',
+        picUrl: 'http://app.yfq.cn/images/active/share_active-1.png'
+    };
 
     var $container = $(".content-scrollable");
 
@@ -35,7 +42,7 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
 
     var $areaList = $(".area-list");
 
-    writebdLog($scope.category, "_Load", "渠道号", $scope.gh);
+    writebdLog($scope.category, "_Order_Load", "渠道号", $scope.gh);
 
     $scope.getContact = function () {
         getMeiqia();
@@ -46,6 +53,7 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
 
     $scope.setPayType = function (type) {
         $scope.payType = type;
+        writebdLog($scope.category, "_PayType"+type, "渠道号", $scope.gh);//选择发货方式
     };
 
     $scope.goToTop = function () {
@@ -56,7 +64,7 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
     };
 
 
-    $http.jsonp('http://192.168.1.181:8082/product/getPackageList.html?activeTag=fqssj&s=wap&callback=JSON_CALLBACK').success(function (data, status, headers, config) {
+    $http.jsonp(cfApi.apiHost + '/product/getPackageList.html?activeTag=fqssj&s=wap&callback=JSON_CALLBACK').success(function (data, status, headers, config) {
         $scope.pkgs = data;
 
     }).error(function (data, status, headers, config) {
@@ -64,7 +72,7 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
         //deferred.reject(status)
     });
 
-    $http.jsonp('http://192.168.1.181:8082' + '/product/getProList.html?activeTag=jjk&s=wap&callback=JSON_CALLBACK').success(function (data, status, headers, config) {
+    $http.jsonp(cfApi.apiHost + '/product/getProList.html?activeTag=jktchd&s=wap&callback=JSON_CALLBACK').success(function (data, status, headers, config) {
         $scope.phones = data;
         $scope.brands = [];
         $scope.brandsArry = [];
@@ -89,24 +97,32 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
         //deferred.reject(status)
     });
 
-    function writeBtNavItem(index) {
-        writebdLog($scope.category, btNavItemName[index], "渠道号", $scope.gh);//选择模块
-    }
-
     $scope.setMachine = function (machine, productId) {
         writebdLog($scope.category, "_" + productId, "渠道号", $scope.gh);//选择的商品ID
     };
+    
+    function writeBrand(name)
+    {
+    	
+    	if(name == '华为') name = 'huawei';
+    	if(name == '小米') name = 'mi';
+    	if(name == '美图') name = 'meitu';
+    	return name;
+    }
 
     $scope.setMainPhoneBrand = function (e, myBrand) {
         $scope.brand = myBrand;
+        writebdLog($scope.category, "_" + writeBrand(myBrand.brandName), "渠道号", $scope.gh);//选择的手机品牌
     };
 
     $scope.setMainPhone = function (e, phoneId) {
         $scope.phoneId = phoneId;
+        writebdLog($scope.category, "_" + phoneId, "渠道号", $scope.gh);//选择的机型
     };
 
     $scope.setMainPhonePkg = function (e, pkg) {
         $scope.package = pkg;
+        writebdLog($scope.category, "_SelectPackage", "渠道号", $scope.gh);//选择的套餐
     };
 
     $scope.setAddress = function (e, province, city, district, street) {
@@ -128,6 +144,10 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
         });
     };
 
+    $scope.hideAddress = function () {
+        $scope.addressShow = false;
+    };
+
     $scope.getDistricts = function (e, province, city) {
         var _html = "";
         $http.jsonp(cfApi.apiHost + "/wap/comm/czCommonController/getRegion.html?need=district&province=" + province + "&city=" + city + "&callback=JSON_CALLBACK&s=wap").success(function (data, status, headers, config) {
@@ -142,9 +162,13 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
             console.log(status);
         });
     };
+    
+    //记录落地页输入的操作
+    $scope.$root.writeReceiver = function () {
+        writebdLog($scope.category, "_Address", "渠道号", $scope.gh); //输入地址
+    };
 
     $scope.checkAddress = function () {
-        console.log($scope.couponForm);
         $("#receiverAddress").find(".weui_cell").removeClass("weui-cell_warn");
         if (!$scope.couponForm.reciverName.$valid) {
             //alert("请输入收件人");
@@ -164,20 +188,26 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
             return false;
         }
 
-        $cookieStore.put("receiver", scope.receiver);
+        $cookieStore.put("receiver", $scope.receiver);
 
         return true;
     };
 
     $scope.submit = function () {
-        if (!$scope.checkAddress()) {
-            var $scrollTo = $('.quan-form');
-            $container.animate({
-                scrollTop: $scrollTo.offset().top - $container.offset().top + $container.scrollTop() - 50
-            });
-            return false;
+        if ($scope.payType == 3) {
+            $("#couponForm").submit();
+        } else {
+            if (!$scope.checkAddress()) {
+                var $scrollTo = $('.quan-form');
+                $container.animate({
+                    scrollTop: $scrollTo.offset().top - $container.offset().top + $container.scrollTop() - 50
+                });
+                return false;
+            }
+            $("#couponForm").submit();
         }
-        $("#couponForm").submit();
+        
+        writebdLog($scope.category, "_BuyNow", "渠道号", $scope.gh);//提交订单
     };
 
     $scope.$watch('brand', function (n, o, $scope) {
@@ -194,16 +224,26 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
 
     $scope.$watch('phoneId', function (n, o, $scope) {
         if (o !== n && n !== undefined) {
-            $http.jsonp("http://192.168.1.181:8082/product/getProDetial.html?productId=" + n + "&activeTag=jjk&s=wap&callback=JSON_CALLBACK").success(function (data, status, headers, config) {
+            $http.jsonp(cfApi.apiHost + "/product/getProDetial.html?productId=" + n + "&activeTag=jjk&s=wap&callback=JSON_CALLBACK").success(function (data, status, headers, config) {
                 $scope.phone = data;
                 $scope.packages = [];
+                $scope.comparePrices = [];
+                $scope.packageIndex = 0;
+                var distance;
                 $.each(eval(data.cardItems.split(";")), function (i, k) {
-                    getIndex($scope.pkgs, "productId", k.slice(0, k.indexOf(':')));
-                    console.log(getIndex($scope.pkgs, "productId", k.slice(0, k.indexOf(':'))));
-                    $scope.packages.push($scope.pkgs[getIndex($scope.pkgs, "productId", k.slice(0, k.indexOf(':')))]);
+                    var obj = $scope.pkgs[getIndex($scope.pkgs, "productId", k.slice(0, k.indexOf(':')))];
+                    obj.phonePrice = k.slice(k.indexOf(':') + 1, k.length);
+                    $scope.packages.push(obj);
+                    $scope.comparePrices.push(data.salePrice - obj.salesPrice);
                 });
-                $scope.package = $scope.packages[0];
-                console.log($scope.packages);
+
+                for (var i = 1; i < $scope.comparePrices.length; i++) {
+                    if(Math.abs($scope.comparePrices[i]) < Math.abs($scope.comparePrices[$scope.packageIndex])){
+                        $scope.packageIndex = i;
+                    }
+                }
+
+                $scope.package = $scope.packages[$scope.packageIndex];
             }).error(function (data, status, headers, config) {
                 console.log(status);
             });

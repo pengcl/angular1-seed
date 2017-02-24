@@ -112,7 +112,7 @@ app.directive("receiverAddress", ["$compile", "$cookieStore", '$http', '$interva
                     $(".input-vcode").addClass("weui-cell_warn");
                     return false;
                 } else {
-                    if (!checkMobileCode(scope.activeCode)) {
+                    if (!checkMobileCode(scope.receiver.mobile, scope.activeCode)) {
                         $(".input-vcode").removeClass("weui-cell_success");
                         $(".input-vcode").addClass("weui-cell_warn");
                         return false;

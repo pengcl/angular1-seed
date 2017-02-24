@@ -114,7 +114,7 @@ app.directive("adr", ["$compile", "$cookieStore", '$http', '$interval', function
                     $(".input-vcode").addClass("weui-cell_warn");
                     return false;
                 } else {
-                    if (!checkMobileCode(scope.activeCode)) {
+                    if (!checkMobileCode(scope.receiver.mobile, scope.activeCode)) {
                         $(".input-vcode").removeClass("weui-cell_success");
                         $(".input-vcode").addClass("weui-cell_warn");
                         return false;
@@ -239,19 +239,18 @@ app.directive("adr", ["$compile", "$cookieStore", '$http', '$interval', function
                 return true;
             };
             scope.showReceiverPn = function (e) {
-            	writeAddressBar();
-                if(!(attrs.noAnimate == "true")){
+                writeAddressBar();
+                if (!(attrs.noAnimate == "true")) {
                     $("#receiverAddressPanel").slideToggle();
                     $(".adr-tab").toggleClass("down");
                 }
             };
-            
-            function writeAddressBar()
-            {
-            	if($("#receiverAddressPanel").is(":hidden"))
-            		writebdLog(scope.category, "_ShowAddressBar", "渠道号", scope.gh); //展开地址栏
+
+            function writeAddressBar() {
+                if ($("#receiverAddressPanel").is(":hidden"))
+                    writebdLog(scope.category, "_ShowAddressBar", "渠道号", scope.gh); //展开地址栏
                 else
-                	writebdLog(scope.category, "_StopAddressBar", "渠道号", scope.gh); //收起地址栏
+                    writebdLog(scope.category, "_StopAddressBar", "渠道号", scope.gh); //收起地址栏
             }
 
             scope.adrOk = function () {

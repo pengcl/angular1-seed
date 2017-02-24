@@ -305,10 +305,10 @@ function hideToast() {
     $loadingToast.fadeOut(100);
 };
 
-function checkMobileCode(code) {
+function checkMobileCode(receiverMobile, code) {
     var flag = false;
     $.ajax({
-        url: "http://app.yfq.cn:3099/api/checkActiveCode/" + code,
+        url: "http://app.yfq.cn:3099/api/checkActiveCode/" + receiverMobile + '/' + code,
         async: false,
         type: "get",
         success: function (data) {

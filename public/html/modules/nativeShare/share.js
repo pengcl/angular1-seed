@@ -13,6 +13,13 @@ app.directive("nativeShare", ['$cookieStore', '$http', '$location', function ($c
             shareDisc = '苹果、OPPO、华为、VIVO等大牌手机直降！用券购再立减！戳我抢→';
             picUrl = 'http://app.yfq.cn/images/active/share_active.jpg';
 
+            scope.$root.share = {
+                homeLink: 'http://app.yfq.cn/phone/active/A' + window.location.search,
+                shareTitle: '我领到1888元购机年终奖！年前换个好手机，开开心心回家过大年！',
+                shareDisc: '苹果、OPPO、华为、VIVO等大牌手机直降！用券购再立减！戳我抢→',
+                picUrl:'http://app.yfq.cn/images/active/share_active.jpg'
+            };
+
             var $nativeShare = $("#nativeShare");
             var $nativeShareClose = $("#nativeShareClose");
             var $showMask = $("#showMask");
@@ -42,10 +49,10 @@ app.directive("nativeShare", ['$cookieStore', '$http', '$location', function ($c
 
             window._bd_share_config = {
                 common: {
-                    bdText: shareTitle,
-                    bdDesc: shareDisc,
-                    bdUrl: homeLink,
-                    bdPic: picUrl
+                    bdText: scope.$root.share.shareTitle,
+                    bdDesc: scope.$root.share.shareDisc,
+                    bdUrl: scope.$root.share.homeLink,
+                    bdPic: scope.$root.share.picUrl
                 },
                 share: [{
                     "bdSize": 32
@@ -57,11 +64,11 @@ app.directive("nativeShare", ['$cookieStore', '$http', '$location', function ($c
                 ]
             };
             var config = {
-                url: homeLink,
-                title: shareTitle,
-                desc: shareDisc,
-                img: picUrl,
-                img_title: shareTitle,
+                url: scope.$root.share.homeLink,
+                title: scope.$root.share.shareTitle,
+                desc: scope.$root.share.shareDisc,
+                img: scope.$root.share.picUrl,
+                img_title: scope.$root.share.shareTitle,
                 from: '翼分期商城'
             };
 
@@ -88,7 +95,7 @@ app.directive("nativeShare", ['$cookieStore', '$http', '$location', function ($c
             });
 
             var a = UA.toLowerCase();
-            var shareUrl = $location.absUrl().split("#")[0].replace(/&/gi,"AND");
+            var shareUrl = $location.absUrl().split("#")[0].replace(/&/gi, "AND");
             if (a.match(/MicroMessenger/i) == "micromessenger") {
                 $http.jsonp(cfApi.apiHost + "/product/getWxParameter.html?shareUrl=" + shareUrl + "&s=wap&callback=JSON_CALLBACK").success(function (data, status, headers, config) {
                     wx.config({
@@ -102,9 +109,9 @@ app.directive("nativeShare", ['$cookieStore', '$http', '$location', function ($c
 
                     wx.ready(function () {
                         wx.onMenuShareTimeline({
-                            title: shareTitle, // 分享标题
-                            link: homeLink, // 分享链接
-                            imgUrl: picUrl, // 分享图标
+                            title: scope.$root.share.shareTitle, // 分享标题
+                            link: scope.$root.share.homeLink, // 分享链接
+                            imgUrl: scope.$root.share.picUrl, // 分享图标
                             success: function () {
                                 // 用户确认分享后执行的回调函数
                             },
@@ -114,10 +121,10 @@ app.directive("nativeShare", ['$cookieStore', '$http', '$location', function ($c
                         });
 
                         wx.onMenuShareAppMessage({
-                            title: shareTitle, // 分享标题
-                            desc: shareDisc, // 分享描述
-                            link: homeLink, // 分享链接
-                            imgUrl: picUrl, // 分享图标
+                            title: scope.$root.share.shareTitle, // 分享标题
+                            desc: scope.$root.share.shareDisc, // 分享描述
+                            link: scope.$root.share.homeLink, // 分享链接
+                            imgUrl: scope.$root.share.picUrl, // 分享图标
                             type: '', // 分享类型,music、video或link，不填默认为link
                             dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
                             success: function () {

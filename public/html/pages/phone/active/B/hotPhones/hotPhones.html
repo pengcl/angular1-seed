@@ -3,7 +3,7 @@
     <top-nav page-title="中国电信●翼分期商城" page-back="menu" nav-visibility="hide"></top-nav>
     <div class="content-scrollable">
         <form id="couponForm" name="couponForm"
-              action="http://192.168.1.181:8082/wap/taokafanghaoNew//submitIntentOrder.html" method="post" novalidate>
+              action="http://m.yfq.cn/wap/taokafanghaoNew/submitIntentOrder.html" method="post" novalidate>
             <input type="hidden" value="1" name="monthNumber" id="monthNumber">
             <input type="hidden" value="{{category}}" name="category" id="category">
             <input type="hidden" value="{{phone.activityproductId}}" ng-model="phone.productId" name="machineId"
@@ -11,21 +11,22 @@
             <input type="hidden" value="{{activeTag}}" ng-model="activeTag" name="activeTag" id="activeTag">
 
             <gh></gh>
-
+            <activity></activity>
+            <div class="header"><img src="/images/active/b/2.png"> <span>中国电信福利 存话费送手机</span></div>
             <div class="active-b-content">
-                <div class="header"><img src="/images/active/b/2.png"> <span>信用卡用户专享 分期购机送话费</span></div>
+
                 <div class="progress-bar">
                     <ul class="pure-g">
                         <li class="pure-u-1-3">
                             <ins class="active r"></ins>
                             <div class="img-box"><img src="/images/active/b/4.png"></div>
-                            <div class="txt"><span class="weui-badge">填写资料</span></div>
+                            <div class="txt active"><span class="weui-badge">填写资料</span></div>
                         </li>
                         <li class="pure-u-1-3">
                             <ins class="active l"></ins>
                             <ins class="active r"></ins>
                             <div class="img-box"><img src="/images/active/b/5-a.png"></div>
-                            <div class="txt"><span class="weui-badge">选择机型</span></div>
+                            <div class="txt active"><span class="weui-badge">选择机型</span></div>
                         </li>
                         <li class="pure-u-1-3">
                             <ins class="active l"></ins>
@@ -65,7 +66,8 @@
                                 class="sub-title"><span ng-bind="phone.productName"></span></span></div>
                         <div class="phone-types-panel pd-w">
                             <ul class="phone-types-lists item-lists minus pure-g">
-                                <li class="phone-brands-item list-item pure-u-1-2" ng-repeat="myPhone in brandPhones">
+                                <li class="phone-brands-item list-item pure-u-1-2"
+                                    ng-repeat="myPhone in brandPhones | orderBy: sortOrder">
                                     <div class="item-box margin border radius small"
                                          ng-class="{true:'curr',false:''}[myPhone.activityproductId == phoneId]"
                                          ng-click="setMainPhone($event,myPhone.activityproductId)">
@@ -89,12 +91,11 @@
                            value="{{package.productId}}">
                     <div class="phone-brands">
                         <div class="weui-cells__title title-icon"><span class="title">选择套餐</span><span
-                                class="sub-title"><span ng-bind="package.salesPrice"></span>套餐 <span
-                                ng-bind="package.talkTime"></span>分钟通话 <span ng-bind="package.network"></span>G流量</span>
+                                class="sub-title">赠送话费￥<span ng-bind="package.salesPrice | number : 0"></span> <span ng-bind="package.network"></span>G流量话费套餐</span>
                         </div>
                         <div class="phone-pkgs-panel pd-w">
                             <ul class="phone-pkgs-lists item-lists minus pure-g">
-                                <li class="phone-pkgs-item list-item pure-u-1">
+                                <li class="phone-pkgs-item fst list-item pure-u-1">
                                     <div class="item-box margin border radius small pure-g">
                                         <span class="pure-u-1-5">实缴月租</span>
                                         <span class="pure-u-1-5">套餐档位</span>
@@ -108,13 +109,17 @@
                                     <div class="item-box margin border radius small pure-g"
                                          ng-class="{true:'curr',false:''}[myPkg.productId == package.productId]"
                                          ng-click="setMainPhonePkg($event,myPkg)">
-                                    <span class="pure-u-1-5"><span
-                                            ng-bind="(myPkg.oldPrice * 36 - myPkg.salesPrice)/36 | number:0"></span>套餐</span>
-                                        <span class="pure-u-1-5"><del ng-bind="myPkg.oldPrice | number:0"></del></span>
-                                        <span class="pure-u-1-5">￥<span
+                                        <span class="pure-u-1-4 rd" style="font-size: 0.14rem"><span>￥</span><span
+                                                ng-bind="(myPkg.oldPrice * 36 - myPkg.salesPrice)/36 | numberUp"></span><span>套餐</span></span>
+                                        <span class="pure-u-1-6">
+                                            <del><span>￥</span><span
+                                                    ng-bind="myPkg.oldPrice | number:0"></span></del></span>
+                                        <span class="pure-u-1-5 rd" style="font-size: 0.14rem"><span>￥</span><span
                                                 ng-bind="myPkg.salesPrice | number:0"></span></span>
-                                        <span class="pure-u-1-5"><span ng-bind="myPkg.talkTime"></span>分钟</span>
-                                        <span class="pure-u-1-5"><span ng-bind="myPkg.network"></span>G</span>
+                                        <span class="pure-u-1-5"><span
+                                                ng-bind="myPkg.talkTime"></span><span>分钟</span></span>
+                                        <span class="pure-u-1-6"><span
+                                                ng-bind="myPkg.network"></span><span>G</span></span>
                                     </div>
                                 </li>
                             </ul>
@@ -123,20 +128,24 @@
                 </div>
 
                 <div class="quan-form form-addr">
-                    <input type="hidden" name="reciverName" id="reciverName" ng-model="receiver.name" value="{{receiver.name}}">
-                    <input type="hidden" name="receiverMobile" id="receiverMobile" ng-model="receiver.mobile" value="{{receiver.mobile}}">
+                    <input type="hidden" name="reciverName" id="reciverName" ng-model="receiver.name"
+                           value="{{receiver.name}}">
+                    <input type="hidden" name="receiverMobile" id="receiverMobile" ng-model="receiver.mobile"
+                           value="{{receiver.mobile}}">
                     <input type="hidden" name="payType" id="payType" value="{{payType}}">
                     <div class="weui-cells__title title-icon"><span class="title">填写送货上门地址</span></div>
 
                     <div class="pay-type-list pd-w">
                         <ul class="item-lists minus pure-g">
                             <li class="list-item pure-u-1-4">
-                                <div ng-click="setPayType(0);" class="item-box margin border radius small" ng-class="{true:'curr',false:''}[payType==0]">
+                                <div ng-click="setPayType(0);" class="item-box margin border radius small"
+                                     ng-class="{true:'curr',false:''}[payType==0]">
                                     送货上门
                                 </div>
                             </li>
                             <li class="list-item pure-u-1-4">
-                                <div ng-click="setPayType(3);" class="item-box margin border radius small" ng-class="{true:'curr',false:''}[payType==3]">
+                                <div ng-click="setPayType(3);" class="item-box margin border radius small"
+                                     ng-class="{true:'curr',false:''}[payType==3]">
                                     自提
                                 </div>
                             </li>
@@ -145,8 +154,8 @@
 
                     <div class="addr-tip-content" ng-if="payType==3">
                         <div class="addr-tip">
-                            <span class="icon-admin"></span>
-                            <p>自提地址：广州天河区黄埔大道53号恒城大厦B座3001翼分期商城实体店</p>
+                            <div><span><i class="icon-admin"></i> 自提地址：</span></div>
+                            <p>广州市天河区黄埔大道西53号恒城大厦B座3001翼分期商城实体店</p>
                         </div>
                     </div>
 
@@ -156,7 +165,7 @@
                                 <span class="icon-pin"></span> <span>城市</span>
                             </div>
                             <div class="weui-cell__bd weui_cell_primary">
-                                <input style="text-align: right" class="weui-input" value="广州市" required/>
+                                <input style="text-align: right" class="weui-input" value="广州市" readonly required/>
                             </div>
                         </div>
 
@@ -179,7 +188,7 @@
                             </div>
                             <div class="weui-cell__bd weui_cell_primary">
                                 <input style="text-align: right" id="receiverRoom" name="receiverRoom"
-                                       ng-blur="inputHomeArgs(0)"
+                                       ng-blur="writeReceiver()"
                                        ng-model="receiver.room" class="weui-input" required/>
                             </div>
                         </div>
@@ -192,21 +201,16 @@
                         <div class="balance-pr pure-g">
                             <div class="lb pure-u-1-2"><img src="/images/active/b/15.png"> 礼包价：</div>
                             <div class="pr pure-u-1-2">
-                                ￥<span ng-if="phone.phoneBillPrice >= phone.salePrice"
-                                       ng-bind="phone.phoneBillPrice"></span><span
-                                    ng-if="phone.phoneBillPrice < phone.salePrice" ng-bind="phone.salePrice"></span>
+                                ￥<span ng-bind="package.phonePrice | number : 0"></span>
                             </div>
                             <div class="tp pure-u-1">
-                                <span>手机价：￥{{phone.salePrice}} + 赠送话费：{{phone.phoneBillPrice}}</span>
+                                <span>手机价：￥{{(package.phonePrice - package.salesPrice) | number : 0}} + 赠送话费：￥{{package.salesPrice | number : 0}}</span>
                             </div>
                         </div>
                         <div class="balance-discount">
                             <div class="lb pure-u-1-2"><img src="/images/active/b/16.png"> 货到付款立减：</div>
                             <div class="pr pure-u-1-2">
-                                - ￥<span ng-if="phone.phoneBillPrice >= phone.salePrice"
-                                         ng-bind="phone.phoneBillPrice | jm:400"></span>
-                                <span ng-if="phone.phoneBillPrice < phone.salePrice"
-                                      ng-bind="phone.salePrice | jm:400"></span>
+                                -￥<span ng-bind="package.phonePrice | jm:400"></span>
                             </div>
                             <div class="tp pure-u-1">
                                 <span>逢满￥100减￥5</span>
@@ -215,11 +219,9 @@
                         <div class="balance-tot">
                             <div class="balance-tot-pr">
                                 <span>实付价格：</span>
-                                <span class="pr-box">￥<span ng-if="phone.phoneBillPrice >= phone.salePrice"
-                                                            ng-bind="phone.phoneBillPrice - (phone.phoneBillPrice | jm:400)"></span>
-                            <span ng-if="phone.phoneBillPrice < phone.salePrice"
-                                  ng-bind="phone.salePrice - (phone.salePrice | jm:400)"></span>
-                            </span>
+                                <span class="pr-box">
+                                    ￥<span ng-bind="package.phonePrice - (package.phonePrice | jm:400)"></span>
+                                </span>
                             </div>
                             <div class="balance-tot-tp">
                                 <span class="rtp"><span class="tp-arrow"></span>今日办理，可享12期免息分期！</span>
@@ -239,6 +241,7 @@
         <div class="weui-footer">
             <p class="weui-footer__text">本次活动由翼分期商城联合19家银行和中国电信举办</p>
             <p class="weui-footer__text">最终解释权归翼分期商城所有</p>
+            <p class="weui-footer__text">广州传飞通讯设备有限公司</p>
         </div>
     </div>
 
@@ -246,13 +249,11 @@
         <div id="cfStock" class="m cf-stock" data-widget="tabs">
             <div class="mt">
                 <ul class="tab">
-                    <li data-widget="tab-item" data-index="0" class="curr"><a class="" href="javascript:;"><em
+                    <li data-widget="tab-item" data-index="0" class="curr"><a ng-click="hideAddress();" class=""
+                                                                              href="javascript:;"><em
                             class="icon-arrow-left"></em><i>配送至</i></a></li>
-                    <li data-widget="tab-item" data-index="1" class=""><a class="" href="javascript:;"><em
-                            class="icon-arrow-left"></em><i>配送至</i></a></li>
-                    <li data-widget="tab-item" data-index="2" class=""><a class="" href="javascript:;"><em
-                            class="icon-arrow-left" style="display: none"></em><i>配送至</i></a></li>
-                    <li data-widget="tab-item" data-index="3" class=""><a class="" href="javascript:;"><em
+                    <li data-widget="tab-item" data-index="1" class=""><a ng-click="getDistricts($event,'广东省','广州市')"
+                                                                          class="" href="javascript:;"><em
                             class="icon-arrow-left"></em><i>配送至</i></a></li>
                 </ul>
                 <div class="stock-line"></div>
@@ -264,6 +265,6 @@
         </div>
         <span class="clr"></span>
     </div>
-    <div class="address-overlay"></div>
+    <div class="address-overlay" ng-show="addressShow"></div>
 
 </div>
