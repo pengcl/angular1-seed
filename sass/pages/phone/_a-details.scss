@@ -322,6 +322,24 @@
           }
         }
       }
+      &.pcd {
+        padding-left: 1.5rem;
+        .nav-pcd-price {
+          position: absolute;
+          top:0;
+          left:0;
+          font-size: 0.14rem;
+          text-align: left;
+          line-height: 1.2;
+          padding-left: 0.15rem;
+          padding-top: 0.06rem;
+          .pr {
+            font-size: 0.18rem;
+            font-weight: bold;
+            color: $color-orange;
+          }
+        }
+      }
     }
     .price-color {
       font-weight: 700;

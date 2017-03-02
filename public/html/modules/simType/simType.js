@@ -10,7 +10,7 @@ app.directive("simType", ['$http', '$compile', function ($http, $compile) {
             scope.cardName="未选择";
             var $container = $('.content-scrollable');
             //console.log(attrs.addClass);
-            scope.cardGroup=["小卡(Namo卡)","大/中卡(二合一)"]
+            scope.cardGroup=["小卡(Nano卡)","大/中卡(二合一)"]
             //获取选择框尺码
             scope.size = attrs.size;
 

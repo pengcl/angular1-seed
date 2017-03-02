@@ -17,7 +17,50 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
     $scope.activeTag = "mysytc";
     $scope.category = systemName + "_mysy_" + $scope.pageType + "_FlowPackages";
     $scope.phoneQueryUrl = "http://" + $location.host() + $location.url();
+
+    $scope.stores = Math.round(Math.random() * 100);
+    $scope.sold = Math.round(Math.random() * 5000);
+
     writebdLog($scope.category, "_Load", "渠道号", $scope.gh);
+
+    $scope.pkgs = [
+        {
+            "message": "50",
+            "network": "3.5",
+            "oldPrice": "204.00",
+            "productId": 252,
+            "productName": "5折预存102/月（3.5G流量900分钟通话）",
+            "salesPrice": "102.00",
+            "talkTime": "900"
+        },
+        {
+            "message": "50",
+            "network": "4.5",
+            "oldPrice": "304.00",
+            "productId": 254,
+            "productName": "5折预存156/月（4.5G流量 1800分钟通话）",
+            "salesPrice": "156.00",
+            "talkTime": "1800"
+        },
+        {
+            "message": "50",
+            "network": "4.5",
+            "oldPrice": "259.00",
+            "productId": 351,
+            "productName": "155元/月(900分钟通话,4.5G流量,50短信)",
+            "salesPrice": "155.00",
+            "talkTime": "900"
+        },
+        {
+            "message": "50",
+            "network": "2.5",
+            "oldPrice": "174.00",
+            "productId": 251,
+            "productName": "5折预存101/月（2.5G流量 850分钟）",
+            "salesPrice": "101.00",
+            "talkTime": "850"
+        }
+    ];
 
 
     $http.jsonp(cfApi.apiHost + "/product/getPackageInfo.html?productId=" + $stateParams.cardId + "&s=wap&callback=JSON_CALLBACK").success(function (data, status, headers, config) {
@@ -74,6 +117,7 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
 
     $scope.setPackage = function (event, pkg) {
         $scope.package = pkg;
+        $scope.card = pkg;
         var $this = $(event.currentTarget);
         $this.parent().siblings().removeClass('on');
         $this.parent().addClass('on');

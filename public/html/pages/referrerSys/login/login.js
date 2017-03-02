@@ -13,7 +13,7 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
     //$scope.pageTitle = "首页";
     //$scope.$root.title = $scope.pageTitle;
     //console.log($scope.referrerForm.referrerNo);
-    $scope.homeUrl = "http://app.yfq.cn/phone/A/index";
+    $scope.homeUrl = "http://app.yfq.cn/phone/active/B";
     $scope.searchOrder = cfApi.apiHost + "/wap/customer/searchIndexA.html";
     $scope.$root.dialogClass = "referrer-dialog";
 

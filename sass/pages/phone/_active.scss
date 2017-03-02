@@ -933,3 +933,25 @@
     font-weight: bold;
   }
 }
+
+.page.active-b.active-c {
+  .content-scrollable .quan-form .weui-cell {
+    &.weui-cell_warn {
+      border:1px solid $color-orange;
+      .weui-cell__bd {
+        color: $color-orange;
+      }
+    }
+
+    &.weui-cell_success {
+      border:1px solid #e8e8e8;
+      .weui-cell__hd {
+        color: #999;
+      }
+    }
+    .weui-cell__bd {
+      color: #333;
+    }
+  }
+
+}

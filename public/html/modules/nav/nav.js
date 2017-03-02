@@ -32,6 +32,12 @@ app.directive("topNav", ['$timeout', function ($timeout) {
             scope.done = function () {
 
             };
+
+            scope.getContact = function () {
+                getMeiqia();
+                _MEIQIA('showPanel');
+                writebdLog(scope.category, "_CustConsult", "渠道号", $scope.gh);//客服咨询
+            };
         }
     };
 }]);
