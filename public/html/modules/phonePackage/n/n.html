@@ -1,0 +1,32 @@
+<div id="phonePackage" class="phone-package">
+    <input type="hidden" name="mainProductId" id="mainProductId" value="{{pkg.productId}}" required class="weui_input">
+    <input type="hidden" name="productId" id="productId" value="{{pkg.productId}}" required class="weui_input">
+    <div class="weui-cells__title title-icon">
+        <span class="title" ng-bind="packageTitle"></span>
+        <span class="sub-title" ng-class="{true:'hide',false:''}[packageSubTitle == '']"
+              ng-bind="packageSubTitle"></span>
+    </div>
+    <div class="phone-package-panel">
+        <div class="weui-cells">
+            <div class="weui-cell weui-cell_access">
+                <div class="weui-cell__hd">
+                    <div class="img-box" style="margin-right: 0.05rem">
+                        <img ng-src="http://www.yfq.cn:8899/fileserver/medias/{{mainColor.mediaUrl}}">
+                    </div>
+                    <span> + </span>
+                    <div class="img-box" style="margin-right: 0.1rem;margin-left: 0.05rem">
+                        <img src="/images/phones/C/card.png">
+                    </div>
+                </div>
+                <div class="weui-cell__bd">
+                    <p><span>一次性支付</span><em>立省￥<i ng-bind="phone.phoneBillPrice - phone.salePrice">200</i></em></p>
+                    <p><span>信用卡分期</span><em>立省￥<i ng-bind="phone.phoneBillPrice*0.1 | number:0">250</i></em></p>
+                </div>
+                <div class="weui-cell__ft"></div>
+            </div>
+        </div>
+        <div class="img-box">
+            <img src="/images/phones/C/pkg-tips.png">
+        </div>
+    </div>
+</div>

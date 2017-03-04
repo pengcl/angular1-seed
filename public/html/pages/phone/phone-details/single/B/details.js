@@ -4,18 +4,18 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
 
     // 设定路由
     $stateProvider
-        .state('phoneSingle', { //app首页
-            url: "/phs/sg/:pageType/:phoneId",
+        .state('phoneBSingle', { //app首页
+            url: "/phs/sg/B/:phoneId",
             templateUrl: function ($stateParams) {
-                return 'pages/phone/phone-details/single/A/details.html';
+                return 'pages/phone/phone-details/single/B/details.html';
             },
-            controller: "pSingleProController",
+            controller: "pBSingleProController",
             onExit: function(){
                 $("#container").removeClass("overlay-open");
                 $("#overlay-hook").html("");
             }
         });
-}]).controller('pSingleProController', ['$scope', '$rootScope', '$location', '$stateParams', '$http', 'Phone', function ($scope, $rootScope, $location, $stateParams, $http, Phone) {
+}]).controller('pBSingleProController', ['$scope', '$rootScope', '$location', '$stateParams', '$http', 'Phone', function ($scope, $rootScope, $location, $stateParams, $http, Phone) {
 
     $scope.pageType = $stateParams.pageType;
     $scope.activeTag = "jjk";

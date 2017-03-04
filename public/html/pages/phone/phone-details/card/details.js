@@ -14,6 +14,7 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
 }]).controller('pCardProController', ['$scope', '$rootScope', '$location', '$stateParams', '$http', 'Phone', function ($scope, $rootScope, $location, $stateParams, $http, Phone) {
 
     $scope.pageType = $stateParams.pageType;
+    console.log($scope.pageType);
     $scope.activeTag = "mysytc";
     $scope.category = systemName + "_mysy_" + $scope.pageType + "_FlowPackages";
     $scope.phoneQueryUrl = "http://" + $location.host() + $location.url();

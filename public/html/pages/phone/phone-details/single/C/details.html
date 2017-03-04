@@ -1,0 +1,168 @@
+<!--
+"phonePrice": 7688,//jjk一次性
+"salePrice": 8188,//lj一次性、jjk分期
+"salePrice": 8188*10%//裸机分期
+-->
+<div class="page p-details a-details a-details-c">
+    <top-nav page-title="中国电信●翼分期商城" page-back="back"></top-nav>
+    <!--<form id="checkoutForm" name="checkoutForm" action="http://2b2fda71.ngrok.natapp.cn/wap/taokafanghaoNew/submitOrderMachine.html" method="post" novalidate>-->
+    <!--<form id="checkoutForm" name="checkoutForm" action="http://m.yfq.na/wap/taokafanghaoNew/submitOrderDouble.html" method="post" novalidate>-->
+    <form id="checkoutForm" name="checkoutForm" action="http://m.yfq.cn/wap/taokafanghaoNew/submitOrderDouble.html"
+          method="post" novalidate>
+        <input type="hidden" value="1" name="monthNumber" id="monthNumber">
+        <input type="hidden" value="{{category}}" name="category" id="category">
+        <input type="hidden" value="{{phone.activityproductId}}" ng-model="phone.productId" name="machineId"
+               id="machineId">
+        <input type="hidden" value="{{activeTag}}" ng-model="activeTag" name="activeTag" id="activeTag">
+        <input type="hidden" value="{{redirectUrl}}" name="phoneQueryUrl" id="phoneQueryUrl">
+        <gh></gh>
+        <activity></activity>
+        <referrer-no></referrer-no>
+        <redirect-url></redirect-url>
+        <div class="content-scrollable has-footer">
+
+            <div class="owl-carousel" img-urls="imgUrls"></div>
+
+            <div class="product-header">
+                <div class="product-txt">
+                    <h1><span ng-bind="phone.phoneTypes[0].productName"></span></h1>
+                    <h2>爆款单机 搭配电信4G套餐 <b>立享高优惠</b></h2>
+                    <div class="product-price">
+                        <ul>
+                            <li style="padding-left: 0">
+                                <span>购机价：</span>
+                                <em>￥</em>
+                                <em ng-bind="totalPrice"></em>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="product-footer">
+                <div class="img-box">
+                    <img src="/images/phones/C/check.png">
+                </div>
+            </div>
+
+            <div id="coupons" style="padding-bottom: 0.15rem">
+                <div class="weui-cells__title title-icon">
+                    <span class="title">优惠</span><span class="star-color"></span>
+                </div>
+                <div class="coupon-panel">
+
+                    <div class="weui-cells">
+                        <div class="weui-cell">
+                            <div class="weui-cell__hd"><span>立省</span></div>
+                            <div class="weui-cell__bd">单机购买完成后 搭配指定电信4G套餐 <em ng-show="phone.phoneBillPrice - phone.salePrice > 0">立省￥</em><em ng-show="phone.phoneBillPrice - phone.salePrice > 0" ng-bind="phone.phoneBillPrice - phone.salePrice"></em></div>
+                        </div>
+                        <div class="weui-cell weui-cell_access">
+                            <div class="weui-cell__hd"><span>领券</span></div>
+                            <div class="weui-cell__bd">满100减5；12期免息券；￥720话费券</div>
+                            <div class="weui-cell__ft"></div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div id="phoneColors">
+                <main-colors title="选择颜色" ng-if="phone"></main-colors>
+            </div>
+
+            <div id="phonePkg" style="padding-bottom: 0.15rem">
+                <div class="weui-cells__title title-icon">
+                    <span class="title">促销方式</span><span class="star-color">*</span>
+                    <span class="sub-title" ng-bind="activeTagName">裸机送0元4G流量卡</span>
+                </div>
+                <div class="buy-type-panel pd-w">
+                    <ul class="buy-type-lists item-lists minus pure-g">
+                        <li class="buy-type-item list-item pure-u-2-5">
+                            <div class="item-box margin border radius small curr"
+                                 ng-click="setBuyType($event,1,'裸机送0元4G流量卡')">
+                                <p>
+                                    <span>裸机送0元4G流量卡</span>
+                                </p>
+                                <ins class="icon-check"></ins>
+                            </div>
+                        </li>
+                        <li class="buy-type-item list-item pure-u-1-4" ng-if="phone.phoneTypes[0].ifSupportSigle != 2">
+                            <div class="item-box margin border radius small" ng-click="setBuyType($event,0,'裸机')">
+                                <p>
+                                    <span>裸机</span>
+                                </p>
+                                <ins class="icon-check"></ins>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <phone-n-package title="搭配电信4G优惠套餐" sub-title="未选套餐"></phone-n-package>
+
+            <!--<div id="promise">
+                <div class="weui-cells__title title-icon">
+                    <span class="title">保障服务</span>
+                </div>
+                <div class="img-box">
+                    &lt;!&ndash;<img src="/images/phones/assets/details/promise.png">&ndash;&gt;
+                    <img src="/images/phones/assets/details/promise.jpg">
+                </div>
+            </div>-->
+
+            <adr></adr>
+
+            <coupon-list></coupon-list>
+
+            <n-pay-type title="选择支付方式"></n-pay-type>
+
+            <div class="pay-container pd-w">
+                <div class="pay-content" ng-if="payType == 0">
+                    <div class="pure-g">
+                        <span class="lb pure-u-1-2">订单总金额</span>
+                        <span class="price pure-u-1-2"><em ng-bind="totalPrice"></em></span>
+                    </div>
+                    <div class="pure-g">
+                        <span class="lb pure-u-1-2">套餐优惠</span>
+                        <span class="price pure-u-1-2">
+                            <em ng-bind="phone.salePrice - phone.phonePrice"></em>
+                        </span>
+                    </div>
+                    <div class="pure-g">
+                        <span class="lb pure-u-1-2">购机优惠券</span>
+                        <span class="price pure-u-1-2"><em ng-bind="phone.salePrice | jm:400"></em></span>
+                    </div>
+                    <div class="real-price pure-g">
+                        <span class="lb pure-u-1-2">实付金额</span>
+                        <span class="price pure-u-1-2"></span>
+                    </div>
+                </div>
+                <div class="pay-content" ng-if="payType == 2">
+                    <div class="pure-g">
+                        <span class="lb pure-u-1-2">订单总金额</span>
+                        <span class="price pure-u-1-2"><em ng-bind="phone.salePrice"></em></span>
+                    </div>
+                    <div class="pure-g">
+                        <span class="lb pure-u-1-2">套餐优惠</span>
+                        <span class="price pure-u-1-2"><em ng-bind="phone.salePrice - phone.phonePrice"></em></span>
+                    </div>
+                    <div class="pure-g">
+                        <span class="lb pure-u-1-2">购机优惠券</span>
+                        <span class="price pure-u-1-2"><em ng-bind="phone.salePrice | jm:400"></em></span>
+                    </div>
+                    <div class="real-price pure-g">
+                        <span class="lb pure-u-1-2">实付金额</span>
+                        <span class="price pure-u-1-2"></span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!--<div class="right-nav" ng-click="showFudai()">
+            <div class="img-box">
+                <img src="/images/active/11.png">
+            </div>
+        </div>-->
+        <n-footer-nav check-main-number="true" check-address="true" submit="#checkoutForm"></n-footer-nav>
+    </form>
+    <ng-coupon></ng-coupon>
+</div>

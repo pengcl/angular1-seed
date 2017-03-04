@@ -334,6 +334,7 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
         if (o !== n && n !== undefined) {
             $http.jsonp(cfApi.apiHost + "/product/getProDetial.html?productId=" + n + "&activeTag=jjk&s=wap&callback=JSON_CALLBACK").success(function (data, status, headers, config) {
                 $scope.phone = data;
+                $scope.$root.mainColor = data.phoneTypes[0].mediaProductList[0];
                 $scope.packages = [];
                 $scope.comparePrices = [];
                 $scope.packageIndex = 0;

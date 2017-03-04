@@ -8,9 +8,9 @@ var systemName = "yfqapp";
         _href = $a.eq(i).attr("href");
         //rewriteUrl = "http://app.yfq.cn" + _href + params;
         if (_href.indexOf("?") != -1 && params.indexOf("?") != -1) {
-            rewriteUrl = "http://app.yfq.cn" + _href + params.replace(/\?/, "&");
+            rewriteUrl = "" + _href + params.replace(/\?/, "&");
         } else {
-            rewriteUrl = "http://app.yfq.cn" + _href + params;
+            rewriteUrl = "" + _href + params;
         }
         $a.eq(i).attr("href", rewriteUrl);//重写href
         //console.log(rewriteUrl);

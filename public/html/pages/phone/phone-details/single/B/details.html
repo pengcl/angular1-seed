@@ -1,0 +1,202 @@
+<div class="page p-details a-details">
+    <top-nav page-title="中国电信●翼分期商城" page-back="back"></top-nav>
+    <!--<form id="checkoutForm" name="checkoutForm" action="http://2b2fda71.ngrok.natapp.cn/wap/taokafanghaoNew/submitOrderMachine.html" method="post" novalidate>-->
+    <!--<form id="checkoutForm" name="checkoutForm" action="http://m.yfq.na/wap/taokafanghaoNew/submitOrderDouble.html" method="post" novalidate>-->
+    <form id="checkoutForm" name="checkoutForm" action="http://m.yfq.cn/wap/taokafanghaoNew/submitOrderDouble.html" method="post" novalidate>
+        <input type="hidden" value="1" name="monthNumber" id="monthNumber">
+        <input type="hidden" value="{{category}}" name="category" id="category">
+        <input type="hidden" value="{{phone.activityproductId}}" ng-model="phone.productId" name="machineId" id="machineId">
+        <input type="hidden" value="{{activeTag}}" ng-model="activeTag" name="activeTag" id="activeTag">
+        <input type="hidden" value="{{redirectUrl}}" name="phoneQueryUrl" id="phoneQueryUrl">
+        <gh></gh>
+        <activity></activity>
+        <referrer-no></referrer-no>
+        <redirect-url></redirect-url>
+        <div class="content-scrollable has-footer">
+
+            <div class="product-header pure-g">
+                <div class="pure-u-1-3">
+                    <div class="product-img">
+                        <div class="img-box">
+                            <!--<img ng-src="http://www.yfq.cn:8899/fileserver/medias/{{phone.mainImageUrl}}">-->
+                            <img ng-src="http://www.yfq.cn:8899/fileserver/medias/{{mainColor.mediaUrl}}">
+                        </div>
+                    </div>
+                </div>
+                <div class="pure-u-2-3">
+                    <div class="product-txt">
+                        <h1><span ng-bind="phone.phoneTypes[0].productName"></span><span ng-bind="phone.phoneTypes[1].productName"></span></h1>
+                        <div class="label">爆款单机 搭配电信4G套餐 更划算</div>
+                        <div class="product-price" ng-if="buyType == 1">
+                            <ul>
+                                <li style="padding-left: 0"><span>日供仅：</span><em>￥</em><em class="" ng-bind="totolPrice/365 | number:0"></em></li>
+                                <li style="padding-left: 0"><span>月供仅：</span><em>￥</em><em class="" ng-bind="totolPrice/12 | number:0"></em><em>x12期</em></li>
+                            </ul>
+                        </div>
+                        <div class="product-price" ng-if="buyType != 1">
+                            <ul>
+                                <li style="padding-left: 0"><span>购机价：</span><em>￥</em><em class="" ng-bind="totolPrice | number:0"></em></li>
+                            </ul>
+                        </div>
+                        <div class="product-txt-ft"><stars></stars></div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="coupons" style="padding-bottom: 0.15rem">
+                <div class="weui-cells__title title-icon">
+                    <span class="title">领券优惠</span><span class="star-color"></span>
+                </div>
+                <div class="coupon-panel pd-w">
+                    <ul class="coupon-lists item-lists minus pure-g" ng-click="showFudai()">
+                        <li class="coupon-item list-item pure-u-1-3">
+                            <div class="item-box margin small">
+                                <p>
+                                    <span>购机优惠券</span>
+                                </p>
+                            </div>
+                        </li>
+                        <li class="coupon-item list-item pure-u-1-3">
+                            <div class="item-box margin small">
+                                <p>
+                                    <span>购机免息券</span>
+                                </p>
+                            </div>
+                        </li>
+                        <li class="coupon-item list-item pure-u-1-3">
+                            <div class="item-box margin small">
+                                <p>
+                                    <span>4G卡话费券</span>
+                                </p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div id="phoneColors">
+                <main-colors title="选择颜色" ng-if="phone"></main-colors>
+            </div>
+
+            <div id="phonePkg" style="padding-bottom: 0.15rem">
+                <div class="weui-cells__title title-icon">
+                    <span class="title">促销方式</span><span class="star-color">*</span>
+                    <span class="sub-title" ng-bind="activeTagName">裸机送0元4G流量卡</span>
+                </div>
+                <div class="buy-type-panel pd-w">
+                    <ul class="buy-type-lists item-lists minus pure-g">
+                        <li class="buy-type-item list-item pure-u-2-5">
+                            <div class="item-box margin border radius small curr" ng-click="setBuyType($event,1,'裸机送0元4G流量卡')">
+                                <p>
+                                    <span>裸机送0元4G流量卡</span>
+                                </p>
+                                <ins class="icon-check"></ins>
+                            </div>
+                        </li>
+                        <li class="buy-type-item list-item pure-u-1-4" ng-if="phone.phoneTypes[0].ifSupportSigle != 2">
+                            <div class="item-box margin border radius small" ng-click="setBuyType($event,0,'裸机')">
+                                <p>
+                                    <span>裸机</span>
+                                </p>
+                                <ins class="icon-check"></ins>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card-details" ng-if="buyType == 1">
+                <input id="productId" name="productId" ng-model="package.productId" required type="hidden" value="{{package.productId}}">
+                <div class="weui-cells" ng-click="showPkgPn($event)" style="margin-top: 0">
+                    <a class="tel-details weui-cell weui-cell_access" href="javascript:;">
+                        <div class="weui-cell__bd"><p style="text-align: left">选择4G卡流量套餐<span class="star-color">*</span></p></div>
+                        <div class="weui-cell__ft">
+                            <!--<span ng-if="!package">未选择</span>-->
+                            <!--<span ng-if="package">￥<span ng-bind="package.salesPrice | number : 0"></span>套餐，<span ng-bind="package.network"></span>G国内流量...</span>-->
+                            <span >更多套餐</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="card-details-1"   ng-click="showPkgPn($event)">
+                    <div class="card">
+                        <ul class="card-list">
+                            <li class="card-list-item on-cardetails">
+                                <div class="item-box pure-g">
+
+                                    <div class="net-work pure-u-3-5">
+                                        <div class="line">
+                                            <p class="month-item month-item-small"><span style="font-size:.3rem;" class="big" ng-bind="package.network"></span>GB<sub>全国流量</sub></p>
+                                            <p style="font-size:.12rem;line-height:1;"><b ng-bind="package.talkTime"></b>分钟全国通话 <b ng-bind="package.message"></b>条短信</p>
+                                        </div>
+                                    </div>
+                                    <div class="month pure-u-2-5">
+                                        <p class="month-item rec">￥<span class="big" ng-bind="package.salesPrice | number : 0"></span><sub>套餐</sub></p>
+                                        <p><p>原价:￥<span ng-bind="package.oldPrice | number : 0"></span></p>
+                                        <p>优惠36个月</p>
+                                    </div>
+                                </div>
+                                <!--<ins class="icon-gray-5">
+                                    <div class="img-box">
+                                        <img class="on-cardetails" ng-src="/images/phones/assets/icons/{{package.salesPrice*10/package.oldPrice | number:0}}-on.png">
+                                    </div>
+                                </ins>-->
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+                <div style="padding-bottom: .1rem;background:#fff" ng-if="package" class="card-pkg" ss-dd="package"></div>
+                <div id="pickPackagePanel" class="card" style="display: none;padding-top: 0.25rem;padding-bottom: 0.15rem;background: #fff">
+                    <ul class="card-list">
+                        <li class="card-list-item" ng-class="{true:'on-cardetails',false:''}[$index == 0]" ng-repeat="package in phone.packageProductList">
+                            <div class="item-box pure-g" ng-click="setPackage($event,package);">
+                                <div class="net-work pure-u-3-5">
+                                    <div class="line">
+                                        <p class="month-item month-item-small"><span style="font-size:.3rem;" class="big" ng-bind="package.network"></span>GB<sub>全国流量</sub></p>
+                                        <p style="font-size:.12rem;line-height:1;"><b ng-bind="package.talkTime"></b>分钟全国通话 <b ng-bind="package.message"></b>条短信</p>
+                                    </div>
+                                </div>
+                                <div class="month pure-u-2-5">
+                                    <p class="month-item rec">￥<span class="big" ng-bind="package.salesPrice | number : 0"></span><sub>/月</sub></p>
+                                    <p><del>原价￥<span ng-bind="package.oldPrice | number : 0"></span></del></p>
+                                    <p>优惠36个月</p>
+                                </div>
+                            </div>
+                            <!--<ins class="icon-gray-5">
+                                <div class="img-box">
+                                    <img ng-src="/images/phones/assets/icons/{{package.salesPrice*10/package.oldPrice | number : 0}}.png">
+                                    <img class="on-cardetails" ng-src="/images/phones/assets/icons/{{package.salesPrice*10/package.oldPrice | number : 0}}-on.png">
+                                </div>
+                            </ins>-->
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <main-number ng-if="buyType == 1" title="选择4G卡靓号"></main-number>
+
+            <div id="promise">
+                <div class="weui-cells__title title-icon">
+                    <span class="title">保障服务</span>
+                </div>
+                <div class="img-box">
+                    <!--<img src="/images/phones/assets/details/promise.png">-->
+                    <img src="/images/phones/assets/details/promise.jpg">
+                </div>
+            </div>
+
+            <adr></adr>
+
+            <n-pay-type title="选择支付方式" ng-show="totolPrice"></n-pay-type>
+
+        </div>
+        <!--<div class="right-nav" ng-click="showFudai()">
+            <div class="img-box">
+                <img src="/images/active/11.png">
+            </div>
+        </div>-->
+        <n-footer-nav check-main-number="true" check-address="true" submit="#checkoutForm"></n-footer-nav>
+    </form>
+    <ng-coupon></ng-coupon>
+</div>

@@ -1,9 +1,10 @@
-<div class="footer-nav nav-list" ng-class="{true:'pcd',false:''}[pageType=='pcd']">
-    <div class="nav-pcd-price" ng-if="pageType=='pcd'">
+<div class="footer-nav nav-list" ng-class="{true:'pcd',false:''}[pageType=='pcd' || pageType=='pcdB']">
+    <div class="nav-pcd-price" ng-if="pageType=='pcd' || pageType=='pcdB'">
         <span>限时抢购靓号</span><br>
-        <span class="pr">￥9.9</span>
+        <span ng-if="pageType=='pcd'" class="pr">￥9.9</span>
+        <span ng-if="pageType=='pcdB'" class="pr">￥50</span>
     </div>
-    <div class="nav-item nav-comment" ng-click="getContent();" ng-if="pageType!='pcd'">
+    <div class="nav-item nav-comment" ng-click="getContent();" ng-if="pageType!='pcd' && pageType!='pcdB'">
         <div class="nav-icon">
             <?xml version="1.0" encoding="utf-8"?>
             <!-- Generator: Adobe Illustrator 17.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->

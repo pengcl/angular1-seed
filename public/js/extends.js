@@ -312,7 +312,6 @@ function checkMobileCode(receiverMobile, code) {
         async: false,
         type: "get",
         success: function (data) {
-            console.log(data);
             if (data == 'true') {
                 flag = true;
             }
