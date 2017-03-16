@@ -19,6 +19,9 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
 
     $scope.pageType = $stateParams.pageType;
     $scope.activeTag = "jjk";
+
+    $scope.homeUrl = $location.protocol() + '://' + $location.host() + '/phone/active/B/phones';
+
     var headCategory = $location.search().headCategory;
     if(headCategory != undefined && headCategory != null)
 	    $scope.category = headCategory + "_SinglePhones";

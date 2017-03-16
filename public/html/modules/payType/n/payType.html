@@ -18,7 +18,13 @@
                 <div class="item item-box margin border radius">
                     <div ng-if="cardPay">
                         <p class="title">在线支付</p>
-                        <p class="details" ng-bind="details">预付首月月租</p>
+                        <p class="details" ng-bind="details" ng-if="!(pageType=='pcdB' || pageType=='pcdC')">
+                            <span>预付首月月租</span>
+                        </p>
+                        <p class="details" ng-if="pageType=='pcdB' || pageType=='pcdC'">
+                            <span ng-if="showPrice=='50'">预存￥50赠送560</span>
+                            <span ng-if="showPrice=='100'">预存￥100赠送840</span>
+                        </p>
                     </div>
                     <div ng-if="!cardPay">
                         <p class="title">一次性支付</p>

@@ -28,6 +28,7 @@
                         <span ng-if="rechargeStatus == 2 && checkoutForm.iccid.$valid == true">老用户，欢迎回来，要常回来看看 ~</span>
                         <span ng-if="rechargeStatus == 3 && checkoutForm.iccid.$valid == true">未知错误，请<a href="javascript:;" ng-click="getContact($event);">联系客服</a> ~</span>
                         <span ng-if="rechargeStatus == 4 && checkoutForm.iccid.$valid == true">您的卡还没实名认证受理激活成功 ~</span>
+                        <span ng-if="rechargeStatus == 5 && checkoutForm.iccid.$valid == true">您已享受充值优惠，多个优惠不能同时享受，更多优惠请关注公众号发布 ~</span>
                     </p>
                 </div>
             </div>
@@ -56,7 +57,7 @@
                     <div class="pd-w">
                         <ul class="item-lists minus pure-g">
                             <li class="list-item pure-u-1-2" ng-repeat="rechargeProduct in rechargeProducts | filter : {salesOff : 1}">
-                                <div class="item-box margin border radius small" ng-class="{true:'active',false:'disabled'}[rechargeStatus == 2]" ng-click="setProduct($event,rechargeProduct)">
+                                <div class="item-box margin border radius small" ng-class="{true:'active',false:'disabled'}[rechargeStatus == 2 || rechargeStatus == 5]" ng-click="setProduct($event,rechargeProduct)">
                                     {{rechargeProduct.name}}
                                 </div>
                                 <p class="tips" ng-bind="rechargeProduct.remark"></p>

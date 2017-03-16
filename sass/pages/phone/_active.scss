@@ -204,7 +204,7 @@
           .flag {
             position: absolute;
             left: -0.15rem;
-            top: 0;
+            top: 0rem;
             width: 0.8rem;
             img {
               width: 100%;
@@ -415,6 +415,7 @@
         padding-top: 0.1rem;
         padding-left: 0.15rem;
         padding-right: 0.15rem;
+        padding-bottom: 0.1rem;
         .addr-tip {
           position: relative;
           padding-left: 1rem;
@@ -645,6 +646,89 @@
   #address-panel {
     display: block;
   }
+
+  .ad-c {
+    margin-top: 1.17647em;
+    background: #fff;
+    padding-top: 0.1rem;
+  }
+  .ad-d {
+    margin-top: 1.17647em;
+    padding-top: 0.1rem;
+    padding-left: 0.15rem;
+    padding-right: 0.15rem;
+    .weui-btn {
+      background: $color-orange;
+      font-weight: normal;
+      font-size: 0.16rem;
+    }
+  }
+  .timer-banner {
+    color: #333;
+    font-size: 0.12rem;
+    @include box-shadow(0 3px 3px #ddd);
+    .icon-timer {
+      font-size: 0.24rem;
+      display: block;
+      margin-right: 0.15rem;
+      color: $color-orange;
+    }
+    .timer-c {
+      margin-top: 0.05rem;
+    }
+    .timer {
+      em, span {
+        @include inline-block;
+        margin-left: 0.02rem;
+        margin-right: 0.02rem;
+      }
+      em {
+        background: #1495eb;
+        color: #fff;
+        @include border-radius(4px);
+        padding-left: 0.03rem;
+        padding-right: 0.03rem;
+      }
+    }
+    .weui-cell__bd {
+      position: relative;
+      padding-left: 0.19rem;
+      &:before {
+        content: " ";
+        position: absolute;
+        top: -10px;
+        bottom: -10px;
+        left: 0;
+        width: 1px;
+        border-left: 1px solid #d8d8d8;
+        @include scaleX(0.5);
+      }
+      .rasher {
+        @include inline-block;
+        padding-left: 0.05rem;
+        padding-right: 0.05rem;
+        border: 1px solid $color-orange;
+        color: $color-orange;
+        @include border-radius(10rem);
+        i {
+          font-style: normal;
+        }
+      }
+    }
+  }
+
+  .weui-badge {
+    background-color: #f43530;
+    border-radius: 0.18rem;
+    color: #ffffff;
+    display: inline-block;
+    font-size: 0.12rem;
+    line-height: 1.2;
+    min-width: 0.08rem;
+    padding: 0.15em 0.4em;
+    text-align: center;
+    vertical-align: middle;
+  }
   .balance {
     background: #fff;
     @include box-shadow(0px 3px 3px #ddd);
@@ -872,6 +956,363 @@
     padding-top: 0.15rem;
     padding-bottom: 0.15rem;
   }
+
+  .zixun {
+    padding-left: 0.15rem;
+    padding-right: 0.15rem;
+    margin-top: 0.15rem;
+    padding-bottom: 0.1rem;
+    a {
+      background: #fff !important;
+      color: #1495eb;
+      &:after {
+        border: 1px solid #1495eb;
+        width: 100%;
+        height: 100%;
+        @include border-radius(5px);
+        @include scaleY(1);
+      }
+    }
+  }
+
+  .bt-tips {
+    font-size: 0.09rem;
+    padding-top: 0.2rem;
+    i {
+      &:before {
+        font-size: 0.14rem;
+        color: #999;
+      }
+    }
+    ul {
+      margin-left: 0.2rem;
+      padding: 0;
+      list-style: none;
+      margin-top: 0.1rem;
+      li {
+        list-style: none;
+        font-size: 0.09rem;
+        span {
+          font-weight: bold;
+          font-size: 120%;
+          color: $color-orange;
+        }
+      }
+    }
+  }
+
+  .delivers {
+    font-size: 0.095rem;
+    padding-left: 0.15rem;
+    background: rgba(20, 149, 235, 0.1);
+    color: #1495eb;
+    padding-top: 0.08rem;
+    padding-bottom: 0.08rem;
+    i, span {
+      @include inline-block;
+    }
+    .weui-icon-warn {
+      &:before {
+        font-size: 0.14rem;
+        color: #1495eb;
+      }
+    }
+  }
+
+  .promise-list {
+    padding-left: 0.15rem;
+    margin-top: 0.15rem;
+    padding-bottom: 0.15rem;
+    padding-top: 0.15rem;
+    position: relative;
+    &:before {
+      content: " ";
+      position: absolute;
+      top: 0;
+      height: 1px;
+      border-top: 1px solid #d8d8d8;
+      width: 100%;
+      left: 0;
+      @include scaleY(0.5);
+    }
+    .promise-item {
+      @include inline-block;
+      margin-right: 0.1rem;
+      font-size: 0.11rem;
+      color: #1495eb;
+      i {
+        border: 1px solid #1495eb;
+        @include border-radius(5rem);
+        margin-right: 0.05rem;
+        padding: 0.01rem;
+        font-size: 0.1rem;
+      }
+    }
+  }
+}
+
+.page.active-a.active-d {
+  .content-scrollable {
+    background: #ee422f !important;
+    .hot-phone {
+
+      font-size: 0.12rem;
+      .spc-list {
+        padding: 0;
+        margin-left: 0.1rem;
+        margin-right: 0.1rem;
+        margin-top: 2px;
+        margin-bottom: 0;
+        li {
+          list-style: none;
+          padding: 0;
+          margin: 0;
+          margin-top: -2px;
+        }
+        .item-box {
+          border: 2px solid #000;
+          .img-box {
+            @include box-sizing(border-box);
+            padding-right: 0.1rem;
+            position: relative;
+            img {
+              height: 0.9rem;
+              width: auto;
+              margin: 0 auto;
+              margin-top: 0.2rem;
+            }
+            .flag {
+              position: absolute;
+              left: -0.15rem;
+              top: -0.15rem;
+              width: 0.8rem;
+              background: #9237dd;
+              color: #fff;
+              @include border-right-radius(1rem);
+              padding-top: 0.05rem;
+              padding-bottom: 0.05rem;
+              padding-left: 0.1rem;
+              padding-right: 0.1rem;
+              img {
+                width: 100%;
+                height: auto;
+              }
+            }
+          }
+          .item-txt {
+            text-align: left;
+            .title {
+              font-size: 0.13rem;
+            }
+            .title {
+              color: #000;
+              font-weight: bold;
+              font-size: 0.14rem;
+              line-height: 1.3;
+            }
+            .price {
+              span {
+                color: #666;
+              }
+            }
+            .btips {
+              border: 1px solid #bc1403;
+              background: #bc1403;
+              color: #fff;
+              margin-top: 0.05rem;
+              .rt, .lb {
+                @include inline-block;
+              }
+              .lb {
+                background: #fff;
+                color: #bc1403;
+                font-size: 0.12rem !important;
+                font-weight: bold;
+                padding-left: 0.05rem;
+              }
+              .rt {
+                padding-left: 0.05rem;
+                font-size: 0.11rem !important;
+                span {
+                  font-size: 0.11rem !important;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    .hot-phone {
+      &.spc-list {
+        .item-box {
+          margin-top: 0.15rem;
+          border: 0;
+          .tips {
+            background: none;
+            @include border-radius(0);
+            padding: 0;
+            margin: 0;
+            color: $color-primary;
+            span {
+              font-size: 0.11rem !important;
+            }
+          }
+          .item-txt {
+            font-size: 0.1rem;
+            em {
+              font-size: 0.14rem;
+            }
+            span {
+              font-size: 0.12rem;
+            }
+            .price {
+              em {
+                font-size: 0.14rem;
+              }
+            }
+          }
+          .price {
+            font-size: 0.12rem !important;
+          }
+        }
+      }
+    }
+    .spc-phone.spc-list {
+      .item-box {
+        padding: 0.1rem;
+        .img-box {
+          img {
+            margin: 0;
+          }
+          .flag {
+            font-size: 0.08rem;
+            background: #9237dd;
+            color: #ffffff;
+            width: 0.36rem;
+            height: 0.36rem;
+            @include border-radius(0.04rem);
+            top: auto;
+            bottom: 0.01rem;
+            .lb {
+              margin-top: 0rem;
+            }
+            .rb {
+              font-size: 0.1rem;
+            }
+          }
+        }
+        .title {
+          margin-left: 0;
+          margin-right: 0;
+          font-weight: bold;
+          margin-top: 0.12rem;
+        }
+        .price {
+          font-size: 0.1rem;
+          margin-left: 0;
+          margin-right: 0;
+          margin-top: 0;
+          color: #666;
+        }
+        .spc-price {
+          font-size: 0.1rem;
+          text-align: left;
+          color: #bc1403;
+          em {
+            font-size: 0.14rem;
+            color: #bc1403;
+          }
+        }
+        .bbtn {
+          background: #bc1403;
+          color: #fff;
+          line-height: 1;
+          padding-top: 0.07rem;
+          padding-bottom: 0.05rem;
+        }
+      }
+    }
+  }
+  .fqa-content {
+    overflow: hidden;
+    background: #ffdbb5;
+  }
+  .fqa-lists {
+    color: #fff;
+    font-size: 0.11rem;
+    padding-left: 0.1rem;
+    padding-right: 0.1rem;
+    position: relative;
+    padding-bottom: 0.05rem;
+    .dark {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      width: 100%;
+    }
+    ul {
+      li {
+        list-style: none;
+        margin-top: 0.1rem;
+        margin-bottom: 0.1rem;
+        color: #57130f;
+        em {
+          color: #57130f;
+        }
+        .list-header {
+          font-weight: bold;
+          color: #eb362b;
+          font-size: 0.12rem;
+        }
+      }
+    }
+    &.close {
+      height: 1.8rem;
+      overflow: hidden;
+    }
+  }
+  .fqa-more {
+    font-size: 0.12rem;
+    text-align: right;
+    padding-right: 0.1rem;
+    color: #eb362b;
+    margin-bottom: 0.5rem;
+    span {
+      @include inline-block;
+    }
+    .arrow {
+      margin-left: 0.05rem;
+      width: 0.14rem;
+      height: 0.14rem;
+    }
+    .arrow-d {
+      display: none;
+    }
+    &.close {
+      .arrow-u {
+        display: none;
+      }
+      .arrow-d {
+        @include inline-block;
+      }
+    }
+  }
+  .phones-content {
+    .spc-list {
+      margin-left: -0.02rem !important;
+      margin-right: -0.02rem !important;
+      .item-box {
+        margin: 0 !important;
+        border: 0 !important;
+        margin-left: 0.02rem !important;
+        margin-right: 0.02rem !important;
+        margin-bottom: 0.1rem !important;
+      }
+    }
+
+  }
+
 }
 
 .overlay.overlay-code.overlay-active-c .qrcode-content {
@@ -937,14 +1378,14 @@
 .page.active-b.active-c {
   .content-scrollable .quan-form .weui-cell {
     &.weui-cell_warn {
-      border:1px solid $color-orange;
+      border: 1px solid $color-orange;
       .weui-cell__bd {
         color: $color-orange;
       }
     }
 
     &.weui-cell_success {
-      border:1px solid #e8e8e8;
+      border: 1px solid #e8e8e8;
       .weui-cell__hd {
         color: #999;
       }

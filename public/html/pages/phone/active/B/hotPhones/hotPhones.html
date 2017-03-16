@@ -12,7 +12,7 @@
 
             <gh></gh>
             <activity></activity>
-            <div class="header"><img src="/images/active/b/2.png"> <span>中国电信福利 存话费送手机</span></div>
+            <div class="header"><img src="/images/active/b/2.png"> <span>中国电信福利 购手机送话费</span></div>
             <div class="active-b-content">
 
                 <div class="progress-bar">
@@ -84,14 +84,15 @@
 
                 <div id="phoneColors">
                     <main-colors title="选择颜色" ng-if="phone"></main-colors>
+                    <div class="promise-list"><span class="promise-item"><i class="icon-check"></i>行货正品</span><span class="promise-item"><i class="icon-check"></i>假一赔十</span><span class="promise-item"><i class="icon-check"></i>货到验机</span><span class="promise-item"><i class="icon-check"></i>中国电信合作伙伴</span></div>
                 </div>
 
                 <div id="pkgs">
                     <input type="hidden" name="productId" id="productId" ng-model="package.productId"
                            value="{{package.productId}}">
                     <div class="phone-brands">
-                        <div class="weui-cells__title title-icon"><span class="title">选择套餐</span><span
-                                class="sub-title">赠送话费￥<span ng-bind="package.salesPrice | number : 0"></span> <span ng-bind="package.network"></span>G流量话费套餐</span>
+                        <div class="weui-cells__title title-icon"><span class="title">选择中国电信套餐</span><span
+                                class="sub-title">赠送话费￥<span ng-bind="package.salesPrice | number : 0"></span> <span ng-bind="package.network"></span>G流量</span>
                         </div>
                         <div class="phone-pkgs-panel pd-w">
                             <ul class="phone-pkgs-lists item-lists minus pure-g">
@@ -193,10 +194,21 @@
                             </div>
                         </div>
                     </div>
+
+                    <div class="delivers" ng-if="payType == 0"><i class="weui-icon-warn"></i><span>由电信客户经理送货上门，17：00前完成下单，预计明天（3月5号）送达</span></div>
+                    <div class="delivers" ng-if="payType == 3"><i class="weui-icon-warn"></i><span>自提用户下单手，可关注"<b>翼分期商城</b>"公众号联系客服经理沟通</span></div>
+
+                    <div class="zixun">
+                        <a href="javascript:;" ng-click="getContact();" class="weui-btn weui-btn_default"><i class="icon-comment"></i> 导购咨询</a>
+                    </div>
+
                 </div>
 
                 <div class="balance">
-                    <div class="weui-cells__title title-icon"><span class="title">商品结算</span></div>
+                    <div class="weui-cells__title title-icon">
+                        <span class="title">商品结算</span>
+                        <span class="sub-title"></span>
+                    </div>
                     <div class="balance-content">
                         <div class="balance-pr pure-g">
                             <div class="lb pure-u-1-2"><img src="/images/active/b/15.png"> 礼包价：</div>
@@ -204,12 +216,13 @@
                                 ￥<span ng-bind="package.phonePrice | number : 0"></span>
                             </div>
                             <div class="tp pure-u-1">
-                                <span>手机价：￥{{(package.phonePrice - package.salesPrice) | number : 0}} + 赠送话费：￥{{package.salesPrice | number : 0}}</span>
+                                <span>您已选择：{{phone.phoneTypes[0].productName}} 赠送话费￥{{package.salesPrice | number:0}}</span>
+                                <!--<span>手机价：￥{{package.salesPrice | number : 0}} + 预存话费：￥{{(package.phonePrice - package.salesPrice) | number : 0}}</span>-->
                             </div>
                         </div>
                         <div class="balance-discount">
-                            <div class="lb pure-u-1-2"><img src="/images/active/b/16.png"> 货到付款立减：</div>
-                            <div class="pr pure-u-1-2">
+                            <div class="lb pure-u-3-5"><img src="/images/active/b/16.png"> 货到付款立减 <span class="weui-badge">限时特惠</span></div>
+                            <div class="pr pure-u-2-5">
                                 -￥<span ng-bind="package.phonePrice | jm:400"></span>
                             </div>
                             <div class="tp pure-u-1">
@@ -232,8 +245,21 @@
 
                 <div class="submit-form img-box" ng-click="submit()">
                     <a class="weui-btn weui-btn_warn" href="javascript:;">
-                        提交联系上门
+                        已确认，请联系我
                     </a>
+                    <div class="bt-tips">
+                        <p><i class="weui-icon-warn"></i> 温馨提示：为了您能尽快办理，您需要确认以下信息</p>
+                        <ul>
+                            <li>1、支付宝支付/微信支付/刷卡：确保储蓄卡余额足够<span ng-bind="package.phonePrice - (package.phonePrice | jm:400)"></span>元；</li>
+                            <li>2、19家银行信用卡分期：确保信用卡额度足够<span ng-bind="package.phonePrice - (package.phonePrice | jm:400)"></span>元,将为您申请12期0息分期；</li>
+                            <li>3、办理电信号码需提供本人身份证正面、身份证反面、手持身份证照片；</li>
+                            <li>4、确认您的收货地址与联系方式无误，方便客户经理为您上门办理。</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="img-box" style="background: #fff">
+                    <img src="/images/phones/C/promise.png">
                 </div>
 
             </div>

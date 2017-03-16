@@ -1,0 +1,30 @@
+<div id="setPayType" class="pay-type">
+    <input type="hidden" name="payType" id="payType" ng-model="payType" value="{{payType}}" required>
+    <div class="weui-cells__title title-icon">
+        <span class="title" ng-bind="payTitle"></span><span class="star-color">*</span>
+        <span class="sub-title">
+            <span ng-bind="payTypeName"></span>
+        </span>
+    </div>
+    <div class="paytype-panel pd-w">
+        <ul class="paytype-list item-lists pure-g" ng-if="receiver.city.indexOf('广州市') == -1">
+            <li class="pay-item list-item pure-u-1-2" ng-class="{true:'on-paytype',false:''}[payType == 2]" ng-click="setPayType($event,2);">
+                <div class="item item-box margin border radius">
+                    <p class="title">信用卡分期</p>
+                </div>
+            </li>
+            <li class="pay-item list-item pure-u-1-2" ng-class="{true:'on-paytype',false:''}[payType == 0]" ng-click="setPayType($event,0);">
+                <div class="item item-box margin border radius">
+                    <p class="title">一次性支付</p>
+                </div>
+            </li>
+        </ul>
+        <ul class="paytype-list item-lists pure-g" ng-if="receiver.city.indexOf('广州市') != -1">
+            <li class="pay-item list-item pure-u-1-1 on-paytype" ng-class="{true:'on-paytype',false:''}[payType == 0]" ng-click="setPayType($event,0);">
+                <div class="item item-box margin border radius">
+                    <p class="title">广州地区即日送货上门</p>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>

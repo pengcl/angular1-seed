@@ -1,0 +1,79 @@
+<input type="text" style="display: none;" id="machineName" name="machineName" ng-model="machineName" value="{{machineName}}" class="weui-input" required/>
+<ul class="spc-list spc-phone pure-g">
+    <li class="pure-u-1-2" ng-repeat="singlePhone in singlePhones | filter : filterPhoneName" ng-if="singlePhone.salePrice >= 1500">
+        <a class="item-box" ng-if="params.length == 0" href="/phs/sg/{{pageType}}/{{singlePhone.activityproductId}}{{params}}?headCategory={{category}}" ng-class="{true:'curr',false:''}[machineName == singlePhone.productName]" ng-click="setMachine(singlePhone.productName,singlePhone.activityproductId)">
+            <div class="img-box">
+                <img ng-src="http://www.yfq.cn:8899/fileserver/medias/{{singlePhone.mainImageUrl}}">
+                <span class="flag">
+                    <p class="lb"><span>赠送话费</span></p>
+                    <p class="rb"><span ng-bind="singlePhone.cardItems"></span>元</p>
+                </span>
+            </div>
+            <div class="title">
+                <span ng-bind="singlePhone.productName"></span>
+            </div>
+
+            <div class="spc-price">
+                <span ng-if="singlePhone.salePrice >= singlePhone.cardItems">领券优惠价：<em>￥</em><em ng-bind="singlePhone.salePrice - (singlePhone.salePrice | jm : 800)"></em></span>
+                <span ng-if="singlePhone.salePrice < singlePhone.cardItems">领券优惠价：<em>￥</em><em ng-bind="singlePhone.cardItems - (singlePhone.cardItems | jm : 800)"></em></span>
+            </div>
+
+            <div class="price">
+                <div class="pure-g" ng-if="singlePhone.salePrice >= singlePhone.cardItems">
+                    <div class="text-l pure-u-1-2">
+                        <span>月供:</span><span ng-bind="(singlePhone.salePrice - (singlePhone.salePrice | jm : 800)) / 12 | number:0"></span>
+                    </div>
+                    <div class="text-r pure-u-1-2">
+                        <span>合约价:</span><span>￥</span><span ng-bind="singlePhone.salePrice | number : 0"></span>
+                    </div>
+                </div>
+                <div class="pure-g" ng-if="singlePhone.salePrice < singlePhone.cardItems">
+                    <div class="text-l pure-u-1-2">
+                        <span>月供:</span><span ng-bind="(singlePhone.cardItems - (singlePhone.cardItems | jm : 800)) / 12 | number:0"></span>
+                    </div>
+                    <div class="text-r pure-u-1-2">
+                        <span>合约价:</span><span>￥</span><span ng-bind="singlePhone.cardItems | number : 0"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="bbtn">领券立减 马上购</div>
+        </a>
+        <a class="item-box" ng-if="params.length != 0" href="/phs/sg/{{pageType}}/{{singlePhone.activityproductId}}{{params}}&headCategory={{category}}" ng-class="{true:'curr',false:''}[machineName == singlePhone.productName]" ng-click="setMachine(singlePhone.productName,singlePhone.activityproductId)">
+            <div class="img-box">
+                <img ng-src="http://www.yfq.cn:8899/fileserver/medias/{{singlePhone.mainImageUrl}}">
+                <span class="flag">
+                    <p class="lb"><span>赠送话费</span></p>
+                    <p class="rb"><span ng-bind="singlePhone.cardItems"></span>元</p>
+                </span>
+            </div>
+            <div class="title">
+                <span ng-bind="singlePhone.productName"></span>
+            </div>
+
+            <div class="spc-price">
+                <span ng-if="singlePhone.salePrice >= singlePhone.cardItems">领券优惠价：<em>￥</em><em ng-bind="singlePhone.salePrice - (singlePhone.salePrice | jm : 800)"></em></span>
+                <span ng-if="singlePhone.salePrice < singlePhone.cardItems">领券优惠价：<em>￥</em><em ng-bind="singlePhone.cardItems - (singlePhone.cardItems | jm : 800)"></em></span>
+            </div>
+
+            <div class="price">
+                <div class="pure-g" ng-if="singlePhone.salePrice >= singlePhone.cardItems">
+                    <div class="text-l pure-u-1-2">
+                        <span>月供:</span><span ng-bind="(singlePhone.salePrice - (singlePhone.salePrice | jm : 800)) / 12 | number:0"></span>
+                    </div>
+                    <div class="text-r pure-u-1-2">
+                        <span>合约价:</span><span>￥</span><span ng-bind="singlePhone.salePrice | number : 0"></span>
+                    </div>
+                </div>
+                <div class="pure-g" ng-if="singlePhone.salePrice < singlePhone.cardItems">
+                    <div class="text-l pure-u-1-2">
+                        <span>月供:</span><span ng-bind="(singlePhone.cardItems - (singlePhone.cardItems | jm : 800)) / 12 | number:0"></span>
+                    </div>
+                    <div class="text-r pure-u-1-2">
+                        <span>合约价:</span><span>￥</span><span ng-bind="singlePhone.cardItems | number : 0"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="bbtn">领券立减 马上购</div>
+        </a>
+    </li>
+</ul>

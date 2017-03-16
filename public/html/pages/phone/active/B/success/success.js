@@ -33,5 +33,9 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
         _MEIQIA('showPanel');
         writebdLog($scope.category, "_CustConsult", "渠道号", $scope.gh);//客服咨询
     };
+    
+    $scope.getOrderQuery = function () {
+    	writebdLog($scope.category, "_OrderQuery", "渠道号", $scope.gh);//订单查询
+    };
 
 }]);

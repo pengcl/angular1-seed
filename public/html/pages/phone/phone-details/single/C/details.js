@@ -15,10 +15,13 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
                 $("#overlay-hook").html("");
             }
         });
-}]).controller('pCSingleProController', ['$scope', '$rootScope', '$location', '$stateParams', '$http', 'Phone', function ($scope, $rootScope, $location, $stateParams, $http, Phone) {
+}]).controller('pCSingleProController', ['$scope', '$rootScope', '$location', '$stateParams', '$http', 'Phone', '$cookieStore', '$timeout', function ($scope, $rootScope, $location, $stateParams, $http, Phone, $cookieStore, $timeout) {
 
-    $scope.pageType = $stateParams.pageType;
-    $scope.activeTag = "jjk";
+    $scope.pageType = 'C';
+    $scope.activeTag = "jktchdd";
+
+    $scope.homeUrl = $location.protocol() + '://' + $location.host() + '/phone/active/C/phones';
+
     var headCategory = $location.search().headCategory;
     if (headCategory != undefined && headCategory != null)
         $scope.category = headCategory + "_SinglePhones";
@@ -27,6 +30,8 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
     $scope.phoneQueryUrl = "http://" + $location.host() + $location.url();
     writebdLog($scope.category, "_Load", "渠道号", $scope.gh);
 
+    $container = $(".content-scrollable");
+
     $http.jsonp(cfApi.apiHost + "/product/getProDetial.html?productId=" + $stateParams.phoneId + "&activeTag=jjk&s=wap&callback=JSON_CALLBACK").success(function (data, status, headers, config) {
         $scope.phone = data;
         $scope.imgUrls = [];
@@ -34,9 +39,42 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
             $scope.imgUrls.push("http://www.yfq.cn:8899/fileserver/medias/" + data.phoneTypes[0].mediaProductList[i].mediaUrl);
         }
 
-        $scope.package = $scope.phone.packageProductList[0];
-        $scope.phonePrice = data.phonePrice;
-        $scope.salePrice = data.salePrice;
+        $http.jsonp(cfApi.apiHost + '/product/getPackageList.html?activeTag=fqssj&s=wap&callback=JSON_CALLBACK').success(function (data, status, headers, config) {
+            $scope.pkgs = data;
+
+            var cardItems = $scope.phone.cardItems.split(";").sort(function (a, b) {
+                return a.slice(a.indexOf(":") + 1, a.length) - b.slice(b.indexOf(":") + 1, b.length);
+            });
+
+
+            $scope.packages = [];
+
+            $.each(eval(cardItems), function (i, k) {
+                var obj = $scope.pkgs[getIndex($scope.pkgs, "productId", k.slice(0, k.indexOf(':')))];
+                obj.phonePrice = k.slice(k.indexOf(':') + 1, k.length);
+                $scope.packages.push(obj);
+                //$scope.comparePrices.push(data.salePrice - obj.salesPrice);
+            });
+
+            $scope.package = $scope.packages[0];
+
+            if ($cookieStore.get('receiver')) {
+                if ($cookieStore.get('receiver').city.indexOf('广州市') != -1) {
+                    $scope.setDefaultPayType(0, "送货上门");
+                } else {
+                    $scope.setDefaultPayType(2, "信用卡分期");
+                }
+            } else {
+                $scope.setDefaultPayType(2, "信用卡分期");
+            }
+
+            $(".phone-pkgs-item").eq(1).find(".pick-panel").addClass("show");
+
+        }).error(function (data, status, headers, config) {
+            console.log(status);
+            //deferred.reject(status)
+        });
+
     }).error(function (data, status, headers, config) {
         console.log(status);
     });
@@ -48,7 +86,7 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
         container: $(".content-scrollable")
     });
     $scope.buyType = 1;
-    $scope.activeTagName = "裸机送0元4G流量卡";
+    $scope.activeTagName = "裸机";
 
     $scope.setSbPayType = function (id, typeName) {
         $scope.payType = id;
@@ -67,9 +105,6 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
     $scope.setBuyType = function (event, type, typeName) {
         event.preventDefault();
         $scope.buyType = type;
-        var $this = $(event.currentTarget);
-        $this.parent().siblings().children().removeClass('curr');
-        $this.addClass('curr');
         if (type == 0) {
             $scope.activeTag = "lj";
             //$scope.totolPrice = $scope.phone.phonePrice;
@@ -87,8 +122,6 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
             $scope.activeTag = "jjk";
             $scope.activeTagName = typeName;
         }
-
-        console.log($scope.activeTag);
         writebdLog($scope.category, "_SelectBuyType", "渠道号", $scope.gh);//选择购买方式
     };
 
@@ -114,62 +147,69 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
     };
 
     $scope.showPkgPn = function () {
-        $("#pickPackagePanel").slideToggle();
+        $(".card-details").slideToggle();
         writebdLog($scope.category, "_SelectBillPackage", "渠道号", $scope.gh);//选择话费套餐
     };
 
-    $scope.$watch('productId', function (n, o, $scope) {
-        if (n != o) {
-            $http.get(cfApi.apiHost + "/product/getProDetial.html?productId=" + n + "&s=wap&callback=JSON_CALLBACK").success(function (phone) {
-                /*$scope.phone = phone;
+    //$scope.pkgAndNumber = $cookieStore.get('pkgAndNumber');
+    if ($cookieStore.get('pkgAndNumber')) {
+        $scope.pkgAndNumber = $cookieStore.get('pkgAndNumber');
+    } else {
+        $scope.pkgAndNumber = false;
+    }
 
-                 //选择默认内存
-                 $scope.storage = phone.storages[getIndex(phone.storages, "curr")];
+    $scope.checkForm = function () {
 
-                 $scope.pkg = phone.packages[0];
+        var $form = $("#checkoutForm");
+        if ($scope.$root.checkActiveCode()) {
+            writebdLog($scope.category, "_BuyNow", "渠道号", $scope.gh);//立即支付
+            $scope.$root.toast.open();
 
-                 $scope.phoneType = phone.phoneTypes[getIndex(phone.phoneTypes, "curr")];
-
-                 $scope.mainPrice = phone.price;*/
+            $form.submit();
+        } else {
+            var $scrollTo = $('#receiverAddress');
+            $container.animate({
+                scrollTop: $scrollTo.offset().top - $container.offset().top + $container.scrollTop()
             });
+            $("#receiverAddressPanel").slideDown();
+            $(".adr-tab").addClass("down");
+        }
+    };
+
+    $scope.submitForm = function (event) {
+        if ($scope.checkMainNumber()) {
+            if ($scope.checkAddress()) {
+                $scope.checkForm();
+            } else {
+                var $scrollTo = $('#receiverAddress');
+                $container.animate({
+                    scrollTop: $scrollTo.offset().top - $container.offset().top + $container.scrollTop() - 50
+                });
+                $("#receiverAddressPanel").slideDown();
+                $(".adr-tab").addClass("down");
+            }
+        }
+    };
+
+    $scope.$watch('package', function (n, o, $scope) {
+        if (n != o) {
+            if (n.salesPrice >= $scope.phone.phoneBillPrice) {
+                $scope.totalPrice = n.salesPrice;
+            } else {
+                $scope.totalPrice = $scope.phone.phoneBillPrice;
+            }
+        }
+    }, true);
+
+    $scope.$watch('receiver.city', function (n, o, $scope) {
+        if (n.indexOf('广州市') != -1) {
+            $scope.setDefaultPayType(0, "送货上门");
+        }else {
+            if($scope.payType == 0){
+                $scope.setDefaultPayType(0, "一次性支付");
+            }
         }
     });
-    $scope.$watch('activeTag', function (n, o, $scope) {
-        if (n != o) {
-            $http.jsonp(cfApi.apiHost + "/product/getProDetial.html?productId=" + $stateParams.phoneId + "&activeTag=" + n + "&s=wap&callback=JSON_CALLBACK").success(function (data, status, headers, config) {
-                $scope.totalPrice = data.phoneBillPrice;
-                if($scope.activeTag == 'jjk'){
-                    if($scope.payType == 0){
-                        $scope.totalPrice = $scope.phone.phonePrice;
-                    }else if($scope.payType == 2) {
-                        $scope.totalPrice = $scope.phone.salePrice;
-                    }
-                }else {
-                    if($scope.payType == 0){
-                        $scope.totalPrice = $scope.phone.salePrice;
-                    }else if($scope.payType == 2) {
-                        $scope.totalPrice = $scope.phone.salePrice * 1.1;
-                    }
-                }
-            }).error(function (data, status, headers, config) {
-                console.log(status);
-            });
-        }
-    });
-
-    $scope.$watch('payType', function (n, o, $scope) {
-        if (n != o) {
-            $http.jsonp(cfApi.apiHost + "/product/getProDetial.html?productId=" + $stateParams.phoneId + "&activeTag=" + n + "&s=wap&callback=JSON_CALLBACK").success(function (data, status, headers, config) {
-
-            }).error(function (data, status, headers, config) {
-                console.log(status);
-            });
-        }
-    });
-
-    /*"phonePrice": 3399,//jjk一次性
-     "salePrice": 3599,//lj一次性、jjk分期
-     "salePrice": 8188*10%//lj分期*/
 
     androidInputBugFix();
 }]);

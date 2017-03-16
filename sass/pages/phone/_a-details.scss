@@ -267,12 +267,15 @@
       }
     }
     .paytype-list {
+      border-bottom: 1px solid #d8d8d8;
       div.item {
         border: 1px solid #707070;
         color: #707070;
         margin-left: .03rem;
         margin-right: .03rem;
         padding: 0;
+        margin-top: 0;
+        margin-bottom: 0;
         p {
           text-align: center;
         }
@@ -302,6 +305,20 @@
           color: #cc1414;
           .details {
             background: #cc1414;
+          }
+        }
+      }
+      .pure-u-1-2 {
+        &:first-child {
+          position: relative;
+          &:after {
+            content: " ";
+            position: absolute;
+            right:0;
+            top:0.07rem;
+            bottom: 0.07rem;
+            width: 1px;
+            background: #d8d8d8;
           }
         }
       }
@@ -778,6 +795,9 @@
         }
       }
     }
+    .footer-nav {
+      @include box-shadow(2px -1px 20px #ccc);
+    }
     .product-footer {
       font-size: 0.1rem;
       background: #f5f3f3;
@@ -792,6 +812,10 @@
           }
         }
       }
+    }
+
+    .pick-panel.show {
+      display: block;
     }
     .adr-content {
       display: none !important;
@@ -820,6 +844,37 @@
         }
       }
     }
+
+    .phone-pkgs-item.fst .item-box {
+      background: $color-orange;
+      color: #fff;
+      border: 1px solid $color-orange;
+    }
+
+    .phone-pkgs-item > .item-box {
+      font-size: 0.14rem;
+      border:1px solid #d8d8d8;
+      color: #999;
+      .ib {
+        @include inline-block;
+        line-height: 0.22rem;
+      }
+      &.curr {
+        border: 1px solid $color-orange;
+        color: #333;
+        font-weight: normal;
+        .rd {
+          color: $color-orange;
+        }
+      }
+    }
+
+    .phone-pkgs-item.active {
+      .pick-panel {
+        display: block;
+      }
+    }
+
     #phonePackage {
       .weui-cell {
         .weui-cell__hd {
@@ -835,6 +890,24 @@
           }
         }
         .weui-cell__bd {
+          .has-pkg {
+            height: 0.5rem;
+            padding: 0.05rem;
+            border: 1px solid #ccc;
+            @include inline-block;
+            margin-left: 0.05rem;
+            @include border-radius(4px);
+            padding-left: 0.1rem;
+            padding-right: 0.1rem;
+            .title {
+              font-size: 0.18rem;
+              color: $color-primary;
+              border-bottom: 1px solid #ccc;
+              text-align: center;
+            }
+            .talking-time {
+            }
+          }
           em, span {
             @include inline-block;
           }
@@ -863,6 +936,13 @@
             @include transform(rotate(45deg));
             margin-top: -0.07rem;
           }
+        }
+      }
+      .pick-panel {
+        padding-left: 0.1rem;
+        padding-top: 0.15rem;
+        p {
+          text-align: left !important;
         }
       }
     }
@@ -919,7 +999,7 @@
     }
 
     #setPayType .paytype-list .list-item {
-      width: 50%;
+      //width: 50%;
       &.on-paytype {
         div.item {
           &:before {
@@ -961,10 +1041,161 @@
         background: #f5f5f5;
         padding: 0.1rem;
         line-height: 2;
+        .price {
+          text-align: right;
+          em {
+            color: $color-orange;
+          }
+        }
         .real-price {
           font-size: 0.18rem;
           border-top: 1px solid #ccc;
           line-height: 2.4;
+        }
+      }
+    }
+    /*#pickPackagePanel {
+      .card-list {
+        .card-list-item {
+          margin: 0;
+          border: 0;
+          .item-box {
+            background: #fee55e;
+            @include border-radius(0);
+            position: relative;
+            overflow: hidden;
+            &:before {
+              content: " ";
+              position: absolute;
+              background: #fff;
+              width: 0.1rem;
+              height: 0.1rem;
+              top: 50%;
+              margin-top: -0.05rem;
+              left: 0;
+              margin-left: -0.05rem;
+              @include border-radius(1rem);
+            }
+            &:after {
+              content: " ";
+              position: absolute;
+              background: #fff;
+              width: 0.1rem;
+              height: 0.1rem;
+              top: 50%;
+              margin-top: -0.05rem;
+              right: 0;
+              margin-right: -0.05rem;
+              @include border-radius(1rem);
+            }
+            .title {
+              line-height: 1;
+              font-size: 0.2rem;
+              font-weight: bold;
+              margin-left: 0.1rem;
+              margin-right: 0.1rem;
+              border-bottom: 1px solid #ccc;
+              padding-top: 0.14rem;
+              padding-bottom: 0.06rem;
+            }
+            .details {
+              padding-top: 0.07rem;
+              padding-bottom: 0.07rem;
+              p {
+                line-height: 1.3;
+              }
+            }
+            &.curr {
+              background: #dcbb08;
+            }
+          }
+        }
+      }
+    }*/
+    #pickMainNumber {
+      .choose-number {
+        display: none;
+      }
+      /*#pickMainNumberPanel {
+        display: block;
+        padding-left: 0.1rem;
+        padding-top: 0.15rem;
+        padding-bottom: 0.3rem;
+        background: #fff8ee;
+        margin-left: 0.1rem;
+        margin-right: 0.1rem;
+        margin-top: 0.1rem;
+        .weui-cells_form {
+          margin-left: 0.2rem;
+          margin-right: 0.3rem;
+        }
+        .query-panel {
+          padding-left: 0.2rem;
+          padding-right: 0.2rem;
+          position: relative;
+          .sb-prev, .sb-next {
+            position: absolute;
+            display: block;
+            top: 50%;
+            font-size: 0.3rem;
+            line-height: 1;
+            margin-top: -0.15rem;
+          }
+          .sb-prev {
+            left: -0.1rem;
+          }
+          .sb-next {
+            right: 0;
+          }
+        }
+        .query-lists {
+          .item-box {
+            background: #f7f0e6 !important;
+          }
+        }
+      }*/
+    }
+    .show-main-number {
+      font-size: 0.14rem;
+      padding-bottom: 0.1rem;
+      span {
+        color: $color-orange;
+      }
+    }
+    .selected-pkg {
+      font-size: 0.12rem;
+      border-top: 1px solid #d8d8d8;
+      margin-right: 0.05rem;
+      margin-left: -0.05rem;
+      .see-content {
+        @include inline-block;
+        color: $color-primary;
+        margin-left: 0;
+        vertical-align: baseline;
+        text-decoration: underline;
+        &:before {
+          display: none;
+        }
+        &:after {
+          content: ">";
+        }
+      }
+      p {
+        line-height: 1.2;
+        padding-top: 0.1rem;
+        padding-bottom: 0.1rem;
+      }
+    }
+    .footer-nav {
+      padding-left: 0;
+      .nav-price {
+        display: block !important;
+        line-height: 0.48rem !important;
+        font-size: 0.14rem !important;
+        padding-left: 0.3rem;
+        em {
+          font-size: 0.2rem;
+          color: $color-orange;
         }
       }
     }

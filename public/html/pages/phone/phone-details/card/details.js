@@ -14,9 +14,12 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
 }]).controller('pCardProController', ['$scope', '$rootScope', '$location', '$stateParams', '$http', 'Phone', function ($scope, $rootScope, $location, $stateParams, $http, Phone) {
 
     $scope.pageType = $stateParams.pageType;
-    console.log($scope.pageType);
     $scope.activeTag = "mysytc";
-    $scope.category = systemName + "_mysy_" + $scope.pageType + "_FlowPackages";
+    
+    var activeName = "_mysy_" + $scope.pageType;
+    if($scope.pageType == 'pcdB' || $scope.pageType == 'pcdC') activeName = '_yucun_A'
+    $scope.category = systemName + activeName + "_FlowPackages";
+    
     $scope.phoneQueryUrl = "http://" + $location.host() + $location.url();
 
     $scope.stores = Math.round(Math.random() * 100);
@@ -32,7 +35,8 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
             "productId": 252,
             "productName": "5折预存102/月（3.5G流量900分钟通话）",
             "salesPrice": "102.00",
-            "talkTime": "900"
+            "talkTime": "900",
+            "pkgType":"dkyc50"
         },
         {
             "message": "50",
@@ -41,7 +45,8 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
             "productId": 254,
             "productName": "5折预存156/月（4.5G流量 1800分钟通话）",
             "salesPrice": "156.00",
-            "talkTime": "1800"
+            "talkTime": "1800",
+            "pkgType":"dkyc100"
         },
         {
             "message": "50",
@@ -50,7 +55,8 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
             "productId": 351,
             "productName": "155元/月(900分钟通话,4.5G流量,50短信)",
             "salesPrice": "155.00",
-            "talkTime": "900"
+            "talkTime": "900",
+            "pkgType":"dkyc100"
         },
         {
             "message": "50",
@@ -59,7 +65,8 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
             "productId": 251,
             "productName": "5折预存101/月（2.5G流量 850分钟）",
             "salesPrice": "101.00",
-            "talkTime": "850"
+            "talkTime": "850",
+            "pkgType":"dkyc50"
         }
     ];
 
@@ -67,6 +74,12 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
     $http.jsonp(cfApi.apiHost + "/product/getPackageInfo.html?productId=" + $stateParams.cardId + "&s=wap&callback=JSON_CALLBACK").success(function (data, status, headers, config) {
         $scope.card = data;
         $scope.totolPrice = data.salesPrice;
+        $scope.showPrice = 50;
+
+        if(data.productId == 254 || data.productId == 351){
+            $scope.showPrice = 100;
+        }
+
     }).error(function (data, status, headers, config) {
         console.log(status);
     });
@@ -119,6 +132,11 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
     $scope.setPackage = function (event, pkg) {
         $scope.package = pkg;
         $scope.card = pkg;
+        $scope.showPrice = 50;
+
+        if(pkg.productId == 254 || pkg.productId == 351){
+            $scope.showPrice = 100;
+        }
         var $this = $(event.currentTarget);
         $this.parent().siblings().removeClass('on');
         $this.parent().addClass('on');

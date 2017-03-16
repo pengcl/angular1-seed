@@ -4,7 +4,7 @@
         <div class="qrcode-content">
             <div class="qrcode-img">
                 <div class="img-box">
-                    <img class="fudai-1" src="/images/active/fudai.gif">
+                    <img class="fudai-1" ng-src="/images/active/{{pageType}}/fudai.gif">
                     <img class="fudai-2" style="display: none;" src="/images/active/fudai_unpack.gif">
                     <img class="fudai-3" style="display: none;" src="/images/active/fudai_error.gif">
                 </div>
@@ -27,7 +27,7 @@
                             <div class="weui-cell__ft"><a href="javascript:;" class="weui-vcode-btn" ng-click="getCouponActiveCode($event,coupon.mobile)" ng-class="paraclass" ng-bind="paracont">获取验证码</a></div>
                         </div>
 
-                        <div class="lingquan img-box" ng-click="getQuan()">
+                        <div class="lingquan img-box" ng-click="getQuan(couponType)">
                             <img src="/images/active/lingquan.gif">
                         </div>
                     </form>

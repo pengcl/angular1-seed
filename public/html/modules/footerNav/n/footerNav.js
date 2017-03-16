@@ -127,6 +127,41 @@ app.directive("nFooterNav", ['$http', '$location', function ($http, $location) {
                     }
                 }
             };
+
+            function getRTime() {
+
+                var timerHtml;
+
+                var d = new Date();
+                var _nowTime = d.getFullYear() + "/" + (d.getMonth() + 1) + "/" + d.getDate() + " " + "23:59:00";
+
+                var EndTime = new Date(_nowTime);
+                var NowTime = new Date();
+
+
+                var t = EndTime.getTime() - NowTime.getTime();
+
+                var d = Math.floor(t / 1000 / 60 / 60 / 24);
+                var h = Math.floor(t / 1000 / 60 / 60 % 24);
+                if (parseInt(h) < 10) {
+                    h = "0" + h;
+                }
+                var m = Math.floor(t / 1000 / 60 % 60);
+                if (parseInt(m) < 10) {
+                    m = "0" + m;
+                }
+                var s = Math.floor(t / 1000 % 60);
+                if (parseInt(s) < 10) {
+                    s = "0" + s;
+                }
+
+                timerHtml = "<em>" + h + "</em>" + "<em>：</em>" + "<em>" + m + "</em>" + "<em>：</em>" + "<em>" + s + "</em>";
+                //scope.timer = "1";
+                //console.log(scope.timer);
+                $(".stimer").html(timerHtml);
+            };
+            setInterval(getRTime, 1000);
+
             // scope.showOverLay = function (targetId) {
             //     var targetHtml = $("#" + targetId).html();
             //     scope.$root.Overlay.openCompile(targetHtml);

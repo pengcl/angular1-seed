@@ -839,9 +839,9 @@ body.pcd-b {
     position: relative;
     .timer-txt {
       position: absolute;
-      font-size: 0.11rem;
+      font-size: 0.1rem;
       width: 100%;
-      top: 0.2rem;
+      top: 0.05rem;
       span {
         @include inline-block;
         line-height: 0.24rem;
@@ -850,8 +850,11 @@ body.pcd-b {
         margin-left: 0.44rem;
       }
       .rush {
-        font-size: 0.08rem;
+        font-size: 0.1rem;
         color: #365bba;
+        b {
+          font-weight: bold;
+        }
       }
       .timer {
         em {
@@ -869,12 +872,21 @@ body.pcd-b {
     position: relative;
     .pkg-tips {
       position: absolute;
-      font-size: 0.075rem;
+      font-size: 0.085rem;
       bottom: 0.2rem;
       width: 100%;
       text-align: right;
       span {
         @include inline-block;
+      }
+      em {
+        font-weight: bold;
+      }
+      .rashers-left {
+        font-weight: bold;
+      }
+      .sold {
+        font-weight: bold;
       }
       .pros {
         margin-right: 0.33rem;
@@ -956,6 +968,83 @@ body.pcd-b {
       }
     }
   }
+  .hdtop {
+    overflow: hidden;
+  }
+  .top-bg {
+    z-index: 0;
+  }
+  .btn-r, .icc {
+    position: absolute;
+  }
+  .icc {
+    left: 0;
+    top: 0;
+  }
+  .ic3 {
+    left: 50%;
+    margin-left: -11%;
+    top: 0;
+    width: 33%;
+    z-index: 12;
+  }
+  .ic4 {
+    left: 50%;
+    margin-left: -30.5%;
+    top: 0.34rem;
+    width: 54.4%;
+    z-index: 11;
+    .flash {
+      -webkit-animation-iteration-count: infinite;
+      animation-iteration-count: infinite
+    }
+  }
+  .ic5, .ic6, .ic7 {
+    left: 50%;
+    z-index: 10;
+  }
+  .ic5 {
+    margin-left: -46.32%;
+    top: 0.35rem;
+    width: 92.64%;
+  }
+  .ic6 {
+    margin-left: -40%;
+    top: 0.5rem;
+    width: 80%;
+  }
+  .ic7 {
+    margin-left: -26.5%;
+    top: 57%;
+    width: 53%;
+  }
+  img.w-all {
+    display: block;
+    width: 100%;
+  }
+
+  .youhui {
+    position: fixed;
+    top: 1rem;
+    right: 0;
+    z-index: 999;
+    width: 6%;
+  }
+
+  .tc {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    .close {
+      position: fixed;
+      top: 0.07rem;
+      right: 0.07rem;
+      width: 0.21rem;
+      background: rgba(0, 0, 0, 0.6);
+      padding: 0.05rem;
+    }
+  }
+
 }
 
 .yaw-mask-tw {

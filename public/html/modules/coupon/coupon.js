@@ -10,7 +10,9 @@ app.directive("ngCoupon", ['$location', '$interval', '$http', '$cookieStore', '$
             scope.$root.paraclass = "but_null";
             var second = 59, timePromise = undefined;
 
-            scope.showFudai = function () {
+            scope.showFudai = function (couponType) {
+                scope.couponType = couponType;
+                console.log(scope.couponType);
                 var targetHtml = $("#wxQrCode").html();
                 scope.Overlay.openCompile(targetHtml);
                 writebdLog(scope.category, "_ShowCouponBar", "渠道号", scope.gh); //展示领券栏
@@ -18,10 +20,10 @@ app.directive("ngCoupon", ['$location', '$interval', '$http', '$cookieStore', '$
 
             if ($location.search().gh !== undefined) {//判断是否需要执行showFudai;
                 if ($location.search().gh.indexOf("yjtth5") != -1 && $location.path() === "/phone/active/A") {
-                    scope.showFudai();
+                    scope.showFudai('JM-MX-HF');
                 }
                 if ($location.search().gh.indexOf("wxword") != -1 && $location.path() === "/phone/active/A") {
-                    scope.showFudai();
+                    scope.showFudai('JM-MX-HF');
                 }
             }
 
@@ -50,7 +52,7 @@ app.directive("ngCoupon", ['$location', '$interval', '$http', '$cookieStore', '$
                 writebdLog(scope.category, homeArgs[type], "渠道号", scope.gh); //输入操作
             };
 
-            scope.$root.getQuan = function () {
+            scope.$root.getQuan = function (couponType) {
                 scope.toast.open();
                 if (!scope.$root.checkCouponMobile()) {
                     scope.toast.close();
@@ -69,7 +71,8 @@ app.directive("ngCoupon", ['$location', '$interval', '$http', '$cookieStore', '$
                 if (headCategory != undefined && headCategory != null)
                     category = headCategory;
 
-                $http.jsonp(cfApi.apiHost + '/product/doReceiveMultipleCoupon.html?recieverMobile=' + scope.coupon.mobile + '&couponType=HF-MX-JM&gh=' + scope.gh + '&category=' + category + '&s=wap&callback=JSON_CALLBACK').success(function (data, status, headers, config) {
+                $http.jsonp('http://192.168.1.181:8082/product/doReceiveMultipleCoupon.html?recieverMobile=' + scope.coupon.mobile + '&couponType=' + scope.couponType + '&gh=' + scope.gh + '&activity=' + scope.activity + '&category=' + category + '&callbackUrl=' + encodeURI(scope.homeUrl + '?gh=' + scope.gh + '&activity=' + scope.activity) + '&s=wap&callback=JSON_CALLBACK').success(function (data, status, headers, config) {
+                /*$http.jsonp(cfApi.apiHost + '/product/doReceiveMultipleCoupon.html?recieverMobile=' + scope.coupon.mobile + '&couponType=' + couponType + '&gh=' + scope.gh + '&activity=' + scope.activity + '&category=' + category + '&callbackUrl=' + encodeURI(scope.homeUrl + '?gh=' + scope.gh + '&activity=' + scope.activity) + '&s=wap&callback=JSON_CALLBACK').success(function (data, status, headers, config) {*/
                     scope.toast.close();
                     scope.$root.apiCode = 0;
                     if (data[0].resultCode == 0) {
@@ -77,6 +80,8 @@ app.directive("ngCoupon", ['$location', '$interval', '$http', '$cookieStore', '$
                         $(".quan-form").addClass("hide");
                         $(".fudai-1").hide();
                         $(".fudai-2").show();
+
+                        scope.$root.gettedCoupon = true;
                         //scope.showPhones=true;
                         $cookieStore.put("couponStore", $cookieStore.get("couponStore") - 1);
 

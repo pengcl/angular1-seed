@@ -1,9 +1,10 @@
-<div id="couponList" ng-show="receiver.mobile">
+<div id="couponList" ng-show="receiver.mobile" ng-if="hasCoupon">
     <div class="weui-cells__title title-icon"><span class="title">优惠</span></div>
     <div class="coupon-panel pd-w">
         <ul class="item-lists minus pure-g">
-            <li class="list-item pure-u-1-3" ng-repeat="coupon in coupons">
-                <div class="item-box margin border radius small" ng-class="{true:'curr',false:''}[coupon.checked]" ng-click="selectCoupon($index)">
+            <li class="list-item pure-u-1-3" ng-repeat="(key,value) in coupons" ng-if="!(payType==0 && coupon.couponType == 'interestCoupons')">
+{{key}} | {{value}}
+                <div class="item-box margin border radius small" ng-class="{'curr':coupon.checked,'disabled':!coupon.available}" ng-if="coupon.available" ng-click="selectCoupon($event,$index)">
                     <input ng-if="coupon.checked" type="hidden" name="{{coupon.couponType}}" id="{{coupon.couponType}}" value="{{coupon.couponNo}}">
                     <em ng-bind="coupon.couponName"></em>
                     <p ng-bind="coupon.couponTips"></p>

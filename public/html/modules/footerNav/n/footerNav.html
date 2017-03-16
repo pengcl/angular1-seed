@@ -1,10 +1,12 @@
-<div class="footer-nav nav-list" ng-class="{true:'pcd',false:''}[pageType=='pcd' || pageType=='pcdB']">
-    <div class="nav-pcd-price" ng-if="pageType=='pcd' || pageType=='pcdB'">
-        <span>限时抢购靓号</span><br>
+<div class="footer-nav nav-list" ng-class="{true:'pcd',false:''}[pageType=='pcd' || pageType=='pcdB' || pageType=='pcdC']">
+    <div class="nav-pcd-price" ng-if="pageType=='pcd' || pageType=='pcdB' || pageType=='pcdC'">
+        <span ng-if="pageType=='pcd'">限时抢购靓号</span>
+        <span ng-if="pageType=='pcdB' || pageType=='pcdC'">限时特惠</span>
+        <br>
         <span ng-if="pageType=='pcd'" class="pr">￥9.9</span>
-        <span ng-if="pageType=='pcdB'" class="pr">￥50</span>
+        <span ng-if="pageType=='pcdB' || pageType=='pcdC'" class="pr stimer"></span>
     </div>
-    <div class="nav-item nav-comment" ng-click="getContent();" ng-if="pageType!='pcd' && pageType!='pcdB'">
+    <div class="nav-item nav-comment" ng-click="getContent();" ng-if="pageType!='pcd' && pageType!='pcdB' && pageType!='pcdC'">
         <div class="nav-icon">
             <?xml version="1.0" encoding="utf-8"?>
             <!-- Generator: Adobe Illustrator 17.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
@@ -97,8 +99,11 @@
         </div>
         <div class="nav-button nav-item pure-u-1-1">
             <a id="footerPayButton" href="javascript:;" ng-class="{true:'disabled',false:''}[phone.phoneTypes[0].status == 0]" ng-click="submitForm($event);">
-                <span ng-if="phone.phoneTypes[0].status != 0">提交订单</span>
-                <span ng-if="phone.phoneTypes[0].status == 0">已售光</span>
+                <span ng-if="!(pageType=='pcd' || pageType=='pcdB' || pageType=='pcdC')">
+                    <span ng-if="phone.phoneTypes[0].status != 0">提交订单</span>
+                    <span ng-if="phone.phoneTypes[0].status == 0">已售光</span>
+                </span>
+                <span ng-if="pageType=='pcd' || pageType=='pcdB' || pageType=='pcdC'">我要支付</span>
             </a>
         </div>
     </div>
