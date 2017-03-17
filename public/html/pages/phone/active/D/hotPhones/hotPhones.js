@@ -25,9 +25,9 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
 
     $scope.$root.share = {
         homeLink: 'http://app.yfq.cn/phone/active/D/phones' + window.location.search,
-        shareTitle: '我领到1888元购机年终奖！年前换个好手机，开开心心回家过大年！',
-        shareDisc: '苹果、OPPO、华为、VIVO等大牌手机直降！用券购再立减！戳我抢→',
-        picUrl:'http://app.yfq.cn/images/active/share_active.jpg'
+        shareTitle: '震惊！电信新入网，只要预存话费就可0元购机！领券最高再减800元！',
+        shareDisc: '预存话费直抵购机价，信用卡用户在享0息分期，广州地区可即日送货上门验机后办理！',
+        picUrl:'http://app.yfq.cn/images/active/d/share_active.jpg'
     };
 
     writebdLog($scope.category, "_Load", "渠道号", $scope.gh);
@@ -45,10 +45,9 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
             scrollTop: 0
         });
     };
-    /*$http.jsonp('http://192.168.1.181:8082/product/getProList.html?activeTag=jjk&s=wap&callback=JSON_CALLBACK').success(function (data, status, headers, config) {*/
     $http.jsonp(cfApi.apiHost + '/product/getProList.html?activeTag=jjk&s=wap&callback=JSON_CALLBACK').success(function (data, status, headers, config) {
         $scope.singlePhones = data;
-        //console.log(data);
+        console.log(data);
     }).error(function (data, status, headers, config) {
         console.log(status);
         //deferred.reject(status)
@@ -60,7 +59,7 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
 
     $scope.showFqa = function () {
         $(".fqa-lists").toggleClass("close");
-        $(this).toggleClass("close");
+        $(".fqa-more").toggleClass("close");
     };
 
     var btNavItemName = ['_MyCoupon', '_MyOrder', '_CustConsult'];

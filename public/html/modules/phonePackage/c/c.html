@@ -18,13 +18,13 @@
                         <div class="item-box margin border radius small pure-g">
                             <span class="pure-u-1-5">实缴月租</span>
                             <span class="pure-u-1-5">套餐档位</span>
-                            <span class="pure-u-1-5">赠送话费</span>
+                            <span class="pure-u-1-5">返还话费</span>
                             <span class="pure-u-1-5">通适时长</span>
-                            <span class="pure-u-1-5">包含流量</span>
+                            <span class="pure-u-1-5">全国流量</span>
                         </div>
                     </li>
                     <li class="phone-pkgs-item list-item pure-u-1"
-                        ng-repeat="pkg in packages" ng-class="{true:'active',false:''}[pkg.productId == package.productId]">
+                        ng-repeat="pkg in packages" ng-class="{'active':pkg.productId == package.productId,'flagd':$index == packageIndex}">
                         <div class="item-box margin border radius small pure-g"
                              ng-class="{true:'curr',false:''}[pkg.productId == package.productId]"
                              ng-click="setPhonePackage($event,pkg)">
@@ -39,6 +39,9 @@
                                     ng-bind="pkg.talkTime"></span><span>分钟</span></span>
                             <span class="ib pure-u-1-6"><span
                                     ng-bind="pkg.network"></span><span>G</span></span>
+                            <ins class="flagd img-box" ng-if="$index == packageIndex && pkg.comparePrices <= 0">
+                                <img src="/images/active/d/flaged.png">
+                            </ins>
                         </div>
 
                         <div class="pick-number">
@@ -70,7 +73,7 @@
                                 </div>
                                 <div class="selected-pkg" ng-if="pkg">
                                     <p>所选套餐：运营原价：<span ng-bind="pkg.oldPrice | number:0"></span>元/月，现可享5折优惠36个月，即<span ng-bind="(pkg.oldPrice * 36 - pkg.salesPrice)/36 | numberUp"></span>元/月 <span ng-bind="pkg.network"></span>G国内流量，<span ng-bind="pkg.talkTime"></span>分钟国内通话，50条短信
-                                        <span ng-if="pkg" class="card-pkg" ss-dd="pkg"></span>
+                                        <span ng-if="pkg" class="pkg-info" ss-dd="pkg"></span>
                                     </p>
                                 </div>
 

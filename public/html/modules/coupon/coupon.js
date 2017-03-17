@@ -12,7 +12,6 @@ app.directive("ngCoupon", ['$location', '$interval', '$http', '$cookieStore', '$
 
             scope.showFudai = function (couponType) {
                 scope.couponType = couponType;
-                console.log(scope.couponType);
                 var targetHtml = $("#wxQrCode").html();
                 scope.Overlay.openCompile(targetHtml);
                 writebdLog(scope.category, "_ShowCouponBar", "渠道号", scope.gh); //展示领券栏
@@ -71,8 +70,20 @@ app.directive("ngCoupon", ['$location', '$interval', '$http', '$cookieStore', '$
                 if (headCategory != undefined && headCategory != null)
                     category = headCategory;
 
-                $http.jsonp('http://192.168.1.181:8082/product/doReceiveMultipleCoupon.html?recieverMobile=' + scope.coupon.mobile + '&couponType=' + scope.couponType + '&gh=' + scope.gh + '&activity=' + scope.activity + '&category=' + category + '&callbackUrl=' + encodeURI(scope.homeUrl + '?gh=' + scope.gh + '&activity=' + scope.activity) + '&s=wap&callback=JSON_CALLBACK').success(function (data, status, headers, config) {
-                /*$http.jsonp(cfApi.apiHost + '/product/doReceiveMultipleCoupon.html?recieverMobile=' + scope.coupon.mobile + '&couponType=' + couponType + '&gh=' + scope.gh + '&activity=' + scope.activity + '&category=' + category + '&callbackUrl=' + encodeURI(scope.homeUrl + '?gh=' + scope.gh + '&activity=' + scope.activity) + '&s=wap&callback=JSON_CALLBACK').success(function (data, status, headers, config) {*/
+
+                $http.jsonp(cfApi.apiHost + '/product/doReceiveMultipleCoupon.html?recieverMobile=' + scope.coupon.mobile + '&couponType=' + scope.couponType + '&gh=' + scope.gh + '&activity=' + scope.activity + '&category=' + category + '&callbackUrl=' + encodeURI(scope.homeUrl + '?gh=' + scope.gh + '&activity=' + scope.activity) + '&s=wap&callback=JSON_CALLBACK').success(function (data, status, headers, config) {
+                    if (!(scope.activePage == 'hotPhones')) {
+                        scope.receiver.mobile = scope.coupon.mobile;
+                        scope.activeCode = scope.coupon.activeCode;
+                    } else {
+                        $cookieStore.put('receiver', {
+                            name: '',
+                            mobile: scope.coupon.mobile,
+                            city: '',
+                            room: ''
+                        });
+                        $cookieStore.put('activeCode',scope.coupon.activeCode);
+                    }
                     scope.toast.close();
                     scope.$root.apiCode = 0;
                     if (data[0].resultCode == 0) {

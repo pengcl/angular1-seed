@@ -17,7 +17,7 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
         });
 }]).controller('pBSingleProController', ['$scope', '$rootScope', '$location', '$stateParams', '$http', 'Phone', function ($scope, $rootScope, $location, $stateParams, $http, Phone) {
 
-    $scope.pageType = $stateParams.pageType;
+    $scope.pageType = 'B';
     $scope.activeTag = "jjk";
 
     $scope.homeUrl = $location.protocol() + '://' + $location.host() + '/phone/active/B/phones';

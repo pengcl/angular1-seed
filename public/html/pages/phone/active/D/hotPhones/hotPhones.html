@@ -3,6 +3,7 @@
     <top-nav page-title="中国电信●翼分期商城" page-back="menu" nav-visibility="hide"></top-nav>
     <div class="content-scrollable">
         <gh></gh>
+        <activity></activity>
         <!--<div class="hot-phone img-box">-->
         <!--<img src="/images/active/activePhoneTitle.jpg">-->
         <!--</div>-->
@@ -17,7 +18,7 @@
         <div class="img-box">
             <img src="/images/active/d/3.jpg">
         </div>
-        <div class="hot-phone">
+        <div id="hotPhone" class="hot-phone">
             <ul class="spc-list hot-phone">
                 <li ng-repeat="singlePhone in singlePhones | filter:{ifRecommend: 1}"
                     ng-show="singlePhone.salePrice >= 1500">
@@ -100,33 +101,107 @@
                 <ul>
                     <li>
                         <div class="list-header">
-                            <span>01、</span>套餐优惠活动什么时候结束？
+                            <span>一、</span>什么合约机？
                         </div>
                         <div class="list-content">
                             <div class="ctxt">
-                                活动截止于 <em>4月16日</em>，凡购买用户即可享受36个月套餐全5折优惠。
+                                <p>购机时用户承诺一定的在网时间，预存一定话费（话费一般分月到账），即可享受购机优惠补贴，更多优惠政策请留意翼分期商城公布。</p>
                             </div>
                         </div>
                         <div class="pros-line share-pros-line"></div>
                     </li>
                     <li>
                         <div class="list-header">
-                            <span>02、</span>什么手机可以用这个套餐？
+                            <span>二、</span>合约计划购买流程及发货问题
                         </div>
                         <div class="list-content">
                             <div class="ctxt">
-                                本产品所用芯片为电信天翼4G网络UIM卡，仅支持<em>电信4G或三网通4G手机</em>使用。
+                                <ul>
+                                    <li>
+                                        <div class="list-header">
+                                            <span>1、</span>如何购买合约机：
+                                        </div>
+                                        <div class="list-content">
+                                            <div class="ctxt">
+                                                <ul>
+                                                    <li>
+                                                        步骤1：找到心仪的手机，选好手机的网络制式、颜色、容量等
+                                                    </li>
+                                                    <li>
+                                                        步骤2：选好手机后，进入选择套餐、号码
+                                                    </li>
+                                                    <li>
+                                                        步骤3：填写收货信息，选择一次性支付/分期支付/广州地区用户货到付款
+                                                    </li>
+                                                    <li>
+                                                        步骤4：使用微信/支付宝/信用卡分期支付成功后，翼分期商城将安排发货
+                                                    </li>
+                                                    <li>
+                                                        步骤5：坐等收货验机
+                                                    </li>
+                                                    <li>
+                                                        步骤6：关注“翼分期商城”公众号上传证件完成实名认证
+                                                    </li>
+                                                    <li>
+                                                        步骤7：电信系统受理成功，号码卡即可激活使用
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="list-header">
+                                            <span>2、</span>请仔阅读并知晓以下合约计划购买温馨提示：
+                                        </div>
+                                        <div class="list-content">
+                                            <div class="ctxt">
+                                                <ul>
+                                                    <li>
+                                                        a、按照工信部通讯产品实名制要求，为保证用户的合法权益，请用户认真填写机主本人的姓名、身份证号，阅读、确认相关协议内容。若冒用他人证件下单、恶意产生欠费的，翼分期商城将通过法律途径追责。
+                                                    </li>
+                                                    <li>
+                                                        b、若因用户本身是电信黑名单用户或是老客户资料不完善导致无法开户的，请联系翼分期商城客服处理。
+                                                    </li>
+                                                    <li>
+                                                        c、要求机卡绑定使用才能享受话费赠送。
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
                             </div>
                         </div>
                         <div class="pros-line share-pros-line"></div>
                     </li>
                     <li>
                         <div class="list-header">
-                            <span>03、</span>可以同时购买多个优惠套餐吗？
+                            <span>三、</span>合约机套餐资费说明：
                         </div>
                         <div class="list-content">
                             <div class="ctxt">
-                                先感谢你对我们的支持，但本产品需要实名认证，<em>一个身份证只能申请办理一次</em>，证件如已注销、已开通优惠套餐记录不可再次办理。
+                                <ul>
+                                    <li>
+                                        1、激活开通当日即开始计费，开通当月套餐月费以及套餐流量、通话时长、短信均按当月剩余天数折算、计价。
+                                    </li>
+                                    <li>
+                                        <b>2、套餐超出收费：</b>
+                                        <p>不足100MB按0.0003元/KB收费，100MB-500MB收费30元；用户套餐外流量超过500MB时，仍按上述原则（即每超出500MB收费30元）收费，以此类推。上网当月套餐外流量消费600元封顶, 流量15G封顶；国内通话：0.15元/分钟；</p>
+
+                                    </li>
+                                    <li>
+                                        3、话音时长使用规则：套餐内语音时长包含本地主叫（含本地市话和本地国内长途）和国内漫游主叫时长（不含台港澳）。
+                                    </li>
+                                    <li>
+                                        4、流量使用规则：手机上网流量仅限中国大陆境内使用，不区分4G、3G、2G，不含WLAN(Wi-Fi)上网。 上网当月套餐外流量消费600元封顶，当月按套餐外资费累计的总流量（不含用户订购的各种流量包流量、各类赠送流量）达到封顶值（15GB）则暂停当月上网服务，次月初自动开通。
+                                    </li>
+                                    <li>
+                                        5、任意套餐均可办理最多4张副卡，副卡/张/月功能费10元并叠加在每月最低消费上出账，赠送来电显示功能，享受国内（不含台港澳）漫游接听免费，副卡用户可共享主卡基础套餐中的语音、数据流量，但不共享主卡的额外赠送部分。
+                                    </li>
+                                    <li>
+                                        6、合约期内，中国电信会按照协议约定定期给用户返还或者赠送话费；合约期内如果变更业务或者套餐，有可能会影响话费返还，具体请留意翼分期商城细则发布
+                                    </li>
+                                </ul>
                             </div>
                         </div>
                         <div class="pros-line share-pros-line"></div>
@@ -134,11 +209,11 @@
 
                     <li>
                         <div class="list-header">
-                            <span>04、</span>套餐什么时候开通？
+                            <span>四、</span>缴费说明：
                         </div>
                         <div class="list-content">
                             <div class="ctxt">
-                                签收后2个工作日内自动开通套餐
+                                <p>请在开通套餐每月8号前缴纳所选套餐档次费用（可通过线上充值缴费），如逾期缴费将用影响号码正常使用和每月话费的赠送。并且会因结算问题，导致您进入电信黑名单，不能再次办理电信业务，并影响您的全国个人征信记录（贷款，出行等）。</p>
                             </div>
                         </div>
                         <!-- <div class="tips-info-content" style="margin-top:0;">注：套餐需激活后才能正常使用，请确保本人签收，默认送达次日开通（公休日除外），介意者慎拍。</div> -->
@@ -146,88 +221,36 @@
                     </li>
                     <li>
                         <div class="list-header">
-                            <span>05、</span>每月实际需缴月租？
+                            <span>五、</span>各品牌合约机售后服务问题:
                         </div>
                         <div class="list-content">
                             <div class="ctxt">
-                                <em>套餐开通次月8号前</em>仅需自行网上充值所选 优惠套餐月租即可，在您已充值的前提下，原套餐月租差价由我们在<em>9-13号</em>为您办理减免。领卡后当月充值使用的话费优惠折扣，会在下月初减免返回给您。
-                            </div>
-                        </div>
-                        <div class="pros-line share-pros-line"></div>
-                    </li>
-                    <li>
-                        <div class="list-header">
-                            <span>06、</span>套餐详细说明
-                        </div>
-                        <div class="list-content">
-                            <div class="ctxt">
-                                <div class="aswer-tips">
-                                    <ul>
-                                        <li>
-                                            <ins>1、使用范围：</ins>
-                                            全国通用优惠，支持全国（除港澳台）范围内接听免费、拨出无漫游费，免费赠送来电显示和189邮箱。
-                                        </li>
-                                        <li>
-                                            <ins>2、优惠期限：</ins>
-                                            优惠期3年，套餐优惠全国通用。
-                                        </li>
-                                        <li>
-                                            <ins>3、超出收费：</ins>
-                                            超出套餐部分按电信标准资费收取：短信0.1/条，国内通话0.15/分，国内流量不足100MB按0.0003元/KB收费，100MB&mdash;500MB收费30元。
-                                        </li>
-                                    </ul>
-                                </div>
-                                <table class="table table-bordered" style="display:none">
-                                    <thead>
-                                    <tr>
-                                        <th>套餐原价</th>
-                                        <th>优惠价</th>
-                                        <th>套餐详情</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <tr>
-                                        <td>304元/月</td>
-                                        <td><em>168元/月</em></td>
-                                        <td>4.5G国内流量，1800分钟国内通话，50条短信</td>
-                                    </tr>
-                                    <tr>
-                                        <td>259元/月</td>
-                                        <td><em>143元/月</em></td>
-                                        <td>4.5G国内流量，900分钟国内通话，50条短信</td>
-                                    </tr>
-                                    <tr>
-                                        <td>204元/月</td>
-                                        <td><em>102元/月</em></td>
-                                        <td>3.5G国内流量，900分钟国内通话，50条短信</td>
-                                    </tr>
-                                    <tr>
-                                        <td>174元/月</td>
-                                        <td><em>96元/月</em></td>
-                                        <td>2.5G国内流量，850分钟国内通话，50条短信</td>
-                                    </tr>
-                                    <tr>
-                                        <td colspan="3">
-                                            <div class="aswer-tips">
-                                                <ul>
-                                                    <li>
-                                                        <ins>1、使用范围：</ins>
-                                                        全国通用优惠，支持全国（除港澳台）范围内接听免费、拨出无漫游费，免费赠送来电显示和189邮箱。
-                                                    </li>
-                                                    <li>
-                                                        <ins>2、优惠期限：</ins>
-                                                        优惠期3年，套餐优惠全国通用。
-                                                    </li>
-                                                    <li>
-                                                        <ins>3、超出收费：</ins>
-                                                        超出套餐部分按电信标准资费收取：短信0.1/条，国内通话0.15/分，国内流量不足100MB按0.0003元/KB收费，100MB&mdash;500MB收费30元。
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    </tbody>
-                                </table>
+                                <ul>
+                                    <li>
+                                        1、售出手机严格按照合约机国家三包法规，未激活合约套餐，可享受7天包退；激活后15天包换，一年保修服务。
+                                    </li>
+                                    <li>
+                                        2、如有质量问题请带上业务受理登记单、购机补差发票、机主身份证原件，和电话机主机含配件和外盒，到说明书上的各地网点进行手机检测或保修！
+                                    </li>
+                                    <li>
+                                        3、本次合约机优惠活动为机卡绑定优惠，手机为合约机，需搭配4G优惠合约月租套餐一起购买才能享受优惠。合约期内，不可办理退户、销户、过户等业务。中途注销卡号会产生相应违约费用。
+                                    </li>
+                                    <li>
+                                        4、违约费用构成：品牌官网购机差价+剩余月份套餐费用+用户注销当月要结清的话费（如选择分期付款，还需补分期手续费）
+                                    </li>
+                                    <li>
+                                        5、未激活未拆封前，若因个人问题导致的退货（反悔，不想要了），需自己承担快递费。
+                                    </li>
+                                    <li>
+                                        6、手机卡属于实名制商品，用户使用后无法进行2次销售，激活后不享受退货服务，请您谅解。
+                                    </li>
+                                    <li>
+                                        7、费用咨询、退货退款等问题，欢迎通过翼分期商城微信号“翼分期商城”与我们联系。（退费到账时间：15个工作日）
+                                    </li>
+                                    <li>
+                                        8、您有任何问题，欢迎拨打客服热线：02085599918或关注微信公众号：“翼分期商城”找到我们。
+                                    </li>
+                                </ul>
                             </div>
                         </div>
                         <div class="pros-line share-pros-line"></div>
@@ -250,7 +273,7 @@
     </div>
     <div class="right-nav">
         <div class="img-box" ng-click="showFudai('JM-MX')">
-            <img src="/images/active/11.png">
+            <img src="/images/active/d/ling.png">
         </div>
         <div class="img-box" ng-click="goToTop()">
             <img src="/images/active/22.png">

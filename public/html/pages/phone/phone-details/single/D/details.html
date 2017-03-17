@@ -1,9 +1,7 @@
 <div class="page p-details a-details a-details-c">
     <top-nav page-title="中国电信●翼分期商城" page-back="back" page-done="contact"></top-nav>
-    <!--<form id="checkoutForm" name="checkoutForm" action="http://2b2fda71.ngrok.natapp.cn/wap/taokafanghaoNew/submitOrderMachine.html" method="post" novalidate>-->
-    <!--<form id="checkoutForm" name="checkoutForm" action="http://m.yfq.na/wap/taokafanghaoNew/submitOrderDouble.html" method="post" novalidate>-->
-    <form id="checkoutForm" name="checkoutForm" action="http://127.0.0.1:8091/wap/taokafanghaoNew/submitOrderDouble.html"
-          method="post" novalidate>
+    <form id="checkoutForm" name="checkoutForm" action="http://apptest.yfq.cn:8898/wap/taokafanghaoNew/submitOrderDouble.html" method="post" novalidate>
+    <!--<form id="checkoutForm" name="checkoutForm" action="http://m.yfq.cn/wap/taokafanghaoNew/submitOrderDouble.html" method="post" novalidate>-->
         <input type="hidden" value="1" name="monthNumber" id="monthNumber">
         <input type="hidden" value="{{category}}" name="category" id="category">
         <input type="hidden" value="{{phone.activityproductId}}" ng-model="phone.productId" name="machineId"
@@ -21,12 +19,13 @@
             <div class="product-header">
                 <div class="product-txt">
                     <h1><span ng-bind="phone.phoneTypes[0].productName"></span></h1>
-                    <h2>预存话费抵手机价格，更可享0元购机，领取优惠券，最高可再减800元！</h2>
+                    <h2>预存话费抵手机价格，更可享0元购机，领取优惠券，最高可再减800元！广州地区支持上门验货</h2>
                     <div class="product-price">
                         <ul class="pure-g">
                             <li class="pure-u-1-2" style="padding-left: 0">
                                 <div></div>
-                                <span>合约价：</span>
+                                <span ng-if="coupons.jm.checked || coupons.mx.checked">领券优惠价：</span>
+                                <span ng-if="!(coupons.jm.checked || coupons.mx.checked)">合约价：</span>
                                 <em>￥</em>
                                 <span ng-if="payType == 2">
                                     <em ng-if="coupons.jm.checked && coupons.mx.checked" ng-bind="totalPrice - (totalPrice | jm:800) | number : 0"></em>
@@ -57,7 +56,7 @@
                 <div class="coupon-panel">
 
                     <div class="weui-cells">
-                        <div class="weui-cell" ng-click="showNgFudai(hasCoupon)" ng-class="{true:'',false:'weui-cell_access'}[hasCoupon]">
+                        <div class="weui-cell" ng-click="showNgFudai(hasCoupon)" ng-class="{true:'weui-cell_access',false:''}[!hasCoupon]">
                             <div class="weui-cell__hd"><span>领券</span></div>
                             <div class="weui-cell__bd">￥800满减券，满100减10；12期免息券；</div>
                             <div class="weui-cell__ft" style="padding-right:0">
@@ -122,7 +121,10 @@
                     <div class="pure-g">
                         <span class="lb pure-u-1-2">分期总额</span>
                         <span class="price pure-u-1-2">
-                            <em>￥</em><em ng-bind="totalPrice * 1.1 | number:0"></em>
+                            <em ng-if="coupons.jm.checked && coupons.mx.checked" ng-bind="totalPrice - (totalPrice | jm:800) | number : 0"></em>
+                            <em ng-if="coupons.jm.checked && !coupons.mx.checked" ng-bind="totalPrice - (totalPrice | jm:800) + totalPrice * 0.1| number : 0"></em>
+                            <em ng-if="!coupons.jm.checked && coupons.mx.checked" ng-bind="totalPrice | number : 0"></em>
+                            <em ng-if="!coupons.jm.checked && !coupons.mx.checked" ng-bind="totalPrice * 1 + totalPrice * 0.1 | number : 0"></em>
                         </span>
                         <span class="tips pure-u-1-1" style="font-size: 0.12rem;color:#999;text-align: right"><span>(购机价￥</span><span ng-bind="totalPrice - package.salesPrice"></span><span>+预存话费</span><span ng-bind="package.salesPrice | number:0"></span>，<span>分36个月返还)</span></span>
                     </div>
@@ -139,27 +141,25 @@
                             <em>0息率X12期</em>
                         </span>
                     </div>
-                    <div class="pure-g">
-                        <span class="lb pure-u-1-2">月供</span>
-                        <span class="price pure-u-1-2">
+                    <div class="real-price pure-g">
+                        <span class="lb pure-u-1-2">
+                            <span ng-if="payType == 2">月供</span>
+                            <span ng-if="payType == 0 && receiver.city.indexOf('广州市') == -1">实付金额</span>
+                            <span ng-if="payType == 0 && receiver.city.indexOf('广州市') != -1">送货到家实付金额</span>
+                        </span>
+                        <span class="price pure-u-1-2" ng-if="payType == 0">
+                            <span ng-if="coupons.jm.checked && coupons.mx.checked"><em>￥</em><em ng-bind="totalPrice - (totalPrice | jm:800) | number : 0"></em></span>
+                            <span ng-if="coupons.jm.checked && !coupons.mx.checked"><em>￥</em><em ng-bind="totalPrice - (totalPrice | jm:800) + totalPrice * 0.1| number : 0"></em></span>
+                            <span ng-if="!coupons.jm.checked && coupons.mx.checked"><em>￥</em><em ng-bind="totalPrice | number : 0"></em></span>
+                            <span ng-if="!coupons.jm.checked && !coupons.mx.checked"><em>￥</em><em ng-bind="totalPrice * 1 + totalPrice * 0.1 | number : 0"></em></span>
+                        </span>
+                        <span class="price pure-u-1-2" ng-if="payType == 2">
                             <em>￥</em>
                             <em ng-if="coupons.jm.checked && coupons.mx.checked" ng-bind="(totalPrice - (totalPrice | jm:800))/12 | number : 0"></em>
                             <em ng-if="coupons.jm.checked && !coupons.mx.checked" ng-bind="(totalPrice - (totalPrice | jm:800) + totalPrice * 0.1)/12| number : 0"></em>
                             <em ng-if="!coupons.jm.checked && coupons.mx.checked" ng-bind="totalPrice/12 | number : 0"></em>
                             <em ng-if="!coupons.jm.checked && !coupons.mx.checked" ng-bind="(totalPrice * 1 + totalPrice * 0.1)/12 | number : 0"></em>
-                            <em style="font-size: 0.16rem"> X 12期</em><em style="font-size: 0.16rem" ng-if="coupons.mx.checked">免息</em>
-                        </span>
-                    </div>
-                    <div class="real-price pure-g">
-                        <span class="lb pure-u-1-2">
-                            <span ng-if="!(payType == 0 && receiver.city.indexOf('广州市') != -1)">实付金额</span>
-                            <span ng-if="payType == 0 && receiver.city.indexOf('广州市') != -1">送货到家实付金额</span>
-                        </span>
-                        <span class="price pure-u-1-2">
-                            <span ng-if="coupons.jm.checked && coupons.mx.checked"><em>￥</em><em ng-bind="totalPrice - (totalPrice | jm:800) | number : 0"></em></span>
-                            <span ng-if="coupons.jm.checked && !coupons.mx.checked"><em>￥</em><em ng-bind="totalPrice - (totalPrice | jm:800) + totalPrice * 0.1| number : 0"></em></span>
-                            <span ng-if="!coupons.jm.checked && coupons.mx.checked"><em>￥</em><em ng-bind="totalPrice | number : 0"></em></span>
-                            <span ng-if="!coupons.jm.checked && !coupons.mx.checked"><em>￥</em><em ng-bind="totalPrice * 1 + totalPrice * 0.1 | number : 0"></em></span>
+                            <em> X 12期</em><em style="font-size: 0.16rem" ng-if="coupons.mx.checked">免息</em>
                         </span>
                     </div>
                 </div>

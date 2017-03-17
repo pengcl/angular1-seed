@@ -22,6 +22,13 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
 
     $scope.homeUrl = $location.protocol() + '://' + $location.host() + '/phone/active/D/phones';
 
+    $scope.$root.share = {
+        homeLink: 'http://app.yfq.cn/phone/active/D/phones' + window.location.search,
+        shareTitle: '震惊！电信新入网，只要预存话费就可0元购机！领券最高再减800元！',
+        shareDisc: '预存话费直抵购机价，信用卡用户在享0息分期，广州地区可即日送货上门验机后办理！',
+        picUrl:'http://app.yfq.cn/images/active/d/share_active.jpg'
+    };
+
     $scope.sold = Math.round(Math.random() * 1000);
 
     var headCategory = $location.search().headCategory;
@@ -44,6 +51,8 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
         $http.jsonp(cfApi.apiHost + '/product/getPackageList.html?activeTag=fqssj&s=wap&callback=JSON_CALLBACK').success(function (data, status, headers, config) {
             $scope.pkgs = data;
 
+            $scope.packageIndex = 0;
+
             var cardItems = $scope.phone.cardItems.split(";").sort(function (a, b) {
                 return a.slice(a.indexOf(":") + 1, a.length) - b.slice(b.indexOf(":") + 1, b.length);
             });
@@ -54,8 +63,20 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
             $.each(eval(cardItems), function (i, k) {
                 var obj = $scope.pkgs[getIndex($scope.pkgs, "productId", k.slice(0, k.indexOf(':')))];
                 obj.phonePrice = k.slice(k.indexOf(':') + 1, k.length);
+                obj.comparePrices = $scope.phone.phoneBillPrice - obj.salesPrice;
                 $scope.packages.push(obj);
-                //$scope.comparePrices.push(data.salePrice - obj.salesPrice);
+            });
+
+            for (var i = 1; i < $scope.packages.length; i++) {
+                if(Math.abs($scope.packages[i].comparePrices) < Math.abs($scope.packages[$scope.packageIndex].comparePrices)){
+                    if($scope.packages[i].comparePrices <= 0){
+                        $scope.packageIndex = i;
+                    }
+                }
+            }
+
+            $scope.packages = $scope.packages.sort(function (a, b) {
+                return a.oldPrice - b.oldPrice;
             });
 
             $scope.package = $scope.packages[0];

@@ -120,6 +120,7 @@
         font-size: 0.14rem;
         &.img-box {
           width: 0.25rem;
+          height: 0.25rem;
           padding-right: .02rem;
         }
       }
@@ -314,8 +315,8 @@
           &:after {
             content: " ";
             position: absolute;
-            right:0;
-            top:0.07rem;
+            right: 0;
+            top: 0.07rem;
             bottom: 0.07rem;
             width: 1px;
             background: #d8d8d8;
@@ -818,7 +819,22 @@
       display: block;
     }
     .adr-content {
-      display: none !important;
+      .weui-panel__ft {
+        padding-left: 0.15rem;
+        padding-bottom: 0.1rem;
+        padding-right: 0.15rem;
+        font-size: 0.12rem;
+        .title {
+          color: $color-orange;
+        }
+        .details {
+          color: #999;
+          b {
+            font-weight: bold;
+            color: #333;
+          }
+        }
+      }
     }
     #coupons {
       .weui-cells {
@@ -853,8 +869,9 @@
 
     .phone-pkgs-item > .item-box {
       font-size: 0.14rem;
-      border:1px solid #d8d8d8;
+      border: 1px solid #d8d8d8;
       color: #999;
+      position: relative;
       .ib {
         @include inline-block;
         line-height: 0.22rem;
@@ -866,6 +883,12 @@
         .rd {
           color: $color-orange;
         }
+      }
+      .flagd {
+        display: block;
+        width: 0.3rem;
+        left: -1px;
+        top: -1px;
       }
     }
 
@@ -1202,13 +1225,12 @@
   }
 }
 
-.card-pkg {
+.card-pkg, .pkg-info {
   ul {
     padding: 0;
     margin: 0;
     list-style: none
   }
-;
   font-size: .14rem;
   .card-close {
 

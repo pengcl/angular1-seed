@@ -15,7 +15,7 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
 
     $scope.pageType = 'D';
 
-    $scope.appType = systemName + "_xxyx_" + $scope.pageType;
+    $scope.appType = systemName + "_coupon_" + $scope.pageType;
     $scope.category = $scope.appType;
 
     $scope.activePage = 'index';
