@@ -26,7 +26,7 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
         homeLink: 'http://app.yfq.cn/phone/active/D/phones' + window.location.search,
         shareTitle: '震惊！电信新入网，只要预存话费就可0元购机！领券最高再减800元！',
         shareDisc: '预存话费直抵购机价，信用卡用户在享0息分期，广州地区可即日送货上门验机后办理！',
-        picUrl:'http://app.yfq.cn/images/active/d/share_active.jpg'
+        picUrl: 'http://app.yfq.cn/images/active/d/share_active.jpg'
     };
 
     $scope.sold = Math.round(Math.random() * 1000);
@@ -44,6 +44,59 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
     $http.jsonp(cfApi.apiHost + "/product/getProDetial.html?productId=" + $stateParams.phoneId + "&activeTag=jjk&s=wap&callback=JSON_CALLBACK").success(function (data, status, headers, config) {
         $scope.phone = data;
         $scope.imgUrls = [];
+
+        if ($scope.phone.activityproductId == 366) {
+            $scope.phoneFlash = [
+                {
+                    "phoneId": 366,
+                    "flash": 128
+                },
+                {
+                    "phoneId": 367,
+                    "flash": 256
+                }
+            ]
+        }
+
+        if ($scope.phone.activityproductId == 367) {
+            $scope.phoneFlash = [
+                {
+                    "phoneId": 366,
+                    "flash": 128
+                },
+                {
+                    "phoneId": 367,
+                    "flash": 256
+                }
+            ]
+        }
+
+        if ($scope.phone.activityproductId == 368) {
+            $scope.phoneFlash = [
+                {
+                    "phoneId": 368,
+                    "flash": 128
+                },
+                {
+                    "phoneId": 369,
+                    "flash": 256
+                }
+            ]
+        }
+
+        if ($scope.phone.activityproductId == 369) {
+            $scope.phoneFlash = [
+                {
+                    "phoneId": 368,
+                    "flash": 128
+                },
+                {
+                    "phoneId": 369,
+                    "flash": 256
+                }
+            ]
+        }
+
         for (var i = 0; i < data.phoneTypes[0].mediaProductList.length; i++) {
             $scope.imgUrls.push("http://www.yfq.cn:8899/fileserver/medias/" + data.phoneTypes[0].mediaProductList[i].mediaUrl);
         }
@@ -68,8 +121,8 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
             });
 
             for (var i = 1; i < $scope.packages.length; i++) {
-                if(Math.abs($scope.packages[i].comparePrices) < Math.abs($scope.packages[$scope.packageIndex].comparePrices)){
-                    if($scope.packages[i].comparePrices <= 0){
+                if (Math.abs($scope.packages[i].comparePrices) < Math.abs($scope.packages[$scope.packageIndex].comparePrices)) {
+                    if ($scope.packages[i].comparePrices <= 0) {
                         $scope.packageIndex = i;
                     }
                 }
@@ -81,14 +134,18 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
 
             $scope.package = $scope.packages[0];
 
-            if ($cookieStore.get('receiver')) {
-                if ($cookieStore.get('receiver').city.indexOf('广州市') != -1) {
-                    $scope.setDefaultPayType(0, "送货上门");
+            if ($scope.phone.activityproductId == 366 || $scope.phone.activityproductId == 367 || $scope.phone.activityproductId == 368 || $scope.phone.activityproductId == 369) {
+                $scope.setDefaultPayType(0, "预约购买");
+            }else {
+                if ($cookieStore.get('receiver')) {
+                    if ($cookieStore.get('receiver').city.indexOf('广州市') != -1) {
+                        $scope.setDefaultPayType(0, "送货上门");
+                    } else {
+                        $scope.setDefaultPayType(2, "信用卡分期");
+                    }
                 } else {
                     $scope.setDefaultPayType(2, "信用卡分期");
                 }
-            } else {
-                $scope.setDefaultPayType(2, "信用卡分期");
             }
 
             $(".phone-pkgs-item").eq(1).find(".pick-panel").addClass("show");
@@ -96,6 +153,21 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
         }).error(function (data, status, headers, config) {
             console.log(status);
             //deferred.reject(status)
+        });
+
+        $scope.$watch('receiver.city', function (n, o, $scope) {
+            if ($scope.phone.activityproductId == 366 || $scope.phone.activityproductId == 367 || $scope.phone.activityproductId == 368 || $scope.phone.activityproductId == 369) {
+                $scope.setDefaultPayType(0, "预约购买");
+                return false;
+            }
+
+            if (n.indexOf('广州市') != -1) {
+                $scope.setDefaultPayType(0, "送货上门");
+            } else {
+                if ($scope.payType == 0) {
+                    $scope.setDefaultPayType(0, "一次性支付");
+                }
+            }
         });
 
     }).error(function (data, status, headers, config) {
@@ -132,12 +204,16 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
     };
 
     if ($location.search().duplicateNum) {
-        if(Array.isArray($location.search().duplicateNum)){
+        if (Array.isArray($location.search().duplicateNum)) {
             $scope.dialog.open("系统提示", "您选择的号码：" + $location.search().duplicateNum[0] + "已被购买，请重新选择");
-        }else {
+        } else {
             $scope.dialog.open("系统提示", "您选择的号码：" + $location.search().duplicateNum + "已被购买，请重新选择");
         }
     }
+
+    $scope.setFlashDriver = function (flash) {
+        window.location.href = 'http://' + window.location.host + '/phs/sg/D/' + flash.phoneId + window.location.search;
+    };
 
     $scope.setBuyType = function (event, type, typeName) {
         event.preventDefault();
@@ -228,6 +304,10 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
         }
     };
 
+    $scope.$watch('payType', function (n, o, $scope) {
+        console.log(n, o);
+    });
+
     $scope.$watch('package', function (n, o, $scope) {
         if (n != o) {
             if (n.salesPrice >= $scope.phone.phoneBillPrice) {
@@ -237,16 +317,6 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
             }
         }
     }, true);
-
-    $scope.$watch('receiver.city', function (n, o, $scope) {
-        if (n.indexOf('广州市') != -1) {
-            $scope.setDefaultPayType(0, "送货上门");
-        } else {
-            if ($scope.payType == 0) {
-                $scope.setDefaultPayType(0, "一次性支付");
-            }
-        }
-    });
 
     androidInputBugFix();
 }]);

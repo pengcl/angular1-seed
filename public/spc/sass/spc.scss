@@ -1047,6 +1047,85 @@ body.pcd-b {
 
 }
 
+body.pcd-c {
+  .title {
+    margin-top: 0.2rem;
+  }
+  .sub-title {
+    font-size: 0.14rem;
+    color: #e2e606;
+    text-align: center;
+    margin-top: 0.05rem;
+    margin-bottom: 0.1rem;
+  }
+  table {
+    th {
+      em {
+        color: $color-primary;
+      }
+    }
+    td {
+      vertical-align: middle;
+      padding: 0.5em 0.1em;
+      em {
+        color: #e2e606;
+      }
+    }
+  }
+  .pkgs {
+    font-size: 0.1rem;
+    padding: 0.1rem;
+    .pkg-box {
+      position: relative;
+      padding: 0.15rem;
+      color: #fff;
+      border: 0.03rem solid #3ca3f1;
+      display: block;
+      @include border-radius(0.06rem);
+      margin-top: 0.2rem;
+      margin-bottom: 0.2rem;
+      em {
+        color: #e2e606;
+      }
+      .lt-box {
+        white-space: nowrap;
+        padding-right: 0.18rem;
+        .pkg-name {
+          font-size: 0.28rem;
+          font-weight: bold;
+        }
+        .pkg-details {
+          font-size: 0.13rem;
+          font-weight: 300;
+        }
+        .pkg-price {
+          margin-top: 0.07rem;
+          padding-top: 0.1rem;
+          font-size: 0.13rem;
+          font-weight: 300;
+          border-top: 2px dashed #666;
+          em {
+            margin-left: 0.05rem;
+            font-size: 0.18rem;
+            font-weight: bold;
+          }
+        }
+      }
+      .pure-u-5-12 {
+        position: relative;
+      }
+      .rt-box {
+        .img-box {
+          position: absolute;
+          width: 90%;
+          bottom: 0rem;
+          right:0;
+        }
+      }
+    }
+  }
+}
+
 .yaw-mask-tw {
   .mask {
     position: absolute;

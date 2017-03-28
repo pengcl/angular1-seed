@@ -77,7 +77,7 @@
         <img src="../img/pcd/B/2.jpg">
     </div>
     <div class="pkg-box img-box">
-        <a class="rewrite-url" href="/phs/cd/pcdC/254" onclick="userTrack('_SelectPackage')"><img src="../img/pcd/B/3.jpg"></a>
+        <a class="rewrite-url" href="/phs/cd/pcdB/254" onclick="userTrack('_SelectPackage')"><img src="../img/pcd/B/3.jpg"></a>
         <div class="pkg-tips">
             <span>已有<em class="rashers">1533</em>人抢购 还剩</span><span class="rashers-left red">115</span><span
                 class="red">张</span>
@@ -89,7 +89,7 @@
         </div>
     </div>
     <div class="pkg-box img-box">
-        <a class="rewrite-url" href="/phs/cd/pcdC/351" onclick="userTrack('_SelectPackage')"><img src="../img/pcd/B/4.jpg"></a>
+        <a class="rewrite-url" href="/phs/cd/pcdB/351" onclick="userTrack('_SelectPackage')"><img src="../img/pcd/B/4.jpg"></a>
         <div class="pkg-tips">
             <span>已有<em class="rashers">1533</em>人抢购 还剩</span>
             <span class="rashers-left red">115</span>
@@ -150,7 +150,18 @@
                 </li>
                 <li>
                     <div class="list-header">
-                        <span>02、</span>什么手机可以用这个套餐？
+                        <span>02、</span>购买套餐后是否可以申请退款？
+                    </div>
+                    <div class="list-content">
+                        <div class="ctxt">
+                            <em>订单未发货</em>，申请退款，可全额退款；<em>订单已发货</em>，申请退款，需扣除运费20元。
+                        </div>
+                    </div>
+                    <div class="pros-line share-pros-line"></div>
+                </li>
+                <li>
+                    <div class="list-header">
+                        <span>03、</span>什么手机可以用这个套餐？
                     </div>
                     <div class="list-content">
                         <div class="ctxt">
@@ -161,7 +172,7 @@
                 </li>
                 <li>
                     <div class="list-header">
-                        <span>03、</span>可以同时购买多个优惠套餐吗？
+                        <span>04、</span>可以同时购买多个优惠套餐吗？
                     </div>
                     <div class="list-content">
                         <div class="ctxt">
@@ -173,7 +184,7 @@
 
                 <li>
                     <div class="list-header">
-                        <span>04、</span>套餐什么时候开通？
+                        <span>05、</span>套餐什么时候开通？
                     </div>
                     <div class="list-content">
                         <div class="ctxt">
@@ -185,7 +196,7 @@
                 </li>
                 <li>
                     <div class="list-header">
-                        <span>05、</span>每月实际需缴月租？
+                        <span>06、</span>每月实际需缴月租？
                     </div>
                     <div class="list-content">
                         <div class="ctxt">
@@ -196,7 +207,7 @@
                 </li>
                 <li>
                     <div class="list-header">
-                        <span>06、</span>套餐详细说明
+                        <span>07、</span>套餐详细说明
                     </div>
                     <div class="list-content">
                         <div class="ctxt">
@@ -274,7 +285,7 @@
             </ul>
         </div>
 
-        <p class="fqa-more close"><span>点击显示更多</span><span class="arrow arrow-d img-box"><img
+        <p class="fqa-more close"><span class="fqa-txt">点击显示更多</span><span class="arrow arrow-d img-box"><img
                 src="../img/pcd/d.png"></span><span
                 class="arrow arrow-u img-box"><img src="../img/pcd/u.png"></span></p>
 
@@ -303,6 +314,11 @@
     pageType = "yucun_A";
     $(document).ready(function () {
         $(".fqa-more").click(function () {
+            if($(this).find(".fqa-txt").html() == "点击显示更多"){
+                $(this).find(".fqa-txt").html("点击收起");
+            }else {
+                $(this).find(".fqa-txt").html("点击显示更多");
+            }
             $(".fqa-lists").toggleClass("close");
             $(this).toggleClass("close");
         });

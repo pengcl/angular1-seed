@@ -1054,6 +1054,20 @@
 .page.active-a.active-d {
   .content-scrollable {
     background: #ee422f !important;
+    .red-phone {
+      margin-left: 0.1rem;
+      margin-right: 0.1rem;
+      background: #fff;
+      font-size: 0.12rem;
+      h2 {
+        text-align: center;
+        font-size: 0.16rem;
+      }
+      h3 {
+        text-align: center;
+        font-size: 0.12rem;
+      }
+    }
     .hot-phone {
 
       font-size: 0.12rem;

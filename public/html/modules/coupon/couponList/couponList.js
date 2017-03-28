@@ -30,7 +30,7 @@ app.directive("couponList", ['$http', function ($http) {
                             if (data[i].couponBatchName == 'JM') {
                                 couponType = 'exemptionCertificate';
                                 couponNo = k.couponNo;
-                                couponName = '￥800购机券';
+                                couponName = '￥800满减券';
                                 couponTips = '每满￥100送￥5';
                                 available = true;
                                 checked = true;
@@ -107,7 +107,7 @@ app.directive("couponList", ['$http', function ($http) {
                             if (data[i].couponBatchName == 'JM') {
                                 couponType = 'exemptionCertificate';
                                 couponNo = k.couponNo;
-                                couponName = '￥800购机券';
+                                couponName = '￥800满减券';
                                 couponTips = '每满￥100送￥10';
                                 available = true;
                                 checked = true;
@@ -158,8 +158,6 @@ app.directive("couponList", ['$http', function ($http) {
                                 };
                             }
                         });
-
-                        console.log(scope.coupons);
 
                     }).error(function (data, status, headers, config) {
                         console.log(status);

@@ -186,7 +186,7 @@
             </div>
         </div>
     </div>
-    <p class="fqa-more close"><span>点击显示更多</span><span class="arrow arrow-d img-box"><img src="../img/pcd/d.png"></span><span
+    <p class="fqa-more close"><span class="fqa-txt">点击显示更多</span><span class="arrow arrow-d img-box"><img src="../img/pcd/d.png"></span><span
             class="arrow arrow-u img-box"><img src="../img/pcd/u.png"></span></p>
     <div class="title">
         <span class="tl"></span>
@@ -207,6 +207,11 @@
     $(document).ready(function () {
         $("html").css("font-size", ($("body").width() / 320) * parseInt($("html").css("font-size")));
         $(".fqa-more").click(function () {
+            if($(this).find(".fqa-txt").html() == "点击显示更多"){
+                $(this).find(".fqa-txt").html("点击收起");
+            }else {
+                $(this).find(".fqa-txt").html("点击显示更多");
+            }
             $(".fqa-lists").toggleClass("close");
             $(this).toggleClass("close");
         });

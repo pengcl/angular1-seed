@@ -13,6 +13,7 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
         });
 }]).controller('pBctiveController', ['$scope', '$location', '$http', '$stateParams', '$interval', '$timeout', '$cookieStore', function ($scope, $location, $http, $stateParams, $interval, $timeout, $cookieStore) {
 
+    $location.path("/phone/active/D/phones");
     $scope.pageType = 'B';
 
     $scope.appType = systemName + "_xxyx_" + $scope.pageType;

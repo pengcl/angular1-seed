@@ -34,6 +34,10 @@ app.config(['$stateProvider', '$locationProvider', function($stateProvider, $loc
         });
         writebdLog($scope.category, "_SelectPackage" + pkgId, "渠道号", $scope.gh);
     };
+    
+    $scope.userTrack = function(name) {
+    	writebdLog($scope.category, name, "渠道号", $scope.gh);
+    };
 
     $scope.checkMainPkg = function() {
         if (!$scope.checkoutForm.productId.$valid) { //原本应该用!scope.checkoutForm.phoneNumber.$valid

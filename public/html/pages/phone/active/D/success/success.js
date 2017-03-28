@@ -9,12 +9,12 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
             templateUrl: function ($stateParams) {
                 return 'pages/phone/active/D/success/success.html';
             },
-            controller: "pCctiveSController"
+            controller: "pDctiveSController"
         });
 }]).controller('pDctiveSController', ['$scope', '$location', '$http', '$stateParams', '$interval', '$timeout', '$cookieStore', function ($scope, $location, $http, $stateParams, $interval, $timeout, $cookieStore) {
 
     $scope.pageType = 'D';
-    $scope.appType = systemName + "_xxyx_" + $scope.pageType;
+    $scope.appType = systemName + "_coupon_" + $scope.pageType;
     $scope.category = $scope.appType;
 
 

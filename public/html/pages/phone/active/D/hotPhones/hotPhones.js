@@ -47,7 +47,6 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
     };
     $http.jsonp(cfApi.apiHost + '/product/getProList.html?activeTag=jjk&s=wap&callback=JSON_CALLBACK').success(function (data, status, headers, config) {
         $scope.singlePhones = data;
-        console.log(data);
     }).error(function (data, status, headers, config) {
         console.log(status);
         //deferred.reject(status)

@@ -12,8 +12,7 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
             controller: "pCctivePhonesController"
         });
 }]).controller('pCctivePhonesController', ['$scope', '$location', '$http', '$stateParams', '$interval', '$timeout', '$cookieStore', '$compile', function ($scope, $location, $http, $stateParams, $interval, $timeout, $cookieStore, $compile) {
-
-    console.log("c");
+    //$location.path("/phone/active/D/phones");
     $scope.pageType = "C";
     $scope.activeTag = "jktchd";
     $scope.appType = systemName + "_xxyx_" + $scope.pageType;
@@ -60,7 +59,7 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
 
     $scope.setPayType = function (type) {
         $scope.payType = type;
-        writebdLog($scope.category, "_PayType"+type, "渠道号", $scope.gh);//选择发货方式
+        writebdLog($scope.category, "_PayType" + type, "渠道号", $scope.gh);//选择发货方式
     };
 
     $scope.goToTop = function () {
@@ -108,13 +107,12 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
         writebdLog($scope.category, "_" + productId, "渠道号", $scope.gh);//选择的商品ID
     };
 
-    function writeBrand(name)
-    {
+    function writeBrand(name) {
 
-    	if(name == '华为') name = 'huawei';
-    	if(name == '小米') name = 'mi';
-    	if(name == '美图') name = 'meitu';
-    	return name;
+        if (name == '华为') name = 'huawei';
+        if (name == '小米') name = 'mi';
+        if (name == '美图') name = 'meitu';
+        return name;
     }
 
     $scope.setMainPhoneBrand = function (e, myBrand) {
@@ -260,11 +258,11 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
             return false;
         } else if (!$scope.couponForm.receiverCity.$valid) {
             $(".input-city").addClass("weui-cell_warn");
-            $scope.dialog.open("系统提示","请选择收件区域！");
+            $scope.dialog.open("系统提示", "请选择收件区域！");
             return false;
         } else if (!$scope.couponForm.receiverRoom.$valid) {
             $(".input-room").addClass("weui-cell_warn");
-            $scope.dialog.open("系统提示","请输入详细地址！");
+            $scope.dialog.open("系统提示", "请输入详细地址！");
             return false;
         }
 
@@ -305,7 +303,7 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
                 return false;
             }
 
-            if(!$scope.checkCouponActiveCode()){
+            if (!$scope.checkCouponActiveCode()) {
                 $scope.$root.toast.close();
                 $scope.dialog.open("系统提示", "请输入正确的验证码！");
                 var $scrollTo = $('.quan-form');
@@ -343,13 +341,17 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
                 var distance;
                 $.each(eval(data.cardItems.split(";")), function (i, k) {
                     var obj = $scope.pkgs[getIndex($scope.pkgs, "productId", k.slice(0, k.indexOf(':')))];
-                    obj.phonePrice = k.slice(k.indexOf(':') + 1, k.length);
+                    if (k.slice(k.indexOf(':') + 1, k.length) >= data.phoneBillPrice) {
+                        obj.phonePrice = k.slice(k.indexOf(':') + 1, k.length);
+                    } else {
+                        obj.phonePrice = data.phoneBillPrice;
+                    }
                     $scope.packages.push(obj);
                     $scope.comparePrices.push(data.salePrice - obj.salesPrice);
                 });
 
                 for (var i = 1; i < $scope.comparePrices.length; i++) {
-                    if(Math.abs($scope.comparePrices[i]) < Math.abs($scope.comparePrices[$scope.packageIndex])){
+                    if (Math.abs($scope.comparePrices[i]) < Math.abs($scope.comparePrices[$scope.packageIndex])) {
                         $scope.packageIndex = i;
                     }
                 }
@@ -361,7 +363,7 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
         }
     }, true);
 
-    var homeArgs = ['_InputIndexName', '_InputIndexNumber','_InputIndexCode'];
+    var homeArgs = ['_InputIndexName', '_InputIndexNumber', '_InputIndexCode'];
     //记录落地页输入的操作
     $scope.$root.inputHomeArgs = function (type) {
         writebdLog($scope.category, homeArgs[type], "渠道号", $scope.gh); //输入操作

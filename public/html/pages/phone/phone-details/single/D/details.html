@@ -1,6 +1,6 @@
 <div class="page p-details a-details a-details-c">
     <top-nav page-title="中国电信●翼分期商城" page-back="back" page-done="contact"></top-nav>
-    <form id="checkoutForm" name="checkoutForm" action="http://apptest.yfq.cn:8898/wap/taokafanghaoNew/submitOrderDouble.html" method="post" novalidate>
+    <form id="checkoutForm" name="checkoutForm" action="http://m.yfq.cn/wap/taokafanghaoNew/submitOrderDouble.html" method="post" novalidate>
     <!--<form id="checkoutForm" name="checkoutForm" action="http://m.yfq.cn/wap/taokafanghaoNew/submitOrderDouble.html" method="post" novalidate>-->
         <input type="hidden" value="1" name="monthNumber" id="monthNumber">
         <input type="hidden" value="{{category}}" name="category" id="category">
@@ -58,7 +58,7 @@
                     <div class="weui-cells">
                         <div class="weui-cell" ng-click="showNgFudai(hasCoupon)" ng-class="{true:'weui-cell_access',false:''}[!hasCoupon]">
                             <div class="weui-cell__hd"><span>领券</span></div>
-                            <div class="weui-cell__bd">￥800满减券，满100减10；12期免息券；</div>
+                            <div class="weui-cell__bd">￥800满减券，满100减5；12期免息券；</div>
                             <div class="weui-cell__ft" style="padding-right:0">
                                 <span ng-if="hasCoupon">已领券</span>
                             </div>
@@ -72,8 +72,27 @@
                 </div>
             </div>
 
-            <div id="phoneColors">
+            <div id="phoneColors" ng-show="phone.activityproductId != 366 && phone.activityproductId != 367 && phone.activityproductId != 368 && phone.activityproductId != 369">
                 <main-colors title="选择颜色" ng-if="phone"></main-colors>
+            </div>
+
+            <div id="phoneFlash" style="background: #fff;margin-top: 0.1rem;padding-top: 0.1rem;padding-bottom: 0.15rem" ng-show="phone.activityproductId == 366 || phone.activityproductId == 367 || phone.activityproductId == 368 || phone.activityproductId == 369">
+                <div class="weui-cells__title title-icon">
+                    <span class="title">选择容量</span>
+                    <span class="star-color">*</span>
+                    <span class="sub-title" ng-class="{true:'hide',false:''}[colorSubTitle == '']">
+                        <span ng-bind="phone.phoneTypes[0].productMemory"></span>
+                    </span>
+                </div>
+                <div class="flash-panel pd-w">
+                    <ul class="item-lists minus pure-g">
+                        <li class="list-item pure-u-1-2" ng-repeat="flash in phoneFlash">
+                            <div class="item-box margin border radius small ng-scope" ng-class="{true:'curr',false:''}[flash.phoneId == phone.activityproductId]" ng-click="setFlashDriver(flash)">
+                                <p><span ng-bind="flash.flash"></span>G</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
             </div>
 
             <phone-c-package title="选择中国电信套餐" sub-title="未选套餐"></phone-c-package>
@@ -110,23 +129,24 @@
                     </div>
                     <div class="real-price pure-g">
                         <span class="lb pure-u-1-2">
-                            <span ng-if="!(payType == 0 && receiver.city.indexOf('广州市') != -1)">实付金额</span>
-                            <span ng-if="payType == 0 && receiver.city.indexOf('广州市') != -1">送货到家实付金额</span>
+                            <span ng-if="payType == 0 && !(phone.activityproductId == 366 || phone.activityproductId == 367 || phone.activityproductId == 368 || phone.activityproductId == 369)">
+                                <span ng-if="!(payType == 0 && receiver.city.indexOf('广州市') != -1)">实付金额</span>
+                                <span ng-if="payType == 0 && receiver.city.indexOf('广州市') != -1">送货到家实付金额</span>
+                            </span>
+                            <span ng-if="payType == 0 && (phone.activityproductId == 366 || phone.activityproductId == 367 || phone.activityproductId == 368 || phone.activityproductId == 369)">实付金额</span>
                         </span>
                         <span class="price pure-u-1-2" ng-if="coupons.jm.checked"><em>￥</em><em ng-bind="totalPrice - (totalPrice | jm:800) | number : 0"></em></span>
                         <span class="price pure-u-1-2" ng-if="!coupons.jm.checked"><em>￥</em><em ng-bind="totalPrice | number : 0"></em></span>
+                        <span class="tips pure-u-1-1" style="font-size: 0.12rem;color:#999;text-align: right"><span>送货上门，信用卡也可享12期免息分期！</span></span>
                     </div>
                 </div>
                 <div class="pay-content" ng-if="payType == 2">
                     <div class="pure-g">
-                        <span class="lb pure-u-1-2">分期总额</span>
+                        <span class="lb pure-u-1-2">商品总额</span>
                         <span class="price pure-u-1-2">
-                            <em ng-if="coupons.jm.checked && coupons.mx.checked" ng-bind="totalPrice - (totalPrice | jm:800) | number : 0"></em>
-                            <em ng-if="coupons.jm.checked && !coupons.mx.checked" ng-bind="totalPrice - (totalPrice | jm:800) + totalPrice * 0.1| number : 0"></em>
-                            <em ng-if="!coupons.jm.checked && coupons.mx.checked" ng-bind="totalPrice | number : 0"></em>
-                            <em ng-if="!coupons.jm.checked && !coupons.mx.checked" ng-bind="totalPrice * 1 + totalPrice * 0.1 | number : 0"></em>
+                            <em>￥</em><em ng-bind="totalPrice * 1.1| number : 0"></em>
                         </span>
-                        <span class="tips pure-u-1-1" style="font-size: 0.12rem;color:#999;text-align: right"><span>(购机价￥</span><span ng-bind="totalPrice - package.salesPrice"></span><span>+预存话费</span><span ng-bind="package.salesPrice | number:0"></span>，<span>分36个月返还)</span></span>
+                        <!--<span class="tips pure-u-1-1" style="font-size: 0.12rem;color:#999;text-align: right"><span>(购机价￥</span><span ng-bind="totalPrice - package.salesPrice"></span><span>+预存话费</span><span ng-bind="package.salesPrice | number:0"></span>，<span>分36个月返还)</span></span>-->
                     </div>
                     <div class="pure-g" ng-if="coupons.jm.checked">
                         <span class="lb pure-u-1-2">满减优惠券</span>
@@ -141,11 +161,19 @@
                             <em>0息率X12期</em>
                         </span>
                     </div>
+                    <div class="pure-g">
+                        <span class="lb pure-u-1-2">分期总额</span>
+                        <span class="price pure-u-1-2">
+                            <span ng-if="coupons.jm.checked && coupons.mx.checked"><em>￥</em><em ng-bind="totalPrice - (totalPrice | jm:800) | number : 0"></em></span>
+                            <span ng-if="coupons.jm.checked && !coupons.mx.checked"><em>￥</em><em ng-bind="totalPrice - (totalPrice | jm:800) + totalPrice * 0.1| number : 0"></em></span>
+                            <span ng-if="!coupons.jm.checked && coupons.mx.checked"><em>￥</em><em ng-bind="totalPrice | number : 0"></em></span>
+                            <span ng-if="!coupons.jm.checked && !coupons.mx.checked"><em>￥</em><em ng-bind="totalPrice * 1 + totalPrice * 0.1 | number : 0"></em></span>
+                        </span>
+                        <!--<span class="tips pure-u-1-1" style="font-size: 0.12rem;color:#999;text-align: right"><span>(购机价￥</span><span ng-bind="totalPrice - package.salesPrice"></span><span>+预存话费</span><span ng-bind="package.salesPrice | number:0"></span>，<span>分36个月返还)</span></span>-->
+                    </div>
                     <div class="real-price pure-g">
                         <span class="lb pure-u-1-2">
-                            <span ng-if="payType == 2">月供</span>
-                            <span ng-if="payType == 0 && receiver.city.indexOf('广州市') == -1">实付金额</span>
-                            <span ng-if="payType == 0 && receiver.city.indexOf('广州市') != -1">送货到家实付金额</span>
+                            <span>月供</span>
                         </span>
                         <span class="price pure-u-1-2" ng-if="payType == 0">
                             <span ng-if="coupons.jm.checked && coupons.mx.checked"><em>￥</em><em ng-bind="totalPrice - (totalPrice | jm:800) | number : 0"></em></span>
@@ -192,8 +220,11 @@
                 <div class="nav-button nav-item pure-u-2-5">
                     <a id="footerPayButton" href="javascript:;" ng-click="submitForm($event);">
                         <span ng-if="payType == 0">
-                            <span ng-if="receiver.city.indexOf('广州市') == -1">我要支付</span>
-                            <span ng-if="receiver.city.indexOf('广州市') != -1">我要上门</span>
+                            <span ng-if="!(phone.activityproductId == 366 || phone.activityproductId == 367 || phone.activityproductId == 368 || phone.activityproductId == 369)">
+                                <span ng-if="receiver.city.indexOf('广州市') == -1">我要支付</span>
+                                <span ng-if="receiver.city.indexOf('广州市') != -1">预约送货</span>
+                            </span>
+                            <span ng-if="phone.activityproductId == 366 || phone.activityproductId == 367 || phone.activityproductId == 368 || phone.activityproductId == 369">我要预约</span>
                         </span>
                         <span ng-if="payType == 2">我要分期</span>
                     </a>

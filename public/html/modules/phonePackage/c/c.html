@@ -25,20 +25,12 @@
                     </li>
                     <li class="phone-pkgs-item list-item pure-u-1"
                         ng-repeat="pkg in packages" ng-class="{'active':pkg.productId == package.productId,'flagd':$index == packageIndex}">
-                        <div class="item-box margin border radius small pure-g"
-                             ng-class="{true:'curr',false:''}[pkg.productId == package.productId]"
-                             ng-click="setPhonePackage($event,pkg)">
-                            <span class="ib pure-u-1-4 rd" style="font-size: 0.16rem"><span>￥</span><span
-                                                ng-bind="(pkg.oldPrice * 36 - pkg.salesPrice)/36 | numberUp"></span><span>套餐</span></span>
-                            <span class="ib pure-u-1-6">
-                                            <del><span>￥</span><span
-                                                    ng-bind="pkg.oldPrice | number:0"></span></del></span>
-                            <span class="ib pure-u-1-5 rd" style="font-size: 0.16rem"><span>￥</span><span
-                                    ng-bind="pkg.salesPrice | number:0"></span></span>
-                            <span class="ib pure-u-1-5"><span
-                                    ng-bind="pkg.talkTime"></span><span>分钟</span></span>
-                            <span class="ib pure-u-1-6"><span
-                                    ng-bind="pkg.network"></span><span>G</span></span>
+                        <div class="item-box margin border radius small pure-g" ng-class="{true:'curr',false:''}[pkg.productId == package.productId]" ng-click="setPhonePackage($event,pkg)">
+                            <span class="ib pure-u-1-5 rd" style="font-size: 0.16rem"><span>￥</span><span ng-bind="(pkg.oldPrice * 36 - pkg.salesPrice)/36 | numberUp"></span></span>
+                            <span class="ib pure-u-1-5"><del><span>￥</span><span ng-bind="pkg.oldPrice | number:0"></span></del></span>
+                            <span class="ib pure-u-1-5 rd" style="font-size: 0.16rem"><span>￥</span><span ng-bind="pkg.salesPrice | number:0"></span></span>
+                            <span class="ib pure-u-1-5"><span ng-bind="pkg.talkTime"></span><span>分钟</span></span>
+                            <span class="ib pure-u-1-5"><span ng-bind="pkg.network"></span><span>G</span></span>
                             <ins class="flagd img-box" ng-if="$index == packageIndex && pkg.comparePrices <= 0">
                                 <img src="/images/active/d/flaged.png">
                             </ins>
@@ -62,7 +54,7 @@
                                     </ul>
                                 </div>
 
-                                <div class="show-main-number" ng-show="!queryNumber">您已选择手机号码：<span ng-bind="mainNumber"></span> <a href="javascript:;" ng-click="reChoose()">重新选号></a></div>
+                                <div class="show-main-number" ng-show="!queryNumber">您已选择手机号码：<span ng-bind="mainNumber"></span> <a href="javascript:;" ng-click="reChoose()">重新选号></a><br><span style="color: #8f8f8f" ng-if="phone.activityproductId == 366 || phone.activityproductId == 367 || phone.activityproductId == 368 || phone.activityproductId == 369">预售时间过长，该号码有可能会过期</span></div>
 
                                 <div class="the-notice" ng-show="queryNumber">
                                     <p class="icon-time">  限时0元选价值200元靓号</p>

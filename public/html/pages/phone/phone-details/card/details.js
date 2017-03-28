@@ -17,7 +17,8 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
     $scope.activeTag = "mysytc";
     
     var activeName = "_mysy_" + $scope.pageType;
-    if($scope.pageType == 'pcdB' || $scope.pageType == 'pcdC') activeName = '_yucun_A'
+    if($scope.pageType == 'pcdB') activeName = '_yucun_A'
+    if($scope.pageType == 'pcdC') activeName = '_yucun_B'
     $scope.category = systemName + activeName + "_FlowPackages";
     
     $scope.phoneQueryUrl = "http://" + $location.host() + $location.url();
@@ -69,6 +70,31 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
             "pkgType":"dkyc50"
         }
     ];
+
+    if($scope.pageType == 'pcd'){
+        $scope.$root.share = {
+            homeLink: 'http://app.yfq.cn/spc/pcd/index.html' + window.location.search,
+            shareTitle: '翼分期商城——电信新入网套餐5折起',
+            shareDisc: '中国电信流量大降价，9.9元办五折优惠套餐，3.5G全国流量，仅102元/月！',
+            picUrl:'http://app.yfq.cn/spc/img/pcd/1.jpg'
+        };
+    }
+    if($scope.pageType == 'pcdB'){
+        $scope.$root.share = {
+            homeLink: 'http://app.yfq.cn/spc/pcd/indexB.html' + window.location.search,
+            shareTitle: '翼分期商城——电信新入网套餐存100赠840',
+            shareDisc: '4G月租优惠套餐，最低仅102元/月，3.5G全国流量！限时限量，手快有！',
+            picUrl:'http://app.yfq.cn/spc/img/pcd/B/tx1.png'
+        };
+    }
+    if($scope.pageType == 'pcdC'){
+        $scope.$root.share = {
+            homeLink: 'http://app.yfq.cn/spc/pcd/indexB.html' + window.location.search,
+            shareTitle: '翼分期商城——电信新入网套餐存100赠840',
+            shareDisc: '4G月租优惠套餐，最低仅102元/月，3.5G全国流量！限时限量，手快有！',
+            picUrl:'http://app.yfq.cn/spc/img/pcd/B/tx1.png'
+        };
+    }
 
 
     $http.jsonp(cfApi.apiHost + "/product/getPackageInfo.html?productId=" + $stateParams.cardId + "&s=wap&callback=JSON_CALLBACK").success(function (data, status, headers, config) {

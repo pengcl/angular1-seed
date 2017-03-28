@@ -8,17 +8,17 @@ app.directive("nativeShare", ['$cookieStore', '$http', '$location', function ($c
             var homeLink, picUrl, shareTitle, shareDisc;
             var UA = navigator.appVersion;
 
-            homeLink = 'http://app.yfq.cn/phone/active/A' + window.location.search;
-            shareTitle = '我领到1888元购机年终奖！年前换个好手机，开开心心回家过大年！';
-            shareDisc = '苹果、OPPO、华为、VIVO等大牌手机直降！用券购再立减！戳我抢→';
-            picUrl = 'http://app.yfq.cn/images/active/share_active.jpg';
-
             scope.$root.share = {
                 homeLink: 'http://app.yfq.cn/phone/active/A' + window.location.search,
                 shareTitle: '我领到1888元购机年终奖！年前换个好手机，开开心心回家过大年！',
                 shareDisc: '苹果、OPPO、华为、VIVO等大牌手机直降！用券购再立减！戳我抢→',
                 picUrl:'http://app.yfq.cn/images/active/share_active.jpg'
             };
+
+            homeLink = scope.$root.share.homeLink;
+            shareTitle = scope.$root.share.shareTitle;
+            shareDisc = scope.$root.share.shareDisc;
+            picUrl = scope.$root.share.picUrl;
 
             var $nativeShare = $("#nativeShare");
             var $nativeShareClose = $("#nativeShareClose");
@@ -46,31 +46,6 @@ app.directive("nativeShare", ['$cookieStore', '$http', '$location', function ($c
             $("#container").on('click', '.copy-cancel', function () {
                 $(".share-copy").hide();
             });
-
-            window._bd_share_config = {
-                common: {
-                    bdText: scope.$root.share.shareTitle,
-                    bdDesc: scope.$root.share.shareDisc,
-                    bdUrl: scope.$root.share.homeLink,
-                    bdPic: scope.$root.share.picUrl
-                },
-                share: [{
-                    "bdSize": 32
-                }],
-                selectShare: [
-                    {
-                        "bdselectMiniList": ['qzone', 'tqq', 'kaixin001', 'bdxc', 'tqf']
-                    }
-                ]
-            };
-            var config = {
-                url: scope.$root.share.homeLink,
-                title: scope.$root.share.shareTitle,
-                desc: scope.$root.share.shareDisc,
-                img: scope.$root.share.picUrl,
-                img_title: scope.$root.share.shareTitle,
-                from: '翼分期商城'
-            };
 
             $("#container").on('click', '.show-img', function () {
                 var elDataApp = $(this).data("app");
@@ -141,11 +116,39 @@ app.directive("nativeShare", ['$cookieStore', '$http', '$location', function ($c
                 });
             }
 
-            var share_obj = new nativeShare('nativeShare', config);
-
             scope.$root.showShare = function () {
                 nativeShareShow();
-            }
+            };
+
+            scope.$watch('share',function (n,o,scope) {
+
+                window._bd_share_config = {
+                    common: {
+                        bdText: n.shareTitle,
+                        bdDesc: n.shareDisc,
+                        bdUrl: n.homeLink,
+                        bdPic: n.picUrl
+                    },
+                    share: [{
+                        "bdSize": 32
+                    }],
+                    selectShare: [
+                        {
+                            "bdselectMiniList": ['qzone', 'tqq', 'kaixin001', 'bdxc', 'tqf']
+                        }
+                    ]
+                };
+                var config = {
+                    url: n.homeLink,
+                    title: n.shareTitle,
+                    desc: n.shareDisc,
+                    img: n.picUrl,
+                    img_title: n.shareTitle,
+                    from: '翼分期商城'
+                };
+
+                var share_obj = new nativeShare('nativeShare', config);
+            },true);
         }
     };
 }]);

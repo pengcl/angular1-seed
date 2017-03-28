@@ -19,6 +19,13 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
 
     $scope.params = window.location.search;
 
+    $scope.$root.share = {
+        homeLink: 'http://app.yfq.cn/pcdRecharge/index' + window.location.search,
+        shareTitle: '翼分期商城——话费充值优惠',
+        shareDisc: '翼分期商城新用户专享，话费充100送100，充200送150，更多充值优惠等你来！',
+        picUrl:'http://app.yfq.cn/images/phoneCard/recharge/share.jpg'
+    };
+
     //统计
 
     $timeout(function () {
