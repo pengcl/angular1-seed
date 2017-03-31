@@ -6,7 +6,7 @@ app.directive("ngCoupon", ['$location', '$interval', '$http', '$cookieStore', '$
         templateUrl: "modules/coupon/coupon.html",
         link: function (scope, element, attrs) {
             scope.showPhones = false;
-            scope.$root.paracont = "获取验证码";
+            scope.$root.paracont = "获取手机验证码";
             scope.$root.paraclass = "but_null";
             var second = 59, timePromise = undefined;
 
@@ -19,10 +19,10 @@ app.directive("ngCoupon", ['$location', '$interval', '$http', '$cookieStore', '$
 
             if ($location.search().gh !== undefined) {//判断是否需要执行showFudai;
                 if ($location.search().gh.indexOf("yjtth5") != -1 && $location.path() === "/phone/active/A") {
-                    scope.showFudai('JM-MX-HF');
+                    scope.showFudai('JM-MX');
                 }
                 if ($location.search().gh.indexOf("wxword") != -1 && $location.path() === "/phone/active/A") {
-                    scope.showFudai('JM-MX-HF');
+                    scope.showFudai('JM-MX');
                 }
             }
 
@@ -170,7 +170,7 @@ app.directive("ngCoupon", ['$location', '$interval', '$http', '$cookieStore', '$
                                 timePromise = undefined;
 
                                 second = 59;
-                                scope.$root.paracont = "重发验证码";
+                                scope.$root.paracont = "重新获取验证码";
                                 scope.$root.paraclass = "but_null";
                             } else {
                                 scope.$root.paracont = second + "秒后可重发";

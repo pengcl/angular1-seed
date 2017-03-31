@@ -55,7 +55,8 @@
           list-style: none;
           font-size: 0.12rem;
           position: relative;
-          line-height: 1.2;
+          //line-height: 1.2;
+          line-height: 0.14rem;
           ins {
             position: absolute;
             left: 0;
@@ -82,7 +83,23 @@
             margin-left: 0.05rem;
           }
           em {
-            font-size: 0.14rem;
+            font-size: 0.14rem !important;
+          }
+          .no-coupon {
+            span,em {
+              @include inline-block;
+              vertical-align: baseline;
+            }
+            .quan-icon {
+              border:1px solid $color-primary;
+              color: $color-primary;
+              @include border-radius(0.03rem);
+              width: 0.13rem;
+              height: 0.13rem;
+              line-height: 0.13rem;
+              text-align: center;
+              @include inline-block;
+            }
           }
         }
       }
@@ -256,6 +273,56 @@
     padding-top: 0.1rem;
     padding-bottom: 0.1rem;
     margin-top: 0.1rem;
+    .weui-flex {
+      font-size: 0.12rem;
+      .weui-flex__item {
+        text-align: center;
+        padding-top: 0.07rem;
+        padding-bottom: 0.07rem;
+        position: relative;
+        p {
+          border-right: 1px solid #d8d8d8;
+        }
+        &:last-child {
+          p {
+            border-right: 0;
+          }
+        }
+        &:before {
+          position: absolute;
+          content: " ";
+          left: 0;
+          width: 100%;
+          bottom: 0;
+          height: 1px;
+          background: #d8d8d8;
+        }
+        &.curr {
+          &:before {
+            position: absolute;
+            content: " ";
+            left: 0;
+            width: 100%;
+            bottom: 0;
+            height: 2px;
+            background: $color-primary;
+          }
+          &:after {
+            position: absolute;
+            content: " ";
+            left: 50%;
+            bottom: 0;
+            border-bottom: 5px solid $color-primary;
+            border-left: 5px solid transparent;
+            border-right: 5px solid transparent;
+            margin-left: -5px;
+          }
+          p {
+            color: $color-primary;
+          }
+        }
+      }
+    }
     .weui-cells__title {
       .sub-title {
         position: absolute;

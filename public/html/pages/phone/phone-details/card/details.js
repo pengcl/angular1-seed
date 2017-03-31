@@ -96,8 +96,18 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
         };
     }
 
+    var pkgUrl;
 
-    $http.jsonp(cfApi.apiHost + "/product/getPackageInfo.html?productId=" + $stateParams.cardId + "&s=wap&callback=JSON_CALLBACK").success(function (data, status, headers, config) {
+    if($stateParams.cardId == ""){
+        pkgUrl = cfApi.apiHost + "/product/getPackageInfo.html?productId=" + $scope.pkgs[0].productId + "&s=wap&callback=JSON_CALLBACK";
+    }else {
+        pkgUrl = cfApi.apiHost + "/product/getPackageInfo.html?productId=" + $stateParams.cardId + "&s=wap&callback=JSON_CALLBACK";
+    }
+
+    //console.log(pkgUrl);
+
+
+    $http.jsonp(pkgUrl).success(function (data, status, headers, config) {
         $scope.card = data;
         $scope.totolPrice = data.salesPrice;
         $scope.showPrice = 50;

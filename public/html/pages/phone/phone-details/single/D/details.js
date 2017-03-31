@@ -20,6 +20,8 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
     $scope.pageType = 'D';
     $scope.activeTag = "jktchdd";
 
+    var butie = "358:6388;359:5388;360:3880;361:2980;362:2400";
+
     $scope.homeUrl = $location.protocol() + '://' + $location.host() + '/phone/active/D/phones';
 
     $scope.$root.share = {
@@ -117,34 +119,39 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
                 var obj = $scope.pkgs[getIndex($scope.pkgs, "productId", k.slice(0, k.indexOf(':')))];
                 obj.phonePrice = k.slice(k.indexOf(':') + 1, k.length);
                 obj.comparePrices = $scope.phone.phoneBillPrice - obj.salesPrice;
+
+                $.each(eval(butie.split(";")), function (jtem, value) {
+                    if (value.split(":")[0] == k.slice(0, k.indexOf(':'))) {
+                        if ($scope.phone.salePrice > value.split(":")[1]) {
+                            obj.comparePrices = obj.oldPrice * 18 + ($scope.phone.salePrice - value.split(":")[1]);
+                        } else {
+                            obj.comparePrices = obj.oldPrice * 18;
+                        }
+                    }
+                });
+
                 $scope.packages.push(obj);
             });
 
             for (var i = 1; i < $scope.packages.length; i++) {
-                if (Math.abs($scope.packages[i].comparePrices) < Math.abs($scope.packages[$scope.packageIndex].comparePrices)) {
-                    if ($scope.packages[i].comparePrices <= 0) {
-                        $scope.packageIndex = i;
-                    }
+                if ($scope.packages[i].comparePrices < $scope.packages[$scope.packageIndex].comparePrices) {
+                    $scope.packageIndex = i;
                 }
             }
 
-            $scope.packages = $scope.packages.sort(function (a, b) {
-                return a.oldPrice - b.oldPrice;
-            });
-
-            $scope.package = $scope.packages[0];
+            $scope.package = $scope.packages[$scope.packageIndex];
 
             if ($scope.phone.activityproductId == 366 || $scope.phone.activityproductId == 367 || $scope.phone.activityproductId == 368 || $scope.phone.activityproductId == 369) {
                 $scope.setDefaultPayType(0, "预约购买");
-            }else {
+            } else {
                 if ($cookieStore.get('receiver')) {
                     if ($cookieStore.get('receiver').city.indexOf('广州市') != -1) {
-                        $scope.setDefaultPayType(0, "送货上门");
+                        $scope.setDefaultPayType(1, "送货上门");
                     } else {
-                        $scope.setDefaultPayType(2, "信用卡分期");
+                        $scope.setDefaultPayType(0, "一次性支付");
                     }
                 } else {
-                    $scope.setDefaultPayType(2, "信用卡分期");
+                    $scope.setDefaultPayType(0, "一次性支付");
                 }
             }
 
@@ -155,18 +162,24 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
             //deferred.reject(status)
         });
 
+
+
         $scope.$watch('receiver.city', function (n, o, $scope) {
             if ($scope.phone.activityproductId == 366 || $scope.phone.activityproductId == 367 || $scope.phone.activityproductId == 368 || $scope.phone.activityproductId == 369) {
                 $scope.setDefaultPayType(0, "预约购买");
                 return false;
             }
 
-            if (n.indexOf('广州市') != -1) {
-                $scope.setDefaultPayType(0, "送货上门");
-            } else {
-                if ($scope.payType == 0) {
-                    $scope.setDefaultPayType(0, "一次性支付");
+            if(n != ""){
+                if (n.indexOf('广州市') != -1) {
+                    $scope.setDefaultPayType(1, "送货上门");
+                } else {
+                    if ($scope.payType == 1) {
+                        $scope.setDefaultPayType(0, "一次性支付");
+                    }
                 }
+            }else {
+                $scope.setDefaultPayType(0, "一次性支付");
             }
         });
 
@@ -289,6 +302,30 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
         }
     };
 
+    $scope.loadedCheck = function () {
+        if (!$scope.checkoutForm.reciverName.$valid) {
+            //alert("请输入收件人");
+            return false;
+        } else if (!$scope.checkoutForm.receiverMobile.$valid) {
+            //alert("请输入联系电话");
+            return false;
+        } else if (!$scope.checkoutForm.receiverCity.$valid) {
+            //alert("请选择收件区域");
+            return false;
+        } else if (!$scope.checkoutForm.receiverRoom.$valid) {
+            //alert("请输入详细地址");
+            return false;
+        }
+        return true;
+    };
+
+    $timeout(function () {
+        console.log($scope.loadedCheck());
+        if(!$scope.loadedCheck()){
+            $("#receiverAddressPanel").slideDown();
+        }
+    });
+
     $scope.submitForm = function (event) {
         if ($scope.checkMainNumber()) {
             if ($scope.checkAddress()) {
@@ -304,17 +341,29 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
         }
     };
 
-    $scope.$watch('payType', function (n, o, $scope) {
-        console.log(n, o);
-    });
+    //var cardPrices = "358:6012;359:5472;360:4662;361:3672;362:3132";
 
     $scope.$watch('package', function (n, o, $scope) {
         if (n != o) {
-            if (n.salesPrice >= $scope.phone.phoneBillPrice) {
-                $scope.totalPrice = n.salesPrice;
+            $.each(eval(butie.split(";")), function (i, k) {
+                if (k.split(":")[0] == n.productId) {
+                    $scope.btp = k.split(":")[1];
+                }
+            });
+
+            if ($scope.phone.salePrice > $scope.btp) {
+                $scope.totalPrice = $scope.package.oldPrice * 18 + ($scope.phone.salePrice - $scope.btp);
             } else {
-                $scope.totalPrice = $scope.phone.phoneBillPrice;
+                $scope.totalPrice = $scope.package.oldPrice * 18;
             }
+
+            //console.log(cardPrices.indexOf(n.productId));
+            //var cp = cardPrices.substr(cardPrices.indexOf(n.productId));
+            /*if (n.salesPrice >= $scope.phone.phoneBillPrice) {
+             $scope.totalPrice = n.salesPrice;
+             } else {
+             $scope.totalPrice = $scope.phone.phoneBillPrice;
+             }*/
         }
     }, true);
 

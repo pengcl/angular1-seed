@@ -213,7 +213,7 @@
                         <div class="balance-pr pure-g">
                             <div class="lb pure-u-1-2"><img src="/images/active/b/15.png"> 礼包价：</div>
                             <div class="pr pure-u-1-2">
-                                ￥<span ng-bind="package.phonePrice | number : 0"></span>
+                                ￥<span ng-bind="totalPrice | number : 0"></span>
                             </div>
                             <div class="tp pure-u-1">
                                 <span>您已选择：{{phone.phoneTypes[0].productName}} 赠送话费￥{{package.salesPrice | number:0}}</span>
@@ -223,7 +223,7 @@
                         <div class="balance-discount">
                             <div class="lb pure-u-3-5"><img src="/images/active/b/16.png"> 货到付款立减 <span class="weui-badge">限时特惠</span></div>
                             <div class="pr pure-u-2-5">
-                                -￥<span ng-bind="package.phonePrice | jm:400"></span>
+                                -￥<span ng-bind="totalPrice | jm:400"></span>
                             </div>
                             <div class="tp pure-u-1">
                                 <span>逢满￥100减￥5</span>
@@ -233,7 +233,7 @@
                             <div class="balance-tot-pr">
                                 <span>实付价格：</span>
                                 <span class="pr-box">
-                                    ￥<span ng-bind="package.phonePrice - (package.phonePrice | jm:400)"></span>
+                                    ￥<span ng-bind="totalPrice - (totalPrice | jm:400)"></span>
                                 </span>
                             </div>
                             <div class="balance-tot-tp">
@@ -243,15 +243,15 @@
                     </div>
                 </div>
 
-                <div class="submit-form img-box" ng-click="submit()">
-                    <a class="weui-btn weui-btn_warn" href="javascript:;">
+                <div class="submit-form img-box">
+                    <a class="weui-btn weui-btn_warn" ng-click="submit()" href="javascript:;">
                         已确认，请联系我
                     </a>
                     <div class="bt-tips">
                         <p><i class="weui-icon-warn"></i> 温馨提示：为了您能尽快办理，您需要确认以下信息</p>
                         <ul>
-                            <li>1、支付宝支付/微信支付/刷卡：确保储蓄卡余额足够<span ng-bind="package.phonePrice - (package.phonePrice | jm:400)"></span>元；</li>
-                            <li>2、19家银行信用卡分期：确保信用卡额度足够<span ng-bind="package.phonePrice - (package.phonePrice | jm:400)"></span>元,将为您申请12期0息分期；</li>
+                            <li>1、支付宝支付/微信支付/刷卡：确保储蓄卡余额足够<span ng-bind="totalPrice - (totalPrice | jm:400)"></span>元；</li>
+                            <li>2、19家银行信用卡分期：确保信用卡额度足够<span ng-bind="totalPrice - (totalPrice | jm:400)"></span>元,将为您申请12期0息分期；</li>
                             <li>3、办理电信号码需提供本人身份证正面、身份证反面、手持身份证照片；</li>
                             <li>4、确认您的收货地址与联系方式无误，方便客户经理为您上门办理。</li>
                         </ul>

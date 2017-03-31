@@ -8,7 +8,6 @@ app.directive("cardPkg", ['$http', '$stateParams', '$q', function ($http, $state
         },
         templateUrl: "modules/cardPackage/cardPkg.html",
         link: function (scope, element, attrs) {
-            console.log(scope.ssDd);
                 scope.openCardPkg=function(targetId){
                     var targetHtml = $("#" + targetId).html();
                     scope.$root.Overlay.open(targetHtml);

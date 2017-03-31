@@ -12,11 +12,12 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
             controller: "pBctivePhonesController"
         });
 }]).controller('pBctivePhonesController', ['$scope', '$location', '$http', '$stateParams', '$interval', '$timeout', '$cookieStore', '$compile', function ($scope, $location, $http, $stateParams, $interval, $timeout, $cookieStore, $compile) {
-    $location.path("/phone/active/D/phones");
     $scope.pageType = "B";
     $scope.activeTag = "jktchd";
     $scope.appType = systemName + "_xxyx_" + $scope.pageType;
     $scope.category = $scope.appType;
+
+    var butie = "358:6388;359:5388;360:3880;361:2980;362:2400";
 
     $scope.payType = 0;
 
@@ -64,13 +65,13 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
     };
 
 
-    $http.jsonp(cfApi.apiHost + '/product/getPackageList.html?activeTag=fqssj&s=wap&callback=JSON_CALLBACK').success(function (data, status, headers, config) {
+    /*$http.jsonp(cfApi.apiHost + '/product/getPackageList.html?activeTag=fqssj&s=wap&callback=JSON_CALLBACK').success(function (data, status, headers, config) {
         $scope.pkgs = data;
 
     }).error(function (data, status, headers, config) {
         console.log(status);
         //deferred.reject(status)
-    });
+    });*/
 
     $http.jsonp(cfApi.apiHost + '/product/getProList.html?activeTag=jktchd&s=wap&callback=JSON_CALLBACK').success(function (data, status, headers, config) {
         $scope.phones = data;
@@ -228,7 +229,53 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
     $scope.$watch('phoneId', function (n, o, $scope) {
         if (o !== n && n !== undefined) {
             $http.jsonp(cfApi.apiHost + "/product/getProDetial.html?productId=" + n + "&activeTag=jjk&s=wap&callback=JSON_CALLBACK").success(function (data, status, headers, config) {
+
                 $scope.phone = data;
+
+                $http.jsonp(cfApi.apiHost + '/product/getPackageList.html?activeTag=fqssj&s=wap&callback=JSON_CALLBACK').success(function (data, status, headers, config) {
+                    $scope.pkgs = data;
+
+                    $scope.packageIndex = 0;
+
+                    var cardItems = $scope.phone.cardItems.split(";").sort(function (a, b) {
+                        return a.slice(a.indexOf(":") + 1, a.length) - b.slice(b.indexOf(":") + 1, b.length);
+                    });
+
+
+                    $scope.packages = [];
+
+                    $.each(eval(cardItems), function (i, k) {
+                        var obj = $scope.pkgs[getIndex($scope.pkgs, "productId", k.slice(0, k.indexOf(':')))];
+                        obj.phonePrice = k.slice(k.indexOf(':') + 1, k.length);
+                        obj.comparePrices = $scope.phone.phoneBillPrice - obj.salesPrice;
+
+                        $.each(eval(butie.split(";")), function (jtem, value) {
+                            if (value.split(":")[0] == k.slice(0, k.indexOf(':'))) {
+                                if ($scope.phone.salePrice > value.split(":")[1]) {
+                                    obj.comparePrices = obj.oldPrice * 18 + ($scope.phone.salePrice - value.split(":")[1]);
+                                } else {
+                                    obj.comparePrices = obj.oldPrice * 18;
+                                }
+                            }
+                        });
+
+                        $scope.packages.push(obj);
+                    });
+
+                    for (var i = 1; i < $scope.packages.length; i++) {
+                        if ($scope.packages[i].comparePrices < $scope.packages[$scope.packageIndex].comparePrices) {
+                            $scope.packageIndex = i;
+                        }
+                    }
+
+                    $scope.package = $scope.packages[$scope.packageIndex];
+
+                }).error(function (data, status, headers, config) {
+                    console.log(status);
+                    //deferred.reject(status)
+                });
+
+                /*$scope.phone = data;
                 $scope.$root.mainColor = data.phoneTypes[0].mediaProductList[0];
                 $scope.packages = [];
                 $scope.comparePrices = [];
@@ -247,10 +294,34 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
                     }
                 }
 
-                $scope.package = $scope.packages[$scope.packageIndex];
+                $scope.package = $scope.packages[$scope.packageIndex];*/
             }).error(function (data, status, headers, config) {
                 console.log(status);
             });
+        }
+    }, true);
+
+    $scope.$watch('package', function (n, o, $scope) {
+        if (n != o) {
+            $.each(eval(butie.split(";")), function (i, k) {
+                if (k.split(":")[0] == n.productId) {
+                    $scope.btp = k.split(":")[1];
+                }
+            });
+
+            if ($scope.phone.salePrice > $scope.btp) {
+                $scope.totalPrice = $scope.package.oldPrice * 18 + ($scope.phone.salePrice - $scope.btp);
+            } else {
+                $scope.totalPrice = $scope.package.oldPrice * 18;
+            }
+
+            //console.log(cardPrices.indexOf(n.productId));
+            //var cp = cardPrices.substr(cardPrices.indexOf(n.productId));
+            /*if (n.salesPrice >= $scope.phone.phoneBillPrice) {
+             $scope.totalPrice = n.salesPrice;
+             } else {
+             $scope.totalPrice = $scope.phone.phoneBillPrice;
+             }*/
         }
     }, true);
 

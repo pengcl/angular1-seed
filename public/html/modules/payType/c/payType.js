@@ -44,7 +44,7 @@ app.directive("cPayType", ['$location', '$compile', '$q', function ($location, $
                 //scope.payTypeName = typeName;
                 var $this = $(event.currentTarget);
                 //console.log($this.find(".title").html());
-                scope.payTypeName = $this.find(".title").html();
+                scope.payTypeName = $this.data("title");
                 wirtePayType(id);
             };
 

@@ -26,7 +26,7 @@ app.directive("topNav", ['$timeout', function ($timeout) {
                 history.back();
                 var timer = $timeout(function () {
                     $viewContainer.removeClass("ng-back");
-                }, 600);
+                }, 500);
             };
             
             scope.done = function () {

@@ -59,12 +59,18 @@
   }
   .content-scrollable {
     background: url("/images/phones/assets/index/indexBg.jpg") repeat;
-    .sales-banner{
+    .sales-banner {
       position: absolute;
-      left:18%;
-      bottom:41%;
-      width:62%;
+      left: 18%;
+      bottom: 41%;
+      width: 62%;
     }
+  }
+  #indexBanner {
+    display: none;
+  }
+  #indexHot {
+    display: none;
   }
   .spc-title {
     background: none;
@@ -346,7 +352,7 @@
             left: 0;
             right: 0;
             top: auto;
-            bottom:0;
+            bottom: 0;
           }
           .img-title {
             position: absolute;
@@ -545,15 +551,15 @@
     .selkillbg {
       width: 84%;
       position: absolute;
-      bottom:0.34rem;
-      left:50%;
+      bottom: 0.34rem;
+      left: 50%;
       margin-left: -42%;
       .txt {
         position: absolute;
         left: 0.84rem;
-        right:0;
+        right: 0;
         top: 0.02rem;
-        bottom:0;
+        bottom: 0;
         font-size: 0.12rem;
         color: #eee;
       }
@@ -574,7 +580,7 @@
       &:before {
         content: " ";
         position: absolute;
-        bottom:0.09rem;
+        bottom: 0.09rem;
         height: 2px;
         width: 4em;
         left: 50%;
@@ -599,10 +605,10 @@
   }
   #homePhoneLists {
     background: #710100;
-    padding:0.05rem;
+    padding: 0.05rem;
     .list_single {
       .phone-box {
-        margin:0.05rem;
+        margin: 0.05rem;
         display: block;
         background: #fff;
         .img-box {
@@ -610,7 +616,7 @@
           img {
             height: 1rem;
             width: auto;
-            margin:0.1rem auto;
+            margin: 0.1rem auto;
           }
         }
       }
@@ -640,7 +646,7 @@
       .star-color {
         color: $color-primary;
       }
-      .title-icon,.sp-title {
+      .title-icon, .sp-title {
         font-size: 0.14rem;
         font-weight: bold;
       }
@@ -670,7 +676,7 @@
           margin-top: 0;
           margin-bottom: 0;
           padding-left: 0;
-          border:0;
+          border: 0;
           .weui-cell__bd {
             padding-left: 0;
             &:before {
@@ -686,15 +692,15 @@
         margin-left: -0.05rem;
         margin-right: -0.05rem;
         .item-box {
-          border:1px solid #ccc;
-          margin:0.05rem;
-          padding:8px;
+          border: 1px solid #ccc;
+          margin: 0.05rem;
+          padding: 8px;
           overflow: hidden;
           white-space: nowrap;
           text-overflow: ellipsis;
           &.curr {
-            border:2px solid $color-primary;
-            padding:7px;
+            border: 2px solid $color-primary;
+            padding: 7px;
           }
         }
       }
@@ -702,20 +708,20 @@
         display: none;
       }
       #inputsStoreSelect {
-        padding:0;
+        padding: 0;
         border: 0;
         .weui-cell__hd {
           display: block;
           .weui-label {
-            padding:10px 15px;
-            border:1px solid #999;
+            padding: 10px 15px;
+            border: 1px solid #999;
             margin-right: 0.1rem;
             background-color: #d6d6d6;
           }
         }
         .weui-cell__bd {
-          padding:10px 15px;
-          border:1px solid #999;
+          padding: 10px 15px;
+          border: 1px solid #999;
         }
       }
     }
@@ -723,7 +729,7 @@
   .buyers {
     font-size: 0.12rem;
     padding-top: 0.3rem;
-    background:#710100;
+    background: #710100;
     .content-bd {
       background-image: url("/images/phones/C/buyersBoxBd.png");
       background-color: #027043;
@@ -780,6 +786,6 @@
 
 .overlay.overlay-c.overlay-code .qrcode-url {
   position: absolute;
-  bottom:0.3rem;
+  bottom: 0.3rem;
   left: 20%;
 }

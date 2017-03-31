@@ -7,7 +7,26 @@
         </span>
     </div>
     <div class="paytype-panel pd-w">
-        <ul class="paytype-list item-lists pure-g" ng-if="receiver.city.indexOf('广州市') == -1">
+
+        <div class="weui-flex" ng-if="!(phone.activityproductId == 366 || phone.activityproductId == 367 || phone.activityproductId == 368 || phone.activityproductId == 369)">
+            <div class="weui-flex__item" data-title="信用卡分期" ng-class="{true:'curr',false:''}[payType == 2]" ng-click="setPayType($event,2);">
+                <p class="title">信用卡分期</p>
+            </div>
+            <div class="weui-flex__item" data-title="一次性支付" ng-class="{true:'curr',false:''}[payType == 0]" ng-click="setPayType($event,0);">
+                <p class="title">一次性支付</p>
+            </div>
+            <div class="weui-flex__item" data-title="送货上门" ng-if="receiver.city.indexOf('广州市') != -1" ng-class="{true:'curr',false:''}[payType == 1]" ng-click="setPayType($event,1);">
+                <p class="title">广州送货上门</p>
+            </div>
+        </div>
+
+        <div class="weui-flex" ng-if="phone.activityproductId == 366 || phone.activityproductId == 367 || phone.activityproductId == 368 || phone.activityproductId == 369">
+            <div class="weui-flex__item" data-title="预约购买" ng-class="{true:'curr',false:''}[payType == 0]" ng-click="setPayType($event,0);">
+                <p class="title">红色iPhone 7 / 7 Plus 首发预售</p>
+            </div>
+        </div>
+
+        <!--<ul class="paytype-list item-lists pure-g" ng-if="receiver.city.indexOf('广州市') == -1">
             <li ng-if="!(phone.activityproductId == 366 || phone.activityproductId == 367 || phone.activityproductId == 368 || phone.activityproductId == 369)" class="pay-item list-item pure-u-1-2" ng-class="{true:'on-paytype',false:''}[payType == 2]" ng-click="setPayType($event,2);">
                 <div class="item item-box margin border radius">
                     <p class="title">信用卡分期</p>
@@ -31,6 +50,6 @@
                     <p class="title" ng-if="receiver.city.indexOf('广州市') != -1">广州地区即日送货上门</p>
                 </div>
             </li>
-        </ul>
+        </ul>-->
     </div>
 </div>

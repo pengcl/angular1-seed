@@ -12,7 +12,7 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
             controller: "pCctivePhonesController"
         });
 }]).controller('pCctivePhonesController', ['$scope', '$location', '$http', '$stateParams', '$interval', '$timeout', '$cookieStore', '$compile', function ($scope, $location, $http, $stateParams, $interval, $timeout, $cookieStore, $compile) {
-    //$location.path("/phone/active/D/phones");
+    $location.path("/phone/active/D/phones");
     $scope.pageType = "C";
     $scope.activeTag = "jktchd";
     $scope.appType = systemName + "_xxyx_" + $scope.pageType;

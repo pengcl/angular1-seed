@@ -1,85 +1,101 @@
 'use strict';
 
-app.directive("couponList", ['$http', function ($http) {
+app.directive("couponList", ['$http', '$q', '$timeout', function ($http, $q, $timeout) {
     return {
         restrict: 'E',
         templateUrl: "modules/coupon/couponList/couponList.html",
         link: function (scope, element, attrs) {
+
             var dateNow = Date.parse(new Date());
 
             scope.selectCoupon = function (e, key) {
-                if (scope.coupons[key].available) {
-                    scope.coupons[key].checked = !scope.coupons[key].checked;
+                if (scope.$root.coupons[key].available) {
+                    scope.$root.coupons[key].checked = !scope.$root.coupons[key].checked;
                 }
             };
 
             scope.$watch('receiver.mobile', function (n, o, scope) {
                 if (n != undefined && n != '') {
                     $http.jsonp(cfApi.apiHost + '/product/getCouponList.html?recieverMobile=' + n + '&activity=' + scope.activity + '&s=wap&callback=JSON_CALLBACK').success(function (data, status, headers, config) {
-                        scope.coupons = {};
-                        var couponType, couponNo, couponName, couponTips, available, checked;
-                        if (data.length == 0) {
-                            scope.hasCoupon = false;
-                            for (var i = 0; i < scope.coupons.length; i++) {
-                                scope.coupons[i].checked = false;
+                        scope.$root.coupons = {};
+                        
+                        $timeout(function () {
+                            var couponType, couponNo, couponName, couponTips, available, checked;
+                            if (data.length == 0) {
+                                scope.$root.hasCoupon = false;
+                                for (var i = 0; i < scope.$root.coupons.length; i++) {
+                                    scope.$root.coupons[i].checked = false;
+                                }
+                            } else {
+                                scope.$root.hasCoupon = true;
                             }
-                        } else {
-                            scope.hasCoupon = true;
-                        }
-                        $.each(data, function (i, k) {//为优惠券赋值
-                            if (data[i].couponBatchName == 'JM') {
-                                couponType = 'exemptionCertificate';
-                                couponNo = k.couponNo;
-                                couponName = '￥800满减券';
-                                couponTips = '每满￥100送￥5';
-                                available = true;
-                                checked = true;
+                            $.each(data, function (i, k) {//为优惠券赋值
+                                if (data[i].couponBatchName == 'JM') {
+                                    couponType = 'exemptionCertificate';
+                                    couponNo = k.couponNo;
+                                    couponName = '￥800满减券';
+                                    couponTips = '每满￥100送￥5';
+                                    available = true;
+                                    checked = true;
+                                    if (scope.phone.activityproductId == 366 || scope.phone.activityproductId == 367 || scope.phone.activityproductId == 368 || scope.phone.activityproductId == 369) {
+                                        available = false;
+                                        checked = false;
+                                    }
 
-                                scope.coupons.jm = {
-                                    couponType: couponType,
-                                    couponNo: couponNo,
-                                    couponName: couponName,
-                                    couponTips: couponTips,
-                                    available: available,
-                                    checked: checked
-                                };
-                            }
+                                    scope.$root.coupons.jm = {
+                                        couponType: couponType,
+                                        couponNo: couponNo,
+                                        couponName: couponName,
+                                        couponTips: couponTips,
+                                        available: available,
+                                        checked: checked
+                                    };
+                                }
 
-                            if (data[i].couponBatchName == 'MX') {
-                                couponType = 'interestCoupons';
-                                couponNo = k.couponNo;
-                                couponName = '12期免息券';
-                                couponTips = '19家银行信用卡免息';
-                                available = true;
-                                checked = true;
+                                if (data[i].couponBatchName == 'MX') {
+                                    couponType = 'interestCoupons';
+                                    couponNo = k.couponNo;
+                                    couponName = '12期免息券';
+                                    couponTips = '19家银行信用卡免息';
+                                    available = true;
+                                    checked = true;
+                                    if (scope.phone.activityproductId == 366 || scope.phone.activityproductId == 367 || scope.phone.activityproductId == 368 || scope.phone.activityproductId == 369) {
+                                        available = false;
+                                        checked = false;
+                                    }
 
-                                scope.coupons.mx = {
-                                    couponType: couponType,
-                                    couponNo: couponNo,
-                                    couponName: couponName,
-                                    couponTips: couponTips,
-                                    available: available,
-                                    checked: checked
-                                };
-                            }
+                                    scope.$root.coupons.mx = {
+                                        couponType: couponType,
+                                        couponNo: couponNo,
+                                        couponName: couponName,
+                                        couponTips: couponTips,
+                                        available: available,
+                                        checked: checked
+                                    };
+                                }
 
-                            if (data[i].couponBatchName == 'HF') {
-                                couponType = 'billVoucher';
-                                couponNo = k.couponNo;
-                                couponName = '￥720话费券';
-                                couponTips = '每月返还￥20话费';
-                                available = true;
-                                checked = true;
+                                if (data[i].couponBatchName == 'HF') {
+                                    couponType = 'billVoucher';
+                                    couponNo = k.couponNo;
+                                    couponName = '￥720话费券';
+                                    couponTips = '每月返还￥20话费';
+                                    available = true;
+                                    checked = true;
+                                    if (scope.phone.activityproductId == 366 || scope.phone.activityproductId == 367 || scope.phone.activityproductId == 368 || scope.phone.activityproductId == 369) {
+                                        available = false;
+                                        checked = false;
+                                    }
 
-                                scope.coupons.hf = {
-                                    couponType: couponType,
-                                    couponNo: couponNo,
-                                    couponName: couponName,
-                                    couponTips: couponTips,
-                                    available: available,
-                                    checked: checked
-                                };
-                            }
+                                    scope.$root.coupons.hf = {
+                                        couponType: couponType,
+                                        couponNo: couponNo,
+                                        couponName: couponName,
+                                        couponTips: couponTips,
+                                        available: available,
+                                        checked: checked
+                                    };
+                                }
+                            });
                         });
 
                     }).error(function (data, status, headers, config) {
@@ -93,15 +109,15 @@ app.directive("couponList", ['$http', function ($http) {
                 if (n != undefined && n != '') {
                     $http.jsonp(cfApi.apiHost + '/product/getCouponList.html?recieverMobile=' + scope.receiver.mobile + '&activity=' + scope.activity + '&s=wap&callback=JSON_CALLBACK').success(function (data, status, headers, config) {
 
-                        scope.coupons = {};
+                        scope.$root.coupons = {};
                         var couponType, couponNo, couponName, couponTips, available, checked;
                         if (data.length == 0) {
-                            scope.hasCoupon = false;
-                            for (var i = 0; i < scope.coupons.length; i++) {
-                                scope.coupons[i].checked = false;
+                            scope.$root.hasCoupon = false;
+                            for (var i = 0; i < scope.$root.coupons.length; i++) {
+                                scope.$root.coupons[i].checked = false;
                             }
                         } else {
-                            scope.hasCoupon = true;
+                            scope.$root.hasCoupon = true;
                         }
                         $.each(data, function (i, k) {//为优惠券赋值
                             if (data[i].couponBatchName == 'JM') {
@@ -112,7 +128,7 @@ app.directive("couponList", ['$http', function ($http) {
                                 available = true;
                                 checked = true;
 
-                                scope.coupons.jm = {
+                                scope.$root.coupons.jm = {
                                     couponType: couponType,
                                     couponNo: couponNo,
                                     couponName: couponName,
@@ -130,7 +146,7 @@ app.directive("couponList", ['$http', function ($http) {
                                 available = true;
                                 checked = true;
 
-                                scope.coupons.mx = {
+                                scope.$root.coupons.mx = {
                                     couponType: couponType,
                                     couponNo: couponNo,
                                     couponName: couponName,
@@ -148,7 +164,7 @@ app.directive("couponList", ['$http', function ($http) {
                                 available = true;
                                 checked = true;
 
-                                scope.coupons.hf = {
+                                scope.$root.coupons.hf = {
                                     couponType: couponType,
                                     couponNo: couponNo,
                                     couponName: couponName,

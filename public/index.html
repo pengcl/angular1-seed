@@ -20,7 +20,10 @@
     <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.2/animate.min.css">
     <link rel="stylesheet" href="//cdn.bootcss.com/owl-carousel/1.32/owl.carousel.min.css">
     <link rel="stylesheet" href="//cdn.bootcss.com/owl-carousel/1.32/owl.theme.min.css">
-    <link rel="stylesheet" href="/css/1.0.3/app.min.css?1">
+    <script type="text/javascript">
+        var tampTime = new Date().getTime();
+        document.write("<link rel='stylesheet' href='/css/1.0.3/app.min.css?" + tampTime + "'>");
+    </script>
     <script src="//cdn.bootcss.com/modernizr/2.8.3/modernizr.min.js"></script>
     <script>
         var _hmt = _hmt || [];
@@ -97,7 +100,6 @@
 <!--<script src="/bower_components/velocity/velocity.min.js"></script>-->
 
 <script>
-    var tampTime = new Date().getTime();
     document.write("<script src='/components/apiConfig.js?" + tampTime + "'><\/script>");
     document.write("<script src='/components/1.0.3/template.tpl.js?" + tampTime + "'><\/script>");
     document.write("<script src='/components/1.0.3/public.min.js?" + tampTime + "'><\/script>");
