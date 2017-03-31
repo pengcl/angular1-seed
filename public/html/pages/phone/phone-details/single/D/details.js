@@ -162,15 +162,13 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
             //deferred.reject(status)
         });
 
-
-
         $scope.$watch('receiver.city', function (n, o, $scope) {
             if ($scope.phone.activityproductId == 366 || $scope.phone.activityproductId == 367 || $scope.phone.activityproductId == 368 || $scope.phone.activityproductId == 369) {
                 $scope.setDefaultPayType(0, "预约购买");
                 return false;
             }
 
-            if(n != ""){
+            if (n != "") {
                 if (n.indexOf('广州市') != -1) {
                     $scope.setDefaultPayType(1, "送货上门");
                 } else {
@@ -178,7 +176,7 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
                         $scope.setDefaultPayType(0, "一次性支付");
                     }
                 }
-            }else {
+            } else {
                 $scope.setDefaultPayType(0, "一次性支付");
             }
         });
@@ -320,8 +318,8 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
     };
 
     $timeout(function () {
-        console.log($scope.loadedCheck());
-        if(!$scope.loadedCheck()){
+        //console.log($scope.loadedCheck());
+        if (!$scope.loadedCheck()) {
             $("#receiverAddressPanel").slideDown();
         }
     });
