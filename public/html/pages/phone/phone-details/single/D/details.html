@@ -210,12 +210,12 @@
                         <span ng-if="!(phone.activityproductId == 366 || phone.activityproductId == 367 || phone.activityproductId == 368 || phone.activityproductId == 369)">实付金额：</span>
                         <span ng-if="phone.activityproductId == 366 || phone.activityproductId == 367 || phone.activityproductId == 368 || phone.activityproductId == 369">预售金额：</span>
                         <em>￥</em>
-                        <span><em ng-bind="totalPrice - (totalPrice | jm:800) | number : 0"></em></span>
+                        <span><em ng-bind="totalPrice - ((totalPrice - (totalPrice | jm:800)) * 0.05 + (totalPrice | jm:800)) | number : 0"></em></span>
                     </div>
                     <div ng-if="payType == 1">
                         <span>实付金额：</span>
                         <em>￥</em>
-                        <span><em ng-bind="totalPrice - (totalPrice | jm:800) | number : 0"></em></span>
+                        <span><em ng-bind="totalPrice - ((totalPrice - (totalPrice | jm:800)) * 0.05 + (totalPrice | jm:800)) | number : 0"></em></span>
                     </div>
                     <div ng-if="payType == 2">
                         <span>月供：</span><em>￥</em>
@@ -227,8 +227,7 @@
                     <a id="footerPayButton" href="javascript:;" ng-click="submitForm($event);">
                         <span ng-if="payType == 0">
                             <span ng-if="!(phone.activityproductId == 366 || phone.activityproductId == 367 || phone.activityproductId == 368 || phone.activityproductId == 369)">
-                                <span ng-if="receiver.city.indexOf('广州市') == -1">提交订单</span>
-                                <span ng-if="receiver.city.indexOf('广州市') != -1">提交订单</span>
+                                <span>提交订单</span>
                             </span>
                             <span ng-if="phone.activityproductId == 366 || phone.activityproductId == 367 || phone.activityproductId == 368 || phone.activityproductId == 369">我要预约</span>
                         </span>
