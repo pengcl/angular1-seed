@@ -1,6 +1,6 @@
 <div class="page p-details a-details a-details-c">
     <top-nav page-title="中国电信●翼分期商城" page-back="back" page-done="contact"></top-nav>
-    <form id="checkoutForm" name="checkoutForm" action="http://m.yfq.cn/wap/taokafanghaoNew/submitOrderDouble.html" method="post" novalidate>
+    <form id="checkoutForm" name="checkoutForm" action="http://139.129.167.171:8898/wap/taokafanghaoNew/submitOrderDouble.html" method="post" novalidate>
     <!--<form id="checkoutForm" name="checkoutForm" action="http://m.yfq.cn/wap/taokafanghaoNew/submitOrderDouble.html" method="post" novalidate>-->
         <input type="hidden" value="1" name="monthNumber" id="monthNumber">
         <input type="hidden" value="{{category}}" name="category" id="category">
@@ -25,7 +25,7 @@
                             <li class="pure-u-4-5" style="padding-left: 0">
                                 <span>合约优惠价：</span>
                                 <em>￥</em><em ng-bind="totalPrice - (totalPrice | jm:800) | number : 0"></em>
-                                <del>合约价：￥<span ng-bind="totalPrice * 1 | number : 0"></span></del>
+                                <del style="color: #999;margin-left:0.1rem">合约价：￥<span ng-bind="totalPrice * 1 | number : 0"></span></del>
                             </li>
                             <li class="pure-u-1-5" style="text-align: right">已售<em ng-bind="sold" style="font-size: 0.12rem;font-weight: normal"></em>件</li>
                         </ul>
@@ -81,7 +81,7 @@
                 </div>
             </div>
 
-            <phone-c-package title="选择中国电信套餐" sub-title="未选套餐"></phone-c-package>
+            <phone-d-package title="选择中国电信套餐" sub-title="未选套餐"></phone-d-package>
 
             <!--<div id="promise">
                 <div class="weui-cells__title title-icon">
@@ -113,20 +113,14 @@
                         </span>
                     </div>
                     <div class="pure-g">
-                        <span class="lb pure-u-1-2">限时优惠95折</span>
+                        <span class="lb pure-u-1-2"><span style="display: inline-block;margin-bottom:0.05rem;color:#fff;background: #d83e14;padding-left: 0.1rem;padding-right: 0.1rem;">限时优惠95折</span></span>
                         <span class="price pure-u-1-2">
-                            <span><em>-￥</em><em ng-bind="(totalPrice - (totalPrice | jm:800)) * 0.05 | number : 0"></em></span>
+                            <span><em>-￥</em><em ng-bind="(totalPrice - (totalPrice | jm:800)) * 0.05 | numberUp"></em></span>
                         </span>
                     </div>
                     <div class="real-price pure-g">
-                        <span class="lb pure-u-1-2">
-                            <span ng-if="!(phone.activityproductId == 366 || phone.activityproductId == 367 || phone.activityproductId == 368 || phone.activityproductId == 369)">
-                                <span>实付金额</span>
-                            </span>
-                            <span ng-if="phone.activityproductId == 366 || phone.activityproductId == 367 || phone.activityproductId == 368 || phone.activityproductId == 369">预售金额</span>
-                        </span>
-                        <span class="price pure-u-1-2"><em>￥</em><em ng-bind="totalPrice - ((totalPrice - (totalPrice | jm:800)) * 0.05 + (totalPrice | jm:800)) | number : 0"></em></span>
-                        <span class="tips pure-u-1-1" ng-if="phone.activityproductId == 366 || phone.activityproductId == 367 || phone.activityproductId == 368 || phone.activityproductId == 369" style="font-size: 0.12rem;color:#999;text-align: right"><span>预约成功，产品开售前，将有专人通知您。</span></span>
+                        <span class="lb pure-u-1-2">实付金额</span>
+                        <span class="price pure-u-1-2"><em>￥</em><em ng-bind="totalPrice - ((totalPrice - (totalPrice | jm:800)) * 0.05 + (totalPrice | jm:800)) | numberUp"></em></span>
                     </div>
                 </div>
 
@@ -143,16 +137,16 @@
                         </span>
                     </div>
                     <div class="pure-g">
-                        <span class="lb pure-u-1-2">限时优惠95折</span>
+                        <span class="lb pure-u-1-2"><span style="display: inline-block;margin-bottom:0.05rem;color:#fff;background: #d83e14;padding-left: 0.1rem;padding-right: 0.1rem">限时优惠95折</span></span>
                         <span class="price pure-u-1-2">
-                            <span><em>-￥</em><em ng-bind="(totalPrice - (totalPrice | jm:800)) * 0.05 | number : 0"></em></span>
+                            <span><em>-￥</em><em ng-bind="(totalPrice - (totalPrice | jm:800)) * 0.05 | numberUp"></em></span>
                         </span>
                     </div>
                     <div class="real-price pure-g">
                         <span class="lb pure-u-1-2">
                             <span>送货到家实付金额</span>
                         </span>
-                        <span class="price pure-u-1-2"><em>￥</em><em ng-bind="totalPrice - ((totalPrice - (totalPrice | jm:800)) * 0.05 + (totalPrice | jm:800)) | number : 0"></em></span>
+                        <span class="price pure-u-1-2"><em>￥</em><em ng-bind="totalPrice - ((totalPrice - (totalPrice | jm:800)) * 0.05 + (totalPrice | jm:800)) | numberUp"></em></span>
                         <span class="tips pure-u-1-1" style="font-size: 0.12rem;color:#999;text-align: right"><span>送货上门，信用卡也可享12期免息分期！</span></span>
                     </div>
                 </div>
@@ -166,7 +160,7 @@
                         <span class="tips pure-u-1-1" style="font-size: 0.12rem;color:#999;text-align: right"><span>(购机价￥</span><span ng-bind="totalPrice - package.salesPrice"></span><span>+预存话费</span><span ng-bind="package.salesPrice | number:0"></span>，<span>分36个月返还)</span></span>
                     </div>
                     <div class="pure-g">
-                        <span class="lb pure-u-1-2">12期免息</span>
+                        <span class="lb pure-u-1-2"><span style="display: inline-block;color:#fff;background: #d83e14;padding-left: 0.1rem;padding-right: 0.1rem">12期免息</span></span>
                         <span class="price pure-u-1-2">
                             <em>0息率(12期)</em>
                         </span>
@@ -189,7 +183,7 @@
                         </span>
                         <span class="price pure-u-1-2">
                             <em>￥</em>
-                            <em ng-bind="(totalPrice - (totalPrice | jm:800))/12 | number : 0"></em>
+                            <em ng-bind="(totalPrice - (totalPrice | jm:800))/12 | numberUp"></em>
                             <em> X 12期</em><em style="font-size: 0.16rem">免息</em>
                         </span>
                     </div>
@@ -207,32 +201,25 @@
             <div class="pure-g">
                 <div class="nav-price nav-item pure-u-3-5">
                     <div ng-if="payType == 0">
-                        <span ng-if="!(phone.activityproductId == 366 || phone.activityproductId == 367 || phone.activityproductId == 368 || phone.activityproductId == 369)">实付金额：</span>
-                        <span ng-if="phone.activityproductId == 366 || phone.activityproductId == 367 || phone.activityproductId == 368 || phone.activityproductId == 369">预售金额：</span>
+                        <span>实付金额：</span>
                         <em>￥</em>
-                        <span><em ng-bind="totalPrice - ((totalPrice - (totalPrice | jm:800)) * 0.05 + (totalPrice | jm:800)) | number : 0"></em></span>
+                        <span><em ng-bind="totalPrice - ((totalPrice - (totalPrice | jm:800)) * 0.05 + (totalPrice | jm:800)) | numberUp"></em></span>
                     </div>
                     <div ng-if="payType == 1">
                         <span>实付金额：</span>
                         <em>￥</em>
-                        <span><em ng-bind="totalPrice - ((totalPrice - (totalPrice | jm:800)) * 0.05 + (totalPrice | jm:800)) | number : 0"></em></span>
+                        <span><em ng-bind="totalPrice - ((totalPrice - (totalPrice | jm:800)) * 0.05 + (totalPrice | jm:800)) | numberUp"></em></span>
                     </div>
                     <div ng-if="payType == 2">
                         <span>月供：</span><em>￥</em>
-                        <em ng-bind="(totalPrice - (totalPrice | jm:800))/12 | number : 0"></em>
+                        <em ng-bind="(totalPrice - (totalPrice | jm:800))/12 | numberUp"></em>
                         <em style="font-size: 0.16rem"> X 12期</em><em style="font-size: 0.16rem">免息</em>
                     </div>
                 </div>
                 <div class="nav-button nav-item pure-u-2-5">
                     <a id="footerPayButton" href="javascript:;" ng-click="submitForm($event);">
-                        <span ng-if="payType == 0">
-                            <span ng-if="!(phone.activityproductId == 366 || phone.activityproductId == 367 || phone.activityproductId == 368 || phone.activityproductId == 369)">
-                                <span>提交订单</span>
-                            </span>
-                            <span ng-if="phone.activityproductId == 366 || phone.activityproductId == 367 || phone.activityproductId == 368 || phone.activityproductId == 369">我要预约</span>
-                        </span>
                         <span ng-if="payType == 1">预约送货</span>
-                        <span ng-if="payType == 2">提交订单</span>
+                        <span ng-if="payType != 1">提交订单</span>
                     </a>
                 </div>
             </div>

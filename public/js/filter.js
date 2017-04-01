@@ -127,3 +127,14 @@ appFilters.filter('numberUp', function () {
         return Math.ceil(price);
     }
 });
+
+appFilters.filter('mp', function () {
+    return function (price) {
+
+        if(price == 0){
+            return "&mp=0"
+        }else {
+            return ""
+        }
+    }
+});

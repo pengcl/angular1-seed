@@ -17,6 +17,8 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
         });
 }]).controller('pDSingleProController', ['$scope', '$rootScope', '$location', '$stateParams', '$http', 'Phone', '$cookieStore', '$timeout', function ($scope, $rootScope, $location, $stateParams, $http, Phone, $cookieStore, $timeout) {
 
+    $scope.mp = $location.search().mp;
+
     $scope.pageType = 'D';
     $scope.activeTag = "jktchdd";
 
@@ -141,18 +143,18 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
 
             $scope.package = $scope.packages[$scope.packageIndex];
 
-            if ($scope.phone.activityproductId == 366 || $scope.phone.activityproductId == 367 || $scope.phone.activityproductId == 368 || $scope.phone.activityproductId == 369) {
-                $scope.setDefaultPayType(0, "预约购买");
-            } else {
-                if ($cookieStore.get('receiver')) {
-                    if ($cookieStore.get('receiver').city.indexOf('广州市') != -1) {
-                        $scope.setDefaultPayType(1, "送货上门");
-                    } else {
-                        $scope.setDefaultPayType(0, "一次性支付");
-                    }
+            /*if($scope.packages[$scope.packageIndex]){
+
+             }*/
+
+            if ($cookieStore.get('receiver')) {
+                if ($cookieStore.get('receiver').city.indexOf('广州市') != -1) {
+                    $scope.setDefaultPayType(1, "送货上门");
                 } else {
                     $scope.setDefaultPayType(0, "一次性支付");
                 }
+            } else {
+                $scope.setDefaultPayType(0, "一次性支付");
             }
 
             $(".phone-pkgs-item").eq(1).find(".pick-panel").addClass("show");
@@ -163,11 +165,6 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
         });
 
         $scope.$watch('receiver.city', function (n, o, $scope) {
-            if ($scope.phone.activityproductId == 366 || $scope.phone.activityproductId == 367 || $scope.phone.activityproductId == 368 || $scope.phone.activityproductId == 369) {
-                $scope.setDefaultPayType(0, "预约购买");
-                return false;
-            }
-
             if (n != "") {
                 if (n.indexOf('广州市') != -1) {
                     $scope.setDefaultPayType(1, "送货上门");

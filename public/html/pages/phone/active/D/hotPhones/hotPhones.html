@@ -63,7 +63,7 @@
                 <li ng-repeat="singlePhone in singlePhones | filter:{ifRecommend: 1}"
                     ng-show="singlePhone.salePrice >= 1500">
                     <a class="item-box pure-g" ng-if="params.length == 0"
-                       href="/phs/sg/{{pageType}}/{{singlePhone.activityproductId}}{{params}}?headCategory={{category}}"
+                       href="/phs/sg/{{pageType}}/{{singlePhone.activityproductId}}{{params}}?headCategory={{category}}&mp=0"
                        ng-class="{true:'curr',false:''}[machineName == singlePhone.productName]"
                        ng-click="setMachine(singlePhone.productName,singlePhone.activityproductId)">
                         <div class="img-box pure-u-1-3">
@@ -91,7 +91,7 @@
                         </div>
                     </a>
                     <a class="item-box pure-g" ng-if="params.length != 0"
-                       href="/phs/sg/{{pageType}}/{{singlePhone.activityproductId}}{{params}}&headCategory={{category}}"
+                       href="/phs/sg/{{pageType}}/{{singlePhone.activityproductId}}{{params}}&headCategory={{category}}&mp=0"
                        ng-class="{true:'curr',false:''}[machineName == singlePhone.productName]"
                        ng-click="setMachine(singlePhone.productName,singlePhone.activityproductId)">
                         <div class="img-box pure-u-1-3">
@@ -307,12 +307,12 @@
         <!--<ng-coupon></ng-coupon>-->
 
     </div>
-    <div class="right-nav">
+    <!--<div class="right-nav">
         <div class="img-box" ng-click="showFudai('JM-MX')">
             <img src="/images/active/d/ling.png">
         </div>
         <div class="img-box" ng-click="goToTop()">
             <img src="/images/active/22.png">
         </div>
-    </div>
+    </div>-->
 </div>

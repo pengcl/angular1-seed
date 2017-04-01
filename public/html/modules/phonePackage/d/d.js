@@ -1,10 +1,10 @@
 'use strict';
 
-app.directive("phoneCPackage", ['$http', '$stateParams', '$q', '$cookieStore', '$location', function ($http, $stateParams, $q, $cookieStore, $location) {
+app.directive("phoneDPackage", ['$http', '$stateParams', '$q', '$cookieStore', '$location', function ($http, $stateParams, $q, $cookieStore, $location) {
     return {
         restrict: 'E',
-        templateUrl: "modules/phonePackage/c/d.html",
-        controller: "numberCController",
+        templateUrl: "modules/phonePackage/d/d.html",
+        controller: "numberDController",
         link: function (scope, element, attrs) {
 
             //模块标题
@@ -120,7 +120,7 @@ app.directive("phoneCPackage", ['$http', '$stateParams', '$q', '$cookieStore', '
 
         }
     };
-}]).controller('numberCController', ['$scope', '$cookieStore', '$http', '$compile', function ($scope, $cookieStore, $http) {
+}]).controller('numberDController', ['$scope', '$cookieStore', '$http', '$compile', function ($scope, $cookieStore, $http) {
     //var deferred = $q.defer();
     $scope.phoneData = new Array();
     $scope.phoneSubData = new Array();

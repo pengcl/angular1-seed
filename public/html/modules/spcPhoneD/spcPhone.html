@@ -14,7 +14,7 @@
 </div>
 <ul class="spc-list spc-phone pure-g">
     <li class="pure-u-1-2" ng-repeat="singlePhone in brandPhones" ng-if="singlePhone.salePrice >= 1500">
-        <a class="item-box" ng-if="params.length == 0" href="/phs/sg/{{pageType}}/{{singlePhone.activityproductId}}{{params}}?headCategory={{category}}" ng-class="{true:'curr',false:''}[machineName == singlePhone.productName]" ng-click="setMachine(singlePhone.productName,singlePhone.activityproductId)">
+        <a class="item-box" ng-if="params.length == 0" href="/phs/sg/{{pageType}}/{{singlePhone.activityproductId}}{{params}}?headCategory={{category}}{{singlePhone.cardItems - singlePhone.fanhuan | mp}}" ng-class="{true:'curr',false:''}[machineName == singlePhone.productName]" ng-click="setMachine(singlePhone.productName,singlePhone.activityproductId)">
             <div class="img-box">
                 <img ng-src="http://www.yfq.cn:8899/fileserver/medias/{{singlePhone.mainImageUrl}}">
                 <span class="flag">
@@ -41,11 +41,11 @@
                 </div>
             </div>
             <div class="bbtn">
-                <span>支付有立减 马上购</span>
-                <!--<span ng-if="singlePhone.cardItems == singlePhone.fanhuan">存话费 0元购</span>-->
+                <span ng-if="singlePhone.cardItems != singlePhone.fanhuan">支付有立减 马上购</span>
+                <span ng-if="singlePhone.cardItems == singlePhone.fanhuan">0机价 马上购</span>
             </div>
         </a>
-        <a class="item-box" ng-if="params.length != 0" href="/phs/sg/{{pageType}}/{{singlePhone.activityproductId}}{{params}}&headCategory={{category}}" ng-class="{true:'curr',false:''}[machineName == singlePhone.productName]" ng-click="setMachine(singlePhone.productName,singlePhone.activityproductId)">
+        <a class="item-box" ng-if="params.length != 0" href="/phs/sg/{{pageType}}/{{singlePhone.activityproductId}}{{params}}&headCategory={{category}}{{singlePhone.cardItems - singlePhone.fanhuan | mp}}" ng-class="{true:'curr',false:''}[machineName == singlePhone.productName]" ng-click="setMachine(singlePhone.productName,singlePhone.activityproductId)">
             <div class="img-box">
                 <img ng-src="http://www.yfq.cn:8899/fileserver/medias/{{singlePhone.mainImageUrl}}">
                 <span class="flag">
@@ -72,8 +72,8 @@
                 </div>
             </div>
             <div class="bbtn">
-                <span>支付有立减 马上购</span>
-                <!--<span ng-if="singlePhone.cardItems == singlePhone.fanhuan">存话费 0元购</span>-->
+                <span ng-if="singlePhone.cardItems != singlePhone.fanhuan">支付有立减 马上购</span>
+                <span ng-if="singlePhone.cardItems == singlePhone.fanhuan">0机价 马上购</span>
             </div>
         </a>
     </li>

@@ -151,10 +151,11 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
                 }
             });
 
-            $scope.brandPhones = ($scope.brandPhones).sort(function (a, b) {
-                return parseInt(a.cardItems) - parseInt(b.cardItems);
-            })
-
+            if(n.brandName == "0元购机"){
+                $scope.brandPhones = ($scope.brandPhones).sort(function (a, b) {
+                    return parseInt(a.cardItems) - parseInt(b.cardItems);
+                })
+            }
         }
     }, true);
 
