@@ -1,0 +1,42 @@
+<div class="page active-a active-d">
+    <!-- pia phone-index-c -->
+    <top-nav page-title="中国电信●翼分期商城" page-back="menu" nav-visibility="hide"></top-nav>
+    <div class="content-scrollable">
+        <gh></gh>
+        <div id="indexBanner">
+            <div class="img-box" ng-click="showFudai('JM-MX')">
+                <img src="/images/active/d/1.jpg">
+            </div>
+            <div class="img-box" ng-click="showFudai('JM-MX')">
+                <img src="/images/active/d/2.jpg">
+            </div>
+        </div>
+
+        <div class="new-coupon">
+            <div class="qrcode-txt-title">输入手机号码立即领券</div>
+            <div class="weui-cell input-mobile" ng-class="{'weui-cell_warn':couponForm.couponMobile.$dirty== true && couponForm.couponMobile.$valid == false,'weui-cell_success':couponForm.couponMobile.$valid == true}">
+                <div class="weui-cell__bd weui_cell_primary">
+                    <input id="newCouponMobile" name="newCouponMobile" ng-blur="inputHomeArgs(1)" ng-model="coupon.mobile" ng-maxlength="11" ng-pattern="/^[0-9]*$/" pattern="[0-9]*" ng-minlength="11" placeholder="请填写手机号码..." class="weui-input" required/>
+                </div>
+                <!--<div class="weui-cell__ft"><i class="weui-icon-warn" ng-if="couponForm.receiverMobile.$dirty== true && couponForm.receiverMobile.$valid == false"></i><i class="weui-icon-success" ng-if="couponForm.receiverMobile.$valid == true"></i></div>-->
+            </div>
+
+            <div class="weui-cell weui-cell_vcode input-vcode" ng-class="{'weui-cell_warn':couponForm.couponActiveCode.$dirty== true && couponForm.couponActiveCode.$valid == false,'weui-cell_success':couponForm.couponActiveCode.$valid == true}">
+                <div class="weui-cell__bd weui_cell_primary">
+                    <input name="newCouponActiveCode" ng-blur="inputHomeArgs(0)" ng-model="coupon.activeCode" ng-maxlength="4" ng-pattern="/^[0-9]*$/" pattern="[0-9]*" ng-minlength="4" placeholder="请输入手机验证码" class="weui-input" required/>
+                </div>
+                <div class="weui-cell__ft"><a href="javascript:;" class="weui-vcode-btn" ng-click="getCouponActiveCode($event,coupon.mobile)" ng-class="paraclass" ng-bind="paracont">获取手机验证码</a></div>
+            </div>
+
+            <div class="lingquan img-box" ng-click="getQuan('JM-MX');showFudai('JM-MX')">
+                <img src="/images/active/lingquan.gif">
+            </div>
+        </div>
+
+        <div class="new-foot">
+            <p>本活动最终解释权归电信翼分期商城所有<br>粤ICP 备13041721</p>
+        </div>
+
+        <ng-coupon></ng-coupon>
+    </div>
+</div>

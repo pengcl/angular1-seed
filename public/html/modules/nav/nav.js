@@ -26,11 +26,17 @@ app.directive("topNav", ['$timeout', function ($timeout) {
                 history.back();
                 var timer = $timeout(function () {
                     $viewContainer.removeClass("ng-back");
-                }, 600);
+                }, 500);
             };
             
             scope.done = function () {
 
+            };
+
+            scope.getContact = function () {
+                getMeiqia();
+                _MEIQIA('showPanel');
+                writebdLog(scope.category, "_CustConsult", "渠道号", scope.gh);//客服咨询
             };
         }
     };

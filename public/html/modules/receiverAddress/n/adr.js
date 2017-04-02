@@ -83,8 +83,13 @@ app.directive("adr", ["$compile", "$cookieStore", '$http', '$interval', function
             scope.paraclass = "but_null";
             var second = 59, timePromise = undefined;
 
-            scope.getActiveCode = function (phoneNumber) {
+            scope.getActiveCode = function (phoneNumber,e) {
+                if($(e.currentTarget).hasClass("not")){
+
+                }
+                scope.toast.open();
                 $http.get("http://app.yfq.cn:3099/api/getActiveCode/" + phoneNumber).success(function (data) {
+                    scope.toast.close();
                     if (data == "") {
                         timePromise = $interval(function () {
                             if (second <= 0) {
@@ -112,7 +117,7 @@ app.directive("adr", ["$compile", "$cookieStore", '$http', '$interval', function
                     $(".input-vcode").addClass("weui-cell_warn");
                     return false;
                 } else {
-                    if (!checkMobileCode(scope.activeCode)) {
+                    if (!checkMobileCode(scope.receiver.mobile, scope.activeCode)) {
                         $(".input-vcode").removeClass("weui-cell_success");
                         $(".input-vcode").addClass("weui-cell_warn");
                         return false;
@@ -126,13 +131,13 @@ app.directive("adr", ["$compile", "$cookieStore", '$http', '$interval', function
             var getArea = function (id, index, province, city, district) {
                 var url, thisHtml;
                 if (index === 0) {
-                    url = "http://m.gd189fq.com/wap/comm/czCommonController/getRegion.html?need=province&key=" + new Date();
+                    url = cfApi.apiHost + "/wap/comm/czCommonController/getRegion.html?need=province&key=" + new Date();
                 } else if (index === 1) {
-                    url = "http://m.gd189fq.com/wap/comm/czCommonController/getRegion.html?need=city&province=" + encodeURI(province) + "&key=" + new Date();
+                    url = cfApi.apiHost + "/wap/comm/czCommonController/getRegion.html?need=city&province=" + encodeURI(province) + "&key=" + new Date();
                 } else if (index === 2) {
-                    url = "http://m.gd189fq.com/wap/comm/czCommonController/getRegion.html?need=district&province=" + encodeURI(province) + "&city=" + encodeURI(city) + "&key=" + new Date();
+                    url = cfApi.apiHost + "/wap/comm/czCommonController/getRegion.html?need=district&province=" + encodeURI(province) + "&city=" + encodeURI(city) + "&key=" + new Date();
                 } else {
-                    url = "http://m.gd189fq.com/wap/comm/czCommonController/getRegion.html?need=street&province=" + encodeURI(province) + "&city=" + encodeURI(city) + "&district=" + encodeURI(district) + "&key=" + new Date();
+                    url = cfApi.apiHost + "/wap/comm/czCommonController/getRegion.html?need=street&province=" + encodeURI(province) + "&city=" + encodeURI(city) + "&district=" + encodeURI(district) + "&key=" + new Date();
                 }
                 $areaList.eq(index).html("");
                 $.ajax({
@@ -212,7 +217,7 @@ app.directive("adr", ["$compile", "$cookieStore", '$http', '$interval', function
                 return false;
             });
 
-            scope.checkAddress = function () {
+            scope.$root.checkAddress = function () {
                 $("#receiverAddress").find(".weui_cell").removeClass("weui-cell_warn");
                 if (!scope.checkoutForm.reciverName.$valid) {
                     //alert("请输入收件人");
@@ -237,17 +242,18 @@ app.directive("adr", ["$compile", "$cookieStore", '$http', '$interval', function
                 return true;
             };
             scope.showReceiverPn = function (e) {
-            	writeAddressBar();
-                $("#receiverAddressPanel").slideToggle();
-                $(".adr-tab").toggleClass("down");
+                writeAddressBar();
+                if (!(attrs.noAnimate == "true")) {
+                    $("#receiverAddressPanel").slideToggle();
+                    $(".adr-tab").toggleClass("down");
+                }
             };
-            
-            function writeAddressBar()
-            {
-            	if($("#receiverAddressPanel").is(":hidden"))
-            		writebdLog(scope.category, "_ShowAddressBar", "渠道号", scope.gh); //展开地址栏
+
+            function writeAddressBar() {
+                if ($("#receiverAddressPanel").is(":hidden"))
+                    writebdLog(scope.category, "_ShowAddressBar", "渠道号", scope.gh); //展开地址栏
                 else
-                	writebdLog(scope.category, "_StopAddressBar", "渠道号", scope.gh); //收起地址栏
+                    writebdLog(scope.category, "_StopAddressBar", "渠道号", scope.gh); //收起地址栏
             }
 
             scope.adrOk = function () {

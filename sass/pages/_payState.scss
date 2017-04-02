@@ -1,0 +1,107 @@
+.page.pay-state {
+  font-size: 0.14rem;
+  .content-scrollable {
+    background: #fff;
+    padding-top: 0.5rem;
+  }
+  .pd-w {
+    padding-left: 0.1rem;
+    padding-right: 0.1rem;
+  }
+  .pay-ad {
+    margin-top: 0.3rem;
+  }
+  .pay-icon {
+    background: #fff;
+    .pay-icon-img {
+      padding: 0.1rem;
+      .img-box {
+        width: 1rem;
+      }
+    }
+    .pay-icon-txt {
+      padding: 0.1rem;
+      h2 {
+        font-weight: normal;
+        line-height: 1;
+        margin-bottom: 0.05rem;
+      }
+      p {
+        font-size: 0.12rem;
+      }
+      .weui-btn {
+        border: 2px solid $color-orange;
+        color: $color-orange;
+        font-size: 0.14rem;
+        margin-top: 0.1rem;
+        width: 60%;
+        margin-left: 0;
+        &:after {
+          border: 0;
+        }
+      }
+    }
+  }
+  .phone-list {
+    margin-bottom: 0.5rem;
+    .phone-item {
+      color: #000;
+      border-bottom: 1px solid #d8d8d8;
+      .pay-icon-img {
+        .img-box {
+          width: 0.9rem;
+        }
+      }
+      .pay-icon-txt {
+        h3 {
+          font-size: 0.12rem;
+        }
+        p {
+          display: block;
+          @include border-radius(5rem);
+          background: #fce6a4;
+          padding-top: 0.05rem;
+          padding-bottom: 0.05rem;
+          padding-left: 0.1rem;
+          padding-right: 0.1rem;
+          margin-top: 0.08rem;
+          margin-bottom: 0.08rem;
+          line-height: 1.3;
+          b {
+            font-weight: bold;
+          }
+        }
+        .price {
+          font-size: 0.18rem;
+        }
+        .day-price {
+          font-size: 0.18rem;
+          font-weight: bold;
+          em {
+            color: $color-orange;
+          }
+        }
+      }
+    }
+  }
+  .spc-title {
+    background: #fff;
+    h2 {
+      span {
+        color: #333;
+        &:first-child {
+          width: 3.1em;
+          &:after {
+            background: #d8d8d8;
+          }
+        }
+        &:last-child {
+          width: 3.1em;
+          &:before {
+            background: #d8d8d8;
+          }
+        }
+      }
+    }
+  }
+}

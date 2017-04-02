@@ -1,17 +1,15 @@
-<div id="pickMainNumber" class="pick-number" ng-if="buyType == 1">
+<div id="pickMainNumber" class="pick-number">
     <input id="mainNumber" name="mainNumber" ng-model="mainNumber" type="hidden" required value="{{mainNumber}}">
     <div class="weui-cells choose-number" ng-click="showMNumberPn($event)">
         <a class="weui-cell choose-number-a weui-cell_access" href="javascript:;">
             <div class="weui-cell__bd">
-                <p>选择主机号码<span class="star-color">*</span></p>
+                <p><span  ng-bind="phoneTitle">选择主机号码</span><span class="star-color">*</span></p>
             </div>
             <div class="weui-cell__ft"><span ng-if="!mainNumber">未选择</span><span ng-if="mainNumber" ng-bind="mainNumber"></span></div>
         </a>
     </div>
     <div id="pickMainNumberPanel" class="pick-panel">
-        <div class="the-notice">
-            <p class="icon-time">  限时0元选价值200元靓号</p>
-        </div>
+
         <div class="weui-cells weui-cells_form" style="overflow:visible">
             <div class="weui-cell">
                 <div class="weui-cell__hd"><i class="weui-icon-search"></i></div>
@@ -38,11 +36,15 @@
                 </li>
             </ul>
         </div>
-
+        <div class="the-notice">
+            <p class="icon-time" ng-if="pageType != 'pcd'">  限时0元选价值200元靓号</p>
+            <p class="icon-time" ng-if="pageType == 'pcd'">  限时9.9选价值200元靓号</p>
+        </div>
         <div class="sbtn pure-g">
             <a class="sb-prev pure-u-1-3" href="javascript:;" ng-click="Previous('main')"><i class="icon-arrow-left-alt"></i><span>上一页</span></a>
             <a class="sb-next pure-u-1-3" href="javascript:;" ng-click="Next('main')"><span>下一页</span><i class="icon-arrow-right-alt"></i></a>
             <a style="display:none" class="sb-ok pure-u-1-4" href="javascript:;" ng-click="ok('main')"><span>我选好了</span><i class="icon-arrow-up"></i></a>
         </div>
+
     </div>
 </div>

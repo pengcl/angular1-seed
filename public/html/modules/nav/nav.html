@@ -1,6 +1,6 @@
 <nav class="{{navClass}} {{navVisibility}}">
     <div class="nav-group">
-        <a ng-if="pageBack == 'back'" class="nav-item js-back" ng-click="back()" href="javascript:;"><span class="icon-arrow-left-alt"></span></a>
+        <a ng-if="pageBack == 'back'" class="nav-item js-back" ng-click="back()" href="javascript:;"><span class="icon-arrow-left"></span></a>
         <a ng-if="pageBack == 'menu'" class="nav-item js-menu" ng-click="menu()" href="javascript:;"><span class="icon-menu"></span></a>
     </div>
 
@@ -11,5 +11,6 @@
 
     <div class="nav-group right">
         <a ng-if="pageDone == 'done'" class="nav-item js-done" ng-click="done()" href="javascript:;">完成</a>
+        <a ng-if="pageDone == 'contact'" class="nav-contact nav-item js-done" ng-click="getContact()" href="javascript:;"><span class="icon-comment"></span><span style="font-size: 0.14rem">客服</span></a>
     </div>
 </nav>

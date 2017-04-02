@@ -3,7 +3,7 @@
   @include inline-block;
   font-family: "lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 0.12rem;
-  font-weight: 300;
+  //font-weight: 300;
   letter-spacing: 0.03rem;
   line-height: 22px !important;
   padding: 0.12rem 0.125rem 0.095rem;
@@ -71,12 +71,18 @@
       //width: 5em;
       color: #f43530;
     }
+    .icon-user {
+      color: $color-primary;
+    }
   }
   .weui-cell_success {
     border: 1px solid $color-green;
     color: $color-green;
     .weui-label {
       //width: 5em;
+      color: $color-green;
+    }
+    .icon-user {
       color: $color-green;
     }
     .weui-icon-warn {

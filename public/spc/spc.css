@@ -1281,11 +1281,45 @@ body.pcd {
   overflow: auto;
   background: #01032a;
 }
-/* line 706, sass/spc.scss */
+/* line 702, sass/spc.scss */
+body.pcd #happy-new-year {
+  font-size: .14rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: rgba(255, 10, 10, 0.7);
+  z-index: 10;
+  padding: .1rem;
+  color: #fff;
+}
+/* line 712, sass/spc.scss */
+body.pcd #happy-new-year p {
+  line-height: 1.5;
+}
+/* line 715, sass/spc.scss */
+body.pcd #happy-new-year .close {
+  font-size: .2rem;
+  font-weight: bold;
+  color: #000;
+  width: .25rem;
+  height: .25rem;
+  background: #fff;
+  position: absolute;
+  right: 3%;
+  bottom: 10%;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+  text-align: center;
+  line-height: .24rem;
+  z-index: 11;
+}
+/* line 735, sass/spc.scss */
 body.pcd .page {
   position: relative;
 }
-/* line 708, sass/spc.scss */
+/* line 737, sass/spc.scss */
 body.pcd .page .content {
   position: absolute;
   top: 0;
@@ -1293,49 +1327,49 @@ body.pcd .page .content {
   right: 0;
   width: 100%;
 }
-/* line 714, sass/spc.scss */
+/* line 743, sass/spc.scss */
 body.pcd .page .content .logo {
   width: 40%;
   margin-top: 0.07rem;
   margin-left: 0.05rem;
 }
-/* line 719, sass/spc.scss */
+/* line 748, sass/spc.scss */
 body.pcd .page .content .feidie {
   margin-top: 0.07rem;
 }
-/* line 722, sass/spc.scss */
+/* line 751, sass/spc.scss */
 body.pcd .page .content .wa {
   position: absolute;
   top: 0.05rem;
   right: 0;
   width: 15%;
 }
-/* line 728, sass/spc.scss */
+/* line 757, sass/spc.scss */
 body.pcd .page .content .header-title {
   color: #fff;
   width: 70%;
   margin-top: -1rem;
 }
-/* line 732, sass/spc.scss */
+/* line 761, sass/spc.scss */
 body.pcd .page .content .header-title .img-box {
   margin-left: -0.2rem;
 }
-/* line 735, sass/spc.scss */
+/* line 764, sass/spc.scss */
 body.pcd .page .content .header-title h1 {
   font-size: 0.2rem;
 }
-/* line 738, sass/spc.scss */
+/* line 767, sass/spc.scss */
 body.pcd .page .content .header-title h2 {
   font-size: 0.16rem;
 }
-/* line 744, sass/spc.scss */
+/* line 773, sass/spc.scss */
 body.pcd .title {
   position: relative;
   font-size: 0.18rem;
   color: #3ca3f1;
   text-align: center;
 }
-/* line 749, sass/spc.scss */
+/* line 778, sass/spc.scss */
 body.pcd .title span {
   display: inline-block;
   vertical-align: middle;
@@ -1344,12 +1378,12 @@ body.pcd .title span {
   *display: inline;
   font-weight: 800;
 }
-/* line 752, sass/spc.scss */
+/* line 781, sass/spc.scss */
 body.pcd .title span.tl, body.pcd .title span.tr {
   position: relative;
   width: 0.36rem;
 }
-/* line 755, sass/spc.scss */
+/* line 784, sass/spc.scss */
 body.pcd .title span.tl:before, body.pcd .title span.tr:before {
   position: absolute;
   content: " ";
@@ -1360,7 +1394,7 @@ body.pcd .title span.tl:before, body.pcd .title span.tr:before {
   top: 50%;
   margin-top: -0.01rem;
 }
-/* line 768, sass/spc.scss */
+/* line 797, sass/spc.scss */
 body.pcd .fqa-lists {
   color: #fff;
   font-size: 0.1rem;
@@ -1369,7 +1403,7 @@ body.pcd .fqa-lists {
   position: relative;
   padding-bottom: 0.05rem;
 }
-/* line 775, sass/spc.scss */
+/* line 804, sass/spc.scss */
 body.pcd .fqa-lists .dark {
   position: absolute;
   bottom: 0;
@@ -1377,26 +1411,26 @@ body.pcd .fqa-lists .dark {
   right: 0;
   width: 100%;
 }
-/* line 783, sass/spc.scss */
+/* line 812, sass/spc.scss */
 body.pcd .fqa-lists ul li {
   margin-top: 0.1rem;
   margin-bottom: 0.1rem;
   color: #bd82ff;
 }
-/* line 787, sass/spc.scss */
+/* line 816, sass/spc.scss */
 body.pcd .fqa-lists ul li em {
   color: #3ca3f1;
 }
-/* line 790, sass/spc.scss */
+/* line 819, sass/spc.scss */
 body.pcd .fqa-lists ul li .list-header {
   font-weight: bold;
 }
-/* line 795, sass/spc.scss */
+/* line 824, sass/spc.scss */
 body.pcd .fqa-lists.close {
   height: 1rem;
   overflow: hidden;
 }
-/* line 800, sass/spc.scss */
+/* line 829, sass/spc.scss */
 body.pcd .fqa-more {
   font-size: 0.12rem;
   text-align: right;
@@ -1404,7 +1438,7 @@ body.pcd .fqa-more {
   color: #d7bd0d;
   margin-bottom: 0.5rem;
 }
-/* line 806, sass/spc.scss */
+/* line 835, sass/spc.scss */
 body.pcd .fqa-more span {
   display: inline-block;
   vertical-align: middle;
@@ -1412,25 +1446,117 @@ body.pcd .fqa-more span {
   *zoom: 1;
   *display: inline;
 }
-/* line 809, sass/spc.scss */
+/* line 838, sass/spc.scss */
 body.pcd .fqa-more .arrow {
   margin-left: 0.05rem;
   width: 0.14rem;
   height: 0.14rem;
 }
-/* line 814, sass/spc.scss */
+/* line 843, sass/spc.scss */
 body.pcd .fqa-more .arrow-d {
   display: none;
 }
-/* line 818, sass/spc.scss */
+/* line 847, sass/spc.scss */
 body.pcd .fqa-more.close .arrow-u {
   display: none;
 }
-/* line 821, sass/spc.scss */
+/* line 850, sass/spc.scss */
 body.pcd .fqa-more.close .arrow-d {
   display: inline-block;
   vertical-align: middle;
   *vertical-align: auto;
   *zoom: 1;
   *display: inline;
+}
+
+/* line 857, sass/spc.scss */
+.yaw-mask-tw .mask {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  background: rgba(0, 0, 0, 0.7);
+}
+/* line 866, sass/spc.scss */
+.yaw-mask-tw .mask-content {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  width: 90%;
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  z-index: 2;
+}
+/* line 873, sass/spc.scss */
+.yaw-mask-tw .mask-content .mask-text {
+  font-size: 0;
+  position: absolute;
+  left: 13%;
+  top: 28%;
+  width: 76%;
+}
+/* line 879, sass/spc.scss */
+.yaw-mask-tw .mask-content .mask-text input {
+  border: none;
+  outline: none;
+}
+/* line 883, sass/spc.scss */
+.yaw-mask-tw .mask-content .mask-text div.name {
+  margin-top: .1rem;
+  padding: .1rem .15rem;
+  background: #fff;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+}
+/* line 888, sass/spc.scss */
+.yaw-mask-tw .mask-content .mask-text div.name input {
+  font-size: .14rem;
+}
+
+/* line 895, sass/spc.scss */
+.yaw-1 {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-image: url(img/yearAward/1.png);
+  background-size: 100% auto;
+}
+
+/* line 904, sass/spc.scss */
+.yaw-2 {
+  -webkit-overflow-scrolling: touch;
+}
+/* line 906, sass/spc.scss */
+.yaw-2 .text {
+  position: absolute;
+  left: 42%;
+  top: 59%;
+  font-size: .1rem;
+  color: #725100;
+}
+/* line 912, sass/spc.scss */
+.yaw-2 .text h4 {
+  margin: 0;
+}
+/* line 916, sass/spc.scss */
+.yaw-2 .company {
+  color: #725100;
+  font-size: .1rem;
+  position: absolute;
+  right: 10%;
+  top: 47%;
+}
+/* line 923, sass/spc.scss */
+.yaw-2 .try-again {
+  position: absolute;
+  bottom: 10%;
+  left: 0;
+  right: 0;
 }

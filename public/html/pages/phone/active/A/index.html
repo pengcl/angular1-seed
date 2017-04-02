@@ -1,0 +1,48 @@
+<div class="page active-a">
+    <!-- pia phone-index-c -->
+    <top-nav page-title="中国电信●翼分期商城" page-back="menu" nav-visibility="hide"></top-nav>
+    <div class="content-scrollable">
+        <gh></gh>
+        <div id="indexBanner">
+            <div class="img-box">
+                <img src="/images/active/1.jpg">
+            </div>
+            <div class="img-box" ng-click="showFudai('JM-MX-HF')">
+                <img src="/images/active/2.jpg">
+            </div>
+            <div class="active-fqa">
+                <div class="fqa-hd">
+                </div>
+                <div class="fqa-bd">
+                    <a href="/phone/active/A/phones{{params}}" class="fqa-bd-title" ng-click="writeClickEvent('ShowFoods');">我已领券，查看商品</a>
+                    <p class="toggle-title" ng-click="fqaToggleClose();">优惠券说明 <i class="icon-arrow-up" ng-show="!toggleClose"></i><i class="icon-arrow-down" ng-show="toggleClose"></i></p>
+                    <div class="fqa-content" ng-show="!toggleClose">
+                        <ul>
+                            <li>1、1888元大红包每小时限量500个，抢完即止；</li>
+                            <li>2、每位用户（同个手机号码）限领1次；</li>
+                            <li>3、优惠券领取后有效期为一个月，过期则券失效将无法使用；</li>
+                            <li>4、优惠券直接抵扣订单金额，购买以下所有机型均可享受优惠；</li>
+                            <li>5、优惠券请至“翼分期商城”公众号【我】-【我的优惠券】-【输入手机号码】查看；</li>
+                            <li>6、优惠券不兑换现金，仅限于抵扣购机价格所享受的优惠；</li>
+                            <li>7、如有疑问，请关注“翼分期商城”公众号向客服咨询；</li>
+                            <li>8、本次活动解释权归翼分期商城所有。</li>
+                        </ul>
+                        <p class="toggle-ft" ng-click="fqaToggleClose();">收起 <i class="icon-arrow-up"></i></p>
+                    </div>
+                </div>
+                <div class="fqa-ft">
+                </div>
+            </div>
+            <div class="img-box">
+                <img src="/images/active/4.jpg">
+            </div>
+            <div class="getters">
+                <ul>
+                    <li ng-repeat="getter in getters" ng-bind-html="getter.txt | trustHtml" on-finish></li>
+                </ul>
+            </div>
+        </div>
+
+        <ng-coupon></ng-coupon>
+    </div>
+</div>

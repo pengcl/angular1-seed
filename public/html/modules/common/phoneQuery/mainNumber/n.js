@@ -6,10 +6,10 @@ app.directive("mainNumber", ["$cookieStore", function ($cookieStore) {
         templateUrl: "modules/common/phoneQuery/mainNumber/n.html",
         controller: "numberController",
         link: function (scope, element, attrs) {
-
+            scope.phoneTitle=attrs.title;
             var $container = $('.content-scrollable');
 
-            scope.checkMainNumber = function () {
+            scope.$root.checkMainNumber = function () {
                 if (!scope.checkoutForm.mainNumber.$valid) {//原本应该用!scope.checkoutForm.phoneNumber.$valid
                     var $scrollTo = $('#pickMainNumber');
                     $container.animate({
@@ -29,8 +29,10 @@ app.directive("mainNumber", ["$cookieStore", function ($cookieStore) {
                     scope.mainNumber = numberItem.n;
                     $this.parent().siblings().children().removeClass('curr');
                     $this.addClass('curr');
-                    $("#pickMainNumberPanel").slideToggle();
-                    $("#pickMainNumber .weui-cells").toggleClass("down");
+                    if(!(attrs.noAnimate == "true")){
+                        $("#pickMainNumberPanel").slideToggle();
+                        $("#pickMainNumber .weui-cells").toggleClass("down");
+                    }
                     writebdLog(scope.category, "_mainSelectNumber", "渠道号", scope.gh);//选择号码
                 } else {
                     scope.$root.dialog.open('系统提示', '您选择的主卡号码和副卡号码相同，请重新选择');
@@ -38,8 +40,10 @@ app.directive("mainNumber", ["$cookieStore", function ($cookieStore) {
             };
 
             scope.showMNumberPn = function (event) {
-                $("#pickMainNumberPanel").slideToggle();
-                $(event.currentTarget).toggleClass("down");
+                if(!(attrs.noAnimate == "true")){
+                    $("#pickMainNumberPanel").slideToggle();
+                    $(event.currentTarget).toggleClass("down");
+                }
                 writebdLog(scope.category, "_mainCuteNumber", "渠道号", scope.gh);//选择主卡靓号
             };
         }
@@ -88,16 +92,18 @@ app.directive("mainNumber", ["$cookieStore", function ($cookieStore) {
         writebdLog($scope.category, '_' + type + 'InputNumber', "渠道号", $scope.gh);//输入查询号码
     };
 
-    $http.jsonp('http://m.gd189fq.com/wap/taokafanghaoNew/fetchLuckNumber.html?callback=JSON_CALLBACK').success(function (data, status, headers, config) {//获取所有的手机号码
+    $http.jsonp(cfApi.apiHost + '/wap/taokafanghaoNew/fetchLuckNumber.html?time=' + new Date().getTime() + '&callback=JSON_CALLBACK').success(function (data, status, headers, config) {//获取所有的手机号码
 
         data = data.sort(function (a,b) {
             return b.s-a.s;
         });
 
         $.each(eval(data), function (i, k) {
-            $scope.phoneData.push(k);
-            if(k.t == 0){
-                $scope.phoneSubData.push(k);
+            if(k.s<=800){
+                $scope.phoneData.push(k);
+                if(k.t == 0){
+                    $scope.phoneSubData.push(k);
+                }
             }
         });
 

@@ -93,3 +93,48 @@ appFilters.filter('range', function () {
         }
     }
 });
+
+appFilters.filter('jm', function () {
+    return function (price, max) {
+        for (var i = 0; i <= max / 5; i++) {
+            if (i * 100 == price) {
+                return i * 5;
+            }
+            if (i * 100 > price) {
+                return (i - 1) * 5;
+            }
+            if (i * 100 < price && i * 5 >= max) {
+                return max;
+            }
+        }
+    }
+});
+
+appFilters.filter('mx', function () {
+    return function (price) {
+
+        if (price > 7680) {
+            return 768;
+        } else {
+            return Math.round(price * 0.1);
+        }
+    }
+});
+
+appFilters.filter('numberUp', function () {
+    return function (price) {
+
+        return Math.ceil(price);
+    }
+});
+
+appFilters.filter('mp', function () {
+    return function (price) {
+
+        if(price == 0){
+            return "&mp=0"
+        }else {
+            return ""
+        }
+    }
+});

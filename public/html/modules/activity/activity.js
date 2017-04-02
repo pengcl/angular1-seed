@@ -5,7 +5,11 @@ app.directive("activity", ['$location', function ($location) {
         restrict: 'E',
         templateUrl: "modules/activity/activity.html",
         link: function (scope, element, attrs) {
-            scope.activity = $location.search().activity;
+            if($location.search().activity == undefined){
+                scope.activity = "";
+            }else {
+                scope.activity = $location.search().activity;
+            }
         }
     };
 }]);

@@ -1,0 +1,81 @@
+<p class="sp-title">选择手机品牌<span class="star-color">*</span></p>
+<ul class="spc-list pure-g">
+    <li class="pure-u-1-5">
+        <div class="item-box img-box" ng-class="{true:'curr',false:''}[filterPhoneName == 'iPhone7']">
+            <img src="/images/active/phone-1.gif">
+        </div>
+    </li>
+    <li class="pure-u-1-5">
+        <div class="item-box img-box" ng-class="{true:'curr',false:''}[filterPhoneName == '华为']">
+            <img src="/images/active/phone-2.gif">
+        </div>
+    </li>
+    <li class="pure-u-1-5">
+        <div class="item-box img-box" ng-class="{true:'curr',false:''}[filterPhoneName == '小米']">
+            <img src="/images/active/phone-3.gif">
+        </div>
+    </li>
+    <li class="pure-u-1-5">
+        <div class="item-box img-box" ng-class="{true:'curr',false:''}[filterPhoneName == 'OPPO']">
+            <img src="/images/active/phone-4.gif">
+        </div>
+    </li>
+    <li class="pure-u-1-5">
+        <div class="item-box img-box" ng-class="{true:'curr',false:''}[filterPhoneName == 'vivo']">
+            <img src="/images/active/phone-5.gif">
+        </div>
+    </li>
+</ul>
+
+<p class="sp-title">选择手机型号<span class="star-color">*</span></p>
+<input type="text" style="display: none;" id="machineName" name="machineName" ng-model="machineName" value="{{machineName}}" class="weui-input" required/>
+<ul class="spc-list spc-phone pure-g">
+    <li class="pure-u-1-2" ng-repeat="singlePhone in singlePhones | filter : filterPhoneName" ng-if="singlePhone.salePrice >= 1500">
+        <a class="item-box" ng-if="params.length == 0" href="/phs/sg/{{pageType}}/{{singlePhone.activityproductId}}{{params}}?headCategory={{category}}" ng-class="{true:'curr',false:''}[machineName == singlePhone.productName]" ng-click="setMachine(singlePhone.productName,singlePhone.activityproductId)">
+            <div class="img-box">
+                <img ng-src="http://www.yfq.cn:8899/fileserver/medias/{{singlePhone.mainImageUrl}}">
+                <span class="flag">
+                    <p><span>领券</span></p>
+                    <p><span>减</span><span ng-bind="singlePhone.phonePrice | jm : 400"></span></p>
+                    <p><span>元</span></p>
+                </span>
+            </div>
+            <div class="title">
+                <span ng-bind="singlePhone.productName"></span>
+            </div>
+            <div class="price">
+                <div class="pure-g">
+                    <div class="text-l pure-u-2-5">
+                        <span>￥</span><span ng-bind="singlePhone.phonePrice"></span>
+                    </div>
+                    <div class="text-r pure-u-3-5">
+                        <span>日供</span><em>￥</em><em ng-bind="singlePhone.phonePrice/365 | number : 1"></em>
+                    </div>
+                </div>
+            </div>
+        </a>
+        <a class="item-box" ng-if="params.length != 0" href="/phs/sg/{{pageType}}/{{singlePhone.activityproductId}}{{params}}&headCategory={{category}}" ng-class="{true:'curr',false:''}[machineName == singlePhone.productName]" ng-click="setMachine(singlePhone.productName,singlePhone.activityproductId)">
+            <div class="img-box">
+                <img ng-src="http://www.yfq.cn:8899/fileserver/medias/{{singlePhone.mainImageUrl}}">
+                <span class="flag">
+                    <p><span>领券</span></p>
+                    <p><span>减</span><span ng-bind="singlePhone.phonePrice | jm : 400"></span></p>
+                    <p><span>元</span></p>
+                </span>
+            </div>
+            <div class="title">
+                <span ng-bind="singlePhone.productName"></span>
+            </div>
+            <div class="price">
+                <div class="pure-g">
+                    <div class="text-l pure-u-2-5">
+                        <span>￥</span><span ng-bind="singlePhone.phonePrice"></span>
+                    </div>
+                    <div class="text-r pure-u-3-5">
+                        <span>日供</span><em>￥</em><em ng-bind="singlePhone.phonePrice/365 | number : 1"></em>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </li>
+</ul>

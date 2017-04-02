@@ -9,6 +9,6 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
             templateUrl: "pages/about/about.html",
             controller: "aboutController"
         });
-}]).controller('aboutController', ['$scope', '$rootScope', '$location', function ($scope, $rootScope, $location) {
+}]).controller('aboutController', ['$scope', '$rootScope', '$location', '$http', function ($scope, $rootScope, $location, $http) {
 
 }]);

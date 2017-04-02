@@ -59,6 +59,18 @@
   }
   .content-scrollable {
     background: url("/images/phones/assets/index/indexBg.jpg") repeat;
+    .sales-banner {
+      position: absolute;
+      left: 18%;
+      bottom: 41%;
+      width: 62%;
+    }
+  }
+  #indexBanner {
+    display: none;
+  }
+  #indexHot {
+    display: none;
   }
   .spc-title {
     background: none;
@@ -84,7 +96,7 @@
   .list-tabs {
     margin-left: 0.07rem;
     margin-right: 0.07rem;
-    border-bottom: 3px solid #f8791e;
+    border-bottom: 3px solid #d30505;
     margin-bottom: 0.15rem;
     .tab-item {
       &:first-child {
@@ -166,7 +178,7 @@
           font-style: normal;
           padding-left: 0.05rem;
           padding-right: 0.05rem;
-          font-weight: 300;
+          //font-weight: 300;
           line-height: 1.3;
         }
         span {
@@ -179,7 +191,7 @@
           color: #333;
           font-size: 0.12rem;
           padding: 0;
-          font-weight: 300;
+          //font-weight: 300;
           @include inline-block;
           b {
             font-weight: 700;
@@ -310,7 +322,7 @@
         .btn {
           display: block;
           color: #fff;
-          background: #f2741d;
+          background: #d30505;
           margin-right: 0.2rem;
           font-size: 0.18rem;
           padding-top: 0.055rem;
@@ -340,7 +352,7 @@
             left: 0;
             right: 0;
             top: auto;
-            bottom:0;
+            bottom: 0;
           }
           .img-title {
             position: absolute;
@@ -413,8 +425,8 @@
         }
         .btn {
           display: block;
-          border: 2px solid #f2741d;
-          color: #f2741d;
+          border: 2px solid #d30505;
+          color: #d30505;
           font-size: 0.18rem;
           padding-top: 0.045rem;
           padding-bottom: 0.025rem;
@@ -521,8 +533,8 @@
         }
         .btn {
           display: block;
-          border: 2px solid #f2741d;
-          color: #f2741d;
+          border: 2px solid #d30505;
+          color: #d30505;
           font-size: 0.18rem;
           padding-top: 0.045rem;
           padding-bottom: 0.025rem;
@@ -539,15 +551,15 @@
     .selkillbg {
       width: 84%;
       position: absolute;
-      bottom:0.34rem;
-      left:50%;
+      bottom: 0.34rem;
+      left: 50%;
       margin-left: -42%;
       .txt {
         position: absolute;
         left: 0.84rem;
-        right:0;
+        right: 0;
         top: 0.02rem;
-        bottom:0;
+        bottom: 0;
         font-size: 0.12rem;
         color: #eee;
       }
@@ -568,7 +580,7 @@
       &:before {
         content: " ";
         position: absolute;
-        bottom:0.09rem;
+        bottom: 0.09rem;
         height: 2px;
         width: 4em;
         left: 50%;
@@ -584,4 +596,196 @@
       }
     }
   }
+}
+
+.page.pic {
+  font-size: 0.12rem;
+  .content-scrollable {
+    background: #710100;
+  }
+  #homePhoneLists {
+    background: #710100;
+    padding: 0.05rem;
+    .list_single {
+      .phone-box {
+        margin: 0.05rem;
+        display: block;
+        background: #fff;
+        .img-box {
+          overflow: hidden;
+          img {
+            height: 1rem;
+            width: auto;
+            margin: 0.1rem auto;
+          }
+        }
+      }
+    }
+  }
+  #receiverAddressPanel {
+    display: block !important;
+    margin-top: -0.1rem;
+  }
+  .adr-content {
+    display: none !important;
+  }
+  .order-content {
+    .content-bd {
+      background-image: url("/images/phones/C/indexBoxBd.png");
+      background-color: #fff;
+      background-repeat: repeat-y;
+      background-size: 100% auto;
+      padding-bottom: 0.3rem;
+      h2 {
+        font-size: 0.24rem;
+        color: #00317e;
+        text-align: center;
+        padding-top: 0.15rem;
+        padding-bottom: 0.15rem;
+      }
+      .star-color {
+        color: $color-primary;
+      }
+      .title-icon, .sp-title {
+        font-size: 0.14rem;
+        font-weight: bold;
+      }
+      .submit-form {
+        margin-top: 0.25rem;
+        margin-left: 0.2rem;
+        margin-right: 0.2rem;
+      }
+      .content-bd-box {
+        padding-left: 0.2rem;
+        padding-right: 0.2rem;
+        .address .weui-cell {
+          margin-left: 0;
+          margin-right: 0;
+          @include border-radius(0);
+        }
+        .input-ok {
+          display: none;
+        }
+        #receiverAddressPanel {
+          margin-top: 0;
+        }
+      }
+      .adr-tab {
+        margin-top: 0;
+        .weui-cell {
+          margin-top: 0;
+          margin-bottom: 0;
+          padding-left: 0;
+          border: 0;
+          .weui-cell__bd {
+            padding-left: 0;
+            &:before {
+              display: none;
+            }
+          }
+          .weui-cell__ft {
+            display: none;
+          }
+        }
+      }
+      .spc-list {
+        margin-left: -0.05rem;
+        margin-right: -0.05rem;
+        .item-box {
+          border: 1px solid #ccc;
+          margin: 0.05rem;
+          padding: 8px;
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+          &.curr {
+            border: 2px solid $color-primary;
+            padding: 7px;
+          }
+        }
+      }
+      .weui-cell__hd {
+        display: none;
+      }
+      #inputsStoreSelect {
+        padding: 0;
+        border: 0;
+        .weui-cell__hd {
+          display: block;
+          .weui-label {
+            padding: 10px 15px;
+            border: 1px solid #999;
+            margin-right: 0.1rem;
+            background-color: #d6d6d6;
+          }
+        }
+        .weui-cell__bd {
+          padding: 10px 15px;
+          border: 1px solid #999;
+        }
+      }
+    }
+  }
+  .buyers {
+    font-size: 0.12rem;
+    padding-top: 0.3rem;
+    background: #710100;
+    .content-bd {
+      background-image: url("/images/phones/C/buyersBoxBd.png");
+      background-color: #027043;
+      background-repeat: repeat-y;
+      background-size: 100%;
+      .content-bd-box {
+        padding-left: 0.2rem;
+        padding-right: 0.2rem;
+        table {
+          width: 100%;
+          &:before {
+            display: none;
+          }
+          &:after {
+            display: none;
+          }
+          tbody {
+            tr {
+              &:nth-child(odd) {
+                background: #00653d;
+              }
+              &:nth-child(even) {
+              }
+              td {
+                &:last-child {
+                  color: #edd00d;
+                }
+              }
+            }
+          }
+          th {
+            color: #fff;
+            &:before {
+              display: none;
+            }
+            &:after {
+              display: none;
+            }
+          }
+          td {
+            color: #fff;
+            &:before {
+              display: none;
+            }
+            &:after {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.overlay.overlay-c.overlay-code .qrcode-url {
+  position: absolute;
+  bottom: 0.3rem;
+  left: 20%;
 }

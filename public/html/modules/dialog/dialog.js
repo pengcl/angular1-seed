@@ -5,7 +5,6 @@ app.directive("jsDialog", [function () {
         restrict: 'E',
         templateUrl: "modules/dialog/dialog.html",
         link: function (scope, element, attrs) {
-
             scope.$root.dialog = {
                 open: function (title, content) {
                     scope.dialogTitle = title;

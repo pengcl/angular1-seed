@@ -1,0 +1,318 @@
+<div class="page active-a active-d">
+    <!-- pia phone-index-c -->
+    <top-nav page-title="中国电信●翼分期商城" page-back="menu" nav-visibility="hide"></top-nav>
+    <div class="content-scrollable">
+        <gh></gh>
+        <activity></activity>
+        <!--<div class="hot-phone img-box">-->
+        <!--<img src="/images/active/activePhoneTitle.jpg">-->
+        <!--</div>-->
+        <div ng-click="showFudai('JM-MX')">
+            <div class="img-box">
+                <img src="/images/active/d/new/1.jpg">
+            </div>
+        </div>
+        <!--<div class="img-box" ng-click="showFudai('JM-MX')">
+            <img src="/images/active/d/2.jpg">
+        </div>-->
+
+        <div class="img-box" style="margin-left: 0.1rem;margin-right: 0.1rem">
+            <img src="/images/active/d/red-title.png">
+        </div>
+        <div class="red-phone">
+            <div class="pure-g">
+                <a class="pure-u-1-2" ng-if="params.length == 0"
+                   href="/phs/sg/{{pageType}}/366{{params}}?headCategory={{category}}"
+                   ng-click="setMachine('iPhone7 128G 中国红',366)">
+                    <div class="img-box">
+                        <img src="/images/active/d/red-1.jpg">
+                    </div>
+                </a>
+                <a class="pure-u-1-2" ng-if="params.length != 0"
+                   href="/phs/sg/{{pageType}}/366{{params}}&headCategory={{category}}"
+                   ng-click="setMachine('iPhone7 128G 中国红',366)">
+                    <div class="img-box">
+                        <img src="/images/active/d/red-1.jpg">
+                    </div>
+                </a>
+                <a class="pure-u-1-2" ng-if="params.length == 0"
+                   href="/phs/sg/{{pageType}}/368{{params}}?headCategory={{category}}"
+                   ng-click="setMachine('iPhone7 Plus 128G 中国红',368)">
+                    <div class="img-box">
+                        <img src="/images/active/d/red-2.jpg">
+                    </div>
+                </a>
+                <a class="pure-u-1-2" ng-if="params.length != 0"
+                   href="/phs/sg/{{pageType}}/368{{params}}&headCategory={{category}}"
+                   ng-click="setMachine('iPhone7 Plus 128G 中国红',368)">
+                    <div class="img-box">
+                        <img src="/images/active/d/red-2.jpg">
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="img-box" style="margin-top: 0.05rem;margin-left: 0.1rem;margin-right: 0.1rem">
+            <img src="/images/active/d/red-tips.gif">
+        </div>
+
+        <div class="img-box">
+            <img src="/images/active/d/new/3.jpg">
+        </div>
+        <div id="hotPhone" class="hot-phone">
+            <ul class="spc-list hot-phone">
+                <li ng-repeat="singlePhone in singlePhones | filter:{ifRecommend: 1}"
+                    ng-show="singlePhone.salePrice >= 1500">
+                    <a class="item-box pure-g" ng-if="params.length == 0"
+                       href="/phs/sg/{{pageType}}/{{singlePhone.activityproductId}}{{params}}?headCategory={{category}}&mp=0"
+                       ng-class="{true:'curr',false:''}[machineName == singlePhone.productName]"
+                       ng-click="setMachine(singlePhone.productName,singlePhone.activityproductId)">
+                        <div class="img-box pure-u-1-3">
+                            <img ng-src="http://www.yfq.cn:8899/fileserver/medias/{{singlePhone.mainImageUrl}}">
+                            <span class="flag">
+                                    含<span ng-bind="singlePhone.fanhuan"></span>元话费
+                                </span>
+                        </div>
+                        <div class="item-txt pure-u-2-3">
+                            <div class="title" ng-bind="singlePhone.productSubName"></div>
+                            <div class="tips">
+                                <span>满￥100减￥5  支付有惊喜</span>
+                                <!--<span>立减</span>
+                                <span style="font-weight: bold"><span ng-bind="singlePhone.cardItems | jm : 800"></span></span>
+                                <span>元，享12期免息 顺丰包邮</span>-->
+                            </div>
+
+                            <div class="price">
+                                <em style="font-size: 0.14rem">合约优惠价:</em><em style="font-size: 0.18rem">￥</em><em ng-bind="singlePhone.cardItems - (singlePhone.cardItems | jm : 800)" style="font-size: 0.18rem"></em>
+                                <span style="font-size: 0.1rem">合约价:</span><span style="font-size: 0.1rem">￥</span><span style="font-size: 0.1rem" ng-bind="singlePhone.cardItems - 0"></span>
+                            </div>
+
+                            <div class="btips" ng-if="singlePhone.cardItems >= singlePhone.fanhuan"><span class="lb">优惠推荐：</span><span class="rt">预存话费￥<span ng-bind="singlePhone.fanhuan"></span>+购机价￥<span ng-bind="singlePhone.cardItems - singlePhone.fanhuan"></span></span></div>
+                            <div class="btips" ng-if="singlePhone.cardItems < singlePhone.fanhuan"><span class="lb">优惠推荐：</span><span class="rt">预存话费￥<span ng-bind="singlePhone.fanhuan"></span>+购机价￥<span ng-bind="0"></span></span></div>
+                        </div>
+                    </a>
+                    <a class="item-box pure-g" ng-if="params.length != 0"
+                       href="/phs/sg/{{pageType}}/{{singlePhone.activityproductId}}{{params}}&headCategory={{category}}&mp=0"
+                       ng-class="{true:'curr',false:''}[machineName == singlePhone.productName]"
+                       ng-click="setMachine(singlePhone.productName,singlePhone.activityproductId)">
+                        <div class="img-box pure-u-1-3">
+                            <img ng-src="http://www.yfq.cn:8899/fileserver/medias/{{singlePhone.mainImageUrl}}">
+                            <span class="flag">
+                                    含<span ng-bind="singlePhone.fanhuan"></span>元话费
+                                </span>
+                        </div>
+                        <div class="item-txt pure-u-2-3">
+                            <div class="title" ng-bind="singlePhone.productSubName"></div>
+                            <div class="tips">
+                                <span>满￥100减￥5  支付有惊喜</span>
+                                <!--<span>立减</span>
+                                <span style="font-weight: bold"><span ng-bind="singlePhone.cardItems | jm : 800"></span></span>
+                                <span>元，享12期免息 顺丰包邮</span>-->
+                            </div>
+
+                            <div class="price">
+                                <em style="font-size: 0.14rem">合约优惠价:</em><em style="font-size: 0.18rem">￥</em><em ng-bind="singlePhone.cardItems - (singlePhone.cardItems | jm : 800)" style="font-size: 0.18rem"></em>
+                                <span style="font-size: 0.1rem">合约价:</span><span style="font-size: 0.1rem">￥</span><span style="font-size: 0.1rem" ng-bind="singlePhone.cardItems - 0"></span>
+                            </div>
+
+                            <div class="btips" ng-if="singlePhone.cardItems >= singlePhone.fanhuan"><span class="lb">优惠推荐：</span><span class="rt">预存话费￥<span ng-bind="singlePhone.fanhuan"></span>+购机价￥<span ng-bind="singlePhone.cardItems - singlePhone.fanhuan"></span></span></div>
+                            <div class="btips" ng-if="singlePhone.cardItems < singlePhone.fanhuan"><span class="lb">优惠推荐：</span><span class="rt">预存话费￥<span ng-bind="singlePhone.fanhuan"></span>+购机价￥<span ng-bind="0"></span></span></div>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="img-box">
+            <img src="/images/active/d/4.jpg">
+        </div>
+        <div class="phones-content">
+            <spc-phone-d></spc-phone-d>
+        </div>
+
+        <div class="img-box">
+            <img src="/images/active/d/5.jpg">
+        </div>
+
+        <div class="fqa-content">
+            <div class="fqa-lists close">
+                <ul>
+                    <li>
+                        <div class="list-header">
+                            <span>一、</span>什么合约机？
+                        </div>
+                        <div class="list-content">
+                            <div class="ctxt">
+                                <p>购机时用户承诺一定的在网时间，预存一定话费（话费一般分月到账），即可享受购机优惠补贴，更多优惠政策请留意翼分期商城公布。</p>
+                            </div>
+                        </div>
+                        <div class="pros-line share-pros-line"></div>
+                    </li>
+                    <li>
+                        <div class="list-header">
+                            <span>二、</span>合约计划购买流程及发货问题
+                        </div>
+                        <div class="list-content">
+                            <div class="ctxt">
+                                <ul>
+                                    <li>
+                                        <div class="list-header">
+                                            <span>1、</span>如何购买合约机：
+                                        </div>
+                                        <div class="list-content">
+                                            <div class="ctxt">
+                                                <ul>
+                                                    <li>
+                                                        步骤1：找到心仪的手机，选好手机的网络制式、颜色、容量等
+                                                    </li>
+                                                    <li>
+                                                        步骤2：选好手机后，进入选择套餐、号码
+                                                    </li>
+                                                    <li>
+                                                        步骤3：填写收货信息，选择一次性支付/分期支付/广州地区用户货到付款
+                                                    </li>
+                                                    <li>
+                                                        步骤4：使用微信/支付宝/信用卡分期支付成功后，翼分期商城将安排发货
+                                                    </li>
+                                                    <li>
+                                                        步骤5：坐等收货验机
+                                                    </li>
+                                                    <li>
+                                                        步骤6：关注“翼分期商城”公众号上传证件完成实名认证
+                                                    </li>
+                                                    <li>
+                                                        步骤7：电信系统受理成功，号码卡即可激活使用
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="list-header">
+                                            <span>2、</span>请仔阅读并知晓以下合约计划购买温馨提示：
+                                        </div>
+                                        <div class="list-content">
+                                            <div class="ctxt">
+                                                <ul>
+                                                    <li>
+                                                        a、按照工信部通讯产品实名制要求，为保证用户的合法权益，请用户认真填写机主本人的姓名、身份证号，阅读、确认相关协议内容。若冒用他人证件下单、恶意产生欠费的，翼分期商城将通过法律途径追责。
+                                                    </li>
+                                                    <li>
+                                                        b、若因用户本身是电信黑名单用户或是老客户资料不完善导致无法开户的，请联系翼分期商城客服处理。
+                                                    </li>
+                                                    <li>
+                                                        c、要求机卡绑定使用才能享受话费赠送。
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="pros-line share-pros-line"></div>
+                    </li>
+                    <li>
+                        <div class="list-header">
+                            <span>三、</span>合约机套餐资费说明：
+                        </div>
+                        <div class="list-content">
+                            <div class="ctxt">
+                                <ul>
+                                    <li>
+                                        1、激活开通当日即开始计费，开通当月套餐月费以及套餐流量、通话时长、短信均按当月剩余天数折算、计价。
+                                    </li>
+                                    <li>
+                                        <b>2、套餐超出收费：</b>
+                                        <p>不足100MB按0.0003元/KB收费，100MB-500MB收费30元；用户套餐外流量超过500MB时，仍按上述原则（即每超出500MB收费30元）收费，以此类推。上网当月套餐外流量消费600元封顶, 流量15G封顶；国内通话：0.15元/分钟；</p>
+
+                                    </li>
+                                    <li>
+                                        3、话音时长使用规则：套餐内语音时长包含本地主叫（含本地市话和本地国内长途）和国内漫游主叫时长（不含台港澳）。
+                                    </li>
+                                    <li>
+                                        4、流量使用规则：手机上网流量仅限中国大陆境内使用，不区分4G、3G、2G，不含WLAN(Wi-Fi)上网。 上网当月套餐外流量消费600元封顶，当月按套餐外资费累计的总流量（不含用户订购的各种流量包流量、各类赠送流量）达到封顶值（15GB）则暂停当月上网服务，次月初自动开通。
+                                    </li>
+                                    <li>
+                                        5、任意套餐均可办理最多4张副卡，副卡/张/月功能费10元并叠加在每月最低消费上出账，赠送来电显示功能，享受国内（不含台港澳）漫游接听免费，副卡用户可共享主卡基础套餐中的语音、数据流量，但不共享主卡的额外赠送部分。
+                                    </li>
+                                    <li>
+                                        6、合约期内，中国电信会按照协议约定定期给用户返还或者赠送话费；合约期内如果变更业务或者套餐，有可能会影响话费返还，具体请留意翼分期商城细则发布
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="pros-line share-pros-line"></div>
+                    </li>
+
+                    <li>
+                        <div class="list-header">
+                            <span>四、</span>缴费说明：
+                        </div>
+                        <div class="list-content">
+                            <div class="ctxt">
+                                <p>请在开通套餐每月8号前缴纳所选套餐档次费用（可通过线上充值缴费），如逾期缴费将用影响号码正常使用和每月话费的赠送。并且会因结算问题，导致您进入电信黑名单，不能再次办理电信业务，并影响您的全国个人征信记录（贷款，出行等）。</p>
+                            </div>
+                        </div>
+                        <!-- <div class="tips-info-content" style="margin-top:0;">注：套餐需激活后才能正常使用，请确保本人签收，默认送达次日开通（公休日除外），介意者慎拍。</div> -->
+                        <div class="pros-line share-pros-line"></div>
+                    </li>
+                    <li>
+                        <div class="list-header">
+                            <span>五、</span>各品牌合约机售后服务问题:
+                        </div>
+                        <div class="list-content">
+                            <div class="ctxt">
+                                <ul>
+                                    <li>
+                                        1、售出手机严格按照合约机国家三包法规，未激活合约套餐，可享受7天包退；激活后15天包换，一年保修服务。
+                                    </li>
+                                    <li>
+                                        2、如有质量问题请带上业务受理登记单、购机补差发票、机主身份证原件，和电话机主机含配件和外盒，到说明书上的各地网点进行手机检测或保修！
+                                    </li>
+                                    <li>
+                                        3、本次合约机优惠活动为机卡绑定优惠，手机为合约机，需搭配4G优惠合约月租套餐一起购买才能享受优惠。合约期内，不可办理退户、销户、过户等业务。中途注销卡号会产生相应违约费用。
+                                    </li>
+                                    <li>
+                                        4、违约费用构成：品牌官网购机差价+剩余月份套餐费用+用户注销当月要结清的话费（如选择分期付款，还需补分期手续费）
+                                    </li>
+                                    <li>
+                                        5、未激活未拆封前，若因个人问题导致的退货（反悔，不想要了），需自己承担快递费。
+                                    </li>
+                                    <li>
+                                        6、手机卡属于实名制商品，用户使用后无法进行2次销售，激活后不享受退货服务，请您谅解。
+                                    </li>
+                                    <li>
+                                        7、费用咨询、退货退款等问题，欢迎通过翼分期商城微信号“翼分期商城”与我们联系。（退费到账时间：15个工作日）
+                                    </li>
+                                    <li>
+                                        8、您有任何问题，欢迎拨打客服热线：02085599918或关注微信公众号：“翼分期商城”找到我们。
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="pros-line share-pros-line"></div>
+                    </li>
+                </ul>
+            </div>
+
+            <p class="fqa-more close" ng-click="showFqa()"><span>点击显示更多</span><span class="arrow arrow-d img-box"><img
+                    src="/images/active/d/d.png"></span><span
+                    class="arrow arrow-u img-box"><img src="/images/active/d/u.png"></span></p>
+
+        </div>
+
+        <div class="img-box">
+            <img src="/images/active/d/6.gif">
+        </div>
+
+        <!--<ng-coupon></ng-coupon>-->
+
+    </div>
+    <!--<div class="right-nav">
+        <div class="img-box" ng-click="showFudai('JM-MX')">
+            <img src="/images/active/d/ling.png">
+        </div>
+        <div class="img-box" ng-click="goToTop()">
+            <img src="/images/active/22.png">
+        </div>
+    </div>-->
+</div>

@@ -1,0 +1,50 @@
+<div class="see-content icon-document" ng-click="openCardPkg('phoneCardPkg',$event)">&nbsp;查看套餐资费详情</div>
+<div id="phoneCardPkg" class="card-p pcd-infos" style="display:none" >
+    <div id="card-close" class="js-close-overlay"  >
+        <img  width=40 src="images/card-close.png" alt="">
+    </div>
+    <div class="content-tw" >
+        <div class="card-content">
+            <div class="title">
+                <p class="title-1">独家政策，优惠周期36个月</p>
+                <p class="title-2">全国通用，接听免费，无漫游，号码归属地为广州</p>
+            </div>
+            <div class="pkg">
+                <div class="pkg-title">
+                    <div>所选套餐:<span ng-bind="(ssDd.oldPrice*36 - ssDd.salesPrice)/36 | numberUp" class="price"></span>元/月  运营商价:<span ng-bind="ssDd.oldPrice | number : 0" class="price"></span>元/月</div>
+                    <div><span ng-bind="ssDd.network"></span>G国内流量，<span ng-bind="ssDd.talkTime"></span>分钟国内通话，<span ng-bind="ssDd.message"></span>条短信</div>
+                </div>
+                <div class="pkg-details">
+                    <ul>
+                        <li>
+                            <div class="pure-g">
+                                <div class="pure-u-1-4"><span class="star-color">*</span>超出收费：</div>
+                                <div class="pure-u-3-4">短信0.1元/条，国内通话0.15元/分，国内流量不足100MB按0.0003元/KB收费，100MB—500MB收费30元。</div>
+                            </div>
+                        </li>
+                        <li><div class="pure-g">
+                            <div class="pure-u-1-4"><span class="star-color">*</span>缴费时间：</div>
+                            <div class="pure-u-3-4">每月8号前网上充值优惠月租 <span ng-bind="(ssDd.oldPrice*36 - ssDd.salesPrice)/36 | numberUp" class="price" style="color:#d73e14"></span>元即可，在您已充值的前提下，剩下的 <span style="color:#d73e14" ng-bind="ssDd.oldPrice - ((ssDd.oldPrice*36 - ssDd.salesPrice)/36 | numberUp)" class="price"></span>元我们会在9-13号为您办理减免。领卡后当月充值使用的话费优惠折扣，会在下月初减免返回给您。</div>
+                        </div></li>
+                        <li><div class="pure-g">
+                            <div class="pure-u-1-4"><span class="star-color">*</span>优惠周期：</div>
+                            <div class="pure-u-3-4">优惠期3年，套餐优惠全国通用。</div>
+                        </div></li>
+                        <li><div class="pure-g">
+                            <div class="pure-u-1-4"><span class="star-color">*</span>开通时间：</div>
+                            <div class="pure-u-3-4">签收后2个工作日内自动开通激活。</div>
+                        </div></li>
+                        <li><div class="pure-g">
+                            <div class="pure-u-1-4"><span class="star-color">*</span>办理原则：</div>
+                            <div class="pure-u-3-4">一个身份证只能办理一次，如已有注销、开通记录不可再次办理。</div>
+                        </div></li>
+                        <li><div class="pure-g">
+                            <div class="pure-u-1-4"><span class="star-color">*</span><span ng-bind="ssDd.network"></span>G流量：</div>
+                            <div class="pure-u-3-4">聊天3204小时，刷图44100张，下载软件320个，浏览网页8400个，下载歌曲1500首。</div>
+                        </div></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,3 +1,4 @@
+/*
 "use strict";
 
 app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $locationProvider) {
@@ -11,4 +12,4 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
         });
 }]).controller('flowController', ['$scope', '$rootScope', '$location', function ($scope, $rootScope, $location) {
 
-}]);
+}]);*/

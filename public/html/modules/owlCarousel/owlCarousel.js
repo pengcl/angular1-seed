@@ -8,6 +8,7 @@ app.directive("owlCarousel", ['$http','$compile', function ($http,$compile) {
             imgUrls : '='
         },
         link: function (scope, element, attrs) {
+
         }
     };
 }]).directive("carouselItem", ['$http','$compile', function ($http,$compile) {

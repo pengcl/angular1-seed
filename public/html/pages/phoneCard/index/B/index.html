@@ -1,0 +1,212 @@
+<div class="page ci-a ci-b">
+    <top-nav page-title="首页" page-back="menu" nav-visibility="hide"></top-nav>
+    <form id="checkoutForm" name="checkoutForm" action="http://m.yfq.cn/wap/taokafanghaoNew/submitOrderDouble.html" method="post" novalidate>
+        <input type="hidden" value="1" name="monthNumber" id="monthNumber">
+        <input type="hidden" value="1" name="mainMonthNumber" id="mainMonthNumber">
+        <input type="hidden" value="{{mainNumber}}" name="number1" id="number1">
+        <input type="hidden" value="{{category}}" name="category" id="category">
+        <input type="hidden" value="{{activeTag}}" ng-model="activeTag" name="activeTag" id="activeTag">
+        <input type="hidden" value="{{phoneQueryUrl}}" name="phoneQueryUrl" id="phoneQueryUrl">
+        <gh></gh>
+        <activity></activity>
+        <redirect-url></redirect-url>
+        <div class="content-scrollable">
+            <div class="img-box">
+                <img src="/spc/img/pcdn/banner.jpg">
+            </div>
+          <div class="img-today">
+              <div class="img-box">
+                  <img src="/spc/img/pcdn/4.jpg">
+              </div>
+              <div class="img-box today">
+                  <img src="/spc/img/pcdn/tody5.png">
+              </div>
+          </div>
+            <div class="buy-now">
+                <div class="buy-now-content">
+                    <div class="time">
+                        <div class="time-main pure-g">
+                            <div class="time-main-l pure-u-1-2">
+                                <div class="img-box">
+                                    <img src="/spc/img/pcdn/0.png" alt="" style="margin-bottom:.1rem">
+                                    <img src="/spc/img/pcdn/0-1.png" alt="">
+                                </div>
+                            </div>
+                            <div class="time-main-r pure-u-1-2">
+                                <timer></timer>
+                                <p>仅剩<span>99</span>个名额</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="buy">
+                        <div>
+                            <p >【<span>756</span>人已办理】</p>
+                            <p style="margin-top:.1rem;margin-bottom: .2rem;color:#ef4d49">*本活动仅限18岁以上用户参与</p>
+                            <p><a href="javascript:;" class="buy-now-btn" ng-click="setPkg($event,252)" >免费领卡</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="img-box">
+                <a href="/phone/active/D/phones?gh={{gh}}&activity=jktchdd" ng-click="userTrack('_GoCouponPage')">
+                    <img src="/images/phoneCard/B/ad.jpg">
+                </a>
+            </div>
+            <div class="img-box" style="margin-top:.2rem">
+                <img src="/spc/img/pcdn/point.jpg" alt="">
+            </div>
+            <div class="img-box">
+                <img src="/spc/img/pcdn/1.jpg">
+            </div>
+            <div class="img-box">
+                <img src="/spc/img/pcdn/2.jpg">
+            </div>
+            <div class="img-box">
+                <img src="/spc/img/pcdn/point.jpg">
+            </div>
+            <a href="javascript:;" ng-click="setPkg($event,252)">
+            <div class="img-box">
+                <img src="/spc/img/pcdn/3.jpg">
+            </div>
+            </a>
+            <a href="javascript:;" ng-click="setPkg($event,254)">
+                <div class="img-box">
+                    <img src="/spc/img/pcdn/6.jpg">
+                </div>
+            </a>
+            <a href="javascript:;" ng-click="setPkg($event,351)">
+            <div class="img-box">
+                <img src="/spc/img/pcdn/5.jpg">
+            </div>
+            </a>
+            <a href="javascript:;" ng-click="setPkg($event,251)">
+            <div class="img-box">
+                <img src="/spc/img/pcdn/7.jpg">
+            </div>
+            </a>
+            <div class="img-box">
+                <img src="/spc/img/pcdn/8.jpg">
+            </div>
+            <div class="img-box">
+                <img src="/spc/img/pcdn/9.jpg">
+            </div>
+            <div class="img-box">
+                <img src="/spc/img/pcdn/point.jpg">
+            </div>
+            <div class="img-box">
+                <img src="/spc/img/pcdn/10.jpg">
+            </div>
+            <div class="img-box">
+                <img src="/spc/img/pcdn/11.gif">
+            </div>
+            <div class="go-here img-box">
+                <img src="/spc/img/pcdn/12.gif">
+            </div>
+            <div class="img-box">
+                <img src="/spc/img/pcdn/order.jpg">
+            </div>
+            <div class="order-content">
+                <div class="content-bd">
+                    <div class="content-bd-box">
+                        <div id="pickMainPkg" class="block-list">
+                            <div class="weui-cells">
+                                <a class="weui-cell choose-number-a weui-cell_access" href="javascript:;">
+                                    <div class="weui-cell__bd">
+                                        <p>选择套餐<span class="star-color">*</span></p>
+                                    </div>
+                                </a>
+                            </div>
+                            <input id="productId" name="productId" type="hidden" ng-model="pkgId" value="{{pkgId}}" required>
+                            <div class="item-lists">
+                                <div class="list pure-g" ng-class="{true:'on-curr',false:''}[pkgId == 252]"
+                                     ng-click="setPkg($event,252)">
+                                    <div class="list-l pure-u-1-3">
+                                        <span>102元/月</span>
+                                    </div>
+                                    <div class="list-r pure-u-2-3"><p><b>3.5G全国流量</b></p>
+                                        <p>900分钟全国通话，50条短信</p>
+                                    </div>
+                                </div>
+                                <div class="list pure-g" ng-class="{true:'on-curr',false:''}[pkgId == 254]"
+                                     ng-click="setPkg($event,254)">
+                                    <div class="list-l curr-b pure-u-1-3">
+                                        <span>156元/月</span>
+                                    </div>
+                                    <div class="list-r pure-u-2-3"><p><b>4.5G全国流量</b></p>
+                                        <p>1800分钟全国通话，50条短信</p>
+                                    </div>
+                                </div>
+                                <div class="list pure-g" ng-class="{true:'on-curr',false:''}[pkgId == 351]"
+                                     ng-click="setPkg($event,351)">
+                                    <div class="list-l curr-b pure-u-1-3">
+                                        <span>155元/月</span>
+                                    </div>
+                                    <div class="list-r pure-u-2-3"><p><b>4.5G全国流量</b></p>
+                                        <p>900分钟全国通话，50条短信</p>
+                                    </div>
+                                </div>
+                                <div class="list pure-g" ng-class="{true:'on-curr',false:''}[pkgId == 251]"
+                                     ng-click="setPkg($event,251)">
+                                    <div class="list-l curr-b pure-u-1-3">
+                                        <span>101元/月</span>
+                                    </div>
+                                    <div class="list-r pure-u-2-3"><p><b>2.5G全国流量</b></p>
+                                        <p>850分钟全国通话，50条短信</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <sim-type no-animate="true"></sim-type>
+                        <main-number title="选择电话号码" no-animate="true"></main-number>
+                        <adr no-animate="true"></adr>
+                        <div style="width: 90%" class="submit-form">
+                            <p style="font-size: 0.14rem;color: #999;margin-top: 0.1rem;color: #bc1403;">温馨提示：应工信部要求需上传证件完成实名认证，号码卡才可以激活使用。完成上传后，我们将为您安排发货。</p>
+                            <p style="margin-bottom:.15rem;text-align: center">*本活动仅限18岁以上用户参与</p>
+                           <a style="margin: 0 auto;display: block;text-align: center" href="javascript:;" ng-click="submitForm();" class="buy-now-btn">
+                              免费领卡
+                           </a>
+                        </div>
+                        <div class="shipping-tips">
+                            <div class="img-box">
+                                <img src="/spc/img/pcdn/shipping.png">
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+             </div>
+            <div class="buyers">
+                <div class="content-hd">
+                    <div class="img-box">
+                        <img src="/spc/img/pcdn/best.jpg">
+                    </div>
+                </div>
+                <div class="content-bd">
+                    <div class="content-bd-box">
+                        <buyers type="pkg"></buyers>
+                    </div>
+                </div>
+            </div>
+            <div class="img-box" style="margin-top:.3rem;">
+                <img src="/spc/img/pcdn/13.jpg">
+            </div>
+
+            <div id="wxQrCode" style="display: none">
+                <div class="overlay overlay-code">
+                    <a class="js-close-overlay overlay-dismiss" href="#"><span class="icon-cross"></span></a>
+                   <div class="wx qrcode-content" style="top:50%">
+                       <div class="img-box">
+                           <img style="height: 100%" src="/spc/img/pcdn/tanchuang.jpg" alt="">
+                       </div>
+                       <div class="img-box wx-c" >
+                           <a href="http://m.yfq.cn/wap/taokafanghaoNew/uploadCardA.html?orderNo={{orderNo}}&s=wap&category={{category}}">
+                           <img src="/spc/img/pcdn/user.png" alt="">
+                           <p><span class="real">进行实名认证</span>(<span id="time-new">5</span>秒后跳转)</p>
+                           </a>
+                       </div>
+                   </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

@@ -7,7 +7,7 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
         .state('phoneCardDetails', { //app首页
             url: "/phs/cd/:pageType/:cardId",
             templateUrl: function ($stateParams) {
-                return 'pages/phone/phone-details/card/A/details.html';
+                return 'pages/phone/phone-details/card/' + $stateParams.pageType + '/details.html';
             },
             controller: "pCardProController"
         });
@@ -15,14 +15,107 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
 
     $scope.pageType = $stateParams.pageType;
     $scope.activeTag = "mysytc";
-    $scope.category = systemName + "_mysy_" + $scope.pageType + "_FlowPackages";
+    
+    var activeName = "_mysy_" + $scope.pageType;
+    if($scope.pageType == 'pcdB') activeName = '_yucun_A'
+    if($scope.pageType == 'pcdC') activeName = '_yucun_B'
+    $scope.category = systemName + activeName + "_FlowPackages";
+    
     $scope.phoneQueryUrl = "http://" + $location.host() + $location.url();
+
+    $scope.stores = Math.round(Math.random() * 100);
+    $scope.sold = Math.round(Math.random() * 5000);
+
     writebdLog($scope.category, "_Load", "渠道号", $scope.gh);
 
+    $scope.pkgs = [
+        {
+            "message": "50",
+            "network": "3.5",
+            "oldPrice": "204.00",
+            "productId": 252,
+            "productName": "5折预存102/月（3.5G流量900分钟通话）",
+            "salesPrice": "102.00",
+            "talkTime": "900",
+            "pkgType":"dkyc50"
+        },
+        {
+            "message": "50",
+            "network": "4.5",
+            "oldPrice": "304.00",
+            "productId": 254,
+            "productName": "5折预存156/月（4.5G流量 1800分钟通话）",
+            "salesPrice": "156.00",
+            "talkTime": "1800",
+            "pkgType":"dkyc100"
+        },
+        {
+            "message": "50",
+            "network": "4.5",
+            "oldPrice": "259.00",
+            "productId": 351,
+            "productName": "155元/月(900分钟通话,4.5G流量,50短信)",
+            "salesPrice": "155.00",
+            "talkTime": "900",
+            "pkgType":"dkyc100"
+        },
+        {
+            "message": "50",
+            "network": "2.5",
+            "oldPrice": "174.00",
+            "productId": 251,
+            "productName": "5折预存101/月（2.5G流量 850分钟）",
+            "salesPrice": "101.00",
+            "talkTime": "850",
+            "pkgType":"dkyc50"
+        }
+    ];
 
-    $http.jsonp("http://m.yfq.cn/product/getPackageInfo.html?productId=" + $stateParams.cardId + "&s=wap&callback=JSON_CALLBACK").success(function (data, status, headers, config) {
+    if($scope.pageType == 'pcd'){
+        $scope.$root.share = {
+            homeLink: 'http://app.yfq.cn/spc/pcd/index.html' + window.location.search,
+            shareTitle: '翼分期商城——电信新入网套餐5折起',
+            shareDisc: '中国电信流量大降价，9.9元办五折优惠套餐，3.5G全国流量，仅102元/月！',
+            picUrl:'http://app.yfq.cn/spc/img/pcd/1.jpg'
+        };
+    }
+    if($scope.pageType == 'pcdB'){
+        $scope.$root.share = {
+            homeLink: 'http://app.yfq.cn/spc/pcd/indexB.html' + window.location.search,
+            shareTitle: '翼分期商城——电信新入网套餐存100赠840',
+            shareDisc: '4G月租优惠套餐，最低仅102元/月，3.5G全国流量！限时限量，手快有！',
+            picUrl:'http://app.yfq.cn/spc/img/pcd/B/tx1.png'
+        };
+    }
+    if($scope.pageType == 'pcdC'){
+        $scope.$root.share = {
+            homeLink: 'http://app.yfq.cn/spc/pcd/indexB.html' + window.location.search,
+            shareTitle: '翼分期商城——电信新入网套餐存100赠840',
+            shareDisc: '4G月租优惠套餐，最低仅102元/月，3.5G全国流量！限时限量，手快有！',
+            picUrl:'http://app.yfq.cn/spc/img/pcd/B/tx1.png'
+        };
+    }
+
+    var pkgUrl;
+
+    if($stateParams.cardId == ""){
+        pkgUrl = cfApi.apiHost + "/product/getPackageInfo.html?productId=" + $scope.pkgs[0].productId + "&s=wap&callback=JSON_CALLBACK";
+    }else {
+        pkgUrl = cfApi.apiHost + "/product/getPackageInfo.html?productId=" + $stateParams.cardId + "&s=wap&callback=JSON_CALLBACK";
+    }
+
+    //console.log(pkgUrl);
+
+
+    $http.jsonp(pkgUrl).success(function (data, status, headers, config) {
         $scope.card = data;
         $scope.totolPrice = data.salesPrice;
+        $scope.showPrice = 50;
+
+        if(data.productId == 254 || data.productId == 351){
+            $scope.showPrice = 100;
+        }
+
     }).error(function (data, status, headers, config) {
         console.log(status);
     });
@@ -45,13 +138,13 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
         $("#payType" + id).addClass("on");
         wirtePayType(id);
     };
-    
+
     var value;
-    var payTypeAry=['payAll','payCOD','payMonthly'];
-    function wirtePayType(payType)
-    {
-    	value=payTypeAry[payType];
-    	writebdLog($scope.category, "_"+value, "渠道号", $scope.gh);//选择支付方式
+    var payTypeAry = ['payAll', 'payCOD', 'payMonthly'];
+
+    function wirtePayType(payType) {
+        value = payTypeAry[payType];
+        writebdLog($scope.category, "_" + value, "渠道号", $scope.gh);//选择支付方式
     }
 
     $scope.setBuyType = function (event, type) {
@@ -74,6 +167,12 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
 
     $scope.setPackage = function (event, pkg) {
         $scope.package = pkg;
+        $scope.card = pkg;
+        $scope.showPrice = 50;
+
+        if(pkg.productId == 254 || pkg.productId == 351){
+            $scope.showPrice = 100;
+        }
         var $this = $(event.currentTarget);
         $this.parent().siblings().removeClass('on');
         $this.parent().addClass('on');
@@ -98,7 +197,7 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
 
     $scope.$watch('productId', function (n, o, $scope) {
         if (n != o) {
-            $http.get("http://m.yfq.cn/product/getProDetial.html?productId=" + n + "&s=wap&callback=JSON_CALLBACK").success(function (phone) {
+            $http.get(cfApi.apiHost + "/product/getProDetial.html?productId=" + n + "&s=wap&callback=JSON_CALLBACK").success(function (phone) {
                 /*$scope.phone = phone;
 
                  //选择默认内存

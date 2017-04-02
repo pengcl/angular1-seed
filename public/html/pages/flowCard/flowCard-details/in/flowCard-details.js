@@ -11,6 +11,9 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
 }]).controller('fdProInController', ['$scope', '$rootScope', '$location', function ($scope, $rootScope, $location) {
     //$scope.pageTitle = "首页";
     //$scope.$root.title = $scope.pageTitle;
+
+    window.location.href = cfApi.apiHost + "/yfqcz/#/";
+
     $scope.appType = systemName+"_FlowPackage";
     $scope.category = $scope.appType;
 

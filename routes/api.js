@@ -16,12 +16,36 @@ function each(objArray, funName) {
 
 //获取订单信息
 
+router.get('/findRechargeProducts', function (req, res) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Methods", "GET, POST");
+    res.header("Cache-Control: no-cache, must-reva lidate");
+    //以上两行设置跨域请求
+    request("http://m.yfq.cn/yfqcz/czProdProductsController.do?findRechargeProducts", function (error, response, body) {
+        if (!error && response.statusCode == 200) {
+            res.send(body);
+        }
+    });
+});
+
+router.get('/checkFirstCharge/:rechargeMobile', function (req, res) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Methods", "GET, POST");
+    res.header("Cache-Control: no-cache, must-reva lidate");
+    //以上两行设置跨域请求
+    request("http://m.yfq.cn/yfqcz/czOrdRechargeController.do?checkFirstCharge&rechargeMobile=" + req.params.rechargeMobile, function (error, response, body) {
+        if (!error && response.statusCode == 200) {
+            res.send(body);
+        }
+    });
+});
+
 router.get('/getPhonesList/:activeTag', function (req, res) {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Methods", "GET, POST");
     res.header("Cache-Control: no-cache, must-reva lidate");
     //以上两行设置跨域请求
-    request("http://127.0.0.1:8091/product/getProList.html?activeTag=" + req.params.activeTag + "&s=wap", function (error, response, body) {
+    request("http://m.yfq.cn/product/getProList.html?activeTag=" + req.params.activeTag + "&s=wap", function (error, response, body) {
         if (!error && response.statusCode == 200) {
             //console.log(eval(body)[0]);
             /*var jsonData = new Array();
@@ -49,7 +73,7 @@ router.get('/getPhonesDetails/:phoneId', function (req, res) {
     res.header("Access-Control-Allow-Methods", "GET, POST");
     res.header("Cache-Control: no-cache, must-reva lidate");
     //以上两行设置跨域请求
-    request("http://127.0.0.1:8091/product/getProDetial.html?productId=" + req.params.phoneId + "&s=wap", function (error, response, body) {
+    request("http://m.yfq.cn/product/getProDetial.html?productId=" + req.params.phoneId + "&s=wap", function (error, response, body) {
         if (!error && response.statusCode == 200) {
             //console.log(eval(body)[0]);
             /*var jsonData = new Array();
@@ -81,20 +105,20 @@ router.get('/getSalesOrder/:orderNo', function (req, res) {
         if (!error && response.statusCode == 200) {
             //console.log(eval(body)[0]);
             /*var jsonData = new Array();
-            var data = new Array();
-            each(body, function (o, i) {
-                data = {
-                    "orderNo": o.orderNo,
-                    "receiverName": o.recieverName,
-                    "recieverMobile": o.recieverMobile,
-                    "receiverCity": o.receiverCity,
-                    "receiverRoom": o.receiverRoom,
-                    "productName": o.buyerMemo,
-                    "price": o.totalAmount,
-                    'color': o.color
-                };
-                jsonData.push(data);
-            });*/
+             var data = new Array();
+             each(body, function (o, i) {
+             data = {
+             "orderNo": o.orderNo,
+             "receiverName": o.recieverName,
+             "recieverMobile": o.recieverMobile,
+             "receiverCity": o.receiverCity,
+             "receiverRoom": o.receiverRoom,
+             "productName": o.buyerMemo,
+             "price": o.totalAmount,
+             'color': o.color
+             };
+             jsonData.push(data);
+             });*/
             res.send(body);
         }
     });
@@ -135,23 +159,21 @@ router.get('/getActiveCode/:receiverMobile', function (req, res) {
     res.header("Access-Control-Allow-Methods", "GET, POST");
     res.header("Cache-Control: no-cache, must-reva lidate");
     //以上两行设置跨域请求
-    request.post('http://m.gd189fq.com/wap/customer/getMobileCodeSync.html?reciverMoblie=' + req.params.receiverMobile + "&s=wap", function (error, response, body) {
+    request.post('http://m.yfq.cn/wap/customer/getMobileCodeSync.html?reciverMoblie=' + req.params.receiverMobile + "&s=wap", function (error, response, body) {
         if (!error && response.statusCode == 200) {
-
             res.send(body);
         }
     });
 });
 
 //验证手机验证码是否正确
-router.get('/checkActiveCode/:activeCode', function (req, res) {
+router.get('/checkActiveCode/:receiverMoblie/:activeCode', function (req, res) {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Methods", "GET, POST");
     res.header("Cache-Control: no-cache, must-reva lidate");
     //以上两行设置跨域请求
-    request.post('http://m.gd189fq.com/wap/customer/checkMobileCode.html?mobileCode=' + req.params.activeCode + "&s=wap", function (error, response, body) {
+    request.post('http://m.yfq.cn/wap/customer/checkMobileCode.html?receiverMoblie=' + req.params.receiverMoblie + '&mobileCode=' + req.params.activeCode + "&s=wap", function (error, response, body) {
         if (!error && response.statusCode == 200) {
-
             res.send(body);
         }
     });
@@ -332,6 +354,23 @@ router.get('/getNumber', function (req, res) {
         if (!error && response.statusCode == 200) {
             res.send(body);
         }
+    });
+});
+
+router.get('/wechat/:surl', function (req, res) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Methods", "GET, POST");
+    //以上两行设置跨域请求
+
+    var clientUrl = req.params.surl;
+
+    console.log(clientUrl);
+
+    getJsApiData(clientUrl).then(function (data) {
+        res.send({signature: data[0], timestamp: data[1], nonceStr: data[2]});
+        console.log(
+            {signature: data[0], timestamp: data[1], nonceStr: data[2]}
+        );
     });
 });
 

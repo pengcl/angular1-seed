@@ -1,0 +1,102 @@
+<!--
+ state:1 9.9领卡 > 证件上传成功页
+ state:2 机+卡 > 一次性支付成功页面
+ state:3 机+卡 > 信用卡分期申请 提交成功页面
+ state:4 机+卡 > 上传身份证提交成功，不弹出领券弹窗
+ state:5 裸机 > 一次性支付成功页面
+ state:6 话费充值 > 充值成功页面
+ state:7 充50送50 > 支付成功页
+ state:8 充50送50 > 证件上传成功页
+ state:9 机+卡 > 预售成功页
+-->
+<div class="page pay pay-state">
+    <top-nav page-title="提交成功" page-back="menu" page-done="done" nav-visibility="hide"></top-nav>
+    <div class="content-scrollable">
+        <div class="pay-icon pd-w weui-flex">
+            <div class="pay-icon-img">
+                <div class="img-box">
+                    <img ng-if="payStatus == 1 || payStatus == 3 || payStatus == 4 || payStatus == 8 || payStatus == 9" src="/images/payState/refer.png">
+                    <img ng-if="payStatus == 2 || payStatus == 5 || payStatus == 7" src="/images/payState/paid.png">
+                    <img ng-if="payStatus == 6" src="/images/payState/recharge.png">
+                </div>
+            </div>
+            <div class="pay-icon-txt weui-flex__item">
+                <h2 ng-if="payStatus == 1 || payStatus == 3 || payStatus == 4 || payStatus == 8 || payStatus == 9">提交成功</h2>
+                <h2 ng-if="payStatus == 2 || payStatus == 5 || payStatus == 7">支付成功</h2>
+                <h2 ng-if="payStatus == 6">充值成功</h2>
+                <p ng-if="payStatus == 1 || payStatus == 4 || payStatus == 8">您的认证电信后台会在1-2个工作日内受理审核激活，请稍等激活短信提醒。</p>
+                <p ng-if="payStatus == 2 || payStatus == 5 || payStatus == 7">我们正在为您安排发货。</p>
+                <p ng-if="payStatus == 2 || payStatus == 7" style="color: #8f918f">订单一旦发货，申请退款需扣除运费20元。</p>
+                <p ng-if="payStatus == 3">已提交银行审核，实际支付以银行扣款成功为准，我们将第一时间为您安排发货，请保持手机畅通</p>
+                <p ng-if="payStatus == 6">尊敬的客户，您的充值已成功！已成功享受新老用户充值话费优惠！话费将在24小时内到账，请留意相关短信提醒。如有疑问请关注“翼分期商城”公众号咨询，谢谢！</p>
+                <p ng-if="payStatus == 9">您的预约已成功，产品开售前，客户经理将会致电与您沟通，请留意020开头的电话来电</p>
+                <a ng-if="payStatus != 6 && payStatus != 9" href="http://m.yfq.cn/wap/customer/searchIndexA.html?s=wap" class="weui-btn">查看订单</a>
+            </div>
+        </div>
+
+        <div class="pay-ad pd-w pd-h">
+            <div class="img-box">
+                <img ng-if="payStatus == 1 || payStatus == 4 || payStatus == 9" src="/images/payState/state-1.jpg">
+                <img ng-if="payStatus == 2 || payStatus == 3" src="/images/payState/state-2.jpg">
+                <img ng-if="payStatus == 5" src="/images/payState/state-5.jpg">
+                <img ng-if="payStatus == 6" src="/images/payState/state-6.jpg">
+                <img ng-if="payStatus == 7" src="/images/payState/state-7.jpg">
+            </div>
+        </div>
+
+        <div class="pay-icon pd-w weui-flex" ng-if="payStatus == 5">
+            <div class="pay-icon-img">
+                <div class="img-box" style="width: 1.2rem">
+                    <img src="/images/payState/qrcode.jpg">
+                </div>
+            </div>
+            <div class="pay-icon-txt weui-flex__item">
+                <p style="font-size: 0.14rem;line-height: 2">想查询订单、获取优惠信息<br>
+                    请关注公众号【翼分期商城】<br>
+                    保存图片长按识别二维码。</p>
+            </div>
+        </div>
+
+        <div class="upload" ng-if="payStatus == 2 || payStatus == 3 || payStatus == 7">
+            <div class="pay-ad pd-w pd-h">
+                <div class="img-box" style="width: 60%;margin: 0 auto;">
+                    <img src="/images/payState/upload.png">
+                </div>
+            </div>
+
+            <div class="upload-btn" style="margin-left: 0.2rem;margin-right: 0.2rem">
+                <p style="font-size: 0.12rem">根据工信部《电话用户真实身份登记》要求，<br>
+                    入网需上传身份证实名登记，以保障您的合法权益。</p>
+                <a href="http://m.yfq.cn/wap/taokafanghaoNew/uploadCardA.html?orderNo={{orderNo}}&s=wap" class="weui-btn weui-btn_warn" style="margin-top:0.05rem;">上传证照</a>
+            </div>
+
+            <p class="tips" style="margin-top: 0.5rem;font-size: 0.11rem">您也可在微信公众号【翼分期商城】中上传证照，<br>
+                点击翼分期商城公众号中的：【我】>【上传证照】进行上传 。</p>
+        </div>
+
+        <div class="hot-phone" ng-if="payStatus == 1 || payStatus == 6 || payStatus == 8">
+            <div class="pd-w pd-h">
+                <spc-title main-title="好卡配好机 12期0息购机"></spc-title>
+            </div>
+
+            <div class="phone-list">
+                <a href="/phs/sg/A/{{singlePhone.activityproductId}}{{params}}?headCategory={{category}}" class="phone-item pay-icon pd-w weui-flex" ng-repeat="singlePhone in singlePhones | limitTo : 4">
+                    <div class="pay-icon-img">
+                        <div class="img-box">
+                            <img ng-src="http://www.yfq.cn:8899/fileserver/medias/{{singlePhone.mainImageUrl}}">
+                        </div>
+                    </div>
+                    <div class="pay-icon-txt weui-flex__item">
+                        <h3 ng-bind="singlePhone.productName"></h3>
+                        <p>领券减<b>￥<span ng-bind="singlePhone.salePrice | jm:400"></span></b>，每月再送<b>20</b>元话费</p>
+                        <div class="pure-g">
+                            <div class="price pure-u-1-2">￥<span ng-bind="singlePhone.salePrice"></span></div>
+                            <div class="day-price pure-u-1-2">日供：<em>￥</em><em
+                                    ng-bind="singlePhone.salePrice/365 | number:0"></em></div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

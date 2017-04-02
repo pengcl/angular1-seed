@@ -1,5 +1,12 @@
-<div class="footer-nav nav-list">
-    <div class="nav-item nav-comment" ng-click="getContent();">
+<div class="footer-nav nav-list" ng-class="{true:'pcd',false:''}[pageType=='pcd' || pageType=='pcdB' || pageType=='pcdC']">
+    <div class="nav-pcd-price" ng-if="pageType=='pcd' || pageType=='pcdB' || pageType=='pcdC'">
+        <span ng-if="pageType=='pcd'">限时抢购靓号</span>
+        <span ng-if="pageType=='pcdB' || pageType=='pcdC'">限时特惠</span>
+        <br>
+        <span ng-if="pageType=='pcd'" class="pr">￥9.9</span>
+        <span ng-if="pageType=='pcdB' || pageType=='pcdC'" class="pr stimer"></span>
+    </div>
+    <div class="nav-item nav-comment" ng-click="getContent();" ng-if="pageType!='pcd' && pageType!='pcdB' && pageType!='pcdC'">
         <div class="nav-icon">
             <?xml version="1.0" encoding="utf-8"?>
             <!-- Generator: Adobe Illustrator 17.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
@@ -91,7 +98,13 @@
             </div>
         </div>
         <div class="nav-button nav-item pure-u-1-1">
-            <a id="footerPayButton" href="javascript:;" ng-click="submitForm();">提交订单</a>
+            <a id="footerPayButton" href="javascript:;" ng-class="{true:'disabled',false:''}[phone.phoneTypes[0].status == 0]" ng-click="submitForm($event);">
+                <span ng-if="!(pageType=='pcd' || pageType=='pcdB' || pageType=='pcdC')">
+                    <span ng-if="phone.phoneTypes[0].status != 0">提交订单</span>
+                    <span ng-if="phone.phoneTypes[0].status == 0">已售光</span>
+                </span>
+                <span ng-if="pageType=='pcd' || pageType=='pcdB' || pageType=='pcdC'">我要支付</span>
+            </a>
         </div>
     </div>
     <div id="payTipsPanel" style="display: none">
@@ -126,7 +139,7 @@
                                     <ins class="logo2"></ins>
                                 </div>
                                 <div class="details">
-                                    <p>向中国银联发送您的信用分期业务申请</p>
+                                    <p>向中国银联发送您的分期业务申请，填写银联分期短信验证码</p>
                                 </div>
                             </li>
                             <li>
@@ -135,7 +148,7 @@
                                     <ins class="logo3"></ins>
                                 </div>
                                 <div class="details">
-                                    <p>银联在线审核分期业务</p>
+                                    <p>信用卡银行向翼分期付款银联在线审核分期业务</p>
                                 </div>
                             </li>
                             <li>
@@ -144,7 +157,7 @@
                                     <ins class="logo4"></ins>
                                 </div>
                                 <div class="details">
-                                    <p>银联通过审核后，分期业务也将成功办理，商品会即时发出，若申请不成功，请联系值班客服：<a href="tel:020-85599948">020-85599918</a></p>
+                                    <p>银联通过审核后，分期业务也将成功办理，商品会即时发出，若申请不成功，请联系值班客服：<a href="tel:95516">95516</a></p>
                                 </div>
                             </li>
                             <li>

@@ -1,0 +1,38 @@
+<div id="phonePackage" class="phone-package">
+    <div class="weui-cells__title title-icon">
+        <span class="title" ng-bind="packageTitle"></span>
+        <span class="sub-title" ng-if="!pkgAndNumber">未选套餐</span>
+        <span class="sub-title" ng-if="pkgAndNumber" ng-bind="pkgAndNumber.number"></span>
+    </div>
+    <div class="phone-package-panel">
+        <div class="weui-cells">
+            <a class="weui-cell weui-cell_access" href="/phs/sg/C/{{phone.activityproductId}}/selectPkg">
+                <div class="weui-cell__hd">
+                    <div class="img-box" style="margin-right: 0.05rem">
+                        <img ng-src="http://www.yfq.cn:8899/fileserver/medias/{{mainColor.mediaUrl}}">
+                    </div>
+                    <span> + </span>
+                    <div ng-if="!pkgAndNumber" class="img-box" style="margin-right: 0.1rem;margin-left: 0.05rem">
+                        <img src="/images/phones/C/card.png">
+                    </div>
+                </div>
+                <div class="weui-cell__bd">
+                    <div ng-if="!pkgAndNumber">
+                        <p><span>一次性支付</span><em>立省￥<i ng-bind="phone.salePrice - phone.phonePrice"></i></em></p>
+                        <p><span>信用卡分期</span><em>立省￥<i ng-bind="phone.salePrice*0.1 | number:0"></i></em></p>
+                    </div>
+                    <div class="has-pkg" ng-if="pkgAndNumber">
+                        <div class="title"><span ng-bind="pkgAndNumber.pkg.network"></span><span>GB</span></div>
+                        <div class="talking-time"><span ng-bind="pkgAndNumber.pkg.talkTime"></span><span>分钟全国通话</span></div>
+                    </div>
+                </div>
+                <div class="weui-cell__ft"></div>
+            </a>
+        </div>
+
+        <div class="img-box">
+            <img src="/images/phones/C/pkg-tips.png">
+        </div>
+    </div>
+
+</div>

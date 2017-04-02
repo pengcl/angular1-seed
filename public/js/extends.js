@@ -168,7 +168,8 @@ function operation() {
     this.writeOperation = function () {
         var flag = false;
         var info = "flow=" + loc + "&operation=" + map.get('operation');
-        var url = "http://m.gd189fq.com/record/writeLog.html?" + info + "&s=wap";
+        info = info.replace("?", "&");//将链接里的？字符转换为&，可以让后台获取
+        var url = cfApi.apiHost + "/record/writeLog.html?" + info + "&s=wap";
         $.ajax({
             type: "get",
             url: url,
@@ -185,7 +186,7 @@ function operation() {
         return flag;
     };
     this.writeIntentionMsg = function (operationName, operationValue, dataType, opSeq) {
-        var url = "http://m.gd189fq.com/record/intentionLog.html";
+        var url = cfApi.apiHost + "/record/intentionLog.html";
         $.get(url, {operationName: operationName, operationValue: operationValue, dataType: dataType, opSeq: opSeq},
             function (data) {
 
@@ -304,10 +305,10 @@ function hideToast() {
     $loadingToast.fadeOut(100);
 };
 
-function checkMobileCode(code) {
+function checkMobileCode(receiverMobile, code) {
     var flag = false;
     $.ajax({
-        url: "http://app.yfq.cn:3099/api/checkActiveCode/" + code,
+        url: "http://app.yfq.cn:3099/api/checkActiveCode/" + receiverMobile + '/' + code,
         async: false,
         type: "get",
         success: function (data) {
@@ -316,7 +317,6 @@ function checkMobileCode(code) {
             }
         }
     });
-
     return flag;
 }
 
@@ -337,10 +337,10 @@ $(function () {
         $this.addClass("on");
         $phoneList.eq($this.index()).show();
         //console.log($this.index());
-        if($this.index() == 1){
+        if ($this.index() == 1) {
             $("#recommend").hide();
             $("#recommendTitle").hide();
-        }else {
+        } else {
             $("#recommend").show();
             $("#recommendTitle").show();
         }
@@ -355,6 +355,37 @@ function getRandomName() {
     var lid = Math.round(Math.random() * 1);
     return firstNames[fid] + lastNames[lid];
 }
+var baseTime = 0;
+function getRanDomTime() {
+    var addTime = Math.round(Math.random() * 1);
+    baseTime = baseTime + addTime;
+    if (baseTime > 10) {
+        baseTime = Math.round(Math.random() * 1) + 1;
+    }
+    return baseTime;
+}
+
+function getRandomPkg() {
+    var pkgs, pid;
+    pkgs = [101, 102, 155, 156];
+    pid = Math.round(Math.random() * 3);
+    return pkgs[pid];
+}
+
+function getRandomPrePhone() {
+    var pkgs, pid;
+    pkgs = ['130', '131', '132', '138', '139', '150'];
+    pid = Math.round(Math.random() * 5);
+    return pkgs[pid];
+}
+
+function getRandomPhone() {
+    return ((("18122XXX" + Math.round(Math.random() * 9)) + Math.round(Math.random() * 9)) + Math.round(Math.random() * 9)) + Math.round(Math.random() * 9);
+}
+
+function getRandomReceiverPhone() {
+    return (((getRandomPrePhone() + Math.round(Math.random() * 9) + Math.round(Math.random() * 9) + "XXX" + Math.round(Math.random() * 9)) + Math.round(Math.random() * 9)) + Math.round(Math.random() * 9)) + Math.round(Math.random() * 9);
+}
 
 function getRandomProduct() {
     var productName;
@@ -368,4 +399,31 @@ function checkSameNumber(number1, number2) {
         return false;
     }
     return true;
+}
+
+function getJM(price, max) {
+    for (var i = 0; i <= max / 5; i++) {
+        if (i * 100 == price) {
+            return i * 5;
+        }
+        if (i * 100 > price) {
+            return (i - 1) * 5;
+        }
+        if (i * 100 < price && i * 5 >= max) {
+            return max;
+        }
+    }
+    ;
+};
+function getMX(price, max, rates) {
+    var _rates = 0.1;//设置默认利率
+    if (rates) {//如果rates存在，使用rates值，如果不存在，tates=0.1;
+        _rates = rates;
+    }
+
+    if (price > 7680) {
+        return 768;
+    } else {
+        return Math.round(price * _rates);
+    }
 }

@@ -13,6 +13,9 @@ app.directive("toast", ['$timeout', function ($timeout) {
                         $loadingToast.hide();
                     }, 2000);
                 },
+                openUnLimit: function () {
+                    $loadingToast.show();
+                },
                 close: function () {
                     $loadingToast.hide();
                 }
