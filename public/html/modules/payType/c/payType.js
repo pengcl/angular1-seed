@@ -30,7 +30,7 @@ app.directive("cPayType", ['$location', '$compile', '$q', function ($location, $
                 scope.setDefaultPayType(0, "在线支付");
             }
             if (scope.totolPrice < 1500) {
-                scope.setDefaultPayType(0, "一次性支付");
+                scope.setDefaultPayType(0, "马上付款");
             }
             if (scope.pageType == "pcd") {
                 scope.details = "￥9.9元掏靓号";

@@ -17,6 +17,14 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
         });
 }]).controller('pDSingleProController', ['$scope', '$rootScope', '$location', '$stateParams', '$http', 'Phone', '$cookieStore', '$timeout', function ($scope, $rootScope, $location, $stateParams, $http, Phone, $cookieStore, $timeout) {
 
+    $scope.cfConvertId = $location.search().cfConvertId;
+
+    if($location.search().cfConvertId){
+        $scope.cfConvertId = $location.search().cfConvertId;
+    }else {
+        $scope.cfConvertId = "";
+    }
+
     $scope.mp = $location.search().mp;
 
     $scope.pageType = 'D';
@@ -149,12 +157,12 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
 
             if ($cookieStore.get('receiver')) {
                 if ($cookieStore.get('receiver').city.indexOf('广州市') != -1) {
-                    $scope.setDefaultPayType(1, "送货上门");
+                    $scope.setDefaultPayType(1, "货到付款");
                 } else {
-                    $scope.setDefaultPayType(0, "一次性支付");
+                    $scope.setDefaultPayType(0, "马上付款");
                 }
             } else {
-                $scope.setDefaultPayType(0, "一次性支付");
+                $scope.setDefaultPayType(0, "马上付款");
             }
 
             $(".phone-pkgs-item").eq(1).find(".pick-panel").addClass("show");
@@ -167,14 +175,14 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
         $scope.$watch('receiver.city', function (n, o, $scope) {
             if (n != "") {
                 if (n.indexOf('广州市') != -1) {
-                    $scope.setDefaultPayType(1, "送货上门");
+                    $scope.setDefaultPayType(1, "货到付款");
                 } else {
                     if ($scope.payType == 1) {
-                        $scope.setDefaultPayType(0, "一次性支付");
+                        $scope.setDefaultPayType(0, "马上付款");
                     }
                 }
             } else {
-                $scope.setDefaultPayType(0, "一次性支付");
+                $scope.setDefaultPayType(0, "马上付款");
             }
         });
 
@@ -233,7 +241,7 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
 
             //if ($scope.totolPrice < 1500) {
             if ($scope.payType == 2) {
-                $scope.setSbPayType(0, '一次性支付');
+                $scope.setSbPayType(0, '马上付款');
             } else {
                 //$scope.setSbPayType(0, '一次性支付');
             }
@@ -287,6 +295,7 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
             $scope.$root.toast.open();
 
             $form.submit();
+            _taq.push({convert_id: $scope.cfConvertId, event_type: "shopping"});
         } else {
             var $scrollTo = $('#receiverAddress');
             $container.animate({

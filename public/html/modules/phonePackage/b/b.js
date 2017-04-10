@@ -1,10 +1,10 @@
 'use strict';
 
-app.directive("phoneCPackage", ['$http', '$stateParams', '$q', '$cookieStore', '$location', function ($http, $stateParams, $q, $cookieStore, $location) {
+app.directive("phoneBPackage", ['$http', '$stateParams', '$q', '$cookieStore', '$location', function ($http, $stateParams, $q, $cookieStore, $location) {
     return {
         restrict: 'E',
-        templateUrl: "modules/phonePackage/c/c.html",
-        controller: "numberCController",
+        templateUrl: "modules/phonePackage/b/b.html",
+        controller: "numberBController",
         link: function (scope, element, attrs) {
 
             //模块标题
@@ -59,7 +59,7 @@ app.directive("phoneCPackage", ['$http', '$stateParams', '$q', '$cookieStore', '
             var $container = $('.content-scrollable');
 
             scope.$root.checkMainNumber = function () {
-                if (!scope.checkoutForm.mainNumber.$valid) {//原本应该用!scope.checkoutForm.phoneNumber.$valid
+                if (!scope.couponForm.mainNumber.$valid) {//原本应该用!scope.checkoutForm.phoneNumber.$valid
                     var $scrollTo = $('#phonePackage');
                     $container.animate({
                         scrollTop: $scrollTo.offset().top - $container.offset().top + $container.scrollTop() - 50
@@ -70,7 +70,7 @@ app.directive("phoneCPackage", ['$http', '$stateParams', '$q', '$cookieStore', '
             };
 
             scope.$root.checkMainProductId = function () {
-                if (!scope.checkoutForm.mainProductId.$valid) {//原本应该用!scope.checkoutForm.phoneNumber.$valid
+                if (!scope.couponForm.mainProductId.$valid) {//原本应该用!scope.checkoutForm.phoneNumber.$valid
                     var $scrollTo = $('#pickPackagePanel');
                     $container.animate({
                         scrollTop: $scrollTo.offset().top - $container.offset().top + $container.scrollTop() - 50
@@ -120,7 +120,7 @@ app.directive("phoneCPackage", ['$http', '$stateParams', '$q', '$cookieStore', '
 
         }
     };
-}]).controller('numberCController', ['$scope', '$cookieStore', '$http', '$compile', function ($scope, $cookieStore, $http) {
+}]).controller('numberBController', ['$scope', '$cookieStore', '$http', '$compile', function ($scope, $cookieStore, $http) {
     //var deferred = $q.defer();
     $scope.phoneData = new Array();
     $scope.phoneSubData = new Array();

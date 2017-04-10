@@ -150,9 +150,9 @@ app.directive("adr", ["$compile", "$cookieStore", '$http', '$interval', function
                     success: function (json) {
                         $.each(eval(json), function (i, field) {
                             if ((field.name).length > 6) {
-                                $areaList.eq(index).append("<li data-value=" + field.name + " class='long-area'><a data-value=" + field.name + ">" + field.name + "</a></li>");
+                                $areaList.eq(index).append("<li data-value=" + field.name + " class='long-area'><a data-value=" + field.name + "has-hash='false' href='javascript:userTrack(" + field.name + ");'>" + field.name + "</a></li>");
                             } else {
-                                $areaList.eq(index).append("<li data-value=" + field.name + "><a data-value=" + field.name + ">" + field.name + "</a></li>");
+                                $areaList.eq(index).append("<li data-value=" + field.name + "><a data-value=" + field.name + "has-hash='false' href='javascript:userTrack(" + field.name + ");'>" + field.name + "</a></li>");
                             }
                         });
                     },

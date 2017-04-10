@@ -3,7 +3,7 @@
 //全局统计
 var systemName = "yfqapp";
 
-var userTrack = function (category, action, gh, value) {
+var userTrack = function () {
 
 };
 

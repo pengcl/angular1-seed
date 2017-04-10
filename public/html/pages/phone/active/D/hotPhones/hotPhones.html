@@ -51,17 +51,16 @@
                 </a>
             </div>
         </div>
-        <div class="img-box" style="margin-top: 0.05rem;margin-left: 0.1rem;margin-right: 0.1rem">
+        <!--<div class="img-box" style="margin-top: 0.05rem;margin-left: 0.1rem;margin-right: 0.1rem">
             <img src="/images/active/d/red-tips.gif">
-        </div>
+        </div>-->
 
         <div class="img-box">
             <img src="/images/active/d/new/3.jpg">
         </div>
         <div id="hotPhone" class="hot-phone">
             <ul class="spc-list hot-phone">
-                <li ng-repeat="singlePhone in singlePhones | filter:{ifRecommend: 1}"
-                    ng-show="singlePhone.salePrice >= 1500">
+                <li ng-repeat="singlePhone in singlePhones | filter:{ifRecommend: 1}">
                     <a class="item-box pure-g" ng-if="params.length == 0"
                        href="/phs/sg/{{pageType}}/{{singlePhone.activityproductId}}{{params}}?headCategory={{category}}&mp=0"
                        ng-class="{true:'curr',false:''}[machineName == singlePhone.productName]"
@@ -75,7 +74,7 @@
                         <div class="item-txt pure-u-2-3">
                             <div class="title" ng-bind="singlePhone.productSubName"></div>
                             <div class="tips">
-                                <span>满￥100减￥5  支付有惊喜</span>
+                                <span>满￥100减￥5  在线抢购更享折上折</span>
                                 <!--<span>立减</span>
                                 <span style="font-weight: bold"><span ng-bind="singlePhone.cardItems | jm : 800"></span></span>
                                 <span>元，享12期免息 顺丰包邮</span>-->
@@ -103,7 +102,7 @@
                         <div class="item-txt pure-u-2-3">
                             <div class="title" ng-bind="singlePhone.productSubName"></div>
                             <div class="tips">
-                                <span>满￥100减￥5  支付有惊喜</span>
+                                <span>满￥100减￥5  在线抢购更享折上折</span>
                                 <!--<span>立减</span>
                                 <span style="font-weight: bold"><span ng-bind="singlePhone.cardItems | jm : 800"></span></span>
                                 <span>元，享12期免息 顺丰包邮</span>-->

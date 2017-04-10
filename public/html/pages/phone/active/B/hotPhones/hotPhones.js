@@ -54,7 +54,7 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
 
     $scope.setPayType = function (type) {
         $scope.payType = type;
-        writebdLog($scope.category, "_PayType"+type, "渠道号", $scope.gh);//选择发货方式
+        writebdLog($scope.category, "_PayType" + type, "渠道号", $scope.gh);//选择发货方式
     };
 
     $scope.goToTop = function () {
@@ -66,12 +66,12 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
 
 
     /*$http.jsonp(cfApi.apiHost + '/product/getPackageList.html?activeTag=fqssj&s=wap&callback=JSON_CALLBACK').success(function (data, status, headers, config) {
-        $scope.pkgs = data;
+     $scope.pkgs = data;
 
-    }).error(function (data, status, headers, config) {
-        console.log(status);
-        //deferred.reject(status)
-    });*/
+     }).error(function (data, status, headers, config) {
+     console.log(status);
+     //deferred.reject(status)
+     });*/
 
     $http.jsonp(cfApi.apiHost + '/product/getProList.html?activeTag=jktchd&s=wap&callback=JSON_CALLBACK').success(function (data, status, headers, config) {
         $scope.phones = data;
@@ -101,14 +101,13 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
     $scope.setMachine = function (machine, productId) {
         writebdLog($scope.category, "_" + productId, "渠道号", $scope.gh);//选择的商品ID
     };
-    
-    function writeBrand(name)
-    {
-    	
-    	if(name == '华为') name = 'huawei';
-    	if(name == '小米') name = 'mi';
-    	if(name == '美图') name = 'meitu';
-    	return name;
+
+    function writeBrand(name) {
+
+        if (name == '华为') name = 'huawei';
+        if (name == '小米') name = 'mi';
+        if (name == '美图') name = 'meitu';
+        return name;
     }
 
     $scope.setMainPhoneBrand = function (e, myBrand) {
@@ -128,6 +127,25 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
 
     $scope.setAddress = function (e, province, city, district, street) {
         $scope.receiver.city = province + city + district + street;
+        $scope.addressShow = false;
+    };
+
+    $scope.getCity = function (e, province) {
+        var _html = "";
+        $http.jsonp(cfApi.apiHost + "/wap/comm/czCommonController/getRegion.html?need=city&province=" + province + "&callback=JSON_CALLBACK&s=wap").success(function (data, status, headers, config) {
+            $areaList.html("");
+
+            $.each(eval(data), function (i, field) {
+                _html = _html + '<li><a ng-click="getDistricts(e,\'' + province + '\',\'' + field.name + '\')">' + field.name + '</a></li>';
+            });
+            $compile($areaList.append(_html))($scope);
+            $scope.addressShow = true;
+        }).error(function (data, status, headers, config) {
+            console.log(status);
+        });
+    };
+
+    $scope.hideAddress = function () {
         $scope.addressShow = false;
     };
 
@@ -163,7 +181,7 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
             console.log(status);
         });
     };
-    
+
     //记录落地页输入的操作
     $scope.$root.writeReceiver = function () {
         writebdLog($scope.category, "_Address", "渠道号", $scope.gh); //输入地址
@@ -181,11 +199,11 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
             return false;
         } else if (!$scope.couponForm.receiverCity.$valid) {
             $(".input-city").addClass("weui-cell_warn");
-            $scope.dialog.open("系统提示","请选择收件区域！");
+            $scope.dialog.open("系统提示", "请选择收件区域！");
             return false;
         } else if (!$scope.couponForm.receiverRoom.$valid) {
             $(".input-room").addClass("weui-cell_warn");
-            $scope.dialog.open("系统提示","请输入详细地址！");
+            $scope.dialog.open("系统提示", "请输入详细地址！");
             return false;
         }
 
@@ -195,22 +213,18 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
     };
 
     $scope.submit = function () {
-        $scope.$root.toast.open();
-        if ($scope.payType == 3) {
-            $scope.$root.toast.close();
-            $("#couponForm").submit();
-        } else {
+        //$scope.$root.toast.open();
+        if ($scope.checkMainNumber()) {
             if (!$scope.checkAddress()) {
-                $scope.$root.toast.close();
                 var $scrollTo = $('.quan-form');
                 $container.animate({
                     scrollTop: $scrollTo.offset().top - $container.offset().top + $container.scrollTop() - 50
                 });
                 return false;
             }
+            $scope.$root.toast.open();
             $("#couponForm").submit();
         }
-        
         writebdLog($scope.category, "_BuyNow", "渠道号", $scope.gh);//提交订单
     };
 
@@ -276,25 +290,25 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
                 });
 
                 /*$scope.phone = data;
-                $scope.$root.mainColor = data.phoneTypes[0].mediaProductList[0];
-                $scope.packages = [];
-                $scope.comparePrices = [];
-                $scope.packageIndex = 0;
-                var distance;
-                $.each(eval(data.cardItems.split(";")), function (i, k) {
-                    var obj = $scope.pkgs[getIndex($scope.pkgs, "productId", k.slice(0, k.indexOf(':')))];
-                    obj.phonePrice = k.slice(k.indexOf(':') + 1, k.length);
-                    $scope.packages.push(obj);
-                    $scope.comparePrices.push(data.salePrice - obj.salesPrice);
-                });
+                 $scope.$root.mainColor = data.phoneTypes[0].mediaProductList[0];
+                 $scope.packages = [];
+                 $scope.comparePrices = [];
+                 $scope.packageIndex = 0;
+                 var distance;
+                 $.each(eval(data.cardItems.split(";")), function (i, k) {
+                 var obj = $scope.pkgs[getIndex($scope.pkgs, "productId", k.slice(0, k.indexOf(':')))];
+                 obj.phonePrice = k.slice(k.indexOf(':') + 1, k.length);
+                 $scope.packages.push(obj);
+                 $scope.comparePrices.push(data.salePrice - obj.salesPrice);
+                 });
 
-                for (var i = 1; i < $scope.comparePrices.length; i++) {
-                    if(Math.abs($scope.comparePrices[i]) < Math.abs($scope.comparePrices[$scope.packageIndex])){
-                        $scope.packageIndex = i;
-                    }
-                }
+                 for (var i = 1; i < $scope.comparePrices.length; i++) {
+                 if(Math.abs($scope.comparePrices[i]) < Math.abs($scope.comparePrices[$scope.packageIndex])){
+                 $scope.packageIndex = i;
+                 }
+                 }
 
-                $scope.package = $scope.packages[$scope.packageIndex];*/
+                 $scope.package = $scope.packages[$scope.packageIndex];*/
             }).error(function (data, status, headers, config) {
                 console.log(status);
             });

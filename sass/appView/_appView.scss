@@ -12,9 +12,9 @@ html {
       bottom: auto;
       left: auto;
       width: 368px;
-      height: 752px;
+      //height: 752px;
       @include transform(translate3d(50%, -50%, 0));
-      background-image: url($images-src + 'chrome-iphone6-432x882@2x.jpg');
+      //background-image: url($images-src + 'chrome-iphone6-432x882@2x.jpg');
       content: '';
       display: block;
       background-size: contain;
@@ -31,7 +31,7 @@ html {
       height: 100%;
       @include transform(translate3d(0, -50%, 0));
       max-width: 320px;
-      max-height: 568px;
+      //max-height: 568px;
       margin: 0 auto;
       overflow: hidden;
     }

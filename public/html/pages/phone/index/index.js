@@ -13,6 +13,7 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
         });
 }]).controller('pIndexController', ['$scope', '$location', '$http', '$stateParams', '$interval', '$timeout', function ($scope, $location, $http, $stateParams, $interval, $timeout) {
 
+    $location.path("/phone/active/D/phones");
 
     $scope.pageType = $stateParams.pageType;
     if($scope.pageType !=undefined && $scope.pageType == "C")

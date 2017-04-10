@@ -19,8 +19,7 @@
         </div>
         <div class="hot-phone">
             <ul class="spc-list hot-phone">
-                <li ng-repeat="singlePhone in singlePhones | filter:{ifRecommend: 1}"
-                    ng-show="singlePhone.salePrice >= 1500">
+                <li ng-repeat="singlePhone in singlePhones | filter:{ifRecommend: 1}">
                     <a class="item-box pure-g" ng-if="params.length == 0"
                        href="/phs/sg/{{pageType}}/{{singlePhone.activityproductId}}{{params}}?headCategory={{category}}"
                        ng-class="{true:'curr',false:''}[machineName == singlePhone.productName]"
