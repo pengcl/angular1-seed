@@ -17,13 +17,13 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
         });
 }]).controller('pDSingleProController', ['$scope', '$rootScope', '$location', '$stateParams', '$http', 'Phone', '$cookieStore', '$timeout', function ($scope, $rootScope, $location, $stateParams, $http, Phone, $cookieStore, $timeout) {
 
-    $scope.cfConvertId = $location.search().cfConvertId;
+    /*$scope.cfConvertId = $location.search().cfConvertId;
 
     if($location.search().cfConvertId){
         $scope.cfConvertId = $location.search().cfConvertId;
     }else {
         $scope.cfConvertId = "";
-    }
+    }*/
 
     $scope.mp = $location.search().mp;
 
@@ -295,7 +295,7 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
             $scope.$root.toast.open();
 
             $form.submit();
-            _taq.push({convert_id: $scope.cfConvertId, event_type: "shopping"});
+            /*_taq.push({convert_id: $scope.cfConvertId, event_type: "shopping"});*/
         } else {
             var $scrollTo = $('#receiverAddress');
             $container.animate({

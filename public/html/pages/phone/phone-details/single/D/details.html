@@ -19,7 +19,7 @@
             <div class="product-header">
                 <div class="product-txt">
                     <h1><span ng-bind="phone.phoneTypes[0].productName"></span></h1>
-                    <h2>预存话费抵手机价格，满￥100减￥5，最高可再减800元！<br>支付有惊喜，享更多优惠！</h2>
+                    <h2>预存话费抵手机价格，满￥100减￥5，最高可减800元！<br>支付有惊喜，享更多优惠！</h2>
                     <div class="product-price">
                         <ul class="pure-g">
                             <li class="pure-u-4-5" style="padding-left: 0">
@@ -98,6 +98,23 @@
             </div>
 
             <adr></adr>
+
+            <div class="no-border weui-cells">
+                <div class="weui-cell">
+                    <div class="weui-cell__hd"><img class="weui-media-box__thumb" src="/images/active/d/new/logo.gif" alt="" style="width: 40px;height:40px;display: block;margin-right: 0.1rem;border: 1px solid #d8d8d8;"></div>
+                    <div class="weui-cell__bd">
+                        <p style="font-size: 0.14rem">翼分期商城</p>
+                        <p class="weui-media-box__desc" style="color: #999;font-size: 0.12rem">广州传飞通讯设备有限公司旗下子品牌</p>
+                    </div>
+                    <div class="weui-cell__ft" style="padding-right: 0"><img class="weui-media-box__thumb" src="/images/active/d/new/honer.png" alt="" style="height:40px;display: block;"></div>
+                </div>
+            </div>
+            <div class="img-box">
+                <img src="/images/active/d/new/5.jpg">
+            </div>
+            <div style="font-size: 0.12rem;padding-top: 0.2rem;padding-bottom: 0.2rem;background: #fff">
+                <a has-hash="false" href="javascript:userTrack('showAboutInfo');" class="js-action-sheet-show weui-btn weui-btn_plain-default" style="font-size: 0.14rem;line-height: 2em;border: 1px solid #f6692a;color: #f6692a;display: block;margin: 0 auto; width: 30%">查看信息</a>
+            </div>
 
             <!--<coupon-list></coupon-list>-->
 
@@ -221,7 +238,7 @@
                     </div>
                 </div>
                 <div class="nav-button nav-item pure-u-2-5">
-                    <a id="footerPayButton" has-hash="false" href="javascript:userTrack('提交订单');" ng-click="submitForm($event);">
+                    <a id="footerPayButton" has-hash="false" href="javascript:userTrack('submitForm');" ng-click="submitForm($event);">
                         <span ng-if="payType == 1">预约送货</span>
                         <span ng-if="payType != 1">提交订单</span>
                     </a>
@@ -230,4 +247,69 @@
         </div>
     </form>
     <!--<ng-coupon></ng-coupon>-->
+
+    <div>
+        <div class="weui-mask" id="iosMask" style="opacity: 1;display: none"></div>
+        <div class="about-yfq weui-actionsheet" id="iosActionsheet">
+            <div class="weui-media-box weui-media-box_appmsg">
+                <div class="weui-media-box__hd">
+                    <img class="weui-media-box__thumb" src="/images/active/d/new/logo.gif" alt="">
+                </div>
+                <div class="weui-media-box__bd">
+                    <h4 class="weui-media-box__title" style="font-size: 0.16rem">翼分期商城<span class="js-action-sheet-hide icon-cross right"></span></h4>
+                    <p class="weui-media-box__desc">广州传飞通讯设备有限公司旗下品牌</p>
+                </div>
+            </div>
+            <div class="weui-actionsheet__action">
+                <div class="weui-tab">
+                    <div class="weui-navbar">
+                        <div class="weui-navbar__item weui-bar__item_on">
+                            <span class="navbaricon"></span>
+                            基本信息
+                        </div>
+                        <div class="weui-navbar__item">
+                            <span class="navbaricon"></span>
+                            以司简介
+                        </div>
+                        <div class="weui-navbar__item">
+                            <span class="navbaricon"></span>
+                            电信授权
+                        </div>
+                        <div class="weui-navbar__item">
+                            <span class="navbaricon"></span>
+                            百度认证
+                        </div>
+                    </div>
+                    <div class="weui-tab__panel">
+                        <div class="weui-tab__item weui-tab__item_on">
+                            <div class="img-box" style="width: 40%;margin-left: 30%;margin-top: 0.2rem">
+                                <img src="/images/active/d/new/qrcode.png">
+                            </div>
+                            <p style="color: #999;margin-top: 0.05rem;margin-bottom: 0.1rem; text-align: center">(长按保存图片)</p>
+                            <p style="text-align: center;font-size: 0.15rem">关注公众号"翼分期商城"，获取电信手机及<br>周边产品优惠活动，海量手机、号码套餐等产品<br>任您挑选</p>
+                            <p style="font-size: 0.15rem;text-align: center;margin-top: 0.2rem;margin-bottom: 0.05rem">电话号码：020-8599918</p>
+                            <p style="font-size: 0.15rem;text-align: center">地址：广州市天河区黄埔大道西53号</p>
+                            <p style="font-size: 0.15rem;text-align: center;margin-bottom: 0.3rem">恒城大厦B座3007</p>
+                        </div>
+                        <div class="weui-tab__item">
+                            <h2 style="font-size: 0.16rem;margin-right: 0.15rem;margin-left: 0.15rem;margin-top: 0.15rem;margin-bottom: 0.15rem">关于翼分期</h2>
+                            <p style="font-size: 0.15rem;margin-top: 0.15rem;margin-bottom: 0.15rem;margin-right: 0.15rem;margin-left: 0.15rem">翼分期商城隶属于广州传飞通讯设备有限公司，成立于2013年4月。总部坐落于华南电子商务中心。是获得中国电信股份有限公司广东省公司独家授权的手机分期平台。是国内首家提供3c类产品“0利息0手续费”分期支付服务的分期商城。</p>
+                            <p style="font-size: 0.15rem;margin-top: 0.15rem;margin-bottom: 0.15rem;margin-right: 0.15rem;margin-left: 0.15rem">相较于同类分期商城，翼分期拥有更为严格的产品采购体系。极具竞争力的价格以及完善的配送售后服务，上线至今赢得客户一致好评与信赖。</p>
+                            <p style="font-size: 0.15rem;margin-top: 0.15rem;margin-bottom: 0.35rem;margin-right: 0.15rem;margin-left: 0.15rem">翼分期目前已与中国银行、中国工商银行，招商银行，建设银行、农业银行、广发银行18家银行建立深度合作关系。</p>
+                        </div>
+                        <div class="weui-tab__item">
+                            <div class="img-box">
+                                <img src="/images/active/d/new/tab3.jpg">
+                            </div>
+                        </div>
+                        <div class="weui-tab__item">
+                            <div class="img-box">
+                                <img src="/images/active/d/new/tab4.jpg">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

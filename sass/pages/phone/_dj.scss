@@ -1,0 +1,180 @@
+.page.dj-a {
+  .owl-carousel {
+    border-bottom: none !important;
+  }
+  .price-red {
+    font-size: 0.14rem;
+    color: #fff;
+    @include background(rgba(0, 0, 0, 0) linear-gradient(left, #f11d22, #ff4979) repeat scroll 0 0);
+    text-align: center;
+    padding-top: 0.15rem;
+    padding-bottom: 0.15rem;
+    .price {
+      font-size: 0.3rem;
+      line-height: 0.3rem;
+      em {
+        color: #fff;
+      }
+    }
+    .timer {
+      font-size: 0.12rem;
+      line-height: 0.15rem;
+      .lb, .timer {
+        @include inline-block;
+      }
+      .sold {
+        width: 70%;
+        margin: 0 auto;
+        background: #fff;
+        @include border-radius(1rem);
+        color: #fa3a5c;
+      }
+    }
+  }
+  .dj-detail {
+    margin-top: 0.1rem;
+  }
+  .weui-tab {
+    height: auto;
+    margin-top: 0.1rem;
+    .weui-navbar {
+      position: relative;
+      z-index: 9;
+      .weui-navbar__item {
+        background: #fff;
+        font-size: 0.14rem;
+        position: relative;
+        &:before {
+          content: " ";
+          position: absolute;
+          height: 1px;
+          bottom: 0;
+          left: 0;
+          right: 0;
+        }
+        &:after {
+          content: " ";
+          position: absolute;
+          height: 0.12rem;
+          top: 50%;
+          margin-top: -0.06rem;
+          right: 0;
+          border-right: 1px solid #d8d8d8;
+          @include scaleX(1);
+        }
+        &.weui-bar__item_on {
+          color: $color-orange;
+          &:before {
+            border-bottom: 2px solid $color-orange;
+          }
+        }
+      }
+    }
+    .weui-tab__panel {
+      .weui-tab__item {
+        font-size: 0.12rem;
+        padding: 0.15rem;
+        p {
+          margin-top: 0.1rem;
+          margin-bottom: 0.1rem;
+        }
+        img {
+          display: block;
+          width: 100% !important;
+          height: auto !important;
+        }
+        .service-item {
+          padding-bottom: 0.15rem;
+          border-bottom: 1px dashed #d9d9d9;
+          padding-top: 0.15rem;
+          &:last-child {
+            border-bottom: none;
+          }
+          h3 {
+            img, span {
+              @include inline-block;
+            }
+            img {
+              width: 0.3rem !important;
+              height: 0.3rem !important;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .hot-phones {
+    .phone-box {
+      .txt-box {
+        .tit {
+          overflow: hidden;
+
+          text-overflow: ellipsis;
+
+          display: -webkit-box;
+
+          -webkit-box-orient: vertical;
+
+          -webkit-line-clamp: 2;
+        }
+      }
+    }
+  }
+  .footer-nav {
+    z-index: 9;
+  }
+  .feedback {
+    ul, li {
+      list-style: none;
+    }
+    .feedback-box {
+      .weui-media-box {
+        padding: 0;
+        padding-top: 0.15rem;
+        padding-bottom: 0.15rem;
+        &:after {
+          content: " ";
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          height: 1px;
+          border-bottom: 1px solid #d8d8d8;
+          @include scaleY(0.5);
+        }
+        .weui-media__info {
+          font-size: 0.13rem;
+        }
+      }
+    }
+  }
+
+  .Ptable {
+    margin: 10px 0;
+    overflow: hidden;
+  }
+  .Ptable-item, .package-list {
+    border-top: 1px solid #eee;
+    color: #999;
+    font-size: 0.12rem;
+    line-height: 150%;
+    margin-top: -1px;
+    padding: 12px 0;
+  }
+  .Ptable-item h3 {
+    font-size: 0.12rem;
+    text-align: center;
+    font-weight: bold;
+  }
+  .Ptable-item dl {
+  }
+  .Ptable-item dt {
+    float: left;
+    text-align: right;
+    width: 30%;
+  }
+  .Ptable-item dd {
+    margin-left: 35%;
+  }
+}

@@ -320,6 +320,33 @@ function checkMobileCode(receiverMobile, code) {
     return flag;
 }
 
+function showTheActionSheet(element) {
+    $(element).addClass('weui-actionsheet_toggle');
+    $(element).siblings('.ios-mask').fadeIn(200);
+}
+
+$(function(){
+    var $iosActionsheet = $('#iosActionsheet');
+    var $iosMask = $('.ios-mask');
+
+    function hideActionSheet() {
+        $iosActionsheet.removeClass('weui-actionsheet_toggle');
+        $iosMask.fadeOut(200);
+    }
+
+    function showActionSheet() {
+        $iosActionsheet.addClass('weui-actionsheet_toggle');
+        $iosMask.fadeIn(200);
+    }
+
+    $(".js-action-sheet-hide").on('click',hideActionSheet);
+    $(".js-action-sheet-show").on('click',showActionSheet);
+
+    $iosMask.on('click', hideActionSheet);
+    $('#iosActionsheetCancel').on('click', hideActionSheet);
+    $("#showIOSActionSheet").on("click", showActionSheet);
+});
+
 $(function () {
     $('.weui-navbar__item').on('click', function () {
         $(this).addClass('weui-bar__item_on').siblings('.weui-bar__item_on').removeClass('weui-bar__item_on');
