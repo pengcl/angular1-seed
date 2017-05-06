@@ -81,6 +81,13 @@ appFilters.filter('doubleName', function () {
     };
 });
 
+/*appFilters.filter('replaceImgSrc', ['$sce', function ($sce) {
+    return function (input) {
+        console.log(String(input).replace(/src=/g, 'class="lazy" data-original='));
+        return $sce.trustAsHtml(String(input).replace(/src=/g, 'class="lazy" data-original='));
+    };
+}]);*/
+
 appFilters.filter('range', function () {
     return function (data, start, end) {
         if (angular.isArray(data) && angular.isNumber(start) && angular.isNumber(end)) {
@@ -128,13 +135,27 @@ appFilters.filter('numberUp', function () {
     }
 });
 
+appFilters.filter('numberDown', function () {
+    return function (price) {
+
+        return Math.floor(price);
+    }
+});
+
 appFilters.filter('mp', function () {
     return function (price) {
 
-        if(price == 0){
+        if (price == 0) {
             return "&mp=0"
-        }else {
+        } else {
             return ""
         }
+    }
+});
+
+appFilters.filter('phoneFilter', function () {
+    return function (price) {
+
+        return price.substr(0, 4) + "****" + price.substr(8, 11);
     }
 });

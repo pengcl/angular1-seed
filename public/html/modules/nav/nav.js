@@ -19,13 +19,14 @@ app.directive("topNav", ['$timeout', '$document', '$window', function ($timeout,
             scope.$root.title = scope.pageTitle;
             scope.pageBack = attrs.pageBack;
             scope.pageDone = attrs.pageDone;
+            scope.homeUrl = attrs.homeUrl;
 
             if ($window.history.length == 1) {
                 scope.pageBack = "home";
             }
 
             scope.home = function () {
-                $window.location.href = 'http://' + $window.location.host + '/phone/active/D/phones' + $window.location.search;
+                $window.location.href = 'http://' + $window.location.host + scope.homeUrl + $window.location.search;
             };
 
             scope.back = function () {

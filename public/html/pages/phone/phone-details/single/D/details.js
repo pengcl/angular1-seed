@@ -30,16 +30,16 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
     $scope.pageType = 'D';
     $scope.activeTag = "jktchdd";
 
-    var butie = "358:6388;359:5388;360:3880;361:2980;362:2400";
+    var butie = "359:5388;360:3880;361:2980;362:2400";
 
     $scope.homeUrl = $location.protocol() + '://' + $location.host() + '/phone/active/D/phones';
 
-    $scope.$root.share = {
+    /*$scope.$root.share = {
         homeLink: 'http://app.yfq.cn/phone/active/D/phones' + window.location.search,
         shareTitle: '震惊！电信新入网，只要预存话费就可0元购机！领券最高再减800元！',
         shareDisc: '预存话费直抵购机价，信用卡用户在享0息分期，广州地区可即日送货上门验机后办理！',
         picUrl: 'http://app.yfq.cn/images/active/d/share_active.jpg'
-    };
+    };*/
 
     $scope.sold = Math.round(Math.random() * 1000);
 
@@ -47,7 +47,7 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
     if (headCategory != undefined && headCategory != null)
         $scope.category = headCategory + "_SinglePhones";
     else
-        $scope.category = systemName + "_mysy_" + $scope.pageType + "_SinglePhones";
+        $scope.category = systemName + "_coupon_" + $scope.pageType + "_SinglePhones";
     $scope.phoneQueryUrl = "http://" + $location.host() + $location.url();
     writebdLog($scope.category, "_Load", "渠道号", $scope.gh);
 
@@ -185,6 +185,13 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
                 $scope.setDefaultPayType(0, "马上付款");
             }
         });
+
+        $scope.$root.share = {
+            homeLink: 'http://app.yfq.cn/phs/sg/D/' + $stateParams.phoneId + window.location.search,
+            shareTitle: '想换手机？这里全场降价后再享95折，先抢了再说！',
+            shareDisc: 'iPhone、OPPO、华为各大品牌新品现货抢购，最高可享12期0息分期！',
+            picUrl: 'http://www.yfq.cn:8899/fileserver/medias/' + $scope.phone.phoneTypes[0].mediaProductList[0].mediaUrl
+        };
 
     }).error(function (data, status, headers, config) {
         console.log(status);
@@ -326,6 +333,7 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
     $timeout(function () {
         //console.log($scope.loadedCheck());
         if (!$scope.loadedCheck()) {
+            $(".adr-tab").toggleClass("down");
             $("#receiverAddressPanel").slideDown();
         }
     });

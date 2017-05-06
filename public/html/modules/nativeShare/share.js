@@ -82,35 +82,6 @@ app.directive("nativeShare", ['$cookieStore', '$http', '$location', function ($c
                         jsApiList: ['checkJsApi', 'onMenuShareTimeline', 'onMenuShareAppMessage'] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
                     });
 
-                    wx.ready(function () {
-                        wx.onMenuShareTimeline({
-                            title: scope.$root.share.shareTitle, // 分享标题
-                            link: scope.$root.share.homeLink, // 分享链接
-                            imgUrl: scope.$root.share.picUrl, // 分享图标
-                            success: function () {
-                                // 用户确认分享后执行的回调函数
-                            },
-                            cancel: function () {
-                                // 用户取消分享后执行的回调函数
-                            }
-                        });
-
-                        wx.onMenuShareAppMessage({
-                            title: scope.$root.share.shareTitle, // 分享标题
-                            desc: scope.$root.share.shareDisc, // 分享描述
-                            link: scope.$root.share.homeLink, // 分享链接
-                            imgUrl: scope.$root.share.picUrl, // 分享图标
-                            type: '', // 分享类型,music、video或link，不填默认为link
-                            dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
-                            success: function () {
-                                // 用户确认分享后执行的回调函数
-                            },
-                            cancel: function () {
-                                // 用户取消分享后执行的回调函数
-                            }
-                        });
-                    });
-
                 }).error(function (data, status, headers, config) {
                     console.log(status);
                 });
@@ -146,6 +117,35 @@ app.directive("nativeShare", ['$cookieStore', '$http', '$location', function ($c
                     img_title: n.shareTitle,
                     from: '翼分期商城'
                 };
+
+                wx.ready(function () {
+                    wx.onMenuShareTimeline({
+                        title: scope.$root.share.shareTitle, // 分享标题
+                        link: scope.$root.share.homeLink, // 分享链接
+                        imgUrl: scope.$root.share.picUrl, // 分享图标
+                        success: function () {
+                            // 用户确认分享后执行的回调函数
+                        },
+                        cancel: function () {
+                            // 用户取消分享后执行的回调函数
+                        }
+                    });
+
+                    wx.onMenuShareAppMessage({
+                        title: scope.$root.share.shareTitle, // 分享标题
+                        desc: scope.$root.share.shareDisc, // 分享描述
+                        link: scope.$root.share.homeLink, // 分享链接
+                        imgUrl: scope.$root.share.picUrl, // 分享图标
+                        type: '', // 分享类型,music、video或link，不填默认为link
+                        dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+                        success: function () {
+                            // 用户确认分享后执行的回调函数
+                        },
+                        cancel: function () {
+                            // 用户取消分享后执行的回调函数
+                        }
+                    });
+                });
 
                 var share_obj = new nativeShare('nativeShare', config);
             },true);

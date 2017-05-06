@@ -14,6 +14,8 @@
             </div>
             <div class="weui-flex__item" data-title="马上付款" ng-class="{true:'curr',false:''}[payType == 0]" ng-click="setPayType($event,0);">
                 <p class="title">马上付款</p>
+                <ins style="display: none">95折</ins>
+
             </div>
             <div class="weui-flex__item" data-title="分期付款" ng-class="{true:'curr',false:''}[payType == 2]" ng-click="setPayType($event,2);">
                 <p class="title">分期付款</p>
