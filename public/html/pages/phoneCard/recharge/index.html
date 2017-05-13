@@ -29,6 +29,7 @@
                         <span ng-if="rechargeStatus == 3 && checkoutForm.iccid.$valid == true">未知错误，请<a href="javascript:;" ng-click="getContact($event);">联系客服</a> ~</span>
                         <span ng-if="rechargeStatus == 4 && checkoutForm.iccid.$valid == true">您的卡还没实名认证受理激活成功 ~</span>
                         <span ng-if="rechargeStatus == 5 && checkoutForm.iccid.$valid == true">您已享受充值优惠，多个优惠不能同时享受，更多优惠请关注公众号发布 ~</span>
+                        <span ng-if="rechargeStatus == 6 && checkoutForm.iccid.$valid == true">尊敬的用户，您购买的合约机套餐，不支持该充值优惠 ~</span>
                     </p>
                 </div>
             </div>

@@ -2,7 +2,7 @@
     <!-- pia phone-index-A -->
     <top-nav page-title="中国电信●翼分期商城" page-back="menu" nav-visibility="hide"></top-nav>
     <div class="content-scrollable has-footer">
-        <div id="indexBanner">
+        <div id="indexBanner" style="display: block;">
             <div class="img-box">
                 <a href="/phs/db/A/293{{params}}" ng-click="writeSelectFoods(this,'293','SY');">
                     <img src="/images/phones/assets/index/indexBanner.jpg">
@@ -15,7 +15,7 @@
                 <div class="txt" ng-bind="selkillTxt"></div>
             </div>
         </div>
-        <div id="indexHot"><!-- 劲爆推荐 -->
+        <div id="indexHot" style="display: block;"><!-- 劲爆推荐 -->
             <div class="img-box">
                 <img src="/images/phones/assets/index/indexHot_01.jpg">
             </div>
@@ -65,7 +65,7 @@
             </div>
 
             <!-- 双机循环开始 -->
-            <ul class="phone-list" style="display:none">
+            <ul class="phone-list">
                 <li class="phone-item" ng-repeat="doublePhone in doublePhones | orderBy : 'sortOrder' | range : 0 : 12">
                     <a href="/phs/db/{{pageType}}/{{doublePhone.activityproductId}}{{params}}" ng-click="writeSelectFoods(this,doublePhone.activityproductId,'MYSY');" class="phone-box pure-g"><!-- 买一送一 -->
                         <ins class="phone-box-flag">
@@ -131,7 +131,7 @@
 
             <!-- 单机循环开始 -->
             <ul class="list_single phone-list">
-                <li class="phone-item single" ng-repeat="singlePhone in singlePhones" ng-show="singlePhone.salePrice >= 1500" on-finish>
+                <li class="phone-item single" ng-repeat="singlePhone in singlePhones" on-finish>
                     <a href="/phs/sg/{{pageType}}/{{singlePhone.activityproductId}}{{params}}" ng-click="writeSelectFoods(this,singlePhone.activityproductId,'BKDJ');" class="phone-box pure-g">
                         <ins class="phone-box-flag">
                             <div class="img-box">

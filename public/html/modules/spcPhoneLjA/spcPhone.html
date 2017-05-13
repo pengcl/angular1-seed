@@ -1,0 +1,62 @@
+<input type="text" style="display: none;" id="machineName" name="machineName" ng-model="machineName" value="{{machineName}}" class="weui-input" required/>
+<div class="tpl-box" style="margin-top: 0.1rem">
+    <div class="sale-tpl-top js-fix-top-bar" ng-class="{true:'sale-tpl-top-open',false:''}[spcNavOpen]" id="js-top-nav-warp">
+        <div class="sale-floor-text"><span ng-bind="brandNavName"></span></div>
+        <div class="sale-floor-wrap">
+            <a href="javascript:;" class="sale-floor-btn js-sale-nav-more-btn" data-fql-stat="TOP_nav_more" ng-click="spcNavOpen = !spcNavOpen"><i></i></a>
+            <div class="sale-floor-main swiper-container swiper-container-horizontal js-top-nav-swiper-container">
+                <ul class="swiper-wrapper js-swiper-wrapper bi-{{brandIndex}}">
+                    <li class="js-nav-item swiper-slide" ng-repeat="myBrand in brands" ng-class="{true:'on',false:''}[myBrand.brandName == brand.brandName]"><a ng-click="setMainPhoneBrand($event,$index,myBrand)" href="javascript:;" class="tab-title"><span ng-bind="myBrand.brandName"></span><i class="hot" ng-if="myBrand.tag">HOT</i></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<ul class="spc-list spc-phone pure-g">
+    <li class="pure-u-1-2" ng-repeat="singlePhone in brandPhones" on-finish>
+        <a class="item-box" ng-if="params.length == 0" href="/phs/lj/{{pageType}}/{{singlePhone.activityproductId}}{{params}}?headCategory={{category}}" ng-class="{true:'curr',false:''}[machineName == singlePhone.productName]" ng-click="setMachine(singlePhone.productName,singlePhone.activityproductId)">
+            <div class="img-box">
+                <img class="lazy" data-original="http://www.yfq.cn:8899/fileserver/medias/{{singlePhone.mainImageUrl}}">
+            </div>
+            <div class="title">
+                <span ng-bind="singlePhone.productName"></span>
+            </div>
+
+            <div class="price">
+                <div class="pure-g">
+                    <div class="text-l pure-u-3-5">
+                        <em style="font-size: 0.1rem">优惠价:</em><em style="font-size: 0.13rem">￥</em><em style="font-size: 0.13rem;font-weight: bold" ng-bind="singlePhone.salePrice * 0.95 | numberUp"></em>
+                    </div>
+                    <div class="text-r pure-u-2-5">
+                        <!--<del style="font-size: 0.1rem;display: block;margin-top: 0.03rem"><span>原价:</span><span>￥</span><span ng-bind="singlePhone.salePrice"></span></del>-->
+                    </div>
+                </div>
+            </div>
+            <div class="bbtn">
+                <span>立即抢购</span>
+            </div>
+        </a>
+        <a class="item-box" ng-if="params.length != 0" href="/phs/lj/{{pageType}}/{{singlePhone.activityproductId}}{{params}}&headCategory={{category}}" ng-class="{true:'curr',false:''}[machineName == singlePhone.productName]" ng-click="setMachine(singlePhone.productName,singlePhone.activityproductId)">
+            <div class="img-box">
+                <img class="lazy" data-original="http://www.yfq.cn:8899/fileserver/medias/{{singlePhone.mainImageUrl}}">
+            </div>
+            <div class="title">
+                <span ng-bind="singlePhone.productName"></span>
+            </div>
+
+            <div class="price">
+                <div class="pure-g">
+                    <div class="text-l pure-u-3-5">
+                        <em style="font-size: 0.1rem">优惠价:</em><em style="font-size: 0.13rem">￥</em><em style="font-size: 0.13rem;font-weight: bold" ng-bind="singlePhone.salePrice * 0.95 | numberUp"></em>
+                    </div>
+                    <div class="text-r pure-u-2-5">
+                        <!--<del style="font-size: 0.1rem;display: block;margin-top: 0.03rem"><span>原价:</span><span>￥</span><span ng-bind="singlePhone.salePrice"></span></del>-->
+                    </div>
+                </div>
+            </div>
+            <div class="bbtn">
+                <span>立即抢购</span>
+            </div>
+        </a>
+    </li>
+</ul>

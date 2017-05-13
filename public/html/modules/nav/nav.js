@@ -1,6 +1,6 @@
 'use strict';
 
-app.directive("topNav", ['$timeout', function ($timeout) {
+app.directive("topNav", ['$timeout', '$document', '$window', function ($timeout, $document, $window) {
     return {
         restrict: 'E',
         replace: true,
@@ -19,16 +19,20 @@ app.directive("topNav", ['$timeout', function ($timeout) {
             scope.$root.title = scope.pageTitle;
             scope.pageBack = attrs.pageBack;
             scope.pageDone = attrs.pageDone;
-            scope.back = function () {
-                var $viewContainer = $(".view-container");
-                //var $viewFrame = $(".view-frame");
-                $viewContainer.addClass("ng-back");
-                history.back();
-                var timer = $timeout(function () {
-                    $viewContainer.removeClass("ng-back");
-                }, 500);
+            scope.homeUrl = attrs.homeUrl;
+
+            if ($window.history.length == 1) {
+                scope.pageBack = "home";
+            }
+
+            scope.home = function () {
+                $window.location.href = 'http://' + $window.location.host + scope.homeUrl + $window.location.search;
             };
-            
+
+            scope.back = function () {
+                history.back();
+            };
+
             scope.done = function () {
 
             };

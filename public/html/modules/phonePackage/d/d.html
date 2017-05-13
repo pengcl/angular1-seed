@@ -54,14 +54,14 @@
                                     </ul>
                                 </div>
 
-                                <div class="show-main-number" ng-show="!queryNumber">您已选择手机号码：<span ng-bind="mainNumber"></span> <a href="javascript:;" ng-click="reChoose()">重新选号></a><br><span style="color: #8f8f8f" ng-if="phone.activityproductId == 366 || phone.activityproductId == 367 || phone.activityproductId == 368 || phone.activityproductId == 369">预售时间过长，该号码有可能会过期</span></div>
+                                <div class="show-main-number" ng-show="!queryNumber">您已选择手机号码：<span ng-bind="mainNumber"></span> <a has-hash="false" href="javascript:userTrack('reChooseNumber');" ng-click="reChoose()">重新选号></a><br><span style="color: #8f8f8f" ng-if="phone.activityproductId == 366 || phone.activityproductId == 367 || phone.activityproductId == 368 || phone.activityproductId == 369">预售时间过长，该号码有可能会过期</span></div>
 
                                 <div class="the-notice" ng-show="queryNumber">
                                     <p class="icon-time">  限时0元选价值200元靓号</p>
                                 </div>
                                 <div class="sbtn pure-g" ng-show="queryNumber">
-                                    <a class="sb-prev pure-u-1-3" href="javascript:;" ng-click="Previous('main')"><i class="icon-arrow-left-alt"></i><span>上一页</span></a>
-                                    <a class="sb-next pure-u-1-3" href="javascript:;" ng-click="Next('main')"><span>下一页</span><i class="icon-arrow-right-alt"></i></a>
+                                    <a class="sb-prev pure-u-1-3" has-hash="false" href="javascript:userTrack('prev');" ng-click="Previous('main')"><i class="icon-arrow-left-alt"></i><span>上一页</span></a>
+                                    <a class="sb-next pure-u-1-3" has-hash="false" href="javascript:userTrack('next');" ng-click="Next('main')"><span>下一页</span><i class="icon-arrow-right-alt"></i></a>
                                 </div>
                                 <div class="selected-pkg" ng-if="pkg">
                                     <p>所选套餐：运营原价：<span ng-bind="pkg.oldPrice | number:0"></span>元/月，现可享5折优惠36个月，即<span ng-bind="(pkg.oldPrice * 36 - pkg.salesPrice)/36 | numberUp"></span>元/月 <span ng-bind="pkg.network"></span>G国内流量，<span ng-bind="pkg.talkTime"></span>分钟国内通话，50条短信

@@ -3,7 +3,7 @@
 app.directive("phoneCPackage", ['$http', '$stateParams', '$q', '$cookieStore', '$location', function ($http, $stateParams, $q, $cookieStore, $location) {
     return {
         restrict: 'E',
-        templateUrl: "modules/phonePackage/c/d.html",
+        templateUrl: "modules/phonePackage/c/c.html",
         controller: "numberCController",
         link: function (scope, element, attrs) {
 

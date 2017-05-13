@@ -1,4 +1,122 @@
 .page.p-details {
+  .no-border {
+    &.weui-cells {
+      &:after {
+        display: none;
+      }
+    }
+  }
+  .about-yfq {
+    font-size: 0.14rem;
+    .weui-media-box {
+      background: #fff;
+    }
+    .weui-media-box__hd {
+      width: 0.48rem;
+      margin-right: 0.1rem;
+      img {
+        display: block;
+        width: 100%;
+        border:1px solid #d8d8d8;
+      }
+    }
+    .weui-media-box__bd {
+      -webkit-box-flex: 1;
+      -webkit-flex: 1;
+      flex: 1;
+      min-width: 0;
+      .weui-media-box__title {
+        position: relative;
+        .icon-cross {
+          float: right;
+          color: #999;
+        }
+      }
+    }
+    .weui-actionsheet__action {
+      margin-top: 0;
+      .weui-navbar {
+        position: relative;
+        &:before {
+          border-top: 1px solid #ccc;
+          top: 0;
+          color: #ccc;
+          content: " ";
+          height: 1px;
+          left: 0;
+          position: absolute;
+          right: 0;
+          transform: scaleY(0.5);
+          transform-origin: 0 100% 0;
+          z-index: 1;
+        }
+      }
+      .weui-navbar__item {
+        font-size: 0.14rem;
+        background: #fff;
+        &:after {
+          border-right: 0;
+        }
+        .navbaricon {
+          display: block;
+          margin: 0 auto;
+          width: 0.4rem;
+          height: 0.4rem;
+          background-image: url("/images/active/d/new/nav1.png");
+          background-size: 80% 80%;
+          background-position: center center;
+          background-repeat: no-repeat;
+        }
+        &:nth-child(1) {
+          .navbaricon {
+            background-image: url("/images/active/d/new/nav1.png");
+          }
+        }
+        &:nth-child(2) {
+          .navbaricon {
+            background-image: url("/images/active/d/new/nav2.png");
+          }
+        }
+        &:nth-child(3) {
+          .navbaricon {
+            background-image: url("/images/active/d/new/nav3.png");
+          }
+        }
+        &:nth-child(4) {
+          .navbaricon {
+            background-image: url("/images/active/d/new/nav4.png");
+          }
+        }
+        &.weui-bar__item_on {
+          color: #ff5b29;
+          &:nth-child(1) {
+            .navbaricon {
+              background-image: url("/images/active/d/new/nav1-on.png");
+            }
+          }
+          &:nth-child(2) {
+            .navbaricon {
+              background-image: url("/images/active/d/new/nav2-on.png");
+            }
+          }
+          &:nth-child(3) {
+            .navbaricon {
+              background-image: url("/images/active/d/new/nav3-on.png");
+            }
+          }
+          &:nth-child(4) {
+            .navbaricon {
+              background-image: url("/images/active/d/new/nav4-on.png");
+            }
+          }
+        }
+      }
+      .weui-tab__item {
+        height: 3.5rem;
+        overflow-y: scroll;
+      }
+    }
+  }
   .product-header {
     .price-area {
       background: #DEBD7F;
@@ -261,7 +379,7 @@
         &.nav-button {
           display: block;
           width: 100%;
-          padding:0.1rem;
+          padding: 0.1rem;
           background: #fff;
           a {
             background: #81b618;
@@ -320,7 +438,7 @@
     #numberPanel {
       display: block !important;
     }
-    #phoneTypes,#phoneStorages,#phoneColors,#phonePackage,#receiverAddress {
+    #phoneTypes, #phoneStorages, #phoneColors, #phonePackage, #receiverAddress {
       background: #fff;
       padding-top: 0.1rem;
       padding-bottom: 0.1rem;
@@ -329,8 +447,8 @@
         padding-bottom: 0.1rem;
         margin-bottom: 0.1rem;
         line-height: 1;
-        &:before{
-          top:0;
+        &:before {
+          top: 0;
           margin-top: 0;
           height: 0.16rem;
         }
@@ -339,7 +457,7 @@
           position: absolute;
           bottom: 0;
           left: 0.15rem;
-          right:0.15rem;
+          right: 0.15rem;
           height: 1px;
           border-bottom: 1px solid #eee;
         }
@@ -359,14 +477,14 @@
         content: " ";
         position: absolute;
         left: 0.15rem;
-        right:0.15rem;
-        bottom:0;
+        right: 0.15rem;
+        bottom: 0;
         height: 1px;
         border-bottom: 1px solid #eee;
       }
       span {
-        &:first-child{
-          &:after{
+        &:first-child {
+          &:after {
             background: $color-primary;
           }
         }
@@ -382,9 +500,10 @@
     }
   }
 }
+
 .phone-d-tb {
-  .t-title{
-    background-color:#e5e5e5;
+  .t-title {
+    background-color: #e5e5e5;
   }
   .c-gy {
     color: #999;

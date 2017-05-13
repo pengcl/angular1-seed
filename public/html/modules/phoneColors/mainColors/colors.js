@@ -10,7 +10,8 @@ app.directive("mainColors", ['$http', '$q', '$timeout', function ($http, $q, $ti
             scope.mainColorTitle = attrs.title;
             scope.mainColorSubTitle = attrs.subTitle;
 
-            scope.$root.mainColor = scope.phone.phoneTypes[0].mediaProductList[0];
+            scope.$root.mainColor = scope.phone.phoneTypes[0].mediaProductList[getIndex(scope.phone.phoneTypes[0].mediaProductList, 'selected', 1)];
+
 
             //选择手机颜色
             scope.setMainPhoneColor = function (event, color) {

@@ -1,0 +1,568 @@
+.page.dj-a {
+  .owl-carousel {
+    border-bottom: none !important;
+  }
+  .has-footer {
+    &:after {
+      height: 0.3rem !important;
+    }
+  }
+  .price-red {
+    font-size: 0.14rem;
+    color: #fff;
+    @include background(rgba(0, 0, 0, 0) linear-gradient(left, #f11d22, #ff4979) repeat scroll 0 0);
+    text-align: center;
+    padding-top: 0.15rem;
+    padding-bottom: 0.15rem;
+    .price {
+      font-size: 0.34rem;
+      line-height: 0.34rem;
+      text-align: left;
+      padding-left: 0.15rem;
+      em {
+        color: #fff;
+      }
+    }
+    .timer {
+      font-size: 0.13rem;
+      line-height: 0.15rem;
+      .lb, .timer {
+        @include inline-block;
+      }
+      .sold {
+        width: 70%;
+        margin: 0 auto;
+        background: #fff;
+        @include border-radius(1rem);
+        color: #fa3a5c;
+        margin-top: 0.02rem;
+      }
+    }
+  }
+  #phoneFlash {
+    .pure-u-1-2 {
+      width: auto;
+      .item-box {
+        padding: 0.02rem 0.15rem;
+        margin: 0.08rem 0.04rem 0.04rem 0.08rem;
+      }
+    }
+    .item-box {
+      border: 0;
+      color: #333;
+      background: #cccccc;
+      padding: 0;
+      &.curr {
+        background: #ff5a27;
+        color: #fff;
+      }
+      p {
+        text-align: center;
+      }
+    }
+  }
+  .select-button {
+    padding-top: 0.2rem !important;
+    a.weui-actionsheet__cell {
+      padding-top: 0.09rem !important;
+      padding-bottom: 0.09rem !important;
+      text-align: center;
+      background: #ff5a27;
+      display: block;
+      color: #fff;
+      font-size: 0.14rem;
+    }
+  }
+  .adr-additional {
+    font-size: 0.12rem;
+    background: #fff;
+    padding-left: 0.15rem;
+    padding-right: 0.15rem;
+    padding-bottom: 0.15rem;
+  }
+  #productSelector {
+    .weui-media-box {
+      &:after {
+        content: " ";
+        position: absolute;
+        height: 1px;
+        border-bottom: 1px solid #d8d8d8;
+        left: 0;
+        right: 0;
+        bottom: 0;
+      }
+      .weui-media-box__hd {
+        width: 0.8rem;
+        position: relative;
+        img {
+          position: absolute;
+          top: -0.7rem;
+          @include border-radius(3px);
+          padding-top: 0.05rem;
+          padding-bottom: 0.05rem;
+          background: #fff;
+        }
+      }
+    }
+    .disabled {
+      background: #999 !important;
+    }
+  }
+  #setPayType {
+    .weui-flex__item {
+      &:nth-child(2) {
+        display: none !important;
+      }
+    }
+  }
+  .weui-actionsheet__menu {
+    #setPayType {
+      margin-top: 0 !important;
+      .weui-flex {
+        display: block !important;
+        .weui-flex__item {
+          @include inline-block;
+          padding: 0.02rem 0.15rem !important;
+          margin: 0.08rem 0.04rem 0.04rem 0.08rem;
+          border: 0;
+          color: #333;
+          background: #cccccc;
+          &:before {
+            display: none !important;
+          }
+          &:after {
+            display: none !important;
+          }
+          p {
+            border-right: 0 !important;
+          }
+          @include border-radius(4px);
+          &.curr {
+            background: #ff5a27;
+            color: #fff;
+            p {
+              color: #fff !important;
+            }
+          }
+          ins {
+            display: block !important;
+            position: absolute;
+            background: $color-primary;
+            color: #fff;
+            @include border-radius(3px);
+            right: -0.1rem;
+            top: -0.1rem;
+            font-size: 0.1rem;
+            padding-left: 0.05rem;
+            padding-right: 0.05rem;
+            text-decoration: none;
+          }
+
+        }
+      }
+    }
+  }
+  .phone-colors-item {
+    &.pure-u-1-4 {
+      width: auto;
+      .item-box {
+        padding: 0.02rem 0.15rem;
+        margin: 0.08rem 0.04rem 0.04rem 0.08rem;
+      }
+    }
+    .item-box {
+      border: 0;
+      color: #333;
+      background: #ccc;
+      padding: 0;
+      &.curr {
+        background: #ff5a27;
+        color: #fff;
+      }
+      p {
+        text-align: center;
+      }
+    }
+    .img-box {
+      display: none !important;
+    }
+  }
+  .setPayType {
+    margin-top: 0 !important;
+  }
+  .dj-detail {
+    margin-top: 0.1rem;
+    .weui-navbar {
+      &.fixed-top {
+        top: 0.45rem;
+        position: fixed;
+        z-index: 100;
+      }
+    }
+    .weui-tab__item {
+      .product-detail {
+        margin-left: -0.15rem;
+        margin-right: -0.15rem;
+        p {
+          margin: 0 !important;
+        }
+      }
+    }
+  }
+  .weui-tab {
+    height: auto;
+    margin-top: 0.1rem;
+    .weui-navbar {
+      position: absolute;
+      z-index: 0;
+      .weui-navbar__item {
+        background: #fff;
+        font-size: 0.14rem;
+        position: relative;
+        padding: 0.13rem 0;
+        &:before {
+          content: " ";
+          position: absolute;
+          height: 1px;
+          bottom: 0;
+          left: 0;
+          right: 0;
+        }
+        &:after {
+          content: " ";
+          position: absolute;
+          height: 0.12rem;
+          top: 50%;
+          margin-top: -0.06rem;
+          right: 0;
+          border-right: 1px solid #d8d8d8;
+          @include scaleX(1);
+        }
+        &.weui-bar__item_on {
+          color: $color-orange;
+          &:before {
+            border-bottom: 2px solid $color-orange;
+          }
+        }
+      }
+    }
+    .weui-tab__panel {
+      padding-top: 0.5rem !important;
+      .weui-tab__item {
+        font-size: 0.12rem;
+        padding: 0.15rem;
+        p {
+          margin-top: 0.1rem;
+          margin-bottom: 0.1rem;
+        }
+        img {
+          display: block;
+          width: 100% !important;
+          height: auto !important;
+        }
+        .service-item {
+          padding-bottom: 0.15rem;
+          border-bottom: 1px dashed #d9d9d9;
+          padding-top: 0.15rem;
+          &:last-child {
+            border-bottom: none;
+          }
+          h3 {
+            img, span {
+              @include inline-block;
+            }
+            img {
+              width: 0.3rem !important;
+              height: 0.3rem !important;
+            }
+          }
+        }
+        &.half {
+          height: 6.67rem;
+          overflow: hidden;
+          position: relative;
+          .html-ft {
+            position: absolute;
+            width: 100%;
+            bottom: 0;
+            left: 0;
+            padding-top: 0.5rem;
+            padding-bottom: 0.1rem;
+            @include background-image(linear-gradient(top, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.8) 40%, rgba(255, 255, 255, 1) 60%, #FFFFFF 100%));
+          }
+        }
+      }
+    }
+  }
+
+  .feedback-tab {
+    margin-left: -0.05rem;
+    margin-right: -0.05rem;
+    .pure-u-1-4 {
+      text-align: center;
+      .feedback-nav {
+        background: #ccc;
+        color: #333;
+        text-align: center;
+        padding-left: 0.04rem;
+        padding-right: 0.04rem;
+        @include border-radius(4px);
+        display: block;
+        margin-left: 0.05rem;
+        margin-right: 0.05rem;
+        margin-top: 0.05rem;
+        line-height: 1;
+        padding-top: 0.06rem;
+        padding-bottom: 0.06rem;
+        &.curr {
+          background: $color-orange;
+          color: #fff;
+        }
+      }
+    }
+    .pure-u-1-6 {
+      text-align: right;
+      line-height: 1.2;
+      em {
+        font-size: 0.16rem;
+      }
+    }
+  }
+
+  .hot-phones {
+    .phone-box {
+      padding-bottom: 0.1rem;
+      display: block;
+      .txt-box {
+        line-height: 1.1;
+        .tit {
+          overflow: hidden;
+          text-overflow: ellipsis;
+          color: #333;
+          margin-top: 0.08rem;
+          white-space: nowrap;
+        }
+        .price {
+          color: $color-orange;
+        }
+      }
+    }
+  }
+  #spcNav {
+    //@include box-shadow(none);
+  }
+  /*.footer-nav {
+    &.nav-list {
+      @include box-shadow(none);
+    }
+    z-index: 9;
+  }*/
+  .feedback {
+    ul, li {
+      list-style: none;
+    }
+    .feedback-box {
+      .weui-media-box {
+        padding: 0;
+        padding-top: 0.15rem;
+        padding-bottom: 0.15rem;
+        &:after {
+          content: " ";
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          height: 1px;
+          border-bottom: 1px solid #d8d8d8;
+          @include scaleY(0.5);
+        }
+        .weui-media__info {
+          font-size: 0.13rem;
+        }
+      }
+    }
+  }
+
+  .select-p .weui-cell_access .weui-cell__ft::after {
+    @include rotate(45deg);
+  }
+
+  .Ptable {
+    margin: 10px 0;
+    overflow: hidden;
+  }
+  .Ptable-item, .package-list {
+    border-top: 1px solid #eee;
+    color: #999;
+    font-size: 0.12rem;
+    line-height: 150%;
+    margin-top: -1px;
+    padding: 12px 0;
+  }
+  .Ptable-item h3 {
+    font-size: 0.12rem;
+    text-align: center;
+    font-weight: bold;
+  }
+  .Ptable-item dl {
+  }
+  .Ptable-item dt {
+    float: left;
+    text-align: right;
+    width: 47.5%;
+  }
+  .Ptable-item dd {
+    margin-left: 52.5%;
+  }
+
+  #footerPayButton {
+    &.disabled {
+      @include opacity(1);
+      background: #999 !important;
+    }
+  }
+}
+
+.go-top {
+  width: 0.34rem;
+  height: 0.34rem;
+  position: absolute;
+  right: 0.1rem;
+  bottom: 0.3rem;
+}
+
+.page.lj-index {
+  .lj-banner {
+    position: relative;
+    .timers {
+      position: absolute;
+      font-size: 0.16rem;
+      bottom: 0.1rem;
+      width: 100%;
+      left: 0;
+      text-align: center;
+      color: #fff;
+      .timer {
+        font-size: 0.18rem;
+      }
+      i, sub {
+        @include inline-block;
+      }
+      sub {
+        color: #333;
+      }
+      i {
+        background: #000;
+        width: 0.32rem;
+        height: 0.32rem;
+        text-align: center;
+        line-height: 0.32rem;
+        margin-left: 0.05rem;
+        margin-right: 0.05rem;
+        color: #fff;
+        font-style: normal;
+        @include border-radius(3px);
+        position: relative;
+        overflow: hidden;
+        &:before {
+          content: " ";
+          position: absolute;
+          background: #fe4e2f;
+          height: 0.06rem;
+          width: 0.06rem;
+          left: -0.03rem;
+          @include border-radius(0.03rem);
+          top: 50%;
+          margin-top: -0.03rem;
+        }
+        &:after {
+          content: " ";
+          position: absolute;
+          background: #fe4e2f;
+          height: 0.06rem;
+          width: 0.06rem;
+          right: -0.03rem;
+          @include border-radius(0.03rem);
+          top: 50%;
+          margin-top: -0.03rem;
+        }
+      }
+    }
+  }
+  .new-spc-phone {
+    margin: 0.1rem 0.1rem;
+    padding: 0.15rem;
+    background: #fff;
+    overflow: hidden;
+    font-size: 0.12rem;
+    .phone-img {
+      padding-top: 0.2rem;
+      padding-bottom: 0.2rem;
+    }
+    .phone-txt {
+      .phone-title {
+        margin-top: 0.1rem;
+        .img-box {
+          margin: 0.1rem 0.05rem;
+        }
+      }
+      .type-phone {
+        text-align: center;
+      }
+      .phone-name {
+        font-size: 0.11rem;
+        font-weight: bold;
+      }
+      .phone-price {
+        font-size: 0.16rem;
+      }
+      .phone-btn {
+        a {
+          @include inline-block;
+          background: #bc1403;
+          color: #fff;
+          padding: 0.05rem 0.08rem;
+          line-height: 1;
+        }
+      }
+    }
+  }
+  .spc-list {
+    .price {
+      .pure-u-3-5 {
+        width: 55%;
+      }
+      .pure-u-2-5 {
+        width: 45%;
+      }
+    }
+  }
+
+  #hotPhone {
+    .tips {
+      line-height: 1.2;
+      margin-top: 0.05rem;
+    }
+    .tags {
+      span {
+        @include inline-block;
+        border: 1px solid $color-orange;
+        line-height: 1;
+        padding: 0.03rem 0.06rem;
+        margin-top: 0.1rem;
+        margin-right: 0.07rem;
+        @include border-radius(4px);
+      }
+    }
+  }
+
+  .phones-content {
+    .item-box {
+      .img-box {
+        img {
+          margin: 0 auto !important;
+        }
+      }
+    }
+  }
+}

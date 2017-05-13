@@ -1,0 +1,65 @@
+<div class="page fd-details in">
+    <top-nav page-title="翼分期商城福利" page-back="menu" nav-visibility="hide"></top-nav>
+    <form id="checkoutForm" name="checkoutForm" action="http://m.gd189fq.com/yfqcz/czOrdMainController.do?submitOrder" method="post" novalidate>
+        <input type="hidden" value="1" name="mainMonthNumber" id="mainMonthNumber">
+        <input type="hidden" id="mainYG" name="mainYG" value="0">
+        <gh></gh>
+        <pt></pt>
+        <activity></activity>
+        <redirect-url></redirect-url>
+        <div class="content-scrollable has-footer">
+            <div class="banner-image">
+                <img id="banner-bg" src="http://app.yfq.cn/images/flow/flowcard/in/banner-bg.gif" />
+                <img id="banner-cat" class="fadeInUp animated" src="http://app.yfq.cn/images/flow/flowcard/in/banner-cat.gif" />
+                <img id="banner-bg2" src="http://app.yfq.cn/images/flow/flowcard/in/banner-bg2.gif" />
+                <img id="banner-title" class="slideInDown animated" src="http://app.yfq.cn/images/flow/flowcard/in/banner-title.gif" />
+                <img id="banner-subtitle-1" class="bounceIn animated" src="http://app.yfq.cn/images/flow/flowcard/in/banner-subtitle-1.gif" />
+                <img id="banner-subtitle-2" class="bounceIn animated" src="http://app.yfq.cn/images/flow/flowcard/in/banner-subtitle-2.gif" />
+                <img id="banner-subtitle-3" class="bounceIn animated" src="http://app.yfq.cn/images/flow/flowcard/in/banner-subtitle-3.gif" />
+                <img id="banner-dot" class="flash animated" src="http://app.yfq.cn/images/flow/flowcard/in/banner-dot.gif" />
+                <img id="banner-card" class="bounceIn animated" src="http://app.yfq.cn/images/flow/flowcard/in/banner-card.gif" />
+            </div>
+            <div class="product-header">
+                <h1 class="product-title">全国流量卡/上网卡，3G/4G/6G/8G/10G</h1>
+                <h2 class="product-sub-title">自动充值 当月生效 <span class="label label-danger">全国包邮</span></h2>
+                <div class="price-area">
+                    <sub>￥</sub><em>52</em><sub>.00</sub> - <sub>￥</sub><em>120</em><sub>.00</sub>
+                </div>
+            </div>
+            <!--<flow-package title="“优惠套餐”" sub-title="" size="l"></flow-package>-->
+
+            <div id="flowPackage" class="flow-package">
+                <input type="hidden" name="productId" id="productId" ng-model="flowPackageItem.id" value="{{flowPackageItem.id}}" required>
+                <div class="weui-cells__title title-icon">
+                    <span class="title">选择套餐</span>
+                </div>
+                <div class="flow-package-panel pd-w">
+                    <ul class="flow-package-lists item-lists minus pure-g">
+                        <li class="flow-package-item list-item pure-u-1-1" ng-repeat="flowPackageItem in product.packageProductList">
+                            <div class="item-box margin radius border" ng-click="setFlowPackage($event,flowPackageItem)">
+                                <p>
+                                    <span ng-bind="flowPackageItem.productName"></span> + <span>预存400送MIFI设备</span>
+                                </p>
+                                <ins class="icon-check"></ins>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <app-number number-id="numberId" input-data="inputData" output-data="outputData"></app-number>
+
+            <receiver-address title="“收货地址”"></receiver-address>
+            <div class="product-details">
+                <div class="img-box"><img src="http://app.yfq.cn/images/flow/flowcard/in/1.gif"></div>
+                <div class="img-box"><img src="http://app.yfq.cn/images/flow/flowcard/in/2.gif"></div>
+                <div class="img-box"><img src="http://app.yfq.cn/images/flow/flowcard/in/3.gif"></div>
+                <div class="img-box"><img src="http://app.yfq.cn/images/flow/flowcard/in/4.gif"></div>
+                <div class="img-box"><img src="http://app.yfq.cn/images/flow/flowcard/in/5.gif"></div>
+                <div class="img-box"><img src="http://app.yfq.cn/images/flow/flowcard/in/6.gif"></div>
+                <div class="img-box"><img src="http://app.yfq.cn/images/flow/flowcard/in/7.gif"></div>
+            </div>
+        </div>
+        <footer-nav submit="#checkoutForm"></footer-nav>
+    </form>
+</div>

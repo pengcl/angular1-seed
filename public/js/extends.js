@@ -3,7 +3,7 @@
 //全局统计
 var systemName = "yfqapp";
 
-var userTrack = function (category, action, gh, value) {
+var userTrack = function () {
 
 };
 
@@ -320,8 +320,42 @@ function checkMobileCode(receiverMobile, code) {
     return flag;
 }
 
+function showTheActionSheet(element) {
+    $(element).addClass('weui-actionsheet_toggle');
+    $(element).find(".weui-media-box__thumb").show();
+    $(element).siblings('.ios-mask').fadeIn(200);
+}
+
+function hideTheActionSheet(element) {
+    $(element).removeClass('weui-actionsheet_toggle');
+    $(element).find(".weui-media-box__thumb").hide();
+    $(element).siblings('.ios-mask').fadeOut(200);
+}
+
+$(function(){
+    var $iosActionsheet = $('#iosActionsheet');
+    var $iosMask = $('.ios-mask');
+
+    function hideActionSheet() {
+        $iosActionsheet.removeClass('weui-actionsheet_toggle');
+        $iosMask.fadeOut(200);
+    }
+
+    function showActionSheet() {
+        $iosActionsheet.addClass('weui-actionsheet_toggle');
+        $iosMask.fadeIn(200);
+    }
+
+    $(".js-action-sheet-hide").on('click',hideActionSheet);
+    $(".js-action-sheet-show").on('click',showActionSheet);
+
+    $iosMask.on('click', hideActionSheet);
+    $('#iosActionsheetCancel').on('click', hideActionSheet);
+    $("#showIOSActionSheet").on("click", showActionSheet);
+});
+
 $(function () {
-    $('.weui-navbar__item').on('click', function () {
+    $('#container').on('click','.weui-navbar__item', function () {
         $(this).addClass('weui-bar__item_on').siblings('.weui-bar__item_on').removeClass('weui-bar__item_on');
         $(this).parent().next().find(".weui-tab__item").removeClass("weui-tab__item_on");
         $(this).parent().next().find(".weui-tab__item").eq($(this).index()).addClass("weui-tab__item_on");

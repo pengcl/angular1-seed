@@ -13,12 +13,12 @@
     </div>
 </div>
 <ul class="spc-list spc-phone pure-g">
-    <li class="pure-u-1-2" ng-repeat="singlePhone in brandPhones" ng-if="singlePhone.salePrice >= 1500">
+    <li class="pure-u-1-2" ng-repeat="singlePhone in brandPhones">
         <a class="item-box" ng-if="params.length == 0" href="/phs/sg/{{pageType}}/{{singlePhone.activityproductId}}{{params}}?headCategory={{category}}{{singlePhone.cardItems - singlePhone.fanhuan | mp}}" ng-class="{true:'curr',false:''}[machineName == singlePhone.productName]" ng-click="setMachine(singlePhone.productName,singlePhone.activityproductId)">
             <div class="img-box">
                 <img ng-src="http://www.yfq.cn:8899/fileserver/medias/{{singlePhone.mainImageUrl}}">
                 <span class="flag">
-                    <p class="lb"><span>赠送话费</span></p>
+                    <p class="lb"><span>含话费</span></p>
                     <p class="rb"><span ng-bind="singlePhone.fanhuan"></span>元</p>
                 </span>
             </div>
@@ -49,7 +49,7 @@
             <div class="img-box">
                 <img ng-src="http://www.yfq.cn:8899/fileserver/medias/{{singlePhone.mainImageUrl}}">
                 <span class="flag">
-                    <p class="lb"><span>赠送话费</span></p>
+                    <p class="lb"><span>含话费</span></p>
                     <p class="rb"><span ng-bind="singlePhone.fanhuan"></span>元</p>
                 </span>
             </div>
