@@ -1,0 +1,21 @@
+<a class="item-box pure-g" ng-if="params.length == 0"
+   href="/phs/sg/{{pageType}}/{{singlePhone.activityproductId}}{{params}}?headCategory={{category}}"
+   ng-class="{true:\'curr\',false:\'\'}[machineName == singlePhone.productName]"
+   ng-click="setMachine(singlePhone.productName,singlePhone.activityproductId)">
+    <div class="img-box pure-u-1-3"><img ng-src="http://www.yfq.cn:8899/fileserver/medias/{{singlePhone.mainImageUrl}}">
+        <span class="flag">含<span ng-bind="singlePhone.fanhuan"></span>元话费</span></div>
+    <div class="item-txt pure-u-2-3">
+        <div class="title" ng-bind="singlePhone.productSubName"></div>
+        <div class="tips"><span>立减</span> <span style="font-weight: bold"><span
+                ng-bind="singlePhone.cardItems | jm : 800"></span></span> <span>元，享12期免息 顺丰包邮</span></div>
+        <div class="price"><em style="font-size: 0.14rem">领券优惠价:</em><em style="font-size: 0.18rem">￥</em><em
+                ng-bind="singlePhone.cardItems - (singlePhone.cardItems | jm : 800)" style="font-size: 0.18rem"></em>
+            <span style="font-size: 0.1rem">合约价:</span><span style="font-size: 0.1rem">￥</span><span
+                    style="font-size: 0.1rem" ng-bind="singlePhone.cardItems - 0"></span></div>
+        <div class="btips" ng-if="singlePhone.cardItems >= singlePhone.fanhuan"><span class="lb">优惠推荐：</span><span
+                class="rt">预存话费￥<span ng-bind="singlePhone.fanhuan"></span>+购机价￥<span
+                ng-bind="singlePhone.cardItems - singlePhone.fanhuan"></span></span></div>
+        <div class="btips" ng-if="singlePhone.cardItems < singlePhone.fanhuan"><span class="lb">优惠推荐：</span><span
+                class="rt">预存话费￥<span ng-bind="singlePhone.fanhuan"></span>+购机价￥<span ng-bind="0"></span></span></div>
+    </div>
+</a>

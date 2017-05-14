@@ -1,0 +1,21 @@
+<div class="number-list-content pd-w">
+    <ul class="item-lists minus pure-g">
+        <li class="list-item pure-u-1-2" ng-repeat="number in items">
+            <div class="item-box margin radius border"
+                 ng-class="{'curr':number == thisNumber.number}"
+                 ng-click="setNumber($event,numberType,number)">
+                {{number.n}}
+            </div>
+        </li>
+    </ul>
+    <div class="pages pd-w">
+        <div class="pure-g">
+            <div class="previous pure-u-1-2" ng-click="Previous()">
+                <span>上一页</span>
+            </div>
+            <div class="next pure-u-1-2" ng-click="Next()">
+                <span>下一页</span>
+            </div>
+        </div>
+    </div>
+</div>

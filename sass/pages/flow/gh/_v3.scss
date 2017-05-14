@@ -1,0 +1,107 @@
+.page.fd-details {
+  &.v3 {
+    .pages {
+      .previous, .next {
+        font-size: 0.12rem;
+        span {
+          @include inline-block;
+          @include border-radius(0.03rem);
+          border: 1px solid #d63176;
+          padding: 0.03rem 0.2rem;
+          margin: 0.05rem;
+          color: #d63176;
+        }
+      }
+      .previous {
+        text-align: right;
+      }
+      .next {
+        text-align: left;
+      }
+    }
+    .checklist {
+      font-size: 0.14rem;
+      .pure-g {
+        .txt {
+          text-align: left;
+        }
+        .do {
+          text-align: right;
+          .weui-icon-success {
+            &:before {
+              color: #cccccc;
+            }
+            &.ok {
+              &:before {
+                color: #d63176;
+              }
+            }
+          }
+        }
+      }
+      .weui-icon-success {
+        &:before {
+          font-size: 0.16rem;
+        }
+      }
+    }
+    .pay-content {
+      .pay-content {
+        background: #f5f5f5;
+        padding: 0.1rem;
+        line-height: 2;
+        .price {
+          text-align: right;
+          em {
+            color: $color-orange;
+          }
+        }
+        .real-price {
+          font-size: 0.18rem;
+          border-top: 1px solid #ccc;
+          line-height: 2.4;
+        }
+      }
+    }
+    .banner-image {
+      .banner-btn {
+        width: 30%;
+        position: absolute;
+        bottom: 0.12rem;
+        left: 35%;
+        img {
+          display: block;
+          width: 100%;
+        }
+      }
+    }
+    .buy-group {
+      text-align: center;
+      .buy-group-btn {
+        display: block;
+        margin-top: 0.15rem;
+        width: 60%;
+        margin-left: 20%;
+        margin-bottom: 0.05rem;
+      }
+    }
+    .getters {
+      position: relative;
+      margin: 0.4rem 0.15rem 0.3rem;
+      border: 1px solid #999;
+      @include border-radius(0.1rem);
+      font-size: 0.13rem;
+      padding: 0.3rem 0.15rem 0.15rem;
+      color: #333;
+      .getter-title {
+        position: absolute;
+        top: -0.13rem;
+        width: 50%;
+        left: 25%;
+      }
+    }
+    .content-scrollable {
+      background: #fff !important;
+    }
+  }
+}

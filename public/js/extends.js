@@ -25,6 +25,13 @@ $(document).ready(function () {
     $("html").css("font-size", ($container.width() / 375) * parseInt($("html").css("font-size")));
 });
 
+// Array Remove - By John Resig (MIT Licensed)
+Array.prototype.remove = function(from, to) {
+    var rest = this.slice((to || from) + 1 || this.length);
+    this.length = from < 0 ? this.length + from : from;
+    return this.push.apply(this, rest);
+};
+
 //手机号处理 开始
 function getNumArr(orderNumber, jsonData) {
     var jdata = findJsonData(orderNumber, jsonData);
@@ -389,7 +396,7 @@ function getRandomName() {
     var lid = Math.round(Math.random() * 1);
     return firstNames[fid] + lastNames[lid];
 }
-var baseTime = 0;
+var baseTime = 1;
 function getRanDomTime() {
     var addTime = Math.round(Math.random() * 1);
     baseTime = baseTime + addTime;
