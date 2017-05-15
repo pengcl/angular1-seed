@@ -3,7 +3,11 @@
     <form id="checkoutForm" name="checkoutForm" action="http://apptest.yfq.cn:8898/wap/taokafanghaoNew/submitOrderDouble.html"
           method="post" novalidate>
         <input type="hidden" value="1" name="mainMonthNumber" id="mainMonthNumber">
+        <input type="hidden" value="{{product.activityproductId}}" ng-model="product.activityproductId" name="machineId" id="machineId">
+        <input type="hidden" value="{{activeTag}}" ng-model="activeTag" name="activeTag" id="activeTag">
+        <input type="hidden" value="1" name="payType" id="payType">
         <input type="hidden" id="mainYG" name="mainYG" value="0">
+        <input type="hidden" value="{{redirectUrl}}" name="phoneQueryUrl" id="phoneQueryUrl">
         <gh></gh>
         <pt></pt>
         <activity></activity>
@@ -55,7 +59,7 @@
                                  ng-class="{true:'curr',false:''}[flowPackageItem === packageItem]"
                                  ng-click="setFlowPackage($event,flowPackageItem)">
                                 <p>
-                                    <span ng-bind="flowPackageItem.productName"></span> + <span>预存400送MIFI设备</span>
+                                    <span ng-bind="flowPackageItem.productName"></span>
                                 </p>
                                 <ins class="icon-check"></ins>
                             </div>
@@ -145,7 +149,7 @@
                 </div>
                 <div class="flow-package-panel pd-w">
                     <ul class="flow-package-lists item-lists minus pure-g">
-                        <li class="flow-package-item list-item pure-u-1-2" ng-repeat="mifi in mifis">
+                        <li class="flow-package-item list-item pure-u-1-2" ng-repeat="mifi in mifis" ng-if="mifi.productId !== product.activityproductId">
                             <div class="item-box margin radius border" ng-class="{true:'curr',false:''}[mifi.selected]"
                                  ng-click="setItem($event,$index,mifi)">
                                 <p>

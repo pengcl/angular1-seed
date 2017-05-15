@@ -10,11 +10,12 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
         })
 }]).controller('flowCardV3Controller', ['$scope', '$rootScope', '$stateParams', '$location', '$http', function ($scope, $rootScope, $stateParams, $location, $http) {
 
+    $scope.activeTag = "mifitc";
+
     $http.jsonp(cfApi.apiHost + "/product/getProDetial.html?productId=" + $stateParams.productId + "&activeTag=mifitc&s=wap&callback=JSON_CALLBACK").success(function (data, status, headers, config) {
         $scope.product = data;
-
+        $scope.selectedMifis = [$scope.product.activityproductId];
         $scope.packageItem = data.packageProductList[0];
-        console.log($scope.packageItem);
 
         var mifis = [];
         $.each(data.phoneTypes, function (i, k) {
@@ -117,14 +118,6 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
 
     $scope.setItem = function (e, index, item) {
         $scope.mifis[index].selected = !$scope.mifis[index].selected;
-        $scope.selectedMifis = [];
-        $scope.totalPrice = 400;
-        $.each($scope.mifis, function (i, k) {
-            if (k.selected) {
-                $scope.totalPrice = $scope.totalPrice + k.salePrice;
-                $scope.selectedMifis.push(k.productId);
-            }
-        });
     };
 
     $scope.mainPanel = false;
@@ -166,6 +159,18 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
         }
         $form.submit();
     };
+    $scope.$watch('mifis', function (n, o, $scope) {
+        if (n !== o && n !== undefined) {
+            $scope.selectedMifis = [$scope.product.activityproductId];
+            $scope.totalPrice = 400;
+            $.each(n, function (i, k) {
+                if (k.selected) {
+                    $scope.totalPrice = $scope.totalPrice + k.salePrice;
+                    $scope.selectedMifis.push(k.productId);
+                }
+            });
+        }
+    }, true);
     $scope.$watch('outputData', function (n, o, $scope) {
         if (n !== o && n !== undefined) {
             if (n.numberType === 'mainNumber') {
