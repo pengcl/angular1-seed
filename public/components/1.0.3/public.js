@@ -859,21 +859,6 @@ app.directive("aboutUs", ['$timeout', function ($timeout) {
 }]);
 'use strict';
 
-app.directive("activity", ['$location', function ($location) {
-    return {
-        restrict: 'E',
-        templateUrl: "modules/activity/activity.html",
-        link: function (scope, element, attrs) {
-            if($location.search().activity == undefined){
-                scope.activity = "";
-            }else {
-                scope.activity = $location.search().activity;
-            }
-        }
-    };
-}]);
-'use strict';
-
 app.directive("buyers", ['$interval', function ($interval) {
     return {
         restrict: 'E',
@@ -900,6 +885,21 @@ app.directive("buyers", ['$interval', function ($interval) {
             $interval(function () {
                 scope.buyers = scope.getBuyers();
             }, 1000);
+        }
+    };
+}]);
+'use strict';
+
+app.directive("activity", ['$location', function ($location) {
+    return {
+        restrict: 'E',
+        templateUrl: "modules/activity/activity.html",
+        link: function (scope, element, attrs) {
+            if($location.search().activity == undefined){
+                scope.activity = "";
+            }else {
+                scope.activity = $location.search().activity;
+            }
         }
     };
 }]);
@@ -1353,6 +1353,24 @@ app.directive("flowPackage", ['$http', function ($http) {
         }
     };
 }]);
+/*
+'use strict';
+
+app.directive("getContact", ['$location', function ($location) {
+    return {
+        restrict: 'E',
+        link: function (scope, element, attrs) {
+
+            scope.getContact = function () {
+                getMeiqia();
+                //$("#contactUs").show();
+                _MEIQIA('showPanel');
+                writebdLog(scope.category, "_CustConsult", "渠道号", $scope.gh);//客服咨询
+            };
+        }
+    };
+}]);*/
+
 'use strict';
 
 app.directive("footerNav", ['$http', function ($http) {
@@ -1583,24 +1601,6 @@ app.directive("footerNavRb", ['$timeout', function ($timeout) {
         }
     };
 }]);
-
-/*
-'use strict';
-
-app.directive("getContact", ['$location', function ($location) {
-    return {
-        restrict: 'E',
-        link: function (scope, element, attrs) {
-
-            scope.getContact = function () {
-                getMeiqia();
-                //$("#contactUs").show();
-                _MEIQIA('showPanel');
-                writebdLog(scope.category, "_CustConsult", "渠道号", $scope.gh);//客服咨询
-            };
-        }
-    };
-}]);*/
 
 'use strict';
 
@@ -2396,6 +2396,15 @@ app.directive("productDetails", ['$http', function ($http) {
         }
     };
 }]);
+app.directive("productHeader", ['$http', function ($http) {
+    return {
+        restrict: 'E',
+        templateUrl: "modules/productHeader/productHeader.html",
+        link: function (scope, element, attrs) {
+
+        }
+    };
+}]);
 'use strict';
 
 app.directive("receiverAddress", ["$compile", "$cookieStore", '$http', '$interval', function ($compile, $cookieStore, $http, $interval) {
@@ -2634,15 +2643,6 @@ app.directive("receiverAddress", ["$compile", "$cookieStore", '$http', '$interva
 
                 return true;
             };
-        }
-    };
-}]);
-app.directive("productHeader", ['$http', function ($http) {
-    return {
-        restrict: 'E',
-        templateUrl: "modules/productHeader/productHeader.html",
-        link: function (scope, element, attrs) {
-
         }
     };
 }]);
@@ -2973,6 +2973,26 @@ app.directive("spcTitle", function () {
 });
 'use strict';
 
+app.directive("stars", function () {
+    return {
+        restrict: 'E',
+        replace: true,
+        scope: {},
+        templateUrl: "modules/stars/stars.html",
+        link: function (scope, element, attrs) {
+            var $i = $(".stars-content").find("i");
+            scope.sold = Math.round(Math.random()*999);
+            scope.score = (Math.random() + 4).toFixed(1);
+            for (var i = 0; i < 4; i++) {
+                if (i < scope.score) {
+                    $i.eq(i).addClass("on");
+                }
+            }
+        }
+    };
+});
+'use strict';
+
 app.directive("star", [function () {
     return {
         restrict: 'E',
@@ -2996,26 +3016,6 @@ app.directive("star", [function () {
         }
     };
 }]);
-'use strict';
-
-app.directive("stars", function () {
-    return {
-        restrict: 'E',
-        replace: true,
-        scope: {},
-        templateUrl: "modules/stars/stars.html",
-        link: function (scope, element, attrs) {
-            var $i = $(".stars-content").find("i");
-            scope.sold = Math.round(Math.random()*999);
-            scope.score = (Math.random() + 4).toFixed(1);
-            for (var i = 0; i < 4; i++) {
-                if (i < scope.score) {
-                    $i.eq(i).addClass("on");
-                }
-            }
-        }
-    };
-});
 'use strict';
 
 app.directive("stepBuy", function () {
@@ -3729,25 +3729,6 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
 }]);
 'use strict';
 
-app.directive("pkgInfo", ['$http', '$stateParams', '$q', function ($http, $stateParams, $q) {
-    return {
-        restrict: 'C',
-        scope: {
-            ssDd: "="
-        },
-        templateUrl: "modules/cardPackage/d/cardPkg.html",
-        link: function (scope, element, attrs) {
-            scope.openCardPkg = function (targetId,e) {
-                var $this = $(e.currentTarget);
-                var targetHtml = $this.siblings(".pcd-infos").html();
-                scope.$root.Overlay.open(targetHtml);
-            }
-        }
-    };
-
-}]);
-'use strict';
-
 app.directive("phoneQuery", ["$cookieStore", function ($cookieStore) {
     return {
         restrict: 'E',
@@ -3919,6 +3900,25 @@ app.directive("phoneQuery", ["$cookieStore", function ($cookieStore) {
         console.log(status);
         //deferred.reject(status)
     });
+
+}]);
+'use strict';
+
+app.directive("pkgInfo", ['$http', '$stateParams', '$q', function ($http, $stateParams, $q) {
+    return {
+        restrict: 'C',
+        scope: {
+            ssDd: "="
+        },
+        templateUrl: "modules/cardPackage/d/cardPkg.html",
+        link: function (scope, element, attrs) {
+            scope.openCardPkg = function (targetId,e) {
+                var $this = $(e.currentTarget);
+                var targetHtml = $this.siblings(".pcd-infos").html();
+                scope.$root.Overlay.open(targetHtml);
+            }
+        }
+    };
 
 }]);
 'use strict';
@@ -6013,11 +6013,15 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
         })
 }]).controller('flowCardV3Controller', ['$scope', '$rootScope', '$stateParams', '$location', '$http', function ($scope, $rootScope, $stateParams, $location, $http) {
 
+    $scope.activeTag = "mifitc";
+    $scope.pageType = 'A';
+    $scope.category = systemName + "_mifitc_" + $scope.pageType;
+    writebdLog($scope.category, "_Load", "渠道号", $scope.gh);
+
     $http.jsonp(cfApi.apiHost + "/product/getProDetial.html?productId=" + $stateParams.productId + "&activeTag=mifitc&s=wap&callback=JSON_CALLBACK").success(function (data, status, headers, config) {
         $scope.product = data;
-
+        $scope.selectedMifis = [$scope.product.activityproductId];
         $scope.packageItem = data.packageProductList[0];
-        console.log($scope.packageItem);
 
         var mifis = [];
         $.each(data.phoneTypes, function (i, k) {
@@ -6030,16 +6034,22 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
         });
 
         $scope.mifis = mifis;
+        $scope.totalPrice = parseInt($scope.product.packageProductList[0].salesPrice);
 
     }).error(function (data, status, headers, config) {
         console.log(status);
         //deferred.reject(status)
     });
 
+    if ($location.search().duplicateNum) {
+        $scope.dialog.open("系统提示", "您选择的号码：" + $location.search().duplicateNum + "已被购买，请重新选择");
+    }
+
     $scope.autoSelect = true;
 
     $scope.setAutoSelect = function (type) {
         $scope.autoSelect = type;
+        writebdLog($scope.category, "_SystemNumber" + type, "渠道号", $scope.gh); //是否系统分配号码
     };
 
     var objGetters = new Array();
@@ -6047,7 +6057,7 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
     for (var i = 0; i <= 10; i++) {
         objGetters.push(
             {
-                txt: getRandomName() + "(" + getRandomReceiverPhone() + ")" + " 领取了168套餐 <span>" + getRanDomTime() + "分钟前</span>"
+                txt: getRandomName() + "(" + getRandomReceiverPhone() + ")" + " 领取无限流量套餐 <span>" + getRanDomTime() + "分钟前</span>"
             }
         );
     }
@@ -6111,38 +6121,31 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
         $scope.inputData2 = inputData3;
     });
 
-    $scope.appType = systemName + "_FlowPackage";
-    $scope.category = $scope.appType;
-
-    writebdLog($scope.category, "_Load", "渠道号", $scope.gh);//页面载入
-
-    $scope.totalPrice = 400;
-
     $scope.setItem = function (e, index, item) {
         $scope.mifis[index].selected = !$scope.mifis[index].selected;
-        $scope.selectedMifis = [];
-        $scope.totalPrice = 400;
-        $.each($scope.mifis, function (i, k) {
-            if (k.selected) {
-                $scope.totalPrice = $scope.totalPrice + k.salePrice;
-                $scope.selectedMifis.push(k.productId);
-            }
-        });
+        writebdLog($scope.category, "_SelectMIFI" + item.productId, "渠道号", $scope.gh); //选择mifi产品
     };
 
     $scope.mainPanel = false;
     $scope.showMainPanel = function () {
         $scope.mainPanel = !$scope.mainPanel;
+        writebdLog($scope.category, "_PanelMain" + $scope.mainPanel, "渠道号", $scope.gh);
     };
 
     $scope.subPanel = false;
     $scope.showSubPanel = function () {
         $scope.subPanel = !$scope.subPanel;
+        writebdLog($scope.category, "_PanelSub" + $scope.subPanel, "渠道号", $scope.gh);
     };
 
     $scope.thirdPanel = false;
     $scope.showThirdPanel = function () {
         $scope.thirdPanel = !$scope.thirdPanel;
+        writebdLog($scope.category, "_PanelThrid" + $scope.thirdPanel, "渠道号", $scope.gh);
+    };
+
+    $scope.getContact = function () {
+        writebdLog($scope.category, "_CustConsult", "渠道号", $scope.gh); //客服咨询
     };
 
     $scope.selectedData = {};
@@ -6150,15 +6153,18 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
     $scope.submitForm = function (e) {
         var $form = $("#checkoutForm");
         if (!$scope.checkoutForm.mainNumber.$valid) {
+            $scope.mainNumberWarn = true;
             $scope.goTo('#mainNumberArea');
             return false;
         }
         if (!$scope.autoSelect) {
             if (!$scope.checkoutForm.subNumber.$valid) {
+                $scope.subNumberWarn = true;
                 $scope.goTo('#subNumberArea');
                 return false;
             }
             if (!$scope.checkoutForm.thirdNumber.$valid) {
+                $scope.thirdNumberWarn = true;
                 $scope.goTo('#thirdNumberArea');
                 return false;
             }
@@ -6167,18 +6173,70 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
             $scope.goTo('#receiverAddress');
             return false;
         }
+        if (!$scope.$root.checkActiveCode()) {
+            $scope.goTo('#receiverAddress');
+            return false;
+        }
+        var url = cfApi.apiHost + "/product/checkPhoneState.html?number=[" + $scope.selectedData.mainNumber.n + "," + $scope.selectedData.subNumber.n + "," + $scope.selectedData.thirdNumber.n + "]&s=wap&callback=JSON_CALLBACK";
+        /*$http.jsonp(url).success(function (data, status, headers, config) {
+            if (data.tempIndexs.length === 0) {
+                $form.submit();
+                writebdLog($scope.category, "_BuyNow", "渠道号", $scope.gh);//立即支付
+            } else {
+                var html = "您选择的";
+                for (var i = 0; i < data.tempIndexs.length; i++) {
+                    if (data.tempIndexs[i] === 0) {
+                        html = html + "主卡电话号码：" + $scope.selectedData.mainNumber.n + "、";
+                        $scope.mainNumberWarn = true;
+                        $scope.selectedData.mainNumber = "";
+                    }
+                    if (data.tempIndexs[i] === 1) {
+                        html = html + "副卡1电话号码：" + $scope.selectedData.subNumber.n + "、";
+                        $scope.subNumberWarn = true;
+                        $scope.selectedData.subNumber = "";
+                    }
+                    if (data.tempIndexs[i] === 2) {
+                        html = html + "副卡2电话号码：" + $scope.selectedData.thirdNumber.n + "、";
+                        $scope.thirdNumberWarn = true;
+                        $scope.selectedData.thirdNumber = "";
+                    }
+                }
+                html = html + "已被选择，请重新选号！";
+                $scope.dialog.open("系统提示", html);
+            }
+        });*/
+
         $form.submit();
+        writebdLog($scope.category, "_BuyNow", "渠道号", $scope.gh);//立即支付
     };
+    $scope.fqaMore = false;
+    $scope.setFqaMore = function () {
+        $scope.fqaMore = !$scope.fqaMore;
+    };
+    $scope.$watch('mifis', function (n, o, $scope) {
+        if (n !== o && n !== undefined) {
+            $scope.selectedMifis = [$scope.product.activityproductId];
+            $scope.totalPrice = parseInt($scope.product.packageProductList[0].salesPrice);
+            $.each(n, function (i, k) {
+                if (k.selected) {
+                    $scope.totalPrice = $scope.totalPrice + k.salePrice;
+                    $scope.selectedMifis.push(k.productId);
+                }
+            });
+        }
+    }, true);
     $scope.$watch('outputData', function (n, o, $scope) {
         if (n !== o && n !== undefined) {
             if (n.numberType === 'mainNumber') {
                 $scope.selectedData.mainNumber = n.number;
                 $scope.mainPanel = false;
+                $scope.mainNumberWarn = false;
             }
             if (n.numberType === 'subNumber') {
                 $scope.selectedData.subNumber = n.number;
                 if (n.number) {
                     $scope.subPanel = false;
+                    $scope.subNumberWarn = false;
                 } else {
                     $scope.subPanel = true;
                 }
@@ -6187,6 +6245,7 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
                 $scope.selectedData.thirdNumber = n.number;
                 if (n.number) {
                     $scope.thirdPanel = false;
+                    $scope.thirdNumberWarn = false;
                 } else {
                     $scope.thirdPanel = true;
                 }
@@ -8505,7 +8564,7 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
             $scope.imgUrls.push("http://www.yfq.cn:8899/fileserver/medias/" + data.phoneTypes[0].mediaProductList[i].mediaUrl);
         }
 
-        $http.jsonp("http://apptest.yfq.cn:8900/yfqcz/czInterfaceController.do?messageDetail&productId=" + $stateParams.phoneId + "&s=wap&callback=JSON_CALLBACK").success(function (data, status, headers, config) {
+        $http.jsonp(cfApi.czHost + "/yfqcz/czInterfaceController.do?messageDetail&productId=" + $stateParams.phoneId + "&s=wap&callback=JSON_CALLBACK").success(function (data, status, headers, config) {
             $scope.feedbacks = data;
             $scope.feedbackType = 'all';
         }).error(function (data, status, headers, config) {
@@ -8762,7 +8821,7 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
                     });
                 }
 
-                $http.jsonp("http://apptest.yfq.cn:8900/yfqcz/czInterfaceController.do?messageDetail&productId=" + n + "&s=wap&callback=JSON_CALLBACK").success(function (data, status, headers, config) {
+                $http.jsonp(cfApi.czHost + "/yfqcz/czInterfaceController.do?messageDetail&productId=" + n + "&s=wap&callback=JSON_CALLBACK").success(function (data, status, headers, config) {
                     $scope.feedbacks = data;
                     $scope.feedbackType = 'all';
                 }).error(function (data, status, headers, config) {

@@ -58,7 +58,7 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
             $scope.imgUrls.push("http://www.yfq.cn:8899/fileserver/medias/" + data.phoneTypes[0].mediaProductList[i].mediaUrl);
         }
 
-        $http.jsonp("http://apptest.yfq.cn:8900/yfqcz/czInterfaceController.do?messageDetail&productId=" + $stateParams.phoneId + "&s=wap&callback=JSON_CALLBACK").success(function (data, status, headers, config) {
+        $http.jsonp(cfApi.czHost + "/yfqcz/czInterfaceController.do?messageDetail&productId=" + $stateParams.phoneId + "&s=wap&callback=JSON_CALLBACK").success(function (data, status, headers, config) {
             $scope.feedbacks = data;
             $scope.feedbackType = 'all';
         }).error(function (data, status, headers, config) {
@@ -315,7 +315,7 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
                     });
                 }
 
-                $http.jsonp("http://apptest.yfq.cn:8900/yfqcz/czInterfaceController.do?messageDetail&productId=" + n + "&s=wap&callback=JSON_CALLBACK").success(function (data, status, headers, config) {
+                $http.jsonp(cfApi.czHost + "/yfqcz/czInterfaceController.do?messageDetail&productId=" + n + "&s=wap&callback=JSON_CALLBACK").success(function (data, status, headers, config) {
                     $scope.feedbacks = data;
                     $scope.feedbackType = 'all';
                 }).error(function (data, status, headers, config) {

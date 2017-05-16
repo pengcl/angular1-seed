@@ -1,9 +1,11 @@
 <div class="page fd-details in v3">
-    <top-nav page-title="翼分期商城福利" page-back="menu" nav-visibility="hide"></top-nav>
-    <form id="checkoutForm" name="checkoutForm" action="http://apptest.yfq.cn:8898/wap/taokafanghaoNew/submitOrderDouble.html"
+    <top-nav page-title="翼分期商城" page-back="menu" nav-visibility="hide"></top-nav>
+    <form id="checkoutForm" name="checkoutForm"
+          action="http://m.yfq.cn/wap/taokafanghaoNew/submitOrderDouble.html"
           method="post" novalidate>
         <input type="hidden" value="1" name="mainMonthNumber" id="mainMonthNumber">
-        <input type="hidden" value="{{product.activityproductId}}" ng-model="product.activityproductId" name="machineId" id="machineId">
+        <input type="hidden" value="{{product.activityproductId}}" ng-model="product.activityproductId" name="machineId"
+               id="machineId">
         <input type="hidden" value="{{activeTag}}" ng-model="activeTag" name="activeTag" id="activeTag">
         <input type="hidden" value="1" name="payType" id="payType">
         <input type="hidden" id="mainYG" name="mainYG" value="0">
@@ -28,6 +30,208 @@
             <div class="img-box">
                 <img src="/images/flow/flowcard/v3/3.jpg"/>
             </div>
+
+            <div class="img-box">
+                <img src="/images/flow/flowcard/v3/tit-2.jpg"/>
+            </div>
+
+            <div class="fqa-lists" ng-class="{true:'',false:'close'}[fqaMore]">
+                <ul>
+                    <li>
+                        <div class="list-header">
+                            <span>01、</span>169元无限流量套餐包含哪些内容？
+                        </div>
+                        <div class="list-content">
+                            <div class="ctxt">
+                                答：无限流量套餐包含1000分钟国内通话时长和6GB国内上网流量，在广东省内不限流量使用。
+                            </div>
+                        </div>
+                        <div class="pros-line share-pros-line"></div>
+                    </li>
+                    <li>
+                        <div class="list-header">
+                            <span>02、</span>订购169元无限流量套餐有哪些优惠？
+                        </div>
+                        <div class="list-content">
+                            <div class="ctxt">
+                                答：现在订购169套餐，可预存400元赠送一台价值300元的随身WIFI设备（带充电宝款）。预存费用中200元即时返还，另200元在套餐激活后第12个月返还。返还费用可充抵套餐费用。
+                            </div>
+                        </div>
+                        <div class="pros-line share-pros-line"></div>
+                    </li>
+                    <li>
+                        <div class="list-header">
+                            <span>03、</span>169元无限流量套餐有几张卡？可否只办理1张？
+                        </div>
+                        <div class="list-content">
+                            <div class="ctxt">
+                                答：无限流量套餐必须开通3张卡。其中1张为主卡，另2张为副卡（免副卡功能费），主副卡共享套餐通话和流量。最多可办理4张副卡，首2张免功能费，第3张起每张副卡需支付10元/月。
+                            </div>
+                        </div>
+                        <div class="pros-line share-pros-line"></div>
+                    </li>
+
+                    <li>
+                        <div class="list-header">
+                            <span>04、</span>169元不限流量套餐是全国范围无限使用吗？
+                        </div>
+                        <div class="list-content">
+                            <div class="ctxt">
+                                答：不是。本套餐仅限广东省内无限量上网。
+                            </div>
+                        </div>
+                        <!-- <div class="tips-info-content" style="margin-top:0;">注：套餐需激活后才能正常使用，请确保本人签收，默认送达次日开通（公休日除外），介意者慎拍。</div> -->
+                        <div class="pros-line share-pros-line"></div>
+                    </li>
+                    <li>
+                        <div class="list-header">
+                            <span>05、</span>本套餐全月无限流量使用4G网速吗？
+                        </div>
+                        <div class="list-content">
+                            <div class="ctxt">
+                                答：不是，当月流量使用量50GB以内，享受4G网速；使用量50GB至100GB之间，享受3G网速；使用量在100GB以上，享受2G网速。当日使用量累计5GB，降速至2G网速，次日恢复。
+                            </div>
+                        </div>
+                        <div class="pros-line share-pros-line"></div>
+                    </li>
+                    <li>
+                        <div class="list-header">
+                            <span>06、</span>我办理了169无限流量套餐，为什么电信扣了我199元月租？
+                        </div>
+                        <div class="list-content">
+                            <div class="ctxt">
+                                答：套餐月租199元，每月赠送30元翼支付红包，可通过翼支付APP充值话费抵扣30元话费，也可以使用红包进行购物或其他消费。具体请登录翼支付官网了解详情。
+                            </div>
+                        </div>
+                        <div class="pros-line share-pros-line"></div>
+                    </li>
+                    <li>
+                        <div class="list-header">
+                            <span>07、</span>老用户可以改无限流量套餐吗？
+                        </div>
+                        <div class="list-content">
+                            <div class="ctxt">
+                                答：不可以，我们只能办理新开户，老用户请咨询当地电信。
+                            </div>
+                        </div>
+                        <div class="pros-line share-pros-line"></div>
+                    </li>
+                    <li>
+                        <div class="list-header">
+                            <span>08、</span>任何手机都可以使用本套餐吗？
+                        </div>
+                        <div class="list-content">
+                            <div class="ctxt">
+                                答：不是，无限量套餐是中国电信4G套餐卡，需支持中国电信网络的手机才可使用，我们赠送的随身WiFi设备可支持电信4G卡，可以放心方便地享受无限流量的上网乐趣。
+                            </div>
+                        </div>
+                        <div class="pros-line share-pros-line"></div>
+                    </li>
+                    <li>
+                        <div class="list-header">
+                            <span>9、</span>随身WIFI设备怎么卖？我想要多一个可以吗？
+                        </div>
+                        <div class="list-content">
+                            <div class="ctxt">
+                                答：为了便于客户充分使用无限流量的优惠，客户预存400元，在网12个月可免费赠送随身wifi一台，属于对客户的特殊优惠，每套餐只能享受一次。如果您有更多的需求，可在翼分期商城下单时勾选设备。
+                            </div>
+                        </div>
+                        <div class="pros-line share-pros-line"></div>
+                    </li>
+                    <li>
+                        <div class="list-header">
+                            <span>10、</span>可以货到付款吗？
+                        </div>
+                        <div class="list-content">
+                            <div class="ctxt">
+                                答：可以，下单确认订单后，赠送的随身WiFi和手机卡一并发货，3天左右到达。
+                            </div>
+                        </div>
+                        <div class="pros-line share-pros-line"></div>
+                    </li>
+                    <li>
+                        <div class="list-header">
+                            <span>11、</span>签收后，是否立即可以使用手机卡？
+                        </div>
+                        <div class="list-content">
+                            <div class="ctxt">
+                                答：应国家主管部门的要求，新开通电信产品，需确认客户身份。所以在签收后，需上传资料（把网址链接填上去）无误，成功进行实名登记后，才可以激活使用。激活后，将有通知短信发送至收货联系电话。<br>
+                                身份认证请关注微信公众号：翼分期商城。<br>
+                                <div class="img-box" style="width: 50%;margin: 0 auto;">
+                                    <img src="/images/payState/qrcode.jpg">
+                                </div>
+                                认证过程：翼分期商城—“我”—“身份认证”—填入下单时的联系手机号码，然后按照提示操作。
+
+                            </div>
+                        </div>
+                        <div class="pros-line share-pros-line"></div>
+                    </li>
+                    <li>
+                        <div class="list-header">
+                            <span>12、</span>如何设置随身WiFi设备上网？
+                        </div>
+                        <div class="list-content">
+                            <div class="ctxt">
+                                答：随身wifi插入4G手机卡开机即可使用。启动无线WiFi电源后，在手机上搜索WiFi信号，输入默认连接密码，连接成功后即可上网。<br><br>
+                                注意：为了防止你的网络被盗用，建议你初次使用的时候更改无线WiFi的管理员密码和WiFi的连接密码，具体更改方法请参看无线WiFi使用说明书
+                            </div>
+                        </div>
+                        <div class="pros-line share-pros-line"></div>
+                    </li>
+                    <li>
+                        <div class="list-header">
+                            <span>13、</span>翼支付是什么？如何注册翼支付?
+                        </div>
+                        <div class="list-content">
+                            <div class="ctxt">
+                                答：翼支付产品是中国电信的移动支付产品，您开通中国电信翼支付账户并储值后，即可在中国电信联盟商家和合作商户使用该账户通过网站、短信、语音等方式进行远程支付，办理翼支付卡（RFID-UIM卡）后还可通过手机刷POS机方式进行现场支付。<br><br>
+                                注册翼支付需要首先下载翼支付APP，安装注册后使用。翼支付APP可在各大应用商店里免费下载（IPhone手机、android手机有相应版本可用）。具体详情可以访问中国电信翼支付官方网站了解。https://www.bestpay.com.cn
+                            </div>
+                        </div>
+                        <div class="pros-line share-pros-line"></div>
+                    </li>
+                    <li>
+                        <div class="list-header">
+                            <span>14、</span>翼支付服务热线是什么？
+                        </div>
+                        <div class="list-content">
+                            <div class="ctxt">
+                                答：翼支付全国服务热线：95106。
+                            </div>
+                        </div>
+                        <div class="pros-line share-pros-line"></div>
+                    </li>
+                    <li>
+                        <div class="list-header">
+                            <span>15、</span>如何使用翼支付红包缴交话费?
+                        </div>
+                        <div class="list-content">
+                            <div class="ctxt">
+                                答：登录翼支付APP，进入“通信交费”中使用。
+                            </div>
+                        </div>
+                        <div class="pros-line share-pros-line"></div>
+                    </li>
+                    <li>
+                        <div class="list-header">
+                            <span>16、</span>套餐的合约期多久？期间可以停机吗？是否可以提前注销？
+                        </div>
+                        <div class="list-content">
+                            <div class="ctxt">
+                                答：套餐合约期24个月，提前一个月申请可以继续延期。如期间客户需要停机，每月仍按正常资费199元/月收取。套餐可以提前注销，预存费用不退。
+                            </div>
+                        </div>
+                        <div class="pros-line share-pros-line"></div>
+                    </li>
+                </ul>
+                <div class="dark" ng-if="!fqaMore">
+                    <div class="img-box">
+                        <img src="/images/flow/flowcard/v3/dark.png">
+                    </div>
+                    <a class="more" href="javascript:;" ng-click="setFqaMore()">查看更多</a>
+                </div>
+            </div>
+
             <div class="img-box">
                 <img src="/images/flow/flowcard/v3/4.jpg"/>
             </div>
@@ -76,11 +280,13 @@
                 <ul class="item-lists minus pure-g">
                     <li class="list-item pure-u-1-1">
                         <div class="item-box margin radius border"
+                             ng-class="{'curr':!!selectedData.mainNumber,'warn':mainNumberWarn}"
                              ng-click="showMainPanel($event)">
                             <p style="text-align: left">
                                 <span ng-if="!selectedData.mainNumber">请选择电话号码</span>
                                 <span ng-if="selectedData.mainNumber" ng-bind="selectedData.mainNumber.n"></span>
                             </p>
+                            <ins class="weui-icon-warn"></ins>
                         </div>
                     </li>
                 </ul>
@@ -100,47 +306,57 @@
                     </div>
                 </div>
             </div>
-            <div id="subNumberArea" class="weui-cells__title title-icon">
-                <span class="title">选择副卡1电话号码</span><em>*</em>
-            </div>
-            <div class="pd-w">
-                <ul class="item-lists minus pure-g">
-                    <li class="list-item pure-u-1-1">
-                        <div class="item-box margin radius border"
-                             ng-click="showSubPanel($event)">
-                            <p style="text-align: left">
-                                <span ng-if="!selectedData.subNumber">请选择电话号码</span>
-                                <span ng-if="selectedData.subNumber" ng-bind="selectedData.subNumber.n"></span>
-                            </p>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-            <input id="subNumber" name="subNumber" ng-model="selectedData.subNumber.n" type="hidden" required
-                   value="{{selectedData.subNumber.n}}">
-            <app-number ng-show="subPanel" number-type="subNumber" auto-select="autoSelect" input-data="inputData1"
-                        selected-data="selectedData" output-data="outputData"></app-number>
 
-            <div id="thirdNumberArea" class="weui-cells__title title-icon">
-                <span class="title">选择副卡2电话号码</span><em>*</em>
+            <div ng-show="!autoSelect">
+                <div id="subNumberArea" class="weui-cells__title title-icon">
+                    <span class="title">选择副卡1电话号码</span><em>*</em>
+                </div>
+                <div class="pd-w">
+                    <ul class="item-lists minus pure-g">
+                        <li class="list-item pure-u-1-1">
+                            <div class="item-box margin radius border"
+                                 ng-class="{'curr':!!selectedData.subNumber,'warn':subNumberWarn}"
+                                 ng-click="showSubPanel($event)">
+                                <p style="text-align: left">
+                                    <span ng-if="!selectedData.subNumber">请选择电话号码</span>
+                                    <span ng-if="selectedData.subNumber" ng-bind="selectedData.subNumber.n"></span>
+                                </p>
+                                <ins class="weui-icon-warn"></ins>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <input id="subNumber" name="subNumber" ng-model="selectedData.subNumber.n" type="hidden" required
+                       value="{{selectedData.subNumber.n}}">
+                <app-number ng-show="subPanel" number-type="subNumber" auto-select="autoSelect" input-data="inputData1"
+                            selected-data="selectedData" output-data="outputData"></app-number>
             </div>
-            <div class="pd-w">
-                <ul class="item-lists minus pure-g">
-                    <li class="list-item pure-u-1-1">
-                        <div class="item-box margin radius border"
-                             ng-click="showThirdPanel($event)">
-                            <p style="text-align: left">
-                                <span ng-if="!selectedData.thirdNumber">请选择电话号码</span>
-                                <span ng-if="selectedData.thirdNumber" ng-bind="selectedData.thirdNumber.n"></span>
-                            </p>
-                        </div>
-                    </li>
-                </ul>
+
+            <div ng-show="!autoSelect">
+                <div id="thirdNumberArea" class="weui-cells__title title-icon">
+                    <span class="title">选择副卡2电话号码</span><em>*</em>
+                </div>
+                <div class="pd-w">
+                    <ul class="item-lists minus pure-g">
+                        <li class="list-item pure-u-1-1">
+                            <div class="item-box margin radius border"
+                                 ng-class="{'curr':!!selectedData.thirdNumber,'warn':thirdNumberWarn}"
+                                 ng-click="showThirdPanel($event)">
+                                <p style="text-align: left">
+                                    <span ng-if="!selectedData.thirdNumber">请选择电话号码</span>
+                                    <span ng-if="selectedData.thirdNumber" ng-bind="selectedData.thirdNumber.n"></span>
+                                </p>
+                                <ins class="weui-icon-warn"></ins>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <input id="thirdNumber" name="thirdNumber" ng-model="selectedData.thirdNumber.n" type="hidden" required
+                       value="{{selectedData.thirdNumber.n}}">
+                <app-number ng-show="thirdPanel" number-type="thirdNumber" auto-select="autoSelect"
+                            input-data="inputData2"
+                            selected-data="selectedData" output-data="outputData"></app-number>
             </div>
-            <input id="thirdNumber" name="thirdNumber" ng-model="selectedData.thirdNumber.n" type="hidden" required
-                   value="{{selectedData.thirdNumber.n}}">
-            <app-number ng-show="thirdPanel" number-type="thirdNumber" auto-select="autoSelect" input-data="inputData2"
-                        selected-data="selectedData" output-data="outputData"></app-number>
 
             <div class="flow-package">
                 <input type="hidden" name="mifiId" id="mifiId" ng-model="mifis" value="{{selectedMifis}}" required>
@@ -149,7 +365,8 @@
                 </div>
                 <div class="flow-package-panel pd-w">
                     <ul class="flow-package-lists item-lists minus pure-g">
-                        <li class="flow-package-item list-item pure-u-1-2" ng-repeat="mifi in mifis" ng-if="mifi.productId !== product.activityproductId">
+                        <li class="flow-package-item list-item pure-u-1-2" ng-repeat="mifi in mifis"
+                            ng-if="mifi.productId !== product.activityproductId">
                             <div class="item-box margin radius border" ng-class="{true:'curr',false:''}[mifi.selected]"
                                  ng-click="setItem($event,$index,mifi)">
                                 <p>
@@ -165,21 +382,21 @@
             <div class="pay-content" style="font-size: 0.12rem">
                 <div class="weui-cells__title title-icon">
                     <span class="title">支付方式</span>
-                    <span class="right-title" style="float: right">货到付款</span>
+                    <span class="right-title" style="float: right;color: #d63176;">货到付款</span>
                 </div>
 
                 <div class="pay-container pd-w">
                     <div class="pay-content">
                         <div class="pure-g">
-                            <span class="lb pure-u-2-3">随身充电mifi(预存400赠送)</span>
+                            <span class="lb pure-u-2-3" ng-bind="product.packageProductList[0].productName"></span>
                             <span class="price pure-u-1-3">
-                                <em>￥</em><em>400</em>
+                                <em>￥</em><em ng-bind="product.packageProductList[0].salesPrice | number:0"></em> <sub>x1</sub>
                             </span>
                         </div>
                         <div class="pure-g" ng-repeat="item in mifis" ng-if="item.selected">
                             <span class="lb pure-u-2-3" ng-bind="item.productName"></span>
                             <span class="price pure-u-1-3">
-                                <em>￥</em><em ng-bind="item.salePrice"></em>
+                                <em>￥</em><em ng-bind="item.salePrice"></em> <sub>x1</sub>
                             </span>
                         </div>
                         <div class="real-price pure-g">
@@ -188,7 +405,8 @@
                                 <em ng-bind="totalPrice"></em>
                             </span>
                         </div>
-                    </div></div>
+                    </div>
+                </div>
 
                 <!--<div class="pd-w">
                     <div class="pure-g">
@@ -207,7 +425,7 @@
                 <a class="buy-group-btn" href="javascript:;" ng-click="submitForm($event);">
                     <div class="img-box"><img src="/images/flow/flowcard/v3/buy-btn.png"></div>
                 </a>
-                <p style="font-size: 0.12rem">*本活动仅限18岁以上用户参与</p>
+                <!--<p style="font-size: 0.12rem">*本活动仅限18岁以上用户参与</p>-->
                 <div class="img-box"><img src="/images/flow/flowcard/v3/tip.png"></div>
             </div>
 

@@ -4651,66 +4651,126 @@ div.module-tips {
   text-align: left;
 }
 /* line 22, ../../../sass/pages/flow/gh/_v3.scss */
-.page.fd-details.v3 .checklist {
-  font-size: 0.14rem;
+.page.fd-details.v3 .title-icon:before {
+  background: #d63176;
 }
 /* line 25, ../../../sass/pages/flow/gh/_v3.scss */
-.page.fd-details.v3 .checklist .pure-g .txt {
-  text-align: left;
+.page.fd-details.v3 .item-box {
+  color: #999;
 }
-/* line 28, ../../../sass/pages/flow/gh/_v3.scss */
-.page.fd-details.v3 .checklist .pure-g .do {
-  text-align: right;
+/* line 27, ../../../sass/pages/flow/gh/_v3.scss */
+.page.fd-details.v3 .item-box .icon-check {
+  display: block;
+  border-right: 0.4rem solid #ccc;
+  border-top: 0.2rem solid transparent;
+  font-size: 0.14rem;
 }
-/* line 31, ../../../sass/pages/flow/gh/_v3.scss */
-.page.fd-details.v3 .checklist .pure-g .do .weui-icon-success:before {
-  color: #cccccc;
+/* line 32, ../../../sass/pages/flow/gh/_v3.scss */
+.page.fd-details.v3 .item-box .icon-check:before {
+  position: absolute;
+  right: -0.35rem;
+  top: -0.14rem;
+  color: #fff;
 }
-/* line 35, ../../../sass/pages/flow/gh/_v3.scss */
-.page.fd-details.v3 .checklist .pure-g .do .weui-icon-success.ok:before {
+/* line 41, ../../../sass/pages/flow/gh/_v3.scss */
+.page.fd-details.v3 .item-box.curr {
   color: #d63176;
 }
 /* line 43, ../../../sass/pages/flow/gh/_v3.scss */
+.page.fd-details.v3 .item-box.curr .icon-check {
+  border-right: 0.4rem solid #d63176;
+}
+/* line 47, ../../../sass/pages/flow/gh/_v3.scss */
+.page.fd-details.v3 .item-box.warn {
+  border: 1px solid #d83e14;
+  color: #d83e14;
+}
+/* line 50, ../../../sass/pages/flow/gh/_v3.scss */
+.page.fd-details.v3 .item-box.warn .weui-icon-warn {
+  display: block;
+  top: 0.13rem;
+  bottom: auto;
+  right: 0.15rem;
+}
+/* line 55, ../../../sass/pages/flow/gh/_v3.scss */
+.page.fd-details.v3 .item-box.warn .weui-icon-warn:before {
+  font-size: 0.18rem;
+}
+/* line 60, ../../../sass/pages/flow/gh/_v3.scss */
+.page.fd-details.v3 .item-box.curr.border {
+  border: 1px solid #d63176;
+}
+/* line 63, ../../../sass/pages/flow/gh/_v3.scss */
+.page.fd-details.v3 .checklist {
+  font-size: 0.14rem;
+}
+/* line 66, ../../../sass/pages/flow/gh/_v3.scss */
+.page.fd-details.v3 .checklist .pure-g .txt {
+  text-align: left;
+}
+/* line 69, ../../../sass/pages/flow/gh/_v3.scss */
+.page.fd-details.v3 .checklist .pure-g .do {
+  text-align: right;
+}
+/* line 72, ../../../sass/pages/flow/gh/_v3.scss */
+.page.fd-details.v3 .checklist .pure-g .do .weui-icon-success:before {
+  color: #cccccc;
+}
+/* line 76, ../../../sass/pages/flow/gh/_v3.scss */
+.page.fd-details.v3 .checklist .pure-g .do .weui-icon-success.ok:before {
+  color: #d63176;
+}
+/* line 84, ../../../sass/pages/flow/gh/_v3.scss */
 .page.fd-details.v3 .checklist .weui-icon-success:before {
   font-size: 0.16rem;
 }
-/* line 49, ../../../sass/pages/flow/gh/_v3.scss */
+/* line 90, ../../../sass/pages/flow/gh/_v3.scss */
 .page.fd-details.v3 .pay-content .pay-content {
   background: #f5f5f5;
   padding: 0.1rem;
   line-height: 2;
 }
-/* line 53, ../../../sass/pages/flow/gh/_v3.scss */
+/* line 94, ../../../sass/pages/flow/gh/_v3.scss */
+.page.fd-details.v3 .pay-content .pay-content .lb {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+/* line 99, ../../../sass/pages/flow/gh/_v3.scss */
 .page.fd-details.v3 .pay-content .pay-content .price {
   text-align: right;
 }
-/* line 55, ../../../sass/pages/flow/gh/_v3.scss */
+/* line 101, ../../../sass/pages/flow/gh/_v3.scss */
 .page.fd-details.v3 .pay-content .pay-content .price em {
-  color: #f6692a;
+  color: #d63176;
 }
-/* line 59, ../../../sass/pages/flow/gh/_v3.scss */
+/* line 104, ../../../sass/pages/flow/gh/_v3.scss */
+.page.fd-details.v3 .pay-content .pay-content .price sub {
+  color: #999;
+}
+/* line 108, ../../../sass/pages/flow/gh/_v3.scss */
 .page.fd-details.v3 .pay-content .pay-content .real-price {
   font-size: 0.18rem;
   border-top: 1px solid #ccc;
   line-height: 2.4;
 }
-/* line 67, ../../../sass/pages/flow/gh/_v3.scss */
+/* line 116, ../../../sass/pages/flow/gh/_v3.scss */
 .page.fd-details.v3 .banner-image .banner-btn {
-  width: 30%;
+  width: 50%;
   position: absolute;
   bottom: 0.12rem;
-  left: 35%;
+  left: 25%;
 }
-/* line 72, ../../../sass/pages/flow/gh/_v3.scss */
+/* line 121, ../../../sass/pages/flow/gh/_v3.scss */
 .page.fd-details.v3 .banner-image .banner-btn img {
   display: block;
   width: 100%;
 }
-/* line 78, ../../../sass/pages/flow/gh/_v3.scss */
+/* line 127, ../../../sass/pages/flow/gh/_v3.scss */
 .page.fd-details.v3 .buy-group {
   text-align: center;
 }
-/* line 80, ../../../sass/pages/flow/gh/_v3.scss */
+/* line 129, ../../../sass/pages/flow/gh/_v3.scss */
 .page.fd-details.v3 .buy-group .buy-group-btn {
   display: block;
   margin-top: 0.15rem;
@@ -4718,7 +4778,7 @@ div.module-tips {
   margin-left: 20%;
   margin-bottom: 0.05rem;
 }
-/* line 88, ../../../sass/pages/flow/gh/_v3.scss */
+/* line 137, ../../../sass/pages/flow/gh/_v3.scss */
 .page.fd-details.v3 .getters {
   position: relative;
   margin: 0.4rem 0.15rem 0.3rem;
@@ -4726,20 +4786,123 @@ div.module-tips {
   -moz-border-radius: 0.1rem;
   -webkit-border-radius: 0.1rem;
   border-radius: 0.1rem;
-  font-size: 0.13rem;
+  font-size: 0.12rem;
   padding: 0.3rem 0.15rem 0.15rem;
   color: #333;
 }
-/* line 96, ../../../sass/pages/flow/gh/_v3.scss */
+/* line 145, ../../../sass/pages/flow/gh/_v3.scss */
 .page.fd-details.v3 .getters .getter-title {
   position: absolute;
   top: -0.13rem;
   width: 50%;
   left: 25%;
 }
-/* line 103, ../../../sass/pages/flow/gh/_v3.scss */
+/* line 152, ../../../sass/pages/flow/gh/_v3.scss */
 .page.fd-details.v3 .content-scrollable {
   background: #fff !important;
+}
+/* line 156, ../../../sass/pages/flow/gh/_v3.scss */
+.page.fd-details.v3 .fqa-content {
+  overflow: hidden;
+  background: #ffdbb5;
+}
+/* line 160, ../../../sass/pages/flow/gh/_v3.scss */
+.page.fd-details.v3 .fqa-lists {
+  color: #fff;
+  font-size: 0.11rem;
+  padding-left: 0.1rem;
+  padding-right: 0.1rem;
+  position: relative;
+  padding-bottom: 0.05rem;
+}
+/* line 167, ../../../sass/pages/flow/gh/_v3.scss */
+.page.fd-details.v3 .fqa-lists .dark {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+}
+/* line 173, ../../../sass/pages/flow/gh/_v3.scss */
+.page.fd-details.v3 .fqa-lists .dark a.more {
+  position: absolute;
+  width: 32%;
+  left: 50%;
+  top: 50%;
+  margin-left: -16%;
+  text-align: center;
+  border: 1px solid #3b658d;
+  -moz-border-radius: 0.06rem;
+  -webkit-border-radius: 0.06rem;
+  border-radius: 0.06rem;
+  padding: 0.05rem;
+  color: #3b658d;
+}
+/* line 187, ../../../sass/pages/flow/gh/_v3.scss */
+.page.fd-details.v3 .fqa-lists ul li {
+  list-style: none;
+  margin-top: 0.1rem;
+  margin-bottom: 0.1rem;
+  color: #555;
+}
+/* line 192, ../../../sass/pages/flow/gh/_v3.scss */
+.page.fd-details.v3 .fqa-lists ul li em {
+  color: #57130f;
+}
+/* line 195, ../../../sass/pages/flow/gh/_v3.scss */
+.page.fd-details.v3 .fqa-lists ul li .list-header {
+  font-weight: bold;
+  color: #555;
+  font-size: 0.12rem;
+}
+/* line 202, ../../../sass/pages/flow/gh/_v3.scss */
+.page.fd-details.v3 .fqa-lists.close {
+  height: 1.8rem;
+  overflow: hidden;
+}
+/* line 207, ../../../sass/pages/flow/gh/_v3.scss */
+.page.fd-details.v3 .footer-nav {
+  -moz-box-shadow: 2px -1px 20px #ccc;
+  -webkit-box-shadow: 2px -1px 20px #ccc;
+  box-shadow: 2px -1px 20px #ccc;
+}
+/* line 210, ../../../sass/pages/flow/gh/_v3.scss */
+.page.fd-details.v3 .fqa-more {
+  font-size: 0.12rem;
+  text-align: right;
+  padding-right: 0.1rem;
+  color: #eb362b;
+  margin-bottom: 0.5rem;
+}
+/* line 216, ../../../sass/pages/flow/gh/_v3.scss */
+.page.fd-details.v3 .fqa-more span {
+  display: inline-block;
+  vertical-align: middle;
+  *vertical-align: auto;
+  *zoom: 1;
+  *display: inline;
+}
+/* line 219, ../../../sass/pages/flow/gh/_v3.scss */
+.page.fd-details.v3 .fqa-more .arrow {
+  margin-left: 0.05rem;
+  width: 0.14rem;
+  height: 0.14rem;
+}
+/* line 224, ../../../sass/pages/flow/gh/_v3.scss */
+.page.fd-details.v3 .fqa-more .arrow-d {
+  display: none;
+}
+/* line 228, ../../../sass/pages/flow/gh/_v3.scss */
+.page.fd-details.v3 .fqa-more.close .arrow-u {
+  display: none;
+}
+/* line 231, ../../../sass/pages/flow/gh/_v3.scss */
+.page.fd-details.v3 .fqa-more.close .arrow-d {
+  display: inline-block;
+  vertical-align: middle;
+  *vertical-align: auto;
+  *zoom: 1;
+  *display: inline;
 }
 
 /* line 2, ../../../sass/pages/phone/_index.scss */
