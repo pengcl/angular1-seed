@@ -47,6 +47,7 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
     $scope.setAutoSelect = function (type) {
         $scope.autoSelect = type;
         writebdLog($scope.category, "_SystemNumber" + type, "渠道号", $scope.gh); //是否系统分配号码
+        console.log(1);
     };
 
     var objGetters = new Array();
