@@ -10,9 +10,9 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
         })
 }]).controller('otherAProductController', ['$scope', '$rootScope', '$stateParams', '$location', '$http', function ($scope, $rootScope, $stateParams, $location, $http) {
 
-    $scope.activeTag = "otherA";
+    $scope.activeTag = "csrtc";
     $scope.pageType = 'A';
-    $scope.category = systemName + "_mifitc_" + $scope.pageType;
+    $scope.category = systemName + "_csrtc_" + $scope.pageType;
     writebdLog($scope.category, "_Load", "渠道号", $scope.gh);
 
 
@@ -53,6 +53,7 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
 
     $scope.selectProduct = function (product) {
         $scope.mainProduct = product;
+        writebdLog($scope.category, "_SelectPackage", "渠道号", $scope.gh);
     };
 
 
@@ -87,6 +88,7 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
         $container.animate({
             scrollTop: $scrollTo.offset().top - $container.offset().top + $container.scrollTop()
         });
+        writebdLog($scope.category, "_ToSelect", "渠道号", $scope.gh); //立即订购
     };
 
     $scope.goTo = function (target) {
@@ -100,7 +102,7 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
         writebdLog($scope.category, "_CustConsult", "渠道号", $scope.gh); //客服咨询
     };
 
-    $scope.submitForm = function (e) {
+    $scope.submitForm = function (e, value) {
         var $form = $("#checkoutForm");
 
         if (!$scope.checkAddress()) {
@@ -113,7 +115,7 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
         }
 
         $form.submit();
-        writebdLog($scope.category, "_BuyNow", "渠道号", $scope.gh);//立即支付
+        writebdLog($scope.category, "_" + value, "渠道号", $scope.gh);//立即支付
     };
 
 }]);
