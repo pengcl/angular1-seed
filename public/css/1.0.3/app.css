@@ -11327,6 +11327,190 @@ div.module-tips {
   margin: 0 auto !important;
 }
 
+/* line 2, ../../../sass/pages/others/_a.scss */
+.page.other-a .select-area-content {
+  background: #fff;
+  margin: 0.05rem 0.15rem;
+  font-size: 0.12rem;
+  -moz-box-shadow: 0 0 5px #ddd;
+  -webkit-box-shadow: 0 0 5px #ddd;
+  box-shadow: 0 0 5px #ddd;
+  padding-top: 0.1rem;
+  padding-bottom: 0.1rem;
+}
+/* line 9, ../../../sass/pages/others/_a.scss */
+.page.other-a .select-area-content .pro-list {
+  list-style: none;
+}
+/* line 11, ../../../sass/pages/others/_a.scss */
+.page.other-a .select-area-content .pro-list .list-item {
+  list-style: none;
+}
+/* line 13, ../../../sass/pages/others/_a.scss */
+.page.other-a .select-area-content .pro-list .list-item .item-box {
+  padding: 0.05rem 0.05rem;
+  text-align: left;
+}
+/* line 16, ../../../sass/pages/others/_a.scss */
+.page.other-a .select-area-content .pro-list .list-item .item-box .radio-field {
+  position: relative;
+}
+/* line 18, ../../../sass/pages/others/_a.scss */
+.page.other-a .select-area-content .pro-list .list-item .item-box .radio-field .pure-u-1-6 {
+  text-align: center;
+}
+/* line 21, ../../../sass/pages/others/_a.scss */
+.page.other-a .select-area-content .pro-list .list-item .item-box .radio-field ins {
+  border: 1px solid #333;
+  background: #e3e3e3;
+  -moz-border-radius: 5rem;
+  -webkit-border-radius: 5rem;
+  border-radius: 5rem;
+  display: block;
+  width: 0.14rem;
+  height: 0.14rem;
+  top: 50%;
+  left: 50%;
+  margin-left: -0.07rem;
+  margin-top: -0.07rem;
+}
+/* line 36, ../../../sass/pages/others/_a.scss */
+.page.other-a .select-area-content .pro-list .list-item .item-box.curr .radio-field ins {
+  background: #ae2112;
+  /*&:before {
+    position: absolute;
+    content: " ";
+    left: 50%;
+    top: 50%;
+    width: 0.08rem;
+    height: 0.08rem;
+    border: 1px solid #333;
+    background: #fff;
+    @include border-radius(5rem);
+    margin-left: -0.05rem;
+    margin-top: -0.05rem;
+  }*/
+}
+/* line 58, ../../../sass/pages/others/_a.scss */
+.page.other-a .weui-cells_form {
+  background: #fff;
+  margin: 0.05rem 0.15rem;
+  font-size: 0.12rem;
+  -moz-box-shadow: 0 0 5px #ddd;
+  -webkit-box-shadow: 0 0 5px #ddd;
+  box-shadow: 0 0 5px #ddd;
+  padding-top: 0.1rem;
+  padding-bottom: 0.1rem;
+}
+/* line 66, ../../../sass/pages/others/_a.scss */
+.page.other-a weui-cells__title {
+  color: #461201;
+}
+/* line 68, ../../../sass/pages/others/_a.scss */
+.page.other-a weui-cells__title.title-icon:before {
+  background: #461201;
+}
+/* line 72, ../../../sass/pages/others/_a.scss */
+.page.other-a #receiverAddress {
+  font-size: 0.11rem;
+}
+/* line 74, ../../../sass/pages/others/_a.scss */
+.page.other-a #receiverAddress label {
+  color: #461201;
+  width: 6em;
+}
+/* line 78, ../../../sass/pages/others/_a.scss */
+.page.other-a #receiverAddress .weui-cell {
+  padding: 0;
+  border: 0;
+}
+/* line 81, ../../../sass/pages/others/_a.scss */
+.page.other-a #receiverAddress .weui-cell .weui-cell__hd {
+  width: 6em;
+}
+/* line 84, ../../../sass/pages/others/_a.scss */
+.page.other-a #receiverAddress .weui-cell .weui-cell__bd {
+  padding-top: 0.07rem;
+  padding-bottom: 0.07rem;
+  border: 1px solid #ccc;
+  padding-left: 0.1rem;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+}
+/* line 91, ../../../sass/pages/others/_a.scss */
+.page.other-a #receiverAddress .weui-cell .weui-cell__ft {
+  display: none;
+}
+/* line 94, ../../../sass/pages/others/_a.scss */
+.page.other-a #receiverAddress .weui-cell .weui-vcode-btn {
+  padding-top: 0.07rem;
+  padding-bottom: 0.07rem;
+  border: 2px solid #d83e14;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  color: #d83e14;
+}
+/* line 102, ../../../sass/pages/others/_a.scss */
+.page.other-a #receiverAddress .weui-cell.weui-cell_vcode .weui-cell__ft {
+  display: block;
+}
+/* line 107, ../../../sass/pages/others/_a.scss */
+.page.other-a #receiverAddress .weui-cell.input-price .weui-cell__bd {
+  background: #ffeee9;
+}
+/* line 109, ../../../sass/pages/others/_a.scss */
+.page.other-a #receiverAddress .weui-cell.input-price .weui-cell__bd input {
+  background: #ffeee9;
+  color: #461201;
+}
+/* line 114, ../../../sass/pages/others/_a.scss */
+.page.other-a #receiverAddress .weui-cell.input-price .weui-cell__ft {
+  display: block !important;
+  font-size: 0.12rem !important;
+  width: 1.6rem;
+  padding-left: 0.05rem;
+  text-align: left;
+  color: #461201;
+}
+/* line 124, ../../../sass/pages/others/_a.scss */
+.page.other-a #receiverAddress .weui-cell.input-payType .weui-agree__text {
+  color: #461201;
+}
+/* line 129, ../../../sass/pages/others/_a.scss */
+.page.other-a #receiverAddress .weui-cell.input-tips .weui-cell__bd {
+  background: #ffeee9;
+  color: #a06e5e;
+}
+/* line 136, ../../../sass/pages/others/_a.scss */
+.page.other-a .getters {
+  background: #fff !important;
+  margin: 0.05rem 0.15rem !important;
+  font-size: 0.12rem;
+  -moz-box-shadow: 0 0 5px #ddd;
+  -webkit-box-shadow: 0 0 5px #ddd;
+  box-shadow: 0 0 5px #ddd;
+  -moz-border-radius: 0 !important;
+  -webkit-border-radius: 0;
+  border-radius: 0 !important;
+  padding-top: 2em !important;
+  padding-bottom: 1em !important;
+  border: 0 !important;
+  position: relative;
+}
+/* line 146, ../../../sass/pages/others/_a.scss */
+.page.other-a .getters .getter-title {
+  position: absolute;
+  top: 0 !important;
+  background: #461201;
+  color: #fff;
+  text-align: center;
+  width: 7em !important;
+  margin-left: -3.5em !important;
+  left: 50% !important;
+}
+
 /* line 3, ../../../sass/pages/phoneCard/_phoneCardDetails.scss */
 .page.pd-details .product-header {
   background: #fff;
