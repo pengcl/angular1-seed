@@ -1,9 +1,9 @@
 'use strict';
 
-app.directive("receiverAddress", ["$compile", "$cookieStore", '$http', '$interval', function ($compile, $cookieStore, $http, $interval) {
+app.directive("nadr", ["$compile", "$cookieStore", '$http', '$interval', function ($compile, $cookieStore, $http, $interval) {
     return {
         restrict: 'E',
-        templateUrl: "modules/receiverAddress/receiverAddress.html",
+        templateUrl: "modules/receiverAddress/nadr/gzs.html",
         link: function (scope, element, attrs) {
 
             //模块标题
@@ -159,32 +159,24 @@ app.directive("receiverAddress", ["$compile", "$cookieStore", '$http', '$interva
 
             //收件区域点击事件
             $inputsStoreSelect.click(function () {
-                console.log(attrs.start);
-                if (attrs.start) {
-                    getArea('广东省', 1, '广东省', '', "");
-                    stockShow();
-                    dataAreaShow(1);
-                    tabShow(1);
-                } else {
-                    getArea(0, 0, "", "", "");
-                    stockShow();
-                    dataAreaShow(0);
-                    tabShow(0);
-                }
+                getArea('', 1, '广东省', '', "");
+                stockShow();
+                dataAreaShow(1);
+                tabShow(1);
             });
 
             //址选择器顶栏点击事件
-            $objTabItem.click(function (e) {
-                var index = $(this).index();
-                var textValue = "";
-                if (index === 0) {
-                    stockHide();
-                } else {
-                    tabShow(index - 1);
-                    dataAreaShow(index - 1);
-                }
-                return false;
-            });
+            // $objTabItem.click(function (e) {
+            //     var index = $(this).index();
+            //     var textValue = "";
+            //     if (index === 0) {
+            //         stockHide();
+            //     } else {
+            //         tabShow(index - 1);
+            //         dataAreaShow(index - 1);
+            //     }
+            //     return false;
+            // });
 
             //地址选定事件
             $areaList.on("click", "li", function (e) {
@@ -201,14 +193,14 @@ app.directive("receiverAddress", ["$compile", "$cookieStore", '$http', '$interva
                     dataAreaShow(2);
                     tabShow(2);
                     value2 = $this.data("value");
-                    getArea(dataVal, 2, value1, value2, "");
+                    getArea(dataVal, 2, '广东省', value2, "");
                 } else if (dataAreaValue === 2) {
                     //dataAreaShow(3);
                     //tabShow(3);
                     value3 = $this.data("value");
                     stockHide();
-                    $("#store-text").find("div").html(value1 + value2 + value3);
-                    scope.receiver.city = value1 + value2 + value3;
+                    $("#store-text").find("div").html('广东省' + value2 + value3);
+                    scope.receiver.city = '广东省' + value2 + value3;
                     //getArea(dataVal, 3, value1, value2, value3);
                 } else if (dataAreaValue === 3) {
                     value4 = $this.data("value");
@@ -220,7 +212,7 @@ app.directive("receiverAddress", ["$compile", "$cookieStore", '$http', '$interva
                 return false;
             });
 
-            scope.checkAddress = function () {
+            scope.$root.checkAddress = function () {
                 $("#receiverAddress").find(".weui_cell").removeClass("weui-cell_warn");
                 if (!scope.checkoutForm.reciverName.$valid) {
                     //alert("请输入收件人");
@@ -244,6 +236,24 @@ app.directive("receiverAddress", ["$compile", "$cookieStore", '$http', '$interva
 
                 return true;
             };
+            scope.showReceiverPn = function (e) {
+                writeAddressBar();
+                if (!(attrs.noAnimate == "true")) {
+                    $("#receiverAddressPanel").slideToggle();
+                    $(".adr-tab").toggleClass("down");
+                }
+            };
+
+            function writeAddressBar() {
+                if ($("#receiverAddressPanel").is(":hidden"))
+                    writebdLog(scope.category, "_ShowAddressBar", "渠道号", scope.gh); //展开地址栏
+                else
+                    writebdLog(scope.category, "_StopAddressBar", "渠道号", scope.gh); //收起地址栏
+            }
+
+            scope.adrOk = function () {
+                scope.showReceiverPn();
+            }
         }
     };
 }]);

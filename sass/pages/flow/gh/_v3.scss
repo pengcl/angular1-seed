@@ -65,6 +65,17 @@
       .pure-g {
         .txt {
           text-align: left;
+          .weui-icon-success {
+            &:before {
+              color: #cccccc;
+              margin-left: 0;
+            }
+            &.ok {
+              &:before {
+                color: #d63176;
+              }
+            }
+          }
         }
         .do {
           text-align: right;

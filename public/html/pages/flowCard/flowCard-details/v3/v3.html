@@ -25,6 +25,198 @@
             <div class="img-box">
                 <img src="/images/flow/flowcard/v3/1.jpg"/>
             </div>
+
+            <div class="select-area img-box">
+                <img src="/images/flow/flowcard/v3/tit-1.jpg"/>
+            </div>
+            <div id="flowPackage" class="flow-package">
+                <input type="hidden" name="productId" id="productId" ng-model="packageItem.productId"
+                       value="{{packageItem.productId}}" required>
+                <div class="weui-cells__title title-icon">
+                    <span class="title">订单套餐</span>
+                </div>
+                <div class="flow-package-panel pd-w">
+                    <ul class="flow-package-lists item-lists minus pure-g">
+                        <li class="flow-package-item list-item pure-u-1-1"
+                            ng-repeat="flowPackageItem in product.packageProductList">
+                            <div class="item-box margin radius border"
+                                 ng-class="{true:'curr',false:''}[flowPackageItem === packageItem]"
+                                 ng-click="setFlowPackage($event,flowPackageItem)">
+                                <p>
+                                    <span ng-bind="flowPackageItem.productName"></span>
+                                </p>
+                                <ins class="icon-check"></ins>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+
+            <div id="mainNumberArea" class="weui-cells__title title-icon">
+                <span class="title">选择付费号码</span><em>*</em>
+            </div>
+            <div class="pd-w">
+                <ul class="item-lists minus pure-g">
+                    <li class="list-item pure-u-1-1">
+                        <div class="item-box margin radius border"
+                             ng-class="{'curr':!!selectedData.mainNumber,'warn':mainNumberWarn}"
+                             ng-click="showMainPanel($event)">
+                            <p style="text-align: left">
+                                <span ng-if="!selectedData.mainNumber">请选择电话号码</span>
+                                <span ng-if="selectedData.mainNumber" ng-bind="selectedData.mainNumber.n"></span>
+                            </p>
+                            <ins class="weui-icon-warn"></ins>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <input id="mainNumber" name="mainNumber" ng-model="selectedData.mainNumber.n" type="hidden" required
+                   value="{{selectedData.mainNumber.n}}">
+            <app-number ng-show="mainPanel" number-type="mainNumber" input-data="inputData" selected-data="selectedData"
+                        output-data="outputData"></app-number>
+
+            <div class="checklist pd-w" style="margin-top: 0.1rem">
+                <div class="pure-g">
+                    <div class="txt pure-u-1-1">
+                        <span><i class="weui-icon-success" ng-class="{true:'ok',false:''}[autoSelect]"></i></span>
+                        赠送两张副卡给家人用(共享主号流量，免月租)</div>
+                </div>
+            </div>
+
+            <div ng-show="!autoSelect">
+                <div id="subNumberArea" class="weui-cells__title title-icon">
+                    <span class="title">选择副卡1电话号码</span><em>*</em>
+                </div>
+                <div class="pd-w">
+                    <ul class="item-lists minus pure-g">
+                        <li class="list-item pure-u-1-1">
+                            <div class="item-box margin radius border"
+                                 ng-class="{'curr':!!selectedData.subNumber,'warn':subNumberWarn}"
+                                 ng-click="showSubPanel($event)">
+                                <p style="text-align: left">
+                                    <span ng-if="!selectedData.subNumber">请选择电话号码</span>
+                                    <span ng-if="selectedData.subNumber" ng-bind="selectedData.subNumber.n"></span>
+                                </p>
+                                <ins class="weui-icon-warn"></ins>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <input id="subNumber" name="subNumber" ng-model="selectedData.subNumber.n" type="hidden" required
+                       value="{{selectedData.subNumber.n}}">
+                <app-number ng-show="subPanel" number-type="subNumber" auto-select="autoSelect" input-data="inputData1"
+                            selected-data="selectedData" output-data="outputData"></app-number>
+            </div>
+
+            <div ng-show="!autoSelect">
+                <div id="thirdNumberArea" class="weui-cells__title title-icon">
+                    <span class="title">选择副卡2电话号码</span><em>*</em>
+                </div>
+                <div class="pd-w">
+                    <ul class="item-lists minus pure-g">
+                        <li class="list-item pure-u-1-1">
+                            <div class="item-box margin radius border"
+                                 ng-class="{'curr':!!selectedData.thirdNumber,'warn':thirdNumberWarn}"
+                                 ng-click="showThirdPanel($event)">
+                                <p style="text-align: left">
+                                    <span ng-if="!selectedData.thirdNumber">请选择电话号码</span>
+                                    <span ng-if="selectedData.thirdNumber" ng-bind="selectedData.thirdNumber.n"></span>
+                                </p>
+                                <ins class="weui-icon-warn"></ins>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <input id="thirdNumber" name="thirdNumber" ng-model="selectedData.thirdNumber.n" type="hidden" required
+                       value="{{selectedData.thirdNumber.n}}">
+                <app-number ng-show="thirdPanel" number-type="thirdNumber" auto-select="autoSelect"
+                            input-data="inputData2"
+                            selected-data="selectedData" output-data="outputData"></app-number>
+            </div>
+
+            <div class="flow-package">
+                <input type="hidden" name="mifiId" id="mifiId" ng-model="mifis" value="{{selectedMifis}}" required>
+                <div class="weui-cells__title title-icon">
+                    <span class="title">猜您喜欢</span>
+                </div>
+                <div class="flow-package-panel pd-w">
+                    <ul class="flow-package-lists item-lists minus pure-g">
+                        <li class="flow-package-item list-item pure-u-1-2" ng-repeat="mifi in mifis"
+                            ng-if="mifi.productId !== product.activityproductId">
+                            <div class="item-box margin radius border" ng-class="{true:'curr',false:''}[mifi.selected]"
+                                 ng-click="setItem($event,$index,mifi)">
+                                <p>
+                                    <span ng-bind="mifi.productName"></span></span>
+                                </p>
+                                <ins class="icon-check"></ins>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="pay-content" style="font-size: 0.12rem">
+                <div class="weui-cells__title title-icon">
+                    <span class="title">支付方式</span>
+                    <span class="right-title" style="float: right;color: #d63176;">货到付款</span>
+                </div>
+
+                <div class="pay-container pd-w">
+                    <div class="pay-content">
+                        <div class="pure-g">
+                            <span class="lb pure-u-2-3" ng-bind="product.packageProductList[0].productName"></span>
+                            <span class="price pure-u-1-3">
+                                <em>￥</em><em ng-bind="product.packageProductList[0].salesPrice | number:0"></em> <sub>x1</sub>
+                            </span>
+                        </div>
+                        <div class="pure-g" ng-repeat="item in mifis" ng-if="item.selected">
+                            <span class="lb pure-u-2-3" ng-bind="item.productName"></span>
+                            <span class="price pure-u-1-3">
+                                <em>￥</em><em ng-bind="item.salePrice"></em> <sub>x1</sub>
+                            </span>
+                        </div>
+                        <div class="real-price pure-g">
+                            <span class="lb pure-u-2-3">合计金额</span>
+                            <span class="price pure-u-1-3"><em>￥</em>
+                                <em ng-bind="totalPrice"></em>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!--<div class="pd-w">
+                    <div class="pure-g">
+                        <span class="label pure-u-1-2">合计金额</span>
+                        <span class="price pure-u-1-2"><em>￥</em><em ng-bind="totalPrice"></em></span>
+                    </div>
+                    <p>预存￥400送随身充电mifi<em>￥400</em><span ng-repeat="item in mifis"><span ng-if="item.selected"> + <span
+                            ng-bind="item.productName"></span><em ng-bind="item.salePrice"></em></span></span></p>
+                </div>-->
+            </div>
+
+
+            <nadr start="广东省" title="收货地址"></nadr>
+
+            <div class="buy-group">
+                <a class="buy-group-btn" href="javascript:;" ng-click="submitForm($event,'BuyNowOne');">
+                    <div class="img-box"><img src="/images/flow/flowcard/v3/buy-btn.png"></div>
+                </a>
+                <!--<p style="font-size: 0.12rem">*本活动仅限18岁以上用户参与</p>-->
+                <div class="img-box"><img src="/images/flow/flowcard/v3/tip.png"></div>
+            </div>
+
+            <div class="getters">
+                <div class="getter-title">
+                    <div class="img-box">
+                        <img src="/images/flow/flowcard/v3/getters-title.png">
+                    </div>
+                </div>
+                <ul>
+                    <li ng-repeat="getter in getters" ng-bind-html="getter.txt | trustHtml" on-finish></li>
+                </ul>
+            </div>
+
             <div class="img-box">
                 <img src="/images/flow/flowcard/v3/2.jpg"/>
             </div>
@@ -232,12 +424,11 @@
                     <a class="more" href="javascript:;" ng-click="setFqaMore()">查看更多</a>
                 </div>
             </div>
-
-            <div class="img-box">
-                <img src="/images/flow/flowcard/v3/4.jpg"/>
-            </div>
             <div class="img-box">
                 <img src="/images/flow/flowcard/v3/5.jpg"/>
+            </div>
+            <div class="img-box">
+                <img src="/images/flow/flowcard/v3/4.jpg"/>
             </div>
             <!--<div class="product-header">
                 <h1 class="product-title">全国流量卡/上网卡，3G/4G/6G/8G/10G</h1>
@@ -247,199 +438,6 @@
                 </div>
             </div>-->
             <!--<flow-package title="“优惠套餐”" sub-title="" size="l"></flow-package>-->
-            <div class="select-area img-box">
-                <img src="/images/flow/flowcard/v3/tit-1.jpg"/>
-            </div>
-            <div id="flowPackage" class="flow-package">
-                <input type="hidden" name="productId" id="productId" ng-model="packageItem.productId"
-                       value="{{packageItem.productId}}" required>
-                <div class="weui-cells__title title-icon">
-                    <span class="title">选择套餐</span>
-                </div>
-                <div class="flow-package-panel pd-w">
-                    <ul class="flow-package-lists item-lists minus pure-g">
-                        <li class="flow-package-item list-item pure-u-1-1"
-                            ng-repeat="flowPackageItem in product.packageProductList">
-                            <div class="item-box margin radius border"
-                                 ng-class="{true:'curr',false:''}[flowPackageItem === packageItem]"
-                                 ng-click="setFlowPackage($event,flowPackageItem)">
-                                <p>
-                                    <span ng-bind="flowPackageItem.productName"></span>
-                                </p>
-                                <ins class="icon-check"></ins>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-
-
-            <div id="mainNumberArea" class="weui-cells__title title-icon">
-                <span class="title">选择主卡电话号码</span><em>*</em>
-            </div>
-            <div class="pd-w">
-                <ul class="item-lists minus pure-g">
-                    <li class="list-item pure-u-1-1">
-                        <div class="item-box margin radius border"
-                             ng-class="{'curr':!!selectedData.mainNumber,'warn':mainNumberWarn}"
-                             ng-click="showMainPanel($event)">
-                            <p style="text-align: left">
-                                <span ng-if="!selectedData.mainNumber">请选择电话号码</span>
-                                <span ng-if="selectedData.mainNumber" ng-bind="selectedData.mainNumber.n"></span>
-                            </p>
-                            <ins class="weui-icon-warn"></ins>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-            <input id="mainNumber" name="mainNumber" ng-model="selectedData.mainNumber.n" type="hidden" required
-                   value="{{selectedData.mainNumber.n}}">
-            <app-number ng-show="mainPanel" number-type="mainNumber" input-data="inputData" selected-data="selectedData"
-                        output-data="outputData"></app-number>
-
-            <div class="checklist pd-w" style="margin-top: 0.1rem">
-                <div class="pure-g">
-                    <div class="txt pure-u-2-3">副卡号码是否由系统分配？</div>
-                    <div class="do pure-u-1-3"><span ng-click="setAutoSelect(true)"><i class="weui-icon-success"
-                                                                                       ng-class="{true:'ok',false:''}[autoSelect]"></i>是</span><span
-                            ng-click="setAutoSelect(false)"><i class="weui-icon-success"
-                                                               ng-class="{true:'ok',false:''}[!autoSelect]"></i>否</span>
-                    </div>
-                </div>
-            </div>
-
-            <div ng-show="!autoSelect">
-                <div id="subNumberArea" class="weui-cells__title title-icon">
-                    <span class="title">选择副卡1电话号码</span><em>*</em>
-                </div>
-                <div class="pd-w">
-                    <ul class="item-lists minus pure-g">
-                        <li class="list-item pure-u-1-1">
-                            <div class="item-box margin radius border"
-                                 ng-class="{'curr':!!selectedData.subNumber,'warn':subNumberWarn}"
-                                 ng-click="showSubPanel($event)">
-                                <p style="text-align: left">
-                                    <span ng-if="!selectedData.subNumber">请选择电话号码</span>
-                                    <span ng-if="selectedData.subNumber" ng-bind="selectedData.subNumber.n"></span>
-                                </p>
-                                <ins class="weui-icon-warn"></ins>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-                <input id="subNumber" name="subNumber" ng-model="selectedData.subNumber.n" type="hidden" required
-                       value="{{selectedData.subNumber.n}}">
-                <app-number ng-show="subPanel" number-type="subNumber" auto-select="autoSelect" input-data="inputData1"
-                            selected-data="selectedData" output-data="outputData"></app-number>
-            </div>
-
-            <div ng-show="!autoSelect">
-                <div id="thirdNumberArea" class="weui-cells__title title-icon">
-                    <span class="title">选择副卡2电话号码</span><em>*</em>
-                </div>
-                <div class="pd-w">
-                    <ul class="item-lists minus pure-g">
-                        <li class="list-item pure-u-1-1">
-                            <div class="item-box margin radius border"
-                                 ng-class="{'curr':!!selectedData.thirdNumber,'warn':thirdNumberWarn}"
-                                 ng-click="showThirdPanel($event)">
-                                <p style="text-align: left">
-                                    <span ng-if="!selectedData.thirdNumber">请选择电话号码</span>
-                                    <span ng-if="selectedData.thirdNumber" ng-bind="selectedData.thirdNumber.n"></span>
-                                </p>
-                                <ins class="weui-icon-warn"></ins>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-                <input id="thirdNumber" name="thirdNumber" ng-model="selectedData.thirdNumber.n" type="hidden" required
-                       value="{{selectedData.thirdNumber.n}}">
-                <app-number ng-show="thirdPanel" number-type="thirdNumber" auto-select="autoSelect"
-                            input-data="inputData2"
-                            selected-data="selectedData" output-data="outputData"></app-number>
-            </div>
-
-            <div class="flow-package">
-                <input type="hidden" name="mifiId" id="mifiId" ng-model="mifis" value="{{selectedMifis}}" required>
-                <div class="weui-cells__title title-icon">
-                    <span class="title">自选加购</span>
-                </div>
-                <div class="flow-package-panel pd-w">
-                    <ul class="flow-package-lists item-lists minus pure-g">
-                        <li class="flow-package-item list-item pure-u-1-2" ng-repeat="mifi in mifis"
-                            ng-if="mifi.productId !== product.activityproductId">
-                            <div class="item-box margin radius border" ng-class="{true:'curr',false:''}[mifi.selected]"
-                                 ng-click="setItem($event,$index,mifi)">
-                                <p>
-                                    <span ng-bind="mifi.productName"></span></span>
-                                </p>
-                                <ins class="icon-check"></ins>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="pay-content" style="font-size: 0.12rem">
-                <div class="weui-cells__title title-icon">
-                    <span class="title">支付方式</span>
-                    <span class="right-title" style="float: right;color: #d63176;">货到付款</span>
-                </div>
-
-                <div class="pay-container pd-w">
-                    <div class="pay-content">
-                        <div class="pure-g">
-                            <span class="lb pure-u-2-3" ng-bind="product.packageProductList[0].productName"></span>
-                            <span class="price pure-u-1-3">
-                                <em>￥</em><em ng-bind="product.packageProductList[0].salesPrice | number:0"></em> <sub>x1</sub>
-                            </span>
-                        </div>
-                        <div class="pure-g" ng-repeat="item in mifis" ng-if="item.selected">
-                            <span class="lb pure-u-2-3" ng-bind="item.productName"></span>
-                            <span class="price pure-u-1-3">
-                                <em>￥</em><em ng-bind="item.salePrice"></em> <sub>x1</sub>
-                            </span>
-                        </div>
-                        <div class="real-price pure-g">
-                            <span class="lb pure-u-2-3">合计金额</span>
-                            <span class="price pure-u-1-3"><em>￥</em>
-                                <em ng-bind="totalPrice"></em>
-                            </span>
-                        </div>
-                    </div>
-                </div>
-
-                <!--<div class="pd-w">
-                    <div class="pure-g">
-                        <span class="label pure-u-1-2">合计金额</span>
-                        <span class="price pure-u-1-2"><em>￥</em><em ng-bind="totalPrice"></em></span>
-                    </div>
-                    <p>预存￥400送随身充电mifi<em>￥400</em><span ng-repeat="item in mifis"><span ng-if="item.selected"> + <span
-                            ng-bind="item.productName"></span><em ng-bind="item.salePrice"></em></span></span></p>
-                </div>-->
-            </div>
-
-
-            <receiver-address title="收货地址"></receiver-address>
-
-            <div class="buy-group">
-                <a class="buy-group-btn" href="javascript:;" ng-click="submitForm($event,'BuyNowOne');">
-                    <div class="img-box"><img src="/images/flow/flowcard/v3/buy-btn.png"></div>
-                </a>
-                <!--<p style="font-size: 0.12rem">*本活动仅限18岁以上用户参与</p>-->
-                <div class="img-box"><img src="/images/flow/flowcard/v3/tip.png"></div>
-            </div>
-
-            <div class="getters">
-                <div class="getter-title">
-                    <div class="img-box">
-                        <img src="/images/flow/flowcard/v3/getters-title.png">
-                    </div>
-                </div>
-                <ul>
-                    <li ng-repeat="getter in getters" ng-bind-html="getter.txt | trustHtml" on-finish></li>
-                </ul>
-            </div>
 
             <div class="img-box"><img src="/images/flow/flowcard/v3/6.jpg"></div>
         </div>
