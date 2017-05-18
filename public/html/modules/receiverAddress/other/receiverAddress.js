@@ -78,6 +78,12 @@ app.directive("receiverOAddress", ["$compile", "$cookieStore", '$http', '$interv
                 if (room == undefined || room == "" || room.length <= 3) return;
                 writebdLog(scope.category, "_Address", "渠道号", scope.gh);//收货地址
             };
+            
+            //只有输入信息才记录到闭环
+            scope.inputFeedBack = function (feeback) {
+            	if (feeback == undefined || feeback == "" || feeback.length <= 3) return;
+            	writebdLog(scope.category, "_FeedBack", "渠道号", scope.gh);//卖家留言
+            };
 
             scope.paracont = "获取验证码";
             scope.paraclass = "but_null";
