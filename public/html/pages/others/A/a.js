@@ -102,7 +102,7 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
         writebdLog($scope.category, "_CustConsult", "渠道号", $scope.gh); //客服咨询
     };
 
-    $scope.submitForm = function (e) {
+    $scope.submitForm = function (e, value) {
         var $form = $("#checkoutForm");
 
         if (!$scope.checkAddress()) {
@@ -115,7 +115,7 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
         }
 
         $form.submit();
-        writebdLog($scope.category, "_BuyNow", "渠道号", $scope.gh);//立即支付
+        writebdLog($scope.category, "_" + value, "渠道号", $scope.gh);//立即支付
     };
 
 }]);

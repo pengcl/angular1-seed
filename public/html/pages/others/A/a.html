@@ -1,7 +1,7 @@
 <div class="page fd-details in v3 other-a">
     <top-nav page-title="翼分期商城" page-back="menu" nav-visibility="hide"></top-nav>
     <form id="checkoutForm" name="checkoutForm"
-          action="http://apptest.yfq.cn:8898//wap/taokafanghaoNew/submitOrderRetail.html"
+          action="http://192.168.1.182:8082/wap/taokafanghaoNew/submitOrderRetail.html"
           method="post" novalidate>
         <input type="hidden" value="{{activeTag}}" ng-model="activeTag" name="activeTag" id="activeTag">
         <input type="hidden" value="{{category}}" ng-model="category" name="category" id="category">
@@ -91,7 +91,7 @@
 
             <receiver-o-address title="选择收货地址"></receiver-o-address>
 
-            <div class="img-box" style="width: 80%; margin: 0.15rem auto" ng-click="submitForm($event);">
+            <div class="img-box" style="width: 80%; margin: 0.15rem auto" ng-click="submitForm($event,'BuyNowOne');">
                 <img src="/images/others/A/btn.png"/>
             </div>
 
@@ -111,7 +111,7 @@
         <div class="footer-nav nav-list" style="padding: 0">
             <div class="pure-g">
                 <div class="nav-button nav-item pure-u-1-1">
-                    <a href="javascript:;" ng-click="submitForm($event);">立即订购（包邮 货到付款）>>></a>
+                    <a href="javascript:;" ng-click="submitForm($event,'BuyNowTwo');">立即订购（包邮 货到付款）>>></a>
                 </div>
             </div>
         </div>
