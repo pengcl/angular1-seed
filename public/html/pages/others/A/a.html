@@ -1,7 +1,7 @@
 <div class="page fd-details in v3 other-a">
     <top-nav page-title="翼分期商城" page-back="menu" nav-visibility="hide"></top-nav>
     <form id="checkoutForm" name="checkoutForm"
-          action="http://m.yfq.cn/wap/taokafanghaoNew/submitOrderDouble.html"
+          action="http://apptest.yfq.cn:8898//wap/taokafanghaoNew/submitOrderRetail.html"
           method="post" novalidate>
         <input type="hidden" value="{{activeTag}}" ng-model="activeTag" name="activeTag" id="activeTag">
         <input type="hidden" value="{{category}}" ng-model="category" name="category" id="category">
@@ -70,8 +70,8 @@
                 </div>
 
                 <div class="weui-cells__title title-icon ng-binding">选择套餐</div>
-
                 <input type="hidden" id="mainProduct" name="mainProduct" value="{{mainProduct.id + ':' + '1'}}">
+                <input type="hidden" id="buyGroup" name="buyGroup" value="{{mainProduct.id + ':' + '1'}}">
                 <div class="select-area-content">
                     <ul class="pro-list">
                         <li class="list-item" ng-repeat="product in products">

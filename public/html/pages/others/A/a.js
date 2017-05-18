@@ -10,7 +10,7 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
         })
 }]).controller('otherAProductController', ['$scope', '$rootScope', '$stateParams', '$location', '$http', function ($scope, $rootScope, $stateParams, $location, $http) {
 
-    $scope.activeTag = "mifitc";
+    $scope.activeTag = "otherA";
     $scope.pageType = 'A';
     $scope.category = systemName + "_mifitc_" + $scope.pageType;
     writebdLog($scope.category, "_Load", "渠道号", $scope.gh);
