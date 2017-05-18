@@ -18,31 +18,31 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
 
     $scope.products = [
         {
-            id: 1,
+            id: 424,
             name: '健维宝1盒 + 神酒1瓶 + 干果1盒 送鲜果蜜1盒',
             price: 398,
             select: true
         },
         {
-            id: 2,
+            id: 425,
             name: '春砂仁干果2盒 送鲜果蜜1盒',
             price: 298,
             select: false
         },
         {
-            id: 3,
+            id: 426,
             name: '春砂仁健维宝2盒',
             price: 298,
             select: false
         },
         {
-            id: 4,
+            id: 427,
             name: '春之神酒2瓶',
             price: 298,
             select: false
         },
         {
-            id: 5,
+            id: 428,
             name: '春砂仁鲜果蜜2盒',
             price: 198,
             select: false
