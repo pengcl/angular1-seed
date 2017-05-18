@@ -75,6 +75,7 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
         $container.animate({
             scrollTop: $scrollTo.offset().top - $container.offset().top + $container.scrollTop()
         });
+        writebdLog($scope.category, "_ToSelect", "渠道号", $scope.gh); //立即订购
     };
 
     $scope.goTo = function (target) {
@@ -154,7 +155,7 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
 
     $scope.selectedData = {};
 
-    $scope.submitForm = function (e) {
+    $scope.submitForm = function (e, value) {
         var $form = $("#checkoutForm");
         if (!$scope.checkoutForm.mainNumber.$valid) {
             $scope.mainNumberWarn = true;
@@ -211,7 +212,7 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
         });*/
 
         $form.submit();
-        writebdLog($scope.category, "_BuyNow", "渠道号", $scope.gh);//立即支付
+        writebdLog($scope.category, "_" + value, "渠道号", $scope.gh);//立即支付
     };
     $scope.fqaMore = false;
     $scope.setFqaMore = function () {
