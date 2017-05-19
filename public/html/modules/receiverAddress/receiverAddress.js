@@ -159,7 +159,6 @@ app.directive("receiverAddress", ["$compile", "$cookieStore", '$http', '$interva
 
             //收件区域点击事件
             $inputsStoreSelect.click(function () {
-                console.log(attrs.start);
                 if (attrs.start) {
                     getArea('广东省', 1, '广东省', '', "");
                     stockShow();
