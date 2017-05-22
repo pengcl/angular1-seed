@@ -45,9 +45,11 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
         //deferred.reject(status)
     });
 
+    var payTypeAry = ['payAll', 'payCOD', 'payMonthly'];
     $scope.payType = 0;
     $scope.setPayType = function (e, type) {
         $scope.payType = type;
+        writebdLog($scope.category, "_" + payTypeAry[type], "渠道号", $scope.gh);//选择支付方式
     };
 
     if ($location.search().duplicateNum) {
