@@ -24,7 +24,7 @@
                 <div class="timer-area">
                     <timer></timer>
                 </div>
-                <div class="btns-area img-box">
+                <div class="btns-area img-box" ng-click="goToSelect();">
                     <img src="/images/flow/flowcard/v4/banner-btn.jpg"/>
                 </div>
             </div>
@@ -207,7 +207,7 @@
                 <div class="pay-content" style="font-size: 0.12rem">
                     <div class="weui-cells__title title-icon">
                         <span class="title">支付方式</span>
-                        <span class="right-title" style="float: right;color: #d63176;">货到付款</span>
+                        <span class="right-title" style="float: right;color: #d63176;"><span ng-if="payType === 1">货到付款</span><span ng-if="payType === 0">在线支付</span></span>
                     </div>
 
                     <div class="pay-container pd-w">
