@@ -87,31 +87,62 @@ app.directive("appNumber", ["$cookieStore", '$timeout', function ($cookieStore, 
                 if (n !== o && n !== undefined) {
                     scope.numbers = n;
                     scope.dataInit();
-                }
-            }, true);
 
-            scope.$watch('autoSelect', function (n, o, scope) {
-                if (n !== o && n !== undefined) {
-                    if(n){
+                    var randIndex = parseInt(Math.random() * n.length);
+
+                    if(scope.autoSelect){
                         if (scope.numberType === 'subNumber') {
                             scope.outputData = {
                                 numberType: scope.numberType,
-                                number: scope.items[1]
+                                number: scope.numbers[randIndex]
                             };
                             scope.thisNumber = {
                                 numberType: scope.numberType,
-                                number: scope.items[1]
+                                number: scope.numbers[randIndex]
                             };
                         }
                         $timeout(function () {
                             if (scope.numberType === 'thirdNumber') {
                                 scope.outputData = {
                                     numberType: scope.numberType,
-                                    number: scope.items[2]
+                                    number: scope.numbers[randIndex]
                                 };
                                 scope.thisNumber = {
                                     numberType: scope.numberType,
-                                    number: scope.items[2]
+                                    number: scope.numbers[randIndex]
+                                };
+                            }
+                        });
+                    }
+
+                }
+            }, true);
+
+            scope.$watch('autoSelect', function (n, o, scope) {
+                if (n !== o && n !== undefined) {
+                    if(n){
+
+                        var randIndex = parseInt(Math.random() * n.length);
+
+                        if (scope.numberType === 'subNumber') {
+                            scope.outputData = {
+                                numberType: scope.numberType,
+                                number: scope.numbers[randIndex]
+                            };
+                            scope.thisNumber = {
+                                numberType: scope.numberType,
+                                number: scope.numbers[randIndex]
+                            };
+                        }
+                        $timeout(function () {
+                            if (scope.numberType === 'thirdNumber') {
+                                scope.outputData = {
+                                    numberType: scope.numberType,
+                                    number: scope.numbers[randIndex]
+                                };
+                                scope.thisNumber = {
+                                    numberType: scope.numberType,
+                                    number: scope.numbers[randIndex]
                                 };
                             }
                         });

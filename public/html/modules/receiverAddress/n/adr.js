@@ -85,7 +85,7 @@ app.directive("adr", ["$compile", "$cookieStore", '$http', '$interval', function
 
             scope.getActiveCode = function (phoneNumber,e) {
                 if($(e.currentTarget).hasClass("not")){
-
+                    return false;
                 }
                 scope.toast.open();
                 $http.get("http://app.yfq.cn:3099/api/getActiveCode/" + phoneNumber).success(function (data) {

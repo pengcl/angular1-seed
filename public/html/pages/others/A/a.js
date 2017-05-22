@@ -19,7 +19,7 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
     $scope.products = [
         {
             id: 424,
-            name: '健维宝1盒 + 神酒1瓶 + 干果1盒 送鲜果蜜1盒',
+            name: '健维宝1罐 + 神酒1瓶 + 干果1盒 送鲜果蜜1盒',
             price: 398,
             select: true
         },
@@ -31,7 +31,7 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
         },
         {
             id: 426,
-            name: '春砂仁健维宝2盒',
+            name: '春砂仁健维宝2罐',
             price: 298,
             select: false
         },
@@ -48,6 +48,13 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
             select: false
         }
     ];
+
+    $scope.$root.share = {
+        homeLink: 'http://' + window.location.host + '/others/A' + window.location.search,
+        shareTitle: '春砂仁，您的养胃专家，广东阳春源产地生产，良心品质！',
+        shareDisc: '养胃首选春砂仁，多种吃法，老少咸宜，套餐限时特价398元，再送鲜果密一盒！货到付款，先到先得！',
+        picUrl: 'http://' + window.location.host + '/images/others/A/nativeShare.jpg'
+    };
 
     $scope.mainProduct = $scope.products[0];
 
@@ -102,6 +109,10 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
         writebdLog($scope.category, "_CustConsult", "渠道号", $scope.gh); //客服咨询
     };
 
+    $scope.checkBuyHistory = function () {
+
+    };
+
     $scope.submitForm = function (e, value) {
         var $form = $("#checkoutForm");
 
@@ -114,8 +125,27 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
             return false;
         }
 
-        $form.submit();
-        writebdLog($scope.category, "_" + value, "渠道号", $scope.gh);//立即支付
+        $scope.$root.toast.open();
+        $http.jsonp(cfApi.apiHost + '/product/checkOrderCount.html?receiverMobile=' + $scope.checkoutForm.receiverMobile.$modelValue + '&productId=' + $scope.mainProduct.id + '&s=wap&time=' + new Date().getTime() + '&callback=JSON_CALLBACK').success(function (data, status, headers, config) {//查看是否下过单
+
+            if (data.result) {
+                $form.submit();
+                $scope.$root.toast.close();
+                writebdLog($scope.category, "_" + value, "渠道号", $scope.gh);//立即支付
+            } else {
+                $scope.$root.toast.close();
+                $scope.$root.appDialog.open('', '您已购买过该商品，确认要再买一单吗？');
+            }
+        });
     };
+
+    $scope.$watch('btnType', function (n, o, $scope) {
+        if (n !== o && n !== undefined) {
+            if(n){
+                var $form = $("#checkoutForm");
+                $form.submit();
+            }
+        }
+    });
 
 }]);

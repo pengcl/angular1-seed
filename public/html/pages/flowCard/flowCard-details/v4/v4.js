@@ -3,15 +3,15 @@
 app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $locationProvider) {
     // 设定路由
     $stateProvider
-        .state('flowCardV3', { //app首页
-            url: "/fd/v3/:productId",
-            templateUrl: "pages/flowCard/flowCard-details/v3/v3.html",
-            controller: "flowCardV3Controller"
+        .state('flowCardV4', { //app首页
+            url: "/fd/v4/:productId",
+            templateUrl: "pages/flowCard/flowCard-details/v4/v4.html",
+            controller: "flowCardV4Controller"
         })
-}]).controller('flowCardV3Controller', ['$scope', '$rootScope', '$stateParams', '$location', '$http', function ($scope, $rootScope, $stateParams, $location, $http) {
+}]).controller('flowCardV4Controller', ['$scope', '$rootScope', '$stateParams', '$location', '$http', function ($scope, $rootScope, $stateParams, $location, $http) {
 
     $scope.activeTag = "mifitc";
-    $scope.pageType = 'A';
+    $scope.pageType = 'B';
     $scope.category = systemName + "_mifitc_" + $scope.pageType;
     writebdLog($scope.category, "_Load", "渠道号", $scope.gh);
 
@@ -34,10 +34,10 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
         $scope.totalPrice = parseInt($scope.product.packageProductList[0].salesPrice);
 
         $scope.$root.share = {
-            homeLink: 'http://app.yfq.cn/fd/v3/' + $stateParams.productId + window.location.search,
+            homeLink: 'http://app.yfq.cn/fd/v4/' + $stateParams.productId + window.location.search,
             shareTitle: '不限流量套餐，重磅推出，人均仅38元/月！送无线WIFI设备！',
             shareDisc: '一人付费，全家分享！无线广东流量，6G全国流量，1000分钟国内通话，抢先办理！',
-            picUrl: 'http://app.yfq.cn/images/flow/flowcard/v3/nativeShare.jpg'
+            picUrl: 'http://app.yfq.cn/images/flow/flowcard/v4/nativeShare.jpg'
         };
 
     }).error(function (data, status, headers, config) {
