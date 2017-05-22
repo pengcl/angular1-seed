@@ -4908,6 +4908,89 @@ div.module-tips {
   *display: inline;
 }
 
+/* line 3, ../../../sass/pages/flow/gh/_v4.scss */
+.page.fd-details.v4 .content-scrollable {
+  background: #e32631 !important;
+}
+/* line 7, ../../../sass/pages/flow/gh/_v4.scss */
+.page.fd-details.v4 .banner-image .banner-txt {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+}
+/* line 14, ../../../sass/pages/flow/gh/_v4.scss */
+.page.fd-details.v4 .timer-area {
+  position: absolute;
+  bottom: 0.9rem;
+  font-size: 0.12rem;
+  width: 100%;
+  text-align: center;
+}
+/* line 21, ../../../sass/pages/flow/gh/_v4.scss */
+.page.fd-details.v4 .timer-area .timer i, .page.fd-details.v4 .timer-area .timer sub {
+  display: inline-block;
+  vertical-align: middle;
+  *vertical-align: auto;
+  *zoom: 1;
+  *display: inline;
+  font-size: 0.16rem !important;
+}
+/* line 25, ../../../sass/pages/flow/gh/_v4.scss */
+.page.fd-details.v4 .timer-area .timer i {
+  background: #666666;
+  color: #fff;
+  width: 0.4rem;
+  height: 0.4rem;
+  line-height: 0.4rem;
+  text-align: center;
+}
+/* line 35, ../../../sass/pages/flow/gh/_v4.scss */
+.page.fd-details.v4 .btns-area {
+  position: absolute;
+  width: 60%;
+  bottom: 0.22rem;
+  left: 50%;
+  margin-left: -30%;
+}
+/* line 43, ../../../sass/pages/flow/gh/_v4.scss */
+.page.fd-details.v4 .select-area {
+  background: #fff;
+  margin: 0.15rem;
+  -moz-border-radius: 0.1rem;
+  -webkit-border-radius: 0.1rem;
+  border-radius: 0.1rem;
+  position: relative;
+  margin-top: 0.5rem;
+  padding-top: 0.2rem;
+  padding-bottom: 0.2rem;
+}
+/* line 53, ../../../sass/pages/flow/gh/_v4.scss */
+.page.fd-details.v4 .getters {
+  background: #fff;
+  border: 0;
+  padding: 0.4rem 0.15rem 0.2rem;
+}
+/* line 57, ../../../sass/pages/flow/gh/_v4.scss */
+.page.fd-details.v4 .getters .getter-title {
+  position: absolute;
+  top: -0.3rem;
+  width: 70%;
+  left: 50%;
+  margin-left: -35%;
+}
+/* line 66, ../../../sass/pages/flow/gh/_v4.scss */
+.page.fd-details.v4 .fqa-lists {
+  background: #fff;
+  margin-top: -0.4rem;
+  padding-top: 0.4rem;
+  padding-bottom: 0.3rem;
+}
+/* line 71, ../../../sass/pages/flow/gh/_v4.scss */
+.page.fd-details.v4 .fqa-lists .dark {
+  bottom: 0.15rem;
+}
+
 /* line 2, ../../../sass/pages/phone/_index.scss */
 .page.p-index .content-scrollable {
   background-color: #000;

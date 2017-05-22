@@ -1,0 +1,76 @@
+.page.fd-details {
+  &.v4 {
+    .content-scrollable {
+      background: #e32631 !important;
+    }
+    .banner-image {
+      .banner-txt {
+        position: absolute;
+        width: 100%;
+        bottom: 0;
+        left: 0;
+      }
+    }
+    .timer-area {
+      position: absolute;
+      bottom: 0.9rem;
+      font-size: 0.12rem;
+      width: 100%;
+      text-align: center;
+      .timer {
+        i, sub {
+          @include inline-block;
+          font-size: 0.16rem !important;
+        }
+        i {
+          background: #666666;
+          color: #fff;
+          width: 0.4rem;
+          height: 0.4rem;
+          line-height: 0.4rem;
+          text-align: center;
+        }
+      }
+    }
+    .btns-area {
+      position: absolute;
+      width: 60%;
+      bottom: 0.22rem;
+      left: 50%;
+      margin-left: -30%;
+    }
+
+    .select-area {
+      background: #fff;
+      margin: 0.15rem;
+      @include border-radius(0.1rem);
+      position: relative;
+      margin-top: 0.5rem;
+      padding-top: 0.2rem;
+      padding-bottom: 0.2rem;
+    }
+
+    .getters {
+      background: #fff;
+      border: 0;
+      padding: 0.4rem 0.15rem 0.2rem;
+      .getter-title {
+        position: absolute;
+        top: -0.3rem;
+        width: 70%;
+        left: 50%;
+        margin-left: -35%;
+      }
+    }
+
+    .fqa-lists {
+      background: #fff;
+      margin-top: -0.4rem;
+      padding-top: 0.4rem;
+      padding-bottom: 0.3rem;
+      .dark {
+        bottom: 0.15rem;
+      }
+    }
+  }
+}

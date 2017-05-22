@@ -45,6 +45,11 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
         //deferred.reject(status)
     });
 
+    $scope.payType = 0;
+    $scope.setPayType = function (e, type) {
+        $scope.payType = type;
+    };
+
     if ($location.search().duplicateNum) {
         $scope.dialog.open("系统提示", "您选择的号码：" + $location.search().duplicateNum + "已被购买，请重新选择");
     }
