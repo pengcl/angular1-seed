@@ -207,7 +207,8 @@
                 <div class="pay-content" style="font-size: 0.12rem">
                     <div class="weui-cells__title title-icon">
                         <span class="title">支付方式</span>
-                        <span class="right-title" style="float: right;color: #d63176;"><span ng-if="payType === 1">货到付款</span><span ng-if="payType === 0">在线支付</span></span>
+                        <span class="right-title" style="float: right;color: #d63176;"><span
+                                ng-if="payType === 1">货到付款</span><span ng-if="payType === 0">在线支付</span></span>
                     </div>
 
                     <div class="pay-container pd-w">
@@ -251,7 +252,8 @@
                         <div class="img-box"><img src="/images/flow/flowcard/v4/submit.png"></div>
                     </a>
                     <!--<p style="font-size: 0.12rem">*本活动仅限18岁以上用户参与</p>-->
-                    <div class="img-box" style="margin:0.2rem 0.15rem"><img src="/images/flow/flowcard/v4/tip.png"></div>
+                    <div class="img-box" style="margin:0.2rem 0.15rem"><img src="/images/flow/flowcard/v4/tip.png">
+                    </div>
                 </div>
             </div>
 
@@ -273,6 +275,7 @@
             <div class="img-box" style="margin-top: -0.1rem">
                 <img src="/images/flow/flowcard/v4/2.png"/>
             </div>
+            <a href="javascript:;" class="js-action-sheet-show" style="display: block;text-align: center;color: #fff;font-size: 0.16rem;margin-top: 0.1rem">>>>查看具体产品详情<<<</a>
 
             <div class="img-box" style="position: relative;margin-top: 0.5rem">
                 <div class="img-box" style="position: absolute;top: -0.3rem;width: 70%;left: 50%;margin-left: -35%">
@@ -502,16 +505,31 @@
             </div>
 
         </div>
-        <a class="nav-contact" ng-click="getContact()" has-hash="false" href="javascript:userTrack('contact');"><span class="icon-comment"></span><span style="font-size: 0.14rem">客服</span></a>
+        <a class="nav-contact" ng-click="getContact()" has-hash="false" href="javascript:userTrack('contact');"><span
+                class="icon-comment"></span><span style="font-size: 0.14rem">客服</span></a>
         <div class="footer-nav nav-list" style="padding: 0">
             <div class="pure-g">
-                <div class="nav-price nav-item pure-u-1-2">
+                <!--<div class="nav-price nav-item pure-u-1-2">
                     <a href="javascript:;" ng-click="getContact();">在线咨询</a>
-                </div>
-                <div class="nav-button nav-item pure-u-1-2">
+                </div>-->
+                <div class="nav-button nav-item pure-u-1-1">
                     <a href="javascript:;" ng-click="submitForm($event,'BuyNowTwo');">立即下单</a>
                 </div>
             </div>
         </div>
     </form>
+</div>
+
+<div class="zf_panel">
+    <div class="weui-mask" id="iosMask" style="display: none;"></div>
+    <div class="weui-actionsheet" id="iosActionsheet">
+        <div class="weui-actionsheet__title">
+            <p class="weui-actionsheet__title-text">产品介绍</p><span class="close js-action-sheet-hide icon-close"></span>
+        </div>
+        <div class="weui-actionsheet__menu">
+            <div class="img-box">
+                <img src="/images/flow/flowcard/v4/zf.jpg"/>
+            </div>
+        </div>
+    </div>
 </div>

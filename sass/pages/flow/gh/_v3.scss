@@ -172,12 +172,13 @@
       position: fixed;
       width: 0.4rem;
       height: 0.4rem;
-      left: 0;
+      left: 0.05rem;
       top:30%;
       font-size: 0.14rem;
       background: #fff;
       @include border-radius(0.04rem);
       text-align: center;
+      @include box-shadow(0 0 3px #ddd);
       .icon-comment {
         display: block;
         font-size: 0.16rem;

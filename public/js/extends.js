@@ -341,7 +341,7 @@ function hideTheActionSheet(element) {
 
 $(function(){
     var $iosActionsheet = $('#iosActionsheet');
-    var $iosMask = $('.ios-mask');
+    var $iosMask = $('.weui-mask');
 
     function hideActionSheet() {
         $iosActionsheet.removeClass('weui-actionsheet_toggle');
