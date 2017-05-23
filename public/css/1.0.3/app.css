@@ -5011,14 +5011,14 @@ div.module-tips {
 }
 /* line 71, ../../../sass/pages/flow/gh/_v4.scss */
 .page.fd-details.v4 .fqa-lists .dark {
-  bottom: 0.15rem;
+  bottom: 0rem;
 }
 
-/* line 78, ../../../sass/pages/flow/gh/_v4.scss */
+/* line 79, ../../../sass/pages/flow/gh/_v4.scss */
 .zf_panel {
   font-size: 0.14rem;
 }
-/* line 80, ../../../sass/pages/flow/gh/_v4.scss */
+/* line 81, ../../../sass/pages/flow/gh/_v4.scss */
 .zf_panel .weui-actionsheet__title {
   line-height: 0.4rem;
   position: absolute;
@@ -5027,7 +5027,7 @@ div.module-tips {
   right: 0;
   background: #fff;
 }
-/* line 87, ../../../sass/pages/flow/gh/_v4.scss */
+/* line 88, ../../../sass/pages/flow/gh/_v4.scss */
 .zf_panel .weui-actionsheet__title .close {
   position: absolute;
   right: 0.15rem;
@@ -5035,7 +5035,7 @@ div.module-tips {
   top: 0.1rem;
   color: #999;
 }
-/* line 94, ../../../sass/pages/flow/gh/_v4.scss */
+/* line 95, ../../../sass/pages/flow/gh/_v4.scss */
 .zf_panel .weui-actionsheet__title:after {
   content: ' ';
   position: absolute;
@@ -5045,11 +5045,11 @@ div.module-tips {
   height: 1px;
   bottom: 0;
 }
-/* line 104, ../../../sass/pages/flow/gh/_v4.scss */
+/* line 105, ../../../sass/pages/flow/gh/_v4.scss */
 .zf_panel .weui-actionsheet {
   height: 70%;
 }
-/* line 107, ../../../sass/pages/flow/gh/_v4.scss */
+/* line 108, ../../../sass/pages/flow/gh/_v4.scss */
 .zf_panel .weui-actionsheet__menu {
   padding-top: 0.45rem;
   padding-bottom: 0.15rem;

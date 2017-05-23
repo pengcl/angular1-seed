@@ -166,17 +166,17 @@ app.directive("nadr", ["$compile", "$cookieStore", '$http', '$interval', functio
             });
 
             //址选择器顶栏点击事件
-            // $objTabItem.click(function (e) {
-            //     var index = $(this).index();
-            //     var textValue = "";
-            //     if (index === 0) {
-            //         stockHide();
-            //     } else {
-            //         tabShow(index - 1);
-            //         dataAreaShow(index - 1);
-            //     }
-            //     return false;
-            // });
+            $objTabItem.click(function (e) {
+                var index = $(this).index();
+                var textValue = "";
+                if (index === 1) {
+                    stockHide();
+                } else {
+                    tabShow(index - 1);
+                    dataAreaShow(index - 1);
+                }
+                return false;
+            });
 
             //地址选定事件
             $areaList.on("click", "li", function (e) {

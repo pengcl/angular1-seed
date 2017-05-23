@@ -3,15 +3,15 @@
 app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $locationProvider) {
     // 设定路由
     $stateProvider
-        .state('flowCardV4', { //app首页
-            url: "/fd/v4/:productId",
-            templateUrl: "pages/flowCard/flowCard-details/v4/v4.html",
-            controller: "flowCardV4Controller"
+        .state('flowCardV5', { //app首页
+            url: "/fd/v5/:productId",
+            templateUrl: "pages/flowCard/flowCard-details/v5/v5.html",
+            controller: "flowCardV5Controller"
         })
-}]).controller('flowCardV4Controller', ['$scope', '$rootScope', '$stateParams', '$location', '$http', function ($scope, $rootScope, $stateParams, $location, $http) {
+}]).controller('flowCardV5Controller', ['$scope', '$rootScope', '$stateParams', '$location', '$http', function ($scope, $rootScope, $stateParams, $location, $http) {
 
     $scope.activeTag = "mifitc";
-    $scope.pageType = 'B';
+    $scope.pageType = 'C';
     $scope.category = systemName + "_mifitc_" + $scope.pageType;
     writebdLog($scope.category, "_Load", "渠道号", $scope.gh);
 
