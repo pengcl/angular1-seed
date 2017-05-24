@@ -1,0 +1,422 @@
+<div class="page fd-details in v3 v4">
+    <top-nav page-title="翼分期商城" page-back="menu" nav-visibility="hide" page-done="contact"></top-nav>
+    <form id="checkoutForm" name="checkoutForm"
+          action="http://m.yfq.cn/wap/taokafanghaoNew/submitOrderDouble.html"
+          method="post" novalidate>
+        <input type="hidden" value="1" name="mainMonthNumber" id="mainMonthNumber">
+        <input type="hidden" value="{{product.activityproductId}}" ng-model="product.activityproductId" name="machineId"
+               id="machineId">
+        <input type="hidden" value="{{activeTag}}" ng-model="activeTag" name="activeTag" id="activeTag">
+        <input type="hidden" value="{{category}}" ng-model="category" name="category" id="category">
+        <input type="hidden" id="mainYG" name="mainYG" value="0">
+        <input type="hidden" value="{{redirectUrl}}" name="phoneQueryUrl" id="phoneQueryUrl">
+        <gh></gh>
+        <pt></pt>
+        <activity></activity>
+        <redirect-url></redirect-url>
+        <div class="content-scrollable has-footer">
+            <div class="banner-image">
+                <img id="banner-bg" src="/images/flow/flowcard/v5/banner.jpg"/>
+            </div>
+
+            <div class="img-box" style="margin-top:-0.95rem;position:relative;margin-bottom: 0.5rem">
+                <img id="banner-txt" src="/images/flow/flowcard/v5/banner-2.png"/>
+                <div class="timer-area">
+                    <timer></timer>
+                </div>
+                <div class="btns-area img-box" ng-click="goToSelect();">
+                    <img src="/images/flow/flowcard/v4/banner-btn.jpg"/>
+                </div>
+            </div>
+
+            <div class="img-box" style="position: relative">
+                <div class="img-box" style="position: absolute;top: -0.3rem;width: 70%;left: 50%;margin-left: -35%">
+                    <img src="/images/flow/flowcard/v4/1-tit.png"/>
+                </div>
+                <img src="/images/flow/flowcard/v5/1.jpg"/>
+            </div>
+
+            <div class="select-area">
+                <div class="img-box" style="position: absolute;top: -0.3rem;width: 70%;left: 50%;margin-left: -35%">
+                    <img src="/images/flow/flowcard/v4/0-tit.png"/>
+                </div>
+                <div id="flowPackage" class="flow-package">
+                    <input type="hidden" name="productId" id="productId" ng-model="packageItem.productId"
+                           value="{{packageItem.productId}}" required>
+                    <div class="weui-cells__title title-icon">
+                        <span class="title">订单套餐</span>
+                    </div>
+                    <div class="flow-package-panel pd-w">
+                        <ul class="flow-package-lists item-lists minus pure-g">
+                            <li class="flow-package-item list-item pure-u-1-1"
+                                ng-repeat="flowPackageItem in product.packageProductList">
+                                <div class="item-box margin radius border"
+                                     ng-class="{true:'curr',false:''}[flowPackageItem === packageItem]"
+                                     ng-click="setFlowPackage($event,flowPackageItem)">
+                                    <p>
+                                        <span ng-bind="flowPackageItem.productName"></span>
+                                    </p>
+                                    <ins class="icon-check"></ins>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+
+                <div id="mainNumberArea" class="weui-cells__title title-icon">
+                    <span class="title">选择付费号码</span><em>*</em>
+                </div>
+                <div class="pd-w">
+                    <ul class="item-lists minus pure-g">
+                        <li class="list-item pure-u-1-1">
+                            <div class="item-box margin radius border"
+                                 ng-class="{'curr':!!selectedData.mainNumber,'warn':mainNumberWarn}"
+                                 ng-click="showMainPanel($event)">
+                                <p style="text-align: left">
+                                    <span ng-if="!selectedData.mainNumber">请选择付款号码</span>
+                                    <span ng-if="selectedData.mainNumber" ng-bind="selectedData.mainNumber.n"></span>
+                                </p>
+                                <ins class="weui-icon-warn"></ins>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <input id="mainNumber" name="mainNumber" ng-model="selectedData.mainNumber.n" type="hidden" required
+                       value="{{selectedData.mainNumber.n}}">
+                <app-number ng-show="mainPanel" number-type="mainNumber" input-data="inputData"
+                            selected-data="selectedData"
+                            output-data="outputData"></app-number>
+
+                <div class="pay-type">
+                    <input type="hidden" name="payType" id="payType" ng-model="payType" value="{{payType}}" required>
+                    <div class="weui-cells__title title-icon">
+                        <span class="title">选择支付方式</span>
+                    </div>
+                    <div class="flow-package-panel pd-w">
+                        <ul class="flow-package-lists item-lists minus pure-g">
+                            <li class="flow-package-item list-item pure-u-1-2">
+                                <div class="item-box margin radius border"
+                                     ng-class="{true:'curr',false:''}[payType === 0]"
+                                     ng-click="setPayType($event,0)">
+                                    <p>
+                                        <span>在线支付</span>
+                                    </p>
+                                    <ins class="icon-check"></ins>
+                                </div>
+                            </li>
+                            <li class="flow-package-item list-item pure-u-1-2">
+                                <div class="item-box margin radius border"
+                                     ng-class="{true:'curr',false:''}[payType === 1]"
+                                     ng-click="setPayType($event,1)">
+                                    <p>
+                                        <span>货到付款</span>
+                                    </p>
+                                    <ins class="icon-check"></ins>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="pay-content" style="font-size: 0.12rem">
+                    <div class="weui-cells__title title-icon">
+                        <span class="title">支付方式</span>
+                        <span class="right-title" style="float: right;color: #d63176;"><span
+                                ng-if="payType === 1">货到付款</span><span ng-if="payType === 0">在线支付</span></span>
+                    </div>
+
+                    <div class="pay-container pd-w">
+                        <div class="pay-content">
+                            <div class="pure-g">
+                                <span class="lb pure-u-2-3" ng-bind="product.packageProductList[0].productName"></span>
+                                <span class="price pure-u-1-3">
+                                <em>￥</em><em ng-bind="product.packageProductList[0].salesPrice | number:0"></em> <sub>x1</sub>
+                            </span>
+                            </div>
+                            <div class="pure-g" ng-repeat="item in mifis" ng-if="item.selected">
+                                <span class="lb pure-u-2-3" ng-bind="item.productName"></span>
+                                <span class="price pure-u-1-3">
+                                <em>￥</em><em ng-bind="item.salePrice"></em> <sub>x1</sub>
+                            </span>
+                            </div>
+                            <div class="real-price pure-g">
+                                <span class="lb pure-u-2-3">合计金额</span>
+                                <span class="price pure-u-1-3"><em>￥</em>
+                                <em ng-bind="totalPrice"></em>
+                            </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--<div class="pd-w">
+                        <div class="pure-g">
+                            <span class="label pure-u-1-2">合计金额</span>
+                            <span class="price pure-u-1-2"><em>￥</em><em ng-bind="totalPrice"></em></span>
+                        </div>
+                        <p>预存￥400送随身充电mifi<em>￥400</em><span ng-repeat="item in mifis"><span ng-if="item.selected"> + <span
+                                ng-bind="item.productName"></span><em ng-bind="item.salePrice"></em></span></span></p>
+                    </div>-->
+                </div>
+
+
+                <nadr start="广东省" title="收货地址"></nadr>
+
+                <div class="buy-group">
+                    <a class="buy-group-btn" href="javascript:;" ng-click="submitForm($event,'BuyNowOne');">
+                        <div class="img-box"><img src="/images/flow/flowcard/v4/submit.png"></div>
+                    </a>
+                    <!--<p style="font-size: 0.12rem">*本活动仅限18岁以上用户参与</p>-->
+                    <div class="img-box" style="margin:0.2rem 0.15rem"><img src="/images/flow/flowcard/v4/tip.png">
+                    </div>
+                </div>
+            </div>
+
+            <div class="getters">
+                <div class="getter-title">
+                    <div class="img-box">
+                        <img src="/images/flow/flowcard/v4/getters-title.png">
+                    </div>
+                </div>
+                <ul>
+                    <li ng-repeat="getter in getters" ng-bind-html="getter.txt | trustHtml" on-finish></li>
+                </ul>
+            </div>
+
+            <div class="img-box" style="position: relative;width: 70%;margin: 0 auto">
+                <img src="/images/flow/flowcard/v4/2-tit.png"/>
+            </div>
+
+            <div class="img-box" style="margin-top: -0.1rem">
+                <img src="/images/flow/flowcard/v5/2.png"/>
+            </div>
+            <a href="javascript:;" class="js-action-sheet-show"
+               style="display: block;text-align: center;color: #fff;font-size: 0.16rem;margin-top: 0.1rem">>>>查看具体产品详情<<<</a>
+
+            <div class="img-box" style="position: relative;margin-top: 0.5rem">
+                <div class="img-box" style="position: absolute;top: -0.3rem;width: 70%;left: 50%;margin-left: -35%">
+                    <img src="/images/flow/flowcard/v4/3-tit.png"/>
+                </div>
+                <img src="/images/flow/flowcard/v4/3.jpg"/>
+            </div>
+
+            <div class="img-box" style="position: relative;width: 70%;margin: 0 auto">
+                <img src="/images/flow/flowcard/v4/4-tit.png"/>
+            </div>
+
+            <div class="img-box">
+                <img src="/images/flow/flowcard/v4/4.png"/>
+            </div>
+
+            <div class="img-box" style="position: relative;width: 70%;margin: 0.5rem auto 0 auto;z-index: 1">
+                <img src="/images/flow/flowcard/v4/5-tit.png"/>
+            </div>
+
+            <div class="fqa-lists" ng-class="{true:'',false:'close'}[fqaMore]">
+                <ul>
+                    <li>
+                        <div class="list-header">
+                            <span>01、</span>199元无限流量套餐包含哪些内容？
+                        </div>
+                        <div class="list-content">
+                            <div class="ctxt">
+                                答：无限流量套餐包含3000分钟国内通话时长和不限流量国内上网流量，可在国内（不含港澳台）不限流量使用。
+                            </div>
+                        </div>
+                        <div class="pros-line share-pros-line"></div>
+                    </li>
+                    <li>
+                        <div class="list-header">
+                            <span>02、</span>订购199元无限流量套餐有哪些优惠？
+                        </div>
+                        <div class="list-content">
+                            <div class="ctxt">
+                                答：现在订购199套餐，可预存400元赠送一台价值300元的随身WIFI设备（带充电宝款）。预存费用中200元即时返还，另200元在套餐激活后第12个月返还。返还费用可充抵套餐费用。
+                            </div>
+                        </div>
+                        <div class="pros-line share-pros-line"></div>
+                    </li>
+                    <li>
+                        <div class="list-header">
+                            <span>03、</span>199元无限流量套餐可否办理副卡？
+                        </div>
+                        <div class="list-content">
+                            <div class="ctxt">
+                                答：199元全国内无限流量套餐只限主卡使用，不可办理副卡。
+                            </div>
+                        </div>
+                        <div class="pros-line share-pros-line"></div>
+                    </li>
+
+                    <li>
+                        <div class="list-header">
+                            <span>04、</span>本套餐全月无限流量使用4G网速吗？
+                        </div>
+                        <div class="list-content">
+                            <div class="ctxt">
+                                答：当月流量使用量40GB以内，享受4G网速；使用量40GB至100GB之间，享受3G网速；使用量在100GB以上，享受2G网速，次月恢复。无当日流量上限。
+                            </div>
+                        </div>
+                        <!-- <div class="tips-info-content" style="margin-top:0;">注：套餐需激活后才能正常使用，请确保本人签收，默认送达次日开通（公休日除外），介意者慎拍。</div> -->
+                        <div class="pros-line share-pros-line"></div>
+                    </li>
+                    <li>
+                        <div class="list-header">
+                            <span>05、</span>老用户可以改无限流量套餐吗？
+                        </div>
+                        <div class="list-content">
+                            <div class="ctxt">
+                                答：不可以，199元全国无限流量套餐只能新开户办理，老用户请咨询当地电信。
+                            </div>
+                        </div>
+                        <div class="pros-line share-pros-line"></div>
+                    </li>
+                    <li>
+                        <div class="list-header">
+                            <span>06、</span>任何手机都可以使用本套餐吗？
+                        </div>
+                        <div class="list-content">
+                            <div class="ctxt">
+                                答：不是，无限量套餐是中国电信4G套餐卡，需支持中国电信网络的手机才可使用，我们赠送的随身WiFi设备可支持电信4G卡，可以放心方便地享受无限流量的上网乐趣。
+                            </div>
+                        </div>
+                        <div class="pros-line share-pros-line"></div>
+                    </li>
+                    <li>
+                        <div class="list-header">
+                            <span>07、</span>我现在用的手机只有一个卡槽，但有希望能够使用这个全国不限流量套餐，怎么办？
+                        </div>
+                        <div class="list-content">
+                            <div class="ctxt">
+                                答：为了便于客户充分使用无限流量的优惠，客户预存400元，在网12个月可免费赠送随身wifi一台。新办理的电话卡插入这台随身wifi，只要简单设置后，任何支持wifi上网功能的手机或其他终端设备都可以通过这台随身wifi设备无限流量上网，无需换号即可享受全国无限流量，而且可以跟亲友一起分享。
+                            </div>
+                        </div>
+                        <div class="pros-line share-pros-line"></div>
+                    </li>
+                    <li>
+                        <div class="list-header">
+                            <span>08、</span>请问赠送的随身wifi设备有什么特点？
+                        </div>
+                        <div class="list-content">
+                            <div class="ctxt">
+                                答：为了使得广大客户充分享受无限流量的优惠，特地赠送了这台随身wifi设备，该设备插入手机sim卡即可上联联网，可通过wifi同时分享8个用户。设备自带有5300毫安时的大电池，不仅可以支持wifi连续工作8小时以上，而且可以具有充电宝功能，供应急使用。
+                            </div>
+                        </div>
+                        <div class="pros-line share-pros-line"></div>
+                    </li>
+                    <li>
+                        <div class="list-header">
+                            <span>9、</span>如何设置随身WiFi设备上网？
+                        </div>
+                        <div class="list-content">
+                            <div class="ctxt">
+                                答：随身wifi插入4G手机卡开机即可使用。启动无线WiFi电源后，在手机上搜索WiFi信号，输入默认连接密码，连接成功后即可上网。
+                                <br>
+                                注意：为了防止你的网络被盗用，建议你初次使用的时候更改无线WiFi的管理员密码和WiFi的连接密码，具体更改方法请参看无线WiFi使用说明书
+
+                            </div>
+                        </div>
+                        <div class="pros-line share-pros-line"></div>
+                    </li>
+                    <li>
+                        <div class="list-header">
+                            <span>10、</span>随身WIFI设备怎么卖？我想要多一个可以吗？
+                        </div>
+                        <div class="list-content">
+                            <div class="ctxt">
+                                答：为了便于客户充分使用无限流量的优惠，客户预存400元，在网12个月可免费赠送随身wifi一台，属于对客户的特殊优惠，每套餐只能享受一次。如果您有更多的需求，可在翼分期商城下单时勾选设备。
+                            </div>
+                        </div>
+                        <div class="pros-line share-pros-line"></div>
+                    </li>
+                    <li>
+                        <div class="list-header">
+                            <span>11、</span>可以货到付款吗？
+                        </div>
+                        <div class="list-content">
+                            <div class="ctxt">
+                                答：可以，下单确认订单后，赠送的随身WiFi和手机卡一并发货，3天左右到达。
+                            </div>
+                        </div>
+                        <div class="pros-line share-pros-line"></div>
+                    </li>
+                    <li>
+                        <div class="list-header">
+                            <span>12、</span>签收后，是否立即可以使用手机卡？
+                        </div>
+                        <div class="list-content">
+                            <div class="ctxt">
+                                答：应国家主管部门的要求，新开通电信产品，需确认客户身份。所以在签收后，需上传资料（把网址链接填上去）无误，成功进行实名登记后，才可以激活使用。激活后，将有通知短信发送至收货联系电话。<br>
+                                身份认证请关注微信公众号：翼分期商城。<br>
+                                <div class="img-box" style="width: 50%;margin: 0 auto;">
+                                    <img src="/images/payState/qrcode.jpg">
+                                </div>
+                                认证过程：翼分期商城—“我”—“身份认证”—填入下单时的联系手机号码，然后按照提示操作。
+
+                            </div>
+                        </div>
+                        <div class="pros-line share-pros-line"></div>
+                    </li>
+                    <li>
+                        <div class="list-header">
+                            <span>13、</span>套餐的合约期多久？期间可以停机吗？是否可以提前注销？
+                        </div>
+                        <div class="list-content">
+                            <div class="ctxt">
+                                答：套餐合约期24个月，提前一个月申请可以继续延期。如期间客户需要停机，每月仍按正常资费199元/月收取。套餐可以提前注销，预存费用不退。
+                            </div>
+                        </div>
+                        <div class="pros-line share-pros-line"></div>
+                    </li>
+                </ul>
+                <div class="dark" ng-if="!fqaMore">
+                    <div class="img-box">
+                        <img src="/images/flow/flowcard/v3/dark.png">
+                    </div>
+                    <a class="more" href="javascript:;" ng-click="setFqaMore()">查看更多</a>
+                    <div style="height: 0.1rem;background: #fff"></div>
+                </div>
+            </div>
+
+            <div class="img-box" style="position: relative;margin-top: 0.5rem">
+                <div class="img-box" style="position: absolute;top: -0.4rem;width: 70%;left: 50%;margin-left: -35%">
+                    <img src="/images/flow/flowcard/v4/7-tit.png"/>
+                </div>
+                <img src="/images/flow/flowcard/v5/7-1.gif"/>
+            </div>
+            <div class="img-box">
+                <img src="/images/flow/flowcard/v5/7-2.jpg"/>
+            </div>
+            <div class="img-box">
+                <img src="/images/flow/flowcard/v4/8.gif"/>
+            </div>
+
+        </div>
+        <a class="nav-contact" ng-click="getContact()" has-hash="false" href="javascript:userTrack('contact');"><span
+                class="icon-comment"></span><span style="font-size: 0.14rem">客服</span></a>
+        <div class="footer-nav nav-list" style="padding: 0">
+            <div class="pure-g">
+                <!--<div class="nav-price nav-item pure-u-1-2">
+                    <a href="javascript:;" ng-click="getContact();">在线咨询</a>
+                </div>-->
+                <div class="nav-button nav-item pure-u-1-1">
+                    <a href="javascript:;" ng-click="submitForm($event,'BuyNowTwo');">立即下单</a>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+<div class="zf_panel">
+    <div class="weui-mask" id="iosMask" style="display: none;"></div>
+    <div class="weui-actionsheet" id="iosActionsheet">
+        <div class="weui-actionsheet__title">
+            <p class="weui-actionsheet__title-text">产品介绍</p><span class="close js-action-sheet-hide icon-close"></span>
+        </div>
+        <div class="weui-actionsheet__menu">
+            <div class="img-box">
+                <img src="/images/flow/flowcard/v5/zf.jpg"/>
+            </div>
+        </div>
+    </div>
+</div>
