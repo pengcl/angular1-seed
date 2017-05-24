@@ -69,8 +69,46 @@
       padding-top: 0.4rem;
       padding-bottom: 0.3rem;
       .dark {
-        bottom: 0.15rem;
+        bottom: 0rem;
+
       }
     }
+  }
+}
+
+.zf_panel {
+  font-size: 0.14rem;
+  .weui-actionsheet__title {
+    line-height: 0.4rem;
+    position: absolute;
+    padding-left: 0.15rem;
+    left: 0;
+    right: 0;
+    background: #fff;
+    .close {
+      position: absolute;
+      right: 0.15rem;
+      font-size: 0.2rem;
+      top: 0.1rem;
+      color: #999;
+    }
+    &:after {
+      content: ' ';
+      position: absolute;
+      left: 0.15rem;
+      right: 0.1rem;
+      border-bottom: 1px solid #ccc;
+      height: 1px;
+      bottom: 0;
+    }
+  }
+  .weui-actionsheet {
+    height: 70%;
+  }
+  .weui-actionsheet__menu {
+    padding-top: 0.45rem;
+    padding-bottom: 0.15rem;
+    height: 100%;
+    overflow-y: scroll;
   }
 }

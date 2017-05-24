@@ -153,6 +153,7 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
     };
 
     $scope.selectedData = {};
+
     $scope.submitForm = function (e, value) {
         var $form = $("#checkoutForm");
         if (!$scope.checkoutForm.mainNumber.$valid) {

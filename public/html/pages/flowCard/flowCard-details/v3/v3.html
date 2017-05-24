@@ -63,7 +63,7 @@
                              ng-class="{'curr':!!selectedData.mainNumber,'warn':mainNumberWarn}"
                              ng-click="showMainPanel($event)">
                             <p style="text-align: left">
-                                <span ng-if="!selectedData.mainNumber">请选择电话号码</span>
+                                <span ng-if="!selectedData.mainNumber">请选择主卡号码</span>
                                 <span ng-if="selectedData.mainNumber" ng-bind="selectedData.mainNumber.n"></span>
                             </p>
                             <ins class="weui-icon-warn"></ins>
@@ -270,7 +270,7 @@
                         </div>
                         <div class="list-content">
                             <div class="ctxt">
-                                答：不是。本套餐仅限广东省内无限量上网。
+                                答：不是。本套餐仅限广东省内无限量上网，同时提供6G国内流量。
                             </div>
                         </div>
                         <!-- <div class="tips-info-content" style="margin-top:0;">注：套餐需激活后才能正常使用，请确保本人签收，默认送达次日开通（公休日除外），介意者慎拍。</div> -->
@@ -441,12 +441,11 @@
 
             <div class="img-box"><img src="/images/flow/flowcard/v3/6.jpg"></div>
         </div>
+
+        <a class="nav-contact" ng-click="getContact()" has-hash="false" href="javascript:userTrack('contact');"><span class="icon-comment"></span><span style="font-size: 0.14rem">客服</span></a>
         <div class="footer-nav nav-list" style="padding: 0">
             <div class="pure-g">
-                <div class="nav-price nav-item pure-u-1-2">
-                    <a href="javascript:;" ng-click="getContact();">在线咨询</a>
-                </div>
-                <div class="nav-button nav-item pure-u-1-2">
+                <div class="nav-button nav-item pure-u-1-1">
                     <a href="javascript:;" ng-click="submitForm($event,'BuyNowTwo');">立即下单</a>
                 </div>
             </div>
