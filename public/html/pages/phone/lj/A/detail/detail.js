@@ -153,6 +153,10 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
         if ($(event.currentTarget).hasClass("disabled")) {
             return false;
         }
+        var $scrollTo = $('.pay-container');
+        $container.animate({
+            scrollTop: $scrollTo.offset().top - $container.offset().top + $container.scrollTop()
+        });
         $scope.hideActionsheet(element);
     };
 

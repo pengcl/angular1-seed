@@ -36,29 +36,6 @@ app.directive("appNumber", ["$cookieStore", '$timeout', function ($cookieStore, 
                 scope.pages = Math.ceil(scope.numbers.length / scope.pageSize); //分页数
                 scope.items = scope.numbers.slice(0, scope.pageSize);
 
-                if (scope.numberType === 'subNumber') {
-                    scope.outputData = {
-                        numberType: scope.numberType,
-                        number: scope.items[1]
-                    };
-                    scope.thisNumber = {
-                        numberType: scope.numberType,
-                        number: scope.items[1]
-                    };
-                }
-                $timeout(function () {
-                    if (scope.numberType === 'thirdNumber') {
-                        scope.outputData = {
-                            numberType: scope.numberType,
-                            number: scope.items[2]
-                        };
-                        scope.thisNumber = {
-                            numberType: scope.numberType,
-                            number: scope.items[2]
-                        };
-                    }
-                });
-
                 //console.log(scope.outputData);
             };
 
@@ -90,8 +67,8 @@ app.directive("appNumber", ["$cookieStore", '$timeout', function ($cookieStore, 
 
                     var randIndex = parseInt(Math.random() * n.length);
 
-                    if(scope.autoSelect){
-                        if (scope.numberType === 'subNumber') {
+                    if (scope.autoSelect) {
+                        if (scope.numberType === 'mainNumber') {
                             scope.outputData = {
                                 numberType: scope.numberType,
                                 number: scope.numbers[randIndex]
@@ -101,6 +78,18 @@ app.directive("appNumber", ["$cookieStore", '$timeout', function ($cookieStore, 
                                 number: scope.numbers[randIndex]
                             };
                         }
+                        $timeout(function () {
+                            if (scope.numberType === 'subNumber') {
+                                scope.outputData = {
+                                    numberType: scope.numberType,
+                                    number: scope.numbers[randIndex]
+                                };
+                                scope.thisNumber = {
+                                    numberType: scope.numberType,
+                                    number: scope.numbers[randIndex]
+                                };
+                            }
+                        });
                         $timeout(function () {
                             if (scope.numberType === 'thirdNumber') {
                                 scope.outputData = {
@@ -120,10 +109,19 @@ app.directive("appNumber", ["$cookieStore", '$timeout', function ($cookieStore, 
 
             scope.$watch('autoSelect', function (n, o, scope) {
                 if (n !== o && n !== undefined) {
-                    if(n){
+                    if (n) {
 
                         var randIndex = parseInt(Math.random() * n.length);
-
+                        if (scope.numberType === 'mainNumber') {
+                            scope.outputData = {
+                                numberType: scope.numberType,
+                                number: scope.numbers[randIndex]
+                            };
+                            scope.thisNumber = {
+                                numberType: scope.numberType,
+                                number: scope.numbers[randIndex]
+                            };
+                        }
                         if (scope.numberType === 'subNumber') {
                             scope.outputData = {
                                 numberType: scope.numberType,
@@ -146,7 +144,15 @@ app.directive("appNumber", ["$cookieStore", '$timeout', function ($cookieStore, 
                                 };
                             }
                         });
-                    }else {
+                    } else {
+                        if (scope.numberType === 'mainNumber') {
+                            scope.outputData = {
+                                numberType: scope.numberType
+                            };
+                            scope.thisNumber = {
+                                numberType: scope.numberType
+                            };
+                        }
                         if (scope.numberType === 'subNumber') {
                             scope.outputData = {
                                 numberType: scope.numberType
