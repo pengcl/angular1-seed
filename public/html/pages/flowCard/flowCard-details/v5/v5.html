@@ -10,6 +10,7 @@
         <input type="hidden" value="{{category}}" ng-model="category" name="category" id="category">
         <input type="hidden" id="mainYG" name="mainYG" value="0">
         <input type="hidden" value="{{redirectUrl}}" name="phoneQueryUrl" id="phoneQueryUrl">
+        <input type="hidden" name="mifiId" id="mifiId" ng-model="mifis" value="{{selectedMifis}}" required>
         <gh></gh>
         <pt></pt>
         <activity></activity>
@@ -61,14 +62,14 @@
                                     </p>
                                     <ins class="icon-check"></ins>
                                 </div>
-                                <p class="tips" style="font-size: 0.14rem">注：4G流量卡由系统随机分配</p>
+                                <!-- <p class="tips" style="font-size: 0.14rem">注：4G流量卡由系统随机分配</p> -->
                             </li>
                         </ul>
                     </div>
                 </div>
 
 
-                <div ng-show="!autoSelect">
+                <!-- <div ng-show="!autoSelect"> -->
                     <div id="mainNumberArea" class="weui-cells__title title-icon">
                         <span class="title">选择付费号码</span><em>*</em>
                     </div>
@@ -94,7 +95,7 @@
                                 input-data="inputData"
                                 selected-data="selectedData"
                                 output-data="outputData"></app-number>
-                </div>
+                <!-- </div> -->
                 <div class="pay-type">
                     <input type="hidden" name="payType" id="payType" ng-model="payType" value="{{payType}}" required>
                     <div class="weui-cells__title title-icon">
