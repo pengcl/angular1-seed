@@ -34,10 +34,10 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
         $scope.totalPrice = parseInt($scope.product.packageProductList[0].salesPrice);
 
         $scope.$root.share = {
-            homeLink: 'http://app.yfq.cn/fd/v4/' + $stateParams.productId + window.location.search,
-            shareTitle: '不限流量套餐，重磅推出，人均仅38元/月！送无线WIFI设备！',
-            shareDisc: '一人付费，全家分享！无线广东流量，6G全国流量，1000分钟国内通话，抢先办理！',
-            picUrl: 'http://app.yfq.cn/images/flow/flowcard/v4/nativeShare.jpg'
+            homeLink: 'http://app.yfq.cn/fd/v5/' + $stateParams.productId + window.location.search,
+            shareTitle: '全国199元不限流量套餐，今日办理，送随身WIFI！',
+            shareDisc: '无需换号，全国随意用！3000分钟国内通话，今日限100张！',
+            picUrl: 'http://app.yfq.cn/images/flow/flowcard/v5/nativeShare.jpg'
         };
 
     }).error(function (data, status, headers, config) {

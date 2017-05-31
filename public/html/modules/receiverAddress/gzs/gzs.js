@@ -83,8 +83,13 @@ app.directive("gzs", ["$compile", "$cookieStore", '$http', '$interval', function
             scope.paraclass = "but_null";
             var second = 59, timePromise = undefined;
 
-            scope.getActiveCode = function (phoneNumber) {
+            scope.getActiveCode = function (phoneNumber,e) {
+                if($(e.currentTarget).hasClass("not")){
+                    return false;
+                }
+                scope.toast.open();
                 $http.get("http://app.yfq.cn:3099/api/getActiveCode/" + phoneNumber).success(function (data) {
+                    scope.toast.close();
                     if (data == "") {
                         timePromise = $interval(function () {
                             if (second <= 0) {
