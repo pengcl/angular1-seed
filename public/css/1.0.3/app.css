@@ -8094,52 +8094,77 @@ div.module-tips {
   font-size: 0.2rem;
   color: #f6692a;
 }
+/* line 1296, ../../../sass/pages/phone/_a-details.scss */
+.page.p-details.a-details .d-mifis .weui-cell .weui-cell__hd i {
+  margin-left: 0;
+  margin-right: 0;
+}
+/* line 1299, ../../../sass/pages/phone/_a-details.scss */
+.page.p-details.a-details .d-mifis .weui-cell .weui-cell__hd i:before {
+  content: "";
+  height: 0.16rem;
+  width: 0.16rem;
+  font-size: 0.12rem;
+  line-height: 0.16rem;
+  text-align: center;
+  border: 2px solid #ccc;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+}
+/* line 1314, ../../../sass/pages/phone/_a-details.scss */
+.page.p-details.a-details .d-mifis .weui-cell.curr .weui-cell__hd i:before {
+  content: "√";
+  border: 2px solid #d83e14;
+  background: #d83e14;
+  color: #fff;
+}
 
-/* line 1295, ../../../sass/pages/phone/_a-details.scss */
-.card-pkg, .pkg-info {
+/* line 1327, ../../../sass/pages/phone/_a-details.scss */
+.card-pkg, .pkg-info, .card-pkg-n {
   font-size: .14rem;
 }
-/* line 1296, ../../../sass/pages/phone/_a-details.scss */
-.card-pkg ul, .pkg-info ul {
+/* line 1328, ../../../sass/pages/phone/_a-details.scss */
+.card-pkg ul, .pkg-info ul, .card-pkg-n ul {
   padding: 0;
   margin: 0;
   list-style: none;
 }
-/* line 1302, ../../../sass/pages/phone/_a-details.scss */
-.card-pkg .card-close, .pkg-info .card-close {
+/* line 1334, ../../../sass/pages/phone/_a-details.scss */
+.card-pkg .card-close, .pkg-info .card-close, .card-pkg-n .card-close {
   position: absolute;
   bottom: 1%;
   left: 43%;
 }
-/* line 1308, ../../../sass/pages/phone/_a-details.scss */
-.card-pkg .see-content, .pkg-info .see-content {
+/* line 1340, ../../../sass/pages/phone/_a-details.scss */
+.card-pkg .see-content, .pkg-info .see-content, .card-pkg-n .see-content {
   margin: 0 .15rem;
   color: orange;
 }
 
-/* line 1315, ../../../sass/pages/phone/_a-details.scss */
+/* line 1347, ../../../sass/pages/phone/_a-details.scss */
 #card-type .weui-cells, .block-list .weui-cells {
   margin-top: 0;
   font-size: .16rem;
 }
-/* line 1316, ../../../sass/pages/phone/_a-details.scss */
+/* line 1348, ../../../sass/pages/phone/_a-details.scss */
 #card-type .weui-cells:before, .block-list .weui-cells:before {
   border: 0;
 }
-/* line 1321, ../../../sass/pages/phone/_a-details.scss */
+/* line 1353, ../../../sass/pages/phone/_a-details.scss */
 #card-type .weui-cells a, .block-list .weui-cells a {
   border-top: 1px solid #d9d9d9;
   margin: 0 .18rem;
   padding-left: 0;
   padding-right: 0;
 }
-/* line 1328, ../../../sass/pages/phone/_a-details.scss */
+/* line 1360, ../../../sass/pages/phone/_a-details.scss */
 #card-type .card-type-list, #card-type .item-lists, .block-list .card-type-list, .block-list .item-lists {
   font-size: .1rem;
   background: #fff;
   padding: .1rem .18rem .1rem .5rem;
 }
-/* line 1332, ../../../sass/pages/phone/_a-details.scss */
+/* line 1364, ../../../sass/pages/phone/_a-details.scss */
 #card-type .card-type-list .list, #card-type .item-lists .list, .block-list .card-type-list .list, .block-list .item-lists .list {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
@@ -8151,25 +8176,25 @@ div.module-tips {
   border-radius: 5px;
   color: #919191;
 }
-/* line 1333, ../../../sass/pages/phone/_a-details.scss */
+/* line 1365, ../../../sass/pages/phone/_a-details.scss */
 #card-type .card-type-list .list.on-curr, #card-type .item-lists .list.on-curr, .block-list .card-type-list .list.on-curr, .block-list .item-lists .list.on-curr {
   border: 1px solid #cc1414;
   color: #cc1414;
 }
-/* line 1336, ../../../sass/pages/phone/_a-details.scss */
+/* line 1368, ../../../sass/pages/phone/_a-details.scss */
 #card-type .card-type-list .list.on-curr .list-r, #card-type .item-lists .list.on-curr .list-r, .block-list .card-type-list .list.on-curr .list-r, .block-list .item-lists .list.on-curr .list-r {
   border-left: 1px dashed #cc1414;
 }
-/* line 1339, ../../../sass/pages/phone/_a-details.scss */
+/* line 1371, ../../../sass/pages/phone/_a-details.scss */
 #card-type .card-type-list .list.on-curr .list-l, #card-type .item-lists .list.on-curr .list-l, .block-list .card-type-list .list.on-curr .list-l, .block-list .item-lists .list.on-curr .list-l {
   background: #cc1414;
 }
-/* line 1347, ../../../sass/pages/phone/_a-details.scss */
+/* line 1379, ../../../sass/pages/phone/_a-details.scss */
 #card-type .card-type-list .list .list-l, #card-type .item-lists .list .list-l, .block-list .card-type-list .list .list-l, .block-list .item-lists .list .list-l {
   background: #919191;
   position: relative;
 }
-/* line 1350, ../../../sass/pages/phone/_a-details.scss */
+/* line 1382, ../../../sass/pages/phone/_a-details.scss */
 #card-type .card-type-list .list .list-l ins.big, #card-type .item-lists .list .list-l ins.big, .block-list .card-type-list .list .list-l ins.big, .block-list .item-lists .list .list-l ins.big {
   position: absolute;
   width: .7rem;
@@ -8179,7 +8204,7 @@ div.module-tips {
   background-image: url(../../../images/card-big.png);
   background-size: 100% 100%;
 }
-/* line 1359, ../../../sass/pages/phone/_a-details.scss */
+/* line 1391, ../../../sass/pages/phone/_a-details.scss */
 #card-type .card-type-list .list .list-l ins.small, #card-type .item-lists .list .list-l ins.small, .block-list .card-type-list .list .list-l ins.small, .block-list .item-lists .list .list-l ins.small {
   position: absolute;
   width: .4rem;
@@ -8189,12 +8214,12 @@ div.module-tips {
   background-image: url(../../../images/card-small.png);
   background-size: 100% 100%;
 }
-/* line 1369, ../../../sass/pages/phone/_a-details.scss */
+/* line 1401, ../../../sass/pages/phone/_a-details.scss */
 #card-type .card-type-list .list b, #card-type .item-lists .list b, .block-list .card-type-list .list b, .block-list .item-lists .list b {
   font-size: .16rem;
   font-weight: 600;
 }
-/* line 1374, ../../../sass/pages/phone/_a-details.scss */
+/* line 1406, ../../../sass/pages/phone/_a-details.scss */
 #card-type .card-type-list .list .list-r, #card-type .item-lists .list .list-r, .block-list .card-type-list .list .list-r, .block-list .item-lists .list .list-r {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
@@ -8202,12 +8227,12 @@ div.module-tips {
   padding: .05rem 0 .05rem .05rem;
   border-left: 1px dashed #919191;
 }
-/* line 1379, ../../../sass/pages/phone/_a-details.scss */
+/* line 1411, ../../../sass/pages/phone/_a-details.scss */
 #card-type .card-type-list .list .list-r.b, #card-type .item-lists .list .list-r.b, .block-list .card-type-list .list .list-r.b, .block-list .item-lists .list .list-r.b {
   padding: .1rem 0 .1rem .05rem;
 }
 
-/* line 1389, ../../../sass/pages/phone/_a-details.scss */
+/* line 1421, ../../../sass/pages/phone/_a-details.scss */
 #card-close {
   font-size: 0;
   position: absolute;
@@ -8216,7 +8241,7 @@ div.module-tips {
   z-index: 20;
 }
 
-/* line 1397, ../../../sass/pages/phone/_a-details.scss */
+/* line 1429, ../../../sass/pages/phone/_a-details.scss */
 .content-tw {
   font-size: .12rem;
   background: #fff;
@@ -8233,13 +8258,13 @@ div.module-tips {
   -webkit-border-radius: 10px;
   border-radius: 10px;
 }
-/* line 1398, ../../../sass/pages/phone/_a-details.scss */
+/* line 1430, ../../../sass/pages/phone/_a-details.scss */
 .content-tw ul {
   list-style: none;
   padding: 0;
   margin: 0;
 }
-/* line 1405, ../../../sass/pages/phone/_a-details.scss */
+/* line 1437, ../../../sass/pages/phone/_a-details.scss */
 .content-tw .card-content .title {
   background: #d73e14;
   color: #fff;
@@ -8248,35 +8273,35 @@ div.module-tips {
   -webkit-border-radius: 10px;
   border-radius: 10px 10px 0 0;
 }
-/* line 1410, ../../../sass/pages/phone/_a-details.scss */
+/* line 1442, ../../../sass/pages/phone/_a-details.scss */
 .content-tw .card-content .title .title-1 {
   font-size: .18rem;
   font-weight: 600;
 }
-/* line 1414, ../../../sass/pages/phone/_a-details.scss */
+/* line 1446, ../../../sass/pages/phone/_a-details.scss */
 .content-tw .card-content .title .title-2 {
   font-weight: 600;
 }
-/* line 1419, ../../../sass/pages/phone/_a-details.scss */
+/* line 1451, ../../../sass/pages/phone/_a-details.scss */
 .content-tw .card-content .pkg {
   padding: 0 .15rem .2rem .15rem;
 }
-/* line 1421, ../../../sass/pages/phone/_a-details.scss */
+/* line 1453, ../../../sass/pages/phone/_a-details.scss */
 .content-tw .card-content .pkg .pkg-title {
   padding: .1rem;
   border: 1px dashed #999;
   margin-top: .1rem;
   margin-bottom: .1rem;
 }
-/* line 1422, ../../../sass/pages/phone/_a-details.scss */
+/* line 1454, ../../../sass/pages/phone/_a-details.scss */
 .content-tw .card-content .pkg .pkg-title .price {
   color: #d73e14;
 }
-/* line 1431, ../../../sass/pages/phone/_a-details.scss */
+/* line 1463, ../../../sass/pages/phone/_a-details.scss */
 .content-tw .card-content .pkg .pkg-details li {
   margin-bottom: .1rem;
 }
-/* line 1434, ../../../sass/pages/phone/_a-details.scss */
+/* line 1466, ../../../sass/pages/phone/_a-details.scss */
 .content-tw .card-content .pkg .pkg-details .pure-u-3-4 {
   background: #f2f2f2;
   padding: 0 .05rem;
