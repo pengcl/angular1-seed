@@ -1119,8 +1119,26 @@ body.pcd-c {
           position: absolute;
           width: 90%;
           bottom: 0rem;
-          right:0;
+          right: 0;
         }
+      }
+    }
+  }
+  &.pcd-d {
+    .page {
+      background-image: url('img/pcd/bg.jpg');
+      background-position: top left;
+      background-color: #cccccc;
+      background-size: 100% auto;
+      background-repeat: no-repeat;
+    }
+    .page > .content {
+      position: relative;
+      .logo {
+        margin-top: 0;
+        margin-left: 0;
+        padding-top: 0.07rem;
+        padding-left: 0.07rem;
       }
     }
   }
