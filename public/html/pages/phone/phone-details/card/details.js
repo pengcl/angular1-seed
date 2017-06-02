@@ -264,10 +264,49 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
 
     $scope.checkForms = function () {
         if ($scope.$root.checkActiveCode()) {
-            writebdLog($scope.category, "_BuyNow", "渠道号", $scope.gh);//立即支付
-            $scope.$root.toast.open();
 
-            $("#checkoutForm").submit();
+            //$("#checkoutForm").submit();
+
+            var url = cfApi.apiHost + "/product/checkPhoneState.html?number=[" + $scope.checkoutForm.mainNumber.$modelValue + "," + $scope.checkoutForm.subNumber.$modelValue + "," + $scope.checkoutForm.thirdNumber.$modelValue + "]&s=wap&callback=JSON_CALLBACK";
+
+            $scope.$root.toast.open();
+            $http.jsonp(url).success(function (data, status, headers, config) {//查看号码是否被选
+                if (data.tempIndexs.length === 0) {//查看号码是否被选
+                    $http.jsonp(cfApi.apiHost + '/product/checkOrderCount.html?receiverMobile=' + $scope.checkoutForm.receiverMobile.$modelValue + '&productId=' + $scope.card.productId + '&category=' + $scope.category + '&s=wap&time=' + new Date().getTime() + '&callback=JSON_CALLBACK').success(function (data, status, headers, config) {//查看是否下过单
+                        if (data.result) {
+                            $("#checkoutForm").submit();
+                            $scope.$root.toast.close();
+                            writebdLog($scope.category, "_" + value, "渠道号", $scope.gh);//立即支付
+                        } else {
+                            $scope.$root.appDialog.open('', '您已购买过该商品，确认要再买一单吗？');
+                            $scope.$root.toast.close();
+                        }
+                    });
+                } else {
+                    $scope.$root.toast.close();
+                    var html = "您选择的";
+                    for (var i = 0; i < data.tempIndexs.length; i++) {
+                        if (data.tempIndexs[i] === 0) {
+                            html = html + "主卡电话号码：" + $scope.checkoutForm.mainNumber.$modelValue + "、";
+                            $scope.mainNumberWarn = true;
+                            //$scope.selectedData.mainNumber = "";
+                        }
+                        if (data.tempIndexs[i] === 1) {
+                            html = html + "副卡1电话号码：" + $scope.checkoutForm.subNumber.$modelValue + "、";
+                            $scope.subNumberWarn = true;
+                            //$scope.selectedData.subNumber = "";
+                        }
+                        if (data.tempIndexs[i] === 2) {
+                            html = html + "副卡2电话号码：" + $scope.checkoutForm.thirdNumber.$modelValue + "、";
+                            $scope.thirdNumberWarn = true;
+                            //$scope.selectedData.thirdNumber = "";
+                        }
+                    }
+                    html = html + "已被选择，请重新选号！";
+                    $scope.dialog.open("系统提示", html);
+                }
+            });
+
         } else {
             var $scrollTo = $('#receiverAddress');
             $container.animate({
