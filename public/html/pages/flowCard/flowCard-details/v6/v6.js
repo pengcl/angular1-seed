@@ -3,16 +3,16 @@
 app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $locationProvider) {
     // 设定路由
     $stateProvider
-        .state('flowCardV5', { //app首页
-            url: "/fd/v5/:productId",
-            templateUrl: "pages/flowCard/flowCard-details/v5/v5.html",
-            controller: "flowCardV5Controller"
+        .state('flowCardV6', { //app首页
+            url: "/fd/v6/:productId",
+            templateUrl: "pages/flowCard/flowCard-details/v6/v6.html",
+            controller: "flowCardV6Controller"
         })
-}]).controller('flowCardV5Controller', ['$scope', '$rootScope', '$stateParams', '$location', '$http', function ($scope, $rootScope, $stateParams, $location, $http) {
+}]).controller('flowCardV6Controller', ['$scope', '$rootScope', '$stateParams', '$location', '$http', function ($scope, $rootScope, $stateParams, $location, $http) {
 
-    $scope.activeTag = "mifitc";
-    $scope.pageType = 'C';
-    $scope.category = systemName + "_mifitc_" + $scope.pageType;
+    $scope.activeTag = "99wxll";
+    $scope.pageType = 'B';
+    $scope.category = systemName + "_99wxll_" + $scope.pageType;
     writebdLog($scope.category, "_Load", "渠道号", $scope.gh);
 
     $http.jsonp(cfApi.apiHost + "/product/getProDetial.html?productId=" + $stateParams.productId + "&activeTag=mifitc&s=wap&callback=JSON_CALLBACK").success(function (data, status, headers, config) {
@@ -34,10 +34,10 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
         $scope.totalPrice = parseInt($scope.product.packageProductList[0].salesPrice);
 
         $scope.$root.share = {
-            homeLink: 'http://app.yfq.cn/fd/v5/' + $stateParams.productId + window.location.search,
-            shareTitle: '全国199元不限流量套餐，今日办理，送随身WIFI！',
-            shareDisc: '无需换号，全国随意用！3000分钟国内通话，今日限100张！',
-            picUrl: 'http://app.yfq.cn/images/flow/flowcard/v5/nativeShare.jpg'
+            homeLink: 'http://app.yfq.cn/fd/v6/' + $stateParams.productId + window.location.search,
+            shareTitle: '您有一张无限流量卡可以领取，今日办理，仅需99元！',
+            shareDisc: '套餐包含：广东省内无限流量，全国3.5GB，全国通话900分钟！今日限100张！',
+            picUrl: 'http://app.yfq.cn/images/flow/flowcard/v6/nativeShare.jpg'
         };
 
     }).error(function (data, status, headers, config) {
@@ -181,12 +181,12 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
             $scope.goTo('#receiverAddress');
             return false;
         }
-        var url = cfApi.apiHost + "/product/checkPhoneState.html?number=[" + $scope.selectedData.mainNumber.n + "]&s=wap&callback=JSON_CALLBACK";
+        var url = cfApi.apiHost + "/product/checkPhoneState.html?number=[" + $scope.selectedData.mainNumber.n + "," + $scope.selectedData.subNumber.n + "," + $scope.selectedData.thirdNumber.n + "]&s=wap&callback=JSON_CALLBACK";
 
         $scope.$root.toast.open();
         $http.jsonp(url).success(function (data, status, headers, config) {//查看号码是否被选
             if (data.tempIndexs.length === 0) {//查看号码是否被选
-                $http.jsonp(cfApi.apiHost + '/product/checkOrderCount.html?receiverMobile=' + $scope.checkoutForm.receiverMobile.$modelValue + '&productId=' + $scope.packageItem.productId + '&s=wap&time=' + new Date().getTime() + '&callback=JSON_CALLBACK').success(function (data, status, headers, config) {//查看是否下过单
+                $http.jsonp(cfApi.apiHost + '/product/checkOrderCount.html?receiverMobile=' + $scope.checkoutForm.receiverMobile.$modelValue + '&productId=' + $scope.packageItem.productId + '&category=' + $scope.category + '&s=wap&time=' + new Date().getTime() + '&callback=JSON_CALLBACK').success(function (data, status, headers, config) {//查看是否下过单
 
                     if (data.result) {
                         $form.submit();

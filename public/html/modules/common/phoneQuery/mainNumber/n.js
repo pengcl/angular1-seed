@@ -27,6 +27,7 @@ app.directive("mainNumber", ["$cookieStore", function ($cookieStore) {
 
                 if (checkSameNumber(numberItem.n, scope.subNumber)) {
                     scope.mainNumber = numberItem.n;
+                    scope.$root._mainNumber = numberItem.n;
                     $this.parent().siblings().children().removeClass('curr');
                     $this.addClass('curr');
                     if(!(attrs.noAnimate == "true")){
