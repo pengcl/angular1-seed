@@ -17,11 +17,12 @@ app.directive("simType", ['$http', '$compile', function ($http, $compile) {
             //获取sim卡类型
             $http.get('/data/simType.json').success(function (data) {
                 scope.simList = data;
-
+                scope.simItem = data[0];
                 //设置默认值
 
 
             });
+
             scope.checkSimType=function(){
                 //console.log(scope.checkoutForm.mainCardTypeId.$valid);
                 if (!scope.checkoutForm.mainCardTypeId.$valid) {
