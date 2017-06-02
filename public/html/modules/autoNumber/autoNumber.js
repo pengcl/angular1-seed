@@ -6,12 +6,13 @@ app.directive("autoNumber", ["$cookieStore", '$http', function ($cookieStore, $h
         templateUrl: "modules/autoNumber/autoNumber.html",
         link: function (scope, element, attrs) {
 
-            scope.rechs = function (index1, len) {
+            scope.rechs = function (index, len) {
                 var randIndex = parseInt(Math.random() * len);
-                if (randIndex !== index1) {
+                if (randIndex !== index) {
                     return randIndex;
                 } else {
-                    rechs(index, len);
+                    console.log(index, len);
+                    return rechs(index, len);
                 }
             };
 
