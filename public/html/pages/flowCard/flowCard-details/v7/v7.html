@@ -1,8 +1,7 @@
-<!--
 <div class="page fd-details in v3 v4">
-    <top-nav page-title="中国电信●翼分期商城" home-url="/fd/v6/434" page-back="menu" nav-visibility="hide" page-done="contact"></top-nav>
+    <top-nav page-title="中国电信●翼分期商城" home-url="/fd/v7/434" page-back="menu" nav-visibility="hide" page-done="contact"></top-nav>
     <form id="checkoutForm" name="checkoutForm"
-          action="http://m.yfq.cn/wap/taokafanghaoNew/submitOrderDouble.html"
+          action="http://apptest.yfq.cn:8898/wap/taokafanghaoNew/submitOrderDouble.html"
           method="post" novalidate>
         <input type="hidden" value="1" name="mainMonthNumber" id="mainMonthNumber">
         <input type="hidden" value="{{product.activityproductId}}" ng-model="product.activityproductId" name="machineId"
@@ -17,11 +16,11 @@
         <redirect-url></redirect-url>
         <div class="content-scrollable has-footer">
             <div class="banner-image">
-                <img id="banner-bg" src="/images/flow/flowcard/v6/banner.jpg"/>
+                <img id="banner-bg" src="/images/flow/flowcard/v7/banner.jpg"/>
             </div>
 
             <div class="img-box" style="margin-top:-0.95rem;position:relative;margin-bottom: 0.5rem">
-                <img id="banner-txt" src="/images/flow/flowcard/v6/banner-2.png"/>
+                <img id="banner-txt" src="/images/flow/flowcard/v7/banner-2.png"/>
                 <div class="timer-area">
                     <timer></timer>
                 </div>
@@ -34,7 +33,7 @@
                 <div class="img-box" style="position: absolute;top: -0.3rem;width: 70%;left: 50%;margin-left: -35%">
                     <img src="/images/flow/flowcard/v4/1-tit.png"/>
                 </div>
-                <img src="/images/flow/flowcard/v6/1.jpg"/>
+                <img src="/images/flow/flowcard/v7/1.jpg"/>
             </div>
 
             <div class="select-area">
@@ -66,7 +65,7 @@
 
 
                 <div id="mainNumberArea" class="weui-cells__title title-icon">
-                    <span class="title">选择付费号码</span><em>*</em>
+                    <span class="title">免费选择靓号</span><em>*</em>
                 </div>
                 <div class="pd-w">
                     <ul class="item-lists minus pure-g">
@@ -181,7 +180,7 @@
                     </div>
                     <div class="flow-package-panel pd-w">
                         <ul class="flow-package-lists item-lists minus pure-g">
-                            &lt;!&ndash;<li class="flow-package-item list-item pure-u-1-2">
+                            <!--<li class="flow-package-item list-item pure-u-1-2">
                                 <div class="item-box margin radius border"
                                      ng-class="{true:'curr',false:''}[payType === 0]"
                                      ng-click="setPayType($event,0)">
@@ -190,7 +189,7 @@
                                     </p>
                                     <ins class="icon-check"></ins>
                                 </div>
-                            </li>&ndash;&gt;
+                            </li>-->
                             <li class="flow-package-item list-item pure-u-1-2">
                                 <div class="item-box margin radius border"
                                      ng-class="{true:'curr',false:''}[payType === 1]"
@@ -235,14 +234,14 @@
                         </div>
                     </div>
 
-                    &lt;!&ndash;<div class="pd-w">
+                    <!--<div class="pd-w">
                         <div class="pure-g">
                             <span class="label pure-u-1-2">合计金额</span>
                             <span class="price pure-u-1-2"><em>￥</em><em ng-bind="totalPrice"></em></span>
                         </div>
                         <p>预存￥400送随身充电mifi<em>￥400</em><span ng-repeat="item in mifis"><span ng-if="item.selected"> + <span
                                 ng-bind="item.productName"></span><em ng-bind="item.salePrice"></em></span></span></p>
-                    </div>&ndash;&gt;
+                    </div>-->
                 </div>
 
 
@@ -252,7 +251,7 @@
                     <a class="buy-group-btn" href="javascript:;" ng-click="submitForm($event,'BuyNowOne');">
                         <div class="img-box"><img src="/images/flow/flowcard/v4/submit.png"></div>
                     </a>
-                    &lt;!&ndash;<p style="font-size: 0.12rem">*本活动仅限18岁以上用户参与</p>&ndash;&gt;
+                    <!--<p style="font-size: 0.12rem">*本活动仅限18岁以上用户参与</p>-->
                     <div class="img-box" style="margin:0.2rem 0.15rem"><img src="/images/flow/flowcard/v4/tip.png">
                     </div>
                 </div>
@@ -273,7 +272,7 @@
                 <div class="img-box" style="position: absolute;top: -0.3rem;width: 70%;left: 50%;margin-left: -35%">
                     <img src="/images/flow/flowcard/v4/2-tit.png"/>
                 </div>
-                <img src="/images/flow/flowcard/v6/2.png"/>
+                <img src="/images/flow/flowcard/v7/2.png"/>
             </div>
             <a href="javascript:;" class="js-action-sheet-show" style="display: block;text-align: center;color: #fff;font-size: 0.16rem;margin-top: 0.1rem">>>>查看具体产品详情<<<</a>
 
@@ -299,7 +298,7 @@
                 <ul>
                     <li>
                         <div class="list-header">
-                            <span>01、</span>99元无限流量优惠套餐包含哪些内容？
+                            <span>01、</span>129元无限流量优惠套餐包含哪些内容？
                         </div>
                         <div class="list-content">
                             <div class="ctxt">
@@ -310,22 +309,22 @@
                     </li>
                     <li>
                         <div class="list-header">
-                            <span>02、</span>订购99元无限流量优惠套餐有哪些优惠？
+                            <span>02、</span>订购129元无限流量优惠套餐有哪些优惠？
                         </div>
                         <div class="list-content">
                             <div class="ctxt">
-                                答：99套餐原价为204元，在合同期内4.85折优惠，“翼分期商城”每月13日优惠减免套餐内剩余的105套餐费用，故本套餐优惠后实际套餐费用为99元/月。客户只需在每月1-8号用户存入99元话费即可。
+                                答：129套餐原价为204元，“翼分期商城”每月13日优惠减免套餐内剩余的105套餐费用，故本套餐优惠后实际套餐费用为129元/月。客户只需在每月1-8号用户存入129元话费即可。
                             </div>
                         </div>
                         <div class="pros-line share-pros-line"></div>
                     </li>
                     <li>
                         <div class="list-header">
-                            <span>03、</span>99元无限流量优惠套餐可否办理副卡？
+                            <span>03、</span>129元无限流量优惠套餐可否办理副卡？
                         </div>
                         <div class="list-content">
                             <div class="ctxt">
-                                答：99元省内无限流量套餐自带2张副卡，可与主卡共享省内无限流量及国内流量。
+                                答：129元省内无限流量套餐自带2张副卡，可与主卡共享省内无限流量及国内流量。
                             </div>
                         </div>
                         <div class="pros-line share-pros-line"></div>
@@ -340,7 +339,7 @@
                                 答：为保障网络质量和所有用户公平使用网络资源，按每月流量使用总量（包含主副卡）前50GB提供4G网速，当月累计流量达到50GB后，上网速率将调整至3.1Mbps，当月累计流量达到100GB，上网速率将调整至128Kbps，次月恢复。当日累计流量达到5GB后，上网速率将调整至128Kbps，次日恢复。
                             </div>
                         </div>
-                        &lt;!&ndash; <div class="tips-info-content" style="margin-top:0;">注：套餐需激活后才能正常使用，请确保本人签收，默认送达次日开通（公休日除外），介意者慎拍。</div> &ndash;&gt;
+                        <!-- <div class="tips-info-content" style="margin-top:0;">注：套餐需激活后才能正常使用，请确保本人签收，默认送达次日开通（公休日除外），介意者慎拍。</div> -->
                         <div class="pros-line share-pros-line"></div>
                     </li>
                     <li>
@@ -349,7 +348,7 @@
                         </div>
                         <div class="list-content">
                             <div class="ctxt">
-                                答：99元省内无限流量套餐仅为“翼分期商城”专卖产品，只限新开户办理，翼分期商城老用户（省内）可预存200元升级省内无限流量。其他客户请咨询当地电信。
+                                答：129元省内无限流量套餐仅为“翼分期商城”专卖产品，只限新开户办理，翼分期商城老用户（省内）可预存200元升级省内无限流量。其他客户请咨询当地电信。
                             </div>
                         </div>
                         <div class="pros-line share-pros-line"></div>
@@ -444,7 +443,7 @@
                         </div>
                         <div class="list-content">
                             <div class="ctxt">
-                                答：优惠套餐合约期24个月，到期如客户需继续使用，可先翼分期商城提出，由翼分期商城确定优惠延期。如期间客户需要停机，每月仍按正常优惠资费99元/月收取。套餐可以提前注销，预存费用（如有）不退。
+                                答：优惠套餐合约期24个月，到期如客户需继续使用，可先翼分期商城提出，由翼分期商城确定优惠延期。如期间客户需要停机，每月仍按正常优惠资费129元/月收取。套餐可以提前注销，预存费用（如有）不退。
                             </div>
                         </div>
                         <div class="pros-line share-pros-line"></div>
@@ -486,9 +485,9 @@
                 class="icon-comment"></span><span style="font-size: 0.14rem">客服</span></a>
         <div class="footer-nav nav-list" style="padding: 0">
             <div class="pure-g">
-                &lt;!&ndash;<div class="nav-price nav-item pure-u-1-2">
+                <!--<div class="nav-price nav-item pure-u-1-2">
                     <a href="javascript:;" ng-click="getContact();">在线咨询</a>
-                </div>&ndash;&gt;
+                </div>-->
                 <div class="nav-button nav-item pure-u-1-1" style="background-color: #fea501;">
                     <a href="javascript:;" ng-click="submitForm($event,'BuyNowTwo');">立即下单</a>
                 </div>
@@ -505,8 +504,8 @@
         </div>
         <div class="weui-actionsheet__menu">
             <div class="img-box" style="margin-bottom: 0.55rem">
-                <img src="/images/flow/flowcard/v6/zf.jpg"/>
+                <img src="/images/flow/flowcard/v7/zf.jpg"/>
             </div>
         </div>
     </div>
-</div>-->
+</div>

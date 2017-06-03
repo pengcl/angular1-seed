@@ -1,19 +1,19 @@
-/*
 "use strict";
 
 app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $locationProvider) {
     // 设定路由
     $stateProvider
-        .state('flowCardV6', { //app首页
-            url: "/fd/v6/:productId",
-            templateUrl: "pages/flowCard/flowCard-details/v6/v6.html",
-            controller: "flowCardV6Controller"
+        .state('flowCardV7', { //app首页
+            url: "/fd/v7/:productId",
+            templateUrl: "pages/flowCard/flowCard-details/v7/v7.html",
+            controller: "flowCardV7Controller"
         })
-}]).controller('flowCardV6Controller', ['$scope', '$rootScope', '$stateParams', '$location', '$http', function ($scope, $rootScope, $stateParams, $location, $http) {
+}]).controller('flowCardV7Controller', ['$scope', '$rootScope', '$stateParams', '$location', '$http', function ($scope, $rootScope, $stateParams, $location, $http) {
 
-    $scope.activeTag = "99wxll";
-    $scope.pageType = 'B';
-    $scope.category = systemName + "_99wxll_" + $scope.pageType;
+    $scope.activeTag = "129wxll";
+    $scope.pageType = 'A';
+    $scope.category = systemName + "_129wxll_" + $scope.pageType;
+    $scope.fqaMore = false;
     writebdLog($scope.category, "_Load", "渠道号", $scope.gh);
 
     $http.jsonp(cfApi.apiHost + "/product/getProDetial.html?productId=" + $stateParams.productId + "&activeTag=mifitc&s=wap&callback=JSON_CALLBACK").success(function (data, status, headers, config) {
@@ -35,10 +35,10 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
         $scope.totalPrice = parseInt($scope.product.packageProductList[0].salesPrice);
 
         $scope.$root.share = {
-            homeLink: 'http://app.yfq.cn/fd/v6/' + $stateParams.productId + window.location.search,
-            shareTitle: '您有一张无限流量卡可以领取，今日办理，仅需99元！',
+            homeLink: 'http://app.yfq.cn/fd/v7/' + $stateParams.productId + window.location.search,
+            shareTitle: '您有一张无限流量卡可以领取，今日办理，仅需129元！',
             shareDisc: '套餐包含：广东省内无限流量，全国3.5GB，全国通话900分钟！今日限100张！',
-            picUrl: 'http://app.yfq.cn/images/flow/flowcard/v6/nativeShare.jpg'
+            picUrl: 'http://app.yfq.cn/images/flow/flowcard/v7/nativeShare.jpg'
         };
 
     }).error(function (data, status, headers, config) {
@@ -106,24 +106,29 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
     });
 
     $http.jsonp(cfApi.apiHost + '/wap/taokafanghaoNew/fetchLuckNumber.html?time=' + new Date().getTime() + '&callback=JSON_CALLBACK').success(function (data, status, headers, config) {//获取所有的手机号码
-        var _data = [];
+        var inputData = [];
         var inputData1 = [];
-        $.each(eval(data), function (i, k) {
-            if (k.s <= 800) {
-                if (k.t == 0) {
-                    _data.push(k);
-                }
+
+        $.each(data, function (i, k) {
+            if (k.s > 0) {
+                inputData.push(k);
             }
         });
 
-        $.each(_data, function (i, k) {
-            if (k.fee == 0) {
+        $.each(data, function (i, k) {
+            if (k.s == 0) {
                 inputData1.push(k);
             }
         });
 
-        $scope.inputData = _data;
+        $scope.inputData = inputData;
+
+        if(inputData.length < 6){
+            $scope.inputData = inputData1;
+        }
+
         $scope.inputData1 = inputData1;
+
     });
 
     $scope.setItem = function (e, index, item) {
@@ -223,7 +228,6 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
             }
         });
     };
-    $scope.fqaMore = false;
     $scope.setFqaMore = function () {
         $scope.fqaMore = !$scope.fqaMore;
     };
@@ -292,4 +296,4 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
         }
     }, true);
 
-}]);*/
+}]);
