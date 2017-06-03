@@ -1122,6 +1122,12 @@ body.pcd-c {
           right: 0;
         }
       }
+      .flag {
+        position: absolute;
+        width: 0.7rem;
+        top:-0.3rem;
+        left: -0.1rem;
+      }
     }
   }
   &.pcd-d {

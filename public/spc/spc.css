@@ -1792,7 +1792,14 @@ body.pcd-c .pkgs .pkg-box .rt-box .img-box {
   bottom: 0rem;
   right: 0;
 }
-/* line 1128, sass/spc.scss */
+/* line 1125, sass/spc.scss */
+body.pcd-c .pkgs .pkg-box .flag {
+  position: absolute;
+  width: 0.7rem;
+  top: -0.3rem;
+  left: -0.1rem;
+}
+/* line 1134, sass/spc.scss */
 body.pcd-c.pcd-d .page {
   background-image: url("img/pcd/bg.jpg");
   background-position: top left;
@@ -1800,11 +1807,11 @@ body.pcd-c.pcd-d .page {
   background-size: 100% auto;
   background-repeat: no-repeat;
 }
-/* line 1135, sass/spc.scss */
+/* line 1141, sass/spc.scss */
 body.pcd-c.pcd-d .page > .content {
   position: relative;
 }
-/* line 1137, sass/spc.scss */
+/* line 1143, sass/spc.scss */
 body.pcd-c.pcd-d .page > .content .logo {
   margin-top: 0;
   margin-left: 0;
@@ -1812,7 +1819,7 @@ body.pcd-c.pcd-d .page > .content .logo {
   padding-left: 0.07rem;
 }
 
-/* line 1148, sass/spc.scss */
+/* line 1154, sass/spc.scss */
 .yaw-mask-tw .mask {
   position: absolute;
   top: 0;
@@ -1822,7 +1829,7 @@ body.pcd-c.pcd-d .page > .content .logo {
   z-index: 1;
   background: rgba(0, 0, 0, 0.7);
 }
-/* line 1157, sass/spc.scss */
+/* line 1163, sass/spc.scss */
 .yaw-mask-tw .mask-content {
   position: fixed;
   left: 50%;
@@ -1834,7 +1841,7 @@ body.pcd-c.pcd-d .page > .content .logo {
   transform: translate(-50%, -50%);
   z-index: 2;
 }
-/* line 1164, sass/spc.scss */
+/* line 1170, sass/spc.scss */
 .yaw-mask-tw .mask-content .mask-text {
   font-size: 0;
   position: absolute;
@@ -1842,12 +1849,12 @@ body.pcd-c.pcd-d .page > .content .logo {
   top: 28%;
   width: 76%;
 }
-/* line 1170, sass/spc.scss */
+/* line 1176, sass/spc.scss */
 .yaw-mask-tw .mask-content .mask-text input {
   border: none;
   outline: none;
 }
-/* line 1174, sass/spc.scss */
+/* line 1180, sass/spc.scss */
 .yaw-mask-tw .mask-content .mask-text div.name {
   margin-top: .1rem;
   padding: .1rem .15rem;
@@ -1856,12 +1863,12 @@ body.pcd-c.pcd-d .page > .content .logo {
   -webkit-border-radius: 4px;
   border-radius: 4px;
 }
-/* line 1179, sass/spc.scss */
+/* line 1185, sass/spc.scss */
 .yaw-mask-tw .mask-content .mask-text div.name input {
   font-size: .14rem;
 }
 
-/* line 1187, sass/spc.scss */
+/* line 1193, sass/spc.scss */
 .yaw-1 {
   position: absolute;
   left: 0;
@@ -1872,11 +1879,11 @@ body.pcd-c.pcd-d .page > .content .logo {
   background-size: 100% auto;
 }
 
-/* line 1197, sass/spc.scss */
+/* line 1203, sass/spc.scss */
 .yaw-2 {
   -webkit-overflow-scrolling: touch;
 }
-/* line 1199, sass/spc.scss */
+/* line 1205, sass/spc.scss */
 .yaw-2 .text {
   position: absolute;
   left: 42%;
@@ -1884,11 +1891,11 @@ body.pcd-c.pcd-d .page > .content .logo {
   font-size: .1rem;
   color: #725100;
 }
-/* line 1205, sass/spc.scss */
+/* line 1211, sass/spc.scss */
 .yaw-2 .text h4 {
   margin: 0;
 }
-/* line 1209, sass/spc.scss */
+/* line 1215, sass/spc.scss */
 .yaw-2 .company {
   color: #725100;
   font-size: .1rem;
@@ -1896,7 +1903,7 @@ body.pcd-c.pcd-d .page > .content .logo {
   right: 10%;
   top: 47%;
 }
-/* line 1216, sass/spc.scss */
+/* line 1222, sass/spc.scss */
 .yaw-2 .try-again {
   position: absolute;
   bottom: 10%;

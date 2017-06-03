@@ -2,6 +2,9 @@
   .content-scrollable {
     background: #ebebeb;
   }
+  .footer-nav {
+    @include box-shadow(2px -1px 20px #ccc);
+  }
   .star-color {
     color: #f00;
   }

@@ -262,6 +262,16 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
         }
     });
 
+    $scope.$watch('btnType', function (n, o, $scope) {
+        if (n !== o && n !== undefined) {
+            if (n) {
+                var $form = $("#checkoutForm");
+                $form.submit();
+                writebdLog($scope.category, "_" + "BuyNowThree", "渠道号", $scope.gh);//立即支付
+            }
+        }
+    });
+
     $scope.checkForms = function () {
         if ($scope.$root.checkActiveCode()) {
 

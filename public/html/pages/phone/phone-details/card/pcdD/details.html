@@ -1,5 +1,5 @@
 <div class="page p-details a-details">
-    <top-nav page-title="中国电信●翼分期商城" page-back="back" page-done="contact"></top-nav>
+    <top-nav page-title="中国电信●翼分期商城" home-url="/spc/pcd/indexD.html" page-back="back" page-done="contact"></top-nav>
     <!--<form id="checkoutForm" name="checkoutForm" action="http://2b2fda71.ngrok.natapp.cn/wap/taokafanghaoNew/submitOrderMachine.html" method="post" novalidate>-->
     <!--<form id="checkoutForm" name="checkoutForm" action="http://m.yfq.na/wap/taokafanghaoNew/submitOrderDouble.html" method="post" novalidate>-->
     <form id="checkoutForm" name="checkoutForm" action="http://apptest.yfq.cn:8898/wap/taokafanghaoNew/submitOrderDouble.html"
@@ -51,7 +51,7 @@
                         <div class="label">限时优惠 省内无限流量 靓号任选</div>
                         <div class="product-price">
                             <ul>
-                                <li style="padding-left: 0"><span>限时抢靓号：</span><em>￥</em><em>9.9</em>
+                                <li style="padding-left: 0"><span>限时预存充值：</span><em>￥</em><em>200</em>
                                 </li>
                             </ul>
                         </div>
@@ -93,7 +93,7 @@
                                             ￥<span class="big"
                                                    ng-bind="card.salesPrice | number : 0"></span><sub>套餐</sub>
                                         </p>
-                                        <p><span>原价:￥</span><span ng-bind="card.oldPrice | number : 0"></span><br><span>优惠36个月</span>
+                                        <p><span>原价:￥</span><span ng-bind="card.oldPrice | number : 0"></span><br><span>优惠24个月</span>
                                         </p>
                                     </div>
                                 </div>
@@ -134,7 +134,7 @@
                                         <p>
                                             <del>原价￥<span ng-bind="package.oldPrice | number : 0"></span></del>
                                         </p>
-                                        <p>优惠36个月</p>
+                                        <p>优惠24个月</p>
                                     </div>
                                 </div>
                                 <!--<ins class="icon-gray-5">
@@ -202,7 +202,7 @@
                 <div class="weui-cells__tips" style="font-size: 0.14rem">
                     <p>升级附送2张副卡(无费用，与主卡共享省内无限流量)，配合随身Wifi，可与家人朋友齐分享。</p>
                 </div>
-                <div class="weui-cells__tips" style="font-size: 0.14rem">*本活动仅限18岁以上用户参与</div>
+                <!--<div class="weui-cells__tips" style="font-size: 0.14rem">*本活动仅限18岁以上用户参与</div>-->
 
                 <input type="hidden" name="mifiId" id="mifiId" ng-model="mifis" value="{{selectedMifis}}" required>
                 <div class="d-mifis weui-cells weui-cells_checkbox">
@@ -218,7 +218,7 @@
                         <div class="weui-cell__ft" style="padding-right: 0">
                             <del style="font-size: 0.11rem;margin-right: 0.05rem">原价￥<span
                                     ng-bind="mifi.oldPrice"></span></del>
-                            <span ng-bind="mifi.salePrice"></span>元
+                            <em ng-bind="mifi.salePrice"></em><em>元</em>
                         </div>
                     </div>
                 </div>
