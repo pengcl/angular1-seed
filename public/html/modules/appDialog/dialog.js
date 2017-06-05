@@ -13,12 +13,14 @@ app.directive("appDialog", [function () {
                     scope.dialogTitle = title;
                     scope.dialogContent = content;
                     //console.log($("#js-dialog").html());
+                    $(element).find(".weui-mask").show();
                     $(element).find(".js_dialog").show();
                 }
             };
 
             scope.close = function (type) {
                 $(element).find(".js_dialog").hide();
+                $(element).find(".weui-mask").hide();
                 scope.btnType = type;
             }
         }

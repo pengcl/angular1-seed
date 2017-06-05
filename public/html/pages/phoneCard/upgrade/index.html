@@ -1,0 +1,128 @@
+<div class="page pcd-recharge-a">
+    <!-- cia card-index-pageType -->
+
+    <top-nav page-title="首页" page-back="menu" nav-visibility="hide"></top-nav>
+    <form id="checkoutForm" name="checkoutForm" action="http://m.yfq.cn/yfqcz/czOrdRechargeController.do?gotoPayGateWay"
+          method="post" novalidate>
+        <input type="hidden" value="{{appType}}" name="appType" id="appType">
+        <input type="hidden" value="{{category}}" name="category" id="category">
+        <gh></gh>
+        <activity></activity>
+        <redirect-url></redirect-url>
+        <div class="content-scrollable">
+            <div id="rechargePhone">
+                <div class="weui-cells weui-cells_form">
+                    <div class="weui-cell"
+                         ng-class="{'weui-cell_warn':checkoutForm.iccid.$dirty== true && checkoutForm.iccid.$valid == false,'weui-cell_success':checkoutForm.iccid.$dirty== true && checkoutForm.iccid.$valid == true}">
+                        <div class="weui-cell__bd">
+                            <input id="iccid" name="iccid" ng-model="iccid"
+                                   ng-maxlength="11" ng-pattern="/^[0-9]*$/" pattern="[0-9]*" ng-minlength="11"
+                                   placeholder="请输入您要充值的手机号" class="weui-input" ng-change="upgradeMobile(iccid)"
+                                   autofocus="true" required>
+                        </div>
+                        <div class="weui-cell__ft">
+                            <i class="icon-user"></i>
+                        </div>
+                    </div>
+                    <p class="recharge-tips">
+                        <span ng-bind="upgradeStatus.msg"></span>
+                    </p>
+                </div>
+            </div>
+
+            <div id="phoneRecharge">
+                <input name="pid" id="pid" ng-model="product.id" value="{{product.id}}" required type="hidden">
+                <div class="fst-recharge">
+                    <div class="weui-cells__title">
+                        <span>我要升级</span>
+                    </div>
+                    <div class="pd-w">
+                        <ul class="item-lists minus pure-g">
+                            <li class="list-item pure-u-1-2">
+                                <div class="item-box margin border radius small"
+                                     ng-class="{true:'active',false:'disabled'}[!!upgradeStatus.result]"
+                                     ng-click="setProduct($event,id)">
+                                    预存￥200升级无限流量套餐
+                                    <ins><img src="/images/phoneCard/recharge/flag.png"></ins>
+                                </div>
+                                <p class="tips" ng-bind="upgradeProduct.remark"></p>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!--<div class="weui-cells__title">
+                        <span>领新卡做新人</span>
+                    </div>
+                    <div class="pd-w">
+                        <ul class="item-lists minus pure-g">
+                            <li class="list-item pure-u-5-8">
+                                <a ng-href="/spc/pcd/index.html{{params}}" target="_blank" class="item-box margin border radius small" ng-class="{true:'active',false:'disabled'}[rechargeStatus == 0||rechargeStatus ==undefined]" ng-click="writeClickEvent($event,'9.9Page')">
+                                    9.9元领卡，享充值优惠
+                                </a>
+                            </li>
+                        </ul>
+                    </div>-->
+                </div>
+
+            </div>
+
+            <div ng-if="mifis.length > 0 && !!upgradeStatus.result" style="overflow: hidden;background: #fff;padding-bottom: 0.05rem">
+                <div class="weui-cells__tips" style="font-size: 0.14rem">
+                    <p>升级附送2张副卡(无费用，与主卡共享省内无限流量)，配合随身Wifi，可与家人朋友齐分享。</p>
+                </div>
+                <!--<div class="weui-cells__tips" style="font-size: 0.14rem">*本活动仅限18岁以上用户参与</div>-->
+
+                <input type="hidden" name="mifiId" id="mifiId" ng-model="mifis" value="{{selectedMifis}}" required>
+                <div class="d-mifis weui-cells weui-cells_checkbox">
+                    <div class="weui-cell weui-check__label" ng-repeat="mifi in mifis"
+                         ng-class="{true:'curr',false:''}[mifi.selected]" ng-click="setItem($event,$index,mifi)">
+                        <div class="weui-cell__hd">
+                            <input class="weui-check" name="checkbox1" id="s{{mifi.productId}}" type="checkbox">
+                            <i class="weui-icon-checked"></i>
+                        </div>
+                        <div class="weui-cell__bd">
+                            <p ng-bind="mifi.productName"></p>
+                        </div>
+                        <div class="weui-cell__ft" style="padding-right: 0">
+                            <del style="font-size: 0.11rem;margin-right: 0.05rem">原价￥<span
+                                    ng-bind="mifi.oldPrice"></span></del>
+                            <em ng-bind="mifi.salePrice"></em><em>元</em>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="font-size:0.12rem" ng-if="!!upgradeStatus.result">
+                <gds></gds>
+            </div>
+
+            <div id="rechargeTipsPanel" style="display: none">
+                <div class="overlay recharge-overlay">
+                    <a class="js-close-overlay overlay-dismiss" href="#"><span class="icon-cross"></span></a>
+                    <div class="title-404 img-box">
+                        <img src="/images/recharge/404-title.png">
+                    </div>
+                    <div class="tips-box img-box">
+                        <img src="/images/recharge/chongzhi.gif">
+                    </div>
+                </div>
+            </div>
+
+            <div class="txt-list tips">
+                <p>1)翼分期商城老客户【注：限套餐原值174元(含)以上】都可以预存200元自助升级为广东省内不限流量。</p>
+                <p>2)预存金支付之后2个工作日 内套餐完成升级，完工后省内无限流量包即时生效。</p>
+                <p>3)预存200元从支付之日起下一个月开始，分10个月返还，每月20元，可以抵月租或话费。</p>
+                <p>4)套餐升级省内无限流量之后，不影响套餐现有的国内通话时长及国内流量。</p>
+                <p>5)无限流量使用规则(当月省内流量)：50GB以内4G网速，流量超过50G网速降为3G，流量超过100G网速降为2G，次月1日恢复。</p>
+                <p>6)升级无限流量包，同时赠送2张副卡，无其它费用，可以共享无限流量。</p>
+                <p>*说明：根据国家主管部门及中国电信的要求，每客户名下最多同时拥有5个号码，如客户名下现已拥有3个以上的号码，客户可以1)拆除原有不用号码
+                    ，或者2)新增副卡号码可用他人名义登记(需实名认证)。
+                </p>
+            </div>
+
+            <div class="weui-footer">
+                <p class="weui-footer__text">本活动最终解释权归翼分期商城所有</p>
+            </div>
+        </div>
+    </form>
+</div>

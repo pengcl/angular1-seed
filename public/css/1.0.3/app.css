@@ -12581,19 +12581,35 @@ div.module-tips {
   top: 0.03rem;
   font-size: 0.18rem;
 }
+/* line 100, ../../../sass/pages/phoneCard/_recharge.scss */
+.pcd-recharge-a .txt-list.tips p {
+  font-size: 0.12rem;
+  margin-top: 0.05rem;
+  margin-bottom: 0.05rem;
+  color: #2a3887;
+}
+/* line 109, ../../../sass/pages/phoneCard/_recharge.scss */
+.pcd-recharge-a .address .adr-tab {
+  display: none;
+}
+/* line 113, ../../../sass/pages/phoneCard/_recharge.scss */
+.pcd-recharge-a .address .adr-content .icon-pin {
+  font-size: 0.46rem;
+  display: block;
+}
 
-/* line 102, ../../../sass/pages/phoneCard/_recharge.scss */
+/* line 121, ../../../sass/pages/phoneCard/_recharge.scss */
 .overlay.recharge-overlay {
   background: none;
 }
-/* line 104, ../../../sass/pages/phoneCard/_recharge.scss */
+/* line 123, ../../../sass/pages/phoneCard/_recharge.scss */
 .overlay.recharge-overlay .title-404 {
   position: absolute;
   z-index: 1;
   top: 5%;
   width: 100%;
 }
-/* line 110, ../../../sass/pages/phoneCard/_recharge.scss */
+/* line 129, ../../../sass/pages/phoneCard/_recharge.scss */
 .overlay.recharge-overlay .tips-box {
   position: absolute;
   top: 15%;
@@ -12608,11 +12624,11 @@ div.module-tips {
   background: #ff4800;
   padding-top: 0.3rem;
 }
-/* line 121, ../../../sass/pages/phoneCard/_recharge.scss */
+/* line 140, ../../../sass/pages/phoneCard/_recharge.scss */
 .overlay.recharge-overlay .tips-box img {
   margin-bottom: 0.2rem;
 }
-/* line 126, ../../../sass/pages/phoneCard/_recharge.scss */
+/* line 145, ../../../sass/pages/phoneCard/_recharge.scss */
 .overlay.recharge-overlay .overlay-dismiss span {
   color: #fff;
 }

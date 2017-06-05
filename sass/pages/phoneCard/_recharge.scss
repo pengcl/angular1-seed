@@ -96,6 +96,25 @@
         }
       }
     }
+    &.tips {
+      p {
+        font-size: 0.12rem;
+        margin-top: 0.05rem;
+        margin-bottom: 0.05rem;
+        color: #2a3887;
+      }
+    }
+  }
+  .address {
+    .adr-tab {
+      display: none;
+    }
+    .adr-content {
+      .icon-pin {
+        font-size: 0.46rem;
+        display: block;
+      }
+    }
   }
 }
 

@@ -9,7 +9,7 @@ function randomNormalDistribution() {
         u = Math.random() * 2 - 1.0;
         v = Math.random() * 2 - 1.0;
         w = u * u + v * v;
-    } while (w == 0.0 || w >= 1.0)
+    } while (w == 0.0 || w >= 1.0);
     //这里就是 Box-Muller转换
     c = Math.sqrt((-2 * Math.log(w)) / w);
     //返回2个标准正态分布的随机数，封装进一个数组返回
@@ -37,4 +37,5 @@ var match = {
 
 for (var i = 0; i <= 20; i++) {
     console.log(getNumberInNormalDistribution(0, -5));
+
 }
