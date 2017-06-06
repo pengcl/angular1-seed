@@ -8101,12 +8101,12 @@ div.module-tips {
   color: #f6692a;
 }
 /* line 1299, ../../../sass/pages/phone/_a-details.scss */
-.page.p-details.a-details .d-mifis .weui-cell .weui-cell__hd i {
+.d-mifis .weui-cell .weui-cell__hd i {
   margin-left: 0;
   margin-right: 0;
 }
 /* line 1302, ../../../sass/pages/phone/_a-details.scss */
-.page.p-details.a-details .d-mifis .weui-cell .weui-cell__hd i:before {
+.d-mifis .weui-cell .weui-cell__hd i:before {
   content: "";
   height: 0.16rem;
   width: 0.16rem;
@@ -8119,7 +8119,7 @@ div.module-tips {
   border-radius: 3px;
 }
 /* line 1317, ../../../sass/pages/phone/_a-details.scss */
-.page.p-details.a-details .d-mifis .weui-cell.curr .weui-cell__hd i:before {
+.d-mifis .weui-cell.curr .weui-cell__hd i:before {
   content: "√";
   border: 2px solid #d83e14;
   background: #d83e14;
@@ -12597,19 +12597,53 @@ div.module-tips {
   font-size: 0.46rem;
   display: block;
 }
+/* line 119, ../../../sass/pages/phoneCard/_recharge.scss */
+.pcd-recharge-a .checklist {
+  font-size: 0.14rem;
+  text-align: left;
+}
+/* line 124, ../../../sass/pages/phoneCard/_recharge.scss */
+.pcd-recharge-a .checklist .weui-icon-success:before {
+  color: #cccccc;
+  margin-left: 0;
+}
+/* line 129, ../../../sass/pages/phoneCard/_recharge.scss */
+.pcd-recharge-a .checklist .weui-icon-success.ok:before {
+  color: #d63176;
+}
+/* line 136, ../../../sass/pages/phoneCard/_recharge.scss */
+.pcd-recharge-a .checklist .weui-icon-success:before {
+  font-size: 0.16rem;
+}
+/* line 141, ../../../sass/pages/phoneCard/_recharge.scss */
+.pcd-recharge-a .upgrade-address {
+  padding: 0.15rem;
+  font-size: 0.12rem;
+  background: #fff;
+}
+/* line 145, ../../../sass/pages/phoneCard/_recharge.scss */
+.pcd-recharge-a .upgrade-address .adr-content {
+  margin-top: 0.15rem;
+}
+/* line 148, ../../../sass/pages/phoneCard/_recharge.scss */
+.pcd-recharge-a .upgrade-address .adr-content .weui-panel a.weui-media-box {
+  color: #999;
+  background: #eee;
+  padding: 0.1rem;
+}
 
-/* line 121, ../../../sass/pages/phoneCard/_recharge.scss */
+/* line 158, ../../../sass/pages/phoneCard/_recharge.scss */
 .overlay.recharge-overlay {
   background: none;
 }
-/* line 123, ../../../sass/pages/phoneCard/_recharge.scss */
+/* line 160, ../../../sass/pages/phoneCard/_recharge.scss */
 .overlay.recharge-overlay .title-404 {
   position: absolute;
   z-index: 1;
   top: 5%;
   width: 100%;
 }
-/* line 129, ../../../sass/pages/phoneCard/_recharge.scss */
+/* line 166, ../../../sass/pages/phoneCard/_recharge.scss */
 .overlay.recharge-overlay .tips-box {
   position: absolute;
   top: 15%;
@@ -12624,11 +12658,11 @@ div.module-tips {
   background: #ff4800;
   padding-top: 0.3rem;
 }
-/* line 140, ../../../sass/pages/phoneCard/_recharge.scss */
+/* line 177, ../../../sass/pages/phoneCard/_recharge.scss */
 .overlay.recharge-overlay .tips-box img {
   margin-bottom: 0.2rem;
 }
-/* line 145, ../../../sass/pages/phoneCard/_recharge.scss */
+/* line 182, ../../../sass/pages/phoneCard/_recharge.scss */
 .overlay.recharge-overlay .overlay-dismiss span {
   color: #fff;
 }

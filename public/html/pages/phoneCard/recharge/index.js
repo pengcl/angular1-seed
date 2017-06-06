@@ -12,7 +12,7 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
     //$scope.pageTitle = "首页";
     //$scope.$root.title = $scope.pageTitle;
     //console.log($scope.referrerForm.referrerNo);
-    $location.path("/phone/active/D/phones");
+    //$location.path("/phone/active/D/phones");
 
     $scope.pageType = "pcdRecharge";
     $scope.appType = systemName + "_recharge_" + $scope.pageType;

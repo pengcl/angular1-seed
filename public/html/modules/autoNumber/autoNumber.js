@@ -39,6 +39,8 @@ app.directive("autoNumber", ["$cookieStore", '$http', function ($cookieStore, $h
                         var index2 = index1 + 1;
                         scope.subNumber = inputData1[index1].n;
                         scope.thirdNumber = inputData1[index2].n;
+
+                        console.log(scope.subNumber, scope.thirdNumber);
                     }
                 })
             });
