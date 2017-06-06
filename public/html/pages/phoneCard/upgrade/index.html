@@ -6,6 +6,7 @@
           method="post" novalidate>
         <input type="hidden" value="{{appType}}" name="appType" id="appType">
         <input type="hidden" value="{{category}}" name="category" id="category">
+        <input type="hidden" value="lyhtcsj" name="activeTag" id="activeTag">
         <gh></gh>
         <activity></activity>
         <redirect-url></redirect-url>
@@ -38,11 +39,11 @@
                     </div>
                     <div class="pd-w">
                         <ul class="item-lists minus pure-g">
-                            <li class="list-item pure-u-1-2">
+                            <li class="list-item pure-u-1-2" ng-repeat="upgradeProduct in upgradeProducts">
                                 <div class="item-box margin border radius small"
                                      ng-class="{true:'active',false:'disabled'}[!!upgradeStatus.result]"
-                                     ng-click="setProduct($event,id)">
-                                    预存￥200升级无限流量套餐
+                                     ng-click="setProduct($event,upgradeProduct)">
+                                    <span ng-bind="upgradeProduct.name"></span>
                                     <ins><img src="/images/phoneCard/recharge/flag.png"></ins>
                                 </div>
                                 <p class="tips" ng-bind="upgradeProduct.remark"></p>
@@ -66,7 +67,8 @@
 
             </div>
 
-            <div ng-if="mifis.length > 0 && !!upgradeStatus.result" style="overflow: hidden;background: #fff;padding-bottom: 0.05rem">
+            <div ng-if="mifis.length > 0 && !!upgradeStatus.result"
+                 style="overflow: hidden;background: #fff;">
                 <div class="weui-cells__tips" style="font-size: 0.14rem">
                     <p>升级附送2张副卡(无费用，与主卡共享省内无限流量)，配合随身Wifi，可与家人朋友齐分享。</p>
                 </div>
@@ -92,7 +94,13 @@
                 </div>
             </div>
 
-            <div style="font-size:0.12rem" ng-if="!!upgradeStatus.result">
+            <div class="upgrade-address" ng-show="!!upgradeStatus.result">
+                <div class="checklist">
+                    是否沿用以前地址？<span class="weui-icon-success" ng-class="{true:'ok',false:''}[adrHistory]"
+                                   ng-click="setAdrType($event,true)"></span>是 <span
+                        class="weui-icon-success" ng-class="{true:'ok',false:''}[!adrHistory]"
+                        ng-click="setAdrType($event,false);"></span>否
+                </div>
                 <gds></gds>
             </div>
 
@@ -108,6 +116,8 @@
                 </div>
             </div>
 
+            <auto-number></auto-number>
+
             <div class="txt-list tips">
                 <p>1)翼分期商城老客户【注：限套餐原值174元(含)以上】都可以预存200元自助升级为广东省内不限流量。</p>
                 <p>2)预存金支付之后2个工作日 内套餐完成升级，完工后省内无限流量包即时生效。</p>
@@ -122,6 +132,22 @@
 
             <div class="weui-footer">
                 <p class="weui-footer__text">本活动最终解释权归翼分期商城所有</p>
+            </div>
+        </div>
+        <div id="spcNav" class="footer-nav nav-list" style="padding-left:0 !important;">
+            <div class="pure-g">
+                <div class="nav-price nav-item pure-u-3-5" style="display: inline-block;line-height: 0.48rem">
+                    <span style="font-size: 0.16rem">实付款：</span><em style="font-size: 0.2rem">￥</em><em
+                        style="font-size: 0.2rem" ng-bind="totalPrice"></em>
+                </div>
+                <div class="nav-button nav-item pure-u-2-5">
+                    <a id="footerPayButton" has-hash="false"
+                       href="javascript:userTrack('submitForm');"
+                       ng-class="{true:'',false:'disabled'}[upgradeStatus.result === true]"
+                       ng-click="submitForm($event);">
+                        <span>提交订单</span>
+                    </a>
+                </div>
             </div>
         </div>
     </form>

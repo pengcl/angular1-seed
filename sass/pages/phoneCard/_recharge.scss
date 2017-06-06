@@ -116,6 +116,43 @@
       }
     }
   }
+  .checklist {
+    font-size: 0.14rem;
+
+    text-align: left;
+    .weui-icon-success {
+      &:before {
+        color: #cccccc;
+        margin-left: 0;
+      }
+      &.ok {
+        &:before {
+          color: #d63176;
+        }
+      }
+
+    }
+    .weui-icon-success {
+      &:before {
+        font-size: 0.16rem;
+      }
+    }
+  }
+  .upgrade-address {
+    padding: 0.15rem;
+    font-size: 0.12rem;
+    background: #fff;
+    .adr-content {
+      margin-top: 0.15rem;
+      .weui-panel {
+        a.weui-media-box {
+          color: #999;
+          background: #eee;
+          padding: 0.1rem;
+        }
+      }
+    }
+  }
 }
 
 .overlay.recharge-overlay {
@@ -136,7 +173,7 @@
     overflow-y: auto;
     overflow-x: hidden;
     background: #ff4800;
-    padding-top:0.3rem;
+    padding-top: 0.3rem;
     img {
       margin-bottom: 0.2rem;
     }

@@ -23,6 +23,12 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
         $scope.callbackUrl = "#";
     }
 
+    $scope.getContact = function () {
+        getMeiqia();
+        _MEIQIA('showPanel');
+        //writebdLog($scope.category, "_CustConsult", "渠道号", $scope.gh);//客服咨询
+    };
+
     $http.jsonp(cfApi.apiHost + '/product/getProList.html?activeTag=jjk&s=wap&callback=JSON_CALLBACK').success(function (data, status, headers, config) {
         $scope.singlePhones = data;
     }).error(function (data, status, headers, config) {
