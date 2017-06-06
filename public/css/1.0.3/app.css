@@ -12609,7 +12609,7 @@ div.module-tips {
 }
 /* line 129, ../../../sass/pages/phoneCard/_recharge.scss */
 .pcd-recharge-a .checklist .weui-icon-success.ok:before {
-  color: #d63176;
+  color: #09bb07;
 }
 /* line 136, ../../../sass/pages/phoneCard/_recharge.scss */
 .pcd-recharge-a .checklist .weui-icon-success:before {
@@ -12631,19 +12631,46 @@ div.module-tips {
   background: #eee;
   padding: 0.1rem;
 }
+/* line 157, ../../../sass/pages/phoneCard/_recharge.scss */
+.pcd-recharge-a #phoneRecharge .tips {
+  font-size: 0.12rem;
+  color: #999;
+}
+/* line 160, ../../../sass/pages/phoneCard/_recharge.scss */
+.pcd-recharge-a #phoneRecharge .tips a {
+  color: #09bb07;
+  float: right;
+}
+/* line 166, ../../../sass/pages/phoneCard/_recharge.scss */
+.pcd-recharge-a .nav-button {
+  background: #fff !important;
+}
+/* line 168, ../../../sass/pages/phoneCard/_recharge.scss */
+.pcd-recharge-a .nav-button #footerPayButton {
+  background: #09bb07 !important;
+}
+/* line 170, ../../../sass/pages/phoneCard/_recharge.scss */
+.pcd-recharge-a .nav-button #footerPayButton.disabled {
+  background: #999 !important;
+}
+/* line 175, ../../../sass/pages/phoneCard/_recharge.scss */
+.pcd-recharge-a .d-mifis .weui-cell.curr .weui-cell__hd i:before {
+  border: 2px solid #09bb07;
+  background: #09bb07;
+}
 
-/* line 158, ../../../sass/pages/phoneCard/_recharge.scss */
+/* line 181, ../../../sass/pages/phoneCard/_recharge.scss */
 .overlay.recharge-overlay {
   background: none;
 }
-/* line 160, ../../../sass/pages/phoneCard/_recharge.scss */
+/* line 183, ../../../sass/pages/phoneCard/_recharge.scss */
 .overlay.recharge-overlay .title-404 {
   position: absolute;
   z-index: 1;
   top: 5%;
   width: 100%;
 }
-/* line 166, ../../../sass/pages/phoneCard/_recharge.scss */
+/* line 189, ../../../sass/pages/phoneCard/_recharge.scss */
 .overlay.recharge-overlay .tips-box {
   position: absolute;
   top: 15%;
@@ -12658,11 +12685,11 @@ div.module-tips {
   background: #ff4800;
   padding-top: 0.3rem;
 }
-/* line 177, ../../../sass/pages/phoneCard/_recharge.scss */
+/* line 200, ../../../sass/pages/phoneCard/_recharge.scss */
 .overlay.recharge-overlay .tips-box img {
   margin-bottom: 0.2rem;
 }
-/* line 182, ../../../sass/pages/phoneCard/_recharge.scss */
+/* line 205, ../../../sass/pages/phoneCard/_recharge.scss */
 .overlay.recharge-overlay .overlay-dismiss span {
   color: #fff;
 }
