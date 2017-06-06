@@ -127,7 +127,7 @@
       }
       &.ok {
         &:before {
-          color: #d63176;
+          color: #09bb07;
         }
       }
 
@@ -152,6 +152,29 @@
         }
       }
     }
+  }
+  #phoneRecharge {
+    .tips {
+      font-size: 0.12rem;
+      color: #999;
+      a {
+        color: #09bb07;
+        float: right;
+      }
+    }
+  }
+  .nav-button {
+    background: #fff !important;
+    #footerPayButton {
+      background: #09bb07 !important;
+      &.disabled {
+        background: #999 !important;
+      }
+    }
+  }
+  .d-mifis .weui-cell.curr .weui-cell__hd i:before {
+    border: 2px solid #09bb07;
+    background: #09bb07;
   }
 }
 

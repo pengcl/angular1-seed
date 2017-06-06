@@ -10,7 +10,7 @@
         <gh></gh>
         <activity></activity>
         <redirect-url></redirect-url>
-        <div class="content-scrollable">
+        <div class="content-scrollable has-footer">
             <div id="rechargePhone">
                 <div class="weui-cells weui-cells_form">
                     <div class="weui-cell"
@@ -63,8 +63,11 @@
                             </li>
                         </ul>
                     </div>-->
+                    <div class="tips pd-w">
+                        为了充分利用无限流量的优惠，与亲朋好友们共享福利，您可以选择优惠订购：
+                        <a href="javascript:;" class="js-action-sheet-show">查看设备></a>
+                    </div>
                 </div>
-
             </div>
 
             <div ng-if="mifis.length > 0 && !!upgradeStatus.result"
@@ -145,10 +148,24 @@
                        href="javascript:userTrack('submitForm');"
                        ng-class="{true:'',false:'disabled'}[upgradeStatus.result === true]"
                        ng-click="submitForm($event);">
-                        <span>提交订单</span>
+                        <span>立即升级</span>
                     </a>
                 </div>
             </div>
         </div>
     </form>
+</div>
+
+<div class="zf_panel">
+    <div class="weui-mask" id="iosMask" style="display: none;"></div>
+    <div class="weui-actionsheet" id="iosActionsheet">
+        <div class="weui-actionsheet__title">
+            <p class="weui-actionsheet__title-text">产品介绍</p><span class="close js-action-sheet-hide icon-close"></span>
+        </div>
+        <div class="weui-actionsheet__menu">
+            <div class="img-box" style="margin-bottom: 0.45rem">
+                <img src="/images/flow/flowcard/v5/zf.jpg"/>
+            </div>
+        </div>
+    </div>
 </div>
