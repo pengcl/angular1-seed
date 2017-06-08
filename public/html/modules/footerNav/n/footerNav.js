@@ -11,9 +11,9 @@ app.directive("nFooterNav", ['$http', '$location', function ($http, $location) {
 
             //console.log($location.search().duplicateNum);
             if ($location.search().duplicateNum) {
-                if(Array.isArray($location.search().duplicateNum)){
+                if (Array.isArray($location.search().duplicateNum)) {
                     scope.dialog.open("系统提示", "您选择的号码：" + $location.search().duplicateNum[0] + "已被购买，请重新选择");
-                }else {
+                } else {
                     scope.dialog.open("系统提示", "您选择的号码：" + $location.search().duplicateNum + "已被购买，请重新选择");
                 }
             }
@@ -34,10 +34,10 @@ app.directive("nFooterNav", ['$http', '$location', function ($http, $location) {
                     // if ($("#payType").val() == 2) {
                     //      scope.showOverLay("payTipsPanel");
                     // } else {
-                        writebdLog(scope.category, "_BuyNow", "渠道号", scope.gh);//立即支付
-                        scope.$root.toast.open();
-                        
-                        $form.submit();
+                    writebdLog(scope.category, "_BuyNow", "渠道号", scope.gh);//立即支付
+                    scope.$root.toast.open();
+
+                    $form.submit();
                     // }
                 } else {
                     $scrollTo = $('#receiverAddress');
@@ -54,6 +54,7 @@ app.directive("nFooterNav", ['$http', '$location', function ($http, $location) {
                 if ($this.hasClass("disabled")) {
                     return false;
                 }
+
                 if (scope.buyType == 1) {
                     if (attrs.checkMainNumber) {
                         if (attrs.checkSubNumber) {
@@ -76,6 +77,8 @@ app.directive("nFooterNav", ['$http', '$location', function ($http, $location) {
                                 if (scope.checkMainNumber()) {
                                     if (scope.checkSimType()) {
                                         if (scope.checkAddress()) {
+                                            console.log(scope.checkAddress());
+                                            //console.log(scope.buyType, attrs.checkMainNumber,attrs.checkSimType);
                                             scope.checkForm();
                                         } else {
                                             var $scrollTo = $('#receiverAddress');

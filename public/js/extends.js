@@ -175,7 +175,6 @@ function operation() {
     this.writeOperation = function () {
         var flag = false;
         var info = "flow=" + loc + "&operation=" + map.get('operation');
-        console.log(map.get('operation'));
         info = info.replace("?", "&");//将链接里的？字符转换为&，可以让后台获取
         var url = cfApi.apiHost + "/record/writeLog.html?" + info + "&s=wap";
         $.ajax({

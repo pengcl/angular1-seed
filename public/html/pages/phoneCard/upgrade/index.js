@@ -66,6 +66,12 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
 
     $scope.adrHistory = true;
 
+    $scope.tipsMore = false;
+
+    $scope.setTipsShow = function (type) {
+        $scope.tipsMore = type;
+    };
+
     $scope.setAdrType = function (e, type) {
         $scope.adrHistory = type;
         if (type) {
@@ -102,22 +108,24 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
     };
 
     $scope.$watch('upgradeStatus', function (n, o, $scope) {
-        if (n !== o, n !== undefined) {
-            $http.jsonp(cfApi.apiHost + "/product/getViewProductList.html?productId=" + n.productId + "&s=wap&callback=JSON_CALLBACK").success(function (data) {
-                var mifis = [];
-                $.each(data, function (i, k) {
-                    mifis.push({
-                        productId: k.productId,
-                        productName: k.productName,
-                        oldPrice: k.oldPrice,
-                        salePrice: k.salePrice,
-                        selected: false
+        if (n !== o && n !== undefined) {
+            if (n.result) {
+                $http.jsonp(cfApi.apiHost + "/product/getViewProductList.html?productId=" + n.productId + "&s=wap&callback=JSON_CALLBACK").success(function (data) {
+                    var mifis = [];
+                    $.each(data, function (i, k) {
+                        mifis.push({
+                            productId: k.productId,
+                            productName: k.productName,
+                            oldPrice: k.oldPrice,
+                            salePrice: k.salePrice,
+                            selected: false
+                        });
                     });
+
+                    $scope.mifis = mifis;
+
                 });
-
-                $scope.mifis = mifis;
-
-            });
+            }
         }
     }, $scope);
 
@@ -171,7 +179,7 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
 
         $scope.$root.toast.open();
 
-        var subUrl = cfApi.apiHost + "/product/upgradeMobile.html?additionalId=" + $scope.selectedMifis + "&upgradeNum=" + $scope.iccid + "&recieverName=" + $scope.receiver.name + "&recieverMobile=" + $scope.receiver.mobile + "&recieverAddress=" + $scope.receiver.city + $scope.receiver.room + "&productId=437&s=wap&callback=JSON_CALLBACK";
+        var subUrl = cfApi.apiHost + "/product/upgradeMobile.html?additionalId=" + $scope.selectedMifis + "&upgradeNum=" + $scope.iccid + "&recieverName=" + $scope.receiver.name + "&recieverMobile=" + $scope.receiver.mobile + "&recieverAddress=" + encodeURI($scope.receiver.city + $scope.receiver.room) + "&productId=437&s=wap&callback=JSON_CALLBACK";
 
         $http.jsonp(subUrl).success(function (data) {
             if (data.result) {
@@ -179,6 +187,9 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
                 console.log();
                 window.location.href = data.payUrl;
                 writebdLog($scope.category, "_BuyNow", "渠道号", $scope.gh);//立即支付
+            } else {
+                $scope.$root.toast.close();
+                $scope.$root.dialog.open('系统提示', data.msg);
             }
         });
 

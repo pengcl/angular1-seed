@@ -115,7 +115,6 @@ function operation() {
     this.writeOperation = function () {
         var flag = false;
         var info = "flow=" + loc + "&operation=" + map.get('operation');
-        console.log(map.get('operation'));
         var url = cfApi.apiHost + "/record/writeLog.html?" + info + "&s=wap";
         $.ajax({
             type: "get",

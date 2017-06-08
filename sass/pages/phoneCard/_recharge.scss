@@ -11,6 +11,9 @@
         padding-bottom: 0;
         .weui-input {
           font-size: 0.24rem;
+          @include input-placeholder {
+            color: #999;
+          }
         }
         .weui-cell__ft {
           i {

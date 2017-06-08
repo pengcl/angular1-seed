@@ -1,3 +1,4 @@
+/*
 "use strict";
 
 app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $locationProvider) {
@@ -56,4 +57,4 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
         }
     });
     androidInputBugFix();
-}]);
+}]);*/

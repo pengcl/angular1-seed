@@ -36,16 +36,16 @@
         <div class="weui-cell input-name" ng-class="{'weui-cell_warn':checkoutForm.reciverName.$dirty== true && checkoutForm.reciverName.$valid == false,'weui-cell_success':checkoutForm.reciverName.$valid == true}">
             <div class="weui-cell__hd"><label class="weui-label">收货人：</label></div>
             <div class="weui-cell__bd weui_cell_primary">
-                <input type="text" id="reciverName" name="reciverName" ng-model="receiver.name" class="weui-input" placeholder="请填写收件人姓名..." ng-required/>
-                <input style="display: none" type="text" id="recieverName" name="recieverName" ng-model="receiver.name" class="weui-input" ng-required/>
+                <input type="text" id="reciverName" name="reciverName" ng-model="receiver.name" class="weui-input" placeholder="请填写收件人姓名..." required/>
+                <input style="display: none" type="text" id="recieverName" name="recieverName" ng-model="receiver.name" class="weui-input" required/>
             </div>
             <div class="weui-cell__ft"><i class="weui-icon-warn"></i><i class="weui-icon-success"></i></div>
         </div>
         <div class="weui-cell input-mobile" ng-class="{'weui-cell_warn':checkoutForm.receiverMobile.$dirty== true && checkoutForm.receiverMobile.$valid == false,'weui-cell_success':checkoutForm.receiverMobile.$valid == true}">
             <div class="weui-cell__hd"><label class="weui-label">联系方式：</label></div>
             <div class="weui-cell__bd weui_cell_primary">
-                <input id="receiverMobile" name="receiverMobile" ng-model="receiver.mobile" ng-maxlength="11" ng-pattern="/^[0-9]*$/" pattern="[0-9]*" ng-minlength="11" placeholder="请填写手机号码..." class="weui-input" ng-required/>
-                <input style="display: none;" id="recieverMobile" name="recieverMobile" ng-model="receiver.mobile" ng-maxlength="11" ng-pattern="/^[0-9]*$/" pattern="[0-9]*" ng-minlength="11" class="weui-input" ng-required/>
+                <input id="receiverMobile" name="receiverMobile" ng-model="receiver.mobile" ng-maxlength="11" ng-pattern="/^[0-9]*$/" pattern="[0-9]*" ng-minlength="11" placeholder="请填写手机号码..." class="weui-input" required/>
+                <input style="display: none;" id="recieverMobile" name="recieverMobile" ng-model="receiver.mobile" ng-maxlength="11" ng-pattern="/^[0-9]*$/" pattern="[0-9]*" ng-minlength="11" class="weui-input" required/>
             </div>
             <div class="weui-cell__ft"><i class="weui-icon-warn"></i><i class="weui-icon-success"></i></div>
         </div>
@@ -53,7 +53,7 @@
         <div class="weui-cell weui-cell_vcode input-vcode" ng-show="checkoutForm.receiverMobile.$valid == true" ng-class="{'weui-cell_warn':checkoutForm.activeCode.$dirty== true && checkoutForm.activeCode.$valid == false,'weui-cell_success':checkoutForm.activeCode.$valid == true}">
             <div class="weui-cell__hd"><label class="weui-label">验证码：</label></div>
             <div class="weui-cell__bd weui_cell_primary">
-                <input id="activeCode" name="activeCode" ng-blur="inputHomeCode()" ng-model="activeCode" ng-maxlength="4" ng-pattern="/^[0-9]*$/" pattern="[0-9]*" ng-minlength="4" placeholder="请输入验证码..." class="weui-input" ng-required/>
+                <input id="activeCode" name="activeCode" ng-blur="inputHomeCode()" ng-model="activeCode" ng-maxlength="4" ng-pattern="/^[0-9]*$/" pattern="[0-9]*" ng-minlength="4" placeholder="请输入验证码..." class="weui-input" required/>
             </div>
             <div class="weui-cell__ft"><a has-hash="false" href="javascript:userTrack('getActiveCode');" class="weui-vcode-btn" ng-click="getActiveCode(receiver.mobile,$event)" ng-class="paraclass" ng-bind="paracont">获取验证码</a></div>
         </div>
@@ -65,7 +65,7 @@
                     <div id="store-text" class="text" data-value="">
                         <div ng-if="receiver.city !=''"><span ng-bind="receiver.city"></span></div>
                         <div ng-if="receiver.city ==''"><span>请选择收件区域</span></div>
-                        <input type="hidden" value="{{receiver.city}}" ng-model="receiver.city" name="receiverCity" id="receiverCity" class="weui-input" ng-required/>
+                        <input type="hidden" value="{{receiver.city}}" ng-model="receiver.city" name="receiverCity" id="receiverCity" class="weui-input" required/>
                         <b></b>
                     </div>
                 </div>
@@ -76,7 +76,7 @@
         <div class="weui-cell input-room" ng-class="{'weui-cell_warn':checkoutForm.receiverRoom.$dirty== true && checkoutForm.receiverRoom.$valid == false,'weui-cell_success':checkoutForm.receiverRoom.$valid == true}">
             <div class="weui-cell__hd"><label class="weui-label">详细地址：</label></div>
             <div class="weui-cell__bd weui-cell__primary">
-                <input type="text" id="receiverRoom" placeholder="请填写完整街道和门牌号..." ng-blur="inputAddress(receiver.room)" ng-model="receiver.room" name="receiverRoom" class="weui-input" ng-required/>
+                <input type="text" id="receiverRoom" placeholder="请填写完整街道和门牌号..." ng-blur="inputAddress(receiver.room)" ng-model="receiver.room" name="receiverRoom" class="weui-input" required/>
             </div>
             <div class="weui-cell__ft"><i class="weui-icon-warn"></i><i class="weui-icon-success"></i></div>
         </div>
