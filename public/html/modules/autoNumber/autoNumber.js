@@ -8,10 +8,9 @@ app.directive("autoNumber", ["$cookieStore", '$http', function ($cookieStore, $h
 
             scope.rechs = function (index, len) {
                 var randIndex = parseInt(Math.random() * len);
-                if (randIndex !== index) {
+                if (randIndex !== index && randIndex + 1 !== index) {
                     return randIndex;
                 } else {
-                    console.log(index, len);
                     return rechs(index, len);
                 }
             };
@@ -34,14 +33,11 @@ app.directive("autoNumber", ["$cookieStore", '$http', function ($cookieStore, $h
                 });
 
                 scope.$watch('_mainNumber', function (n, o, scope) {
-                    if (n !== o && n !== undefined) {
-                        var index1 = scope.rechs(getIndex(inputData1, 'n', n), inputData1.length - 2);
-                        var index2 = index1 + 1;
-                        scope.subNumber = inputData1[index1].n;
-                        scope.thirdNumber = inputData1[index2].n;
-
-                        console.log(scope.subNumber, scope.thirdNumber);
-                    }
+                    var index1 = scope.rechs(getIndex(inputData1, 'n', n), inputData1.length - 2);
+                    var index2 = index1 + 1;
+                    scope.subNumber = inputData1[index1].n;
+                    scope.thirdNumber = inputData1[index2].n;
+                    //console.log(scope.subNumber, scope.thirdNumber);
                 })
             });
         }

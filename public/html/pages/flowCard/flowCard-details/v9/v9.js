@@ -3,17 +3,19 @@
 app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $locationProvider) {
     // 设定路由
     $stateProvider
-        .state('flowCardV6', { //app首页
-            url: "/fd/v6/:productId",
-            templateUrl: "pages/flowCard/flowCard-details/v6/v6.html",
-            controller: "flowCardV6Controller"
+        .state('flowCardV9', { //app首页
+            url: "/fd/v9/:productId",
+            templateUrl: "pages/flowCard/flowCard-details/v9/v9.html",
+            controller: "flowCardV9Controller"
         })
-}]).controller('flowCardV6Controller', ['$scope', '$rootScope', '$stateParams', '$location', '$http', function ($scope, $rootScope, $stateParams, $location, $http) {
+}]).controller('flowCardV9Controller', ['$scope', '$rootScope', '$stateParams', '$location', '$http', 'UserAgentSvc', function ($scope, $rootScope, $stateParams, $location, $http, UserAgentSvc) {
 
-    $scope.activeTag = "129wxll";
-    $scope.pageType = 'B';
-    $scope.category = systemName + "_129wxll_" + $scope.pageType;
+    $scope.activeTag = "mifitc";
+    $scope.pageType = 'E';
+    $scope.category = systemName + "_mifitc_" + $scope.pageType;
     writebdLog($scope.category, "_Load", "渠道号", $scope.gh);
+
+    $scope.isWx = UserAgentSvc.isWx;
 
     $scope.path = $location.path();
 
@@ -36,10 +38,10 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
         $scope.totalPrice = parseInt($scope.product.packageProductList[0].salesPrice);
 
         $scope.$root.share = {
-            homeLink: 'http://app.yfq.cn/fd/v6/' + $stateParams.productId + window.location.search,
-            shareTitle: '您有一张无限流量卡可以领取，今日办理，仅需99元！',
-            shareDisc: '套餐包含：广东省内无限流量，全国3.5GB，全国通话900分钟！今日限100张！',
-            picUrl: 'http://app.yfq.cn/images/flow/flowcard/v6/nativeShare.jpg'
+            homeLink: 'http://app.yfq.cn/fd/v9/' + $stateParams.productId + window.location.search,
+            shareTitle: '全国199元不限流量套餐，今日办理，送随身WIFI！',
+            shareDisc: '无需换号，全国随意用！3000分钟国内通话，今日限100张！',
+            picUrl: 'http://app.yfq.cn/images/flow/flowcard/v9/nativeShare.jpg'
         };
 
     }).error(function (data, status, headers, config) {
@@ -124,12 +126,7 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
         });
 
         $scope.inputData = _data;
-        if (_data.length < 6) {
-            $scope.inputData = inputData1;
-        }
         $scope.inputData1 = inputData1;
-
-        //console.log($scope.inputData.length, $scope.inputData1.length);
     });
 
     $scope.setItem = function (e, index, item) {
@@ -168,7 +165,7 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
             $scope.goTo('#mainNumberArea');
             return false;
         }
-        if (!$scope.autoSelect) {
+        /*if (!$scope.autoSelect) {
             if (!$scope.checkoutForm.subNumber.$valid) {
                 $scope.subNumberWarn = true;
                 $scope.goTo('#subNumberArea');
@@ -179,7 +176,7 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
                 $scope.goTo('#thirdNumberArea');
                 return false;
             }
-        }
+        }*/
         if (!$scope.checkAddress()) {
             $scope.goTo('#receiverAddress');
             return false;
@@ -193,7 +190,7 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
         $scope.$root.toast.open();
         $http.jsonp(url).success(function (data, status, headers, config) {//查看号码是否被选
             if (data.tempIndexs.length === 0) {//查看号码是否被选
-                $http.jsonp(cfApi.apiHost + '/product/checkOrderCount.html?receiverMobile=' + $scope.checkoutForm.receiverMobile.$modelValue + '&productId=' + $scope.packageItem.productId + '&category=' + $scope.category + '&s=wap&time=' + new Date().getTime() + '&callback=JSON_CALLBACK').success(function (data, status, headers, config) {//查看是否下过单
+                $http.jsonp(cfApi.apiHost + '/product/checkOrderCount.html?receiverMobile=' + $scope.checkoutForm.receiverMobile.$modelValue + '&productId=' + $scope.packageItem.productId + '&s=wap&time=' + new Date().getTime() + '&callback=JSON_CALLBACK').success(function (data, status, headers, config) {//查看是否下过单
 
                     if (data.result) {
                         $form.submit();
@@ -207,7 +204,7 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
             } else {
                 $scope.$root.toast.close();
                 var html = "您选择的";
-                /*for (var i = 0; i < data.tempIndexs.length; i++) {
+                for (var i = 0; i < data.tempIndexs.length; i++) {
                     if (data.tempIndexs[i] === 0) {
                         html = html + "主卡电话号码：" + $scope.selectedData.mainNumber.n + "、";
                         $scope.mainNumberWarn = true;
@@ -223,7 +220,7 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
                         $scope.thirdNumberWarn = true;
                         $scope.selectedData.thirdNumber = "";
                     }
-                }*/
+                }
                 html = html + "已被选择，请重新选号！";
                 $scope.dialog.open("系统提示", html);
             }
@@ -273,6 +270,8 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
                 $scope._mainNumber = n.number;
                 $scope.mainPanel = false;
                 $scope.mainNumberWarn = false;
+
+                console.log(n);
 
                 if ($scope.inputData1.indexOf(n.number) != -1) {
                     $scope.inputData1 = $scope.inputData1.slice(0, $scope.inputData1.indexOf(n.number)).concat($scope.inputData1.slice($scope.inputData1.indexOf(n.number) + 1));

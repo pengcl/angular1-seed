@@ -1,3 +1,4 @@
+/*
 "use strict";
 
 app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $locationProvider) {
@@ -108,4 +109,4 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
         writebdLog($scope.category, "_" + name, "渠道号", $scope.gh);//记录点击事件
     };
 
-}]);
+}]);*/

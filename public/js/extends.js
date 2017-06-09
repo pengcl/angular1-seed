@@ -349,6 +349,7 @@ $(function(){
     }
 
     function showActionSheet() {
+        console.log("1");
         $iosActionsheet.addClass('weui-actionsheet_toggle');
         $iosMask.fadeIn(200);
     }
