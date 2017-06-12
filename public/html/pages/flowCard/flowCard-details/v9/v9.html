@@ -16,7 +16,7 @@
         <pt></pt>
         <activity></activity>
         <redirect-url></redirect-url>
-        <div class="content-scrollable">
+        <div class="content-scrollable has-footer">
             <div class="banner-image" style="background: #d92842">
                 <img id="banner-bg" src="/images/flow/flowcard/v9/banner.png"/>
             </div>
@@ -173,7 +173,7 @@
                     <div class="pay-content" style="font-size: 0.12rem">
                         <div class="weui-cells__title title-icon">
                             <span class="title">支付方式</span>
-                            <span class="right-title" style="float: right;color: #d63176;"><span
+                            <span class="right-title" style="float: right;color: #d92842;"><span
                                     ng-if="payType === 1">货到付款</span><span ng-if="payType === 0">在线支付</span></span>
                         </div>
 
@@ -449,16 +449,13 @@
         </div>
         <a class="nav-contact" ng-click="getContact()" has-hash="false" href="javascript:userTrack('contact');"><span
                 class="icon-comment"></span><span style="font-size: 0.14rem">客服</span></a>
-        <!--<div class="footer-nav nav-list" style="padding: 0">
+        <div class="footer-nav nav-list" style="padding: 0">
             <div class="pure-g">
-                &lt;!&ndash;<div class="nav-price nav-item pure-u-1-2">
-                    <a href="javascript:;" ng-click="getContact();">在线咨询</a>
-                </div>&ndash;&gt;
                 <div class="nav-button nav-item pure-u-1-1" style="background: #fea501">
-                    <a href="javascript:;" ng-click="submitForm($event,'BuyNowTwo');">￥9.9淘靓号 立即下单</a>
+                    <a href="javascript:;" ng-click="submitForm($event,'BuyNowTwo');">立即下单</a>
                 </div>
             </div>
-        </div>-->
+        </div>
     </form>
 </div>
 

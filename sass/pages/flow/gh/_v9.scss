@@ -51,5 +51,24 @@
         color: #666;
       }
     }
+    .item-box.curr {
+      color: #d92842;
+      .icon-check {
+        border-right: 0.4rem solid #d92842;
+      }
+    }
+    .item-box.curr.border {
+      border:1px solid #d92842;
+    }
+    .title-icon::before {
+      background: #d92842;
+    }
+    .pay-content .pay-content .price em {
+      color: #d92842;
+    }
+    .nav-contact {
+      background: #d92842;
+      color: #fff;
+    }
   }
 }
