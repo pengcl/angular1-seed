@@ -1,4 +1,3 @@
-/*
 "use strict";
 
 app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $locationProvider) {
@@ -11,10 +10,12 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
         })
 }]).controller('flowCardV6Controller', ['$scope', '$rootScope', '$stateParams', '$location', '$http', function ($scope, $rootScope, $stateParams, $location, $http) {
 
-    $scope.activeTag = "99wxll";
+    $scope.activeTag = "129wxll";
     $scope.pageType = 'B';
-    $scope.category = systemName + "_99wxll_" + $scope.pageType;
+    $scope.category = systemName + "_129wxll_" + $scope.pageType;
     writebdLog($scope.category, "_Load", "渠道号", $scope.gh);
+
+    $scope.path = $location.path();
 
     $http.jsonp(cfApi.apiHost + "/product/getProDetial.html?productId=" + $stateParams.productId + "&activeTag=mifitc&s=wap&callback=JSON_CALLBACK").success(function (data, status, headers, config) {
         $scope.product = data;
@@ -47,7 +48,7 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
     });
 
     var payTypeAry = ['payAll', 'payCOD', 'payMonthly'];
-    $scope.payType = 1;
+    $scope.payType = 0;
     $scope.setPayType = function (e, type) {
         $scope.payType = type;
         writebdLog($scope.category, "_" + payTypeAry[type], "渠道号", $scope.gh);//选择支付方式
@@ -123,7 +124,12 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
         });
 
         $scope.inputData = _data;
+        if (_data.length < 6) {
+            $scope.inputData = inputData1;
+        }
         $scope.inputData1 = inputData1;
+
+        //console.log($scope.inputData.length, $scope.inputData1.length);
     });
 
     $scope.setItem = function (e, index, item) {
@@ -182,7 +188,7 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
             $scope.goTo('#receiverAddress');
             return false;
         }
-        var url = cfApi.apiHost + "/product/checkPhoneState.html?number=[" + $scope.selectedData.mainNumber.n + "," + $scope.selectedData.subNumber.n + "," + $scope.selectedData.thirdNumber.n + "]&s=wap&callback=JSON_CALLBACK";
+        var url = cfApi.apiHost + "/product/checkPhoneState.html?number=[" + $scope.selectedData.mainNumber.n + "]&s=wap&callback=JSON_CALLBACK";
 
         $scope.$root.toast.open();
         $http.jsonp(url).success(function (data, status, headers, config) {//查看号码是否被选
@@ -201,7 +207,7 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
             } else {
                 $scope.$root.toast.close();
                 var html = "您选择的";
-                for (var i = 0; i < data.tempIndexs.length; i++) {
+                /*for (var i = 0; i < data.tempIndexs.length; i++) {
                     if (data.tempIndexs[i] === 0) {
                         html = html + "主卡电话号码：" + $scope.selectedData.mainNumber.n + "、";
                         $scope.mainNumberWarn = true;
@@ -217,7 +223,7 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
                         $scope.thirdNumberWarn = true;
                         $scope.selectedData.thirdNumber = "";
                     }
-                }
+                }*/
                 html = html + "已被选择，请重新选号！";
                 $scope.dialog.open("系统提示", html);
             }
@@ -264,6 +270,7 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
         if (n !== o && n !== undefined) {
             if (n.numberType === 'mainNumber') {
                 $scope.selectedData.mainNumber = n.number;
+                $scope._mainNumber = n.number;
                 $scope.mainPanel = false;
                 $scope.mainNumberWarn = false;
 
@@ -292,4 +299,4 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
         }
     }, true);
 
-}]);*/
+}]);

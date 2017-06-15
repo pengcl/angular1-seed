@@ -20,7 +20,7 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
     if ($scope.pageType == 'pcdB') activeName = '_yucun_A';
     if ($scope.pageType == 'pcdC') activeName = '_yucun_B';
     if ($scope.pageType == 'pcdD') activeName = '_99wxll_A';
-    if ($scope.pageType == 'pcdE') activeName = '_99wxll_B';
+    if ($scope.pageType == 'pcdE') activeName = '_9.9indexE';
     $scope.category = systemName + activeName + "_FlowPackages";
 
     $scope.phoneQueryUrl = "http://" + $location.host() + $location.url();
@@ -105,6 +105,58 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
             picUrl: 'http://app.yfq.cn/spc/img/pcd/D/nativeShare.jpg'
         };
         $scope.activeTag = "99wxll";
+    }
+
+    if ($scope.pageType == 'pcdE') {
+        $scope.$root.share = {
+            homeLink: 'http://app.yfq.cn/spc/pcd/indexE.html' + window.location.search,
+            shareTitle: '您有一张无限流量卡可以领取，今日办理，仅需99元！',
+            shareDisc: '套餐包含：广东省内无限流量，全国3.5GB，全国通话900分钟！今日限100张！',
+            picUrl: 'http://app.yfq.cn/spc/img/pcd/D/nativeShare.jpg'
+        };
+        $scope.activeTag = "mysytce";
+        $scope.pkgs = [
+            {
+                "message": "50",
+                "network": "6",
+                "oldPrice": "199.00",
+                "productId": 439,
+                "productName": "5折预存102/月（3.5G流量900分钟通话）",
+                "salesPrice": "99.00",
+                "talkTime": "1000",
+                "pkgType": "dkyc50"
+            },
+            {
+                "message": "50",
+                "network": "7",
+                "oldPrice": "299.00",
+                "productId": 441,
+                "productName": "5折预存156/月（4.5G流量 1800分钟通话）",
+                "salesPrice": "156.00",
+                "talkTime": "1800",
+                "pkgType": "dkyc100"
+            },
+            {
+                "message": "50",
+                "network": "7",
+                "oldPrice": "259.00",
+                "productId": 440,
+                "productName": "155元/月(900分钟通话,4.5G流量,50短信)",
+                "salesPrice": "155.00",
+                "talkTime": "1000",
+                "pkgType": "dkyc100"
+            },
+            {
+                "message": "50",
+                "network": "2.5",
+                "oldPrice": "174.00",
+                "productId": 438,
+                "productName": "5折预存101/月（2.5G流量 850分钟）",
+                "salesPrice": "98.00",
+                "talkTime": "850",
+                "pkgType": "dkyc50"
+            }
+        ];
     }
 
     var pkgUrl;
@@ -259,16 +311,6 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
 
                 $scope.mifis = mifis;
             });
-        }
-    });
-
-    $scope.$watch('btnType', function (n, o, $scope) {
-        if (n !== o && n !== undefined) {
-            if (n) {
-                var $form = $("#checkoutForm");
-                $form.submit();
-                writebdLog($scope.category, "_" + "BuyNowThree", "渠道号", $scope.gh);//立即支付
-            }
         }
     });
 

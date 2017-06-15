@@ -11,6 +11,9 @@
         padding-bottom: 0;
         .weui-input {
           font-size: 0.24rem;
+          @include input-placeholder {
+            color: #999;
+          }
         }
         .weui-cell__ft {
           i {
@@ -99,8 +102,8 @@
     &.tips {
       p {
         font-size: 0.12rem;
-        margin-top: 0.05rem;
-        margin-bottom: 0.05rem;
+        margin-top: 0.1rem;
+        margin-bottom: 0.1rem;
         color: #2a3887;
       }
     }
@@ -113,6 +116,17 @@
       .icon-pin {
         font-size: 0.46rem;
         display: block;
+      }
+    }
+    .input-ok {
+      .weui-cell__hd {
+        display: none;
+      }
+      .weui-cell__bd {
+        a {
+          display: block;
+          text-align: center;
+        }
       }
     }
   }

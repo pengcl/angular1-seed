@@ -6,13 +6,13 @@
     <div class="content-tw" >
         <div class="card-content">
             <div class="title">
-                <p class="title-1">独家政策，优惠周期36个月</p>
+                <p class="title-1">独家政策，优惠周期<span ng-if="pageType=='pcdE'">24个月</span><span ng-if="pageType !='pcdE'">36个月</span>个月</p>
                 <p class="title-2">全国通用，接听免费，无漫游，号码归属地为广州</p>
             </div>
             <div class="pkg">
                 <div class="pkg-title">
                     <div>所选套餐:<span ng-bind="ssDd.salesPrice | number : 0" class="price"></span>元/月  运营商价:<span ng-bind="ssDd.oldPrice | number : 0" class="price"></span>元/月</div>
-                    <div><span ng-bind="ssDd.network"></span>G国内流量，<span ng-bind="ssDd.talkTime"></span>分钟国内通话，<span ng-bind="ssDd.message"></span>条短信</div>
+                    <div><span ng-bind="ssDd.network"></span>G国内流量，<span ng-bind="ssDd.talkTime"></span>分钟国内通话<span ng-if="pageType !== 'pcdE'">，<span ng-bind="ssDd.message"></span>条短信</span></div>
                 </div>
                 <div class="pkg-details">
                     <ul>
@@ -28,7 +28,7 @@
                         </div></li>
                         <li><div class="pure-g">
                             <div class="pure-u-1-4"><span class="star-color">*</span>优惠周期：</div>
-                            <div class="pure-u-3-4">优惠期3年，套餐优惠全国通用。</div>
+                            <div class="pure-u-3-4">优惠期<span ng-if="pageType=='pcdE'">2</span><span ng-if="pageType !='pcdE'">3</span>年，套餐优惠全国通用。</div>
                         </div></li>
                         <li><div class="pure-g">
                             <div class="pure-u-1-4"><span class="star-color">*</span>开通时间：</div>

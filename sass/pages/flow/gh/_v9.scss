@@ -1,0 +1,74 @@
+.page.fd-details {
+  &.v9 {
+    .content-scrollable {
+      background: #eee !important;
+    }
+    .timers {
+      background: #fff;
+      .timer-area {
+        position: static;
+      }
+      .btns-area {
+        position: static;
+      }
+    }
+    .timer-area {
+      .timer {
+        i {
+          width: 0.3rem !important;
+          height: 0.3rem !important;
+          background: #333 !important;
+          line-height: 0.3rem !important;
+        }
+        sub {
+          text-indent: -999rem;
+          overflow: hidden;
+          width: 1em;
+          height: 0.18rem;
+          position: relative;
+          &:before {
+            content: ":";
+            text-align: center;
+            display: block;
+            text-indent: 0;
+            position: absolute;
+            width: 1em;
+            height: 0.18rem;
+            line-height: 0.18rem;
+            left: 0;
+            top: 0;
+            font-size: 0.18rem;
+          }
+          &:last-child {
+            display: none !important;
+          }
+        }
+      }
+    }
+    .table {
+      @include border-radius(4px);
+      th, td {
+        color: #666;
+      }
+    }
+    .item-box.curr {
+      color: #d92842;
+      .icon-check {
+        border-right: 0.4rem solid #d92842;
+      }
+    }
+    .item-box.curr.border {
+      border:1px solid #d92842;
+    }
+    .title-icon::before {
+      background: #d92842;
+    }
+    .pay-content .pay-content .price em {
+      color: #d92842;
+    }
+    .nav-contact {
+      background: #d92842;
+      color: #fff;
+    }
+  }
+}
