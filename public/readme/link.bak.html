@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <base href="/"/>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title ng-bind="title"></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1"/>
+    <link href="http://cdn.bootcss.com/semantic-ui/2.2.10/semantic.min.css" rel="stylesheet">
+    <style>
+        <!--
+
+        /*******************************
+                 Sidebar Layout
+        *******************************/
+
+        #docPage > .pusher > .full.height {
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-flex-direction: row;
+            -ms-flex-direction: row;
+            flex-direction: row;
+        }
+
+        #docPage:not(.site) > .pusher > .full.height {
+            background-color: #FFFFFF;
+        }
+
+        /* page layout */
+        #docPage .full.height > .toc {
+            position: relative;
+            z-index: 1;
+            background-color: #1b1c1d;
+            width: 250px;
+            -webkit-box-flex: 0;
+            -webkit-flex: 0 0 auto;
+            -ms-flex: 0 0 auto;
+            flex: 0 0 auto;
+        }
+
+        #docPage .full.height > .toc .ui.menu {
+            border-radius: 0;
+            border-width: 0 1px 0 0;
+            box-shadow: none;
+            margin: 0;
+            width: inherit;
+            overflow: hidden;
+            will-change: transform;
+        }
+
+        #docPage .article {
+            -webkit-box-flex: 1;
+            -webkit-flex: 1 1 auto;
+            -ms-flex: 1 1 auto;
+            flex: 1 1 auto;
+            min-width: 0px;
+        }
+
+        #docPage.wide .main.container {
+            max-width: 1200px !important;
+        }
+
+        #docPage .main.container {
+            padding: 2em 0em 7em;
+            position: relative;
+        }
+        #docPage .wide.main.container {
+            width: 80%;
+            margin: 0 auto;
+            max-width: 1140px;
+        }
+
+        /* Defaults */
+        #docPage .masthead > .container,
+        #docPage .main.container,
+        #docPage .fixed.menu > .container {
+            margin-left: 3em !important;
+            margin-right: 3em !important;
+            width: auto !important;
+            max-width: 960px !important;
+        }
+        #docPage .masthead > .container {
+            margin-right: 387px !important;
+        }
+        #docPage .main.container {
+            margin-right: 387px !important;
+        }
+
+        /* Rail Default */
+        #docPage .main.container > .right.rail,
+        #docPage .main.container > .tab > .examples > .right.rail,
+        #docPage .main.container > .tab > .right.rail {
+            margin-left: 3em;
+            padding-top: 2em;
+            width: 319px;
+        }
+
+        #docPage .main.container:after {
+            content: '';
+            display: block;
+            height: 0px;
+            clear: both;
+            visibility: hidden;
+        }
+
+        #docPage .main.container > .tab {
+            position: relative;
+        }
+
+        #docPage .main.container a.anchor {
+            height: 1px;
+            position: absolute;
+            right: 100%;
+            top: -2.5em;
+            width: 1px;
+        }
+
+        -->
+    </style>
+</head>
+<body>
+<div id="docPage">
+    <div class="pusher">
+        <div class="full height">
+            <div class="toc">
+                <div class="ui vertical inverted sticky menu" style="">
+
+
+                    <div class="item">
+                        <a href="/"><b>UI Docs</b></a> - <b>v 1.03</b>
+                    </div>
+                    <div class="item">
+                        <a href="/"><b>WEB</b></a>
+                    </div>
+                    <div class="item">
+                        <div class="header">手机</div>
+                        <div class="menu">
+
+                            <a class="item" href="/introduction/integrations.html">裸机 </a>
+
+                            <a class="item" href="/introduction/build-tools.html">双机 </a>
+
+                            <a class="item" href="/introduction/advanced-usage.html">活动 </a>
+
+                            <a class="item" href="/introduction/glossary.html">机卡 </a>
+
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="header">电话卡</div>
+                        <div class="menu">
+
+                            <a class="item" href="/introduction/integrations.html">9.9元 </a>
+
+                            <a class="item" href="/introduction/build-tools.html">预存 </a>
+
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="header">流量卡</div>
+                        <div class="menu">
+
+                            <a class="item" href="/usage/theming.html">Theming </a>
+
+                            <a class="item" href="/usage/layout.html">Layouts </a>
+
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="header">会员中心</div>
+                        <div class="menu">
+
+                            <a class="item" href="/usage/theming.html">Theming </a>
+
+                            <a class="item" href="/usage/layout.html">Layouts </a>
+
+                        </div>
+                    </div>
+                    <div class="item">
+                        <a href="/"><b>PC</b></a>
+                    </div>
+
+                </div>
+            </div>
+            <div class="article">
+                <div class="ui masthead vertical segment">
+                    <div class="ui container">
+                        <div class="introduction">
+
+                            <h1 class="ui header">手机
+                                <!--<div class="sub header">A flag is is used to represent a political state</div>-->
+                            </h1>
+
+                        </div>
+
+                    </div>
+                </div>
+                <div class="main ui container">
+                    <div class="ui dividing right rail">
+                        <div class="ui sticky">
+                            <h4 class="ui header">Flag</h4>
+                            <div class="ui vertical following fluid accordion text menu"></div>
+                        </div>
+                    </div>
+                    <div class="ui active tab">
+                        <h2 class="ui dividing header">裸机</h2>
+
+                        <table class="ui selectable sortable compact celled striped definition table">
+                            <thead>
+                            <tr>
+                                <th class="one wide">状态</th>
+                                <th>项目名称</th>
+                                <th>版本号</th>
+                                <th>上线时间</th>
+                                <th>下线时间</th>
+                                <th>项目说明</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>上线</td>
+                                <td>WEP裸机-A</td>
+                                <td>1.0.0</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td class="disabled">-</td>
+                            </tr>
+                            </tbody>
+                        </table>
+
+
+                        <h2 class="ui dividing header">双机</h2>
+
+                        <table class="ui selectable sortable compact celled striped definition table">
+                            <thead>
+                            <tr>
+                                <th class="one wide">状态</th>
+                                <th>项目名称</th>
+                                <th>版本号</th>
+                                <th>上线时间</th>
+                                <th>下线时间</th>
+                                <th>项目说明</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>上线</td>
+                                <td>买一送一A</td>
+                                <td>1.0.0</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td class="disabled">-</td>
+                            </tr>
+                            </tbody>
+                        </table>
+
+                        <h2 class="ui dividing header">手机</h2>
+
+                        <table class="ui selectable sortable compact celled striped definition table">
+                            <thead>
+                            <tr>
+                                <th class="one wide">状态</th>
+                                <th>项目名称</th>
+                                <th>版本号</th>
+                                <th>上线时间</th>
+                                <th>下线时间</th>
+                                <th>项目说明</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>上线</td>
+                                <td>Andorra</td>
+                                <td>1.0.0</td>
+                                <td>ad</td>
+                                <td>ad</td>
+                                <td class="disabled"></td>
+                            </tr>
+                            </tbody>
+                        </table>
+
+                        <h2 class="ui dividing header">手机</h2>
+
+                        <table class="ui selectable sortable compact celled striped definition table">
+                            <thead>
+                            <tr>
+                                <th class="one wide">状态</th>
+                                <th>项目名称</th>
+                                <th>版本号</th>
+                                <th>上线时间</th>
+                                <th>下线时间</th>
+                                <th>项目说明</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>上线</td>
+                                <td>Andorra</td>
+                                <td>1.0.0</td>
+                                <td>ad</td>
+                                <td>ad</td>
+                                <td class="disabled"></td>
+                            </tr>
+                            </tbody>
+                        </table>
+
+                        <h2 class="ui dividing header">手机</h2>
+
+                        <table class="ui selectable sortable compact celled striped definition table">
+                            <thead>
+                            <tr>
+                                <th class="one wide">状态</th>
+                                <th>项目名称</th>
+                                <th>版本号</th>
+                                <th>上线时间</th>
+                                <th>下线时间</th>
+                                <th>项目说明</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>上线</td>
+                                <td>Andorra</td>
+                                <td>1.0.0</td>
+                                <td>ad</td>
+                                <td>ad</td>
+                                <td class="disabled"></td>
+                            </tr>
+                            </tbody>
+                        </table>
+
+                        <h2 class="ui dividing header">手机</h2>
+
+                        <table class="ui selectable sortable compact celled striped definition table">
+                            <thead>
+                            <tr>
+                                <th class="one wide">状态</th>
+                                <th>项目名称</th>
+                                <th>版本号</th>
+                                <th>上线时间</th>
+                                <th>下线时间</th>
+                                <th>项目说明</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>上线</td>
+                                <td>Andorra</td>
+                                <td>1.0.0</td>
+                                <td>ad</td>
+                                <td>ad</td>
+                                <td class="disabled"></td>
+                            </tr>
+                            </tbody>
+                        </table>
+
+                        <h2 class="ui dividing header">手机</h2>
+
+                        <table class="ui selectable sortable compact celled striped definition table">
+                            <thead>
+                            <tr>
+                                <th class="one wide">状态</th>
+                                <th>项目名称</th>
+                                <th>版本号</th>
+                                <th>上线时间</th>
+                                <th>下线时间</th>
+                                <th>项目说明</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>上线</td>
+                                <td>Andorra</td>
+                                <td>1.0.0</td>
+                                <td>ad</td>
+                                <td>ad</td>
+                                <td class="disabled"></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="http://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script src="http://cdn.bootcss.com/semantic-ui/2.2.10/semantic.min.js"></script>
+</body>
+</html>

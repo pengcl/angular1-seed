@@ -38,7 +38,7 @@
                 <p ng-if="payStatus == 3 || payStatus == 10">已提交银行审核，实际支付以银行扣款成功为准，我们将第一时间为您安排发货，请保持手机畅通</p>
                 <p ng-if="payStatus == 6">尊敬的客户，您的充值已成功！已成功享受新老用户充值话费优惠！话费将在24小时内到账，请留意相关短信提醒。如有疑问请关注“翼分期商城”公众号咨询，谢谢！</p>
                 <p ng-if="payStatus == 9">您的预约已成功，产品开售前，客户经理将会致电与您沟通，请留意020开头的电话来电</p>
-                <p ng-if="payStatus == 12 || payStatus == 14">请耐心等候，我们会有客服经理跟您联系，请保持您的电话畅通。</p>
+                <p ng-if="payStatus == 12 || payStatus == 14">请耐心等候，我们会尽快为您发货，请保持您的电话畅通。</p>
                 <p ng-if="payStatus == 15">此次省内无限流量升级，需要1-2天的时间进行审核，请您耐心等待。</p>
                 <a ng-if="payStatus != 6 && payStatus != 9 && payStatus != 15" href="http://m.yfq.cn/wap/customer/searchIndexA.html?s=wap" class="weui-btn">查看订单</a>
                 <a ng-if="payStatus == 15" href="javascript:;" ng-click="getContact()" class="weui-btn">客服咨询</a>

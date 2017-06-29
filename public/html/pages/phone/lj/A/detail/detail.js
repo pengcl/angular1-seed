@@ -95,7 +95,12 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
             homeLink: 'http://app.yfq.cn/phs/lj/A/' + $stateParams.phoneId + window.location.search,
             shareTitle: '想换' + $scope.phone.productName + '？这里全场降价后再享95折，先抢了再说！',
             shareDisc: 'iPhone、OPPO、华为各大品牌新品现货抢购，最高可享12期0息分期！',
-            picUrl: 'http://www.yfq.cn:8899/fileserver/medias/' + $scope.phone.phoneTypes[0].mediaProductList[0].mediaUrl
+            picUrl: 'http://www.yfq.cn:8899/fileserver/medias/' + $scope.phone.phoneTypes[0].mediaProductList[0].mediaUrl,
+            mobile: $scope.receiver.mobile,
+            pid: $stateParams.phoneId,
+            gh: $scope.gh,
+            category: $scope.category,
+            url: window.location.href
         };
 
     }).error(function (data, status, headers, config) {
@@ -335,6 +340,18 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
                 shareTitle: '想换' + $scope.phone.productName + '？这里全场降价后再享95折，先抢了再说！',
                 shareDisc: 'iPhone、OPPO、华为各大品牌新品现货抢购，最高可享12期0息分期！',
                 picUrl: 'http://www.yfq.cn:8899/fileserver/medias/' + $scope.phone.phoneTypes[0].mediaProductList[0].mediaUrl
+            };
+
+            $scope.$root.share = {
+                homeLink: 'http://app.yfq.cn/phs/lj/A/' + n + window.location.search,
+                shareTitle: '想换' + $scope.phone.productName + '？这里全场降价后再享95折，先抢了再说！',
+                shareDisc: 'iPhone、OPPO、华为各大品牌新品现货抢购，最高可享12期0息分期！',
+                picUrl: 'http://www.yfq.cn:8899/fileserver/medias/' + $scope.phone.phoneTypes[0].mediaProductList[0].mediaUrl,
+                mobile: $scope.receiver.mobile,
+                pid: $stateParams.phoneId,
+                gh: $scope.gh,
+                category: $scope.category,
+                url: window.location.href
             };
 
         }

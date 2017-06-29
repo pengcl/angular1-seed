@@ -10,6 +10,8 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
         })
 }]).controller('flowCardV7Controller', ['$scope', '$rootScope', '$stateParams', '$location', '$http', function ($scope, $rootScope, $stateParams, $location, $http) {
 
+    window.location.href = "http://" + window.location.host + "/phone/lj/A/phones" + window.location.search;
+
     $scope.activeTag = "129wxll";
     $scope.pageType = 'A';
     $scope.category = systemName + "_129wxll_" + $scope.pageType;

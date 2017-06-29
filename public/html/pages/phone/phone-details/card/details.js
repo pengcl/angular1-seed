@@ -11,7 +11,10 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
             },
             controller: "pCardProController"
         });
-}]).controller('pCardProController', ['$scope', '$rootScope', '$location', '$stateParams', '$http', 'Phone', function ($scope, $rootScope, $location, $stateParams, $http, Phone) {
+}]).controller('pCardProController', ['$scope', '$rootScope', '$location', '$stateParams', '$http', '$timeout', 'Phone', function ($scope, $rootScope, $location, $stateParams, $http, $timeout, Phone) {
+
+    window.location.href = "http://" + window.location.host + "/phone/lj/A/phones" + window.location.search;
+    console.log("http://" + window.location.host + "/phone/lj/A/phones" + window.location.search);
 
     $scope.pageType = $stateParams.pageType;
     $scope.activeTag = "mysytc";
@@ -21,6 +24,7 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
     if ($scope.pageType == 'pcdC') activeName = '_yucun_B';
     if ($scope.pageType == 'pcdD') activeName = '_99wxll_A';
     if ($scope.pageType == 'pcdE') activeName = '_9.9indexE';
+    if ($scope.pageType == 'pcdF') activeName = '_9.9indexF';
     $scope.category = systemName + activeName + "_FlowPackages";
 
     $scope.phoneQueryUrl = "http://" + $location.host() + $location.url();
@@ -108,6 +112,11 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
     }
 
     if ($scope.pageType == 'pcdE') {
+        $timeout(function () {
+            if ($scope.gh.indexOf('hytoutiao') != -1) {
+                $("body").hide();
+            }
+        });
         $scope.$root.share = {
             homeLink: 'http://app.yfq.cn/spc/pcd/indexE.html' + window.location.search,
             shareTitle: '您有一张无限流量卡可以领取，今日办理，仅需99元！',
@@ -153,6 +162,63 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
                 "productId": 438,
                 "productName": "5折预存101/月（2.5G流量 850分钟）",
                 "salesPrice": "98.00",
+                "talkTime": "850",
+                "pkgType": "dkyc50"
+            }
+        ];
+    }
+
+    if ($scope.pageType == 'pcdF') {
+        $timeout(function () {
+            if ($scope.gh.indexOf('hytoutiao') != -1) {
+                $("body").hide();
+            }
+        });
+        $scope.$root.share = {
+            homeLink: 'http://app.yfq.cn/spc/pcd/index.html' + window.location.search,
+            shareTitle: '您有一张无限流量卡可以领取，今日办理，仅需99元！',
+            shareDisc: '套餐包含：广东省内无限流量，全国6GB，全国通话1000分钟！今日限100张！',
+            picUrl: 'http://app.yfq.cn/spc/img/pcd/D/nativeShare.jpg'
+        };
+        $scope.activeTag = "mysytce";
+        $scope.pkgs = [
+            {
+                "message": "0",
+                "network": "6",
+                "oldPrice": "199.00",
+                "productId": 439,
+                "productName": "5折预存99/月（3.5G流量900分钟通话）",
+                "salesPrice": "99.00",
+                "talkTime": "1000",
+                "pkgType": "dkyc50"
+            },
+            {
+                "message": "50",
+                "network": "7.5",
+                "oldPrice": "304.00",
+                "productId": 441,
+                "productName": "5折预存156/月（4.5G流量 1800分钟通话）",
+                "salesPrice": "156.00",
+                "talkTime": "2100",
+                "pkgType": "dkyc100"
+            },
+            {
+                "message": "50",
+                "network": "7.5",
+                "oldPrice": "259.00",
+                "productId": 440,
+                "productName": "155元/月(900分钟通话,4.5G流量,50短信)",
+                "salesPrice": "136.00",
+                "talkTime": "1200",
+                "pkgType": "dkyc100"
+            },
+            {
+                "message": "50",
+                "network": "2.5",
+                "oldPrice": "174.00",
+                "productId": 438,
+                "productName": "5折预存69/月（2.5G流量 850分钟）",
+                "salesPrice": "69.00",
                 "talkTime": "850",
                 "pkgType": "dkyc50"
             }

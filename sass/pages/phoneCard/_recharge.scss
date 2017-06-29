@@ -1,11 +1,6 @@
 .pcd-recharge-a {
   #rechargePhone {
     .weui-cells_form {
-      &:after {
-        @include scaleY(1);
-        left: 0.15rem;
-        right: 0.15rem;
-      }
       .weui-cell {
         border: none !important;
         padding-bottom: 0;
@@ -65,6 +60,10 @@
     .weui-cells__title {
       font-size: 0.12rem;
     }
+  }
+
+  .footer-nav {
+    @include box-shadow(2px -1px 20px #ccc);
   }
 
   .txt-list {
@@ -189,6 +188,42 @@
   .d-mifis .weui-cell.curr .weui-cell__hd i:before {
     border: 2px solid #09bb07;
     background: #09bb07;
+  }
+
+  .upgrade-doc {
+    font-size: 0.12rem;
+    padding-left: 15px;
+    padding-right: 15px;
+    color: #999;
+    p {
+      margin: 0.07rem 0;
+      u {
+        i {
+          padding: 0 0.05rem;
+          em {
+            font-style: italic;
+          }
+        }
+      }
+    }
+  }
+  .nav-contact {
+    position: fixed;
+    width: 0.4rem;
+    height: 0.4rem;
+    left: 0.05rem;
+    top:30%;
+    font-size: 0.14rem;
+    background: #d92842;
+    color: #fff;
+    @include border-radius(0.04rem);
+    text-align: center;
+    @include box-shadow(0 0 3px #ddd);
+    .icon-comment {
+      display: block;
+      font-size: 0.16rem;
+      margin-top: 0.02rem;
+    }
   }
 }
 

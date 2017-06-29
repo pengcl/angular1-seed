@@ -8,7 +8,7 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
         templateUrl: "pages/phoneCard/upgrade/index.html",
         controller: "pdUpgradeController"
     });
-}]).controller('pdUpgradeController', ['$scope', '$rootScope', '$location', '$http', '$timeout', function ($scope, $rootScope, $location, $http, $timeout) {
+}]).controller('pdUpgradeController', ['$scope', '$rootScope', '$location', '$http', '$timeout', '$cookieStore', function ($scope, $rootScope, $location, $http, $timeout, $cookieStore) {
     //$scope.pageTitle = "首页";
     //$scope.$root.title = $scope.pageTitle;
     //console.log($scope.referrerForm.referrerNo);
@@ -21,7 +21,7 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
 
     $scope.receiver = {};
 
-    $scope.totalPrice = 200;
+    $scope.totalPrice = 210;
 
     $scope.$root.share = {
         homeLink: 'http://app.yfq.cn/pcdUpgrade/index' + window.location.search,
@@ -68,6 +68,11 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
 
     $scope.tipsMore = false;
 
+    $scope.iPromise = false;
+    $scope.setPromise = function () {
+        $scope.iPromise = !$scope.iPromise;
+    };
+
     $scope.setTipsShow = function (type) {
         $scope.tipsMore = type;
     };
@@ -107,10 +112,41 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
         $scope.product = product;
     };
 
-    $scope.$watch('upgradeStatus', function (n, o, $scope) {
+    $scope.mifis = [{
+        productId: 432,
+        productName: '4G车载随身WiFi(点烟器款)',
+        oldPrice: 168,
+        salePrice: 168,
+        selected: false
+    }, {
+        productId: 433,
+        productName: '4G随身WiFi(带充电宝款)',
+        oldPrice: 268,
+        salePrice: 268,
+        selected: false
+    }];
+
+    /*$http.jsonp(cfApi.apiHost + "/product/getViewProductList.html?productId=" + 437 + "&s=wap&callback=JSON_CALLBACK").success(function (data) {
+        console.log(data);
+        var mifis = [];
+        $.each(data, function (i, k) {
+            mifis.push({
+                productId: k.productId,
+                productName: k.productName,
+                oldPrice: k.oldPrice,
+                salePrice: k.salePrice,
+                selected: false
+            });
+        });
+
+        $scope.mifis = mifis;
+
+    });*/
+
+    /*$scope.$watch('upgradeStatus', function (n, o, $scope) {
         if (n !== o && n !== undefined) {
             if (n.result) {
-                $http.jsonp(cfApi.apiHost + "/product/getViewProductList.html?productId=" + n.productId + "&s=wap&callback=JSON_CALLBACK").success(function (data) {
+                $http.jsonp(cfApi.apiHost + "/product/getViewProductList.html?productId=" + 437 + "&s=wap&callback=JSON_CALLBACK").success(function (data) {
                     var mifis = [];
                     $.each(data, function (i, k) {
                         mifis.push({
@@ -127,7 +163,7 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
                 });
             }
         }
-    }, $scope);
+    }, $scope);*/
 
     $scope.showUpgradeTip = function (e) {
         var targetHtml = $("#rechargeTipsPanel").html();
@@ -159,23 +195,41 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
         });
     };
 
+    $scope.isNewAdr = false;
+    $scope.newAdr = function (event) {
+        $scope.isNewAdr = true;
+        $scope.receiver = {};
+        $("#receiverAddressPanel").show();
+    };
+    $scope.oldAdr = function (event) {
+        $scope.isNewAdr = false;
+        $scope.receiver = $cookieStore.get('receiver');
+        $("#receiverAddressPanel").hide();
+    };
+
     $scope.submitForm = function (e) {
+        if ($(e.currentTarget).hasClass('disabled')) {
+            return false;
+        }
         var $form = $("#checkoutForm");
 
         if (!$scope.checkoutForm.iccid.$valid) {
             return false;
         }
 
-        if (!$scope.adrHistory) {
+        if ($scope.isNewAdr) {
             if (!$scope.checkAddress()) {
+                $("#receiverAddressPanel").show();
                 $scope.goTo('#receiverAddress');
                 return false;
             }
             if (!$scope.$root.checkActiveCode()) {
+                $("#receiverAddressPanel").show();
                 $scope.goTo('#receiverAddress');
                 return false;
             }
         }
+
 
         $scope.$root.toast.open();
 
@@ -184,7 +238,6 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
         $http.jsonp(subUrl).success(function (data) {
             if (data.result) {
                 $scope.$root.toast.close();
-                console.log();
                 window.location.href = data.payUrl;
                 writebdLog($scope.category, "_BuyNow", "渠道号", $scope.gh);//立即支付
             } else {
@@ -203,7 +256,7 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
     $scope.$watch('mifis', function (n, o, $scope) {
         if (n !== o && n !== undefined) {
             $scope.selectedMifis = [];
-            $scope.totalPrice = 200;
+            $scope.totalPrice = 210;
             $.each(n, function (i, k) {
                 if (k.selected) {
                     $scope.totalPrice = $scope.totalPrice + k.salePrice;
