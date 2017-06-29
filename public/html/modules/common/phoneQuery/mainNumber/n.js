@@ -100,7 +100,7 @@ app.directive("mainNumber", ["$cookieStore", function ($cookieStore) {
         });
 
         $.each(eval(data), function (i, k) {
-            if(k.s<=800){
+            if(k.s<=1){
                 $scope.phoneData.push(k);
                 if(k.t == 0){
                     $scope.phoneSubData.push(k);

@@ -10,7 +10,9 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
         })
 }]).controller('flowCardV9Controller', ['$scope', '$rootScope', '$stateParams', '$location', '$http', 'UserAgentSvc', function ($scope, $rootScope, $stateParams, $location, $http, UserAgentSvc) {
 
-    $scope.activeTag = "mifitc";
+    window.location.href = "http://" + window.location.host + "/phone/lj/A/phones" + window.location.search;
+
+    $scope.activeTag = "199wxllc";
     $scope.pageType = 'E';
     $scope.category = systemName + "_mifitc_" + $scope.pageType;
     writebdLog($scope.category, "_Load", "渠道号", $scope.gh);
@@ -40,7 +42,7 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
         $scope.$root.share = {
             homeLink: 'http://app.yfq.cn/fd/v9/' + $stateParams.productId + window.location.search,
             shareTitle: '全国199元不限流量套餐，今日办理，送随身WIFI！',
-            shareDisc: '无需换号，全国随意用！3000分钟国内通话，今日限100张！',
+            shareDisc: '无需换号，全国随意用！预存399元送随身WIFI，全额返！今日限100张！',
             picUrl: 'http://app.yfq.cn/images/flow/flowcard/v9/nativeShare.jpg'
         };
 

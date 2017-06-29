@@ -33,7 +33,7 @@ app.directive("nPayType", ['$location', '$compile', '$q', function ($location, $
             if (scope.totolPrice < 1500) {
                 scope.setDefaultPayType(0, "一次性支付");
             }
-            if (scope.pageType == "pcd" || scope.pageType == "pcdE") {
+            if (scope.pageType == "pcd" || scope.pageType == "pcdE" || scope.pageType == "pcdF") {
                 scope.details = "￥9.9元掏靓号";
             }
 

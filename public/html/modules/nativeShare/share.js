@@ -12,7 +12,7 @@ app.directive("nativeShare", ['$cookieStore', '$http', '$location', function ($c
                 homeLink: 'http://app.yfq.cn/phone/active/A' + window.location.search,
                 shareTitle: '我领到1888元购机年终奖！年前换个好手机，开开心心回家过大年！',
                 shareDisc: '苹果、OPPO、华为、VIVO等大牌手机直降！用券购再立减！戳我抢→',
-                picUrl:'http://app.yfq.cn/images/active/share_active.jpg'
+                picUrl: 'http://app.yfq.cn/images/active/share_active.jpg'
             };
 
             homeLink = scope.$root.share.homeLink;
@@ -91,7 +91,7 @@ app.directive("nativeShare", ['$cookieStore', '$http', '$location', function ($c
                 nativeShareShow();
             };
 
-            scope.$watch('share',function (n,o,scope) {
+            scope.$watch('share', function (n, o, scope) {
 
                 window._bd_share_config = {
                     common: {
@@ -124,6 +124,13 @@ app.directive("nativeShare", ['$cookieStore', '$http', '$location', function ($c
                         link: scope.$root.share.homeLink, // 分享链接
                         imgUrl: scope.$root.share.picUrl, // 分享图标
                         success: function () {
+                            if (scope.$root.share.mobile) {
+                                $http.jsonp(cfApi.apiHost + "/share/doProductShare.html?mobile=" + scope.$root.share.mobile + "&pid=" + scope.$root.share.pid + "&gh=" + scope.$root.share.gh + "&category=" + scope.$root.share.category + "&productUrl=" + scope.$root.share.url + "&callback=JSON_CALLBACK").success(function (data, status, headers, config) {
+                                    return d.resolve(data);
+                                }).error(function (error) {
+                                    d.reject(error);
+                                });
+                            }
                             // 用户确认分享后执行的回调函数
                         },
                         cancel: function () {
@@ -139,6 +146,13 @@ app.directive("nativeShare", ['$cookieStore', '$http', '$location', function ($c
                         type: '', // 分享类型,music、video或link，不填默认为link
                         dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
                         success: function () {
+                            if (scope.$root.share.mobile) {
+                                $http.jsonp(cfApi.apiHost + "/share/doProductShare.html?mobile=" + scope.$root.share.mobile + "&pid=" + scope.$root.share.pid + "&gh=" + scope.$root.share.gh + "&category=" + scope.$root.share.category + "&productUrl=" + scope.$root.share.url + "&callback=JSON_CALLBACK").success(function (data, status, headers, config) {
+                                    return d.resolve(data);
+                                }).error(function (error) {
+                                    d.reject(error);
+                                });
+                            }
                             // 用户确认分享后执行的回调函数
                         },
                         cancel: function () {
@@ -148,7 +162,7 @@ app.directive("nativeShare", ['$cookieStore', '$http', '$location', function ($c
                 });
 
                 var share_obj = new nativeShare('nativeShare', config);
-            },true);
+            }, true);
         }
     };
 }]);

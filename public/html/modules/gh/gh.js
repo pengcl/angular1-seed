@@ -10,6 +10,12 @@ app.directive("gh", ['$location', function ($location) {
             } else {
                 scope.gh = $location.search().gh;
             }
+
+            if($location.search().referrerNo == undefined){
+                scope.referrerNo = "";
+            }else {
+                scope.referrerNo = $location.search().referrerNo;
+            }
         }
     };
 }]);

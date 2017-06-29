@@ -7,7 +7,7 @@
       height: 0.3rem !important;
     }
   }
-  .price-red {
+  @at-root .price-red {
     font-size: 0.14rem;
     color: #fff;
     @include background(rgba(0, 0, 0, 0) linear-gradient(left, #f11d22, #ff4979) repeat scroll 0 0);

@@ -10,6 +10,12 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
         })
 }]).controller('flowCardV6Controller', ['$scope', '$rootScope', '$stateParams', '$location', '$http', function ($scope, $rootScope, $stateParams, $location, $http) {
 
+    window.location.href = "http://" + window.location.host + "/phone/lj/A/phones" + window.location.search;
+
+    if($stateParams.productId != '443'){
+        window.location.href = "http://" + window.location.host + "/fd/v6/443" + window.location.search;
+    }
+
     $scope.activeTag = "129wxll";
     $scope.pageType = 'B';
     $scope.category = systemName + "_129wxll_" + $scope.pageType;

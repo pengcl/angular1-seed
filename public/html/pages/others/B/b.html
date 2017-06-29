@@ -1,0 +1,258 @@
+<div class="page p-details a-details a-details-c dj-a other-b">
+    <top-nav page-title="翼分期商城" page-back="menu"></top-nav>
+    <form id="checkoutForm" name="checkoutForm"
+          action="http://m.yfq.cn/wap/taokafanghaoNew/submitOrderDouble.html"
+          method="post" novalidate>
+        <input type="hidden" value="{{phone.activityproductId}}" ng-model="phone.productId" name="machineId"
+               id="machineId">
+        <input type="hidden" value="{{activeTag}}" ng-model="activeTag" name="activeTag" id="activeTag">
+        <input type="hidden" value="{{category}}" ng-model="category" name="category" id="category">
+        <input type="hidden" id="mainYG" name="mainYG" value="0">
+        <gh></gh>
+        <pt></pt>
+        <activity></activity>
+        <redirect-url></redirect-url>
+        <div id="scrollAnimate" class="content-scrollable has-footer">
+            <div class="owl-carousel" img-urls="imgUrls"></div>
+            <div class="price-red">
+                <div class="weui-flex">
+                    <div class="weui-flex__item" style="text-align: left">
+                        <div class="price placeholder">
+                            <em>￥</em><em ng-bind="mainColor.salePrice | number : 0"></em>
+                        </div>
+                        <div class="bijia placeholder" style="padding-left: 0.4rem">
+                            货到付款
+                        </div>
+                    </div>
+                    <div class="weui-flex__item">
+                        <div class="timer placeholder" style="margin-top: 0.07rem">
+                            <span class="lb">距结束</span>
+                            <timer style="font-size: 0.14rem"></timer>
+                            <div style="margin-top: 0.03rem" class="sold">仅剩<span ng-if="phone.ifSellOut == 0" ng-bind="sold"></span><span
+                                    ng-if="phone.ifSellOut == 1">0</span>台
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="product-header">
+                <div class="product-txt" ng-if="productId == 446">
+                    <h1>360儿童手表巴迪龙5S 4G智能高清视频通话版 快速充电 六重定位 防丢防水</h1>
+                    <h2>送价值480元流量，今日下单，每月赠送500M全国流量，连送2年</h2>
+                </div>
+                <div class="product-txt" ng-if="productId == 447">
+                    <h1>360老人智能通话手表 一键求助 超大字体 语音播报 健康提醒 精准定位 高清通话</h1>
+                    <h2>送价值168元话费，今日下单，送全国通话时长及流量，免月租！</h2>
+                </div>
+            </div>
+            <div class="product-footer">
+                <div class="img-box">
+                    <img src="/images/phones/C/check.png">
+                </div>
+            </div>
+
+            <main-colors title="选择颜色" ng-if="phone"></main-colors>
+
+            <div style="font-size: 0.12rem;background: #ffe2d2;padding:0.1rem 0.15rem" ng-if="productId == 446">
+                <p>温馨提示：</p>
+                <p>(1)随表赠送电信4G流量卡，含基本月租、来电显示、国内接听免费及每月500M全国流量，价值20元，不超量无需额外费用，优惠期24个月。</p>
+                <p>(2)遵照工信部规定，新入网电信卡需实名认证。</p>
+            </div>
+
+            <div style="font-size: 0.12rem;background: #ffe2d2;padding:0.1rem 0.15rem" ng-if="productId == 447">
+                <p>温馨提示：</p>
+                <p>(1)随表赠送移动流量卡，含基本月租、来电显示、国内接听免费15分钟通话时长及50M国内流量，价值14元/月，优惠期12个月，价值168元。</p>
+                <p>(2)遵照工信部规定，新入网电信卡需实名认证。</p>
+            </div>
+
+            <div class="dj-detail weui-tab">
+                <div class="weui-navbar">
+                    <div class="weui-navbar__item weui-bar__item_on" ng-click="goToDetail();writebdLogByValue('twxq')">
+                        图文详情
+                    </div>
+                    <div class="weui-navbar__item" ng-click="goToDetail();writebdLogByValue('ggcs')">
+                        规格参数
+                    </div>
+                    <div class="weui-navbar__item" ng-click="goToDetail();writebdLogByValue('shbz')">
+                        售后保障
+                    </div>
+                    <div class="weui-navbar__item" ng-click="goToDetail();writebdLogByValue('yhpl')">
+                        用户评论
+                    </div>
+                </div>
+                <div class="weui-tab__panel">
+                    <div class="weui-tab__item weui-tab__item_on half">
+                        <div class="product-detail"
+                             ng-bind-html="phone.phoneTypes[0].fullDescription | trustHtml"></div>
+                        <div class="html-ft">
+                            <a has-hash="false" ng-click="seeAll()" href="javascript:userTrack('seeAll');"
+                               class="weui-btn weui-btn_plain-default"
+                               style="font-size: 0.14rem;line-height: 2em;border: 1px solid #f6692a;color: #f6692a;display: block;margin: 0 auto; width: 30%">查看全部</a>
+                        </div>
+                    </div>
+                    <div class="weui-tab__item">
+                        <div class="" ng-bind-html="phone.phoneTypes[0].comboParam | trustHtml"></div>
+                    </div>
+                    <div class="weui-tab__item">
+                        <div class="service">
+                            <div class="service-item">
+                                <h3><img src="/images/phones/dj/detail/serviceIcon-1.png"> <span>厂家服务</span></h3>
+                                <p>本产品全国联保，享受三包服务，质保期为：一年质保</p>
+                                <p>如因质量问题或故障，凭厂商维修中心或特约维修点的质量检测证明，享受7日内退货，15日内换货，15日以上在质保期内享受免费保修等三包服务！</p>
+                                <p>(注:如厂家在商品介绍中有售后保障的说明,则此商品按照厂家说明执行售后保障服务。) </p>
+                            </div>
+                            <div class="service-item">
+                                <h3><img src="/images/phones/dj/detail/serviceIcon-2.png"> 翼分期承诺</h3>
+                                <p>翼分期商城卖家销售并发货的商品，由商城卖家提供发票和相应的售后服务。请您放心购买！</p>
+                                <p>
+                                    注：因厂家会在没有任何提前通知的情况下更改产品包装、产地或者一些附件，本司不能确保客户收到的货物与商城图片、产地、附件说明完全一致。只能确保为原厂正货！并且保证与当时市场上同样主流新品一致。若本商城没有及时更新，请大家谅解！</p>
+                            </div>
+                            <div class="service-item">
+                                <h3><img src="/images/phones/dj/detail/serviceIcon-3.png"> 正货行货</h3>
+                                <p>翼分期商城向您保证所售商品均为正品行货，商品开具电子发票。</p>
+                            </div>
+                            <div class="service-item">
+                                <h3><img src="/images/phones/dj/detail/serviceIcon-4.png"> 全国联保</h3>
+                                <p>凭质保证书及翼分期商城发票，可享受全国联保服务，与您亲临商场选购的商品享受相同的质量保证。翼分期商城还为您提供具有竞争力的商品价格和运费政策，请您放心购买！</p>
+                                <p>
+                                    注：因厂家会在没有任何提前通知的情况下更改产品包装、产地或者一些附件，本司不能确保客户收到的货物与商城图片、产地、附件说明完全一致。只能确保为原厂正货！并且保证与当时市场上同样主流新品一致。若本商城没有及时更新，请大家谅解！</p>
+                            </div>
+                            <div class="service-item">
+                                <h3><img src="/images/phones/dj/detail/serviceIcon-5.png"> 无忧退换货</h3>
+                                <p>
+                                    客户购买翼分期商品7日内（不包括话费套餐以及话费套餐卡，含7日，自客户收到商品之日起计算），在保证商品完好的前提下，可无理由退货，但翼分期商城不承担退换货的物流费用。</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="weui-tab__item">
+                        <div class="feedback-tab" ng-if="feedbacks.success">
+                            <div class="pure-g">
+                                <div class="pure-u-5-6">
+                                    <div class="pure-g">
+                                        <div class="pure-u-1-4">
+                                            <a class="feedback-nav"
+                                               ng-class="{true:'curr',false:''}[feedbackType === 'all']"
+                                               ng-click="setFeedbackType('all')"
+                                               href="javascript:userTrack('feedback-all');">全部(<span
+                                                    ng-bind="feedbacks.result2.all"></span>)</a>
+                                        </div>
+                                        <!--<div class="pure-u-1-4">
+                                            <a class="feedback-nav" ng-class="{true:'curr',false:''}[feedbackType === 'best']" ng-click="setFeedbackType('best')" href="javascript:userTrack('feedback-good');">好评(<span ng-bind="feedbacks.result2.best"></span>)</a>
+                                        </div>
+                                        <div class="pure-u-1-4">
+                                            <a class="feedback-nav" ng-class="{true:'curr',false:''}[feedbackType === 'good']" ng-click="setFeedbackType('good')" href="javascript:userTrack('feedback-notBad');">中评(<span ng-bind="feedbacks.result2.good"></span>)</a>
+                                        </div>
+                                        <div class="pure-u-1-4">
+                                            <a class="feedback-nav" ng-class="{true:'curr',false:''}[feedbackType === 'bad']" ng-click="setFeedbackType('bad')" href="javascript:userTrack('feedback-bad');">差评(<span ng-bind="feedbacks.result2.bad"></span>)</a>
+                                        </div>-->
+                                    </div>
+                                </div>
+                                <div class="pure-u-1-6">
+                                    <span>好评度</span>
+                                    <em ng-bind="feedbacks.result2.praise"></em>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="feedback">
+                            <ul>
+                                <li ng-if="!feedbacks.success">
+                                    <div class="feedback-box">
+                                        <div class="weui-media-box weui-media-box_text">
+                                            <p class="weui-media__desc" ng-bind="feedbacks.msg"></p>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li ng-if="feedbacks.success" ng-repeat="feedback in typeFeedbacks | limitTo : limitNo">
+                                    <div class="feedback-box">
+                                        <div class="weui-media-box weui-media-box_text">
+                                            <h4 class="weui-media__title pure-g"><span class="user-name pure-u-1-2"
+                                                                                       ng-bind="feedback.memberPhone | phoneFilter"></span><span
+                                                    class="pure-u-1-2" style="text-align: right"><star
+                                                    ratting="[feedback.starRating1,feedback.starRating2,feedback.starRating3]"></star></span>
+                                            </h4>
+                                            <p class="weui-media__desc" ng-bind="feedback.message"></p>
+                                            <ul class="weui-media__info" style="font-size: 0.1rem">
+                                                <li class="weui-media__info__meta" ng-bind="feedback.productName"></li>
+                                                <li class="weui-media__info__meta weui-media__info__meta_extra"
+                                                    ng-bind="feedback.createDate | date:'yyyy-MM-dd h:mm'"></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                            <div ng-if="!(typeFeedbacks.length <= 5 || limitNo == 100)" style="margin-top: 0.1rem"><a
+                                    has-hash="false" ng-click="setlimitNo(100)" href="javascript:userTrack('seeAll');"
+                                    class="weui-btn weui-btn_plain-default"
+                                    style="font-size: 0.14rem;line-height: 2em;border: 1px solid #f6692a;color: #f6692a;display: block;margin: 0 auto; width: 30%">查看全部</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="dj-bottom"></div>
+            </div>
+
+            <adr></adr>
+
+
+            <!--<div class="getters">
+                <div class="getter-title">
+                    最新购买信息
+                </div>
+                <ul>
+                    <li ng-repeat="getter in getters" ng-bind-html="getter.txt | trustHtml" on-finish></li>
+                </ul>
+            </div>-->
+
+            <a-pay-type title="商品结算"></a-pay-type>
+
+            <div class="pay-container pd-w">
+                <div class="pay-content pd-w">
+                    <div class="pure-g">
+                        <span class="pure-u-4-5"><span ng-bind="phone.productName"></span>(送话费)</span>
+                        <span class="price pure-u-1-5">
+                            <span><em>￥</em><em ng-bind="phone.salePrice | numberUp"></em></span>
+                        </span>
+                        <span class="pure-u-1" style="color: #999">
+                            颜色：<span ng-bind="mainColor.name"></span>
+                        </span>
+                    </div>
+                    <div class="real-price pure-g">
+                        <span class="lb pure-u-1-2">
+                        </span>
+                        <span class="price pure-u-1-2">
+                            <span>实付价格：</span><em>￥</em><em ng-bind="phone.salePrice | numberUp"></em>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="spcNav" class="footer-nav nav-list">
+            <div class="pure-g">
+                <div class="nav-price nav-item pure-u-3-5">
+                    <div ng-if="payType == 0">
+                        <em style="font-size: 0.16rem">实付款：￥</em><em
+                            ng-bind="mainColor.salePrice | numberUp | number:0"></em>
+                    </div>
+                    <div ng-if="payType == 1">
+                        <em style="font-size: 0.16rem">货到付款：￥</em><em ng-bind="mainColor.salePrice | number:0"></em>
+                    </div>
+                    <div ng-if="payType == 2">
+                        <em style="font-size: 0.16rem">月供：￥</em><em
+                            ng-bind="mainColor.monthlyPrice/12 | numberUp | number : 0"></em><em
+                            style="font-size: 0.16rem"> X 12期</em>
+                    </div>
+                </div>
+                <div class="nav-button nav-item pure-u-2-5">
+                    <a id="footerPayButton" has-hash="false" href="javascript:userTrack('submitForm');"
+                       ng-class="{true:'disabled',false:''}[phone.ifSellOut == 1]" ng-click="submitForm($event);">
+                        <span ng-if="phone.ifSellOut == 1">已抢光</span>
+                        <span ng-if="phone.ifSellOut == 0">
+                            <span ng-if="payType == 1">提交订单</span>
+                            <span ng-if="payType != 1">提交订单</span>
+                        </span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
