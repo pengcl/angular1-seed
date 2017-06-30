@@ -11,7 +11,15 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
 }]).controller('otherBProductController', ['$scope', '$rootScope', '$stateParams', '$location', '$http', '$timeout', function ($scope, $rootScope, $stateParams, $location, $http, $timeout) {
 
     $scope.activeTag = "znsb";
-    $scope.pageType = 'B';
+    if ($stateParams != undefined && $stateParams.phoneId != undefined)
+    {
+    	if($stateParams.phoneId == '446')
+    		$scope.pageType = 'A';
+    	if($stateParams.phoneId == '447')
+    		$scope.pageType = 'B';
+    	if($stateParams.phoneId == '448')
+    		$scope.pageType = 'C';
+    }
 
     $scope.homeUrl = $location.protocol() + '://' + $location.host() + '/phone/active/D/phones';
 
@@ -23,11 +31,7 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
 
     $scope.sold = Math.round(Math.random() * 50);
 
-    var headCategory = $location.search().headCategory;
-    if (headCategory != undefined && headCategory != null)
-        $scope.category = headCategory + "_SinglePhones";
-    else
-        $scope.category = systemName + "_znsb_" + $scope.pageType + "_SinglePhones";
+    $scope.category = systemName + "_znsb_" + $scope.pageType + "_SinglePhones";
     $scope.phoneQueryUrl = "http://" + $location.host() + $location.url();
     writebdLog($scope.category, "_Load", "渠道号", $scope.gh);
 
