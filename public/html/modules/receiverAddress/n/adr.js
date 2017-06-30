@@ -78,6 +78,12 @@ app.directive("adr", ["$compile", "$cookieStore", '$http', '$interval', function
                 if (room == undefined || room == "" || room.length <= 3) return;
                 writebdLog(scope.category, "_Address", "渠道号", scope.gh);//收货地址
             };
+            
+            //只有输入详细收货地址才记录到闭环
+            scope.inputMobile = function (mobile) {
+            	if (mobile == undefined || mobile == "" || mobile.length <= 10) return;
+            	writebdLog(scope.category, "_InputMobile", "渠道号", scope.gh);//收货地址
+            };
 
             scope.paracont = "获取验证码";
             scope.paraclass = "but_null";
