@@ -11830,8 +11830,55 @@ div.module-tips {
 }
 /* line 42, ../../../sass/pages/others/_b.scss */
 .page.other-b #setPayType .weui-cells__title .sub-title {
-  display: inline-block !important;
   color: #f6692a !important;
+}
+/* line 48, ../../../sass/pages/others/_b.scss */
+.page.other-b #receiverAddress {
+  margin-top: 0.1rem !important;
+}
+/* line 50, ../../../sass/pages/others/_b.scss */
+.page.other-b #receiverAddress #receiverAddressPanel {
+  padding-left: 0 !important;
+}
+/* line 53, ../../../sass/pages/others/_b.scss */
+.page.other-b #receiverAddress .adr-tab {
+  display: none;
+}
+/* line 56, ../../../sass/pages/others/_b.scss */
+.page.other-b #receiverAddress .adr-content {
+  display: none;
+}
+/* line 59, ../../../sass/pages/others/_b.scss */
+.page.other-b #receiverAddress .input-name {
+  display: none;
+}
+/* line 62, ../../../sass/pages/others/_b.scss */
+.page.other-b #receiverAddress .input-vcode {
+  display: none;
+}
+/* line 65, ../../../sass/pages/others/_b.scss */
+.page.other-b #receiverAddress .input-city {
+  display: none;
+}
+/* line 68, ../../../sass/pages/others/_b.scss */
+.page.other-b #receiverAddress .input-room {
+  display: none;
+}
+/* line 71, ../../../sass/pages/others/_b.scss */
+.page.other-b #receiverAddress .input-ok {
+  display: none;
+}
+/* line 76, ../../../sass/pages/others/_b.scss */
+.page.other-b .adr .weui-btn {
+  background: #f6692a !important;
+  border: 0;
+  -moz-box-shadow: 0 0.05rem 0.1rem #f6692a;
+  -webkit-box-shadow: 0 0.05rem 0.1rem #f6692a;
+  box-shadow: 0 0.05rem 0.1rem #f6692a;
+}
+/* line 80, ../../../sass/pages/others/_b.scss */
+.page.other-b .adr .weui-btn:after {
+  display: none;
 }
 
 /* line 3, ../../../sass/pages/phoneCard/_phoneCardDetails.scss */
