@@ -40,8 +40,45 @@
   #setPayType {
     .weui-cells__title {
       .sub-title {
-        display: inline-block !important;
+        //display: inline-block !important;
         color: #f6692a !important;
+      }
+    }
+  }
+  #receiverAddress {
+    margin-top: 0.1rem !important;
+    #receiverAddressPanel {
+      padding-left: 0 !important;
+    }
+    .adr-tab {
+      display: none;
+    }
+    .adr-content {
+      display: none;
+    }
+    .input-name {
+      display: none;
+    }
+    .input-vcode {
+      display: none;
+    }
+    .input-city {
+      display: none;
+    }
+    .input-room {
+      display: none;
+    }
+    .input-ok {
+      display: none;
+    }
+  }
+  .adr {
+    .weui-btn {
+      background: #f6692a !important;
+      border: 0;
+      @include box-shadow(0 0.05rem 0.1rem #f6692a);
+      &:after {
+        display: none;
       }
     }
   }
