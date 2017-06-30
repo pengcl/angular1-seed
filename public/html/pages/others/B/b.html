@@ -12,7 +12,7 @@
         <pt></pt>
         <activity></activity>
         <redirect-url></redirect-url>
-        <div id="scrollAnimate" class="content-scrollable has-footer">
+        <div id="scrollAnimate" class="content-scrollable">
             <div class="owl-carousel" img-urls="imgUrls"></div>
             <div class="price-red">
                 <div class="weui-flex">
@@ -21,15 +21,16 @@
                             <em>￥</em><em ng-bind="mainColor.salePrice | number : 0"></em>
                         </div>
                         <div class="bijia placeholder" style="padding-left: 0.4rem">
-                            货到付款
+                            预订价
                         </div>
                     </div>
                     <div class="weui-flex__item">
                         <div class="timer placeholder" style="margin-top: 0.07rem">
                             <span class="lb">距结束</span>
                             <timer style="font-size: 0.14rem"></timer>
-                            <div style="margin-top: 0.03rem" class="sold">仅剩<span ng-if="phone.ifSellOut == 0" ng-bind="sold"></span><span
-                                    ng-if="phone.ifSellOut == 1">0</span>台
+                            <div style="margin-top: 0.03rem" class="sold">仅剩<span ng-if="phone.ifSellOut == 0"
+                                                                                  ng-bind="sold"></span><span
+                                    ng-if="phone.ifSellOut == 1">0</span>个
                             </div>
                         </div>
                     </div>
@@ -37,12 +38,16 @@
             </div>
             <div class="product-header">
                 <div class="product-txt" ng-if="productId == 446">
-                    <h1>360儿童手表巴迪龙5S 4G智能高清视频通话版 快速充电 六重定位 防丢防水</h1>
-                    <h2>送价值480元流量，今日下单，每月赠送500M全国流量，连送2年</h2>
+                    <h1>360儿童手表巴迪龙5S 4G智能高清视频通话版 快速充电 六重定位 防丢防水 爆款预订，先到先得，只限今日！</h1>
+                    <h2>预订送手机卡、免月租、全国接听免费，送全国通话时长及全国流量！</h2>
                 </div>
                 <div class="product-txt" ng-if="productId == 447">
-                    <h1>360老人智能通话手表 一键求助 超大字体 语音播报 健康提醒 精准定位 高清通话</h1>
-                    <h2>送价值168元话费，今日下单，送全国通话时长及流量，免月租！</h2>
+                    <h1>360老人智能通话手表 一键求助 超大字体 语音播报 健康提醒 精准定位 高清通话 爆款预订，先到先得，只限今日！</h1>
+                    <h2>预订送手机卡、免月租、全国接听免费，送全国通话时长及全国流量！</h2>
+                </div>
+                <div class="product-txt" ng-if="productId == 448">
+                    <h1>360儿童手表巴迪龙5C 智能拍照版 高清通话 语音问答 远程拍照 爆款预订，先到先得，只限今日！</h1>
+                    <h2>预订送手机卡、免月租、全国接听免费，送全国通话时长及全国流量！</h2>
                 </div>
             </div>
             <div class="product-footer">
@@ -55,13 +60,19 @@
 
             <div style="font-size: 0.12rem;background: #ffe2d2;padding:0.1rem 0.15rem" ng-if="productId == 446">
                 <p>温馨提示：</p>
-                <p>(1)随表赠送电信4G流量卡，含基本月租、来电显示、国内接听免费及每月500M全国流量，价值20元，不超量无需额外费用，优惠期24个月。</p>
+                <p>(1)随表赠送电信4G流量卡，含基本月租、来电显示、国内接听免费及每月1000M全国流量，价值46元，不超量无需额外费用，优惠期12个月。</p>
                 <p>(2)遵照工信部规定，新入网电信卡需实名认证。</p>
             </div>
 
             <div style="font-size: 0.12rem;background: #ffe2d2;padding:0.1rem 0.15rem" ng-if="productId == 447">
                 <p>温馨提示：</p>
-                <p>(1)随表赠送移动流量卡，含基本月租、来电显示、国内接听免费15分钟通话时长及50M国内流量，价值14元/月，优惠期12个月，价值168元。</p>
+                <p>(1)随表赠送移动流量卡，含基本月租、来电显示、国内接听免费、15分钟通话时长及50M国内流量，价值14元/月，优惠期12个月，价值168元。</p>
+                <p>(2)遵照工信部规定，新入网电信卡需实名认证。</p>
+            </div>
+
+            <div style="font-size: 0.12rem;background: #ffe2d2;padding:0.1rem 0.15rem" ng-if="productId == 448">
+                <p>温馨提示：</p>
+                <p>(1)随表赠送移动流量卡，含基本月租、来电显示、国内接听免费、15分钟通话时长及50M国内流量，价值14元/月，优惠期12个月，价值168元。</p>
                 <p>(2)遵照工信部规定，新入网电信卡需实名认证。</p>
             </div>
 
@@ -191,8 +202,11 @@
                 <div class="dj-bottom"></div>
             </div>
 
-            <adr></adr>
-
+            <spc-title main-title="温馨提示" style="margin-top: 0.1rem"></spc-title>
+            <div class="adr-tips" style="padding: 0.1rem 0.15rem;font-size: 0.12rem;background: #fff;text-indent: 2em;">
+                <em style="color: #f6692a">您所预订的"<span ng-bind="phone.productName"></span>"预计在2周内到货</em>，届时将通过短信通知您登陆翼分期商城按优惠价格确认订购（360原装正品/货到付款），请保持手机通畅并留意手机信息。此处填写的电话号码将作为确认订单的依据，如号码不正确，将无法确认订单及享受相应的优惠。
+            <p style="text-indent: 2em;">本次预订仅为意向收集及优惠统计，不收取任何订金及预付款</p>
+            </div>
 
             <!--<div class="getters">
                 <div class="getter-title">
@@ -203,43 +217,42 @@
                 </ul>
             </div>-->
 
-            <a-pay-type title="商品结算"></a-pay-type>
+            <a-pay-type title="预订商品"></a-pay-type>
 
             <div class="pay-container pd-w">
                 <div class="pay-content pd-w">
                     <div class="pure-g">
                         <span class="pure-u-4-5"><span ng-bind="phone.productName"></span>(送话费)</span>
                         <span class="price pure-u-1-5">
-                            <span><em>￥</em><em ng-bind="phone.salePrice | numberUp"></em></span>
+                            <span><em>￥</em><em ng-bind="phone.salePrice | numberUp"></em> <span style="color: #999">x1</span></span>
                         </span>
                         <span class="pure-u-1" style="color: #999">
-                            颜色：<span ng-bind="mainColor.name"></span>
+                            颜色：<span ng-bind="mainColor.name"></span> <em class="tips flag">送话费及流量</em>
                         </span>
                     </div>
-                    <div class="real-price pure-g">
+                    <!--<div class="real-price pure-g">
                         <span class="lb pure-u-1-2">
                         </span>
                         <span class="price pure-u-1-2">
                             <span>实付价格：</span><em>￥</em><em ng-bind="phone.salePrice | numberUp"></em>
                         </span>
-                    </div>
+                    </div>-->
                 </div>
             </div>
+
+            <div class="adr" style="margin-top: 0.1rem;padding-top: 0.1rem;background: #fff;overflow: hidden">
+                <div class="weui-cells__title title-icon">
+                    <span>填写信息</span>
+                </div>
+                <adr></adr>
+                <div class="weui-btn weui-btn_warn" style="margin: 0.3rem 0.15rem;">立即预订</div>
+            </div>
         </div>
-        <div id="spcNav" class="footer-nav nav-list">
+        <!--<div id="spcNav" class="footer-nav nav-list">
             <div class="pure-g">
                 <div class="nav-price nav-item pure-u-3-5">
-                    <div ng-if="payType == 0">
-                        <em style="font-size: 0.16rem">实付款：￥</em><em
-                            ng-bind="mainColor.salePrice | numberUp | number:0"></em>
-                    </div>
-                    <div ng-if="payType == 1">
-                        <em style="font-size: 0.16rem">货到付款：￥</em><em ng-bind="mainColor.salePrice | number:0"></em>
-                    </div>
-                    <div ng-if="payType == 2">
-                        <em style="font-size: 0.16rem">月供：￥</em><em
-                            ng-bind="mainColor.monthlyPrice/12 | numberUp | number : 0"></em><em
-                            style="font-size: 0.16rem"> X 12期</em>
+                    <div>
+                        <em style="font-size: 0.16rem">预订价：￥</em><em ng-bind="mainColor.salePrice | number:0"></em>
                     </div>
                 </div>
                 <div class="nav-button nav-item pure-u-2-5">
@@ -253,6 +266,6 @@
                     </a>
                 </div>
             </div>
-        </div>
+        </div>-->
     </form>
 </div>

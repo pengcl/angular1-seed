@@ -180,36 +180,45 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
     $scope.payTypeName = "货到付款";
 
     $scope.loadedCheck = function () {
-        if (!$scope.checkoutForm.reciverName.$valid) {
+        /*if (!$scope.checkoutForm.reciverName.$valid) {
             //alert("请输入收件人");
             return false;
-        } else if (!$scope.checkoutForm.receiverMobile.$valid) {
+        } else */
+        if (!$scope.checkoutForm.receiverMobile.$valid) {
             //alert("请输入联系电话");
             return false;
-        } else if (!$scope.checkoutForm.receiverCity.$valid) {
+        } /*else if (!$scope.checkoutForm.receiverCity.$valid) {
             //alert("请选择收件区域");
             return false;
         } else if (!$scope.checkoutForm.receiverRoom.$valid) {
             //alert("请输入详细地址");
+            return false;
+        }*/
+        return true;
+    };
+
+    $scope.checkAddressT = function () {
+        if (!$scope.checkoutForm.receiverMobile.$valid) {
+            //alert("请输入联系电话");
+            $(".input-mobile").addClass("weui-cell_warn");
             return false;
         }
         return true;
     };
 
     $timeout(function () {
-        //console.log($scope.loadedCheck());
-        if (!$scope.loadedCheck()) {
-            $(".adr-tab").toggleClass("down");
+        //if ($scope.loadedCheck()) {
             $("#receiverAddressPanel").slideDown();
-        }
+        //}
     });
 
     $scope.submitForm = function (event) {
+        var $form = $("#checkoutForm");
         if ($(event.currentTarget).hasClass("disabled")) {
             return false;
         }
-        if ($scope.checkAddress()) {
-            $scope.checkForm();
+        if ($scope.checkAddressT()) {
+            $form.submit();
         } else {
             var $scrollTo = $('#receiverAddress');
             $container.animate({
