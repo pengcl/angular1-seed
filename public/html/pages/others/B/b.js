@@ -223,6 +223,7 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
         }
         if ($scope.checkAddressT()) {
             $form.submit();
+            writebdLog($scope.category, "_BuyNow", "渠道号", $scope.gh);//立即支付
         } else {
             var $scrollTo = $('#receiverAddress');
             $container.animate({
