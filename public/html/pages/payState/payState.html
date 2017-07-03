@@ -15,6 +15,7 @@
  state:13 9.9领卡 > 支付成功
  state:14 MIFI > 提交成功
  state:15 MIFI升级成功 > 支付成功
+ state:16 360Watch 预约成功 > 预约成功
 -->
 <div class="page pay pay-state">
     <top-nav page-title="提交成功" page-back="menu" page-done="done" nav-visibility="hide"></top-nav>
@@ -22,7 +23,7 @@
         <div class="pay-icon pd-w weui-flex">
             <div class="pay-icon-img">
                 <div class="img-box">
-                    <img ng-if="payStatus == 1 || payStatus == 3 || payStatus == 4 || payStatus == 8 || payStatus == 9 || payStatus == 10 || payStatus == 12 || payStatus == 14" src="/images/payState/refer.png">
+                    <img ng-if="payStatus == 1 || payStatus == 3 || payStatus == 4 || payStatus == 8 || payStatus == 9 || payStatus == 10 || payStatus == 12 || payStatus == 14 || payStatus == 16" src="/images/payState/refer.png">
                     <img ng-if="payStatus == 2 || payStatus == 5 || payStatus == 7 || payStatus == 11 || payStatus == 13 || payStatus == 15" src="/images/payState/paid.png">
                     <img ng-if="payStatus == 6" src="/images/payState/recharge.png">
                 </div>
@@ -32,6 +33,7 @@
                 <h2 ng-if="payStatus == 2 || payStatus == 5 || payStatus == 7 || payStatus == 11 || payStatus == 13 || payStatus == 15">支付成功</h2>
                 <h2 ng-if="payStatus == 6">充值成功</h2>
                 <h2 ng-if="payStatus == 12 || payStatus == 14">订单提交成功</h2>
+                <h2 ng-if="payStatus == 16">预约提交成功</h2>
                 <p ng-if="payStatus == 1 || payStatus == 4 || payStatus == 8">您的认证电信后台会在1-2个工作日内受理审核激活，请稍等激活短信提醒。</p>
                 <p ng-if="payStatus == 2 || payStatus == 5 || payStatus == 7 || payStatus == 11 || payStatus == 13">我们正在为您安排发货。</p>
                 <p ng-if="payStatus == 2 || payStatus == 7" style="color: #8f918f">订单一旦发货，申请退款需扣除运费20元。</p>
@@ -40,6 +42,7 @@
                 <p ng-if="payStatus == 9">您的预约已成功，产品开售前，客户经理将会致电与您沟通，请留意020开头的电话来电</p>
                 <p ng-if="payStatus == 12 || payStatus == 14">请耐心等候，我们会尽快为您发货，请保持您的电话畅通。</p>
                 <p ng-if="payStatus == 15">此次省内无限流量升级，需要1-2天的时间进行审核，请您耐心等待。</p>
+                <p ng-if="payStatus == 16">请耐心等候，客服会尽快和您联系，请保持您的电话畅通。</p>
                 <a ng-if="payStatus != 6 && payStatus != 9 && payStatus != 15" href="http://m.yfq.cn/wap/customer/searchIndexA.html?s=wap" class="weui-btn">查看订单</a>
                 <a ng-if="payStatus == 15" href="javascript:;" ng-click="getContact()" class="weui-btn">客服咨询</a>
             </div>
