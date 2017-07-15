@@ -11,7 +11,7 @@
             <div id="rechargeNo" class="weui-cells" ng-class="{true:'active',false:''}[!!mobile]">
                 <div class="weui-cell">
                     <div class="weui-cell__bd">
-                        <input id="mobile" ng-model="mobile" name="mobile" ng-change="getFlows(mobile)"
+                        <input id="mobile" ng-model="mobile" name="mobile" ng-blur="inputMobile(mobile)"
                                ng-pattern="/^[0-9]*$/" pattern="[0-9]*" ng-minlength="11" ng-maxlength="11" class="weui-input"
                                placeholder="请输入手机号码" required/>
                     </div>
