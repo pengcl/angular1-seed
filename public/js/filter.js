@@ -159,3 +159,15 @@ appFilters.filter('phoneFilter', function () {
         return price.substr(0, 4) + "****" + price.substr(8, 11);
     }
 });
+
+appFilters.filter('flowSalesPrice', function () {
+    return function (data) {
+        var price = data[0].salesPrice;
+        $.each(data, function (i, k) {
+            if(k.salesPrice < price){
+                price = k.salesPrice;
+            }
+        });
+        return price;
+    }
+});

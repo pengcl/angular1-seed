@@ -39,3 +39,28 @@ appServices.factory("UserAgentSvc", ['$http', '$q', function ($http, $q) {
 
     return service;
 }]);
+
+appServices.factory("MarketSvc", ['$http', '$q', function ($http, $q) {
+    var service = {};
+    service.getFlows = function (mobile) {//获取订单统计 promise对象
+        var d = $q.defer();
+        $http.jsonp('http://sell.yfq.cn/product/findProductFlows.ht?mobile=' + mobile + "&callback=JSON_CALLBACK").success(function (data) {
+            return d.resolve(data);
+        }).error(function (error) {
+            d.reject(error);
+        });
+        return d.promise;
+    };
+
+    service.pay = function (mobile, productId, productFlowPriceId, carrier, activityTag, channelCode, successUrl) {//获取订单统计 promise对象
+        var d = $q.defer();
+        $http.jsonp('http://sell.yfq.cn/order/submitFlowOrder.ht?mobile=' + mobile + '&productId=' + productId + '&productFlowPriceId=' + productFlowPriceId + '&carrier=' + carrier + '&activityTag=' + activityTag + '&channelCode=' + channelCode + '&successUrl=' + successUrl + '&callback=JSON_CALLBACK').success(function (data) {
+            return d.resolve(data);
+        }).error(function (error) {
+            d.reject(error);
+        });
+        return d.promise;
+    };
+
+    return service;
+}]);

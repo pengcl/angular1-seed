@@ -1,0 +1,114 @@
+<div class="page market flow home">
+    <gh></gh>
+    <top-nav page-title="充值" page-back="menu" nav-visibility="hide"></top-nav>
+    <!--<app-nav nav-item='{"menu":false,"back":true,"share":false,"comment":true,"class":"","title":"充值"}'></app-nav>-->
+    <div class="content-scrollable has-nav">
+        <form id="salesForm" name="accountForm" style="background: #fff;padding-bottom: 0.2rem">
+            <div id="rechargeNo" class="weui-cells" ng-class="{true:'active',false:''}[!!mobile]">
+                <div class="weui-cell">
+                    <div class="weui-cell__bd">
+                        <input id="mobile" ng-model="mobile" name="mobile"
+                               ng-pattern="/^[0-9]*$/" pattern="[0-9]*" ng-minlength="11" ng-maxlength="11" class="weui-input"
+                               placeholder="请输入手机号码" required/>
+                    </div>
+                    <div class="weui-cell__ft">
+                        <i class="icon-user"></i>
+                    </div>
+                </div>
+                <div class="weui-cell">
+                    <div class="weui-cell__bd">
+                        <span ng-bind="listData.area_operator" ng-show="!!mobile"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div ng-show="listData">
+                <div class="weui-cells__title">充流量</div>
+
+                <div class="item-lists weui-flex pdw">
+                    <div class="list-item weui-flex__item" ng-class="{true:'',false:'disabled'}[!!mobile]">
+                        <div class="item-box" ng-click="pay(mobile, listData.data[0].productId, listData.data[0].regionProducts[0].productFlowPriceId, listData.area_operator, 'flowBag', gh)">
+                            <div class="title" ng-bind="listData.data[0].productName"></div>
+                            <div class="disc">售价<span ng-bind="listData.data[0].regionProducts[0].salesPrice | number : 2"></span>元</div>
+                        </div>
+                    </div>
+
+                    <div class="list-item weui-flex__item" ng-class="{true:'',false:'disabled'}[!!mobile]">
+                        <div class="item-box" ng-click="pay(mobile, listData.data[0].productId, listData.data[0].regionProducts[0].productFlowPriceId, listData.area_operator, 'flowBag', gh)">
+                            <div class="title" ng-bind="listData.data[1].productName"></div>
+                            <div class="disc">售价<span ng-bind="listData.data[1].regionProducts[0].salesPrice | number : 2"></span>元</div>
+                        </div>
+                    </div>
+
+                    <div class="list-item weui-flex__item" ng-class="{true:'',false:'disabled'}[!!mobile]">
+                        <div class="item-box" ui-sref="flowList({mobile:mobile})">
+                            更多流量包
+                            <!--<div class="title">更多流量包</div>-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <div class="fqa weui-panel">
+            <div class="weui-panel__bd">
+                <div class="weui-media-box weui-media-box_text">
+
+                    <h4 class="weui-media-box__title" style="font-size: 0.16rem;margin-bottom: 0.08rem">注意事项</h4>
+                    <p class="weui-media-box__desc">1、订单中输入的充值号码务必填写正确，因为自动充值，一旦填错，无法修改和退款；</p>
+                    <p class="weui-media-box__desc">2、流量到帐时间：正常1~10分钟内到帐，流量充值高峰期（月初、月末、节假日）到帐时间可能会有延迟。流量充值成功以后，会有短信提醒，请注意：有时候由于官方系统延迟，收到短信但是流量未到，请务必核实流量确实到账后再使用，避免流量延迟产生额外费用。（如果由于您未核实到帐与否就使用该流量而造成的损失我们概不负责）</p>
+                    <p class="weui-media-box__desc">3、充值的流量不能抵扣充值之前套餐超出的流量；</p>
+                    <p class="weui-media-box__desc">4、此流量为全国（港澳台除外）通用流量或省内流量（根据你选择的流量包确定），仅限充值的号码使用，不可共享或分享；</p>
+                    <p class="weui-media-box__desc">5、请确认您的号码未欠费停机，本流量包要在您的号码正常使用情况下才能使用；</p>
+                    <p class="weui-media-box__desc">6、此流量包不支持日租卡，请注意！</p>
+                    <p class="weui-media-box__desc">7、如果你是电信号码用户，每月初1~3日为电信系统出账日，所以流量充值会有延时，请您耐心等待一下哦；</p>
+                    <p class="weui-media-box__desc">8、本商品当月有效，月末最后一天24点清零，按照自然月计算，未使用完的部分不能延续、累加至次月，仅限当月使用，例如：您9月9日充值成功，则有效期到9月30日24点，请根据自身的需求合理选择购买；</p>
+
+                    <h4 class="weui-media-box__title" style="font-size: 0.16rem;margin-bottom: 0.08rem">温馨提示</h4>
+                    <p class="weui-media-box__desc">1、流量使用先后顺序，以当地运营商实际计费为准；</p>
+                    <p class="weui-media-box__desc">2、流量直充产品开通后立即生效，无法取消，到期自动失效；</p>
+                    <p class="weui-media-box__desc">3、流量是否充值成功，以运营商官方网上营业厅查询为准；</p>
+                    <p class="weui-media-box__desc">4、流量充值产品在2G/3G/4G网络通用，使用4G网络需在4G网覆盖范围；</p>
+                    <p class="weui-media-box__desc">5、每月可多次办理；</p>
+                    <p class="weui-media-box__desc">6、48小时流量未到帐，请联系客服通过网厅查询后退款；</p>
+
+                    <h4 class="weui-media-box__title" style="font-size: 0.16rem;margin-bottom: 0.08rem">退款说明</h4>
+                    <p class="weui-media-box__desc">1、对流量充值引起的纠纷，希望提供查询密码配合我们查询，如果流量未到帐承诺全额退款，退款如果客户不提供查询密码，则无法退款；</p>
+                    <p class="weui-media-box__desc">2、号码充错，拨打显示空号，系统充值成功不支持退款；</p>
+                    <p class="weui-media-box__desc">3、由于流量月底清零，当月订单如未查询流量到账，请当月月末最后一天中午十二点前必联系客服处理，否则跨月流量清零，无法查询核对，不支持退款；</p>
+                    <p class="weui-media-box__desc">4、系统自动充值，48小时内充值中的订单不支持退款；</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div id="flowTips" style="display: none;">
+    <div class="overlay">
+        <a href="javascript:;" ng-click="state.overlay.open(false)" class="js-close-overlay overlay-dismiss"><span
+                class="icon-cross"></span></a>
+
+        <div class="wrapper-heading">
+            <div class="title-overlay">常见问题</div>
+            <div class="subtitle-overlay">这里是常见问题，还没有常见问题文案</div>
+        </div>
+
+        <a href="javascript:;" class="js-signin btn-twitter" ng-click="state.overlay.open(false)">我知道了</a>
+    </div>
+</div>
+
+<div id="paySuccess" style="display: none;">
+    <div class="overlay">
+        <a href="javascript:;" ng-click="state.overlay.open(false)" class="js-close-overlay overlay-dismiss"><span
+                class="icon-cross"></span></a>
+
+        <div class="wrapper-heading" style="top: 30%;">
+            <div class="weui-msg__icon-area" style="margin-bottom: 0.1rem"><i class="weui-icon-success weui-icon_msg"></i></div>
+            <div class="subtitle-overlay">支付成功</div>
+            <div class="subtitle-overlay" style="margin-top: 0.2rem">手机充值</div>
+            <div class="title-overlay" style="font-weight: normal"><span style="font-size: 50%">￥</span>99.80</div>
+        </div>
+
+        <a href="javascript:;" class="js-signin btn-twitter" style="background: #09BB07" ng-click="state.overlay.open(false)">我知道了</a>
+    </div>
+</div>
