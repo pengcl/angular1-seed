@@ -20,6 +20,13 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
         writebdLog($scope.category, "_SelectPackage", "渠道号", $scope.gh);
     };
 
+    $scope.$root.share = {
+        homeLink: 'http://' + window.location.host + '/flow/list' + window.location.search,
+        shareTitle: '移动、电信、联通三网支持，24小时自动充值',
+        shareDisc: '当月有效，月底清零，2G/3G/4G网络通用',
+        picUrl: 'http://' + window.location.host + '/images/flow/nativeShare.jpg'
+    };
+
     $scope.buyProd = function (product) {
         $scope.regionProduct = product;
         MarketSvc.pay($scope.mobile, $scope.product.productId, product.productFlowPriceId, $scope.product.carrier, 'flowBag', $scope.gh, encodeURIComponent('http://mall.yfq.cn/payState/A/flow?returnUrl=' + encodeURIComponent(window.location.href))).then(function success(data) {
