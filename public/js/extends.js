@@ -295,6 +295,7 @@ function getMeiqia() {
         s.parentNode.insertBefore(j, s);
     })(window, document, 'script', '//static.meiqia.com/dist/meiqia.js', '_MEIQIA');
     _MEIQIA('entId', 27864);
+    _MEIQIA('fallback', 1);
     _MEIQIA('withoutBtn');
 };
 

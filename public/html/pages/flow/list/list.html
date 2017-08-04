@@ -1,5 +1,5 @@
 <div class="page market flow list">
-    <top-nav page-title="充值" page-done="contact"></top-nav>
+    <top-nav page-title="充值" home-url="" group-token="" page-done="contact"></top-nav>
     <gh></gh>
     <app-nav nav-item='{"menu":false,"back":true,"share":false,"comment":true,"class":"","title":"充值"}'></app-nav>
     <div class="content-scrollable has-nav" content-scrollable-scrolled style="padding-top:0.5rem">
@@ -21,43 +21,127 @@
                 </div>
                 <div class="weui-cell">
                     <div class="weui-cell__bd">
-                        <span ng-bind="listData.area_operator" ng-show="!!mobile"></span>
+                        <span ng-bind="flowList.area_operator" ng-show="!!mobile"></span>
                     </div>
                 </div>
             </div>
-            <div ng-show="listData">
+
+            <div ng-show="flowList" style="padding-bottom: 0.2rem">
                 <div class="weui-cells__title">充流量</div>
 
-                <div class="prod weui-cells" ng-repeat="item in listData.data">
-                    <a class="weui-cell weui-cell_access" ng-click="selectedProd(item)" href="javascript:;">
-                        <div class="weui-cell__bd">
-                            <p ng-bind="item.productName"></p>
+                <div class="item-lists pure-g pdw">
+                    <div class="list-item pure-u-1-3" ng-repeat="item in flowList.data" ng-class="{true:'',false:'disabled'}[!!mobile]">
+                        <div class="item-box" ng-click="selectedProd(item);" ng-class="{true:'active',false:''}[item === product]">
+                            <div class="title" ng-bind="item.productName"></div>
+                            <div class="disc"><span ng-bind="item.regionProducts | flowSalesPrice | number : 2"></span>元</div>
                         </div>
-                        <div class="weui-cell__ft">
-                            <span ng-bind="item.regionProducts | flowSalesPrice | number : 2"></span>元
-                        </div>
-                    </a>
-                    <div class="sun-prod weui-cells" ng-show="item === product">
-                        <div class="weui-cell" ng-repeat="item in item.regionProducts">
-                            <div class="weui-cell__bd">
-                                <p><span>{{item.salesPrice | number : 2}}元</span>
-                                    <del>{{item.costPrice | number : 2}} 元</del>
-                                </p>
-                                <p class="weui-media-box__desc">
-                                    <span class="flag" ng-bind="item.regionName"></span><span>流量</span>
-                                    <span ng-show="item.regionName === '省内'">仅限本省使用，月底失效，即时生效</span>
-                                    <span ng-show="item.regionName === '全国'">月底失效，即时生效</span>
-                                </p>
-                            </div>
-                            <div class="weui-cell__ft">
-                                <a href="javascript:;" ng-click="buyProd(item)"
-                                   class="weui-btn weui-btn_mini weui-btn_plain-primary">立即购买</a>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="sun-prod weui-cells" ng-show="product">
+                <div class="weui-cell" ng-repeat="item in product.regionProducts">
+                    <div class="weui-cell__bd">
+                        <p style="position: relative"><span>{{(item.salesPrice - couponLength) | number : 2}}元</span>
+                            <del>{{item.costPrice | number : 2}} 元</del>
+                        </p>
+                        <p class="weui-media-box__desc">
+                            <span class="flag" ng-bind="item.regionName"></span><span>流量</span>
+                            <span ng-show="item.regionName === '省内'">省内使用，月底失效，即时生效</span>
+                            <span ng-show="item.regionName === '全国'">月底失效，即时生效</span>
+                        </p>
+                        <p ng-if="couponLength > 0" class="weui-media-box__desc">使用了<em ng-bind="couponLength"></em>张优惠券，为您省了<em ng-bind="couponLength | number : 2"></em>元</p>
+                    </div>
+                    <div class="weui-cell__ft">
+                        <a href="javascript:;" ng-click="buyProd(item)"
+                           class="weui-btn weui-btn_mini weui-btn_plain-primary">立即购买</a>
+                    </div>
+                </div>
+            </div>
+
+            <!--<div class="weui-tab" style="margin-top: 0.1rem">
+                <div class="weui-navbar">
+                    <div class="weui-navbar__item" ng-click="setProductType('fee')" ng-class="{true:'weui-bar__item_on',false:''}[productType === 'fee']">
+                        充话费
+                    </div>
+                    <div class="weui-navbar__item" ng-click="setProductType('flow')" ng-class="{true:'weui-bar__item_on',false:''}[productType === 'flow']">
+                        充流量
+                    </div>
+                </div>
+
+                <div class="weui-tab__panel" ng-show="productType === 'flow'">
+                    <div ng-show="flowList">
+
+                        <div class="prod weui-cells" ng-repeat="item in flowList.data">
+                            <a class="weui-cell weui-cell_access" ng-click="selectedProd(!!mobile,item,'flow')" ng-class="{true:'',false:'disabled'}[!!mobile]" href="javascript:;">
+                                <div class="weui-cell__bd">
+                                    <p ng-bind="item.productName"></p>
+                                </div>
+                                <div class="weui-cell__ft">
+                                    <span ng-bind="item.regionProducts | flowSalesPrice | number : 2"></span>元
+                                </div>
+                            </a>
+                            <div class="sun-prod weui-cells" ng-show="item === product">
+                                <div class="weui-cell" ng-repeat="item in item.regionProducts">
+                                    <div class="weui-cell__bd">
+                                        <p style="position: relative"><span>{{(item.salesPrice - couponLength) | number : 2}}元</span>
+                                            <del>{{item.costPrice | number : 2}} 元</del>
+                                        </p>
+                                        <p class="weui-media-box__desc">
+                                            <span class="flag" ng-bind="item.regionName"></span><span>流量</span>
+                                            <span ng-show="item.regionName === '省内'">仅限本省使用，月底失效，即时生效</span>
+                                            <span ng-show="item.regionName === '全国'">月底失效，即时生效</span>
+                                        </p>
+                                        <p ng-if="couponLength > 0" class="weui-media-box__desc">使用了<em ng-bind="couponLength"></em>张优惠券，为您省了<em ng-bind="couponLength | number : 2"></em>元</p>
+                                    </div>
+                                    <div class="weui-cell__ft">
+                                        <a href="javascript:;" ng-click="buyProd(item,'flow')"
+                                           class="weui-btn weui-btn_mini weui-btn_plain-primary">立即购买</a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="fqa weui-panel">
+
+                <div class="weui-tab__panel" ng-show="productType === 'fee'">
+                    <div ng-show="feeList">
+
+                        <div class="prod weui-cells" ng-repeat="item in feeList.data">
+                            <a class="weui-cell weui-cell_access" ng-click="selectedProd(!!mobile,item,'fee')" ng-class="{true:'',false:'disabled'}[!!mobile]" href="javascript:;">
+                                <div class="weui-cell__bd">
+                                    <p ng-bind="item.productName"></p>
+                                </div>
+                                <div class="weui-cell__ft">
+                                    <span ng-bind="item.regionProducts | flowSalesPrice | number : 2"></span>元
+                                </div>
+                            </a>
+                            <div class="sun-prod weui-cells" ng-show="item === product">
+                                <div class="weui-cell" ng-repeat="item in item.regionProducts">
+                                    <div class="weui-cell__bd">
+                                        <p style="position: relative"><span>{{(item.salesPrice - couponLength) | number : 2}}元</span>
+                                            <del>{{item.costPrice | number : 2}} 元</del>
+                                        </p>
+                                        <p class="weui-media-box__desc">
+                                            <span class="flag" ng-bind="item.regionName"></span><span>流量</span>
+                                            <span ng-show="item.regionName === '省内'">仅限本省使用，月底失效，即时生效</span>
+                                            <span ng-show="item.regionName === '全国'">月底失效，即时生效</span>
+                                        </p>
+                                        <p ng-if="couponLength > 0" class="weui-media-box__desc">使用了<em ng-bind="couponLength"></em>张优惠券，为您省了<em ng-bind="couponLength | number : 2"></em>元</p>
+                                    </div>
+                                    <div class="weui-cell__ft">
+                                        <a href="javascript:;" ng-click="buyProd(item,'flow')"
+                                           class="weui-btn weui-btn_mini weui-btn_plain-primary">立即购买</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>-->
+
+            <div class="fqa weui-panel" ng-show="productType === 'flow'">
                 <div class="weui-panel__bd">
                     <div class="weui-media-box weui-media-box_text">
 
@@ -87,11 +171,28 @@
                     </div>
                 </div>
             </div>
+
+            <div class="fqa weui-panel" ng-show="productType === 'fee'">
+                <div class="weui-panel__bd">
+                    <div class="weui-media-box weui-media-box_text">
+
+                        <h4 class="weui-media-box__title" style="font-size: 0.16rem;margin-bottom: 0.08rem">充值说明</h4>
+                        <p class="weui-media-box__desc">1、本站支持大陆所有运营商的手机号码充值，暂不支持固话充值；</p>
+                        <p class="weui-media-box__desc">2、填写充值账号付款后，系统将为您自动充值，请关注订单最终充值结果；</p>
+                        <p class="weui-media-box__desc">3、输入的充值号码务必填写正确，因为自动充值，一旦填错，无法修改和退款；</p>
+                        <p class="weui-media-box__desc">4、本商品到账时间一般为1到10分钟左右。话费充值高峰期（月初、月末、节假日）到账时间会有延迟，具体到账时间以当地运营商查询时间为准。若您长时间未收到充值，建议您登录运营商网上营业厅进行查询。</p>
+
+                        <h4 class="weui-media-box__title" style="font-size: 0.16rem;margin-bottom: 0.08rem">充值提醒</h4>
+                        <p class="weui-media-box__desc">1、充值成功后可能没有短信提醒，请您以运营商网上营业厅或运营商客服热线（移动10086/电信 10000/联通10010 )查询到的充值缴费记录为准。</p>
+                        <p class="weui-media-box__desc">2、请您务必确认充值前的欠费情况，如充值金额不足以缴纳欠费，可能导致您充值后仍处于欠费状 态，造成不必要的误解。</p>
+                    </div>
+                </div>
+            </div>
         </form>
         <!--<div class="weui-cells__tips" ng-click="showOverlay()" style="text-align: right;margin-bottom: 0.4rem">常见问题？
         </div>-->
     </div>
-
+    <!--<app-footer-nav></app-footer-nav>-->
 </div>
 
 <div id="flowTips" style="display: none;">

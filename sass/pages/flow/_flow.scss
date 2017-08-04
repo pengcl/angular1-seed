@@ -1,4 +1,57 @@
 .page.market {
+  &.flow {
+    #rechargeNo {
+      &:after {
+        left: 0.15rem;
+        right: 0.15rem;
+      }
+      .weui-cell {
+        &:nth-child(1) {
+          &:after {
+            display: none;
+          }
+        }
+        &:nth-child(2) {
+          font-size: 0.12rem;
+          padding-top: 0;
+          color: #09bb07;
+          &:before {
+            display: none;
+          }
+        }
+      }
+      &.active {
+        .weui-cell__ft {
+          color: #09bb07;
+        }
+      }
+    }
+  }
+}
+
+.page.market {
+  .item-box {
+    &.active {
+      background: #09bb07;
+      color: #fff;
+    }
+  }
+  .sun-prod {
+    del {
+      margin-left: 0.05rem;
+      color: #666;
+    }
+    .flag {
+      @include border-radius(0.05rem);
+      padding: 0.01rem 0.02rem;
+      color: #fff;
+      background: #09bb07;
+      margin-right: 0.05rem;
+    }
+  }
+}
+
+.page.market {
   .weui-media-box__desc {
     font-size: 0.12rem;
     color: #999;
@@ -144,4 +197,21 @@
       }
     }
   }
+}
+
+.weui-badge {
+  display: inline-block;
+  padding: .15em .4em;
+  min-width: 8px;
+  border-radius: 18px;
+  background-color: #F43530;
+  color: #FFFFFF;
+  line-height: 1.2;
+  text-align: center;
+  font-size: 12px;
+  vertical-align: middle;
+}
+.weui-badge_dot {
+  padding: .4em;
+  min-width: 0;
 }

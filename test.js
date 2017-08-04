@@ -1,195 +1,215 @@
-function createRandomTeam() {
-    var capability;
-    do {
-        capability = getNumberOfRND(10000, 5000);
-    } while (capability < 0);
-    return Math.floor(capability);
-}
-
-function createRandomTeams(num) {
-    console.time('创建' + num + '只球队');
-    var teams = [];
-    for (var i = 0; i < num; i++) {
-        teams.push({
-            id: i,
-            capability: createRandomTeam(),
-            battle: [],
-            ranking: 0,
-            group: ''
-        });
-    }
-    console.timeEnd('创建' + num + '只球队');
-    return teams;
-}
-
-var Teams = createRandomTeams(100);
-
-//获取对象或数组中选中对象的index
-function getIndex(jsonArray, keyName, value) {
-    for (var i = 0; i < jsonArray.length; i++) {
-        if (jsonArray[i][keyName] == value) {
-            return i;
-        }
-    }
-};
-
-var setTeamsData = function (teams) {
-    for (var i = 0; i < teams.length; i++) {
-        var team = teams[i];
-        var id = team.id;
-        var index = getIndex(Teams, 'id', id);
-        //console.log(Teams[index]);
-        Teams[index].group = team.group;
-    }
-    return Teams;
-};
-
-//小组赛
-var groupCompetition = function () {
-
-};
-
-//
-var get16 = function (teams) {
-
-};
-
-//32强分组
-var grouping = function (teams) {//分组
-
-    var groupsName = ['A', 'B', 'C', 'D', 'E', 'F', 'J', 'H'];
-    var groups = [];
-    var _teams = [];
-    for (var i = 0; i < teams.length; i++) {
-        _teams.push({
-            id: teams[i].id,
-            capability: teams[i].capability
-        })
-    }
-    _teams = _teams.sort(function (a, b) {
-        return b.capability - a.capability;
-    });
-
-    for (var i = 0; i < 8; i++) {
-        for (var j = 0; j < 4; j++) {
-            _teams[i + j * 8].group = groupsName[i];
-        }
-    }
-
-    return _teams;
-};
-
-//获取32强
-var getThirtyTwo = function (teams) {
-    if (teams.length <= 32) {
-        return teams
-    } else {
-        for (var i = 1; i < teams.length; i++) {
-            var matchResult = match.battle(teams[0].capability, teams[i].capability);
-            var otherResult = {
-                score: reverseMatchResult(matchResult.score),
-                result: getResult(this.score)
-            };
-            teams[0].battle.push({
-                other: i,
-                result: matchResult
-            });
-            teams[i].battle.push({
-                other: 0,
-                result: otherResult
-            });
-            teams = loseFiveOut(teams);
-            if (teams.length <= 32) {
-                return teams
+var ability = {
+    "ability": {
+        "attacking": {
+            "name": "进功",
+            "value": 28.6,
+            "property": {
+                "crossing": {
+                    "name": "传中",
+                    "value": "100"
+                },
+                "finishing": {
+                    "name": "射术",
+                    "value": "100"
+                },
+                "heading": {
+                    "name": "头球",
+                    "value": "100"
+                },
+                "shortPassing": {
+                    "name": "短传",
+                    "value": "100"
+                },
+                "volleys": {
+                    "name": "凌空",
+                    "value": "100"
+                }
+            }
+        },
+        "skill": {
+            "name": "技巧",
+            "value": 29.2,
+            "property": {
+                "dribbling": {
+                    "name": "盘带",
+                    "value": "100"
+                },
+                "curve": {
+                    "name": "弧线",
+                    "value": "100"
+                },
+                "freeKick": {
+                    "name": "任意球",
+                    "value": "100"
+                },
+                "longPassing": {
+                    "name": "长传",
+                    "value": "100"
+                },
+                "ballControl": {
+                    "name": "控球",
+                    "value": "100"
+                }
+            }
+        },
+        "movement": {
+            "name": "移动",
+            "value": 73.2,
+            "property": {
+                "acceleration": {
+                    "name": "加速",
+                    "value": "100"
+                },
+                "sprintSpeed": {
+                    "name": "速度",
+                    "value": "100"
+                },
+                "agility": {
+                    "name": "敏捷",
+                    "value": "100"
+                },
+                "reactions": {
+                    "name": "反应",
+                    "value": "100"
+                },
+                "balance": {
+                    "name": "平衡",
+                    "value": "100"
+                }
+            }
+        },
+        "power": {
+            "name": "力量",
+            "value": 77.6,
+            "property": {
+                "shotPower": {
+                    "name": "射门力量",
+                    "value": "100"
+                },
+                "jumping": {
+                    "name": "弹跳",
+                    "value": "100"
+                },
+                "stamina": {
+                    "name": "体能",
+                    "value": "100"
+                },
+                "strength": {
+                    "name": "强壮",
+                    "value": "100"
+                },
+                "longShots": {
+                    "name": "远射",
+                    "value": "100"
+                }
+            }
+        },
+        "mentality": {
+            "name": "心理",
+            "value": 73,
+            "property": {
+                "aggression": {
+                    "name": "侵略性",
+                    "value": "100"
+                },
+                "interceptions": {
+                    "name": "拦截意识",
+                    "value": "100"
+                },
+                "positioning": {
+                    "name": "跑位",
+                    "value": "100"
+                },
+                "vision": {
+                    "name": "视野",
+                    "value": "100"
+                },
+                "penalties": {
+                    "name": "点球",
+                    "value": "100"
+                },
+                "composure": {
+                    "name": "沉着",
+                    "value": "100"
+                }
+            }
+        },
+        "defending": {
+            "name": "防守",
+            "value": 38.3333333333333,
+            "property": {
+                "marking": {
+                    "name": "盯人",
+                    "value": "100"
+                },
+                "standingTackle": {
+                    "name": "抢断",
+                    "value": "100"
+                },
+                "slidingTackle": {
+                    "name": "铲球",
+                    "value": "100"
+                }
+            }
+        },
+        "goalkeeping": {
+            "name": "守门",
+            "value": 87.4,
+            "property": {
+                "diving": {
+                    "name": "鱼跃",
+                    "value": "100"
+                },
+                "handling": {
+                    "name": "手抛球",
+                    "value": "100"
+                },
+                "kicking": {
+                    "name": "开球",
+                    "value": "100"
+                },
+                "positioning": {
+                    "name": "站位",
+                    "value": "100"
+                },
+                "reflexes": {
+                    "name": "反应",
+                    "value": "30"
+                }
             }
         }
-        return getThirtyTwo(teams);
     }
 };
 
-//失败5次淘汰
-function loseFiveOut(teams) {
-    var winners = [];
-    for (var i = 0; i < teams.length; i++) {
-        var loseTimes = 0;
-        for (var j = 0; j < teams[i].battle.length; j++) {
-            if (teams[i].battle[j].result.result === 'l') {
-                loseTimes = loseTimes + 1;
-            }
-        }
-        if (loseTimes <= 5) {
-            winners.push(teams[i]);
-        }
+
+function getPropertyAverage(obj, lv) {
+    var value = 0;
+    var len = 0;
+    for (var k in obj) {
+        len = len + 1;
+        value = value + parseInt(obj[k].value * 0.01 * lv + obj[k].value);
     }
-    return winners;
+    return value / len;
 }
 
-//获取正态分布数
-function getNumberOfRND(r, d) {//r[number] 为基准数,d[number] 为动态偏移
-    return r + (rnd() * d);
+function getPromotedProperty(obj) {
+
 }
 
-//随机正态分布
-function rnd() { //Random Normal Distribution
-    var u = 0.0, v = 0.0, w = 0.0, c = 0.0;
-    do {
-        //获得两个（-1,1）的独立随机变量
-        u = Math.random() * 2 - 1.0;
-        v = Math.random() * 2 - 1.0;
-        w = u * u + v * v;
-    } while (w == 0.0 || w >= 1.0);
-    //这里就是 Box-Muller转换
-    c = Math.sqrt((-2 * Math.log(w)) / w);
-    //返回2个标准正态分布的随机数，封装进一个数组返回
-    //当然，因为这个函数运行较快，也可以扔掉一个
-    //return [u*c,v*c];
-    return u * c;
-}
-
-//获取胜率
-function winRate(our, other) {//our[number],other[number]为战力
-    return 1 / (1 + Math.pow(10, -((our - other) / (our / 20))));
-}
-
-//获取比分
-function winScore(r) {//r[number]为胜率
-    var our = 0, other = 0;
-    do {
-        our = getNumberOfRND(r * 10, 2);
-        other = getNumberOfRND((1 - r) * 10, 2);
-    } while (our > 10 || our < 0 || other > 10 || other < 0);
-    return [Math.floor(our), Math.floor(other)]
-}
-
-//获取比赛结果
-function getResult(our, other) {//our[number],other[number]比分
-    var gd = our - other;//净胜球
-    if (gd > 0) {
-        return 'w';
+function getAbility(ability, lv) {
+    for (var k in ability) {
+        var ave = getPropertyAverage(ability[k].property);
+        ability[k].value = ave;
     }
-    else if (gd === 0) {
-        return 'd';
-    } else {
-        return 'l';
-    }
+    return ability;
 }
 
-//反转比分
-function reverseMatchResult(score) {//score[number,number]比分
-    return [score[1], score[0]];
+function setPromote(ability) {
+    for (var k in ability) {
+        var ave = getPropertyAverage(ability[k].property);
+        ability[k].value = ave;
+    }
+    return ability;
 }
 
-//比赛函数
-var match = {
-    battle: function (our, other) {
-        var s, r;
-        r = winRate(our, other);
-        s = winScore(r);
-        return {
-            score: [s[0], s[1]],
-            result: getResult(s[0], s[1])
-        };
-    }
-};
-
-console.log(setTeamsData(grouping(getThirtyTwo(Teams))));
+console.log(getAbility(ability.ability));
