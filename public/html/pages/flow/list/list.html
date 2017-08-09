@@ -1,19 +1,20 @@
 <div class="page market flow list">
-    <top-nav page-title="充值" home-url="" group-token="" page-done="contact"></top-nav>
+    <top-nav page-title="充值" home-url="" group-token="8ba3446475970c6af51f22c9a7bb4fb4" page-done="contact"></top-nav>
     <gh></gh>
     <app-nav nav-item='{"menu":false,"back":true,"share":false,"comment":true,"class":"","title":"充值"}'></app-nav>
-    <div class="content-scrollable has-nav" content-scrollable-scrolled style="padding-top:0.5rem">
+    <div class="content-scrollable has-nav has-footer" content-scrollable-scrolled style="padding-top:0.5rem;background: #fff">
         <form id="salesForm" name="accountForm">
             <input name="product" id="product" ng-model="product.productId" value="{{product.productId}}" type="hidden">
-            <div class="img-box">
-                <img src="/images/flow/bg.jpg">
-            </div>
+
+            <div class="owl-carousel" img-urls="['/images/flow/top-1.jpg','/images/flow/top-2.jpg']"></div>
+
             <div id="rechargeNo" class="weui-cells" ng-class="{true:'active',false:''}[!!mobile]">
                 <div class="weui-cell">
                     <div class="weui-cell__bd">
                         <input id="mobile" ng-model="mobile" name="mobile" ng-blur="inputMobile(mobile)"
-                               ng-pattern="/^[0-9]*$/" pattern="[0-9]*" ng-minlength="11" ng-maxlength="11" class="weui-input"
-                               placeholder="请输入手机号码" required/>
+                               ng-pattern="/^[0-9]*$/" pattern="[0-9]*" ng-minlength="11" ng-maxlength="11"
+                               class="weui-input"
+                               placeholder="请输入需要充值的手机号码" required/>
                     </div>
                     <div class="weui-cell__ft">
                         <i class="icon-user"></i>
@@ -26,21 +27,33 @@
                 </div>
             </div>
 
+            <!--<div class="page-loading" ng-if="mobile && !flowList"></div>-->
+
             <div ng-show="flowList" style="padding-bottom: 0.2rem">
-                <div class="weui-cells__title">充流量</div>
+                <div class="weui-cells__title">充流量 <span class="sub-title">买一送一</span><span ng-click="flowDialog()" style="margin-left: 0.05rem;font-size: 0.12rem;float:right">了解详情 ></span></div>
 
                 <div class="item-lists pure-g pdw">
-                    <div class="list-item pure-u-1-3" ng-repeat="item in flowList.data" ng-class="{true:'',false:'disabled'}[!!mobile]">
-                        <div class="item-box" ng-click="selectedProd(item);" ng-class="{true:'active',false:''}[item === product]">
+                    <div class="list-item pure-u-1-3" ng-repeat="item in flowList.data | limitTo : flowLimitTo"
+                         ng-class="{true:'',false:'disabled'}[!!mobile]">
+                        <div class="item-box" ng-click="selectedProd(!!mobile,item,'flow');"
+                             ng-class="{true:'active',false:''}[item === product]">
                             <div class="title" ng-bind="item.productName"></div>
-                            <div class="disc"><span ng-bind="item.regionProducts | flowSalesPrice | number : 2"></span>元</div>
+                            <div class="disc"><span ng-bind="item.regionProducts | flowSalesPrice | number : 2"></span>元
+                            </div>
+                            <span class="flag" ng-if="item.sortNo >= 100 && couponList.length > 0">优惠</span>
                         </div>
                     </div>
-
+                    <div class="list-item pure-u-1-3" ng-class="{true:'',false:'disabled'}[!!mobile]"
+                         ng-show="limitTo === 5">
+                        <div class="item-box" ng-click="getFlowMore(!!mobile);" ng-show="flowLimitTo === 5">
+                            <div class="title">更多流量包</div>
+                            <!--<div class="disc"><span ng-bind="item.regionProducts | flowSalesPrice | number : 2"></span>元</div>-->
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <div class="sun-prod weui-cells" ng-show="product">
+            <div class="sun-prod weui-cells" ng-if="productType === 'flow'">
                 <div class="weui-cell" ng-repeat="item in product.regionProducts">
                     <div class="weui-cell__bd">
                         <p style="position: relative"><span>{{(item.salesPrice - couponLength) | number : 2}}元</span>
@@ -51,11 +64,113 @@
                             <span ng-show="item.regionName === '省内'">省内使用，月底失效，即时生效</span>
                             <span ng-show="item.regionName === '全国'">月底失效，即时生效</span>
                         </p>
-                        <p ng-if="couponLength > 0" class="weui-media-box__desc">使用了<em ng-bind="couponLength"></em>张优惠券，为您省了<em ng-bind="couponLength | number : 2"></em>元</p>
+                        <p ng-if="couponLength > 0" class="weui-media-box__desc">使用了<em ng-bind="couponLength"></em>张优惠券，为您省了<em
+                                ng-bind="couponLength | number : 2"></em>元</p>
                     </div>
                     <div class="weui-cell__ft">
                         <a href="javascript:;" ng-click="buyProd(item)"
-                           class="weui-btn weui-btn_mini weui-btn_plain-primary">立即购买</a>
+                           class="weui-btn weui-btn_mini weui-btn_plain-primary">购买</a>
+                    </div>
+                </div>
+            </div>
+
+            <p style="font-size: 0.12rem;text-align: right;padding-right: 0.15rem;color: #999"><span ng-click="taggleShow('#flowTips')">充流量注意事项</span></p>
+            <div id="flowTips" class="fqa weui-panel" style="display: none">
+                <div class="weui-panel__bd">
+                    <div class="weui-media-box weui-media-box_text">
+
+                        <h4 class="weui-media-box__title" style="font-size: 0.16rem;margin-bottom: 0.08rem">注意事项</h4>
+                        <p class="weui-media-box__desc">1、订单中输入的充值号码务必填写正确，因为自动充值，一旦填错，无法修改和退款；</p>
+                        <p class="weui-media-box__desc">
+                            2、流量到帐时间：正常1~10分钟内到帐，流量充值高峰期（月初、月末、节假日）到帐时间可能会有延迟。流量充值成功以后，会有短信提醒，请注意：有时候由于官方系统延迟，收到短信但是流量未到，请务必核实流量确实到账后再使用，避免流量延迟产生额外费用。（如果由于您未核实到帐与否就使用该流量而造成的损失我们概不负责）</p>
+                        <p class="weui-media-box__desc">3、充值的流量不能抵扣充值之前套餐超出的流量；</p>
+                        <p class="weui-media-box__desc">4、此流量为全国（港澳台除外）通用流量或省内流量（根据你选择的流量包确定），仅限充值的号码使用，不可共享或分享；</p>
+                        <p class="weui-media-box__desc">5、请确认您的号码未欠费停机，本流量包要在您的号码正常使用情况下才能使用；</p>
+                        <p class="weui-media-box__desc">6、此流量包不支持日租卡，请注意！</p>
+                        <p class="weui-media-box__desc">7、如果你是电信号码用户，每月初1~3日为电信系统出账日，所以流量充值会有延时，请您耐心等待一下哦；</p>
+                        <p class="weui-media-box__desc">
+                            8、本商品当月有效，月末最后一天24点清零，按照自然月计算，未使用完的部分不能延续、累加至次月，仅限当月使用，例如：您9月9日充值成功，则有效期到9月30日24点，请根据自身的需求合理选择购买；</p>
+
+                        <h4 class="weui-media-box__title" style="font-size: 0.16rem;margin-bottom: 0.08rem">温馨提示</h4>
+                        <p class="weui-media-box__desc">1、流量使用先后顺序，以当地运营商实际计费为准；</p>
+                        <p class="weui-media-box__desc">2、流量直充产品开通后立即生效，无法取消，到期自动失效；</p>
+                        <p class="weui-media-box__desc">3、流量是否充值成功，以运营商官方网上营业厅查询为准；</p>
+                        <p class="weui-media-box__desc">4、流量充值产品在2G/3G/4G网络通用，使用4G网络需在4G网覆盖范围；</p>
+                        <p class="weui-media-box__desc">5、每月可多次办理；</p>
+                        <p class="weui-media-box__desc">6、48小时流量未到帐，请联系客服通过网厅查询后退款；</p>
+
+                        <h4 class="weui-media-box__title" style="font-size: 0.16rem;margin-bottom: 0.08rem">退款说明</h4>
+                        <p class="weui-media-box__desc">
+                            1、对流量充值引起的纠纷，希望提供查询密码配合我们查询，如果流量未到帐承诺全额退款，退款如果客户不提供查询密码，则无法退款；</p>
+                        <p class="weui-media-box__desc">2、号码充错，拨打显示空号，系统充值成功不支持退款；</p>
+                        <p class="weui-media-box__desc">
+                            3、由于流量月底清零，当月订单如未查询流量到账，请当月月末最后一天中午十二点前必联系客服处理，否则跨月流量清零，无法查询核对，不支持退款；</p>
+                        <p class="weui-media-box__desc">4、系统自动充值，48小时内充值中的订单不支持退款；</p>
+                    </div>
+                </div>
+            </div>
+
+            <div ng-show="feeList" style="padding-bottom: 0.2rem">
+                <div class="weui-cells__title">充话费 <span class="sub-title">充50送5，充100送10</span><span ng-click="feeDialog()" style="margin-left: 0.05rem;font-size: 0.12rem;float:right">了解详情 ></span></div>
+
+                <div class="item-lists pure-g pdw">
+                    <div class="list-item pure-u-1-3" ng-repeat="item in feeList.data | limitTo : feeLimitTo"
+                         ng-class="{true:'',false:'disabled'}[!!mobile]">
+                        <div class="item-box" ng-click="selectedProd(!!mobile,item,'fee');"
+                             ng-class="{true:'active',false:''}[item === product]">
+                            <div class="title" ng-bind="item.productName"></div>
+                            <div class="disc"><span ng-bind="item.regionProducts | flowSalesPrice | number : 2"></span>元
+                            </div>
+                            <span class="flag" ng-if="item.sortNo >= 50 && couponList.length > 0">优惠</span>
+                        </div>
+                    </div>
+                    <div class="list-item pure-u-1-3" ng-class="{true:'',false:'disabled'}[!!mobile]"
+                         ng-show="limitTo === 5">
+                        <div class="item-box" ng-click="getFeeMore(!!mobile);" ng-show="feeLimitTo === 5">
+                            <div class="title">更多套餐</div>
+                            <!--<div class="disc"><span ng-bind="item.regionProducts | flowSalesPrice | number : 2"></span>元</div>-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sun-prod weui-cells" ng-if="productType === 'fee'">
+                <div class="weui-cell" ng-repeat="item in product.regionProducts">
+                    <div class="weui-cell__bd">
+                        <p style="position: relative"><span>{{(item.salesPrice - couponLength) | number : 2}}元</span>
+                            <del>{{item.costPrice | number : 2}} 元</del>
+                        </p>
+                        <!--<p class="weui-media-box__desc">
+                            <span class="flag" ng-bind="item.regionName"></span><span>流量</span>
+                            <span ng-show="item.regionName === '省内'">省内使用，月底失效，即时生效</span>
+                            <span ng-show="item.regionName === '全国'">月底失效，即时生效</span>
+                        </p>-->
+                        <p ng-if="couponLength > 0" class="weui-media-box__desc">使用了<em ng-bind="couponLength"></em>张优惠券，为您省了<em
+                                ng-bind="couponLength | number : 2"></em>元</p>
+                    </div>
+                    <div class="weui-cell__ft">
+                        <a href="javascript:;" ng-click="buyProd(item)"
+                           class="weui-btn weui-btn_mini weui-btn_plain-primary">购买</a>
+                    </div>
+                </div>
+            </div>
+
+            <p style="font-size: 0.12rem;text-align: right;padding-right: 0.15rem;color: #999"><span ng-click="taggleShow('#feeTips')">充话费注意事项</span></p>
+
+            <div id="feeTips" class="fqa weui-panel" style="display: none">
+                <div class="weui-panel__bd">
+                    <div class="weui-media-box weui-media-box_text">
+
+                        <h4 class="weui-media-box__title" style="font-size: 0.16rem;margin-bottom: 0.08rem">充值说明</h4>
+                        <p class="weui-media-box__desc">1、本站支持大陆所有运营商的手机号码充值，暂不支持固话充值；</p>
+                        <p class="weui-media-box__desc">2、填写充值账号付款后，系统将为您自动充值，请关注订单最终充值结果；</p>
+                        <p class="weui-media-box__desc">3、输入的充值号码务必填写正确，因为自动充值，一旦填错，无法修改和退款；</p>
+                        <p class="weui-media-box__desc">
+                            4、本商品到账时间一般为1到10分钟左右。话费充值高峰期（月初、月末、节假日）到账时间会有延迟，具体到账时间以当地运营商查询时间为准。若您长时间未收到充值，建议您登录运营商网上营业厅进行查询。</p>
+
+                        <h4 class="weui-media-box__title" style="font-size: 0.16rem;margin-bottom: 0.08rem">充值提醒</h4>
+                        <p class="weui-media-box__desc">1、显示充值成功后，如没有收到短信提醒的用户，可以登录运营商网上营业厅或运营商客服热线（移动10086/电信 10000/联通10010 )查询充值缴费记录。</p>
+                        <p class="weui-media-box__desc">2、请您务必确认充值前的欠费情况，如充值金额不足以缴纳欠费，可能导致您充值后仍处于欠费状态，造成不必要的误解。</p>
                     </div>
                 </div>
             </div>
@@ -141,38 +256,7 @@
                 </div>
             </div>-->
 
-            <div class="fqa weui-panel" ng-show="productType === 'flow'">
-                <div class="weui-panel__bd">
-                    <div class="weui-media-box weui-media-box_text">
-
-                        <h4 class="weui-media-box__title" style="font-size: 0.16rem;margin-bottom: 0.08rem">注意事项</h4>
-                        <p class="weui-media-box__desc">1、订单中输入的充值号码务必填写正确，因为自动充值，一旦填错，无法修改和退款；</p>
-                        <p class="weui-media-box__desc">2、流量到帐时间：正常1~10分钟内到帐，流量充值高峰期（月初、月末、节假日）到帐时间可能会有延迟。流量充值成功以后，会有短信提醒，请注意：有时候由于官方系统延迟，收到短信但是流量未到，请务必核实流量确实到账后再使用，避免流量延迟产生额外费用。（如果由于您未核实到帐与否就使用该流量而造成的损失我们概不负责）</p>
-                        <p class="weui-media-box__desc">3、充值的流量不能抵扣充值之前套餐超出的流量；</p>
-                        <p class="weui-media-box__desc">4、此流量为全国（港澳台除外）通用流量或省内流量（根据你选择的流量包确定），仅限充值的号码使用，不可共享或分享；</p>
-                        <p class="weui-media-box__desc">5、请确认您的号码未欠费停机，本流量包要在您的号码正常使用情况下才能使用；</p>
-                        <p class="weui-media-box__desc">6、此流量包不支持日租卡，请注意！</p>
-                        <p class="weui-media-box__desc">7、如果你是电信号码用户，每月初1~3日为电信系统出账日，所以流量充值会有延时，请您耐心等待一下哦；</p>
-                        <p class="weui-media-box__desc">8、本商品当月有效，月末最后一天24点清零，按照自然月计算，未使用完的部分不能延续、累加至次月，仅限当月使用，例如：您9月9日充值成功，则有效期到9月30日24点，请根据自身的需求合理选择购买；</p>
-
-                        <h4 class="weui-media-box__title" style="font-size: 0.16rem;margin-bottom: 0.08rem">温馨提示</h4>
-                        <p class="weui-media-box__desc">1、流量使用先后顺序，以当地运营商实际计费为准；</p>
-                        <p class="weui-media-box__desc">2、流量直充产品开通后立即生效，无法取消，到期自动失效；</p>
-                        <p class="weui-media-box__desc">3、流量是否充值成功，以运营商官方网上营业厅查询为准；</p>
-                        <p class="weui-media-box__desc">4、流量充值产品在2G/3G/4G网络通用，使用4G网络需在4G网覆盖范围；</p>
-                        <p class="weui-media-box__desc">5、每月可多次办理；</p>
-                        <p class="weui-media-box__desc">6、48小时流量未到帐，请联系客服通过网厅查询后退款；</p>
-
-                        <h4 class="weui-media-box__title" style="font-size: 0.16rem;margin-bottom: 0.08rem">退款说明</h4>
-                        <p class="weui-media-box__desc">1、对流量充值引起的纠纷，希望提供查询密码配合我们查询，如果流量未到帐承诺全额退款，退款如果客户不提供查询密码，则无法退款；</p>
-                        <p class="weui-media-box__desc">2、号码充错，拨打显示空号，系统充值成功不支持退款；</p>
-                        <p class="weui-media-box__desc">3、由于流量月底清零，当月订单如未查询流量到账，请当月月末最后一天中午十二点前必联系客服处理，否则跨月流量清零，无法查询核对，不支持退款；</p>
-                        <p class="weui-media-box__desc">4、系统自动充值，48小时内充值中的订单不支持退款；</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="fqa weui-panel" ng-show="productType === 'fee'">
+            <!--<div class="fqa weui-panel">
                 <div class="weui-panel__bd">
                     <div class="weui-media-box weui-media-box_text">
 
@@ -180,22 +264,24 @@
                         <p class="weui-media-box__desc">1、本站支持大陆所有运营商的手机号码充值，暂不支持固话充值；</p>
                         <p class="weui-media-box__desc">2、填写充值账号付款后，系统将为您自动充值，请关注订单最终充值结果；</p>
                         <p class="weui-media-box__desc">3、输入的充值号码务必填写正确，因为自动充值，一旦填错，无法修改和退款；</p>
-                        <p class="weui-media-box__desc">4、本商品到账时间一般为1到10分钟左右。话费充值高峰期（月初、月末、节假日）到账时间会有延迟，具体到账时间以当地运营商查询时间为准。若您长时间未收到充值，建议您登录运营商网上营业厅进行查询。</p>
+                        <p class="weui-media-box__desc">
+                            4、本商品到账时间一般为1到10分钟左右。话费充值高峰期（月初、月末、节假日）到账时间会有延迟，具体到账时间以当地运营商查询时间为准。若您长时间未收到充值，建议您登录运营商网上营业厅进行查询。</p>
 
                         <h4 class="weui-media-box__title" style="font-size: 0.16rem;margin-bottom: 0.08rem">充值提醒</h4>
-                        <p class="weui-media-box__desc">1、充值成功后可能没有短信提醒，请您以运营商网上营业厅或运营商客服热线（移动10086/电信 10000/联通10010 )查询到的充值缴费记录为准。</p>
+                        <p class="weui-media-box__desc">1、充值成功后可能没有短信提醒，请您以运营商网上营业厅或运营商客服热线（移动10086/电信 10000/联通10010
+                            )查询到的充值缴费记录为准。</p>
                         <p class="weui-media-box__desc">2、请您务必确认充值前的欠费情况，如充值金额不足以缴纳欠费，可能导致您充值后仍处于欠费状 态，造成不必要的误解。</p>
                     </div>
                 </div>
-            </div>
+            </div>-->
         </form>
         <!--<div class="weui-cells__tips" ng-click="showOverlay()" style="text-align: right;margin-bottom: 0.4rem">常见问题？
         </div>-->
     </div>
-    <!--<app-footer-nav></app-footer-nav>-->
+    <app-footer-nav></app-footer-nav>
 </div>
 
-<div id="flowTips" style="display: none;">
+<!--<div id="flowTips" style="display: none;">
     <div class="overlay flow-overlay">
         <a href="javascript:;" class="js-close-overlay overlay-dismiss"><span
                 class="icon-cross"></span></a>
@@ -208,6 +294,20 @@
         <a href="javascript:;" class="js-signin btn-twitter js-close-overlay">我知道了</a>
     </div>
 </div>
+
+<div id="feeTips" style="display: none;">
+    <div class="overlay flow-overlay">
+        <a href="javascript:;" class="js-close-overlay overlay-dismiss"><span
+                class="icon-cross"></span></a>
+
+        <div class="wrapper-heading">
+            <div class="title-overlay">常见问题</div>
+            <div class="subtitle-overlay">这里是常见问题，还没有常见问题文案</div>
+        </div>
+
+        <a href="javascript:;" class="js-signin btn-twitter js-close-overlay">我知道了</a>
+    </div>
+</div>-->
 
 <div id="paySuccess" style="display: none;">
     <div class="overlay flow-overlay">

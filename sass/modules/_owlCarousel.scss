@@ -11,6 +11,13 @@
     .owl-buttons {
       display: none;
     }
+    .owl-page {
+      span {
+        width: 0.08rem;
+        height: 0.08rem;
+        margin:0.05rem;
+      }
+    }
   }
 }
 .carousel-item,.owl-item {

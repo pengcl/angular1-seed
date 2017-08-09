@@ -44,7 +44,7 @@ appServices.factory("MarketSvc", ['$http', '$q', function ($http, $q) {
     var service = {};
     service.getFlows = function (mobile) {//获取订单统计 promise对象
         var d = $q.defer();
-        $http.jsonp('http://apptest.yfq.cn:8904/product/findProductFlows.ht?mobile=' + mobile + '&type=1&callback=JSON_CALLBACK').success(function (data) {
+        $http.jsonp('http://sell.yfq.cn/product/findProductFlows.ht?mobile=' + mobile + '&type=1&callback=JSON_CALLBACK').success(function (data) {
             return d.resolve(data);
         }).error(function (error) {
             d.reject(error);
@@ -54,7 +54,7 @@ appServices.factory("MarketSvc", ['$http', '$q', function ($http, $q) {
 
     service.getFees = function (mobile) {
         var d = $q.defer();
-        $http.jsonp('http://apptest.yfq.cn:8904/product/findProductFlows.ht?mobile=' + mobile + '&type=2&callback=JSON_CALLBACK').success(function (data) {
+        $http.jsonp('http://sell.yfq.cn/product/findProductFlows.ht?mobile=' + mobile + '&type=2&callback=JSON_CALLBACK').success(function (data) {
             return d.resolve(data);
         }).error(function (error) {
             d.reject(error);
@@ -64,7 +64,7 @@ appServices.factory("MarketSvc", ['$http', '$q', function ($http, $q) {
 
     service.pay = function (mobile, productId, productFlowPriceId, carrier, activityTag, channelCode, successUrl, couponNo, referrerId) {//获取订单统计 promise对象
         var d = $q.defer();
-        $http.jsonp('http://apptest.yfq.cn:8904/order/submitFlowOrder.ht?mobile=' + mobile + '&productId=' + productId + '&productFlowPriceId=' + productFlowPriceId + '&carrier=' + carrier + '&activityTag=' + activityTag + '&channelCode=' + channelCode + '&successUrl=' + successUrl + '&couponNo=' + couponNo + '&referrerId=' + referrerId + '&callback=JSON_CALLBACK').success(function (data) {
+        $http.jsonp('http://sell.yfq.cn/order/submitFlowOrder.ht?mobile=' + mobile + '&productId=' + productId + '&productFlowPriceId=' + productFlowPriceId + '&carrier=' + carrier + '&activityTag=' + activityTag + '&channelCode=' + channelCode + '&successUrl=' + successUrl + '&couponNo=' + couponNo + '&referrerId=' + referrerId + '&callback=JSON_CALLBACK').success(function (data) {
             return d.resolve(data);
         }).error(function (error) {
             d.reject(error);
@@ -80,7 +80,7 @@ appServices.factory("CouponSvc", ['$http', '$q', function ($http, $q) {
 
     service.getCouponList = function (mobile) {//获取订单列表 promise对象
         var d = $q.defer();
-        $http.jsonp('http://apptest.yfq.cn:8904/product/getCouponList.ht?recieverMobile=' + mobile + '&callback=JSON_CALLBACK').success(function (data) {
+        $http.jsonp('http://sell.yfq.cn/product/getCouponList.ht?recieverMobile=' + mobile + '&callback=JSON_CALLBACK').success(function (data) {
             var isOverdueCount = 0;
             var isUsedCount = 0;
             var length = data[0].couponList.length;
@@ -108,6 +108,7 @@ appServices.factory("CouponSvc", ['$http', '$q', function ($http, $q) {
                     validEndTime: k.validEndTime.time,
                     isUsed: k.isUsed,
                     callbackUrl: k.callbackUrl,
+                    type: k.couponBatchType,
                     isOverdue: isOverdue
                 };
                 couponList.couponList.push(obj);
@@ -130,7 +131,7 @@ appServices.factory("OrderSvc", ['$http', '$q', function ($http, $q) {
 
     service.getCounts = function (receiverMobile) {//获取订单统计 promise对象
         var d = $q.defer();
-        $http.jsonp('http://apptest.yfq.cn:8904/product/findOrderStatusCounts.ht?receiverMobile=' + receiverMobile + '&callback=JSON_CALLBACK').success(function (data) {
+        $http.jsonp('http://sell.yfq.cn/product/findOrderStatusCounts.ht?receiverMobile=' + receiverMobile + '&callback=JSON_CALLBACK').success(function (data) {
             return d.resolve(data);
         }).error(function (error) {
             d.reject(error);
@@ -140,7 +141,7 @@ appServices.factory("OrderSvc", ['$http', '$q', function ($http, $q) {
 
     service.getOrderList = function (receiverMobile, orderStatus) {//获取订单列表 promise对象
         var d = $q.defer();
-        $http.jsonp('http://apptest.yfq.cn:8904/product/searchOrders.ht?receiverMobile=' + receiverMobile + '&orderStatus=' + orderStatus + '&callback=JSON_CALLBACK').success(function (data) {
+        $http.jsonp('http://sell.yfq.cn/product/searchOrders.ht?receiverMobile=' + receiverMobile + '&orderStatus=' + orderStatus + '&callback=JSON_CALLBACK').success(function (data) {
             return d.resolve(data);
         }).error(function (error) {
             d.reject(error);
@@ -150,7 +151,7 @@ appServices.factory("OrderSvc", ['$http', '$q', function ($http, $q) {
 
     service.getOrder = function (orderNo) {
         var d = $q.defer();
-        $http.jsonp('http://apptest.yfq.cn:8904/order/getSalesOrder.ht?orderNo=' + orderNo + '&callback=JSON_CALLBACK').success(function (data) {
+        $http.jsonp('http://sell.yfq.cn/order/getSalesOrder.ht?orderNo=' + orderNo + '&callback=JSON_CALLBACK').success(function (data) {
             return d.resolve(data);
         }).error(function (error) {
             d.reject(error);
@@ -160,7 +161,7 @@ appServices.factory("OrderSvc", ['$http', '$q', function ($http, $q) {
 
     service.getLogistics = function (orderNo) {//获取订单统计 promise对象
         var d = $q.defer();
-        $http.jsonp('http://apptest.yfq.cn:8904/product/findLogistics.ht?orderNo=' + orderNo + '&callback=JSON_CALLBACK').success(function (data) {
+        $http.jsonp('http://sell.yfq.cn/product/findLogistics.ht?orderNo=' + orderNo + '&callback=JSON_CALLBACK').success(function (data) {
             return d.resolve(data);
         }).error(function (error) {
             d.reject(error);
@@ -221,7 +222,7 @@ appServices.factory('ShareSvc', ['$q', '$http', function ($q, $http) {
     service.getShareUrl = function (mobile, pid, gh, category, url, memberId, brandId) {
 
         var d = $q.defer();
-        $http.jsonp("http://apptest.yfq.cn:8904/share/doProductShare.ht?mobile=" + mobile + "&pid=" + pid + "&gh=member&category=" + category + "&productUrl=" + url + "&memberId=" + memberId + "&callback=JSON_CALLBACK").success(function (data, status, headers, config) {
+        $http.jsonp("http://sell.yfq.cn/share/doProductShare.ht?mobile=" + mobile + "&pid=" + pid + "&gh=member&category=" + category + "&productUrl=" + url + "&memberId=" + memberId + "&callback=JSON_CALLBACK").success(function (data, status, headers, config) {
             return d.resolve(data);
         }).error(function (error) {
             d.reject(error);
@@ -231,7 +232,7 @@ appServices.factory('ShareSvc', ['$q', '$http', function ($q, $http) {
 
     service.getShareProduct = function (memberId) {
         var d = $q.defer();
-        $http.jsonp("http://apptest.yfq.cn:8904/share/findProductShareInfo.ht?memberId=" + memberId + "&callback=JSON_CALLBACK").success(function (data, status, headers, config) {
+        $http.jsonp("http://sell.yfq.cn/share/findProductShareInfo.ht?memberId=" + memberId + "&callback=JSON_CALLBACK").success(function (data, status, headers, config) {
             return d.resolve(data);
         }).error(function (error) {
             d.reject(error);
@@ -241,7 +242,7 @@ appServices.factory('ShareSvc', ['$q', '$http', function ($q, $http) {
 
     service.getShares = function (mobile) {
         var d = $q.defer();
-        $http.jsonp("http://apptest.yfq.cn:8904/product/getShareProduct.ht?Q_isShare_S=0&callback=JSON_CALLBACK").success(function (data, status, headers, config) {
+        $http.jsonp("http://sell.yfq.cn/product/getShareProduct.ht?Q_isShare_S=0&callback=JSON_CALLBACK").success(function (data, status, headers, config) {
             return d.resolve(data);
         }).error(function (error) {
             d.reject(error);

@@ -41,7 +41,7 @@ app.directive("topNav", ['$timeout', '$document', '$window', function ($timeout,
                 getMeiqia();
                 if(attrs.groupToken){
                     _MEIQIA('showPanel', {
-                        groupToken: '8ba3446475970c6af51f22c9a7bb4fb4'
+                        groupToken: attrs.groupToken
                     });
                 }else {
                     _MEIQIA('showPanel', {
@@ -49,6 +49,7 @@ app.directive("topNav", ['$timeout', '$document', '$window', function ($timeout,
                     });
                 }
                 _MEIQIA('showPanel');
+
                 writebdLog(scope.category, "_CustConsult", "渠道号", scope.gh);//客服咨询
             };
         }
