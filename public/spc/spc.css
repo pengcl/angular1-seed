@@ -266,12 +266,18 @@ body {
 .owl-carousel .owl-controls .owl-buttons {
   display: none;
 }
+/* line 15, ../../sass/modules/_owlCarousel.scss */
+.owl-carousel .owl-controls .owl-page span {
+  width: 0.08rem;
+  height: 0.08rem;
+  margin: 0.05rem;
+}
 
-/* line 16, ../../sass/modules/_owlCarousel.scss */
+/* line 23, ../../sass/modules/_owlCarousel.scss */
 .carousel-item, .owl-item {
   width: 100%;
 }
-/* line 18, ../../sass/modules/_owlCarousel.scss */
+/* line 25, ../../sass/modules/_owlCarousel.scss */
 .carousel-item img, .owl-item img {
   display: block;
   width: 100%;

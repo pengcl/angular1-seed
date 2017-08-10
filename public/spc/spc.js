@@ -26,11 +26,12 @@ function getUrlParam(name) {
     return null; //返回参数值
 }
 
+//美恰在线客服
 function getMeiqia() {
     (function (m, ei, q, i, a, j, s) {
         m[a] = m[a] || function () {
-                (m[a].a = m[a].a || []).push(arguments)
-            };
+            (m[a].a = m[a].a || []).push(arguments)
+        };
         j = ei.createElement(q),
             s = ei.getElementsByTagName(q)[0];
         j.async = true;
@@ -39,6 +40,7 @@ function getMeiqia() {
         s.parentNode.insertBefore(j, s);
     })(window, document, 'script', '//static.meiqia.com/dist/meiqia.js', '_MEIQIA');
     _MEIQIA('entId', 27864);
+    _MEIQIA('fallback', 1);
     _MEIQIA('withoutBtn');
 };
 
@@ -160,7 +162,9 @@ function userTrack(name) {
 var getContact = function () {
     getMeiqia();
     //$("#contactUs").show();
-    _MEIQIA('showPanel');
+    _MEIQIA('showPanel', {
+        groupToken: '5fcb8fc3c4aae224a01be2eaff210f1c'
+    });
     writebdLog(category, "_CustConsult", "渠道号", getUrlParam("gh"));//客服咨询
 };
 

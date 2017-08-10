@@ -39,7 +39,17 @@ app.directive("topNav", ['$timeout', '$document', '$window', function ($timeout,
 
             scope.getContact = function () {
                 getMeiqia();
+                if(attrs.groupToken){
+                    _MEIQIA('showPanel', {
+                        groupToken: attrs.groupToken
+                    });
+                }else {
+                    _MEIQIA('showPanel', {
+                        groupToken: '5fcb8fc3c4aae224a01be2eaff210f1c'
+                    });
+                }
                 _MEIQIA('showPanel');
+
                 writebdLog(scope.category, "_CustConsult", "渠道号", scope.gh);//客服咨询
             };
         }
