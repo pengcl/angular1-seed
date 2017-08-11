@@ -159,6 +159,7 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
     $scope.inputMobile = function (mobile) {
         if (mobile == undefined || mobile == "" || mobile.length <= 10) return;
         writebdLog($scope.category, "_InputMobile", "渠道号", $scope.gh);//手机号码
+        console.log(1);
     };
 
     $scope.setProductType = function (type) {
