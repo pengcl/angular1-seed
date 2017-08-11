@@ -10,12 +10,19 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
             controller: "flowListController"
         });
 }]).controller('flowListController', ['$scope', '$stateParams', '$filter', '$location', '$cookieStore', 'MarketSvc', 'CouponSvc', function ($scope, $stateParams, $filter, $location, $cookieStore, MarketSvc, CouponSvc) {
-    $scope.mobile = $stateParams.mobile;
 
     $scope.category = systemName + "_flowBag_A_list";
     writebdLog($scope.category, "_Load", "渠道号", $scope.gh);
 
     $scope.limitTo = 5;
+
+    if ($cookieStore.get('rechargeMobile')) {
+        $scope.mobile = $cookieStore.get('rechargeMobile');
+    }
+
+    if ($stateParams.mobile) {
+        $scope.mobile = $stateParams.mobile;
+    }
 
     $scope.getFlowMore = function (checked) {
 
@@ -139,7 +146,7 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
             });
         }*/
     };
-    
+
     $scope.taggleShow = function (target) {
         $(target).slideToggle(500);
     };
@@ -340,7 +347,7 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
                 "operator": "移动"
             };
         }
-        if (n !== undefined && n !== o) {
+        if (n !== undefined) {
 
             $scope.$root.toast.openUnLimit();
 
