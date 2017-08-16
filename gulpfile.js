@@ -1,5 +1,5 @@
 var gulp = require('gulp');
-var compass = require('gulp-for-compass');
+//var compass = require('gulp-for-compass');
 var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
 var rename = require('gulp-rename');
@@ -32,37 +32,13 @@ gulp.task('html2js', function () {
         .pipe(uglify())
         .pipe(gulp.dest('public/components/' + version + '/'));
 });
-//sass合并,压缩
-gulp.task('sass', function () {
-    return gulp.src('sass/**/*.scss')
-        .pipe(compass({
-            sassDir: 'sass',
-            cssDir: 'public/css/' + version + '/',
-            force: true
-        }))
-        .pipe(rename({suffix: '.min'}))
-        .pipe(minifyCSS())
-        .pipe(gulp.dest(version + '/'));
-});
 
-gulp.task('spc', function () {
-    return gulp.src('public/spc/sass/*.scss')
-        .pipe(compass({
-            sassDir: 'public/spc/sass/',
-            cssDir: 'public/spc/',
-            force: true
-        }))
-        .pipe(rename({suffix: '.min'}))
-        .pipe(minifyCSS())
-        .pipe(gulp.dest('public/spc/min/'));
-});
 
 gulp.task('watch', function () {
-    gulp.watch([['public/js/**/*.js', 'public/html/**/*.js'], 'public/html/**/*.html', 'sass/**/*.scss'], ['public', 'html2js', 'sass']);
-    gulp.watch(['public/spc/sass/*.scss'], ['spc']);
+    gulp.watch([['public/js/**/*.js', 'public/html/**/*.js'], 'public/html/**/*.html'], ['public', 'html2js']);
 });
 
 gulp.task('default', function () {
     // 将你的默认的任务代码放在这
-    gulp.start('public', 'html2js', 'sass', 'spc', 'watch');
+    gulp.start('public', 'html2js', 'watch');
 });

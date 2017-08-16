@@ -113,7 +113,7 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
             $scope.couponLength = 3;
         }*/
 
-        writebdLog($scope.category, "_SelectPackage", "渠道号", $scope.gh);
+        writebdLog($scope.category, "_SelectPackage" + $scope.productType, "渠道号", $scope.gh);
     };
 
     $scope.$root.share = {
@@ -138,7 +138,7 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
             $scope.$root.toast.close();
             if (data.result) {
                 window.location.href = data.payUrl;
-                writebdLog($scope.category, "_BuyNow", "渠道号", $scope.gh);
+                writebdLog($scope.category, "_BuyNow" + $scope.productType, "渠道号", $scope.gh);
             } else {
                 $scope.$root.appDialog.open('系统提示', data.msg);
             }
