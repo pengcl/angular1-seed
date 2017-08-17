@@ -97,6 +97,15 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
                 $scope.coupons = $scope.couponList[0].couponNo + "," + $scope.couponList[1].couponNo;
                 $scope.couponLength = 2;
             }
+
+            var $container = $(".content-scrollable");
+
+            var $scrollTo = $('#feeList');
+
+            $container.animate({
+                scrollTop: $scrollTo.offset().top - $container.offset().top + $container.scrollTop()
+            });
+
         }
 
         /*if ($scope.product.flowRate >= 1000 && $scope.couponList.length >= 3) {
@@ -125,7 +134,7 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
         /*if (type === 'flow') {*/
         $scope.$root.toast.openUnLimit();
         $scope.regionProduct = product;
-        MarketSvc.pay($scope.mobile, $scope.product.productId, product.productFlowPriceId, $scope.flowList.area_operator, 'flowBag', $scope.gh, encodeURIComponent('http://sell.yfq.cn/member/pure/pages/success/success.html?mobile=' + $scope.mobile + '&returnUrl=' + encodeURIComponent(window.location.href)), $scope.coupons, $scope.referrerId).then(function success(data) {
+        MarketSvc.pay($scope.mobile, $scope.product.productId, product.productFlowPriceId, $scope.flowList.area_operator, 'flowBag', $scope.gh, encodeURIComponent('http://sell.yfq.cn/member/pure/pages/success/success.html?mobile=' + $scope.mobile + '&returnUrl=' + encodeURIComponent(window.location.href)), $scope.coupons, $scope.referrerId, $scope.category).then(function success(data) {
             $scope.$root.toast.close();
             if (data.result) {
                 window.location.href = data.payUrl;

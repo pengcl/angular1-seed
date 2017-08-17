@@ -1,6 +1,7 @@
 <div class="page market flow list">
     <top-nav page-title="充值" home-url="" group-token="8ba3446475970c6af51f22c9a7bb4fb4" page-done="contact"></top-nav>
     <gh></gh>
+    <activity></activity>
     <app-nav nav-item='{"menu":false,"back":true,"share":false,"comment":true,"class":"","title":"充值"}'></app-nav>
     <div class="content-scrollable has-nav has-footer" content-scrollable-scrolled style="padding-top:0.5rem;background: #fff">
         <form id="salesForm" name="accountForm">
@@ -110,7 +111,7 @@
                 </div>
             </div>
 
-            <div ng-show="feeList" style="padding-bottom: 0.2rem">
+            <div id="feeList" ng-show="feeList" style="padding-bottom: 0.2rem">
                 <div class="weui-cells__title">充话费 <span class="sub-title">充50送5，充100送10</span><span ng-click="feeDialog()" style="margin-left: 0.05rem;font-size: 0.12rem;float:right">了解详情 ></span></div>
 
                 <div class="item-lists pure-g pdw">
@@ -155,7 +156,7 @@
                 </div>
             </div>
 
-            <p style="font-size: 0.12rem;text-align: right;padding-right: 0.15rem;color: #999"><span ng-click="taggleShow('#feeTips')">充话费注意事项</span></p>
+            <p style="font-size: 0.12rem;text-align: right;padding-right: 0.15rem;color: #999;margin-bottom: 0.5rem"><span ng-click="taggleShow('#feeTips')">充话费注意事项</span></p>
 
             <div id="feeTips" class="fqa weui-panel" style="display: none">
                 <div class="weui-panel__bd">

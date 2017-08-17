@@ -26,7 +26,11 @@ app.directive("topNav", ['$timeout', '$document', '$window', function ($timeout,
             }
 
             scope.home = function () {
-                $window.location.href = 'http://' + $window.location.host + scope.homeUrl + $window.location.search;
+                if (scope.homeUrl) {
+                    $window.location.href = 'http://' + $window.location.host + scope.homeUrl + $window.location.search;
+                } else {
+                    $window.location.href = 'http://' + $window.location.host + $window.location.search
+                }
             };
 
             scope.back = function () {
@@ -39,11 +43,11 @@ app.directive("topNav", ['$timeout', '$document', '$window', function ($timeout,
 
             scope.getContact = function () {
                 getMeiqia();
-                if(attrs.groupToken){
+                if (attrs.groupToken) {
                     _MEIQIA('showPanel', {
                         groupToken: attrs.groupToken
                     });
-                }else {
+                } else {
                     _MEIQIA('showPanel', {
                         groupToken: '5fcb8fc3c4aae224a01be2eaff210f1c'
                     });
