@@ -134,7 +134,7 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
         /*if (type === 'flow') {*/
         $scope.$root.toast.openUnLimit();
         $scope.regionProduct = product;
-        MarketSvc.pay($scope.mobile, $scope.product.productId, product.productFlowPriceId, $scope.flowList.area_operator, 'flowBag', $scope.gh, encodeURIComponent('http://sell.yfq.cn/member/pure/pages/success/success.html?mobile=' + $scope.mobile + '&returnUrl=' + encodeURIComponent(window.location.href)), $scope.coupons, $scope.referrerId, $scope.category).then(function success(data) {
+        MarketSvc.pay($scope.mobile, $scope.product.productId, product.productFlowPriceId, $scope.flowList.area_operator, 'flowBag', $scope.gh, encodeURIComponent('http://sell.yfq.cn/member/pure/pages/success/success.html?mobile=' + $scope.mobile + '&returnUrl=' + encodeURIComponent(window.location.href)), $scope.coupons, $scope.referrerId, $scope.category + $scope.productType).then(function success(data) {
             $scope.$root.toast.close();
             if (data.result) {
                 window.location.href = data.payUrl;
