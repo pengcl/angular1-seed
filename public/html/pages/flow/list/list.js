@@ -113,7 +113,7 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
             $scope.couponLength = 3;
         }*/
 
-        writebdLog($scope.category, "_SelectPackage" + $scope.productType, "渠道号", $scope.gh);
+        writebdLog($scope.category, "_SelectPackage" + $scope.productType + product.sortNo, "渠道号", $scope.gh);
     };
 
     $scope.$root.share = {
