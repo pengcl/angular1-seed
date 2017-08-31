@@ -1,24 +1,24 @@
 <div class="weui-tabbar">
-    <a href="/" class="weui-tabbar__item">
+    <a href="/" class="weui-tabbar__item" ng-click="writeClick('NavHome');">
         <span style="display: inline-block;position: relative;">
             <i class="fa fa-home weui-tabbar__icon"></i>
             <!--<span class="weui-badge" style="position: absolute;top: -2px;right: -13px;">8</span>-->
         </span>
         <p class="weui-tabbar__label">首页</p>
     </a>
-    <a href="http://app.yfq.cn/watch" class="weui-tabbar__item">
+    <a href="http://app.yfq.cn/watch" class="weui-tabbar__item" ng-click="writeClick('NavWatch');">
         <span style="display: inline-block;position: relative;">
             <i class="fa fa-qrcode weui-tabbar__icon"></i>
         </span>
         <p class="weui-tabbar__label">关注</p>
     </a>
-    <a href="http://app.yfq.cn/flow/list" class="weui-tabbar__item weui-bar__item_on">
+    <a href="http://app.yfq.cn/flow/list" class="weui-tabbar__item weui-bar__item_on" ng-click="writeClick('NavFlowPage');">
         <span style="display: inline-block;position: relative;">
             <i class="icon-category weui-tabbar__icon"></i>
         </span>
         <p class="weui-tabbar__label">手机充值</p>
     </a>
-    <a href="http://sell.yfq.cn/member/index.ht" class="weui-tabbar__item">
+    <a href="http://sell.yfq.cn/member/index.ht" class="weui-tabbar__item" ng-click="writeClick('NavMember');">
         <span style="display: inline-block;position: relative;">
             <i class="fa fa-user-circle weui-tabbar__icon"></i>
             <span class="weui-badge weui-badge_dot" style="position: absolute;top: 0;right: -6px;"></span>
