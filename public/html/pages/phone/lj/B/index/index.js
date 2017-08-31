@@ -4,16 +4,16 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
 
     // 设定路由
     $stateProvider
-        .state('ljIndexAPhones', { //app首页
-            url: "/phone/lj/A/phones",
+        .state('ljIndexBPhones', { //app首页
+            url: "/phone/lj/B/phones",
             templateUrl: function ($stateParams) {
-                return 'pages/phone/lj/A/index/index.html';
+                return 'pages/phone/lj/B/index/index.html';
             },
-            controller: "ljIndexAPhonesController"
+            controller: "ljIndexBPhonesController"
         });
-}]).controller('ljIndexAPhonesController', ['$scope', '$location', '$http', '$stateParams', '$interval', '$timeout', '$cookieStore', function ($scope, $location, $http, $stateParams, $interval, $timeout, $cookieStore) {
+}]).controller('ljIndexBPhonesController', ['$scope', '$location', '$http', '$stateParams', '$interval', '$timeout', '$cookieStore', function ($scope, $location, $http, $stateParams, $interval, $timeout, $cookieStore) {
 
-    $scope.pageType = "A";
+    $scope.pageType = "B";
     $scope.appType = systemName + "_ljzm_" + $scope.pageType;
     $scope.category = $scope.appType;
 

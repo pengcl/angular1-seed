@@ -4,18 +4,18 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
 
     // 设定路由
     $stateProvider
-        .state('ljADetail', { //app首页
-            url: "/phs/lj/A/:phoneId",
+        .state('ljBDetail', { //app首页
+            url: "/phs/lj/B/:phoneId",
             templateUrl: function ($stateParams) {
-                return 'pages/phone/lj/A/detail/detail.html';
+                return 'pages/phone/lj/B/detail/detail.html';
             },
-            controller: "ljADetailController",
+            controller: "ljBDetailController",
             onExit: function () {
                 $("#container").removeClass("overlay-open");
                 $("#overlay-hook").html("");
             }
         });
-}]).controller('ljADetailController', ['$scope', '$rootScope', '$location', '$stateParams', '$http', 'Phone', '$cookieStore', '$timeout', function ($scope, $rootScope, $location, $stateParams, $http, Phone, $cookieStore, $timeout) {
+}]).controller('ljBDetailController', ['$scope', '$rootScope', '$location', '$stateParams', '$http', 'Phone', '$cookieStore', '$timeout', function ($scope, $rootScope, $location, $stateParams, $http, Phone, $cookieStore, $timeout) {
 
     /*$scope.cfConvertId = $location.search().cfConvertId;
 
@@ -25,7 +25,7 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
      $scope.cfConvertId = "";
      }*/
 
-    $scope.pageType = 'A';
+    $scope.pageType = 'B';
     $scope.activeTag = "ljzma";
 
     $scope.homeUrl = $location.protocol() + '://' + $location.host() + '/phone/active/D/phones';

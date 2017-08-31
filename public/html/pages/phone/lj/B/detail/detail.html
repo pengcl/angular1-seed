@@ -1,6 +1,6 @@
 <div class="page p-details a-details a-details-c dj-a">
-    <top-nav page-title="翼分期商城" home-url="/phone/lj/A/phones" page-back="back" page-done="contact"></top-nav>
-    <form id="checkoutForm" name="checkoutForm" action="http://m.yfq.cn/order/submitOrderDouble.ht"
+    <top-nav page-title="翼分期商城" home-url="/phone/lj/B/phones" page-back="back" page-done="contact"></top-nav>
+    <form id="checkoutForm" name="checkoutForm" action="http://wap.tunnel.qydev.com/order/submitOrderDouble.ht"
           method="post" novalidate>
         <!--<form id="checkoutForm" name="checkoutForm" action="http://m.yfq.cn/wap/taokafanghaoNew/submitOrderDouble.html" method="post" novalidate>-->
         <input type="hidden" value="1" name="monthNumber" id="monthNumber">
@@ -33,8 +33,8 @@
                         <div class="timer placeholder">
                             <span class="lb">距结束</span>
                             <timer></timer>
-                            <div class="sold">仅剩<span ng-if="phone.ifSellOut > 0" ng-bind="sold"></span><span
-                                    ng-if="phone.ifSellOut == 0">0</span>台
+                            <div class="sold">仅剩<span ng-if="phone.ifSellOut > 0" ng-bind="phone.ifSellOut"></span>
+                                <span ng-if="phone.ifSellOut == 0">0</span>台
                             </div>
                         </div>
                     </div>
