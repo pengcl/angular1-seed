@@ -4,17 +4,18 @@
             <div id="rechargeNo" class="weui-cells" ng-class="{true:'active',false:''}[!!mobile]" style="margin-top: 0">
                 <div class="weui-cell" style="font-size: 0.24rem">
                     <div class="weui-cell__bd">
+                        <div>{{mobile}}</div>
                         <input id="mobile" ng-model="mobile" name="mobile"
                                ng-pattern="/^[0-9]*$/" pattern="[0-9]*" ng-minlength="11" class="weui-input"
                                placeholder="请输入手机号码" required/>
                     </div>
                     <div class="weui-cell__ft">
-                        <i class="icon-user"></i>
+                        <span ng-bind="listData.area_operator" ng-show="!!mobile"></span>
                     </div>
                 </div>
                 <div class="weui-cell">
                     <div class="weui-cell__bd">
-                        <span ng-bind="listData.area_operator" ng-show="!!mobile"></span>
+                        <span ng-bind="flowList.area_operator" ng-show="!!mobile"></span>
                     </div>
                 </div>
             </div>

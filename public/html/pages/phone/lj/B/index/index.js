@@ -17,6 +17,10 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
     $scope.appType = systemName + "_ljzm_" + $scope.pageType;
     $scope.category = $scope.appType;
 
+    var cfApi = {
+        apiHost: 'http://sell.yfq.cn'
+    };
+
     var cardPrices = "358:6012;359:5472;360:4662;361:3672;362:3132";
     var butie = "358:6388;359:5388;360:3880;361:2980;362:2400";
 
@@ -94,10 +98,10 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
             }
         ];
 
-        if($cookieStore.get("brand")){
+        if ($cookieStore.get("brand")) {
             $scope.brand = $cookieStore.get("brand");
             $scope.brandIndex = getIndex($scope.brands, "brandName", $scope.brand.brandName);
-        }else {
+        } else {
             $scope.brand = $scope.brands[0];
         }
 

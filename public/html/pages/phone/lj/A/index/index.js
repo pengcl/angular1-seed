@@ -48,7 +48,7 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
             scrollTop: 0
         });
     };
-    $http.jsonp(cfApi.apiHost + '/product/getProList.ht?activeTag=ljzma&s=wap&callback=JSON_CALLBACK').success(function (data, status, headers, config) {
+    $http.jsonp(cfApi.apiHost + '/product/getProList.html?activeTag=ljzma&s=wap&callback=JSON_CALLBACK').success(function (data, status, headers, config) {
         $scope.singlePhones = data;
 
         $scope.brands = [

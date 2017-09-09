@@ -1,215 +1,104 @@
-var ability = {
-    "ability": {
-        "attacking": {
-            "name": "进功",
-            "value": 28.6,
-            "property": {
-                "crossing": {
-                    "name": "传中",
-                    "value": "100"
-                },
-                "finishing": {
-                    "name": "射术",
-                    "value": "100"
-                },
-                "heading": {
-                    "name": "头球",
-                    "value": "100"
-                },
-                "shortPassing": {
-                    "name": "短传",
-                    "value": "100"
-                },
-                "volleys": {
-                    "name": "凌空",
-                    "value": "100"
-                }
-            }
-        },
-        "skill": {
-            "name": "技巧",
-            "value": 29.2,
-            "property": {
-                "dribbling": {
-                    "name": "盘带",
-                    "value": "100"
-                },
-                "curve": {
-                    "name": "弧线",
-                    "value": "100"
-                },
-                "freeKick": {
-                    "name": "任意球",
-                    "value": "100"
-                },
-                "longPassing": {
-                    "name": "长传",
-                    "value": "100"
-                },
-                "ballControl": {
-                    "name": "控球",
-                    "value": "100"
-                }
-            }
-        },
-        "movement": {
-            "name": "移动",
-            "value": 73.2,
-            "property": {
-                "acceleration": {
-                    "name": "加速",
-                    "value": "100"
-                },
-                "sprintSpeed": {
-                    "name": "速度",
-                    "value": "100"
-                },
-                "agility": {
-                    "name": "敏捷",
-                    "value": "100"
-                },
-                "reactions": {
-                    "name": "反应",
-                    "value": "100"
-                },
-                "balance": {
-                    "name": "平衡",
-                    "value": "100"
-                }
-            }
-        },
-        "power": {
-            "name": "力量",
-            "value": 77.6,
-            "property": {
-                "shotPower": {
-                    "name": "射门力量",
-                    "value": "100"
-                },
-                "jumping": {
-                    "name": "弹跳",
-                    "value": "100"
-                },
-                "stamina": {
-                    "name": "体能",
-                    "value": "100"
-                },
-                "strength": {
-                    "name": "强壮",
-                    "value": "100"
-                },
-                "longShots": {
-                    "name": "远射",
-                    "value": "100"
-                }
-            }
-        },
-        "mentality": {
-            "name": "心理",
-            "value": 73,
-            "property": {
-                "aggression": {
-                    "name": "侵略性",
-                    "value": "100"
-                },
-                "interceptions": {
-                    "name": "拦截意识",
-                    "value": "100"
-                },
-                "positioning": {
-                    "name": "跑位",
-                    "value": "100"
-                },
-                "vision": {
-                    "name": "视野",
-                    "value": "100"
-                },
-                "penalties": {
-                    "name": "点球",
-                    "value": "100"
-                },
-                "composure": {
-                    "name": "沉着",
-                    "value": "100"
-                }
-            }
-        },
-        "defending": {
-            "name": "防守",
-            "value": 38.3333333333333,
-            "property": {
-                "marking": {
-                    "name": "盯人",
-                    "value": "100"
-                },
-                "standingTackle": {
-                    "name": "抢断",
-                    "value": "100"
-                },
-                "slidingTackle": {
-                    "name": "铲球",
-                    "value": "100"
-                }
-            }
-        },
-        "goalkeeping": {
-            "name": "守门",
-            "value": 87.4,
-            "property": {
-                "diving": {
-                    "name": "鱼跃",
-                    "value": "100"
-                },
-                "handling": {
-                    "name": "手抛球",
-                    "value": "100"
-                },
-                "kicking": {
-                    "name": "开球",
-                    "value": "100"
-                },
-                "positioning": {
-                    "name": "站位",
-                    "value": "100"
-                },
-                "reflexes": {
-                    "name": "反应",
-                    "value": "30"
-                }
-            }
-        }
+/*
+var crypto = require('crypto');
+var md5 = crypto.createHash('md5');
+var password = md5.update('abcdefg').digest('base64');
+console.log(password);*/
+
+!function (n) {
+    "use strict";
+
+    function t(n, t) {
+        var r = (65535 & n) + (65535 & t), e = (n >> 16) + (t >> 16) + (r >> 16);
+        return e << 16 | 65535 & r
     }
-};
 
-
-function getPropertyAverage(obj, lv) {
-    var value = 0;
-    var len = 0;
-    for (var k in obj) {
-        len = len + 1;
-        value = value + parseInt(obj[k].value * 0.01 * lv + obj[k].value);
+    function r(n, t) {
+        return n << t | n >>> 32 - t
     }
-    return value / len;
-}
 
-function getPromotedProperty(obj) {
-
-}
-
-function getAbility(ability, lv) {
-    for (var k in ability) {
-        var ave = getPropertyAverage(ability[k].property);
-        ability[k].value = ave;
+    function e(n, e, o, u, c, f) {
+        return t(r(t(t(e, n), t(u, f)), c), o)
     }
-    return ability;
-}
 
-function setPromote(ability) {
-    for (var k in ability) {
-        var ave = getPropertyAverage(ability[k].property);
-        ability[k].value = ave;
+    function o(n, t, r, o, u, c, f) {
+        return e(t & r | ~t & o, n, t, u, c, f)
     }
-    return ability;
-}
 
-console.log(getAbility(ability.ability));
+    function u(n, t, r, o, u, c, f) {
+        return e(t & o | r & ~o, n, t, u, c, f)
+    }
+
+    function c(n, t, r, o, u, c, f) {
+        return e(t ^ r ^ o, n, t, u, c, f)
+    }
+
+    function f(n, t, r, o, u, c, f) {
+        return e(r ^ (t | ~o), n, t, u, c, f)
+    }
+
+    function i(n, r) {
+        n[r >> 5] |= 128 << r % 32, n[(r + 64 >>> 9 << 4) + 14] = r;
+        var e, i, a, h, d, l = 1732584193, g = -271733879, v = -1732584194, m = 271733878;
+        for (e = 0; e < n.length; e += 16) i = l, a = g, h = v, d = m, l = o(l, g, v, m, n[e], 7, -680876936), m = o(m, l, g, v, n[e + 1], 12, -389564586), v = o(v, m, l, g, n[e + 2], 17, 606105819), g = o(g, v, m, l, n[e + 3], 22, -1044525330), l = o(l, g, v, m, n[e + 4], 7, -176418897), m = o(m, l, g, v, n[e + 5], 12, 1200080426), v = o(v, m, l, g, n[e + 6], 17, -1473231341), g = o(g, v, m, l, n[e + 7], 22, -45705983), l = o(l, g, v, m, n[e + 8], 7, 1770035416), m = o(m, l, g, v, n[e + 9], 12, -1958414417), v = o(v, m, l, g, n[e + 10], 17, -42063), g = o(g, v, m, l, n[e + 11], 22, -1990404162), l = o(l, g, v, m, n[e + 12], 7, 1804603682), m = o(m, l, g, v, n[e + 13], 12, -40341101), v = o(v, m, l, g, n[e + 14], 17, -1502002290), g = o(g, v, m, l, n[e + 15], 22, 1236535329), l = u(l, g, v, m, n[e + 1], 5, -165796510), m = u(m, l, g, v, n[e + 6], 9, -1069501632), v = u(v, m, l, g, n[e + 11], 14, 643717713), g = u(g, v, m, l, n[e], 20, -373897302), l = u(l, g, v, m, n[e + 5], 5, -701558691), m = u(m, l, g, v, n[e + 10], 9, 38016083), v = u(v, m, l, g, n[e + 15], 14, -660478335), g = u(g, v, m, l, n[e + 4], 20, -405537848), l = u(l, g, v, m, n[e + 9], 5, 568446438), m = u(m, l, g, v, n[e + 14], 9, -1019803690), v = u(v, m, l, g, n[e + 3], 14, -187363961), g = u(g, v, m, l, n[e + 8], 20, 1163531501), l = u(l, g, v, m, n[e + 13], 5, -1444681467), m = u(m, l, g, v, n[e + 2], 9, -51403784), v = u(v, m, l, g, n[e + 7], 14, 1735328473), g = u(g, v, m, l, n[e + 12], 20, -1926607734), l = c(l, g, v, m, n[e + 5], 4, -378558), m = c(m, l, g, v, n[e + 8], 11, -2022574463), v = c(v, m, l, g, n[e + 11], 16, 1839030562), g = c(g, v, m, l, n[e + 14], 23, -35309556), l = c(l, g, v, m, n[e + 1], 4, -1530992060), m = c(m, l, g, v, n[e + 4], 11, 1272893353), v = c(v, m, l, g, n[e + 7], 16, -155497632), g = c(g, v, m, l, n[e + 10], 23, -1094730640), l = c(l, g, v, m, n[e + 13], 4, 681279174), m = c(m, l, g, v, n[e], 11, -358537222), v = c(v, m, l, g, n[e + 3], 16, -722521979), g = c(g, v, m, l, n[e + 6], 23, 76029189), l = c(l, g, v, m, n[e + 9], 4, -640364487), m = c(m, l, g, v, n[e + 12], 11, -421815835), v = c(v, m, l, g, n[e + 15], 16, 530742520), g = c(g, v, m, l, n[e + 2], 23, -995338651), l = f(l, g, v, m, n[e], 6, -198630844), m = f(m, l, g, v, n[e + 7], 10, 1126891415), v = f(v, m, l, g, n[e + 14], 15, -1416354905), g = f(g, v, m, l, n[e + 5], 21, -57434055), l = f(l, g, v, m, n[e + 12], 6, 1700485571), m = f(m, l, g, v, n[e + 3], 10, -1894986606), v = f(v, m, l, g, n[e + 10], 15, -1051523), g = f(g, v, m, l, n[e + 1], 21, -2054922799), l = f(l, g, v, m, n[e + 8], 6, 1873313359), m = f(m, l, g, v, n[e + 15], 10, -30611744), v = f(v, m, l, g, n[e + 6], 15, -1560198380), g = f(g, v, m, l, n[e + 13], 21, 1309151649), l = f(l, g, v, m, n[e + 4], 6, -145523070), m = f(m, l, g, v, n[e + 11], 10, -1120210379), v = f(v, m, l, g, n[e + 2], 15, 718787259), g = f(g, v, m, l, n[e + 9], 21, -343485551), l = t(l, i), g = t(g, a), v = t(v, h), m = t(m, d);
+        return [l, g, v, m]
+    }
+
+    function a(n) {
+        var t, r = "", e = 32 * n.length;
+        for (t = 0; t < e; t += 8) r += String.fromCharCode(n[t >> 5] >>> t % 32 & 255);
+        return r
+    }
+
+    function h(n) {
+        var t, r = [];
+        for (r[(n.length >> 2) - 1] = void 0, t = 0; t < r.length; t += 1) r[t] = 0;
+        var e = 8 * n.length;
+        for (t = 0; t < e; t += 8) r[t >> 5] |= (255 & n.charCodeAt(t / 8)) << t % 32;
+        return r
+    }
+
+    function d(n) {
+        return a(i(h(n), 8 * n.length))
+    }
+
+    function l(n, t) {
+        var r, e, o = h(n), u = [], c = [];
+        for (u[15] = c[15] = void 0, o.length > 16 && (o = i(o, 8 * n.length)), r = 0; r < 16; r += 1) u[r] = 909522486 ^ o[r], c[r] = 1549556828 ^ o[r];
+        return e = i(u.concat(h(t)), 512 + 8 * t.length), a(i(c.concat(e), 640))
+    }
+
+    function g(n) {
+        var t, r, e = "0123456789abcdef", o = "";
+        for (r = 0; r < n.length; r += 1) t = n.charCodeAt(r), o += e.charAt(t >>> 4 & 15) + e.charAt(15 & t);
+        return o
+    }
+
+    function v(n) {
+        return unescape(encodeURIComponent(n))
+    }
+
+    function m(n) {
+        return d(v(n))
+    }
+
+    function p(n) {
+        return g(m(n))
+    }
+
+    function s(n, t) {
+        return l(v(n), v(t))
+    }
+
+    function C(n, t) {
+        return g(s(n, t))
+    }
+
+    function A(n, t, r) {
+        return t ? r ? s(t, n) : C(t, n) : r ? m(n) : p(n)
+    }
+
+    "function" == typeof define && define.amd ? define(function () {
+        return A
+    }) : "object" == typeof module && module.exports ? module.exports = A : n.md5 = A
+}(this);
+//# sourceMappingURL=md5.min.js.map

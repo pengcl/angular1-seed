@@ -1,82 +1,136 @@
 <div class="page market flow list">
-    <top-nav page-title="充值" home-url="" group-token="8ba3446475970c6af51f22c9a7bb4fb4" page-done="contact"></top-nav>
+    <top-nav page-back="logo" page-title="手机充值" home-url="" group-token="8ba3446475970c6af51f22c9a7bb4fb4" page-done="share"></top-nav>
     <gh></gh>
     <activity></activity>
-    <app-nav nav-item='{"menu":false,"back":true,"share":false,"comment":true,"class":"","title":"充值"}'></app-nav>
-    <div class="content-scrollable has-nav has-footer" content-scrollable-scrolled style="padding-top:0.5rem;background: #fff">
-        <form id="salesForm" name="accountForm">
+    <!--<app-nav nav-item='{"menu":false,"back":true,"share":false,"comment":true,"class":"","title":"充值"}'></app-nav>-->
+    <div class="content-scrollable has-nav has-footer" content-scrollable-scrolled
+         style="padding-top:0.45rem;background: #f0eff5">
+        <form id="salesForm" name="salesForm">
             <input name="product" id="product" ng-model="product.productId" value="{{product.productId}}" type="hidden">
 
             <div class="owl-carousel" img-urls="['/images/flow/top-1.jpg','/images/flow/top-2.jpg']"></div>
 
             <div id="rechargeNo" class="weui-cells" ng-class="{true:'active',false:''}[!!mobile]">
-                <div class="weui-cell">
+                <div class="weui-cell" style="padding-bottom: 0;padding-top: 0.15rem">
                     <div class="weui-cell__bd">
                         <input id="mobile" ng-model="mobile" name="mobile" ng-blur="inputMobile(mobile)"
                                ng-pattern="/^[0-9]*$/" pattern="[0-9]*" ng-minlength="11" ng-maxlength="11"
                                class="weui-input"
-                               placeholder="请输入需要充值的手机号码" required/>
+                               placeholder="请输入需要充值的手机号码" type="hidden" required/>
+
+                        <input id="mobileView" ng-model="mobileView"
+                               name="mobileView"
+                               ng-pattern="/^[0-9 ]*$/" pattern="[0-9 ]*"
+                               ng-blur="inputMobile(mobile)"
+                               class="weui-input"
+                               placeholder="支持移动/电信/联通号码" required/>
+
+                        <!--<input class="mobile" ng-model="mobileView"
+                               name="mobileView" ng-focus="mobileClass"
+                               ng-pattern="/^[0-9 ]*$/" pattern="[0-9 ]*"
+                               ng-blur="inputMobile(mobile)"
+                               class="weui-input"
+                               placeholder="支持移动/电信/联通号码" required/>-->
                     </div>
                     <div class="weui-cell__ft">
-                        <i class="icon-user"></i>
+                        <span ng-bind="flowList.area_operator"></span>
                     </div>
                 </div>
                 <div class="weui-cell">
                     <div class="weui-cell__bd">
-                        <span ng-bind="flowList.area_operator" ng-show="!!mobile"></span>
+                        <span style="display: block;height: 0.12rem;line-height: 0.12rem;font-size: 0.12rem">
+                            <span ng-if="!salesForm.mobile.$valid && !salesForm.mobileView.$pristine">请输入11位正确手机号码</span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-tabs">
+                <div class="pure-g">
+                    <div class="pure-u-1-2">
+                        <div ng-class="{true:'curr',false:''}[productType === 'flow']" ng-click="setProductType('flow')"
+                             class="tab-item">
+                            流量限时特惠
+                        </div>
+                    </div>
+                    <div class="pure-u-1-2">
+                        <div ng-class="{true:'curr',false:''}[productType === 'fee']" ng-click="setProductType('fee')"
+                             class="tab-item">
+                            话费充值
+                        </div>
                     </div>
                 </div>
             </div>
 
             <!--<div class="page-loading" ng-if="mobile && !flowList"></div>-->
 
-            <div ng-show="flowList" style="padding-bottom: 0.2rem">
-                <div class="weui-cells__title">充流量 <span class="sub-title">买一送一</span><span ng-click="flowDialog()" style="margin-left: 0.05rem;font-size: 0.12rem;float:right">了解详情 ></span></div>
+            <div id="flowList" ng-show="productType === 'flow'" style="padding: 0.1rem 0px 0rem 0px;">
+                <!--<div class="weui-cells__title">充流量 <span class="sub-title">买一送一</span><span ng-click="flowDialog()" style="margin-left: 0.05rem;font-size: 0.12rem;float:right">了解详情 ></span></div>-->
 
                 <div class="item-lists pure-g pdw">
                     <div class="list-item pure-u-1-3" ng-repeat="item in flowList.data | limitTo : flowLimitTo"
-                         ng-class="{true:'',false:'disabled'}[!!mobile]">
-                        <div class="item-box" ng-click="selectedProd(!!mobile,item,'flow');"
-                             ng-class="{true:'active',false:''}[item === product]">
+                         ng-class="{true:'',false:'disabled'}[item.stock]">
+                        <div class="item-box" ng-click="selectedFlowProd(item.stock,item,true);"
+                             ng-class="{true:'active',false:''}[item === flowProduct]">
                             <div class="title" ng-bind="item.productName"></div>
                             <div class="disc"><span ng-bind="item.regionProducts | flowSalesPrice | number : 2"></span>元
                             </div>
-                            <span class="flag" ng-if="item.sortNo >= 100 && couponList.length > 0">优惠</span>
+                            <ins class="hot" ng-if="item.ifHot == 1"><img src="http://etc.yfq.cn/images/flow/hot.png"></ins>
+                            <span class="flag" ng-if="item.sortNo >= 100 && couponList.length > 0 && item.ifHot != 1">优惠</span>
                         </div>
                     </div>
-                    <div class="list-item pure-u-1-3" ng-class="{true:'',false:'disabled'}[!!mobile]"
-                         ng-show="limitTo === 5">
-                        <div class="item-box" ng-click="getFlowMore(!!mobile);" ng-show="flowLimitTo === 5">
+                    <div class="list-item pure-u-1-3"
+                         ng-show="flowLimitTo === 5">
+                        <div class="item-box" ng-click="getFlowMore();" ng-show="flowLimitTo === 5">
                             <div class="title">更多流量包</div>
                             <!--<div class="disc"><span ng-bind="item.regionProducts | flowSalesPrice | number : 2"></span>元</div>-->
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="sun-prod weui-cells" ng-if="productType === 'flow'">
-                <div class="weui-cell" ng-repeat="item in product.regionProducts">
-                    <div class="weui-cell__bd">
-                        <p style="position: relative"><span>{{(item.salesPrice - couponLength) | number : 2}}元</span>
-                            <del>{{item.costPrice | number : 2}} 元</del>
-                        </p>
-                        <p class="weui-media-box__desc">
-                            <span class="flag" ng-bind="item.regionName"></span><span>流量</span>
-                            <span ng-show="item.regionName === '省内'">省内使用，月底失效，即时生效</span>
-                            <span ng-show="item.regionName === '全国'">月底失效，即时生效</span>
-                        </p>
-                        <p ng-if="couponLength > 0" class="weui-media-box__desc">使用了<em ng-bind="couponLength"></em>张优惠券，为您省了<em
-                                ng-bind="couponLength | number : 2"></em>元</p>
-                    </div>
-                    <div class="weui-cell__ft">
-                        <a href="javascript:;" ng-click="buyProd(item)"
-                           class="weui-btn weui-btn_mini weui-btn_plain-primary">购买</a>
+                <p class="weui-cells__tips"><span>即时生效，月底过期</span></p>
+
+                <div class="sun-prod weui-cells">
+                    <div ng-click="buyFlowProd(item,$event)"
+                         ng-class="{true:'curr',false:''}[item === regionFlowProduct]" class="weui-cell"
+                         ng-repeat="item in flowProduct.regionProducts">
+                        <div class="weui-cell__hd"><span class="flag" ng-bind="item.regionName"></span></div>
+                        <div class="weui-cell__bd">
+                            <p style="position: relative">
+                                <span>{{(item.salesPrice - couponLength) | number : 2}}元</span>
+                                <del>{{item.costPrice | number : 2}} 元</del>
+                            </p>
+                            <p ng-if="flowCouponLength > 0" class="weui-media-box__desc">
+                                使用了<em ng-bind="flowCouponLength"></em>张优惠券，为您省了<em
+                                    ng-bind="flowCouponLength | number : 2"></em>元
+                            </p>
+                        </div>
+                        <div class="weui-cell__ft">
+                            ￥{{(item.salesPrice - flowCouponLength) | number : 2}}
+                        </div>
                     </div>
                 </div>
+
+                <p style="font-size: 0.12rem;padding-left: 0.15rem;margin-top: 0.1rem">
+                    <span ng-click="appDialog.open('优惠券使用说明','<p>1、充值流量包即可获得支付金额同等金额的优惠券（按实际支付金额向下取整，单笔最多获得30元优惠券）。</p><p>2、优惠券可用于下次充值，适用于话费及流量，请在有效期内使用。</p>')" class="disc-content"
+                          style="margin-right: 20px;cursor: pointer">
+                        <img src="http://mall.yfq.cn/flow/images/flow/icon-coupon.png"
+                             style="height:0.14rem;width:auto;display: inline-block;vertical-align: middle">
+                        <span style="display: inline-block;vertical-align: middle">赠</span>
+                        <span style="display: inline-block;vertical-align: middle"
+                              ng-bind="regionFlowProduct.salesPrice | flowCoupon"></span>
+                        <span style="display: inline-block;vertical-align: middle">元优惠券</span>
+                        <img src="http://mall.yfq.cn/flow/images/flow/what.png"
+                             style="display: inline-block;vertical-align: middle">
+                    </span>
+                </p>
+
+                <a href="javascript:;" ng-click="pay(mobileValid,flowProduct,regionFlowProduct,flowCoupons)"
+                   style="background: #ff6801;margin: 0.07rem 0.15rem 0.15rem 0.15rem;" class="weui-btn weui-btn_warn">立即充值</a>
             </div>
 
-            <p style="font-size: 0.12rem;text-align: right;padding-right: 0.15rem;color: #999"><span ng-click="taggleShow('#flowTips')">充流量注意事项</span></p>
-            <div id="flowTips" class="fqa weui-panel" style="display: none">
+            <!--<p style="font-size: 0.12rem;text-align: right;padding-right: 0.15rem;color: #999"><span ng-click="taggleShow('#flowTips')">充流量注意事项</span></p>-->
+            <!--<div id="flowTips" class="fqa weui-panel" style="display: none">
                 <div class="weui-panel__bd">
                     <div class="weui-media-box weui-media-box_text">
 
@@ -109,43 +163,65 @@
                         <p class="weui-media-box__desc">4、系统自动充值，48小时内充值中的订单不支持退款；</p>
                     </div>
                 </div>
-            </div>
+            </div>-->
 
-            <div id="feeList" ng-show="feeList" style="padding-bottom: 0.2rem">
-                <div class="weui-cells__title">充话费 <span class="sub-title">充50送5，充100送10</span><span ng-click="feeDialog()" style="margin-left: 0.05rem;font-size: 0.12rem;float:right">了解详情 ></span></div>
+            <div id="feeList" ng-show="productType === 'fee'" style="padding: 0.1rem 0px 0rem 0px;">
+                <!--<div class="weui-cells__title">充话费 <span class="sub-title">充50送5，充100送10</span><span ng-click="feeDialog()" style="margin-left: 0.05rem;font-size: 0.12rem;float:right">了解详情 ></span></div>-->
 
                 <div class="item-lists pure-g pdw">
                     <div class="list-item pure-u-1-3" ng-repeat="item in feeList.data | limitTo : feeLimitTo"
-                         ng-class="{true:'',false:'disabled'}[!!mobile]">
-                        <div class="item-box" ng-click="selectedProd(!!mobile,item,'fee');"
-                             ng-class="{true:'active',false:''}[item === product]">
+                         ng-class="{true:'',false:'disabled'}[item.stock]">
+                        <div class="item-box" ng-click="selectedFeeProd(item.stock,item,true);"
+                             ng-class="{true:'active',false:''}[item === feeProduct]">
                             <div class="title" ng-bind="item.productName"></div>
                             <div class="disc"><span ng-bind="item.regionProducts | flowSalesPrice | number : 2"></span>元
                             </div>
-                            <span class="flag" ng-if="item.sortNo >= 50 && couponList.length > 0">优惠</span>
+                            <ins class="hot" ng-if="item.ifHot == 1"><img src="http://etc.yfq.cn/images/flow/hot.png"></ins>
+                            <span class="flag" ng-if="item.sortNo >= 50 && couponList.length > 0 && item.ifHot != 1">优惠</span>
                         </div>
                     </div>
-                    <div class="list-item pure-u-1-3" ng-class="{true:'',false:'disabled'}[!!mobile]"
-                         ng-show="limitTo === 5">
-                        <div class="item-box" ng-click="getFeeMore(!!mobile);" ng-show="feeLimitTo === 5">
+                    <div class="list-item pure-u-1-3" ng-show="feeLimitTo === 5">
+                        <div class="item-box" ng-click="getFeeMore();" ng-show="feeLimitTo === 5">
                             <div class="title">更多套餐</div>
                             <!--<div class="disc"><span ng-bind="item.regionProducts | flowSalesPrice | number : 2"></span>元</div>-->
                         </div>
                     </div>
                 </div>
+
+                <div class="sun-prod weui-cells">
+                    <div class="weui-cell" ng-class="{true:'curr',false:''}[item === regionFeeProduct]" ng-repeat="item in feeProduct.regionProducts">
+                        <div class="weui-cell__bd">
+                            <p style="position: relative"><span>{{item.salesPrice | number : 2}}元</span>
+                                <del>{{item.costPrice | number : 2}} 元</del>
+                            </p>
+                            <p ng-if="feeCouponLength > 0" class="weui-media-box__desc">使用了<em
+                                    ng-bind="feeCouponLength"></em>张优惠券，为您省了<em
+                                    ng-bind="feeCouponLength | number : 2"></em>元</p>
+                        </div>
+                        <div class="weui-cell__ft">
+                            ￥{{(item.salesPrice - feeCouponLength) | number : 2}}
+                        </div>
+                    </div>
+                </div>
+                <!--<div ng-if="feeCouponLength > 0" class="weui-cells__tips">
+                    使用了<em ng-bind="feeCouponLength"></em>张优惠券，为您省了<em ng-bind="feeCouponLength | number : 2"></em>元
+                </div>-->
+
+                <a href="javascript:;" ng-click="pay(mobileValid,feeProduct,regionFeeProduct,feeCoupons)"
+                   style="background: #ff6801;margin: 0.15rem;" class="weui-btn weui-btn_warn">立即充值</a>
             </div>
 
-            <div class="sun-prod weui-cells" ng-if="productType === 'fee'">
-                <div class="weui-cell" ng-repeat="item in product.regionProducts">
+            <!--<div class="sun-prod weui-cells" ng-show="productType === 'fee'">
+                <div class="weui-cell" ng-repeat="item in feeProduct.regionProducts">
                     <div class="weui-cell__bd">
                         <p style="position: relative"><span>{{(item.salesPrice - couponLength) | number : 2}}元</span>
                             <del>{{item.costPrice | number : 2}} 元</del>
                         </p>
-                        <!--<p class="weui-media-box__desc">
+                        &lt;!&ndash;<p class="weui-media-box__desc">
                             <span class="flag" ng-bind="item.regionName"></span><span>流量</span>
                             <span ng-show="item.regionName === '省内'">省内使用，月底失效，即时生效</span>
                             <span ng-show="item.regionName === '全国'">月底失效，即时生效</span>
-                        </p>-->
+                        </p>&ndash;&gt;
                         <p ng-if="couponLength > 0" class="weui-media-box__desc">使用了<em ng-bind="couponLength"></em>张优惠券，为您省了<em
                                 ng-bind="couponLength | number : 2"></em>元</p>
                     </div>
@@ -154,11 +230,11 @@
                            class="weui-btn weui-btn_mini weui-btn_plain-primary">购买</a>
                     </div>
                 </div>
-            </div>
+            </div>-->
 
-            <p style="font-size: 0.12rem;text-align: right;padding-right: 0.15rem;color: #999;margin-bottom: 0.5rem"><span ng-click="taggleShow('#feeTips')">充话费注意事项</span></p>
+            <!--<p style="font-size: 0.12rem;text-align: right;padding-right: 0.15rem;color: #999;margin-bottom: 0.5rem"><span ng-click="taggleShow('#feeTips')">充话费注意事项</span></p>-->
 
-            <div id="feeTips" class="fqa weui-panel" style="display: none">
+            <!--<div id="feeTips" class="fqa weui-panel" style="display: none">
                 <div class="weui-panel__bd">
                     <div class="weui-media-box weui-media-box_text">
 
@@ -174,7 +250,7 @@
                         <p class="weui-media-box__desc">2、请您务必确认充值前的欠费情况，如充值金额不足以缴纳欠费，可能导致您充值后仍处于欠费状态，造成不必要的误解。</p>
                     </div>
                 </div>
-            </div>
+            </div>-->
 
             <!--<div class="weui-tab" style="margin-top: 0.1rem">
                 <div class="weui-navbar">
@@ -279,7 +355,11 @@
         <!--<div class="weui-cells__tips" ng-click="showOverlay()" style="text-align: right;margin-bottom: 0.4rem">常见问题？
         </div>-->
     </div>
-    <app-footer-nav></app-footer-nav>
+    <div class="btns-group">
+        <a class="btn-secondary" href="javascript:;">充值</a>
+        <a class="btn-secondary" href="javascript:;">会员中心</a>
+    </div>
+    <!--<app-footer-nav></app-footer-nav>-->
 </div>
 
 <!--<div id="flowTips" style="display: none;">

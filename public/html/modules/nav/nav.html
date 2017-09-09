@@ -3,6 +3,7 @@
         <a ng-if="pageBack == 'back'" class="nav-item js-back" ng-click="back()" has-hash="false" href="javascript:userTrack('back');"><span class="icon-arrow-left"></span></a>
         <a ng-if="pageBack == 'menu'" class="nav-item js-menu" ng-click="menu()" has-hash="false" href="javascript:userTrack('showMenu');"><span class="icon-menu"></span></a>
         <a ng-if="pageBack == 'home'" class="nav-item js-home" ng-click="home()" has-hash="false" href="javascript:userTrack('home');"><span class="icon-home"></span></a>
+        <a ng-if="pageBack == 'logo'" class="nav-item js-home" ng-click="home()" has-hash="false" href="javascript:userTrack('home');"><img style="height: 60%;width: auto;margin-left: 0.1rem;margin-top: 20%" src="http://mall.yfq.cn/images/logo-new.png"></a>
     </div>
 
     <div class="title-page">
@@ -12,6 +13,8 @@
 
     <div class="nav-group right">
         <a ng-if="pageDone == 'done'" class="nav-item js-done" ng-click="done()" href="javascript:;">完成</a>
+        <a ng-if="pageDone == 'money'" class="nav-item js-done" ng-click="done()" href="javascript:;">完成</a>
         <a ng-if="pageDone == 'contact'" class="nav-contact nav-item js-done" ng-click="getContact()" has-hash="false" href="javascript:userTrack('contact');"><span class="icon-comment"></span><span style="font-size: 0.14rem">客服</span></a>
+        <a ng-if="pageDone == 'share'" class="nav-item js-done" ng-click="appDialog.open('分享赚钱介绍','成功支付一笔订单后，关注公众号，您可以通过“分享赚钱”功能邀请未注册会员的好友进行充值。好友注册后首笔成功充值，您可以获得1元的拉新奖励和好友消费的一定比例返利。邀请好友不设上限，多邀多得。')" href="javascript:;"><img style="display: block;width: 100%" src="http://app.yfq.cn/images/flow/ic_share_normal.png"></a>
     </div>
 </nav>

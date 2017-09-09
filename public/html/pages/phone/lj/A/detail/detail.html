@@ -1,6 +1,6 @@
 <div class="page p-details a-details a-details-c dj-a">
     <top-nav page-title="翼分期商城" home-url="/phone/lj/A/phones" page-back="back" page-done="contact"></top-nav>
-    <form id="checkoutForm" name="checkoutForm" action="http://m.yfq.cn/order/submitOrderDouble.ht"
+    <form id="checkoutForm" name="checkoutForm" action="http://m.yfq.cn/wap/taokafanghaoNew/submitOrderDouble.html"
           method="post" novalidate>
         <!--<form id="checkoutForm" name="checkoutForm" action="http://m.yfq.cn/wap/taokafanghaoNew/submitOrderDouble.html" method="post" novalidate>-->
         <input type="hidden" value="1" name="monthNumber" id="monthNumber">
@@ -33,8 +33,8 @@
                         <div class="timer placeholder">
                             <span class="lb">距结束</span>
                             <timer></timer>
-                            <div class="sold">仅剩<span ng-if="phone.ifSellOut > 0" ng-bind="sold"></span><span
-                                    ng-if="phone.ifSellOut == 0">0</span>台
+                            <div class="sold">仅剩<span ng-if="phone.ifSellOut == 0" ng-bind="sold"></span><span
+                                    ng-if="phone.ifSellOut == 1">0</span>台
                             </div>
                         </div>
                     </div>
@@ -367,9 +367,9 @@
                 </div>
                 <div class="nav-button nav-item pure-u-2-5">
                     <a id="footerPayButton" has-hash="false" href="javascript:userTrack('submitForm');"
-                       ng-class="{true:'disabled',false:''}[phone.ifSellOut == 0]" ng-click="submitForm($event);">
-                        <span ng-if="phone.ifSellOut == 0">已抢光</span>
-                        <span ng-if="phone.ifSellOut > 0">
+                       ng-class="{true:'disabled',false:''}[phone.ifSellOut == 1]" ng-click="submitForm($event);">
+                        <span ng-if="phone.ifSellOut == 1">已抢光</span>
+                        <span ng-if="phone.ifSellOut == 0">
                             <span ng-if="payType == 1">我要货到</span>
                             <span ng-if="payType != 1">提交订单</span>
                         </span>
@@ -507,10 +507,10 @@
                     部分颜色会出现缺货，未能及时更新，请谅解。</p>
                 <div class="select-button weui-actionsheet__action">
                     <a style="font-size: 0.18rem" has-hash="false" href="javascript:userTrack('YES I DO');"
-                       ng-class="{true:'disabled',false:''}[phone.ifSellOut == 0]"
+                       ng-class="{true:'disabled',false:''}[phone.ifSellOut == 1]"
                        ng-click="makeSelected($event,'#productSelector')" class="weui-actionsheet__cell">
-                        <span ng-if="phone.ifSellOut == 0">已抢光</span>
-                        <span ng-if="phone.ifSellOut > 0">确认</span>
+                        <span ng-if="phone.ifSellOut == 1">已抢光</span>
+                        <span ng-if="phone.ifSellOut == 0">确认</span>
                     </a>
                 </div>
             </div>

@@ -38,6 +38,51 @@ appFilters.filter('replaceS', function () {
     };
 });
 
+appFilters.filter('flowCoupon', function () {
+    return function (number) {
+        if (number <= 30) {
+            return Math.floor(number);
+        } else {
+            return 30;
+        }
+    }
+});
+
+appFilters.filter('feeCoupon', function () {
+    return function (price, max) {
+        for (var i = 0; i <= max / 5; i++) {
+            if (i * 50 == price) {
+                return i * 5;
+            }
+            if (i * 50 > price) {
+                return (i - 1) * 5;
+            }
+            if (i * 50 < price && i * 5 >= max) {
+                return max;
+            }
+        }
+    }
+});
+
+appFilters.filter('phoneNumber', function () {
+    return function (number) {
+        if (number) {
+            var value = number;
+            value = value.replace(/\s*/g, "");
+            var result = [];
+            for (var i = 0; i < value.length; i++) {
+                if (i == 3 || i == 7) {
+                    result.push(" " + value.charAt(i));
+                }
+                else {
+                    result.push(value.charAt(i));
+                }
+            }
+            return result.join("");
+        }
+    }
+});
+
 appFilters.filter('replaceInput', function () {
     return function (input, key) {
         if (key != undefined && key != "") {

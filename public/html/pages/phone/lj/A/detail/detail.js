@@ -50,7 +50,7 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
 
     $scope.productId = $stateParams.phoneId;
 
-    $http.jsonp(cfApi.apiHost + "/product/getProDetial.ht?productId=" + $stateParams.phoneId + "&activeTag=ljzma&s=wap&callback=JSON_CALLBACK").success(function (data, status, headers, config) {
+    $http.jsonp(cfApi.apiHost + "/product/getProDetial.html?productId=" + $stateParams.phoneId + "&activeTag=ljzma&s=wap&callback=JSON_CALLBACK").success(function (data, status, headers, config) {
         $scope.phone = data;
         $scope.imgUrls = [];
 
@@ -65,7 +65,7 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
             console.log(status);
         });
 
-        $http.jsonp(cfApi.apiHost + '/product/getProList.ht?activeTag=ljzma&s=wap&callback=JSON_CALLBACK').success(function (data, status, headers, config) {
+        $http.jsonp(cfApi.apiHost + '/product/getProList.html?activeTag=ljzma&s=wap&callback=JSON_CALLBACK').success(function (data, status, headers, config) {
             $scope.singlePhones = data;
 
             $scope.hotPhones = [];
@@ -294,7 +294,7 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
 
     $scope.$watch('productId', function (n, o, $scope) {
         if (n != o) {
-            $http.jsonp(cfApi.apiHost + "/product/getProDetial.ht?productId=" + n + "&activeTag=ljzma&s=wap&callback=JSON_CALLBACK").success(function (data, status, headers, config) {
+            $http.jsonp(cfApi.apiHost + "/product/getProDetial.html?productId=" + n + "&activeTag=ljzma&s=wap&callback=JSON_CALLBACK").success(function (data, status, headers, config) {
                 $scope.phone = data;
 
                 var _colors = data.phoneTypes[0].mediaProductList;
