@@ -36,12 +36,22 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
     $scope.getFlowMore = function (checked) {
 
         $scope.flowLimitTo = 100;
-        $scope.feeLimitTo = 5;
     };
 
     $scope.getFeeMore = function (checked) {
 
         $scope.feeLimitTo = 100;
+    };
+
+    $scope.getFlowLess = function (checked) {
+
+        $scope.flowLimitTo = 5;
+        $scope.feeLimitTo = 5;
+    };
+
+    $scope.getFeeLess = function (checked) {
+
+        $scope.feeLimitTo = 5;
         $scope.flowLimitTo = 5;
     };
 
@@ -157,11 +167,11 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
         }
         if (regionProduct) {
 
-            MarketSvc.pay($scope.mobile, product.productId, regionProduct.productFlowPriceId, $scope.flowList.area_operator, 'recharge', $scope.gh, encodeURIComponent('http://' + window.location.host + ':8904/member/pure/pages/success/success.html?mobile=' + $scope.mobile + '&returnUrl=' + encodeURIComponent(window.location.href)), coupons, $scope.referrerId, $scope.category + $scope.productType).then(function success(data) {
+            MarketSvc.pay($scope.mobile, product.productId, regionProduct.productFlowPriceId, $scope.flowList.area_operator, 'recharge', $scope.gh, encodeURIComponent('http://home.yfq.cn/member/pure/pages/success/success.html?mobile=' + $scope.mobile + '&returnUrl=' + encodeURIComponent(window.location.href)), coupons, $scope.referrerId, $scope.category + $scope.productType).then(function success(data) {
                 $scope.$root.toast.close();
                 if (data.result) {
-                    console.log(data.payUrl);
-                    alert(JSON.stringify(data));
+                    /*console.log(data.payUrl);*/
+                    /*alert(JSON.stringify(data));*/
                     window.location.href = data.payUrl;
                     writebdLog($scope.category, "_BuyNow" + $scope.productType, "渠道号", $scope.gh);
                 } else {

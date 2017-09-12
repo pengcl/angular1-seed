@@ -176,7 +176,7 @@ function operation() {
         var flag = false;
         var info = "flow=" + loc + "&operation=" + map.get('operation');
         info = info.replace("?", "&");//将链接里的？字符转换为&，可以让后台获取
-        var url = cfApi.apiHost + "/record/writeLog.html?" + info + "&s=wap";
+        var url = "http://m.yfq.cn/record/writeLog.html?" + info + "&s=wap";
         $.ajax({
             type: "get",
             url: url,
@@ -193,7 +193,7 @@ function operation() {
         return flag;
     };
     this.writeIntentionMsg = function (operationName, operationValue, dataType, opSeq) {
-        var url = cfApi.apiHost + "/record/intentionLog.html";
+        var url = "http://m.yfq.cn/record/intentionLog.html";
         $.get(url, {operationName: operationName, operationValue: operationValue, dataType: dataType, opSeq: opSeq},
             function (data) {
 

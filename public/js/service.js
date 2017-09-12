@@ -44,7 +44,7 @@ appServices.factory("MarketSvc", ['$http', '$q', function ($http, $q) {
     var service = {};
     service.getFlows = function (mobile) {//获取订单统计 promise对象
         var d = $q.defer();
-        $http.jsonp(/*cfApi.apiHost + */'http://apptest.yfq.cn:8904/product/findProductFlows.ht?mobile=' + mobile + '&type=1&platform=wap&callback=JSON_CALLBACK').success(function (data) {
+        $http.jsonp(cfApi.apiHost + '/product/findProductFlows.ht?mobile=' + mobile + '&type=1&platform=wap&callback=JSON_CALLBACK').success(function (data) {
             return d.resolve(data);
         }).error(function (error) {
             d.reject(error);
@@ -54,7 +54,7 @@ appServices.factory("MarketSvc", ['$http', '$q', function ($http, $q) {
 
     service.getFees = function (mobile) {
         var d = $q.defer();
-        $http.jsonp(/*cfApi.apiHost + */'http://apptest.yfq.cn:8904/product/findProductFlows.ht?mobile=' + mobile + '&type=2&platform=wap&callback=JSON_CALLBACK').success(function (data) {
+        $http.jsonp(cfApi.apiHost + '/product/findProductFlows.ht?mobile=' + mobile + '&type=2&platform=wap&callback=JSON_CALLBACK').success(function (data) {
             return d.resolve(data);
         }).error(function (error) {
             d.reject(error);
@@ -65,7 +65,7 @@ appServices.factory("MarketSvc", ['$http', '$q', function ($http, $q) {
     service.pay = function (mobile, productId, productFlowPriceId, carrier, activityTag, channelCode, successUrl, couponNo, referrerId, category) {//获取订单统计 promise对象
         var d = $q.defer();
         //alert(cfApi.apiHost + '/order/submitFlowOrder.ht?mobile=' + mobile + '&productId=' + productId + '&productFlowPriceId=' + productFlowPriceId + '&carrier=' + carrier + '&activityTag=' + activityTag + '&channelCode=' + channelCode + '&successUrl=' + successUrl + '&couponNo=' + couponNo + '&referrerId=' + referrerId + '&category=' + category + '&callback=JSON_CALLBACK');
-        $http.jsonp(/*cfApi.apiHost + */'http://apptest.yfq.cn:8904/order/submitFlowOrder.ht?mobile=' + mobile + '&productId=' + productId + '&productFlowPriceId=' + productFlowPriceId + '&carrier=' + carrier + '&activityTag=' + activityTag + '&channelCode=' + channelCode + '&successUrl=' + successUrl + '&couponNo=' + couponNo + '&referrerId=' + referrerId + '&category=' + category + '&callback=JSON_CALLBACK').success(function (data) {
+        $http.jsonp(cfApi.apiHost + '/order/submitFlowOrder.ht?mobile=' + mobile + '&productId=' + productId + '&productFlowPriceId=' + productFlowPriceId + '&carrier=' + carrier + '&activityTag=' + activityTag + '&channelCode=' + channelCode + '&successUrl=' + successUrl + '&couponNo=' + couponNo + '&referrerId=' + referrerId + '&category=' + category + '&callback=JSON_CALLBACK').success(function (data) {
             return d.resolve(data);
         }).error(function (error) {
             d.reject(error);
@@ -81,7 +81,7 @@ appServices.factory("CouponSvc", ['$http', '$q', function ($http, $q) {
 
     service.getCouponList = function (mobile) {//获取订单列表 promise对象
         var d = $q.defer();
-        $http.jsonp(/*cfApi.apiHost + */'http://apptest.yfq.cn:8904/product/getCouponList.ht?recieverMobile=' + mobile + '&callback=JSON_CALLBACK').success(function (data) {
+        $http.jsonp(cfApi.apiHost + '/product/getCouponList.ht?recieverMobile=' + mobile + '&callback=JSON_CALLBACK').success(function (data) {
             var isOverdueCount = 0;
             var isUsedCount = 0;
             var length = data[0].couponList.length;

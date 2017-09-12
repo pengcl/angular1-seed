@@ -75,14 +75,17 @@
                             <div class="title" ng-bind="item.productName"></div>
                             <div class="disc"><span ng-bind="item.regionProducts | flowSalesPrice | number : 2"></span>元
                             </div>
-                            <ins class="hot" ng-if="item.ifHot == 1"><img src="http://etc.yfq.cn/images/flow/hot.png"></ins>
+                            <ins class="hot" ng-if="item.ifHot == 1"><img style="display: block;width: 0.3rem" src="/images/flow/hot.png"></ins>
                             <span class="flag" ng-if="item.sortNo >= 100 && couponList.length > 0 && item.ifHot != 1">优惠</span>
                         </div>
                     </div>
-                    <div class="list-item pure-u-1-3"
-                         ng-show="flowLimitTo === 5">
+                    <div class="list-item pure-u-1-3">
                         <div class="item-box" ng-click="getFlowMore();" ng-show="flowLimitTo === 5">
                             <div class="title">更多流量包</div>
+                            <!--<div class="disc"><span ng-bind="item.regionProducts | flowSalesPrice | number : 2"></span>元</div>-->
+                        </div>
+                        <div class="item-box" ng-click="getFlowLess();" ng-show="flowLimitTo === 100">
+                            <div class="title">收起</div>
                             <!--<div class="disc"><span ng-bind="item.regionProducts | flowSalesPrice | number : 2"></span>元</div>-->
                         </div>
                     </div>
@@ -114,19 +117,19 @@
                 <p style="font-size: 0.12rem;padding-left: 0.15rem;margin-top: 0.1rem">
                     <span ng-click="appDialog.open('优惠券使用说明','<p>1、充值流量包即可获得支付金额同等金额的优惠券（按实际支付金额向下取整，单笔最多获得30元优惠券）。</p><p>2、优惠券可用于下次充值，适用于话费及流量，请在有效期内使用。</p>')" class="disc-content"
                           style="margin-right: 20px;cursor: pointer">
-                        <img src="http://mall.yfq.cn/flow/images/flow/icon-coupon.png"
+                        <img src="/images/flow/icon-coupon.png"
                              style="height:0.14rem;width:auto;display: inline-block;vertical-align: middle">
                         <span style="display: inline-block;vertical-align: middle">赠</span>
                         <span style="display: inline-block;vertical-align: middle"
                               ng-bind="regionFlowProduct.salesPrice | flowCoupon"></span>
                         <span style="display: inline-block;vertical-align: middle">元优惠券</span>
-                        <img src="http://mall.yfq.cn/flow/images/flow/what.png"
+                        <img src="/images/flow/what.png"
                              style="display: inline-block;vertical-align: middle">
                     </span>
                 </p>
 
                 <a href="javascript:;" ng-click="pay(mobileValid,flowProduct,regionFlowProduct,flowCoupons)"
-                   style="background: #ff6801;margin: 0.07rem 0.15rem 0.15rem 0.15rem;" class="weui-btn weui-btn_warn">立即充值</a>
+                   style="background: #ff6801;margin: 0.07rem 0.15rem 0.45rem 0.15rem;" class="weui-btn weui-btn_warn">立即充值</a>
             </div>
 
             <!--<p style="font-size: 0.12rem;text-align: right;padding-right: 0.15rem;color: #999"><span ng-click="taggleShow('#flowTips')">充流量注意事项</span></p>-->
@@ -176,13 +179,17 @@
                             <div class="title" ng-bind="item.productName"></div>
                             <div class="disc"><span ng-bind="item.regionProducts | flowSalesPrice | number : 2"></span>元
                             </div>
-                            <ins class="hot" ng-if="item.ifHot == 1"><img src="http://etc.yfq.cn/images/flow/hot.png"></ins>
+                            <ins class="hot" ng-if="item.ifHot == 1"><img style="display: block;width: 0.3rem" src="/images/flow/hot.png"></ins>
                             <span class="flag" ng-if="item.sortNo >= 50 && couponList.length > 0 && item.ifHot != 1">优惠</span>
                         </div>
                     </div>
-                    <div class="list-item pure-u-1-3" ng-show="feeLimitTo === 5">
+                    <div class="list-item pure-u-1-3">
                         <div class="item-box" ng-click="getFeeMore();" ng-show="feeLimitTo === 5">
                             <div class="title">更多套餐</div>
+                            <!--<div class="disc"><span ng-bind="item.regionProducts | flowSalesPrice | number : 2"></span>元</div>-->
+                        </div>
+                        <div class="item-box" ng-click="getFeeLess();" ng-show="feeLimitTo === 100">
+                            <div class="title">收起</div>
                             <!--<div class="disc"><span ng-bind="item.regionProducts | flowSalesPrice | number : 2"></span>元</div>-->
                         </div>
                     </div>
@@ -208,7 +215,7 @@
                 </div>-->
 
                 <a href="javascript:;" ng-click="pay(mobileValid,feeProduct,regionFeeProduct,feeCoupons)"
-                   style="background: #ff6801;margin: 0.15rem;" class="weui-btn weui-btn_warn">立即充值</a>
+                   style="background: #ff6801;margin: 0.07rem 0.15rem 0.45rem 0.15rem;" class="weui-btn weui-btn_warn">立即充值</a>
             </div>
 
             <!--<div class="sun-prod weui-cells" ng-show="productType === 'fee'">
@@ -355,11 +362,7 @@
         <!--<div class="weui-cells__tips" ng-click="showOverlay()" style="text-align: right;margin-bottom: 0.4rem">常见问题？
         </div>-->
     </div>
-    <div class="btns-group">
-        <a class="btn-secondary" href="javascript:;">充值</a>
-        <a class="btn-secondary" href="javascript:;">会员中心</a>
-    </div>
-    <!--<app-footer-nav></app-footer-nav>-->
+    <app-footer-nav page-active="recharge"></app-footer-nav>
 </div>
 
 <!--<div id="flowTips" style="display: none;">

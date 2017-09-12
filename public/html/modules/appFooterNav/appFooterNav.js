@@ -5,7 +5,8 @@ app.directive("appFooterNav", ['$timeout', '$rootScope', function ($timeout, $ro
         restrict: 'E',
         templateUrl: "modules/appFooterNav/appFooterNav.html",
         link: function (scope, element, attrs) {
-        	scope.writeClick = function (value) {
+            scope.pageActive = attrs.pageActive;
+            scope.writeClick = function (value) {
                 writebdLog(scope.category, "_" + value, "渠道号", scope.gh);//记录点击事件
             };
         }

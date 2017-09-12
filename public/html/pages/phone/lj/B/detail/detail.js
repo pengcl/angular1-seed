@@ -25,11 +25,6 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
      $scope.cfConvertId = "";
      }*/
 
-    var cfApi = {
-        apiHost: 'http://apptest.yfq.cn:8904',
-        czHost:"http://cz.gd189fq.com"
-    };
-
     $scope.pageType = 'B';
     $scope.activeTag = "ljzma";
 

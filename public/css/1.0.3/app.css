@@ -4150,30 +4150,71 @@ table.border-white th:after, table.border-white td:after {
   display: none;
 }
 
-/* line 8, ../../../sass/modules/_tabBar.scss */
+/* line 9, ../../../sass/modules/_tabBar.scss */
 .weui-tab__item_on {
   display: block !important;
 }
 
-/* line 12, ../../../sass/modules/_tabBar.scss */
+/* line 13, ../../../sass/modules/_tabBar.scss */
 .weui-navbar {
   position: static;
   background: none;
 }
-/* line 15, ../../../sass/modules/_tabBar.scss */
+/* line 16, ../../../sass/modules/_tabBar.scss */
 .weui-navbar .weui-navbar__item {
   background: #fbf9fe;
 }
-/* line 17, ../../../sass/modules/_tabBar.scss */
+/* line 18, ../../../sass/modules/_tabBar.scss */
 .weui-navbar .weui-navbar__item.weui-bar__item_on {
   background: #fff;
 }
 
-/* line 23, ../../../sass/modules/_tabBar.scss */
+/* line 24, ../../../sass/modules/_tabBar.scss */
 .weui-tab__panel {
   height: auto;
   overflow: hidden;
   padding-top: 0 !important;
+}
+
+/* line 30, ../../../sass/modules/_tabBar.scss */
+.weui-tabbar {
+  background: #fff;
+}
+/* line 33, ../../../sass/modules/_tabBar.scss */
+.weui-tabbar .weui-tabbar__item .weui-tabbar__label {
+  white-space: nowrap;
+}
+/* line 37, ../../../sass/modules/_tabBar.scss */
+.weui-tabbar .weui-tabbar__item .weui-tabbar__icon .normal {
+  display: block;
+}
+/* line 40, ../../../sass/modules/_tabBar.scss */
+.weui-tabbar .weui-tabbar__item .weui-tabbar__icon .active {
+  display: none;
+}
+/* line 46, ../../../sass/modules/_tabBar.scss */
+.weui-tabbar .weui-tabbar__item.weui-bar__item_on .weui-tabbar__icon .normal {
+  display: none;
+}
+/* line 49, ../../../sass/modules/_tabBar.scss */
+.weui-tabbar .weui-tabbar__item.weui-bar__item_on .weui-tabbar__icon .active {
+  display: block;
+}
+/* line 53, ../../../sass/modules/_tabBar.scss */
+.weui-tabbar .weui-tabbar__item.weui-bar__item_on .weui-tabbar__label {
+  color: #ff6700;
+}
+/* line 58, ../../../sass/modules/_tabBar.scss */
+.weui-tabbar .weui-tabbar__item.mall .weui-tabbar__icon {
+  position: relative;
+}
+/* line 60, ../../../sass/modules/_tabBar.scss */
+.weui-tabbar .weui-tabbar__item.mall .weui-tabbar__icon img {
+  position: absolute;
+  width: 48px;
+  height: 48px;
+  margin-top: -24px;
+  margin-left: -12px;
 }
 
 /* line 2, ../../../sass/pages/_home.scss */
@@ -4514,31 +4555,82 @@ div.module-tips {
   left: 0.15rem;
   right: 0.15rem;
 }
-/* line 10, ../../../sass/pages/flow/_flow.scss */
+/* line 9, ../../../sass/pages/flow/_flow.scss */
+.page.market.flow #rechargeNo .weui-cell .weui-cell__bd {
+  font-size: 0.24rem;
+}
+/* line 13, ../../../sass/pages/flow/_flow.scss */
 .page.market.flow #rechargeNo .weui-cell:nth-child(1):after {
   display: none;
 }
-/* line 14, ../../../sass/pages/flow/_flow.scss */
+/* line 17, ../../../sass/pages/flow/_flow.scss */
 .page.market.flow #rechargeNo .weui-cell:nth-child(2) {
   font-size: 0.12rem;
   padding-top: 0;
-  color: #09bb07;
+  color: #ff6700;
 }
-/* line 18, ../../../sass/pages/flow/_flow.scss */
+/* line 21, ../../../sass/pages/flow/_flow.scss */
 .page.market.flow #rechargeNo .weui-cell:nth-child(2):before {
   display: none;
 }
-/* line 24, ../../../sass/pages/flow/_flow.scss */
+/* line 27, ../../../sass/pages/flow/_flow.scss */
 .page.market.flow #rechargeNo.active .weui-cell__ft {
-  color: #09bb07;
+  font-size: 0.12rem;
+  color: #999;
 }
-/* line 29, ../../../sass/pages/flow/_flow.scss */
+/* line 33, ../../../sass/pages/flow/_flow.scss */
+.page.market.flow #rechargeNo #mobileView {
+  font-size: 0.24rem !important;
+  line-height: 1em;
+  height: 1em;
+}
+/* line 39, ../../../sass/pages/flow/_flow.scss */
+.page.market.flow #rechargeNo #mobileView::-webkit-input-placeholder {
+  color: #666;
+  -moz-transform: scale(0.7, 0.7);
+  -ms-transform: scale(0.7, 0.7);
+  -webkit-transform: scale(0.7, 0.7);
+  transform: scale(0.7, 0.7);
+  -webkit-transform-origin: 0;
+  transform-origin: 0;
+}
+/* line 46, ../../../sass/pages/flow/_flow.scss */
+.page.market.flow #rechargeNo #mobileView:-moz-placeholder {
+  color: #666;
+  -moz-transform: scale(0.7, 0.7);
+  -ms-transform: scale(0.7, 0.7);
+  -webkit-transform: scale(0.7, 0.7);
+  transform: scale(0.7, 0.7);
+  -webkit-transform-origin: 0;
+  transform-origin: 0;
+}
+/* line 53, ../../../sass/pages/flow/_flow.scss */
+.page.market.flow #rechargeNo #mobileView::-moz-placeholder {
+  color: #666;
+  -moz-transform: scale(0.7, 0.7);
+  -ms-transform: scale(0.7, 0.7);
+  -webkit-transform: scale(0.7, 0.7);
+  transform: scale(0.7, 0.7);
+  -webkit-transform-origin: 0;
+  transform-origin: 0;
+}
+/* line 60, ../../../sass/pages/flow/_flow.scss */
+.page.market.flow #rechargeNo #mobileView:-ms-input-placeholder {
+  color: #666;
+  -moz-transform: scale(0.7, 0.7);
+  -ms-transform: scale(0.7, 0.7);
+  -webkit-transform: scale(0.7, 0.7);
+  transform: scale(0.7, 0.7);
+  -webkit-transform-origin: 0;
+  transform-origin: 0;
+}
+/* line 67, ../../../sass/pages/flow/_flow.scss */
 .page.market.flow nav {
   -moz-box-shadow: 0px 0px 5px #999;
   -webkit-box-shadow: 0px 0px 5px #999;
   box-shadow: 0px 0px 5px #999;
 }
-/* line 33, ../../../sass/pages/flow/_flow.scss */
+/* line 71, ../../../sass/pages/flow/_flow.scss */
 .page.market.flow .weui-cells__title .sub-title {
   color: #fff;
   background: #ff4521;
@@ -4547,55 +4639,90 @@ div.module-tips {
   font-size: 0.12rem;
 }
 
-/* line 45, ../../../sass/pages/flow/_flow.scss */
+/* line 83, ../../../sass/pages/flow/_flow.scss */
 .page.market .owl-carousel {
   padding-bottom: 0;
 }
-/* line 47, ../../../sass/pages/flow/_flow.scss */
+/* line 85, ../../../sass/pages/flow/_flow.scss */
 .page.market .owl-carousel .owl-controls {
   bottom: 0rem;
 }
-/* line 52, ../../../sass/pages/flow/_flow.scss */
+/* line 90, ../../../sass/pages/flow/_flow.scss */
 .page.market .item-box.active {
-  background: #09bb07;
-  color: #fff !important;
+  border: 1px solid #ff6700 !important;
+  color: #ff6700 !important;
 }
-/* line 57, ../../../sass/pages/flow/_flow.scss */
+/* line 95, ../../../sass/pages/flow/_flow.scss */
 .page.market .sun-prod {
-  margin-bottom: 1em;
+  margin-left: 0.15rem;
+  margin-right: 0.15rem;
+  background: none;
 }
-/* line 59, ../../../sass/pages/flow/_flow.scss */
+/* line 99, ../../../sass/pages/flow/_flow.scss */
+.page.market .sun-prod:before, .page.market .sun-prod:after {
+  display: none;
+}
+/* line 102, ../../../sass/pages/flow/_flow.scss */
+.page.market .sun-prod .weui-cell {
+  font-size: 0.13rem;
+  border: 1px solid #bfbfbf;
+  margin-bottom: 0.1rem;
+  background: #fff;
+}
+/* line 107, ../../../sass/pages/flow/_flow.scss */
+.page.market .sun-prod .weui-cell.curr {
+  border: 1px solid #ff6700;
+}
+/* line 109, ../../../sass/pages/flow/_flow.scss */
+.page.market .sun-prod .weui-cell.curr .flag {
+  color: #fff;
+  background: #ff6700;
+}
+/* line 113, ../../../sass/pages/flow/_flow.scss */
+.page.market .sun-prod .weui-cell.curr .weui-cell__ft {
+  color: #ff6700;
+}
+/* line 117, ../../../sass/pages/flow/_flow.scss */
+.page.market .sun-prod .weui-cell:before, .page.market .sun-prod .weui-cell:after {
+  display: none;
+}
+/* line 121, ../../../sass/pages/flow/_flow.scss */
+.page.market .sun-prod .weui-cell .weui-cell__hd .flag {
+  font-size: 0.1rem;
+}
+/* line 126, ../../../sass/pages/flow/_flow.scss */
 .page.market .sun-prod del {
   margin-left: 0.05rem;
   color: #666;
 }
-/* line 63, ../../../sass/pages/flow/_flow.scss */
+/* line 130, ../../../sass/pages/flow/_flow.scss */
 .page.market .sun-prod .flag {
   -moz-border-radius: 0.05rem;
   -webkit-border-radius: 0.05rem;
   border-radius: 0.05rem;
-  padding: 0.01rem 0.02rem;
-  color: #fff;
-  background: #09bb07;
+  padding: 0.01rem 0.05rem;
+  color: #e4393c;
+  background: #ffe8e8;
   margin-right: 0.05rem;
+  display: block;
 }
 
-/* line 74, ../../../sass/pages/flow/_flow.scss */
+/* line 142, ../../../sass/pages/flow/_flow.scss */
 .page.market .weui-media-box__desc {
   font-size: 0.12rem;
   color: #999;
 }
-/* line 78, ../../../sass/pages/flow/_flow.scss */
+/* line 146, ../../../sass/pages/flow/_flow.scss */
 .page.market .weui-cell {
   padding: 0.1rem 0.15rem;
   font-size: 0.2rem;
 }
-/* line 82, ../../../sass/pages/flow/_flow.scss */
+/* line 150, ../../../sass/pages/flow/_flow.scss */
 .page.market .pdw {
   padding-left: 0.15rem;
   padding-right: 0.15rem;
 }
-/* line 86, ../../../sass/pages/flow/_flow.scss */
+/* line 154, ../../../sass/pages/flow/_flow.scss */
 .page.market.flow {
   /*#salesForm {
     background-image: url("/images/flow/bg.jpg");
@@ -4605,60 +4732,64 @@ div.module-tips {
     padding-top: 1.1rem;
   }*/
 }
-/* line 87, ../../../sass/pages/flow/_flow.scss */
+/* line 155, ../../../sass/pages/flow/_flow.scss */
 .page.market.flow .nav-contact {
   color: #fff;
 }
-/* line 100, ../../../sass/pages/flow/_flow.scss */
+/* line 168, ../../../sass/pages/flow/_flow.scss */
 .page.market.flow #rechargeNo:after {
   left: 0.15rem;
   right: 0.15rem;
 }
-/* line 106, ../../../sass/pages/flow/_flow.scss */
+/* line 174, ../../../sass/pages/flow/_flow.scss */
 .page.market.flow #rechargeNo .weui-cell:nth-child(1):after {
   display: none;
 }
-/* line 110, ../../../sass/pages/flow/_flow.scss */
+/* line 178, ../../../sass/pages/flow/_flow.scss */
 .page.market.flow #rechargeNo .weui-cell:nth-child(2) {
   font-size: 0.12rem;
   padding-top: 0;
-  color: #09bb07;
+  color: #ff6700;
 }
-/* line 114, ../../../sass/pages/flow/_flow.scss */
+/* line 182, ../../../sass/pages/flow/_flow.scss */
 .page.market.flow #rechargeNo .weui-cell:nth-child(2):before {
   display: none;
 }
-/* line 120, ../../../sass/pages/flow/_flow.scss */
+/* line 188, ../../../sass/pages/flow/_flow.scss */
 .page.market.flow #rechargeNo.active .weui-cell__ft {
-  color: #09bb07;
+  color: #999;
 }
-/* line 125, ../../../sass/pages/flow/_flow.scss */
+/* line 193, ../../../sass/pages/flow/_flow.scss */
 .page.market.flow .item-lists {
   margin-left: -0.05rem;
   margin-right: -0.05rem;
 }
-/* line 130, ../../../sass/pages/flow/_flow.scss */
-.page.market.flow .item-lists .list-item.disabled .item-box {
-  color: #000 !important;
-  border: 1px solid #999;
+/* line 197, ../../../sass/pages/flow/_flow.scss */
+.page.market.flow .item-lists .list-item.disabled {
+  opacity: 1;
 }
-/* line 133, ../../../sass/pages/flow/_flow.scss */
+/* line 199, ../../../sass/pages/flow/_flow.scss */
+.page.market.flow .item-lists .list-item.disabled .item-box {
+  color: #ededed !important;
+  border: 1px solid #ededed;
+}
+/* line 202, ../../../sass/pages/flow/_flow.scss */
 .page.market.flow .item-lists .list-item.disabled .item-box .title {
   line-height: 0.32rem;
 }
-/* line 136, ../../../sass/pages/flow/_flow.scss */
+/* line 205, ../../../sass/pages/flow/_flow.scss */
 .page.market.flow .item-lists .list-item.disabled .item-box .disc {
   display: none;
 }
-/* line 142, ../../../sass/pages/flow/_flow.scss */
+/* line 211, ../../../sass/pages/flow/_flow.scss */
 .page.market.flow .item-lists .item-box {
   margin: 0.05rem;
   text-align: center;
-  border: 1px solid #09bb07;
+  border: 1px solid #bfbfbf;
   -moz-border-radius: 0.03rem;
   -webkit-border-radius: 0.03rem;
   border-radius: 0.03rem;
-  color: #09bb07;
+  color: #333;
   min-height: 0.5rem;
   padding: 0;
   -webkit-flex: 1 0;
@@ -4673,17 +4804,17 @@ div.module-tips {
   flex-direction: column;
   line-height: 1.3;
 }
-/* line 156, ../../../sass/pages/flow/_flow.scss */
+/* line 225, ../../../sass/pages/flow/_flow.scss */
 .page.market.flow .item-lists .item-box .title {
   font-size: 0.14rem;
   line-height: 0.18rem;
 }
-/* line 160, ../../../sass/pages/flow/_flow.scss */
+/* line 229, ../../../sass/pages/flow/_flow.scss */
 .page.market.flow .item-lists .item-box .disc {
   font-size: 0.12rem;
   line-height: 0.14rem;
 }
-/* line 164, ../../../sass/pages/flow/_flow.scss */
+/* line 233, ../../../sass/pages/flow/_flow.scss */
 .page.market.flow .item-lists .item-box .flag {
   position: absolute;
   right: 0;
@@ -4695,11 +4826,19 @@ div.module-tips {
   -moz-border-radius-bottomleft: 10em;
   -webkit-border-bottom-left-radius: 10em;
   border-bottom-left-radius: 10em;
-  background: #ff4521;
+  background: #ff6700;
   font-size: 0.1rem;
   color: #fff;
 }
-/* line 176, ../../../sass/pages/flow/_flow.scss */
+/* line 243, ../../../sass/pages/flow/_flow.scss */
+.page.market.flow .item-lists .item-box .hot {
+  position: absolute;
+  display: block;
+  right: 1px;
+  top: 1px;
+  font-size: 1px;
+}
+/* line 252, ../../../sass/pages/flow/_flow.scss */
 .flow-overlay .btn-twitter {
   width: 100%;
   bottom: 0;
@@ -4708,24 +4847,24 @@ div.module-tips {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
-/* line 184, ../../../sass/pages/flow/_flow.scss */
+/* line 260, ../../../sass/pages/flow/_flow.scss */
 .page.market.flow .fqa .weui-media-box__desc {
   margin-top: 0.05rem;
   margin-bottom: 0.05rem;
   font-size: 0.12rem;
   line-height: 1.2;
 }
-/* line 192, ../../../sass/pages/flow/_flow.scss */
+/* line 268, ../../../sass/pages/flow/_flow.scss */
 .page.market .nav-contact {
   position: static;
   background: none;
 }
-/* line 195, ../../../sass/pages/flow/_flow.scss */
+/* line 271, ../../../sass/pages/flow/_flow.scss */
 .page.market .nav-contact span {
   line-height: 0.5rem;
   color: #333;
 }
-/* line 199, ../../../sass/pages/flow/_flow.scss */
+/* line 275, ../../../sass/pages/flow/_flow.scss */
 .page.market .nav-contact span.icon-comment {
   display: inline-block;
   display: none;
@@ -4733,35 +4872,65 @@ div.module-tips {
   line-height: 0.45rem;
 }
 
-/* line 211, ../../../sass/pages/flow/_flow.scss */
+/* line 287, ../../../sass/pages/flow/_flow.scss */
+.page.market.flow.list .weui-cells {
+  margin-top: 0.1rem;
+}
+/* line 290, ../../../sass/pages/flow/_flow.scss */
+.page.market.flow.list .product-tabs {
+  margin-top: 0.1rem;
+  background: #fff;
+  font-size: 0.16rem;
+}
+/* line 294, ../../../sass/pages/flow/_flow.scss */
+.page.market.flow.list .product-tabs .tab-item {
+  padding: 0.1rem 0.15rem;
+  text-align: center;
+}
+/* line 297, ../../../sass/pages/flow/_flow.scss */
+.page.market.flow.list .product-tabs .tab-item.curr {
+  color: #ff6700;
+  position: relative;
+}
+/* line 300, ../../../sass/pages/flow/_flow.scss */
+.page.market.flow.list .product-tabs .tab-item.curr:after {
+  position: absolute;
+  content: " ";
+  left: 0.15rem;
+  right: 0.15rem;
+  height: 1px;
+  bottom: 0;
+  background: #ff6700;
+}
+/* line 312, ../../../sass/pages/flow/_flow.scss */
 .page.market.flow.list .prod {
   margin-top: 0;
 }
-/* line 213, ../../../sass/pages/flow/_flow.scss */
+/* line 314, ../../../sass/pages/flow/_flow.scss */
 .page.market.flow.list .prod:before {
   display: none;
 }
-/* line 216, ../../../sass/pages/flow/_flow.scss */
+/* line 317, ../../../sass/pages/flow/_flow.scss */
 .page.market.flow.list .prod:first-child {
   display: block;
 }
-/* line 219, ../../../sass/pages/flow/_flow.scss */
+/* line 320, ../../../sass/pages/flow/_flow.scss */
 .page.market.flow.list .prod .sun-prod {
   margin-top: 0;
   background: #f9f9f9;
 }
-/* line 222, ../../../sass/pages/flow/_flow.scss */
+/* line 323, ../../../sass/pages/flow/_flow.scss */
 .page.market.flow.list .prod .sun-prod:after {
   display: none;
 }
-/* line 226, ../../../sass/pages/flow/_flow.scss */
+/* line 327, ../../../sass/pages/flow/_flow.scss */
 .page.market.flow.list .prod .sun-prod .weui-cell__bd del {
   font-size: 0.12rem;
   color: #999;
   margin-left: 0.1rem;
 }
 
-/* line 239, ../../../sass/pages/flow/_flow.scss */
+/* line 340, ../../../sass/pages/flow/_flow.scss */
 .weui-badge {
   display: inline-block;
   padding: .15em .4em;
@@ -4775,10 +4944,58 @@ div.module-tips {
   vertical-align: middle;
 }
 
-/* line 251, ../../../sass/pages/flow/_flow.scss */
+/* line 353, ../../../sass/pages/flow/_flow.scss */
 .weui-badge_dot {
   padding: .4em;
   min-width: 0;
+}
+
+/* line 359, ../../../sass/pages/flow/_flow.scss */
+.mock-mobile span {
+  display: inline-block;
+  vertical-align: middle;
+  *vertical-align: auto;
+  *zoom: 1;
+  *display: inline;
+}
+
+@keyframes blink {
+  50% {
+    color: #000;
+    background: #000;
+  }
+}
+@-webkit-keyframes blink {
+  50% {
+    color: #000;
+    background: #000;
+  }
+}
+@-ms-keyframes blink {
+  50% {
+    color: #000;
+    background: #000;
+  }
+}
+@-moz-keyframes blink {
+  50% {
+    color: #000;
+    background: #000;
+  }
+}
+/* line 392, ../../../sass/pages/flow/_flow.scss */
+.blink {
+  -webkit-animation: 1s blink infinite;
+  animation: 1s blink infinite;
+  border: none;
+  margin: 0;
+  width: 1px;
+  height: 1em;
+}
+
+/* line 401, ../../../sass/pages/flow/_flow.scss */
+.weui-dialog__bd p {
+  text-align: left;
 }
 
 /* line 3, ../../../sass/pages/flow/gh/_in.scss */
