@@ -26,6 +26,8 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
     }
 
     $scope.productType = 'flow';
+    //是否属于默认选中商品
+    $scope.isRobot = true;
 
     $scope.setProductType = function (type) {
         $scope.productType = type;
@@ -61,7 +63,7 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
         $scope.referrerId = "";
     }
 
-    $scope.selectedFlowProd = function (checked, product, isMore) {
+    $scope.selectedFlowProd = function (checked, product, isMore, e) {
         //$scope.productType = 'flow';
         if (!checked) {
             //$scope.$root.appDialog.open('系统提示', '请输入您的手机号码');
@@ -99,10 +101,14 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
         }
 
         $scope.regionFlowProduct = product.regionProducts[0];
-        writebdLog($scope.category, "_SelectPackage" + $scope.productType + product.sortNo + 'M', "渠道号", $scope.gh);
+        if(e)
+        {
+        	$scope.isRobot = false;
+        	writebdLog($scope.category, "_SelectPackage" + $scope.productType + product.sortNo + 'M', "渠道号", $scope.gh);
+        }
     };
 
-    $scope.selectedFeeProd = function (checked, product) {
+    $scope.selectedFeeProd = function (checked, product, isMore, e) {
         //$scope.productType = 'fee';
         if (!checked) {
             //$scope.$root.appDialog.open('系统提示', '请输入您的手机号码');
@@ -128,8 +134,11 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
         }
 
         $scope.regionFeeProduct = product.regionProducts[0];
-
-        writebdLog($scope.category, "_SelectPackage" + $scope.productType + product.sortNo + 'M', "渠道号", $scope.gh);
+        if(e)
+        {
+        	$scope.isRobot = false;
+        	writebdLog($scope.category, "_SelectPackage" + $scope.productType + product.sortNo + 'M', "渠道号", $scope.gh);
+        }
     };
 
     $scope.$root.share = {
@@ -174,6 +183,11 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
                     /*alert(JSON.stringify(data));*/
                     window.location.href = data.payUrl;
                     writebdLog($scope.category, "_BuyNow" + $scope.productType, "渠道号", $scope.gh);
+                    //默认选中商品，点击下单时统计选择的商品
+                    if($scope.isRobot)
+                    {
+                    	writebdLog($scope.category, "_SelectPackage" + $scope.productType + product.sortNo + 'M', "渠道号", $scope.gh);
+                    }
                 } else {
                     $scope.$root.appDialog.open('系统提示', data.msg);
                 }
@@ -243,6 +257,7 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
     $scope.setProductType = function (type) {
         $scope.productType = type;
         $scope.regionProduct = null;
+        writebdLog($scope.category, "_" + $scope.productType, "渠道号", $scope.gh);
     };
 
     var rebuildData = function (data, compareData) {//data 待对比对象 compareData 对比对象

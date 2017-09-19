@@ -70,7 +70,7 @@
                 <div class="item-lists pure-g pdw">
                     <div class="list-item pure-u-1-3" ng-repeat="item in flowList.data | limitTo : flowLimitTo"
                          ng-class="{true:'',false:'disabled'}[item.stock]">
-                        <div class="item-box" ng-click="selectedFlowProd(item.stock,item,true);"
+                        <div class="item-box" ng-click="selectedFlowProd(item.stock,item,true,$event);"
                              ng-class="{true:'active',false:''}[item === flowProduct]">
                             <div class="title" ng-bind="item.productName"></div>
                             <div class="disc"><span ng-bind="item.regionProducts | flowSalesPrice | number : 2"></span>元
@@ -174,7 +174,7 @@
                 <div class="item-lists pure-g pdw">
                     <div class="list-item pure-u-1-3" ng-repeat="item in feeList.data | limitTo : feeLimitTo"
                          ng-class="{true:'',false:'disabled'}[item.stock]">
-                        <div class="item-box" ng-click="selectedFeeProd(item.stock,item,true);"
+                        <div class="item-box" ng-click="selectedFeeProd(item.stock,item,true,$event);"
                              ng-class="{true:'active',false:''}[item === feeProduct]">
                             <div class="title" ng-bind="item.productName"></div>
                             <div class="disc"><span ng-bind="item.regionProducts | flowSalesPrice | number : 2"></span>元
