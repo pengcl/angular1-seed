@@ -1,5 +1,5 @@
 <div id="app-dialog" class="js_dialog {{dialogClass}}" style="display: none">
-    <div class="weui-mask"></div>
+    <div class="weui-mask" ng-click="close(false)"></div>
     <div class="weui-dialog">
         <div class="weui-dialog__hd"><strong class="weui_dialog_title" ng-bind="dialogTitle"></strong></div>
         <div class="weui-dialog__bd" ng-bind-html="dialogContent | trustHtml"></div>

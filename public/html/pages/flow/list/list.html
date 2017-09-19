@@ -115,13 +115,13 @@
                 </div>
 
                 <p style="font-size: 0.12rem;padding-left: 0.15rem;margin-top: 0.1rem">
-                    <span ng-click="appDialog.open('优惠券使用说明','<p>1、充值流量包即可获得支付金额同等金额的优惠券（按实际支付金额向下取整，单笔最多获得30元优惠券）。</p><p>2、优惠券可用于下次充值，适用于话费及流量，请在有效期内使用。</p>')" class="disc-content"
+                    <span ng-click="appDialog.open('优惠券使用说明','<p>1、充值流量包即可获得支付金额同等金额的优惠券（按实际支付金额向下取整，单笔最多获得30元优惠券，优惠券抵扣的部分不参与）</p><p>2、优惠券可用于下次充值，适用于话费及流量，请在有效期内使用。</p>')" class="disc-content"
                           style="margin-right: 20px;cursor: pointer">
                         <img src="/images/flow/icon-coupon.png"
                              style="height:0.14rem;width:auto;display: inline-block;vertical-align: middle">
                         <span style="display: inline-block;vertical-align: middle">赠</span>
                         <span style="display: inline-block;vertical-align: middle"
-                              ng-bind="regionFlowProduct.salesPrice | flowCoupon"></span>
+                              ng-bind="regionFlowProduct.salesPrice - flowCouponLength | flowCoupon"></span>
                         <span style="display: inline-block;vertical-align: middle">元优惠券</span>
                         <img src="/images/flow/what.png"
                              style="display: inline-block;vertical-align: middle">
@@ -199,7 +199,7 @@
                     <div class="weui-cell" ng-class="{true:'curr',false:''}[item === regionFeeProduct]" ng-repeat="item in feeProduct.regionProducts">
                         <div class="weui-cell__bd">
                             <p style="position: relative"><span>{{item.salesPrice | number : 2}}元</span>
-                                <del>{{item.costPrice | number : 2}} 元</del>
+                                <del ng-if="item.salesPrice <= item.costPrice">{{item.costPrice | number : 2}} 元</del>
                             </p>
                             <p ng-if="feeCouponLength > 0" class="weui-media-box__desc">使用了<em
                                     ng-bind="feeCouponLength"></em>张优惠券，为您省了<em
@@ -213,6 +213,20 @@
                 <!--<div ng-if="feeCouponLength > 0" class="weui-cells__tips">
                     使用了<em ng-bind="feeCouponLength"></em>张优惠券，为您省了<em ng-bind="feeCouponLength | number : 2"></em>元
                 </div>-->
+
+                <p style="font-size: 0.12rem;padding-left: 0.15rem;margin-top: 0.1rem" ng-if="regionFeeProduct.costPrice >= 50">
+                    <span ng-click="appDialog.open('优惠券使用说明','<p>1、话费充值面值50元送5元优惠券，面额100元送10元优惠券，多充多送（最多30元）</p><p>2、优惠券可用于下次充值，适用于话费及流量，请在有效期内使用。</p>')" class="disc-content"
+                          style="margin-right: 20px;cursor: pointer">
+                        <img src="/images/flow/icon-coupon.png"
+                             style="height:0.14rem;width:auto;display: inline-block;vertical-align: middle">
+                        <span style="display: inline-block;vertical-align: middle">赠</span>
+                        <span style="display: inline-block;vertical-align: middle"
+                              ng-bind="regionFeeProduct.costPrice | feeCoupon : 30"></span>
+                        <span style="display: inline-block;vertical-align: middle">元优惠券</span>
+                        <img src="/images/flow/what.png"
+                             style="display: inline-block;vertical-align: middle">
+                    </span>
+                </p>
 
                 <a href="javascript:;" ng-click="pay(mobileValid,feeProduct,regionFeeProduct,feeCoupons)"
                    style="background: #ff6801;margin: 0.07rem 0.15rem 0.45rem 0.15rem;" class="weui-btn weui-btn_warn">立即充值</a>
