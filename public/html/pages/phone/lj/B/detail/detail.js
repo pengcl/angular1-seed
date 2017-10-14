@@ -52,6 +52,10 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
 
     $http.jsonp(cfApi.apiHost + "/product/getProDetial.ht?productId=" + $stateParams.phoneId + "&activeTag=ljzma&s=wap&callback=JSON_CALLBACK").success(function (data, status, headers, config) {
         $scope.phone = data;
+        /*console.log(data.phoneTypes[0].fullDescription);*/
+        if ($scope.phone.phoneTypes[0].fullDescription) {
+            $scope.phone.phoneTypes[0].fullDescription = $scope.phone.phoneTypes[0].fullDescription.replace(/src=\"\/upload\//gi, 'src="http://cz.gd189fq.com/backend/upload/');
+        }
         $scope.imgUrls = [];
 
         for (var i = 0; i < data.phoneTypes[0].mediaProductList.length; i++) {
@@ -191,6 +195,21 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
 
     $scope.payType = 0;
     $scope.payTypeName = "马上付款";
+    $scope.successUrl = "http://app.yfq.cn/payState/11";
+
+    $scope.$watch('payType', function (n, o, $scope) {
+        if (n !== o) {
+            if (n == 0) {//一次性
+                $scope.successUrl = "http://app.yfq.cn/payState/11";
+            }
+            if (n == 1) {//货到付款
+                $scope.successUrl = "http://app.yfq.cn/payState/12";
+            }
+            if (n == 2) {//分期
+                $scope.successUrl = "http://app.yfq.cn/payState/10";
+            }
+        }
+    });
 
     $scope.loadedCheck = function () {
         if (!$scope.checkoutForm.reciverName.$valid) {
@@ -296,6 +315,10 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
         if (n != o) {
             $http.jsonp(cfApi.apiHost + "/product/getProDetial.ht?productId=" + n + "&activeTag=ljzma&s=wap&callback=JSON_CALLBACK").success(function (data, status, headers, config) {
                 $scope.phone = data;
+
+                if ($scope.phone.phoneTypes[0].fullDescription) {
+                    $scope.phone.phoneTypes[0].fullDescription = $scope.phone.phoneTypes[0].fullDescription.replace(/src=\"\/upload\//gi, 'src="http://cz.gd189fq.com/backend/upload/');
+                }
 
                 var _colors = data.phoneTypes[0].mediaProductList;
                 var _colorIndex = getIndex(data.phoneTypes[0].mediaProductList, "name", $scope.$root.mainColor.name);

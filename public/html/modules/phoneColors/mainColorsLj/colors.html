@@ -1,4 +1,5 @@
 <div id="mainPhoneColors" class="phone-colors">
+    <input type="hidden" name="skuCode" id="skuCode" ng-model="mainColor.name" value="{{mainColor.skuCode}}" required>
     <input type="hidden" name="mainColor" id="mainColor" ng-model="mainColor.name" value="{{mainColor.name}}" required>
     <div class="weui-cells__title title-icon"><span class="title" ng-bind="mainColorTitle"></span><span class="star-color">*</span><span class="sub-title" ng-class="{true:'hide',false:''}[colorSubTitle == '']"><span ng-bind="phone.phoneTypes[0].productName"></span> <span ng-bind="mainColor.name"></span></span></div>
     <div class="phone-colors-panel pd-w">

@@ -2,7 +2,7 @@ var express = require('express');
 var request = require('request');
 var router = express.Router();
 
-var cipher = require('./func/cipher');
+/*var cipher = require('./func/cipher');*/
 
 /*var cipherStr = cipher.cipher('blowfish', 'abc', '15013262507');
 var deCipherStr = cipher.decipher('blowfish', 'abc', cipherStr);*/
@@ -21,7 +21,7 @@ function each(objArray, funName) {
 
 //获取订单信息
 
-router.get('/getCipherNumber/:number', function (req, res) {
+/*router.get('/getCipherNumber/:number', function (req, res) {
     var _callback = req.query.callback;
     var _number = req.params.number;
     if (_callback) {
@@ -31,7 +31,7 @@ router.get('/getCipherNumber/:number', function (req, res) {
     else {
         res.json(_number);
     }
-});
+});*/
 
 router.get('/findRechargeProducts', function (req, res) {
     res.header("Access-Control-Allow-Origin", "*");

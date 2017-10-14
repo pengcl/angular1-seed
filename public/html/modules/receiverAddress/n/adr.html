@@ -61,7 +61,7 @@
         <div class=" weui-cell input-city" id="inputsStoreSelect" ng-class="{'weui-cell_warn':checkoutForm.receiverCity.$dirty== true && checkoutForm.receiverCity.$valid == false,'weui-cell_success':checkoutForm.receiverCity.$valid == true}">
             <div class="weui-cell__hd"><label class="weui-label">所在地区：</label></div>
             <div class=" weui-cell__bd weui-cell-primary adr-btn" style="position:relative" >
-                <div id="store-selector" ng-click="inputFocus('.input-city');">
+                <div id="store-selector" ng-click="showAdrPanel(true)">
                     <div id="store-text" class="text" data-value="">
                         <div ng-if="receiver.city !=''"><span ng-bind="receiver.city"></span></div>
                         <div ng-if="receiver.city ==''"><span>请选择收件区域</span></div>

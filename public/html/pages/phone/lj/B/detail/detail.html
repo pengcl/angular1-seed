@@ -9,6 +9,7 @@
                id="machineId">
         <input type="hidden" value="{{activeTag}}" ng-model="activeTag" name="activeTag" id="activeTag">
         <input type="hidden" value="{{redirectUrl}}" name="phoneQueryUrl" id="phoneQueryUrl">
+        <input type="hidden" value="{{successUrl}}" name="successUrl" id="successUrl">
         <gh></gh>
         <activity></activity>
         <referrer-no></referrer-no>
@@ -306,7 +307,7 @@
                             <span style="display: inline-block;margin-bottom:0.05rem;color:#fff;background: #d83e14;padding-left: 0.1rem;padding-right: 0.1rem;">限时优惠95折</span>
                         </span>
                         <span class="price pure-u-1-2">
-                            <span><em>￥</em><em ng-bind="mainColor.salePrice * 0.95 | numberUp | number:0"></em></span>
+                            <span><em>-￥</em><em ng-bind="mainColor.salePrice * 0.05 | numberUp | number:0"></em></span>
                         </span>
                     </div>
                 </div>

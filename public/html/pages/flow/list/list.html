@@ -128,8 +128,8 @@
                     </span>
                 </p>
 
-                <a href="javascript:;" ng-click="pay(mobileValid,flowProduct,regionFlowProduct,flowCoupons)"
-                   style="background: #ff6801;margin: 0.07rem 0.15rem 0.45rem 0.15rem;" class="weui-btn weui-btn_warn">立即充值</a>
+                <a href="javascript:;" ng-class="{true:'',false:'disabled'}[!!flowProduct]" ng-click="pay(mobileValid,flowProduct,regionFlowProduct,flowCoupons)"
+                   style="background: #ff6801;margin: 0.07rem 0.15rem 0.45rem 0.15rem;" class="weui-btn weui-btn_warn" data-a="{{!!flowProduct}}">立即充值</a>
             </div>
 
             <!--<p style="font-size: 0.12rem;text-align: right;padding-right: 0.15rem;color: #999"><span ng-click="taggleShow('#flowTips')">充流量注意事项</span></p>-->
@@ -228,7 +228,7 @@
                     </span>
                 </p>
 
-                <a href="javascript:;" ng-click="pay(mobileValid,feeProduct,regionFeeProduct,feeCoupons)"
+                <a href="javascript:;" ng-class="{true:'',false:'disabled'}[!!feeProduct]" ng-click="pay(mobileValid,feeProduct,regionFeeProduct,feeCoupons)"
                    style="background: #ff6801;margin: 0.07rem 0.15rem 0.45rem 0.15rem;" class="weui-btn weui-btn_warn">立即充值</a>
             </div>
 

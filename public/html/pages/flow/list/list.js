@@ -207,7 +207,7 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
                 }
             });*/
         } else {
-            console.log("请选择套餐");
+            $scope.$root.toast.close();
         }
 
     };
@@ -285,15 +285,19 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
     var tempFlowList, tempFeeList;
 
     var getDefault = function (data) {
-        var index = 0;
+        var index = "";
         $.each(data, function (i, k) {
             var prodName = k.productName.substr(0, k.productName.length - 1);
-            if (k.stock && prodName >= 100) {
-                index = i;
-                return false;
+            if (k.stock) {
+                if (index == "") {
+                    index = i;
+                }
+                if (prodName >= 100) {
+                    index = i;
+                    return false;
+                }
             }
         });
-
         return index;
     };
 
@@ -316,10 +320,14 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
 
                             var _flowIndex = getDefault($scope.flowList.data);
 
+                            console.log(_flowIndex);
+
                             if (_flowIndex > 6) {
                                 $scope.selectedFlowProd(true, $scope.flowList.data[_flowIndex], false);
                             } else {
-                                $scope.selectedFlowProd(true, $scope.flowList.data[_flowIndex], true);
+                                if(_flowIndex !== ""){
+                                    $scope.selectedFlowProd(true, $scope.flowList.data[_flowIndex], true);
+                                }
                             }
                         });
                         MarketSvc.getFees($scope.mobile).then(function success(data) {
@@ -330,7 +338,9 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
                             if (_feeIndex > 6) {
                                 $scope.selectedFeeProd(true, $scope.feeList.data[_feeIndex], false);
                             } else {
-                                $scope.selectedFeeProd(true, $scope.feeList.data[_feeIndex], true);
+                                if(_feeIndex !== ""){
+                                    $scope.selectedFeeProd(true, $scope.feeList.data[_feeIndex], true);
+                                }
                             }
 
                         });
