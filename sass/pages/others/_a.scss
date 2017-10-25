@@ -1,0 +1,160 @@
+.page.other-a {
+  .select-area-content {
+    background: #fff;
+    margin: 0.05rem 0.15rem;
+    font-size: 0.12rem;
+    @include box-shadow(0 0 5px #ddd);
+    padding-top: 0.1rem;
+    padding-bottom: 0.1rem;
+    .pro-list {
+      list-style: none;
+      .list-item {
+        list-style: none;
+        .item-box {
+          padding: 0.05rem 0.05rem;
+          text-align: left;
+          .radio-field {
+            position: relative;
+            .pure-u-1-6 {
+              text-align: center;
+            }
+            ins {
+              border: 1px solid #333;
+              background: #e3e3e3;
+              @include border-radius(5rem);
+              display: block;
+              width: 0.14rem;
+              height: 0.14rem;
+              top: 50%;
+              left: 50%;
+              margin-left: -0.07rem;
+              margin-top: -0.07rem;
+            }
+          }
+          &.curr {
+            color: #ae2112;
+            .radio-field {
+              ins {
+                background: #ae2112;
+                /*&:before {
+                  position: absolute;
+                  content: " ";
+                  left: 50%;
+                  top: 50%;
+                  width: 0.08rem;
+                  height: 0.08rem;
+                  border: 1px solid #333;
+                  background: #fff;
+                  @include border-radius(5rem);
+                  margin-left: -0.05rem;
+                  margin-top: -0.05rem;
+                }*/
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .weui-cells_form {
+    background: #fff;
+    margin: 0.05rem 0.15rem;
+    font-size: 0.12rem;
+    @include box-shadow(0 0 5px #ddd);
+    padding-top: 0.1rem;
+    padding-bottom: 0.1rem;
+  }
+  .weui-cells__title {
+    color: #461201;
+    &.title-icon:before {
+      background: #461201;
+    }
+  }
+  #receiverAddress {
+    font-size: 0.11rem;
+    label {
+      color: #461201;
+      width: 6em;
+    }
+    .weui-cell {
+      padding: 0;
+      border: 0;
+      .weui-cell__hd {
+        width: 6em;
+      }
+      .weui-cell__bd {
+        padding-top: 0.07rem;
+        padding-bottom: 0.07rem;
+        border: 1px solid #ccc;
+        padding-left: 0.1rem;
+        @include border-radius(3px);
+      }
+      .weui-cell__ft {
+        display: none;
+      }
+      .weui-vcode-btn {
+        padding-top: 0.07rem;
+        padding-bottom: 0.07rem;
+        border: 2px solid $color-primary;
+        @include border-radius(3px);
+        color: $color-primary;
+      }
+      &.weui-cell_vcode {
+        .weui-cell__ft {
+          display: block;
+        }
+      }
+      &.input-price {
+        .weui-cell__bd {
+          background: #ffeee9;
+          padding-left: 0;
+          input {
+            background: #ffeee9;
+            color: #461201;
+            text-align: center;
+          }
+        }
+        .weui-cell__ft {
+          display: block !important;
+          font-size: 0.12rem !important;
+          width: 1.6rem;
+          padding-left: 0.05rem;
+          text-align: left;
+          color: #461201;
+        }
+      }
+      &.input-payType {
+        .weui-agree__text {
+          color: #461201;
+        }
+      }
+      &.input-tips {
+        .weui-cell__bd {
+          background: #ffeee9;
+          color: #a06e5e;
+        }
+      }
+    }
+  }
+  .getters {
+    background: #fff !important;
+    margin: 0.05rem 0.15rem !important;
+    font-size: 0.12rem;
+    @include box-shadow(0 0 5px #ddd);
+    @include border-radius(0 !important);
+    padding-top: 2em !important;
+    padding-bottom: 1em !important;
+    border: 0 !important;
+    position: relative;
+    .getter-title {
+      position: absolute;
+      top:0 !important;
+      background: #461201;
+      color: #fff;
+      text-align: center;
+      width: 7em !important;
+      margin-left: -3.5em !important;
+      left: 50% !important;
+    }
+  }
+}

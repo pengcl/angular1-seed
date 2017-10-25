@@ -5,6 +5,7 @@
 .weui-tab__item {
   display: none;
 }
+
 .weui-tab__item_on {
   display: block !important;
 }
@@ -24,4 +25,46 @@
   height: auto;
   overflow: hidden;
   padding-top: 0 !important;
+}
+
+.weui-tabbar {
+  background: #fff;
+  .weui-tabbar__item {
+    .weui-tabbar__label {
+      white-space: nowrap;
+    }
+    .weui-tabbar__icon {
+      .normal {
+        display: block;
+      }
+      .active {
+        display: none;
+      }
+    }
+    &.weui-bar__item_on {
+      .weui-tabbar__icon {
+        .normal {
+          display: none;
+        }
+        .active {
+          display: block;
+        }
+      }
+      .weui-tabbar__label {
+        color: #ff6700;
+      }
+    }
+    &.mall {
+      .weui-tabbar__icon {
+        position: relative;
+        img {
+          position: absolute;
+          width: 48px;
+          height: 48px;
+          margin-top: -24px;
+          margin-left: -12px;
+        }
+      }
+    }
+  }
 }

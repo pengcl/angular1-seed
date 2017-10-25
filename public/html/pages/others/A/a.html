@@ -1,0 +1,122 @@
+<div class="page fd-details in v3 other-a">
+    <top-nav page-title="特产春砂仁 — 您的健康养胃专家" page-back="menu" nav-visibility="hide"></top-nav>
+    <form id="checkoutForm" name="checkoutForm"
+          action="http://m.yfq.cn/wap/taokafanghaoNew/submitOrderRetail.html"
+          method="post" novalidate>
+        <input type="hidden" value="{{activeTag}}" ng-model="activeTag" name="activeTag" id="activeTag">
+        <input type="hidden" value="{{category}}" ng-model="category" name="category" id="category">
+        <input type="hidden" value="1" name="payType" id="payType">
+        <input type="hidden" id="mainYG" name="mainYG" value="0">
+        <gh></gh>
+        <pt></pt>
+        <activity></activity>
+        <redirect-url></redirect-url>
+        <div class="content-scrollable has-footer" style="background: #fdede5 !important;">
+            <div class="banner-image">
+                <img id="banner-bg" src="/images/others/A/banner.jpg"/>
+            </div>
+            <div class="img-box" ng-click="goToSelect()">
+                <img src="/images/others/A/1.jpg"/>
+            </div>
+            <div class="img-box">
+                <img src="/images/others/A/2-tit.jpg"/>
+            </div>
+            <div class="img-box" style="margin: 0.15rem">
+                <img src="/images/others/A/2-1.jpg"/>
+            </div>
+            <div class="img-box" style="margin: 0.15rem">
+                <img src="/images/others/A/2-2.jpg"/>
+            </div>
+            <div class="img-box" style="margin: 0.15rem">
+                <img src="/images/others/A/2-3.jpg"/>
+            </div>
+            <div class="img-box">
+                <img src="/images/others/A/3.jpg"/>
+            </div>
+            <div class="img-box">
+                <img src="/images/others/A/4.jpg"/>
+            </div>
+            <div class="img-box" style="margin-top: 0.35rem">
+                <img src="/images/others/A/5.jpg"/>
+            </div>
+            <div class="img-box" style="margin-top: 0.35rem">
+                <img src="/images/others/A/6.jpg"/>
+            </div>
+            <div class="img-box" style="margin-top: 0.35rem">
+                <img src="/images/others/A/7.jpg"/>
+            </div>
+            <div class="img-box" style="margin-top: 0.35rem">
+                <img src="/images/others/A/8.jpg"/>
+            </div>
+            <div class="img-box" style="margin-top: 0.35rem">
+                <img src="/images/others/A/9.jpg"/>
+            </div>
+            <div class="img-box" style="margin-top: 0.35rem">
+                <img src="/images/others/A/10.jpg"/>
+            </div>
+            <div class="img-box" style="margin-top: 0.35rem">
+                <img src="/images/others/A/14.jpg"/>
+            </div>
+            <div class="img-box" style="margin-top: 0.35rem">
+                <img src="/images/others/A/11.jpg"/>
+            </div>
+            <div class="img-box" style="margin-top: 0.35rem">
+                <img src="/images/others/A/12.jpg"/>
+            </div>
+            <div class="img-box" style="margin-top: 0.35rem">
+                <img src="/images/others/A/13.jpg"/>
+            </div>
+
+            <div class="select-area">
+                <div class="img-box" style="margin-top: 0.35rem">
+                    <img src="/images/others/A/14-tit.jpg"/>
+                </div>
+
+                <div class="weui-cells__title title-icon ng-binding">选择套餐</div>
+                <input type="hidden" id="mainProduct" name="mainProduct" value="{{mainProduct.id + ':' + '1'}}">
+                <input type="hidden" id="buyGroup" name="buyGroup" value="{{mainProduct.id + ':' + '1'}}">
+                <div class="select-area-content">
+                    <ul class="pro-list">
+                        <li class="list-item" ng-repeat="product in products">
+                            <div class="item-box pure-g" ng-class="{true:'curr',false:''}[product===mainProduct]"
+                                 ng-click="selectProduct(product);">
+                                <span class="radio-field pure-u-1-12">
+                                    <ins></ins>
+                                </span>
+                                <span class="pure-u-3-4" ng-bind="product.name"></span>
+                                <span class="pure-u-1-6" ng-bind="'￥' + product.price"></span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <receiver-o-address title="选择收货地址"></receiver-o-address>
+
+            <div class="img-box" style="width: 80%; margin: 0.15rem auto" ng-click="submitForm($event,'BuyNowOne');">
+                <img src="/images/others/A/btn.png"/>
+            </div>
+
+            <div class="getters">
+                <div class="getter-title">
+                    最新购买信息
+                </div>
+                <ul>
+                    <li ng-repeat="getter in getters" ng-bind-html="getter.txt | trustHtml" on-finish></li>
+                </ul>
+            </div>
+
+            <div class="img-box" style="margin-bottom: 0.2rem;margin-top: 0.2rem">
+                <img src="/images/others/A/15.jpg"/>
+            </div>
+        </div>
+        <div class="footer-nav nav-list" style="padding: 0">
+            <div class="pure-g">
+                <div class="nav-button nav-item pure-u-1-1" style="background: #ae2112">
+                    <a href="javascript:;" ng-click="submitForm($event,'BuyNowTwo');">立即订购（包邮 货到付款）>>></a>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

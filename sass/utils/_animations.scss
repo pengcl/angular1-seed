@@ -6,7 +6,7 @@
   background: #fff;
 }
 
-.view-frame.ng-leave {
+/*.view-frame.ng-leave {
   @include transition-property(all);
   @include transition-duration(500ms);
   @include transition-timing-function(ease-out);
@@ -53,7 +53,7 @@
 
 .ng-back .view-frame.ng-enter-active {
   @include transform(translate3d(0, 0, 0));
-}
+}*/
 
 /*
 .view-frame {

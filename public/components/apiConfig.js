@@ -3,7 +3,8 @@ var nodeApiHost = "http://app.yfq.cn:3099";*/
 
 
 var cfApi = {
-    apiHost: "http://apptest.yfq.cn:8898",
+    apiHost: "http://sell.yfq.cn",
     nodeApiHost: "http://app.yfq.cn:3099",
-    webHost:"http://m.yfq.cn"
+    webHost:"http://m.yfq.cn",
+    czHost:"http://cz.gd189fq.com"
 };

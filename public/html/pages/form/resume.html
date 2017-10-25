@@ -1,0 +1,395 @@
+<div class="page resume">
+    <top-nav page-title="大牛管家服务应聘登记表"></top-nav>
+    <div class="weui-tab">
+        <div class="weui-navbar" style="position: absolute">
+            <!--<div class="weui-navbar__item weui-bar__item_on" ng-click="registerType = 'common'">
+                体育院校
+            </div>
+            <div class="weui-navbar__item" ng-click="registerType = 'soldier'">
+                退伍兵
+            </div>-->
+        </div>
+        <div class="content-scrollable" style="padding-top: 0.45rem">
+            <div class="weui-tab__panel">
+                <div class="weui-tab__panel-item">
+                    <form method="post" id="sportsResume" name="sportsResume"
+                          action="http://sell.yfq.cn/wap/comm/installRegistration.ht"
+                          novalidate="novalidate">
+                        <!--<input name="registerType" ng-model="registerType" value="{{registerType}}" type="hidden">-->
+                        <input name="successUrl" value="http://app.yfq.cn/pay/resume" type="hidden">
+                        <input name="thousandMDash" ng-model="thousandMDash" value="{{thousandMDash}}" style="text-align: right" class="weui-input" placeholder="" type="hidden" required>
+                        <!--<input type="radio" style="display: none" value="请选择" class="weui-check" name="registerType" ng-model="registerType" ng-maxlength="1" required>-->
+                        <!--<div class="weui-cells__title">大牛管家服务应聘登记表</div>-->
+                        <div class="weui-cells weui-cells_checkbox" ng-class="{'weui-cell_success': sportsResume.registerType.$valid,'weui-cell_warn': !sportsResume.registerType.$valid && isSubmit}">
+                            <label class="weui-cell weui-check__label">
+                                <div class="weui-cell__hd">
+                                    <input type="radio" value="1" class="weui-check" name="registerType" ng-model="registerType" ng-model="registerType" ng-maxlength="1" required>
+                                    <i class="weui-icon-checked"></i>
+                                </div>
+                                <div class="weui-cell__bd">
+                                    <p>退伍兵</p>
+                                </div>
+                            </label>
+                            <label class="weui-cell weui-check__label">
+                                <div class="weui-cell__hd">
+                                    <input type="radio" value="0" class="weui-check" name="registerType" ng-model="registerType" ng-model="registerType" ng-maxlength="1" required>
+                                    <i class="weui-icon-checked"></i>
+                                </div>
+                                <div class="weui-cell__bd">
+                                    <p>体育生</p>
+                                </div>
+                            </label>
+                        </div>
+                        <!--<div class="weui-cells weui-cells_form">
+                            <div class="weui-cell weui-cell_select"
+                                 ng-class="{'weui-cell_success': sportsResume.registerType.$valid && !sportsResume.registerType.$pristine,'weui-cell_warn': !sportsResume.registerType.$valid && (!sportsResume.registerType.$pristine || isSubmit)}">
+                                <div class="weui-cell__hd"><label class="weui-label">应聘者类型</label></div>
+                                <div class="weui-cell__bd">
+                                    <select name="registerType" ng-model="registerType" ng-maxlength="1" class="weui-select"
+                                            style="padding-left: 0" required>
+                                        <option value="请选择">请选择</option>
+                                        <option value="1">退伍兵</option>
+                                        <option value="0">体育生</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>-->
+                        <div class="weui-cells__title">基本信息</div>
+                        <div class="weui-cells weui-cells_form">
+                            <div class="weui-cell"
+                                 ng-class="{'weui-cell_success': sportsResume.name.$valid && !sportsResume.name.$pristine,'weui-cell_warn': !sportsResume.name.$valid && (!sportsResume.name.$pristine || isSubmit)}">
+                                <div class="weui-cell__hd"><label class="weui-label">姓名</label></div>
+                                <div class="weui-cell__bd">
+                                    <input name="name" ng-model="name" class="weui-input" ng-minlength="2"
+                                           placeholder="请输入姓名" type="text" required>
+                                </div>
+                            </div>
+
+                            <div class="weui-cell weui-cell_select"
+                                 ng-class="{'weui-cell_success': sportsResume.sex.$valid && !sportsResume.sex.$pristine,'weui-cell_warn': !sportsResume.sex.$valid && (!sportsResume.sex.$pristine || isSubmit)}">
+                                <div class="weui-cell__hd"><label class="weui-label">性别</label></div>
+                                <div class="weui-cell__bd">
+                                    <select name="sex" ng-model="sex" ng-maxlength="1" class="weui-select"
+                                            style="padding-left: 0">
+                                        <option value="请选择">请选择</option>
+                                        <option value="1">男</option>
+                                        <option value="0">女</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="weui-cell"
+                                 ng-class="{'weui-cell_success': sportsResume.age.$valid && !sportsResume.age.$pristine,'weui-cell_warn': !sportsResume.age.$valid && (!sportsResume.age.$pristine || isSubmit)}">
+                                <div class="weui-cell__hd"><label class="weui-label">年龄</label></div>
+                                <div class="weui-cell__bd">
+                                    <input name="age" ng-model="age" class="weui-input" type="number" required>
+                                </div>
+                                <div class="weui-cell__ft" style="font-size: 0.13rem">周岁</div>
+                            </div>
+
+                            <div class="weui-cell weui-cell_select"
+                                 ng-class="{'weui-cell_success': sportsResume.politicalClimate.$valid && !sportsResume.politicalClimate.$pristine,'weui-cell_warn': !sportsResume.politicalClimate.$valid && (!sportsResume.politicalClimate.$pristine || isSubmit)}">
+                                <div class="weui-cell__hd"><label class="weui-label">政治面貌</label></div>
+                                <div class="weui-cell__bd">
+                                    <select name="politicalClimate" ng-model="politicalClimate" class="weui-select"
+                                            style="padding-left: 0" ng-maxlength="1" required>
+                                        <option value="请选择">请选择</option>
+                                        <option value="0">群众</option>
+                                        <option value="1">中共党员(含预备党员)</option>
+                                        <option value="2">团员</option>
+                                        <option value="3">民主党派</option>
+                                        <option value="4">无党派人士</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="weui-cell"
+                                 ng-class="{'weui-cell_success': sportsResume.nation.$valid && !sportsResume.nation.$pristine,'weui-cell_warn': !sportsResume.nation.$valid && (!sportsResume.nation.$pristine || isSubmit)}">
+                                <div class="weui-cell__hd"><label class="weui-label">民族</label></div>
+                                <div class="weui-cell__bd">
+                                    <input name="nation" ng-model="nation" class="weui-input" placeholder=""
+                                           ng-minlength="1" type="text"
+                                           required>
+                                </div>
+                            </div>
+
+                            <div class="weui-cell weui-cell_select"
+                                 ng-class="{'weui-cell_success': sportsResume.education.$valid && !sportsResume.education.$pristine,'weui-cell_warn': !sportsResume.education.$valid && (!sportsResume.education.$pristine || isSubmit)}">
+                                <div class="weui-cell__hd"><label class="weui-label">学历</label></div>
+                                <div class="weui-cell__bd">
+                                    <select name="education" ng-model="education" class="weui-select"
+                                            style="padding-left: 0" ng-maxlength="1" required>
+                                        <option value="请选择">请选择</option>
+                                        <option value="0">初中</option>
+                                        <option value="1">高中</option>
+                                        <option value="2">中专</option>
+                                        <option value="3">大专</option>
+                                        <option value="4">本科</option>
+                                        <option value="5">硕士</option>
+                                        <option value="6">博士</option>
+                                        <option value="7">MBA</option>
+                                        <option value="8">EMBA</option>
+                                        <option value="9">其它</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="weui-cell"
+                                 ng-class="{'weui-cell_success': sportsResume.major.$valid && !sportsResume.major.$pristine,'weui-cell_warn': !sportsResume.major.$valid && (!sportsResume.major.$pristine || isSubmit)}">
+                                <div class="weui-cell__hd"><label class="weui-label">专业</label></div>
+                                <div class="weui-cell__bd">
+                                    <input name="major" ng-model="major" class="weui-input" placeholder="" type="text">
+                                </div>
+                                <div class="weui-cell__ft" style="font-size: 0.13rem">若无可不填</div>
+                            </div>
+
+                            <div ng-if="registerType == '0'" class="weui-cell"
+                                 ng-class="{'weui-cell_success': sportsResume.graduationTime.$valid && !sportsResume.graduationTime.$pristine,'weui-cell_warn': !sportsResume.graduationTime.$valid && (!sportsResume.graduationTime.$pristine || isSubmit)}">
+                                <div class="weui-cell__hd"><label class="weui-label">毕业时间</label></div>
+                                <div class="weui-cell__bd">
+                                    <input name="graduationTime" ng-model="graduationTime" class="weui-input"
+                                           type="date" required>
+                                </div>
+                            </div>
+
+                            <div ng-if="registerType == '1'" class="weui-cell"
+                                 ng-class="{'weui-cell_success': sportsResume.retirementTime.$valid && !sportsResume.retirementTime.$pristine,'weui-cell_warn': !sportsResume.retirementTime.$valid && (!sportsResume.retirementTime.$pristine || isSubmit)}">
+                                <div class="weui-cell__hd"><label class="weui-label">退役时间</label></div>
+                                <div class="weui-cell__bd">
+                                    <input name="retirementTime" ng-model="retirementTime" class="weui-input"
+                                           type="date" required>
+                                </div>
+                            </div>
+
+                            <div class="weui-cell weui-cell_select"
+                                 ng-class="{'weui-cell_success': sportsResume.birthplaceType.$valid && !sportsResume.birthplaceType.$pristine,'weui-cell_warn': !sportsResume.birthplaceType.$valid && (!sportsResume.birthplaceType.$pristine || isSubmit)}">
+                                <div class="weui-cell__hd"><label class="weui-label">户口性质</label></div>
+                                <div class="weui-cell__bd">
+                                    <select name="birthplaceType" ng-model="birthplaceType" class="weui-select"
+                                            style="padding-left: 0" ng-maxlength="1" required>
+                                        <option value="请选择">请选择</option>
+                                        <option value="0">城镇</option>
+                                        <option value="1">农村</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div ng-if="registerType == '0'" class="weui-cell"
+                                 ng-class="{'weui-cell_success': sportsResume.graduationPlace.$valid && !sportsResume.graduationPlace.$pristine,'weui-cell_warn': !sportsResume.graduationPlace.$valid && (!sportsResume.graduationPlace.$pristine || isSubmit)}">
+                                <div class="weui-cell__hd"><label class="weui-label">毕业院校</label></div>
+                                <div class="weui-cell__bd">
+                                    <input name="graduationPlace" ng-model="graduationPlace" class="weui-input"
+                                           placeholder="" type="text" ng-minlength="1" required>
+                                </div>
+                            </div>
+
+                            <div ng-if="registerType == '1'" class="weui-cell"
+                                 ng-class="{'weui-cell_success': sportsResume.armyServePlace.$valid && !sportsResume.armyServePlace.$pristine,'weui-cell_warn': !sportsResume.armyServePlace.$valid && (!sportsResume.armyServePlace.$pristine || isSubmit)}">
+                                <div class="weui-cell__hd"><label class="weui-label">原服役部队</label></div>
+                                <div class="weui-cell__bd">
+                                    <input name="armyServePlace" ng-model="armyServePlace" class="weui-input"
+                                           placeholder="" type="text" ng-minlength="1" required>
+                                </div>
+                            </div>
+
+                            <!--<div class="weui-cell"
+                                 ng-class="{'weui-cell_success': sportsResume.birthplace.$valid && !sportsResume.birthplace.$pristine,'weui-cell_warn': !sportsResume.birthplace.$valid && (!sportsResume.birthplace.$pristine || isSubmit)}">
+                                <div class="weui-cell__hd"><label class="weui-label">户籍地</label></div>
+                                <div class="weui-cell__bd">
+                                    <input name="birthplace" ng-model="birthplace" class="weui-input" placeholder=""
+                                           type="text" ng-minlength="1" required>
+                                </div>
+                            </div>-->
+
+                            <div class=" weui-cell weui-cell_access" id="inputsStoreSelect" ng-class="{'weui-cell_success': sportsResume.birthplace.$valid,'weui-cell_warn': !sportsResume.birthplace.$valid && isSubmit}">
+                                <div class="weui-cell__hd"><label class="weui-label">户籍地</label></div>
+                                <div class=" weui-cell__bd weui-cell-primary adr-btn" style="position:relative" >
+                                    <div id="store-selector" ng-click="showAdrPanel(true)">
+                                        <div id="store-text" class="text" data-value="">
+                                            <div ng-if="birthplace"><span ng-bind="birthplace"></span></div>
+                                            <div ng-if="!birthplace"><span>请选择</span></div>
+                                            <input name="birthplace" ng-model="birthplace" class="weui-input" placeholder=""
+                                                   type="hidden" ng-minlength="1" required>
+                                            <b></b>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="weui-cell__ft"></div>
+                            </div>
+
+                            <div class="weui-cell weui-cell_select"
+                                 ng-class="{'weui-cell_success': sportsResume.drivingLicence.$valid && !sportsResume.drivingLicence.$pristine,'weui-cell_warn': !sportsResume.drivingLicence.$valid && (!sportsResume.drivingLicence.$pristine || isSubmit)}">
+                                <div class="weui-cell__hd"><label class="weui-label">驾照类型</label></div>
+                                <div class="weui-cell__bd">
+                                    <!--<input name="drivingLicence" ng-model="drivingLicence" class="weui-input"
+                                           placeholder="" ng-minlength="1" type="text" required>-->
+                                    <select name="drivingLicence" ng-model="drivingLicence" class="weui-select"
+                                            style="padding-left: 0" ng-maxlength="2" required>
+                                        <option value="请选择">请选择</option>
+                                        <option value="A1">A1</option>
+                                        <option value="A2">A2</option>
+                                        <option value="A3">A3</option>
+                                        <option value="B1">B1</option>
+                                        <option value="B2">B2</option>
+                                        <option value="C1">C1</option>
+                                        <option value="C2">C2</option>
+                                        <option value="0">无</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="weui-cell"
+                                 ng-class="{'weui-cell_success': sportsResume.mobile.$valid && !sportsResume.mobile.$pristine,'weui-cell_warn': !sportsResume.mobile.$valid && (!sportsResume.mobile.$pristine || isSubmit)}">
+                                <div class="weui-cell__hd"><label class="weui-label">手机号码</label></div>
+                                <div class="weui-cell__bd">
+                                    <input name="mobile" ng-model="mobile" class="weui-input" ng-maxlength="11"
+                                           ng-pattern="/^[0-9]*$/" pattern="[0-9]*" ng-minlength="11" placeholder=""
+                                           type="text"
+                                           required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="weui-cells__title">体能指标</div>
+                        <div class="weui-cells weui-cells_form">
+                            <div class="weui-cell"
+                                 ng-class="{'weui-cell_success': sportsResume.pushUp.$valid && !sportsResume.pushUp.$pristine,'weui-cell_warn': !sportsResume.pushUp.$valid && (!sportsResume.pushUp.$pristine || isSubmit)}">
+                                <div class="weui-cell__hd"><label class="weui-label">俯卧撑</label></div>
+                                <div class="weui-cell__bd">
+                                    <input name="pushUp" ng-model="pushUp" class="weui-input" placeholder=""
+                                           type="number" required>
+                                </div>
+                                <div class="weui-cell__ft" style="font-size: 0.13rem">个/分钟</div>
+                            </div>
+
+                            <div class="weui-cell"
+                                 ng-class="{'weui-cell_success': sportsResume.pullUps.$valid && !sportsResume.pullUps.$pristine,'weui-cell_warn': !sportsResume.pullUps.$valid && (!sportsResume.pullUps.$pristine || isSubmit)}">
+                                <div class="weui-cell__hd"><label class="weui-label">引体向上</label></div>
+                                <div class="weui-cell__bd">
+                                    <input name="pullUps" ng-model="pullUps" class="weui-input" placeholder=""
+                                           type="number" required>
+                                </div>
+                                <div class="weui-cell__ft" style="font-size: 0.13rem">个/分钟</div>
+                            </div>
+
+                            <div class="weui-cell"
+                                 ng-class="{'weui-cell_success': sportsResume.sitUp.$valid && !sportsResume.sitUp.$pristine,'weui-cell_warn': !sportsResume.sitUp.$valid && (!sportsResume.sitUp.$pristine || isSubmit)}">
+                                <div class="weui-cell__hd"><label class="weui-label">仰卧起坐</label></div>
+                                <div class="weui-cell__bd">
+                                    <input name="sitUp" ng-model="sitUp" class="weui-input" placeholder=""
+                                           type="number" required>
+                                </div>
+                                <div class="weui-cell__ft" style="font-size: 0.13rem">个/分钟</div>
+                            </div>
+
+                            <div class="weui-cell"
+                                 ng-class="{'weui-cell_success': sportsResume.hundredMDash.$valid && !sportsResume.hundredMDash.$pristine,'weui-cell_warn': !sportsResume.hundredMDash.$valid && (!sportsResume.hundredMDash.$pristine || isSubmit)}">
+                                <div class="weui-cell__hd"><label class="weui-label">100米</label></div>
+                                <div class="weui-cell__bd">
+                                    <input name="hundredMDash" ng-model="hundredMDash" class="weui-input" placeholder=""
+                                           type="number" required>
+                                </div>
+                                <div class="weui-cell__ft" style="font-size: 0.13rem">秒</div>
+                            </div>
+
+                            <div class="weui-cell"
+                                 ng-class="{'weui-cell_success': sportsResume.thousandMin.$valid && sportsResume.thousandSec.$valid && !sportsResume.thousandMDash.$pristine,'weui-cell_warn': (!sportsResume.thousandMin.$valid || !sportsResume.thousandSec.$valid) && (!sportsResume.thousandMDash.$pristine || isSubmit)}">
+                                <div class="weui-cell__hd"><label class="weui-label">3000米</label></div>
+                                <div class="weui-cell__bd">
+                                    <input name="thousandMin" ng-model="thousand.min" style="text-align: right" class="weui-input"
+                                           placeholder="" type="number" required>
+                                </div>
+                                <div class="weui-cell__ft" style="font-size: 0.13rem"> 分</div>
+                                <div class="weui-cell__bd">
+                                    <input name="thousandSec" ng-model="thousand.sec" style="text-align: right" class="weui-input"
+                                           placeholder="" type="number" required>
+                                </div>
+                                <div class="weui-cell__ft" style="font-size: 0.13rem"> 秒</div>
+                            </div>
+
+                            <div class="weui-cell"
+                                 ng-class="{'weui-cell_success': sportsResume.specialty.$valid && !sportsResume.specialty.$pristine,'weui-cell_warn': !sportsResume.specialty.$valid && (!sportsResume.specialty.$pristine || isSubmit)}">
+                                <div class="weui-cell__hd"><label class="weui-label">有何特长</label></div>
+                                <div class="weui-cell__bd">
+                                    <input name="specialty" ng-model="specialty" class="weui-input" placeholder=""
+                                           type="text">
+                                </div>
+                                <div class="weui-cell__ft" style="font-size: 0.13rem">若无可不填</div>
+                            </div>
+
+                            <div class="weui-cell"
+                                 ng-class="{'weui-cell_success': sportsResume.certificate.$valid && !sportsResume.certificate.$pristine,'weui-cell_warn': !sportsResume.certificate.$valid && (!sportsResume.certificate.$pristine || isSubmit)}">
+                                <div class="weui-cell__hd"><label class="weui-label">荣誉证书</label></div>
+                                <div class="weui-cell__bd">
+                                    <input name="certificate" ng-model="certificate" class="weui-input" placeholder=""
+                                           type="text">
+                                </div>
+                                <div class="weui-cell__ft" style="font-size: 0.13rem">若无可不填</div>
+                            </div>
+
+                            <div class="weui-cell weui-cell_select"
+                                 ng-class="{'weui-cell_success': sportsResume.infections.$valid && !sportsResume.infections.$pristine,'weui-cell_warn': !sportsResume.infections.$valid && (!sportsResume.infections.$pristine || isSubmit)}">
+                                <div class="weui-cell__hd"><label class="weui-label">身体状况</label></div>
+                                <div class="weui-cell__bd">
+                                    <select name="infections" ng-model="infections" class="weui-select"
+                                            style="padding-left: 0" ng-maxlength="1" required>
+                                        <option value="请选择">请选择</option>
+                                        <option value="0">身体健康,无传染性、精神性或其它器质性疾病</option>
+                                        <option value="1">有传染性、精神性或其它器质性疾病</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <label class="weui-agree" ng-class="{'weui-cell_success': sportsResume.userPromise.$valid && !sportsResume.userPromise.$pristine,'weui-cell_warn': !sportsResume.userPromise.$valid && (!sportsResume.userPromise.$pristine || isSubmit)}">
+                            <input name="userPromise" ng-model="userPromise" required type="checkbox"
+                                   class="weui-agree__checkbox">
+                            <span class="weui-agree__text">本人保证以上所填资料和信息皆为真实有效，如有虚报或故意隐瞒，公司可不予录用或解除劳动关系并不给予任何经济补偿，本人自行承担由此引起的法律责任。</span>
+                        </label>
+
+                        <p class="weui-btn-area">
+                            <a class="weui-btn weui-btn_primary"
+                               ng-click="submitForm(sportsResume.$valid,'#sportsResume',true)">提交
+                            </a>
+                        </p>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div id="address-panel" class="content">
+        <div id="cfStock" class="m cf-stock" data-widget="tabs">
+            <div class="mt">
+                <ul class="tab">
+                    <li data-widget="tab-item" data-index="0" class="curr"><a class="" href="javascript:;"><em
+                            class="icon-arrow-left"></em><i>省</i></a></li>
+                    <li data-widget="tab-item" data-index="1" class=""><a class="" href="javascript:;"><em
+                            class="icon-arrow-left"></em><i>市</i></a></li>
+                    <li data-widget="tab-item" data-index="2" class=""><a class="" href="javascript:;"><em
+                            class="icon-arrow-left"></em><i>区/县</i></a></li>
+                    <li data-widget="tab-item" data-index="3" class=""><a class="" href="javascript:;"><em
+                            class="icon-arrow-left"></em><i>配送至</i></a></li>
+                </ul>
+                <div class="stock-line"></div>
+            </div>
+            <div id="stock_province_item" data-widget="tab-content" data-area="0" class="mc" style="">
+                <ul class="area-list">
+                </ul>
+            </div>
+            <div id="stock_city_item" data-widget="tab-content" data-area="1" class="mc" style="display: none;">
+                <ul class="area-list">
+                </ul>
+            </div>
+            <div id="stock_area_item" data-widget="tab-content" data-area="2" class="mc" style="display: none;">
+                <ul class="area-list">
+                </ul>
+            </div>
+            <div id="stock_town_item" data-widget="tab-content" data-area="3" class="mc" style="display: none;">
+                <ul class="area-list">
+                </ul>
+            </div>
+        </div>
+        <span class="clr"></span>
+    </div>
+    <div class="address-overlay"></div>
+</div>

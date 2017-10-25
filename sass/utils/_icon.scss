@@ -383,16 +383,16 @@
     -o-animation: spin 0.8s infinite linear;
     animation: spin 0.8s infinite linear;
     margin: 30% auto;
-    height: 3em;
-    width: 3em
+    height: 1rem;
+    width: 1rem
 }
 
-@media screen and (min-width: 40em) {
+/*@media screen and (min-width: 40em) {
     .page-loading {
         height: 6em;
         width: 6em
     }
-}
+}*/
 
 .inline-loading {
     border-bottom: 1px solid rgba(255, 255, 255, 0.7);

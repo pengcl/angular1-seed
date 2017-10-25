@@ -78,6 +78,12 @@ app.directive("adr", ["$compile", "$cookieStore", '$http', '$interval', function
                 if (room == undefined || room == "" || room.length <= 3) return;
                 writebdLog(scope.category, "_Address", "渠道号", scope.gh);//收货地址
             };
+            
+            //只有输入详细收货地址才记录到闭环
+            scope.inputMobile = function (mobile) {
+            	if (mobile == undefined || mobile == "" || mobile.length <= 10) return;
+            	writebdLog(scope.category, "_InputMobile", "渠道号", scope.gh);//收货地址
+            };
 
             scope.paracont = "获取验证码";
             scope.paraclass = "but_null";
@@ -85,10 +91,10 @@ app.directive("adr", ["$compile", "$cookieStore", '$http', '$interval', function
 
             scope.getActiveCode = function (phoneNumber,e) {
                 if($(e.currentTarget).hasClass("not")){
-
+                    return false;
                 }
                 scope.toast.open();
-                $http.get("http://app.yfq.cn:3099/api/getActiveCode/" + phoneNumber).success(function (data) {
+                $http.get("http://app.yfq.cn:3099/api/getActiveCodeF/" + phoneNumber).success(function (data) {
                     scope.toast.close();
                     if (data == "") {
                         timePromise = $interval(function () {
@@ -131,13 +137,13 @@ app.directive("adr", ["$compile", "$cookieStore", '$http', '$interval', function
             var getArea = function (id, index, province, city, district) {
                 var url, thisHtml;
                 if (index === 0) {
-                    url = cfApi.apiHost + "/wap/comm/czCommonController/getRegion.html?need=province&key=" + new Date();
+                    url = cfApi.apiHost + "/wap/comm/getRegion.ht?need=province&key=" + new Date();
                 } else if (index === 1) {
-                    url = cfApi.apiHost + "/wap/comm/czCommonController/getRegion.html?need=city&province=" + encodeURI(province) + "&key=" + new Date();
+                    url = cfApi.apiHost + "/wap/comm/getRegion.ht?need=city&province=" + encodeURI(encodeURI(province)) + "&key=" + new Date();
                 } else if (index === 2) {
-                    url = cfApi.apiHost + "/wap/comm/czCommonController/getRegion.html?need=district&province=" + encodeURI(province) + "&city=" + encodeURI(city) + "&key=" + new Date();
+                    url = cfApi.apiHost + "/wap/comm/getRegion.ht?need=district&province=" + encodeURI(encodeURI(province)) + "&city=" + encodeURI(encodeURI(city)) + "&key=" + new Date();
                 } else {
-                    url = cfApi.apiHost + "/wap/comm/czCommonController/getRegion.html?need=street&province=" + encodeURI(province) + "&city=" + encodeURI(city) + "&district=" + encodeURI(district) + "&key=" + new Date();
+                    url = cfApi.apiHost + "/wap/comm/getRegion.ht?need=street&province=" + encodeURI(encodeURI(province)) + "&city=" + encodeURI(encodeURI(city)) + "&district=" + encodeURI(encodeURI(district)) + "&key=" + new Date();
                 }
                 $areaList.eq(index).html("");
                 $.ajax({

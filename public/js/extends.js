@@ -176,7 +176,7 @@ function operation() {
         var flag = false;
         var info = "flow=" + loc + "&operation=" + map.get('operation');
         info = info.replace("?", "&");//将链接里的？字符转换为&，可以让后台获取
-        var url = cfApi.apiHost + "/record/writeLog.html?" + info + "&s=wap";
+        var url = "http://m.yfq.cn/record/writeLog.html?" + info + "&s=wap";
         $.ajax({
             type: "get",
             url: url,
@@ -193,7 +193,7 @@ function operation() {
         return flag;
     };
     this.writeIntentionMsg = function (operationName, operationValue, dataType, opSeq) {
-        var url = cfApi.apiHost + "/record/intentionLog.html";
+        var url = "http://m.yfq.cn/record/intentionLog.html";
         $.get(url, {operationName: operationName, operationValue: operationValue, dataType: dataType, opSeq: opSeq},
             function (data) {
 
@@ -283,18 +283,19 @@ function androidInputBugFix() {
 
 //美恰在线客服
 function getMeiqia() {
-    (function (m, ei, q, i, a, j, s) {
-        m[a] = m[a] || function () {
-                (m[a].a = m[a].a || []).push(arguments)
-            };
+    (function(m, ei, q, i, a, j, s) {
+        m[i] = m[i] || function() {
+            (m[i].a = m[i].a || []).push(arguments)
+        };
         j = ei.createElement(q),
             s = ei.getElementsByTagName(q)[0];
         j.async = true;
         j.charset = 'UTF-8';
-        j.src = i + '?v=' + new Date().getUTCDate();
+        j.src = 'https://static.meiqia.com/dist/meiqia.js?_=t';
         s.parentNode.insertBefore(j, s);
-    })(window, document, 'script', '//static.meiqia.com/dist/meiqia.js', '_MEIQIA');
+    })(window, document, 'script', '_MEIQIA');
     _MEIQIA('entId', 27864);
+    _MEIQIA('fallback', 1);
     _MEIQIA('withoutBtn');
 };
 
@@ -341,7 +342,7 @@ function hideTheActionSheet(element) {
 
 $(function(){
     var $iosActionsheet = $('#iosActionsheet');
-    var $iosMask = $('.ios-mask');
+    var $iosMask = $('.weui-mask');
 
     function hideActionSheet() {
         $iosActionsheet.removeClass('weui-actionsheet_toggle');
@@ -349,6 +350,7 @@ $(function(){
     }
 
     function showActionSheet() {
+        console.log("1");
         $iosActionsheet.addClass('weui-actionsheet_toggle');
         $iosMask.fadeIn(200);
     }

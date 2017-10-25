@@ -1,0 +1,138 @@
+<div id="receiverAddress" class="address">
+    <input type="hidden" value="{{receiver.city + receiver.room}}" name="address" id="address">
+    <div class="weui-cells__title title-icon">{{receiverTitle}}</div>
+    <div class="weui-cells weui-cells_form">
+        <div class="weui-cell input-name"
+             ng-class="{'weui-cell_warn':checkoutForm.reciverName.$dirty== true && checkoutForm.reciverName.$valid == false,'weui-cell_success':checkoutForm.reciverName.$valid == true}">
+            <div class="weui-cell__hd"><label class="weui-label"><em>*</em>收件人：</label></div>
+            <div class="weui-cell__bd weui_cell_primary">
+                <input type="text" id="mainReceiverName" name="mainReceiverName" ng-model="receiver.name"
+                       class="weui-input hide" required/>
+                <input type="text" id="reciverName" placeholder="请输入收货人姓名" name="reciverName" ng-model="receiver.name"
+                       class="weui-input"
+                       required/>
+            </div>
+            <div class="weui-cell__ft"><i class="weui-icon-warn"></i><i class="weui-icon-success"></i></div>
+        </div>
+        <div class="weui-cell input-mobile"
+             ng-class="{'weui-cell_warn':checkoutForm.receiverMobile.$dirty== true && checkoutForm.receiverMobile.$valid == false,'weui-cell_success':checkoutForm.receiverMobile.$valid == true}">
+            <div class="weui-cell__hd"><label class="weui-label"><em>*</em>联系电话：</label></div>
+            <div class="weui-cell__bd weui_cell_primary">
+                <input id="mainReceiverMobile" name="mainReceiverMobile" placeholder="请输入联系电话"
+                       ng-model="receiver.mobile" ng-maxlength="11"
+                       ng-pattern="/^[0-9]*$/" pattern="[0-9]*" ng-minlength="11" class="weui-input hide" required/>
+                <input id="receiverMobile" name="receiverMobile" placeholder="请输入联系电话" ng-model="receiver.mobile"
+                       ng-maxlength="11"
+                       ng-pattern="/^[0-9]*$/" pattern="[0-9]*" ng-minlength="11" class="weui-input" required/>
+            </div>
+            <div class="weui-cell__ft"><i class="weui-icon-warn"></i><i class="weui-icon-success"></i></div>
+        </div>
+
+        <div class="weui-cell weui-cell_vcode input-vcode" ng-show="checkoutForm.receiverMobile.$valid == true"
+             ng-class="{'weui-cell_warn':checkoutForm.activeCode.$dirty== true && checkoutForm.activeCode.$valid == false,'weui-cell_success':checkoutForm.activeCode.$valid == true}">
+            <div class="weui-cell__hd"><label class="weui-label"><em>*</em>验证码：</label></div>
+            <div class="weui-cell__bd weui_cell_primary">
+                <input id="activeCode" name="activeCode" ng-blur="inputHomeCode()" ng-model="activeCode"
+                       ng-maxlength="4" ng-pattern="/^[0-9]*$/" pattern="[0-9]*" ng-minlength="4" class="weui-input"
+                       required/>
+            </div>
+            <div class="weui-cell__ft"><a href="javascript:;" class="weui-vcode-btn"
+                                          ng-click="getActiveCode(receiver.mobile,$event)" ng-class="paraclass"
+                                          ng-bind="paracont">获取验证码</a></div>
+        </div>
+
+        <div class="weui-cell input-city" id="inputsStoreSelect"
+             ng-class="{'weui-cell_warn':checkoutForm.receiverCity.$dirty== true && checkoutForm.receiverCity.$valid == false,'weui-cell_success':checkoutForm.receiverCity.$valid == true}">
+            <div class="weui-cell__hd"><label class="weui-label"><em>*</em>收件区域：</label></div>
+            <div class="weui-cell__bd weui-cell-primary">
+                <div id="store-selector" ng-click="inputFocus('.input-city');">
+                    <div id="store-text" class="text" data-value="">
+                        <div ng-if="receiver.city !=''"><span ng-bind="receiver.city"></span></div>
+                        <div ng-if="receiver.city ==''"><span style="color: #999">请选择收件区域</span></div>
+                        <input type="hidden" value="{{receiver.city}}" ng-model="receiver.city" name="receiverCity"
+                               id="receiverCity" class="weui-input" required/>
+                        <b></b>
+                    </div>
+                </div>
+            </div>
+            <div class="weui-cell__ft"><i class="weui-icon-warn"></i><i class="weui-icon-success"></i></div>
+        </div>
+        <div class="weui-cell input-room"
+             ng-class="{'weui-cell_warn':checkoutForm.receiverRoom.$dirty== true && checkoutForm.receiverRoom.$valid == false,'weui-cell_success':checkoutForm.receiverRoom.$valid == true}">
+            <div class="weui-cell__hd"><label class="weui-label"><em>*</em>详细地址：</label></div>
+            <div class="weui-cell__bd weui-cell__primary">
+                <input type="text" id="mainReceiverAddress" ng-model="receiver.room" name="mainReceiverAddress"
+                       class="weui-input hide" required/>
+                <input type="text" id="receiverRoom" placeholder="请填写完整街道和门牌号..." ng-blur="inputAddress(receiver.room)"
+                       ng-model="receiver.room" name="receiverRoom" class="weui-input" required/>
+            </div>
+            <div class="weui-cell__ft"><i class="weui-icon-warn"></i><i class="weui-icon-success"></i></div>
+        </div>
+        <div class="weui-cell input-feedback">
+            <div class="weui-cell__hd"><label class="weui-label">买家留言：</label></div>
+            <div class="weui-cell__bd weui-cell__primary">
+                <textarea id="feedback" maxlength="64" placeholder="请尽快安排发货，谢谢！" ng-blur="inputFeedBack(feedback)"
+                          ng-model="feedback" name="feedback" rows="3" class="weui-textarea"/>
+            </div>
+            <div class="weui-cell__ft"><i class="weui-icon-warn"></i><i class="weui-icon-success"></i></div>
+        </div>
+        <div class="weui-cell input-price">
+            <div class="weui-cell__hd"><label class="weui-label"><em>*</em>金额：</label></div>
+            <div class="weui-cell__bd weui-cell__primary">
+                <input type="text" id="totalPrice"
+                       ng-model="mainProduct.price" name="totalPrice" class="weui-textarea" readonly/>
+            </div>
+            <div class="weui-cell__ft">元</div>
+        </div>
+        <div class="weui-cell input-payType">
+            <div class="weui-cell__hd"><label class="weui-label"><em>*</em>付款方式：</label></div>
+            <label for="weuiAgree" class="weui-agree" style="padding-left: 0">
+                <input id="weuiAgree" checked="checked" class="weui-agree__checkbox" type="radio">
+                <span class="weui-agree__text">货到付款</span>
+            </label>
+        </div>
+        <div class="weui-cell input-tips">
+            <div class="weui-cell__hd"></div>
+            <div class="weui-cell__bd weui-cell__primary" style="font-size: 0.11rem">
+                温馨提示：选择货到付款在家等快递公司<br>
+                送货上门，先验货后付款
+            </div>
+        </div>
+    </div>
+
+    <div id="address-panel" class="content">
+        <div id="cfStock" class="m cf-stock" data-widget="tabs">
+            <div class="mt">
+                <ul class="tab">
+                    <li data-widget="tab-item" data-index="0" class="curr"><a class="" href="javascript:;"><em
+                            class="icon-arrow-left"></em><i>配送至</i></a></li>
+                    <li data-widget="tab-item" data-index="1" class=""><a class="" href="javascript:;"><em
+                            class="icon-arrow-left"></em><i>配送至</i></a></li>
+                    <li data-widget="tab-item" data-index="2" class=""><a class="" href="javascript:;"><em
+                            class="icon-arrow-left"></em><i>配送至</i></a></li>
+                    <li data-widget="tab-item" data-index="3" class=""><a class="" href="javascript:;"><em
+                            class="icon-arrow-left"></em><i>配送至</i></a></li>
+                </ul>
+                <div class="stock-line"></div>
+            </div>
+            <div id="stock_province_item" data-widget="tab-content" data-area="0" class="mc" style="">
+                <ul class="area-list">
+                </ul>
+            </div>
+            <div id="stock_city_item" data-widget="tab-content" data-area="1" class="mc" style="display: none;">
+                <ul class="area-list">
+                </ul>
+            </div>
+            <div id="stock_area_item" data-widget="tab-content" data-area="2" class="mc" style="display: none;">
+                <ul class="area-list">
+                </ul>
+            </div>
+            <div id="stock_town_item" data-widget="tab-content" data-area="3" class="mc" style="display: none;">
+                <ul class="area-list">
+                </ul>
+            </div>
+        </div>
+        <span class="clr"></span>
+    </div>
+    <div class="address-overlay"></div>
+</div>

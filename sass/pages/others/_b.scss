@@ -1,0 +1,85 @@
+.page.other-b {
+  .owl-carousel {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    .carousel-item {
+      img {
+        width: 100% !important;
+      }
+    }
+  }
+
+  #mainPhoneColors {
+    background: #fff;
+    margin-top: 0.1rem;
+    padding-top: 0.1rem;
+    padding-bottom: 0.15rem;
+    .phone-colors-item {
+      .item-box {
+        border: 1px solid #999;
+        background: none;
+        padding: 0.05rem 0.1rem;
+        .img-box {
+          display: inline-block !important;
+          vertical-align: middle;
+        }
+        &.curr {
+          border: 1px solid #f6692a;
+          color: #f6692a;
+        }
+      }
+    }
+  }
+  .sub-title {
+    display: none;
+  }
+  .paytype-panel {
+    display: none;
+  }
+
+  #setPayType {
+    .weui-cells__title {
+      .sub-title {
+        //display: inline-block !important;
+        color: #f6692a !important;
+      }
+    }
+  }
+  #receiverAddress {
+    margin-top: 0.1rem !important;
+    #receiverAddressPanel {
+      padding-left: 0 !important;
+    }
+    .adr-tab {
+      display: none;
+    }
+    .adr-content {
+      display: none;
+    }
+    .input-name {
+      display: none;
+    }
+    .input-vcode {
+      display: none;
+    }
+    .input-city {
+      display: none;
+    }
+    .input-room {
+      display: none;
+    }
+    .input-ok {
+      display: none;
+    }
+  }
+  .adr {
+    .weui-btn {
+      background: #f6692a !important;
+      border: 0;
+      @include box-shadow(0 0.05rem 0.1rem #f6692a);
+      &:after {
+        display: none;
+      }
+    }
+  }
+}

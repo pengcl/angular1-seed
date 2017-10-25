@@ -58,7 +58,7 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
             $scope.imgUrls.push("http://www.yfq.cn:8899/fileserver/medias/" + data.phoneTypes[0].mediaProductList[i].mediaUrl);
         }
 
-        $http.jsonp("http://apptest.yfq.cn:8900/yfqcz/czInterfaceController.do?messageDetail&productId=" + $stateParams.phoneId + "&s=wap&callback=JSON_CALLBACK").success(function (data, status, headers, config) {
+        $http.jsonp(cfApi.czHost + "/yfqcz/czInterfaceController.do?messageDetail&productId=" + $stateParams.phoneId + "&s=wap&callback=JSON_CALLBACK").success(function (data, status, headers, config) {
             $scope.feedbacks = data;
             $scope.feedbackType = 'all';
         }).error(function (data, status, headers, config) {
@@ -95,7 +95,12 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
             homeLink: 'http://app.yfq.cn/phs/lj/A/' + $stateParams.phoneId + window.location.search,
             shareTitle: '想换' + $scope.phone.productName + '？这里全场降价后再享95折，先抢了再说！',
             shareDisc: 'iPhone、OPPO、华为各大品牌新品现货抢购，最高可享12期0息分期！',
-            picUrl: 'http://www.yfq.cn:8899/fileserver/medias/' + $scope.phone.phoneTypes[0].mediaProductList[0].mediaUrl
+            picUrl: 'http://www.yfq.cn:8899/fileserver/medias/' + $scope.phone.phoneTypes[0].mediaProductList[0].mediaUrl,
+            mobile: $scope.receiver.mobile,
+            pid: $stateParams.phoneId,
+            gh: $scope.gh,
+            category: $scope.category,
+            url: window.location.href
         };
 
     }).error(function (data, status, headers, config) {
@@ -153,6 +158,10 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
         if ($(event.currentTarget).hasClass("disabled")) {
             return false;
         }
+        var $scrollTo = $('.pay-container');
+        $container.animate({
+            scrollTop: $scrollTo.offset().top - $container.offset().top + $container.scrollTop()
+        });
         $scope.hideActionsheet(element);
     };
 
@@ -315,7 +324,7 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
                     });
                 }
 
-                $http.jsonp("http://apptest.yfq.cn:8900/yfqcz/czInterfaceController.do?messageDetail&productId=" + n + "&s=wap&callback=JSON_CALLBACK").success(function (data, status, headers, config) {
+                $http.jsonp(cfApi.czHost + "/yfqcz/czInterfaceController.do?messageDetail&productId=" + n + "&s=wap&callback=JSON_CALLBACK").success(function (data, status, headers, config) {
                     $scope.feedbacks = data;
                     $scope.feedbackType = 'all';
                 }).error(function (data, status, headers, config) {
@@ -331,6 +340,18 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
                 shareTitle: '想换' + $scope.phone.productName + '？这里全场降价后再享95折，先抢了再说！',
                 shareDisc: 'iPhone、OPPO、华为各大品牌新品现货抢购，最高可享12期0息分期！',
                 picUrl: 'http://www.yfq.cn:8899/fileserver/medias/' + $scope.phone.phoneTypes[0].mediaProductList[0].mediaUrl
+            };
+
+            $scope.$root.share = {
+                homeLink: 'http://app.yfq.cn/phs/lj/A/' + n + window.location.search,
+                shareTitle: '想换' + $scope.phone.productName + '？这里全场降价后再享95折，先抢了再说！',
+                shareDisc: 'iPhone、OPPO、华为各大品牌新品现货抢购，最高可享12期0息分期！',
+                picUrl: 'http://www.yfq.cn:8899/fileserver/medias/' + $scope.phone.phoneTypes[0].mediaProductList[0].mediaUrl,
+                mobile: $scope.receiver.mobile,
+                pid: $stateParams.phoneId,
+                gh: $scope.gh,
+                category: $scope.category,
+                url: window.location.href
             };
 
         }

@@ -1,0 +1,177 @@
+<div class="page pcd-recharge-a">
+    <!-- cia card-index-pageType -->
+
+    <top-nav page-title="老用户升级" page-back="menu" nav-visibility="hide"></top-nav>
+    <form id="checkoutForm" name="checkoutForm"
+          action="http://cz.gd189fq.com/yfqcz/czOrdRechargeController.do?gotoPayGateWay"
+          method="post" novalidate>
+        <input type="hidden" value="{{appType}}" name="appType" id="appType">
+        <input type="hidden" value="{{category}}" name="category" id="category">
+        <input type="hidden" value="lyhtcsj" name="activeTag" id="activeTag">
+        <gh></gh>
+        <activity></activity>
+        <redirect-url></redirect-url>
+        <div class="content-scrollable has-footer">
+            <div id="rechargePhone">
+                <div class="weui-cells weui-cells_form">
+                    <div class="weui-cell"
+                         ng-class="{'weui-cell_warn':(checkoutForm.iccid.$dirty== true && checkoutForm.iccid.$valid == false) || (checkoutForm.iccid.$dirty== true && checkoutForm.iccid.$valid == true && !!upgradeStatus.result == false),'weui-cell_success':checkoutForm.iccid.$dirty== true && checkoutForm.iccid.$valid == true && !!upgradeStatus.result == true}">
+                        <div class="weui-cell__bd">
+                            <input id="iccid" name="iccid" ng-model="iccid"
+                                   ng-maxlength="11" ng-pattern="/^[0-9]*$/" pattern="[0-9]*" ng-minlength="11"
+                                   placeholder="请输入升级号码" class="weui-input" ng-change="upgradeMobile(iccid)"
+                                   autofocus="true" required>
+                        </div>
+                        <div class="weui-cell__ft">
+                            <i class="icon-user"></i>
+                        </div>
+                    </div>
+                    <p class="recharge-tips" style="margin-top: 0.07rem">
+                        <span ng-if="!upgradeStatus.msg" style="color: #999">该活动仅支持翼分期商城电信套餐卡老客户</span>
+                        <span ng-if="upgradeStatus.msg" ng-bind="upgradeStatus.msg"></span>
+                    </p>
+                </div>
+            </div>
+
+            <div id="phoneRecharge" ng-show="upgradeStatus.result">
+                <input name="pid" id="pid" ng-model="product.id" value="{{product.id}}" required type="hidden">
+                <div class="fst-recharge">
+                    <div class="weui-cells__title">
+                        <span style="font-size: 0.16rem;color:#666">老用户升级</span>
+                    </div>
+                    <div class="upgrade-doc">
+                        <p>亲爱的<u><i><em ng-bind="upgradeStatus.recieverName"></em></i></u>用户：</p>
+                        <p style="text-indent: 2em;">欢迎您使用中国电信翼分期商城4G套餐。</p>
+                        <p>1) 您的套餐原价<u><i><em ng-bind="upgradeStatus.oListPrice"></em></i></u>元/月，优惠价<u><i><em
+                                ng-bind="upgradeStatus.oSalesPrice"></em></i></u>元/月，套餐含国内流量<u><i><em
+                                ng-bind="upgradeStatus.oldll"></em></i></u>G，国内通话时长<u><i><em
+                                ng-bind="upgradeStatus.oldth"></em></i></u>分钟<span ng-if="upgradeStatus.oSalesPrice==204 || upgradeStatus.oSalesPrice==259 || upgradeStatus.oSalesPrice==304 || upgradeStatus.oSalesPrice==329 || upgradeStatus.oSalesPrice==334">，短信<u><i><em>50</em></i></u>条</span>。</p>
+                        <p>2) 预存话费200元可免费升级套餐内容，升级后套餐含：<em ng-if="upgradeStatus.islocal">广东省内不限流量，</em>国内流量<u><i><em
+                                ng-bind="upgradeStatus.newll"></em></i></u>G，国内通话时长<u><i><em
+                                ng-bind="upgradeStatus.newth"></em></i></u>分钟<!--，短信<u><i><em>50</em></i></u>条-->。预存话费从次月起分10个月返还，每月返还20元，可抵扣月租及套餐外费用。
+                        </p>
+                        <p>3)
+                            升级后免费赠送2张副卡，与主卡共享套餐内容，副卡0月租。(注：优惠期内副卡不可拆机，否则升级优惠取消。副卡通过快递邮寄，需收取快递费10元。)</p>
+                        <p>4) 原套餐内容除上述第2）、3）点的变化之外，其他不变。</p>
+                        <p>5) 支付完成后2个工作日完成升级，套餐内容即时生效。</p>
+                        <p style="color:#666"><b>温馨提示：</b>如上述套餐信息与实际套餐内容有偏差，请于工作时间内<em>(09:00 - 19:00)</em>点击左侧客服按钮与客服联系。</p>
+
+                        <div style="text-align: right"><a class="js-action-sheet-show" href="javascript:;"
+                                                          style="margin: 0.07rem 0;color: #ccc;"
+                                                          ng-show="upgradeStatus.islocal">》了解不限流量使用规则</a></div>
+                        <div class="upgrade-address">
+                            <div class="checklist" style="text-align: center" ng-click="setPromise($event,true)">
+                                <span style="margin: 0 0.1rem;"><span class="weui-icon-success"
+                                                                      ng-class="{true:'ok',false:''}[iPromise]"></span>已阅读并同意升级</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div ng-show="iPromise">
+                        <div style="overflow: hidden;background: #fff;">
+                            <div class="weui-cells__tips" style="font-size: 0.14rem">
+                                <p>{{mifis.length}}升级附送2张副卡(无费用，与主卡共享省内无限流量)，配合随身Wifi，可与家人朋友齐分享。</p>
+                            </div>
+                            <!--<div class="weui-cells__tips" style="font-size: 0.14rem">*本活动仅限18岁以上用户参与</div>-->
+
+                            <input type="hidden" name="mifiId" id="mifiId" ng-model="mifis" value="{{selectedMifis}}" required>
+                            <div class="d-mifis weui-cells weui-cells_checkbox">
+                                <div class="weui-cell weui-check__label" ng-repeat="mifi in mifis"
+                                     ng-class="{true:'curr',false:''}[mifi.selected]" ng-click="setItem($event,$index,mifi)">
+                                    <div class="weui-cell__hd">
+                                        <input class="weui-check" name="checkbox1" id="s{{mifi.productId}}" type="checkbox">
+                                        <i class="weui-icon-checked"></i>
+                                    </div>
+                                    <div class="weui-cell__bd">
+                                        <p ng-bind="mifi.productName"></p>
+                                    </div>
+                                    <div class="weui-cell__ft" style="padding-right: 0">
+                                        <del style="font-size: 0.11rem;margin-right: 0.05rem">原价￥<span
+                                                ng-bind="mifi.oldPrice"></span></del>
+                                        <em ng-bind="mifi.salePrice"></em><em>元</em>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="order-content" style="font-size: 0.12rem">
+                            <div class="weui-cells__title">
+                                <span style="font-size: 0.16rem;color:#666">订单详情</span>
+                            </div>
+                            <div style="padding: 0.1rem 0.3rem;margin:0 15px;background: #eee; line-height: 1.8">
+                                <div class="pure-g">
+                                    <div class="pure-u-1-2">预存话费</div>
+                                    <div class="pure-u-1-2" style="text-align: right"><em>200</em>元</div>
+                                </div>
+                                <div class="pure-g">
+                                    <div class="pure-u-1-2">副卡邮寄费</div>
+                                    <div class="pure-u-1-2" style="text-align: right"><em>10</em>元</div>
+                                </div>
+                                <div class="pure-g" style="font-size: 0.14rem;border-top: 1px solid #ccc">
+                                    <div class="pure-u-1-2">合计</div>
+                                    <div class="pure-u-1-2" style="text-align: right"><em>210</em>元</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="upgrade-address">
+                            <div class="weui-cells__title" style="padding-left: 0">
+                                <span style="font-size: 0.16rem;color:#666">收件地址</span><span style="float: right">
+                            <a ng-show="!isNewAdr" ng-click="newAdr($event)">使用新地址</a>
+                            <a ng-show="isNewAdr" ng-click="oldAdr($event)">使用旧地址</a>
+                        </span>
+                            </div>
+                            <adr></adr>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="rechargeTipsPanel" style="display: none">
+                <div class="overlay recharge-overlay">
+                    <a class="js-close-overlay overlay-dismiss" href="#"><span class="icon-cross"></span></a>
+                    <div class="title-404 img-box">
+                        <img src="/images/recharge/404-title.png">
+                    </div>
+                    <div class="tips-box img-box">
+                        <img src="/images/recharge/chongzhi.gif">
+                    </div>
+                </div>
+            </div>
+
+            <auto-number></auto-number>
+
+        </div>
+        <a class="nav-contact" ng-if="upgradeStatus.result" ng-click="getContact()" has-hash="false"
+           href="javascript:userTrack('contact');"><span
+                class="icon-comment"></span><span style="font-size: 0.14rem">客服</span></a>
+        <div id="spcNav" ng-if="upgradeStatus.result" class="footer-nav nav-list" style="padding-left:0 !important;">
+            <div class="pure-g">
+                <div class="nav-price nav-item pure-u-3-5" style="display: inline-block;line-height: 0.48rem">
+                    <span style="font-size: 0.16rem">实付款：</span><em style="font-size: 0.2rem">￥</em><em
+                        style="font-size: 0.2rem" ng-bind="totalPrice"></em>
+                </div>
+                <div class="nav-button nav-item pure-u-2-5">
+                    <a id="footerPayButton" has-hash="false"
+                       href="javascript:userTrack('submitForm');"
+                       ng-class="{true:'',false:'disabled'}[iPromise]"
+                       ng-click="submitForm($event);">
+                        <span>立即升级</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+<div class="zf_panel">
+    <div class="weui-mask" id="iosMask" style="display: none;"></div>
+    <div class="weui-actionsheet" id="iosActionsheet">
+        <div class="weui-actionsheet__title">
+            <p class="weui-actionsheet__title-text">产品介绍</p><span class="close js-action-sheet-hide icon-close"></span>
+        </div>
+        <div class="weui-actionsheet__menu">
+            <div class="img-box" style="margin-bottom: 0.45rem">
+                <img src="/images/flow/flowcard/v8/sb.jpg"/>
+            </div>
+        </div>
+    </div>
+</div>

@@ -10,10 +10,10 @@ app.directive("jsDialog", [function () {
                     scope.dialogTitle = title;
                     scope.dialogContent = content;
                     //console.log($("#js-dialog").html());
-                    $(".js_dialog").show();
+                    $(element).find(".js_dialog").show();
                 },
                 close: function (url) {
-                    $(".js_dialog").hide();
+                    $(element).find(".js_dialog").hide();
                 }
             };
         }

@@ -1,3 +1,4 @@
+/*
 "use strict";
 
 app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $locationProvider) {
@@ -12,7 +13,7 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
     //$scope.pageTitle = "首页";
     //$scope.$root.title = $scope.pageTitle;
     //console.log($scope.referrerForm.referrerNo);
-    $location.path("/phone/active/D/phones");
+    //$location.path("/phone/active/D/phones");
 
     $scope.pageType = "pcdRecharge";
     $scope.appType = systemName + "_recharge_" + $scope.pageType;
@@ -108,4 +109,4 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
         writebdLog($scope.category, "_" + name, "渠道号", $scope.gh);//记录点击事件
     };
 
-}]);
+}]);*/

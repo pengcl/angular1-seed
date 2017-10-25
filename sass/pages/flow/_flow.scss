@@ -1,0 +1,403 @@
+.page.market {
+  &.flow {
+    #rechargeNo {
+      &:after {
+        left: 0.15rem;
+        right: 0.15rem;
+      }
+      .weui-cell {
+        .weui-cell__bd {
+          font-size: 0.24rem;
+        }
+        &:nth-child(1) {
+          &:after {
+            display: none;
+          }
+        }
+        &:nth-child(2) {
+          font-size: 0.12rem;
+          padding-top: 0;
+          color: #ff6700;
+          &:before {
+            display: none;
+          }
+        }
+      }
+      &.active {
+        .weui-cell__ft {
+          font-size: 0.12rem;
+          color: #999;
+        }
+      }
+
+      #mobileView {
+        font-size: 0.24rem !important;
+        line-height: 1em;
+        height: 1em;
+      }
+
+      #mobileView::-webkit-input-placeholder {
+        color: #666;
+        @include scale(0.7);
+        -webkit-transform-origin: 0;
+        transform-origin: 0;
+      }
+
+      #mobileView:-moz-placeholder {
+        color: #666;
+        @include scale(0.7);
+        -webkit-transform-origin: 0;
+        transform-origin: 0;
+      }
+
+      #mobileView::-moz-placeholder {
+        color: #666;
+        @include scale(0.7);
+        -webkit-transform-origin: 0;
+        transform-origin: 0;
+      }
+
+      #mobileView:-ms-input-placeholder {
+        color: #666;
+        @include scale(0.7);
+        -webkit-transform-origin: 0;
+        transform-origin: 0;
+      }
+    }
+    nav {
+      @include box-shadow(0px 0px 5px #999);
+    }
+    .weui-cells__title {
+      .sub-title {
+        color: #fff;
+        background: #ff4521;
+        line-height: 1.8;
+        border: 0;
+        font-size: 0.12rem;
+      }
+    }
+  }
+}
+
+.page.market {
+  .owl-carousel {
+    padding-bottom: 0;
+    .owl-controls {
+      bottom: 0rem;
+    }
+  }
+  .item-box {
+    &.active {
+      border:1px solid #ff6700 !important;
+      color: #ff6700 !important;
+    }
+  }
+  .sun-prod {
+    margin-left: 0.15rem;
+    margin-right: 0.15rem;
+    background: none;
+    &:before,&:after {
+      display: none;
+    }
+    .weui-cell {
+      font-size: 0.13rem;
+      border:1px solid #bfbfbf;
+      margin-bottom: 0.1rem;
+      background: #fff;
+      &.curr {
+        border:1px solid #ff6700;
+        .flag {
+          color: #fff;
+          background: #ff6700;
+        }
+        .weui-cell__ft {
+          color: #ff6700;
+        }
+      }
+      &:before,&:after {
+        display: none;
+      }
+      .weui-cell__hd {
+        .flag {
+          font-size: 0.1rem;
+        }
+      }
+    }
+    del {
+      margin-left: 0.05rem;
+      color: #666;
+    }
+    .flag {
+      @include border-radius(0.05rem);
+      padding: 0.01rem 0.05rem;
+      color: #e4393c;
+      background: #ffe8e8;
+      margin-right: 0.05rem;
+      display: block;
+    }
+  }
+}
+
+.page.market {
+  .weui-media-box__desc {
+    font-size: 0.12rem;
+    color: #999;
+  }
+  .weui-cell {
+    padding: 0.1rem 0.15rem;
+    font-size: 0.2rem;
+  }
+  .pdw {
+    padding-left: 0.15rem;
+    padding-right: 0.15rem;
+  }
+  &.flow {
+    .nav-contact {
+      color: #fff;
+    }
+
+    /*#salesForm {
+      background-image: url("/images/flow/bg.jpg");
+      background-position: top left;
+      background-size: 100%;
+      background-repeat: no-repeat;
+      padding-top: 1.1rem;
+    }*/
+
+    #rechargeNo {
+      &:after {
+        left: 0.15rem;
+        right: 0.15rem;
+      }
+      .weui-cell {
+        &:nth-child(1) {
+          &:after {
+            display: none;
+          }
+        }
+        &:nth-child(2) {
+          font-size: 0.12rem;
+          padding-top: 0;
+          color: #ff6700;
+          &:before {
+            display: none;
+          }
+        }
+      }
+      &.active {
+        .weui-cell__ft {
+          color: #999;
+        }
+      }
+    }
+    .item-lists {
+      margin-left: -0.05rem;
+      margin-right: -0.05rem;
+      .list-item {
+        &.disabled {
+          opacity: 1;
+          .item-box {
+            color: #ededed !important;
+            border: 1px solid #ededed;
+            .title {
+              line-height: 0.32rem;
+            }
+            .disc {
+              display: none;
+            }
+          }
+        }
+      }
+      .item-box {
+        margin: 0.05rem;
+        text-align: center;
+        border: 1px solid #bfbfbf;
+        @include border-radius(0.03rem);
+        color: #333;
+        min-height: 0.5rem;
+        padding: 0;
+        @include flex(1 0);
+        @include display-flex;
+        @include align-items(center);
+        @include justify-content(center);
+        @include flex-direction(column);
+        line-height: 1.3;
+        .title {
+          font-size: 0.14rem;
+          line-height: 0.18rem;
+        }
+        .disc {
+          font-size: 0.12rem;
+          line-height: 0.14rem;
+        }
+        .flag {
+          position: absolute;
+          right: 0;
+          top: 0.02rem;
+          padding: 0.02rem 0.05rem;
+          @include border-left-radius(10em);
+          background: #ff6700;
+          font-size: 0.1rem;
+          color: #fff;
+        }
+        .hot {
+          position: absolute;
+          display: block;
+          right: 1px;
+          top: 1px;
+          font-size: 1px;
+        }
+      }
+    }
+    @at-root .flow-overlay .btn-twitter {
+      width: 100%;
+      bottom: 0;
+      position: absolute;
+      @include box-sizing(border-box);
+    }
+
+    .fqa {
+      .weui-media-box__desc {
+        margin-top: 0.05rem;
+        margin-bottom: 0.05rem;
+        font-size: 0.12rem;
+        line-height: 1.2;
+      }
+    }
+  }
+  .nav-contact {
+    position: static;
+    background: none;
+    span {
+      //display: none;
+      line-height: 0.5rem;
+      color: #333;
+      &.icon-comment {
+        display: inline-block;
+        display: none;
+        color: #333;
+        line-height: 0.45rem;
+      }
+    }
+  }
+}
+
+.page.market {
+  &.flow.list {
+    .weui-cells {
+      margin-top: 0.1rem;
+    }
+    .product-tabs {
+      margin-top: 0.1rem;
+      background: #fff;
+      font-size: 0.16rem;
+      .tab-item {
+        padding: 0.1rem 0.15rem;
+        text-align: center;
+        &.curr {
+          color: #ff6700;
+          position: relative;
+          &:after {
+            position: absolute;
+            content: " ";
+            left: 0.15rem;
+            right:0.15rem;
+            height: 1px;
+            bottom: 0;
+            background: #ff6700;
+          }
+        }
+      }
+    }
+    .prod {
+      margin-top: 0;
+      &:before {
+        display: none;
+      }
+      &:first-child {
+        display: block;
+      }
+      .sun-prod {
+        margin-top: 0;
+        background: #f9f9f9;
+        &:after {
+          display: none;
+        }
+        .weui-cell__bd {
+          del {
+            font-size: 0.12rem;
+            color: #999;
+            margin-left: 0.1rem;
+          }
+          .flag {
+          }
+        }
+      }
+    }
+  }
+}
+
+.weui-badge {
+  display: inline-block;
+  padding: .15em .4em;
+  min-width: 8px;
+  border-radius: 18px;
+  background-color: #F43530;
+  color: #FFFFFF;
+  line-height: 1.2;
+  text-align: center;
+  font-size: 12px;
+  vertical-align: middle;
+}
+
+.weui-badge_dot {
+  padding: .4em;
+  min-width: 0;
+}
+
+.mock-mobile {
+  span {
+    @include inline-block;
+  }
+}
+
+@keyframes blink {
+  50% {
+    color: #000;
+    background: #000;
+  }
+}
+
+@-webkit-keyframes blink {
+  50% {
+    color: #000;
+    background: #000;
+  }
+}
+
+@-ms-keyframes blink {
+  50% {
+    color: #000;
+    background: #000;
+  }
+}
+
+@-moz-keyframes blink {
+  50% {
+    color: #000;
+    background: #000;
+  }
+}
+
+.blink {
+  -webkit-animation: 1s blink infinite;
+  animation: 1s blink infinite;
+  border: none;
+  margin: 0;
+  width: 1px;
+  height: 1em;
+}
+
+.weui-dialog__bd p {
+  text-align: left;
+}

@@ -1,0 +1,25 @@
+.page.resume {
+  .nav-group {
+    display: none;
+  }
+  .weui-cells_form {
+    .weui-label {
+      width: 6em;
+    }
+    .weui-cell_success {
+      border: none;
+      .weui-select {
+        color: #09bb07;
+      }
+    }
+    .weui-cell_warn {
+      border: none;
+      .weui-select {
+        color: $color-primary;
+      }
+      .weui-agree__text {
+        color: $color-primary;
+      }
+    }
+  }
+}

@@ -7,7 +7,7 @@
       height: 0.3rem !important;
     }
   }
-  .price-red {
+  @at-root .price-red {
     font-size: 0.14rem;
     color: #fff;
     @include background(rgba(0, 0, 0, 0) linear-gradient(left, #f11d22, #ff4979) repeat scroll 0 0);
@@ -108,13 +108,13 @@
       background: #999 !important;
     }
   }
-  #setPayType {
+  /*#setPayType {
     .weui-flex__item {
       &:nth-child(2) {
         display: none !important;
       }
     }
-  }
+  }*/
   .weui-actionsheet__menu {
     #setPayType {
       margin-top: 0 !important;
@@ -428,7 +428,7 @@
   height: 0.34rem;
   position: absolute;
   right: 0.1rem;
-  bottom: 0.3rem;
+  bottom: 0.7rem;
 }
 
 .page.lj-index {

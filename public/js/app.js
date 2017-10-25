@@ -12,7 +12,7 @@ app.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', functio
     $locationProvider.html5Mode(true).hashPrefix('!');
 
     $urlRouterProvider.otherwise(function () {
-        return "/phone/active/D/phones" + window.location.search;
+        return "/phone/lj/B/phones" + window.location.search;
     });
 }]).run(['$rootScope', function ($rootScope) {
 

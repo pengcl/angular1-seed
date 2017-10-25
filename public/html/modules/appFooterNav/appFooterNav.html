@@ -1,0 +1,29 @@
+<div class="weui-tabbar">
+    <a href="/flow/list" class="weui-tabbar__item" ng-class="{true:'weui-bar__item_on',false:''}[pageActive === 'recharge']" ng-click="writeClick('NavFlowPage');">
+        <span style="display: inline-block;position: relative;">
+            <i class="weui-tabbar__icon">
+                <img class="normal" src="http://app.yfq.cn/images/flow/icon-cz-normal.png">
+                <img class="active" src="http://app.yfq.cn/images/flow/icon-cz-active.png">
+            </i>
+        </span>
+        <p class="weui-tabbar__label">充值</p>
+    </a>
+    <a href="/" class="mall weui-tabbar__item" ng-class="{true:'weui-bar__item_on',false:''}[pageActive === 'mall']" ng-click="writeClick('NavMall');">
+        <span style="display: inline-block;position: relative;">
+            <i class="weui-tabbar__icon">
+                <img class="normal" src="http://app.yfq.cn/images/flow/icon-mall-normal.png">
+                <img class="active" src="http://app.yfq.cn/images/flow/icon-mall-active.png">
+            </i>
+        </span>
+        <p class="weui-tabbar__label">商城</p>
+    </a>
+    <a href="http://home.yfq.cn/member/index.ht" class="weui-tabbar__item" ng-class="{true:'weui-bar__item_on',false:''}[pageActive === 'member']" ng-click="writeClick('NavMember');">
+        <span style="display: inline-block;position: relative;">
+            <i class="weui-tabbar__icon">
+                <img class="normal" src="http://app.yfq.cn/images/flow/icon-ps-normal.png">
+                <img class="active" src="http://app.yfq.cn/images/flow/icon-ps-active.png">
+            </i>
+        </span>
+        <p class="weui-tabbar__label">个人</p>
+    </a>
+</div>
