@@ -251,7 +251,7 @@ function getActiveCode() {
     }
     var phoneNumber = $("#receiverMobile").val();
 
-    $.get("http://app.yfq.cn:3099/api/getActiveCodeF/" + phoneNumber).success(function (data) {
+    $.get("http://app.yfq.cn:3099/api/getActiveCodeS/" + phoneNumber).success(function (data) {
         if (data == "") {
             timePromise = setInterval(function () {
                 if (second <= 0) {

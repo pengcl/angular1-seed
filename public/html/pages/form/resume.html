@@ -152,15 +152,6 @@
                                 </div>
                             </div>
 
-                            <div ng-if="registerType == '1'" class="weui-cell"
-                                 ng-class="{'weui-cell_success': sportsResume.retirementTime.$valid && !sportsResume.retirementTime.$pristine,'weui-cell_warn': !sportsResume.retirementTime.$valid && (!sportsResume.retirementTime.$pristine || isSubmit)}">
-                                <div class="weui-cell__hd"><label class="weui-label">退役时间</label></div>
-                                <div class="weui-cell__bd">
-                                    <input name="retirementTime" ng-model="retirementTime" class="weui-input"
-                                           type="date" required>
-                                </div>
-                            </div>
-
                             <div class="weui-cell weui-cell_select"
                                  ng-class="{'weui-cell_success': sportsResume.birthplaceType.$valid && !sportsResume.birthplaceType.$pristine,'weui-cell_warn': !sportsResume.birthplaceType.$valid && (!sportsResume.birthplaceType.$pristine || isSubmit)}">
                                 <div class="weui-cell__hd"><label class="weui-label">户口性质</label></div>
@@ -192,6 +183,24 @@
                                 </div>
                             </div>
 
+                            <div ng-if="registerType == '1'" class="weui-cell"
+                                 ng-class="{'weui-cell_success': sportsResume.enrolTime.$valid && !sportsResume.enrolTime.$pristine,'weui-cell_warn': !sportsResume.enrolTime.$valid && (!sportsResume.enrolTime.$pristine || isSubmit)}">
+                                <div class="weui-cell__hd"><label class="weui-label">入伍时间</label></div>
+                                <div class="weui-cell__bd">
+                                    <input name="enrolTime" ng-model="enrolTime" class="weui-input"
+                                           type="date" required>
+                                </div>
+                            </div>
+
+                            <div ng-if="registerType == '1'" class="weui-cell"
+                                 ng-class="{'weui-cell_success': sportsResume.retirementTime.$valid && !sportsResume.retirementTime.$pristine,'weui-cell_warn': !sportsResume.retirementTime.$valid && (!sportsResume.retirementTime.$pristine || isSubmit)}">
+                                <div class="weui-cell__hd"><label class="weui-label">退役时间</label></div>
+                                <div class="weui-cell__bd">
+                                    <input name="retirementTime" ng-model="retirementTime" class="weui-input"
+                                           type="date" required>
+                                </div>
+                            </div>
+
                             <!--<div class="weui-cell"
                                  ng-class="{'weui-cell_success': sportsResume.birthplace.$valid && !sportsResume.birthplace.$pristine,'weui-cell_warn': !sportsResume.birthplace.$valid && (!sportsResume.birthplace.$pristine || isSubmit)}">
                                 <div class="weui-cell__hd"><label class="weui-label">户籍地</label></div>
@@ -209,7 +218,7 @@
                                             <div ng-if="birthplace"><span ng-bind="birthplace"></span></div>
                                             <div ng-if="!birthplace"><span>请选择</span></div>
                                             <input name="birthplace" ng-model="birthplace" class="weui-input" placeholder=""
-                                                   type="hidden" ng-minlength="1" required>
+                                                   type="hidden" ng-minlength="1" value="{{birthplace}}" required>
                                             <b></b>
                                         </div>
                                     </div>
@@ -292,7 +301,7 @@
                             </div>
 
                             <div class="weui-cell"
-                                 ng-class="{'weui-cell_success': sportsResume.thousandMin.$valid && sportsResume.thousandSec.$valid && !sportsResume.thousandMDash.$pristine,'weui-cell_warn': (!sportsResume.thousandMin.$valid || !sportsResume.thousandSec.$valid) && (!sportsResume.thousandMDash.$pristine || isSubmit)}">
+                                 ng-class="{'weui-cell_success': sportsResume.thousandMin.$valid && sportsResume.thousandSec.$valid && !sportsResume.thousandMin.$pristine && !sportsResume.thousandSec.$pristine,'weui-cell_warn': (!sportsResume.thousandMin.$valid || !sportsResume.thousandSec.$valid) && (!sportsResume.thousandMDash.$pristine || isSubmit)}">
                                 <div class="weui-cell__hd"><label class="weui-label">3000米</label></div>
                                 <div class="weui-cell__bd">
                                     <input name="thousandMin" ng-model="thousand.min" style="text-align: right" class="weui-input"
@@ -347,7 +356,8 @@
                         </label>
 
                         <p class="weui-btn-area">
-                            <a class="weui-btn weui-btn_primary"
+                            <span ng-show="sportsResume.$invalid && isSubmit" style="color: #d83e14;font-size: 0.13rem;line-height: 0.2rem;display: block;margin-bottom: 0.05rem">请完整填写以上资料，并勾选同意承诺选项</span>
+                            <a class="weui-btn weui-btn_primary" ng-class="{true:'',false:'weui-btn_disabled'}[sportsResume.$valid]"
                                ng-click="submitForm(sportsResume.$valid,'#sportsResume',true)">提交
                             </a>
                         </p>

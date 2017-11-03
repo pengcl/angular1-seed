@@ -36,8 +36,6 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
     var $dataAreas = $("#cfStock").find(".mc");
     var $areaList = $("#address-panel").find(".area-list");
 
-    console.log($areaList.html());
-
     //定义送货信息对象
 
 
