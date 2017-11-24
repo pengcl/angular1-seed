@@ -33,8 +33,13 @@
     display: none;
   }
   p {
-    text-indent: 2em;
     line-height: 2;
+    margin: 0.1rem 0.15rem;
+    &.indent {
+      text-indent: 2em;
+    }
+  }
+  h2 {
     margin: 0.1rem 0.15rem;
   }
   ul {
@@ -44,11 +49,45 @@
     li {
       list-style: circle inside;
       margin: 3px 0px 0px 0px;
-      font-weight: bold;
     }
   }
   .resume-code {
     width: 60%;
     margin: 0 auto;
+  }
+  .rule-list {
+    padding: 0.2rem 0.15rem 0.16rem;
+    margin-bottom: 0.22rem;
+    .rule-tit {
+      font-size: 0.15rem;
+      font-weight: bold;
+    }
+    .rule-txt {
+      font-size: 0.12rem;
+      line-height: 0.24rem;
+      margin-top: 0.1rem;
+      margin-bottom: 0.1rem;
+      p {
+        margin: 0;
+      }
+      dt {
+        float: left;
+        width: 0.18rem;
+        height: 0.18rem;
+        line-height: 0.18rem;
+        border: 1px solid #fff;
+        border-radius: 1rem;
+        text-align: center;
+      }
+      dd {
+        margin-left: 0.35rem;
+        .tit {
+          font-weight: bold;
+        }
+        .txt {
+          line-height: 0.18rem;
+        }
+      }
+    }
   }
 }

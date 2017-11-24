@@ -103,7 +103,6 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
             jsonp: "callback",
             jsonpCallback: "getAreaList",
             success: function (json) {
-                console.log(json);
                 $.each(eval(json), function (i, field) {
                     if ((field.name).length > 6) {
                         $areaList.eq(index).append("<li data-value=" + field.name + " class='long-area'><a data-value=" + field.name + "has-hash='false'>" + field.name + "</a></li>");
@@ -120,12 +119,19 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
 
     //收件区域点击事件
     $inputsStoreSelect.click(function () {
-        console.log("aa");
         getArea(0, 0, "", "", "");
         stockShow();
         dataAreaShow(0);
         tabShow(0);
     });
+
+    $scope.showAdrPn = function (target) {
+        $scope.pnType = target;
+        getArea(0, 0, "", "", "");
+        stockShow();
+        dataAreaShow(0);
+        tabShow(0);
+    };
 
     //址选择器顶栏点击事件
     $objTabItem.click(function (e) {
@@ -161,14 +167,30 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
             //tabShow(3);
             value3 = $this.data("value");
             stockHide();
-            $("#store-text").find("div").html(value1 + value2 + value3);
-            $scope.birthplace = value1 + value2 + value3;
+            //$("#store-text").find("div").html(value1 + value2 + value3);
+            if($scope.pnType === 'placeOfOrigin'){
+                $scope.placeOfOrigin = value1 + value2 + value3;
+            }
+            if($scope.pnType === 'address'){
+                $scope.address = value1 + value2 + value3;
+            }
+            if($scope.pnType === 'birthplace'){
+                $scope.birthplace = value1 + value2 + value3;
+            }
             //getArea(dataVal, 3, value1, value2, value3);
         } else if (dataAreaValue === 3) {
             value4 = $this.data("value");
             stockHide();
-            $("#store-text").find("div").html(value1 + value2 + value3 + value4);
-            $scope.birthplace = value1 + value2 + value3 + value4;
+            //$("#store-text").find("div").html(value1 + value2 + value3 + value4);
+            if($scope.pnType === 'placeOfOrigin'){
+                $scope.placeOfOrigin = value1 + value2 + value3 + value4;
+            }
+            if($scope.pnType === 'address'){
+                $scope.address = value1 + value2 + value3 + value4;
+            }
+            if($scope.pnType === 'birthplace'){
+                $scope.birthplace = value1 + value2 + value3 + value4;
+            }
         }
         $scope.$apply();
         return false;

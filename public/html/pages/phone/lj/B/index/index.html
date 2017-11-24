@@ -9,9 +9,9 @@
         <!--</div>-->
         <div class="lj-banner">
             <div class="img-box">
-                <img src="/images/lj/banner.jpg">
+                <img src="/images/lj/banner.png?2">
             </div>
-            <div class="timers">
+            <div class="timers" style="bottom: 0.3rem">
                 <div>- 距离抢购活动结束还剩 -</div>
                 <timer></timer>
             </div>
@@ -20,8 +20,8 @@
             <img src="/images/active/d/2.jpg">
         </div>-->
 
-        <div class="img-box" style="margin-left: 0.1rem;margin-right: 0.1rem">
-            <img src="/images/lj/red-title.png">
+        <div class="img-box" style="margin-left: 0.1rem;margin-right: 0.1rem;margin-bottom: 0.1rem">
+            <img src="/images/lj/red-title.png?3">
         </div>
         <div class="red-phone">
             <div class="pure-g">
@@ -29,30 +29,63 @@
                    href="/phs/lj/{{pageType}}/10000094273876{{params}}?headCategory={{category}}&colorTag=red"
                    ng-click="setMachine('iPhone7 128G 中国红',272)">
                     <div class="img-box">
-                        <img src="/images/lj/red-1.jpg">
+                        <img src="/images/lj/red-1.png">
                     </div>
                 </a>
                 <a class="pure-u-1-2" ng-if="params.length != 0"
                    href="/phs/lj/{{pageType}}/10000094273876{{params}}&headCategory={{category}}&colorTag=red"
                    ng-click="setMachine('iPhone7 128G 中国红',272)">
                     <div class="img-box">
-                        <img src="/images/lj/red-1.jpg">
+                        <img src="/images/lj/red-1.png">
                     </div>
                 </a>
                 <a class="pure-u-1-2" ng-if="params.length == 0"
                    href="/phs/lj/{{pageType}}/10000094272132{{params}}?headCategory={{category}}&colorTag=red"
                    ng-click="setMachine('iPhone7 Plus 128G 中国红',275)">
                     <div class="img-box">
-                        <img src="/images/lj/red-2.jpg">
+                        <img src="/images/lj/red-2.png">
                     </div>
                 </a>
                 <a class="pure-u-1-2" ng-if="params.length != 0"
                    href="/phs/lj/{{pageType}}/10000094272132{{params}}&headCategory={{category}}&colorTag=red"
                    ng-click="setMachine('iPhone7 Plus 128G 中国红',275)">
                     <div class="img-box">
-                        <img src="/images/lj/red-2.jpg">
+                        <img src="/images/lj/red-2.png">
                     </div>
                 </a>
+            </div>
+        </div>
+
+        <div class="new-spc-phone">
+            <div class="phone-box pure-g">
+                <div class="phone-txt pure-u-3-5">
+                    <div class="pure-g">
+                        <div class="phone-title pure-u-1">
+                            <div class="img-box">
+                                <img src="/images/lj/amg-title.png">
+                            </div>
+                        </div>
+                        <div class="type-phone pure-u-2-5">
+                            <div class="phone-name">6GB+64GB</div>
+                            <div class="phone-price">
+                                <em>￥3334</em>
+                            </div>
+                            <div class="phone-btn"><a href="/phs/lj/{{pageType}}/10000095429375{{params}}"  ng-click="setMachine('小米6 6GB+64GB',458)">立即抢购</a></div>
+                        </div>
+                        <div class="type-phone pure-u-3-5">
+                            <div class="phone-name">6GB+128GB</div>
+                            <div class="phone-price">
+                                <em>￥3637</em>
+                            </div>
+                            <div class="phone-btn"><a href="/phs/lj/{{pageType}}/10000095429619{{params}}"  ng-click="setMachine('小米6 6GB+128GB',459)">立即抢购</a></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="phone-img pure-u-2-5">
+                    <div class="img-box" style="margin-left: 0.15rem">
+                        <img src="/images/lj/amg-pic.png">
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -73,7 +106,7 @@
                         <div class="type-phone pure-u-2-5">
                             <div class="phone-name">OPPO R11</div>
                             <div class="phone-price">
-                                <em>￥2799</em>
+                                <em>￥2728</em>
                             </div>
                             <div class="phone-btn"><a href="/phs/lj/{{pageType}}/456{{params}}" ng-click="setMachine('OPPO R11',456)">立即抢购</a></div>
                         </div>
@@ -101,14 +134,14 @@
                         <div class="type-phone pure-u-2-5">
                             <div class="phone-name">6GB+64GB</div>
                             <div class="phone-price">
-                                <em>￥2699</em>
+                                <em>￥2728</em>
                             </div>
                             <div class="phone-btn"><a href="/phs/lj/{{pageType}}/458{{params}}"  ng-click="setMachine('小米6 6GB+64GB',458)">立即抢购</a></div>
                         </div>
                         <div class="type-phone pure-u-3-5">
                             <div class="phone-name">6GB+128GB</div>
                             <div class="phone-price">
-                                <em>￥2999</em>
+                                <em>￥3,031</em>
                             </div>
                             <div class="phone-btn"><a href="/phs/lj/{{pageType}}/459{{params}}"  ng-click="setMachine('小米6 6GB+128GB',459)">立即抢购</a></div>
                         </div>
@@ -141,7 +174,7 @@
                         <div class="img-box pure-u-1-3">
                             <img ng-src="http://www.yfq.cn:8899/fileserver/medias/{{singlePhone.mainImageUrl}}">
                             <span class="flag">
-                                    折后省<span ng-bind="singlePhone.salePrice * 0.05 | numberDown"></span>元
+                                    折后省<span ng-bind="singlePhone.salePrice * (1-singlePhone.discountRate) | numberDown"></span>元
                                 </span>
                         </div>
                         <div class="item-txt pure-u-2-3">
@@ -149,9 +182,9 @@
                             <div class="tips">
                                 <span ng-bind="singlePhone.shortDescription"></span>
                             </div>
-                            <div class="tags"><span>95折</span><span>免息</span></div>
+                            <div class="tags"><span ng-show="singlePhone.discountRate < 1">{{singlePhone.discountRate * 100}}折</span><span>免息</span></div>
                             <div class="price">
-                                <em style="font-size: 0.14rem">优惠价:</em><em style="font-size: 0.18rem">￥</em><em ng-bind="singlePhone.salePrice * 0.95 | numberUp" style="font-size: 0.18rem"></em>
+                                <em style="font-size: 0.14rem">优惠价:</em><em style="font-size: 0.18rem">￥</em><em ng-bind="singlePhone.salePrice * singlePhone.discountRate | numberUp" style="font-size: 0.18rem"></em>
                                 <!--<span style="font-size: 0.1rem">原价:</span><span style="font-size: 0.1rem">￥</span><span style="font-size: 0.1rem" ng-bind="singlePhone.salePrice"></span>-->
                             </div>
                         </div>
@@ -163,7 +196,7 @@
                         <div class="img-box pure-u-1-3">
                             <img ng-src="http://www.yfq.cn:8899/fileserver/medias/{{singlePhone.mainImageUrl}}">
                             <span class="flag">
-                                    折后省<span ng-bind="singlePhone.salePrice * 0.05 | numberDown"></span>元
+                                    折后省<span ng-bind="singlePhone.salePrice * (1-singlePhone.discountRate) | numberDown"></span>元
                                 </span>
                         </div>
                         <div class="item-txt pure-u-2-3">
@@ -171,9 +204,9 @@
                             <div class="tips">
                                 <span ng-bind="singlePhone.shortDescription"></span>
                             </div>
-                            <div class="tags"><span>95折</span><span>免息</span></div>
+                            <div class="tags"><span ng-show="singlePhone.discountRate < 1">{{singlePhone.discountRate * 100}}折</span><span>免息</span></div>
                             <div class="price">
-                                <em style="font-size: 0.14rem">优惠价:</em><em style="font-size: 0.18rem">￥</em><em ng-bind="singlePhone.salePrice * 0.95 | numberUp" style="font-size: 0.18rem"></em>
+                                <em style="font-size: 0.14rem">优惠价:</em><em style="font-size: 0.18rem">￥</em><em ng-bind="singlePhone.salePrice * singlePhone.discountRate | numberUp" style="font-size: 0.18rem"></em>
                                 <!--<span style="font-size: 0.1rem">原价:</span><span style="font-size: 0.1rem">￥</span><span style="font-size: 0.1rem" ng-bind="singlePhone.salePrice"></span>-->
                             </div>
                         </div>

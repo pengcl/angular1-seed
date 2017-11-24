@@ -1,7 +1,19 @@
-.weui-tabbar {
-  background-color: #fafafa;
-  box-shadow: 0 -1px rgba(0, 0, 0, 0.1), 0 -2px 10px rgba(0, 0, 0, 0.1);
-  &:before {
+.weui-tabbar__item {
+  .weui-tabbar__label {
+    color: #0b182b;
+  }
+  .curr {
     display: none;
+  }
+  &.weui-bar__item_on {
+    .weui-tabbar__label {
+      color: #4892ff;
+    }
+    .weui-tabbar__icon {
+      display: none;
+    }
+    .curr {
+      display: inline-block;
+    }
   }
 }

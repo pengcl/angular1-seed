@@ -25,7 +25,7 @@
             <div class="price">
                 <div class="pure-g">
                     <div class="text-l pure-u-1-2">
-                        <em style="font-size: 0.1rem">优惠价:</em><em style="font-size: 0.1rem">￥</em><em style="font-size: 0.12rem;font-weight: bold" ng-bind="singlePhone.salePrice * 0.95 | numberUp"></em>
+                        <em style="font-size: 0.1rem">优惠价:</em><em style="font-size: 0.1rem">￥</em><em style="font-size: 0.12rem;font-weight: bold" ng-bind="singlePhone.salePrice * singlePhone.discountRate | numberUp"></em>
                     </div>
                     <div class="text-r pure-u-1-2">
                         <em style="font-size: 0.1rem"></em><em style="font-size: 0.1rem;color: #999;">￥</em><em style="font-size: 0.12rem;font-weight: bold;color: #999;" ng-bind="singlePhone.monthlyPrice / 12 | numberUp"></em><em style="font-size: 0.1rem;color: #999;">x12期</em>
@@ -47,7 +47,7 @@
             <div class="price">
                 <div class="pure-g">
                     <div class="text-l pure-u-1-2">
-                        <em style="font-size: 0.1rem">优惠价:</em><em style="font-size: 0.1rem">￥</em><em style="font-size: 0.12rem;font-weight: bold" ng-bind="singlePhone.salePrice * 0.95 | numberUp"></em>
+                        <em style="font-size: 0.1rem">优惠价:</em><em style="font-size: 0.1rem">￥</em><em style="font-size: 0.12rem;font-weight: bold" ng-bind="singlePhone.salePrice * singlePhone.discountRate | numberUp"></em>
                     </div>
                     <div class="text-r pure-u-1-2">
                         <em style="font-size: 0.1rem"></em><em style="font-size: 0.1rem;color: #999;">￥</em><em style="font-size: 0.12rem;font-weight: bold;color: #999;" ng-bind="singlePhone.monthlyPrice / 12 | numberUp"></em><em style="font-size: 0.1rem;color: #999;">x12期</em>

@@ -25,6 +25,18 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
      $scope.cfConvertId = "";
      }*/
 
+    $scope.derate = 0;
+    var derate = 0;
+    $scope.isjm = 1;
+
+    $scope.$watch('isjm', function (n, o, $scope) {
+        if(n){
+            $scope.derate = derate;
+        }else {
+            $scope.derate = 0
+        }
+    });
+
     $scope.pageType = 'B';
     $scope.activeTag = "ljzma";
 
@@ -52,6 +64,7 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
 
     $http.jsonp(cfApi.apiHost + "/product/getProDetial.ht?productId=" + $stateParams.phoneId + "&activeTag=ljzma&s=wap&callback=JSON_CALLBACK").success(function (data, status, headers, config) {
         $scope.phone = data;
+        console.log($scope.phone);
         /*console.log(data.phoneTypes[0].fullDescription);*/
         if ($scope.phone.phoneTypes[0].fullDescription) {
             $scope.phone.phoneTypes[0].fullDescription = $scope.phone.phoneTypes[0].fullDescription.replace(/src=\"\/upload\//gi, 'src="http://cz.gd189fq.com/backend/upload/');
@@ -377,6 +390,40 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
                 url: window.location.href
             };
 
+        }
+    });
+
+    $scope.setCoupon = function () {
+        if($scope.isjm == 0){
+            $scope.isjm = 1;
+        }else {
+            $scope.isjm = 0;
+        }
+    };
+
+    $scope.$watch('receiver.mobile', function (n, o, $scope) {
+        if (n !== undefined) {
+            $scope.couponVos = [];
+            $scope.derate = 0;
+            $http.jsonp('http://m.ljker.com/member/findOpenId.ht?mobile=' + n + '&callback=JSON_CALLBACK').success(function (data) {
+                if (data) {
+                    $http.jsonp("http://sell.yfq.cn/product/getProDetial.ht?productId=" + $scope.productId + "&mobile=" + n + "&activeTag=ljzma&s=wap&callback=JSON_CALLBACK").success(function (data, status, headers, config) {
+                        $scope.couponVos = data.couponVos;
+
+                        derate = 0;
+                        $.each($scope.couponVos, function (i, k) {
+                            derate = k.couponAmount * k.couponNum + derate;
+                        });
+                        $scope.derate = derate;
+                    });
+                }else {
+                    $scope.couponVos = [];
+                    $scope.derate = 0;
+                }
+            });
+            /*$http.jsonp(cfApi.apiHost + "/product/getProDetial.ht?productId=" + n + "&activeTag=ljzma&s=wap&callback=JSON_CALLBACK").success(function (data, status, headers, config) {
+
+            });*/
         }
     });
 
