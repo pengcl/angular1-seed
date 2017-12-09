@@ -68,14 +68,14 @@
                         <div class="type-phone pure-u-2-5">
                             <div class="phone-name">6GB+64GB</div>
                             <div class="phone-price">
-                                <em>￥3334</em>
+                                <em>￥<span ng-bind="phoneOne.salePrice * phoneOne.discountRate | numberUp"></span></em>
                             </div>
                             <div class="phone-btn"><a href="/phs/lj/{{pageType}}/10000095429375{{params}}"  ng-click="setMachine('小米6 6GB+64GB',458)">立即抢购</a></div>
                         </div>
                         <div class="type-phone pure-u-3-5">
                             <div class="phone-name">6GB+128GB</div>
                             <div class="phone-price">
-                                <em>￥3637</em>
+                                <em>￥<span ng-bind="phoneTwo.salePrice * phoneOne.discountRate | numberUp"></span></em>
                             </div>
                             <div class="phone-btn"><a href="/phs/lj/{{pageType}}/10000095429619{{params}}"  ng-click="setMachine('小米6 6GB+128GB',459)">立即抢购</a></div>
                         </div>
@@ -106,14 +106,14 @@
                         <div class="type-phone pure-u-2-5">
                             <div class="phone-name">OPPO R11</div>
                             <div class="phone-price">
-                                <em>￥2728</em>
+                                <em>￥<span ng-bind="phoneThree.salePrice * phoneThree.discountRate | numberUp"></span></em>
                             </div>
                             <div class="phone-btn"><a href="/phs/lj/{{pageType}}/456{{params}}" ng-click="setMachine('OPPO R11',456)">立即抢购</a></div>
                         </div>
                         <div class="type-phone pure-u-3-5">
                             <div class="phone-name">OPPO R11 Plus</div>
                             <div class="phone-price">
-                                <em>￥3299</em>
+                                <em>￥<span ng-bind="phoneFour.salePrice * phoneFour.discountRate | numberUp"></span></em>
                             </div>
                             <div class="phone-btn"><a href="/phs/lj/{{pageType}}/457{{params}}" ng-click="setMachine('OPPO R11 Plus',457)">立即抢购</a></div>
                         </div>
@@ -134,14 +134,14 @@
                         <div class="type-phone pure-u-2-5">
                             <div class="phone-name">6GB+64GB</div>
                             <div class="phone-price">
-                                <em>￥2728</em>
+                                <em>￥<span ng-bind="phoneFive.salePrice * phoneFive.discountRate | numberUp"></span></em>
                             </div>
                             <div class="phone-btn"><a href="/phs/lj/{{pageType}}/458{{params}}"  ng-click="setMachine('小米6 6GB+64GB',458)">立即抢购</a></div>
                         </div>
                         <div class="type-phone pure-u-3-5">
                             <div class="phone-name">6GB+128GB</div>
                             <div class="phone-price">
-                                <em>￥3,031</em>
+                                <em>￥<span ng-bind="phoneSix.salePrice * phoneSix.discountRate | numberUp"></span></em>
                             </div>
                             <div class="phone-btn"><a href="/phs/lj/{{pageType}}/459{{params}}"  ng-click="setMachine('小米6 6GB+128GB',459)">立即抢购</a></div>
                         </div>

@@ -16,7 +16,7 @@
         <redirect-url></redirect-url>
         <div id="scrollAnimate" class="content-scrollable has-footer">
 
-            <div class="owl-carousel" img-urls="imgUrls"></div>
+            <owl-carousel class="owl-carousel owl-theme" img-urls="imgUrls"></owl-carousel>
             <div class="price-red">
                 <div class="weui-flex">
                     <div class="weui-flex__item" style="text-align: left">
@@ -137,7 +137,7 @@
                             <div class="service-item">
                                 <h3><img src="/images/phones/dj/detail/serviceIcon-5.png"> 无忧退换货</h3>
                                 <p>
-                                    客户购买翼分期商品7日内（不包括话费套餐以及话费套餐卡，含7日，自客户收到商品之日起计算），在保证商品完好的前提下，可无理由退货，但翼分期商城不承担退换货的物流费用。</p>
+                                    客户购买翼分期商品7日内（不包括话费套餐及话费套餐卡，含7日，自客户收到商品之日起计算）。在保证商品完好无损坏的前提下，7天可退换货。但翼分期商城不承担退换货的物流费用。</p>
                             </div>
                         </div>
                     </div>
@@ -288,7 +288,7 @@
 
             <div class="adr-additional">
                 <em>翼分期商城提供发货并由该产品品牌商提供售后服务</em>
-                <div><b>物流：全国包邮</b>（预计2-3天送达），不同地区送达时间有所不同，详情请咨询物流公司</div>
+                <div ng-if="payType != 1"><b>物流：全国包邮</b>（预计2-3天送达），不同地区送达时间有所不同，详情请咨询物流公司</div>
             </div>
 
             <div class="use-coupons weui-panel" ng-show="couponVos.length > 0">
@@ -332,7 +332,7 @@
             <div class="pay-container pd-w">
                 <div class="pay-content" ng-if="payType == 0">
                     <div class="pure-g">
-                        <span class="lb pure-u-1-2">商品金额</span>
+                        <span class="lb pure-u-1-2">商品原价</span>
                         <span class="price pure-u-1-2"><em>￥</em><em
                                 ng-bind="mainColor.salePrice | number:0"></em></span>
                     </div>
@@ -341,7 +341,7 @@
                             <span style="display: inline-block;margin-bottom:0.05rem;color:#fff;background: #d83e14;padding-left: 0.1rem;padding-right: 0.1rem;">限时优惠<span ng-bind="phone.discountRate * 100"></span>折</span>
                         </span>
                         <span class="price pure-u-1-2">
-                            <span><em>-￥</em><em ng-bind="mainColor.salePrice * (1 - phone.discountRate) | numberUp | number:0"></em></span>
+                            <span><em>-￥</em><em ng-bind="mainColor.salePrice * (1 - phone.discountRate) | numberDown | number:0"></em></span>
                         </span>
                     </div>
                     <div class="pure-g" ng-if="derate > 0 && isjm == 1">
@@ -356,16 +356,25 @@
 
                 <div class="pay-content" ng-if="payType == 1">
                     <div class="pure-g">
-                        <span class="lb pure-u-1-2">商品金额</span>
-                        <span class="price pure-u-1-2"><em>￥</em><em
-                                ng-bind="mainColor.salePrice | numberUp | number:0"></em></span>
+                        <span class="lb pure-u-1-2">商品原价</span>
+                        <span class="price pure-u-1-2"><b>￥</b><b
+                                ng-bind="mainColor.salePrice | number:0"></b></span>
+                    </div>
+                    <div class="pure-g">
+                        <span class="lb pure-u-1-2">服务费</span>
+                        <span class="price pure-u-1-2"><b>￥</b><b
+                                ng-bind="mainColor.salePrice * 0.05 | numberUp | number:0"></b></span>
+                    </div>
+                    <div class="pure-g">
+                        <span class="lb pure-u-1-2">运费</span>
+                        <span class="price pure-u-1-2"><b>￥0</b></span>
                     </div>
                     <div class="pure-g" ng-show="phone.discountRate < 1">
                         <span class="lb pure-u-1-2">
                             <span style="display: inline-block;margin-bottom:0.05rem;color:#fff;background: #d83e14;padding-left: 0.1rem;padding-right: 0.1rem;">限时优惠<span ng-bind="phone.discountRate * 100"></span>折</span>
                         </span>
                         <span class="price pure-u-1-2">
-                            <span><em>-￥</em><em ng-bind="mainColor.salePrice * (1 - phone.discountRate) | numberUp | number:0"></em></span>
+                            <span><em>-￥</em><em ng-bind="mainColor.salePrice * (1 - phone.discountRate) | numberDown | number:0"></em></span>
                         </span>
                     </div>
                     <div class="pure-g" ng-if="derate > 0 && isjm == 1">
@@ -373,16 +382,15 @@
                             <span style="display: inline-block;margin-bottom:0.05rem;color:#fff;background: #d83e14;padding-left: 0.1rem;padding-right: 0.1rem;">优惠券</span>
                         </span>
                         <span class="price pure-u-1-2">
-                            <span><em>-￥</em><em ng-bind="derate | numberUp | number:0"></em></span>
+                            <span><em>-￥</em><em ng-bind="derate | number:0"></em></span>
                         </span>
                     </div>
                     <div class="pure-g">
                         <span class="lb pure-u-1-4">
-                            <span style="display: inline-block;margin-bottom:0.05rem;color:#fff;background: #d83e14;padding-left: 0.1rem;padding-right: 0.1rem;">预付款</span>
+                            <span style="display: inline-block;margin-bottom:0.05rem;color:#fff;background: #d83e14;padding-left: 0.1rem;padding-right: 0.1rem;">到付金额</span>
                         </span>
                         <span class="price pure-u-3-4">
-                            <span><em>￥</em><em ng-bind="(mainColor.salePrice * phone.discountRate - derate) * 0.05 + 30 | numberUp | number:0"></em></span>
-                            <p>(预付款为应付金额的5% + 30元运费)</p>
+                            <span><em>￥</em><em ng-bind="mainColor.salePrice * phone.discountRate - derate -30 + mainColor.salePrice * 0.05 | numberUp | number:0"></em></span>
                         </span>
                     </div>
                 </div>
@@ -390,16 +398,19 @@
                 <div class="pay-content" ng-if="payType == 2">
                     <div class="pure-g">
                         <span class="lb pure-u-1-2">商品金额</span>
-                        <span class="price pure-u-1-2"><em>￥</em><em
-                                ng-bind="mainColor.monthlyPrice | numberUp | number:0"></em></span>
+                        <span class="price pure-u-1-2"><b>￥</b><b
+                                ng-bind="mainColor.monthlyPrice | numberUp | number:0"></b></span>
                     </div>
                     <div class="pure-g">
                         <span class="lb pure-u-1-2">
                             <span style="display: inline-block;margin-bottom:0.05rem;color:#fff;background: #d83e14;padding-left: 0.1rem;padding-right: 0.1rem;">限时免息优惠</span>
                         </span>
                         <span class="price pure-u-1-2">
-                            <em>12期0利息</em>
+                            <b>12期0利息</b>
                         </span>
+                        <div class="price pure-u-1">
+                            <em>(节省利息约￥<span ng-bind="mainColor.monthlyPrice * 0.06 | number : 0"></span>)</em>
+                        </div>
                     </div>
                     <div class="pure-g" ng-if="derate > 0 && isjm == 1">
                         <span class="lb pure-u-1-2">
@@ -408,6 +419,11 @@
                         <span class="price pure-u-1-2">
                             <span><em>-￥</em><em ng-bind="derate | numberUp | number:0"></em></span>
                         </span>
+                    </div>
+                    <div class="pure-g">
+                        <span class="lb pure-u-1-2">实际分期金额</span>
+                        <span class="price pure-u-1-2"><b>￥</b><b
+                                ng-bind="mainColor.monthlyPrice - derate | number:0"></b></span>
                     </div>
                 </div>
             </div>
@@ -427,7 +443,7 @@
                             ng-bind="mainColor.salePrice * phone.discountRate - derate | numberUp | number:0"></em>
                     </div>
                     <div ng-if="payType == 1">
-                        <em style="font-size: 0.16rem">预付款：￥</em><em ng-bind="(mainColor.salePrice * phone.discountRate - derate) * 0.05 + 30 | numberUp | number:0"></em>
+                        <em style="font-size: 0.16rem">预付款：￥</em><em>30</em>
                     </div>
                     <div ng-if="payType == 2">
                         <em style="font-size: 0.16rem">月供：￥</em><em

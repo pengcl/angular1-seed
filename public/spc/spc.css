@@ -273,10 +273,6 @@ body {
   margin: 0.05rem;
 }
 
-/* line 23, ../../sass/modules/_owlCarousel.scss */
-.carousel-item, .owl-item {
-  width: 100%;
-}
 /* line 25, ../../sass/modules/_owlCarousel.scss */
 .carousel-item img, .owl-item img {
   display: block;

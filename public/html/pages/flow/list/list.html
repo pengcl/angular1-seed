@@ -8,7 +8,7 @@
         <form id="salesForm" name="salesForm">
             <input name="product" id="product" ng-model="product.productId" value="{{product.productId}}" type="hidden">
 
-            <div class="owl-carousel" img-urls="['/images/flow/top-1.jpg','/images/flow/top-2.jpg']"></div>
+            <owl-carousel class="owl-carousel owl-theme" img-urls="['/images/flow/top-1.jpg','/images/flow/top-2.jpg']"></owl-carousel>
 
             <div id="rechargeNo" class="weui-cells" ng-class="{true:'active',false:''}[!!mobile]">
                 <div class="weui-cell" style="padding-bottom: 0;padding-top: 0.15rem">

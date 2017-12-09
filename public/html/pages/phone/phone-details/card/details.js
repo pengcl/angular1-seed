@@ -13,8 +13,8 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
         });
 }]).controller('pCardProController', ['$scope', '$rootScope', '$location', '$stateParams', '$http', '$timeout', 'Phone', function ($scope, $rootScope, $location, $stateParams, $http, $timeout, Phone) {
 
-    window.location.href = "http://" + window.location.host + "/phone/lj/A/phones" + window.location.search;
-    console.log("http://" + window.location.host + "/phone/lj/A/phones" + window.location.search);
+    /*window.location.href = "http://" + window.location.host + "/phone/lj/A/phones" + window.location.search;
+    console.log("http://" + window.location.host + "/phone/lj/A/phones" + window.location.search);*/
 
     $scope.pageType = $stateParams.pageType;
     $scope.activeTag = "mysytc";
@@ -228,9 +228,9 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
     var pkgUrl;
 
     if ($stateParams.cardId == "") {
-        pkgUrl = cfApi.apiHost + "/product/getPackageInfo.html?productId=" + $scope.pkgs[0].productId + "&s=wap&callback=JSON_CALLBACK";
+        pkgUrl = cfApi.apiHost + "/product/getPackageInfo.ht?productId=" + $scope.pkgs[0].productId + "&s=wap&callback=JSON_CALLBACK";
     } else {
-        pkgUrl = cfApi.apiHost + "/product/getPackageInfo.html?productId=" + $stateParams.cardId + "&s=wap&callback=JSON_CALLBACK";
+        pkgUrl = cfApi.apiHost + "/product/getPackageInfo.ht?productId=" + $stateParams.cardId + "&s=wap&callback=JSON_CALLBACK";
     }
 
     //console.log(pkgUrl);
@@ -346,7 +346,7 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
 
     $scope.$watch('productId', function (n, o, $scope) {
         if (n != o) {
-            $http.get(cfApi.apiHost + "/product/getProDetial.html?productId=" + n + "&s=wap&callback=JSON_CALLBACK").success(function (phone) {
+            $http.get(cfApi.apiHost + "/product/getProDetial.ht?productId=" + n + "&s=wap&callback=JSON_CALLBACK").success(function (phone) {
                 /*$scope.phone = phone;
 
                  //选择默认内存
@@ -363,7 +363,7 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
 
     $scope.$watch('card', function (n, o, $scope) {
         if (n !== o, n !== undefined) {
-            $http.jsonp(cfApi.apiHost + "/product/getViewProductList.html?productId=" + n.productId + "&s=wap&callback=JSON_CALLBACK").success(function (data) {
+            $http.jsonp(cfApi.apiHost + "/product/getViewProductList.ht?productId=" + n.productId + "&s=wap&callback=JSON_CALLBACK").success(function (data) {
                 var mifis = [];
                 $.each(data, function (i, k) {
                     mifis.push({
@@ -385,12 +385,12 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
 
             //$("#checkoutForm").submit();
 
-            var url = cfApi.apiHost + "/product/checkPhoneState.html?number=[" + $scope.checkoutForm.mainNumber.$modelValue + "," + $scope.checkoutForm.subNumber.$modelValue + "," + $scope.checkoutForm.thirdNumber.$modelValue + "]&s=wap&callback=JSON_CALLBACK";
+            var url = cfApi.apiHost + "/product/checkPhoneState.ht?number=[" + $scope.checkoutForm.mainNumber.$modelValue + "," + $scope.checkoutForm.subNumber.$modelValue + "," + $scope.checkoutForm.thirdNumber.$modelValue + "]&s=wap&callback=JSON_CALLBACK";
 
             $scope.$root.toast.open();
             $http.jsonp(url).success(function (data, status, headers, config) {//查看号码是否被选
                 if (data.tempIndexs.length === 0) {//查看号码是否被选
-                    $http.jsonp(cfApi.apiHost + '/product/checkOrderCount.html?receiverMobile=' + $scope.checkoutForm.receiverMobile.$modelValue + '&productId=' + $scope.card.productId + '&category=' + $scope.category + '&s=wap&time=' + new Date().getTime() + '&callback=JSON_CALLBACK').success(function (data, status, headers, config) {//查看是否下过单
+                    $http.jsonp(cfApi.apiHost + '/product/checkOrderCount.ht?receiverMobile=' + $scope.checkoutForm.receiverMobile.$modelValue + '&productId=' + $scope.card.productId + '&category=' + $scope.category + '&s=wap&time=' + new Date().getTime() + '&callback=JSON_CALLBACK').success(function (data, status, headers, config) {//查看是否下过单
                         if (data.result) {
                             $("#checkoutForm").submit();
                             $scope.$root.toast.close();

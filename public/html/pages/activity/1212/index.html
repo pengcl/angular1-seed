@@ -1,0 +1,157 @@
+<div class="page activity act-phone">
+    <top-nav page-title="翼分期商城" page-back="menu" nav-visibility="hide"></top-nav>
+
+    <div class="content-scrollable">
+        <gh></gh>
+        <activity></activity>
+        <h1 class="title">
+            <div class="img-box">
+                <img src="/images/active/1212/banner.png">
+            </div>
+        </h1>
+        <div class="tab">
+            <ul class="pure-g">
+                <li class="pure-u-1-5"><a class="curr" href="javascript:;">热门</a></li>
+                <li class="pure-u-1-5"><a ng-click='setMainPhoneBrand($event,0,{"brandName": "iPhone","brandSort": 2,"tag": false})' href="/phone/lj/B/phones">苹果</a></li>
+                <li class="pure-u-1-5"><a ng-click='setMainPhoneBrand($event,1,{"brandName": "vivo","brandSort": 5,"tag": false})' href="/phone/lj/B/phones">VIVO</a></li>
+                <li class="pure-u-1-5"><a ng-click='setMainPhoneBrand($event,2,{"brandName": "OPPO","brandSort": 4,"tag": false})' href="/phone/lj/B/phones">OPPO</a></li>
+                <li class="pure-u-1-5"><a ng-click='setMainPhoneBrand($event,3,{"brandName": "华为","brandSort": 3,"tag": false})' href="/phone/lj/B/phones">华为</a></li>
+            </ul>
+        </div>
+        <div class="phones ng-cloak" ng-cloak>
+            <ul class="pure-g">
+                <li class="pure-u-1-2">
+                    <a class="phone-box" href="/phs/lj/B/{{phoneOne.activityproductId}}{{params}}">
+                        <div class="img-box">
+                            <img ng-src="http://www.yfq.cn:8899/fileserver/medias/{{phoneOne.mainImageUrl}}">
+                        </div>
+                        <div class="txt-box">
+                            <div class="discut">立省700元</div>
+                            <div class="txt-content">
+                                <div class="name">华为P10 4GB+64GB</div>
+                                <div class="cat">天X价：¥3488.00</div>
+                                <div class="dog">京X价：¥3488.00</div>
+                                <div class="self">
+                                    <sub class="lb">批发价：</sub><sub>￥</sub><em ng-bind="phoneOne.salePrice * phoneOne.discountRate | numberUp"></em>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tag">
+                            <img src="/images/active/1212/tag.png">
+                        </div>
+                    </a>
+                </li>
+                <li class="pure-u-1-2">
+                    <a class="phone-box" href="/phs/lj/B/{{phoneTwo.activityproductId}}{{params}}">
+                        <div class="img-box">
+                            <img ng-src="http://www.yfq.cn:8899/fileserver/medias/{{phoneTwo.mainImageUrl}}">
+                        </div>
+                        <div class="txt-box">
+                            <div class="discut">立省400元</div>
+                            <div class="txt-content">
+                                <div class="name">OPPO R11 4GB+64GB</div>
+                                <div class="cat">天X价：¥2999.00</div>
+                                <div class="dog">京X价：¥2999.00</div>
+                                <div class="self">
+                                    <sub class="lb">批发价：</sub><sub>￥</sub><em ng-bind="phoneTwo.salePrice * phoneTwo.discountRate | numberUp"></em>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tag">
+                            <img src="/images/active/1212/tag.png">
+                        </div>
+                    </a>
+                </li>
+                <li class="pure-u-1-2">
+                    <a class="phone-box" href="/phs/lj/B/{{phoneThree.activityproductId}}{{params}}">
+                        <div class="img-box">
+                            <img ng-src="http://www.yfq.cn:8899/fileserver/medias/{{phoneThree.mainImageUrl}}">
+                        </div>
+                        <div class="txt-box">
+                            <div class="discut">立省689元</div>
+                            <div class="txt-content">
+                                <div class="name">iPhone8 64GB</div>
+                                <div class="cat">天X价：¥5888.00</div>
+                                <div class="dog">京X价：¥5888.00</div>
+                                <div class="self">
+                                    <sub class="lb">批发价：</sub><sub>￥</sub><em ng-bind="phoneThree.salePrice * phoneThree.discountRate | numberUp"></em>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tag">
+                            <img src="/images/active/1212/tag.png">
+                        </div>
+                    </a>
+                </li>
+                <li class="pure-u-1-2">
+                    <a class="phone-box" href="/phs/lj/B/{{phoneFour.activityproductId}}{{params}}">
+                        <div class="img-box">
+                            <img ng-src="http://www.yfq.cn:8899/fileserver/medias/{{phoneFour.mainImageUrl}}">
+                        </div>
+                        <div class="txt-box">
+                            <div class="discut">立省200元</div>
+                            <div class="txt-content">
+                                <div class="name">VIVO X20 4GB+64GB</div>
+                                <div class="cat">天X价：¥2998.00</div>
+                                <div class="dog">京X价：¥2998.00</div>
+                                <div class="self">
+                                    <sub class="lb">批发价：</sub><sub>￥</sub><em ng-bind="phoneFour.salePrice * phoneFour.discountRate | numberUp"></em>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tag">
+                            <img src="/images/active/1212/tag.png">
+                        </div>
+
+                    </a>
+                </li>
+                <li class="pure-u-1-2">
+                    <a class="phone-box" href="/phs/lj/B/{{phoneFive.activityproductId}}{{params}}">
+                        <div class="img-box">
+                            <img ng-src="http://www.yfq.cn:8899/fileserver/medias/{{phoneFive.mainImageUrl}}">
+                        </div>
+                        <div class="txt-box">
+                            <div class="discut">立省400元</div>
+                            <div class="txt-content">
+                                <div class="name">AGM X2 6GB+64GB</div>
+                                <div class="cat">天X价：¥3699.00</div>
+                                <div class="dog">京X价：¥3699.00</div>
+                                <div class="self">
+                                    <sub class="lb">批发价：</sub><sub>￥</sub><em ng-bind="phoneFive.salePrice * phoneFive.discountRate | numberUp"></em>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tag">
+                            <img src="/images/active/1212/tag.png">
+                        </div>
+                    </a>
+                </li>
+                <li class="pure-u-1-2">
+                    <a class="phone-box" href="/phs/lj/B/{{phoneSix.activityproductId}}{{params}}">
+                        <div class="img-box">
+                            <img ng-src="http://www.yfq.cn:8899/fileserver/medias/{{phoneSix.mainImageUrl}}">
+                        </div>
+                        <div class="txt-box">
+                            <div class="discut">立省500元</div>
+                            <div class="txt-content">
+                                <div class="name">美图T8s 4GB+128GB</div>
+                                <div class="cat">天X价：¥4199.00</div>
+                                <div class="dog">京X价：¥4199.00</div>
+                                <div class="self">
+                                    <sub class="lb">批发价：</sub><sub>￥</sub><em ng-bind="phoneSix.salePrice * phoneSix.discountRate | numberUp"></em>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tag">
+                            <img src="/images/active/1212/tag.png">
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <p style="font-size: 0.15rem;text-align: center;color: #ff232f"><a href="/phone/lj/B/phones">更多爆款手机，一律批发价 >></a></p>
+        <div class="img-box" style="margin-top: 0.3rem;margin-bottom: 0.1rem">
+            <img src="/images/active/1212/bt.png">
+        </div>
+    </div>
+</div>

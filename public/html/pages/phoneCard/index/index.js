@@ -20,7 +20,7 @@ app.config(['$stateProvider', '$locationProvider', function($stateProvider, $loc
     $scope.pageType = $stateParams.pageType;
 
     $scope.activeTag = "mysytcb";
-    $scope.appType = systemName + "_" + $scope.pageType + "_0ylk";
+    $scope.appType = systemName + "_" + $scope.pageType + "_c";
     $scope.category = $scope.appType;
     $scope.second = 5;
     writebdLog($scope.category, "_Load", "渠道号", $scope.gh);
@@ -53,15 +53,8 @@ app.config(['$stateProvider', '$locationProvider', function($stateProvider, $loc
 
 
     $scope.submitForm = function() {
+        console.log('submit');
         $scope.toast.open();
-        if (!$scope.checkMainPkg()) {
-            $scope.toast.close();
-            return false;
-        }
-        if (!$scope.checkSimType()) {
-            $scope.toast.close();
-            return false;
-        }
         if (!$scope.checkMainNumber()) {
             $scope.toast.close();
             return false;
@@ -74,7 +67,10 @@ app.config(['$stateProvider', '$locationProvider', function($stateProvider, $loc
             $scope.toast.close();
             return false;
         }
-        $scope.submitUrl = cfApi.apiHost + "/wap/taokafanghaoNew/submitOrderCommon.html?mainNumber=" + $scope.mainNumber + "&activeTag=" + $scope.activeTag + "&category=" + $scope.category + "&gh=" + $scope.gh + "&activity=" + $scope.activity + "&productId=" + $scope.pkgId + "&reciverName=" + encodeURI(encodeURI($scope.receiver.name)) + "&receiverMobile=" + $scope.receiver.mobile + "&receiverCity=" + encodeURI(encodeURI($scope.receiver.city)) + "&receiverRoom=" + encodeURI(encodeURI($scope.receiver.room)) + "&mainCardTypeId=" + $scope.simItem.id + "&payType=1&category=" + $scope.category + "&callback=JSON_CALLBACK";
+
+        $("#checkoutForm").submit();
+
+        /*$scope.submitUrl = cfApi.apiHost + "/wap/taokafanghaoNew/submitOrderCommon.html?mainNumber=" + $scope.mainNumber + "&activeTag=" + $scope.activeTag + "&category=" + $scope.category + "&gh=" + $scope.gh + "&activity=" + $scope.activity + "&productId=" + $scope.pkgId + "&reciverName=" + encodeURI(encodeURI($scope.receiver.name)) + "&receiverMobile=" + $scope.receiver.mobile + "&receiverCity=" + encodeURI(encodeURI($scope.receiver.city)) + "&receiverRoom=" + encodeURI(encodeURI($scope.receiver.room)) + "&mainCardTypeId=" + $scope.simItem.id + "&payType=1&category=" + $scope.category + "&callback=JSON_CALLBACK";
         $http.jsonp($scope.submitUrl).success(function(data, status, headers, config) {
             $scope.toast.close();
             if (data[0].resultCode == "0") {
@@ -95,14 +91,14 @@ app.config(['$stateProvider', '$locationProvider', function($stateProvider, $loc
                     }
                         $("#time-new").html($scope.second);
                 }, 1000);
-                
+
             } else {
                 $scope.dialog.open("系统提示", data[0].resultMsg);
             }
         }).error(function(data, status, headers, config) {
             console.log(status);
             //deferred.reject(status)
-        });
+        });*/
 
         writebdLog($scope.category, "_BuyNow", "渠道号", $scope.gh); //免费领卡
     };

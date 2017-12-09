@@ -1,0 +1,612 @@
+<div class="page p-details a-details a-details-c a-details-d dj-a">
+    <top-nav page-title="365手机商城" home-url="/phone/lj/B/phones" page-back="back" page-done="contact" nav-visibility="hide"></top-nav>
+    <form id="checkoutForm" name="checkoutForm" action="http://sell.yfq.cn/order/submitOrderDouble.ht"
+          method="post" novalidate>
+        <!--<form id="checkoutForm" name="checkoutForm" action="http://m.yfq.cn/wap/taokafanghaoNew/submitOrderDouble.html" method="post" novalidate>-->
+        <input type="hidden" value="1" name="monthNumber" id="monthNumber">
+        <input type="hidden" value="{{category}}" name="category" id="category">
+        <input type="hidden" value="{{phone.activityproductId}}" ng-model="phone.productId" name="machineId"
+               id="machineId">
+        <input type="hidden" value="{{activeTag}}" ng-model="activeTag" name="activeTag" id="activeTag">
+        <input type="hidden" value="{{redirectUrl}}" name="phoneQueryUrl" id="phoneQueryUrl">
+        <input type="hidden" value="{{successUrl}}" name="successUrl" id="successUrl">
+        <gh></gh>
+        <activity></activity>
+        <referrer-no></referrer-no>
+        <redirect-url></redirect-url>
+        <div id="scrollAnimate" class="content-scrollable has-footer" style="padding-top: 0">
+
+            <owl-carousel class="owl-carousel owl-theme" img-urls="imgUrls"></owl-carousel>
+            <!--<div class="price-red">
+                <div class="weui-flex">
+                    <div class="weui-flex__item" style="text-align: left">
+                        <div class="price placeholder">
+                            <del class="old">旗舰店价：￥<span>￥5,656</span></del>
+                            <div class="new">
+                                <em>批发价：￥</em><em ng-if="payType == 0"
+                                              ng-bind="mainColor.salePrice * phone.discountRate | numberUp | number : 0"></em><em
+                                    ng-if="payType == 1" ng-bind="mainColor.salePrice * phone.discountRate | numberUp | number:0"></em><em
+                                    ng-if="payType == 2" ng-bind="mainColor.monthlyPrice | numberUp | number:0"></em>
+                            </div>
+                        </div>
+                        <div class="bijia placeholder" style="padding-left: 0.2rem">
+                            <del ng-repeat="channelPrice in mainColor.channelPrice" ng-if="channelPrice.source == 'jd'"><span>某东价：￥</span><span ng-bind="channelPrice.dayPrice"></span></del>
+                        </div>
+                    </div>
+                    <div class="weui-flex__item">
+                        <div class="timer placeholder">
+                            <span class="lb">距结束</span>
+                            <timer></timer>
+                            <div class="sold">仅剩<span ng-if="phone.ifSellOut > 0" ng-bind="phone.ifSellOut"></span>
+                                <span ng-if="phone.ifSellOut == 0">0</span>台
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>-->
+            <div class="product-header">
+                <div class="product-txt">
+                    <h1><span ng-bind="phone.phoneTypes[0].productName"></span></h1>
+                    <div class="price">
+                        <div class="new" ng-if="payType != 2"><sub>批发价：￥</sub><em ng-bind="mainColor.salePrice * phone.discountRate | numberUp | number : 0"></em></div>
+                        <div class="new" ng-if="payType == 2"><sub>分期价：￥</sub><em ng-bind="mainColor.monthlyPrice | numberUp | number:0"></em></div>
+                        <del class="old">旗舰店价：￥<span ng-bind="mainColor.salePrice"></span></del>
+                        <div class="sold">
+                            已售：<span>888</span>台
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="product-footer">
+                <div class="img-box">
+                    <img src="/images/lj/C/promise-c.png">
+                </div>
+            </div>
+
+            <!--<div id="coupons" ng-show="phone.discountRate < 1">
+                <div class="weui-cells__title title-icon">
+                    <span class="title">优惠</span><span class="star-color"></span>
+                </div>
+                <div class="coupon-panel">
+
+                    <div class="weui-cells">
+                        <div class="weui-cell">
+                            <div class="weui-cell__hd"><span>立省</span></div>
+                            <div class="weui-cell__bd">一次性支付享<span ng-bind="phone.discountRate * 100"></span>折优惠</div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>-->
+
+            <div class="select-p weui-cells" style="margin-top:0.1rem;background: #fff">
+                <a class="weui-cell weui-cell_access"
+                   style="padding-top: 0.1rem;padding-left:0;padding-bottom: 0.1rem;font-size: 0.16rem;line-height: 0.32rem"
+                   href="javascript:;" ng-click="showActionsheet('#productSelector')">
+                    <div class="weui-cell__bd title-icon">
+                        <p><span class="title">已选</span> <span ng-bind="mainColor.name"></span>、<span
+                                ng-bind="phone.phoneTypes[0].productMemory"></span></p>
+                    </div>
+                    <div class="weui-cell__ft">
+                    </div>
+                </a>
+            </div>
+
+            <div class="dj-detail weui-tab">
+                <div class="weui-navbar">
+                    <div class="weui-navbar__item weui-bar__item_on" ng-click="goToDetail();writebdLogByValue('twxq')">
+                        图文详情
+                    </div>
+                    <div class="weui-navbar__item" ng-click="goToDetail();writebdLogByValue('ggcs')">
+                        规格参数
+                    </div>
+                    <div class="weui-navbar__item" ng-click="goToDetail();writebdLogByValue('shbz')">
+                        售后保障
+                    </div>
+                    <div class="weui-navbar__item" ng-click="goToDetail();writebdLogByValue('yhpl')">
+                        用户评论
+                    </div>
+                </div>
+                <div class="weui-tab__panel">
+                    <div class="weui-tab__item weui-tab__item_on half">
+                        <div class="product-detail"
+                             ng-bind-html="phone.phoneTypes[0].fullDescription | trustHtml"></div>
+                        <div class="html-ft">
+                            <a has-hash="false" ng-click="seeAll()" href="javascript:userTrack('seeAll');"
+                               class="weui-btn weui-btn_plain-default"
+                               style="font-size: 0.14rem;line-height: 2em;border: 1px solid #f6692a;color: #f6692a;display: block;margin: 0 auto; width: 30%">查看全部</a>
+                        </div>
+                    </div>
+                    <div class="weui-tab__item">
+                        <div class="" ng-bind-html="phone.phoneTypes[0].comboParam | trustHtml"></div>
+                    </div>
+                    <div class="weui-tab__item">
+                        <div class="service">
+                            <div class="service-item">
+                                <h3><img src="/images/phones/dj/detail/serviceIcon-1.png"> <span>厂家服务</span></h3>
+                                <p>本产品全国联保，享受三包服务，质保期为：一年质保</p>
+                                <p>如因质量问题或故障，凭厂商维修中心或特约维修点的质量检测证明，享受7日内退货，15日内换货，15日以上在质保期内享受免费保修等三包服务！</p>
+                                <p>(注:如厂家在商品介绍中有售后保障的说明,则此商品按照厂家说明执行售后保障服务。) </p>
+                            </div>
+                            <div class="service-item">
+                                <h3><img src="/images/phones/dj/detail/serviceIcon-2.png"> 翼分期承诺</h3>
+                                <p>翼分期商城卖家销售并发货的商品，由商城卖家提供发票和相应的售后服务。请您放心购买！</p>
+                                <p>
+                                    注：因厂家会在没有任何提前通知的情况下更改产品包装、产地或者一些附件，本司不能确保客户收到的货物与商城图片、产地、附件说明完全一致。只能确保为原厂正货！并且保证与当时市场上同样主流新品一致。若本商城没有及时更新，请大家谅解！</p>
+                            </div>
+                            <div class="service-item">
+                                <h3><img src="/images/phones/dj/detail/serviceIcon-3.png"> 正货行货</h3>
+                                <p>翼分期商城向您保证所售商品均为正品行货，商品开具电子发票。</p>
+                            </div>
+                            <div class="service-item">
+                                <h3><img src="/images/phones/dj/detail/serviceIcon-4.png"> 全国联保</h3>
+                                <p>凭质保证书及翼分期商城发票，可享受全国联保服务，与您亲临商场选购的商品享受相同的质量保证。翼分期商城还为您提供具有竞争力的商品价格和运费政策，请您放心购买！</p>
+                                <p>
+                                    注：因厂家会在没有任何提前通知的情况下更改产品包装、产地或者一些附件，本司不能确保客户收到的货物与商城图片、产地、附件说明完全一致。只能确保为原厂正货！并且保证与当时市场上同样主流新品一致。若本商城没有及时更新，请大家谅解！</p>
+                            </div>
+                            <div class="service-item">
+                                <h3><img src="/images/phones/dj/detail/serviceIcon-5.png"> 无忧退换货</h3>
+                                <p>
+                                    客户购买翼分期商品7日内（不包括话费套餐及话费套餐卡，含7日，自客户收到商品之日起计算）。在保证商品完好无损坏的前提下，7天可退换货。但翼分期商城不承担退换货的物流费用。</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="weui-tab__item">
+                        <div class="feedback-tab" ng-if="feedbacks.success">
+                            <div class="pure-g">
+                                <div class="pure-u-5-6">
+                                    <div class="pure-g">
+                                        <div class="pure-u-1-4">
+                                            <a class="feedback-nav"
+                                               ng-class="{true:'curr',false:''}[feedbackType === 'all']"
+                                               ng-click="setFeedbackType('all')"
+                                               href="javascript:userTrack('feedback-all');">全部(<span
+                                                    ng-bind="feedbacks.result2.all"></span>)</a>
+                                        </div>
+                                        <!--<div class="pure-u-1-4">
+                                            <a class="feedback-nav" ng-class="{true:'curr',false:''}[feedbackType === 'best']" ng-click="setFeedbackType('best')" href="javascript:userTrack('feedback-good');">好评(<span ng-bind="feedbacks.result2.best"></span>)</a>
+                                        </div>
+                                        <div class="pure-u-1-4">
+                                            <a class="feedback-nav" ng-class="{true:'curr',false:''}[feedbackType === 'good']" ng-click="setFeedbackType('good')" href="javascript:userTrack('feedback-notBad');">中评(<span ng-bind="feedbacks.result2.good"></span>)</a>
+                                        </div>
+                                        <div class="pure-u-1-4">
+                                            <a class="feedback-nav" ng-class="{true:'curr',false:''}[feedbackType === 'bad']" ng-click="setFeedbackType('bad')" href="javascript:userTrack('feedback-bad');">差评(<span ng-bind="feedbacks.result2.bad"></span>)</a>
+                                        </div>-->
+                                    </div>
+                                </div>
+                                <div class="pure-u-1-6">
+                                    <span>好评度</span>
+                                    <em ng-bind="feedbacks.result2.praise"></em>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="feedback">
+                            <ul>
+                                <li ng-if="!feedbacks.success">
+                                    <div class="feedback-box">
+                                        <div class="weui-media-box weui-media-box_text">
+                                            <p class="weui-media__desc" ng-bind="feedbacks.msg"></p>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li ng-if="feedbacks.success" ng-repeat="feedback in typeFeedbacks | limitTo : limitNo">
+                                    <div class="feedback-box">
+                                        <div class="weui-media-box weui-media-box_text">
+                                            <h4 class="weui-media__title pure-g"><span class="user-name pure-u-1-2"
+                                                                                       ng-bind="feedback.memberPhone | phoneFilter"></span><span
+                                                    class="pure-u-1-2" style="text-align: right"><star
+                                                    ratting="[feedback.starRating1,feedback.starRating2,feedback.starRating3]"></star></span>
+                                            </h4>
+                                            <p class="weui-media__desc" ng-bind="feedback.message"></p>
+                                            <ul class="weui-media__info" style="font-size: 0.1rem">
+                                                <li class="weui-media__info__meta" ng-bind="feedback.productName"></li>
+                                                <li class="weui-media__info__meta weui-media__info__meta_extra"
+                                                    ng-bind="feedback.createDate | date:'yyyy-MM-dd h:mm'"></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                            <div ng-if="!(typeFeedbacks.length <= 5 || limitNo == 100)" style="margin-top: 0.1rem"><a
+                                    has-hash="false" ng-click="setlimitNo(100)" href="javascript:userTrack('seeAll');"
+                                    class="weui-btn weui-btn_plain-default"
+                                    style="font-size: 0.14rem;line-height: 2em;border: 1px solid #f6692a;color: #f6692a;display: block;margin: 0 auto; width: 30%">查看全部</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="dj-bottom"></div>
+            </div>
+
+            <div class="no-border weui-cells" style="margin-top: 0.1rem">
+                <div class="weui-cell">
+                    <div class="weui-cell__hd">
+                        <img class="weui-media-box__thumb" src="/images/lj/C/logo.png"
+                                                    alt=""
+                                                    style="width: 40px;height:40px;display: block;margin-right: 0.1rem;border: 1px solid #d8d8d8;">
+                    </div>
+                    <div class="weui-cell__bd">
+                        <p style="font-size: 0.14rem">365手机商城</p>
+                        <p class="weui-media-box__desc" style="color: #999;font-size: 0.12rem">一台手机也是批发价的手机商城</p>
+                    </div>
+                    <div class="weui-cell__ft" ng-click="showActionsheet('#iosActionsheet')" style="padding-right: 0">
+                        <span class="about-btn">了解我们</span>
+                    </div>
+                </div>
+            </div>
+            <div class="img-box" style="background: #fff">
+                <img src="/images/lj/C/5.png">
+            </div>
+
+            <div class="hot-phones weui-tab">
+                <div class="weui-navbar">
+                    <div class="weui-navbar__item weui-bar__item_on" ng-click="writebdLogByValue('tltj')">
+                        为您推荐
+                    </div>
+                    <div class="weui-navbar__item" ng-click="writebdLogByValue('rmph')">
+                        近期排行
+                    </div>
+                </div>
+                <div class="weui-tab__panel" style="background: #fff">
+                    <div class="weui-tab__item weui-tab__item_on">
+                        <ul class="phone-list pure-g">
+                            <li class="pure-u-1-3" ng-repeat="singlePhone in hotPhones | limitTo : 6 track by $index">
+                                <a class="phone-box"
+                                   href="/phs/lj/{{pageType}}/{{singlePhone.activityproductId}}?gh={{gh}}&activity={{activity}}">
+                                    <div class="img-box">
+                                        <img ng-src="http://www.yfq.cn:8899/fileserver/medias/{{singlePhone.mainImageUrl}}">
+                                    </div>
+                                    <div class="txt-box">
+                                        <div class="tit" ng-bind="singlePhone.productName"></div>
+                                        <div class="price"><em>￥</em><em
+                                                ng-bind="singlePhone.salePrice | numberUp | number:0"></em></div>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="weui-tab__item">
+                        <ul class="phone-list pure-g">
+                            <li class="pure-u-1-3"
+                                ng-repeat="singlePhone in singlePhones | filter:{ifHot:1} | limitTo : 6 track by $index">
+                                <a class="phone-box"
+                                   href="/phs/lj/{{pageType}}/{{singlePhone.activityproductId}}?gh={{gh}}&activity={{activity}}">
+                                    <div class="img-box">
+                                        <img ng-src="http://www.yfq.cn:8899/fileserver/medias/{{singlePhone.mainImageUrl}}">
+                                    </div>
+                                    <div class="txt-box">
+                                        <div class="tit" ng-bind="singlePhone.productName"></div>
+                                        <div class="price"><em>￥</em><em
+                                                ng-bind="singlePhone.salePrice | numberUp | number:0"></em></div>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!--<div class="img-box" ng-if="pageBack=='home'" ng-click="home()" style="margin-top: 0.1rem">
+                <img src="/images/active/d/new/4.jpg">
+            </div>-->
+
+            <adr></adr>
+
+            <div class="adr-additional">
+                <em>365手机商城提供发货并由该产品品牌商提供售后服务</em>
+                <div ng-if="payType != 1"><b>物流：全国包邮</b>（预计2-3天送达），不同地区送达时间有所不同，详情请咨询物流公司</div>
+            </div>
+
+            <div class="use-coupons weui-panel" ng-show="couponVos.length > 0">
+                <div class="weui-cells weui-cells_form">
+                    <div class="weui-cell weui-cell_switch" style="padding-left: 0">
+                        <div class="weui-cell__bd title-icon">使用卡券</div>
+                        <div class="weui-cell__ft" style="padding-right: 0">
+                            <label for="switchCP" class="weui-switch-cp">
+                                <input type="hidden" id="isjm" name="isjm" ng-model="isjm" value="{{isjm}}">
+                                <input id="switchCP" class="weui-switch-cp__input" type="checkbox" checked="checked" ng-click="setCoupon()">
+                                <div class="weui-switch-cp__box"></div>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="weui-panel__bd">
+                    <div class="weui-media-box weui-media-box_small-appmsg">
+                        <div class="weui-cells">
+                            <div class="weui-cell" href="javascript:;" ng-repeat="coupon in couponVos">
+                                <div class="weui-cell__hd"><span ng-bind="coupon.couponName"></span></div>
+                                <div class="weui-cell__bd weui-cell_primary" style="text-align: right">
+                                    <p>x <span ng-bind="coupon.couponNum"></span> 张</p>
+                                </div>
+                                <div class="weui-cell__ft" style="padding: 0 0 0 0.2rem;">减免 <span ng-bind="coupon.couponAmount * coupon.couponNum"></span>元</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="weui-panel__ft">
+                    <a href="javascript:void(0);" class="weui-cell">
+                        <div class="weui-cell__bd"></div>
+                        <span class="weui-cell__ft" style="text-align: right;padding-right: 0">共减免  <span ng-bind="derate | numberUp | number:0"></span>元</span>
+                    </a>
+                </div>
+            </div>
+
+            <!--<coupon-list></coupon-list>-->
+
+            <a-pay-type title="支付方式"></a-pay-type>
+
+            <div class="pay-container pd-w">
+                <div class="pay-content" ng-if="payType == 0">
+                    <div class="pure-g">
+                        <span class="lb pure-u-1-2">商品原价</span>
+                        <span class="price pure-u-1-2"><em>￥</em><em
+                                ng-bind="mainColor.salePrice | number:0"></em></span>
+                    </div>
+                    <div class="pure-g" ng-show="phone.discountRate < 1">
+                        <span class="lb pure-u-1-2">
+                            优惠
+                        </span>
+                        <span class="price pure-u-1-2">
+                            <span class="weui-badge" style="margin-right: 5px;">批发价优惠</span>
+                            <span style="vertical-align: middle"><em>-￥</em><em ng-bind="mainColor.salePrice * (1 - phone.discountRate) | numberDown | number:0"></em></span>
+                        </span>
+                    </div>
+                    <div class="pure-g" ng-if="derate > 0 && isjm == 1">
+                        <span class="lb pure-u-1-2">
+                            <span style="display: inline-block;margin-bottom:0.05rem;color:#fff;background: #d83e14;padding-left: 0.1rem;padding-right: 0.1rem;">优惠券</span>
+                        </span>
+                        <span class="price pure-u-1-2">
+                            <span><em>-￥</em><em ng-bind="derate | numberUp | number:0"></em></span>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="pay-content" ng-if="payType == 1">
+                    <div class="pure-g">
+                        <span class="lb pure-u-1-2">商品原价</span>
+                        <span class="price pure-u-1-2"><b>￥</b><b
+                                ng-bind="mainColor.salePrice | number:0"></b></span>
+                    </div>
+                    <div class="pure-g">
+                        <span class="lb pure-u-1-2">服务费</span>
+                        <span class="price pure-u-1-2"><b>￥</b><b
+                                ng-bind="mainColor.salePrice * 0.05 | numberUp | number:0"></b></span>
+                    </div>
+                    <div class="pure-g">
+                        <span class="lb pure-u-1-2">运费</span>
+                        <span class="price pure-u-1-2"><b>￥0</b></span>
+                    </div>
+                    <div class="pure-g" ng-show="phone.discountRate < 1">
+                        <span class="lb pure-u-1-2">
+                            <span style="display: inline-block;margin-bottom:0.05rem;color:#fff;background: #d83e14;padding-left: 0.1rem;padding-right: 0.1rem;">限时优惠<span ng-bind="phone.discountRate * 100"></span>折</span>
+                        </span>
+                        <span class="price pure-u-1-2">
+                            <span><em>-￥</em><em ng-bind="mainColor.salePrice * (1 - phone.discountRate) | numberDown | number:0"></em></span>
+                        </span>
+                    </div>
+                    <div class="pure-g" ng-if="derate > 0 && isjm == 1">
+                        <span class="lb pure-u-1-2">
+                            <span style="display: inline-block;margin-bottom:0.05rem;color:#fff;background: #d83e14;padding-left: 0.1rem;padding-right: 0.1rem;">优惠券</span>
+                        </span>
+                        <span class="price pure-u-1-2">
+                            <span><em>-￥</em><em ng-bind="derate | number:0"></em></span>
+                        </span>
+                    </div>
+                    <div class="pure-g">
+                        <span class="lb pure-u-1-4">
+                            <span style="display: inline-block;margin-bottom:0.05rem;color:#fff;background: #d83e14;padding-left: 0.1rem;padding-right: 0.1rem;">到付金额</span>
+                        </span>
+                        <span class="price pure-u-3-4">
+                            <span><em>￥</em><em ng-bind="mainColor.salePrice * phone.discountRate - derate -30 + mainColor.salePrice * 0.05 | numberUp | number:0"></em></span>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="pay-content" ng-if="payType == 2">
+                    <div class="pure-g">
+                        <span class="lb pure-u-1-2">商品金额</span>
+                        <span class="price pure-u-1-2"><b>￥</b><b
+                                ng-bind="mainColor.monthlyPrice | numberUp | number:0"></b></span>
+                    </div>
+                    <div class="pure-g">
+                        <span class="lb pure-u-1-2">
+                            <span style="display: inline-block;margin-bottom:0.05rem;color:#fff;background: #d83e14;padding-left: 0.1rem;padding-right: 0.1rem;">限时免息优惠</span>
+                        </span>
+                        <span class="price pure-u-1-2">
+                            <b>12期0利息</b>
+                        </span>
+                        <div class="price pure-u-1">
+                            <em>(节省利息约￥<span ng-bind="mainColor.monthlyPrice * 0.06 | number : 0"></span>)</em>
+                        </div>
+                    </div>
+                    <div class="pure-g" ng-if="derate > 0 && isjm == 1">
+                        <span class="lb pure-u-1-2">
+                            <span style="display: inline-block;margin-bottom:0.05rem;color:#fff;background: #d83e14;padding-left: 0.1rem;padding-right: 0.1rem;">优惠券</span>
+                        </span>
+                        <span class="price pure-u-1-2">
+                            <span><em>-￥</em><em ng-bind="derate | numberUp | number:0"></em></span>
+                        </span>
+                    </div>
+                    <div class="pure-g">
+                        <span class="lb pure-u-1-2">实际分期金额</span>
+                        <span class="price pure-u-1-2"><b>￥</b><b
+                                ng-bind="mainColor.monthlyPrice - derate | number:0"></b></span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!--<div class="right-nav" ng-click="showFudai()">
+            <div class="img-box">
+                <img src="/images/active/11.png">
+            </div>
+        </div>-->
+
+        <div id="spcNav" class="footer-nav nav-list">
+            <div class="pure-g">
+                <div class="nav-price nav-item pure-u-3-5">
+                    <div ng-if="payType == 0">
+                        <em style="font-size: 0.16rem">实付款：￥</em><em
+                            ng-bind="mainColor.salePrice * phone.discountRate - derate | numberUp | number:0"></em>
+                    </div>
+                    <div ng-if="payType == 1">
+                        <em style="font-size: 0.16rem">预付款：￥</em><em>30</em>
+                    </div>
+                    <div ng-if="payType == 2">
+                        <em style="font-size: 0.16rem">月供：￥</em><em
+                            ng-bind="(mainColor.monthlyPrice - derate)/12 | numberUp | number : 0"></em><em
+                            style="font-size: 0.16rem"> X 12期</em>
+                    </div>
+                </div>
+                <div class="nav-button nav-item pure-u-2-5">
+                    <a id="footerPayButton" has-hash="false" href="javascript:userTrack('submitForm');"
+                       ng-class="{true:'disabled',false:''}[phone.ifSellOut == 0]" ng-click="submitForm($event);">
+                        <span ng-if="phone.ifSellOut == 0">已抢光</span>
+                        <span ng-if="phone.ifSellOut > 0">
+                            <span ng-if="payType == 1">我要货到</span>
+                            <span ng-if="payType != 1">提交订单</span>
+                        </span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <div class="ios-mask weui-mask" id="iosMask" style="opacity: 1;display: none"
+                 ng-click="hideActionsheet('#iosActionsheet')"></div>
+            <div class="about-yfq weui-actionsheet" id="iosActionsheet">
+                <div class="weui-media-box weui-media-box_appmsg">
+                    <div class="weui-media-box__hd">
+                        <img class="weui-media-box__thumb" src="/images/lj/C/logo.png" alt="">
+                    </div>
+                    <div class="weui-media-box__bd">
+                        <h4 class="weui-media-box__title" style="font-size: 0.16rem">365手机商城<span
+                                ng-click="hideActionsheet('#iosActionsheet')"
+                                class="js-action-sheet-hide icon-cross right"></span></h4>
+                        <p class="weui-media-box__desc" style="color: #999">一台手机也是批发价的手机商城</p>
+                    </div>
+                </div>
+                <div class="weui-actionsheet__action">
+                    <div class="weui-tab" style="margin-top: 0">
+                        <div class="weui-navbar">
+                            <div class="weui-navbar__item weui-bar__item_on" ng-click="writebdLogByValue('jbxx')">
+                                <span class="navbaricon"></span>
+                                基本信息
+                            </div>
+                            <div class="weui-navbar__item" ng-click="writebdLogByValue('gsjj')">
+                                <span class="navbaricon"></span>
+                                公司简介
+                            </div>
+                            <!--<div class="weui-navbar__item" ng-click="writebdLogByValue('dxsq')">
+                                <span class="navbaricon"></span>
+                                电信授权
+                            </div>-->
+                            <div class="weui-navbar__item" ng-click="writebdLogByValue('bdrz')">
+                                <span class="navbaricon"></span>
+                                百度认证
+                            </div>
+                        </div>
+                        <div class="weui-tab__panel">
+                            <div class="weui-tab__item weui-tab__item_on">
+                                <div class="img-box" style="width: 40%;margin-left: 30%;margin-top: 0.2rem">
+                                    <img src="/images/active/d/new/qrcode.png">
+                                </div>
+                                <p style="color: #999;margin-top: 0.05rem;margin-bottom: 0.1rem; text-align: center">
+                                    (长按保存图片)</p>
+                                <p style="text-align: center;font-size: 0.15rem">关注公众号"翼分期商城"，获取电信手机及<br>周边产品优惠活动，海量手机、号码套餐等产品<br>任您挑选
+                                </p>
+                                <p style="font-size: 0.15rem;text-align: center;margin-top: 0.2rem;margin-bottom: 0.05rem">
+                                    电话号码：020-8599918</p>
+                                <p style="font-size: 0.15rem;text-align: center">地址：广州市天河区黄埔大道西53号</p>
+                                <p style="font-size: 0.15rem;text-align: center;margin-bottom: 0.3rem">恒城大厦B座3007</p>
+                            </div>
+                            <div class="weui-tab__item">
+                                <h2 style="font-size: 0.16rem;margin-right: 0.15rem;margin-left: 0.15rem;margin-top: 0.15rem;margin-bottom: 0.15rem">
+                                    关于翼分期</h2>
+                                <p style="font-size: 0.15rem;margin-top: 0.15rem;margin-bottom: 0.15rem;margin-right: 0.15rem;margin-left: 0.15rem">
+                                    翼分期商城隶属于广州传飞通讯设备有限公司，成立于2013年4月。总部坐落于华南电子商务中心。是获得中国电信股份有限公司广东省公司独家授权的手机分期平台。是国内首家提供3c类产品“0利息0手续费”分期支付服务的分期商城。</p>
+                                <p style="font-size: 0.15rem;margin-top: 0.15rem;margin-bottom: 0.15rem;margin-right: 0.15rem;margin-left: 0.15rem">
+                                    相较于同类分期商城，翼分期拥有更为严格的产品采购体系。极具竞争力的价格以及完善的配送售后服务，上线至今赢得客户一致好评与信赖。</p>
+                                <p style="font-size: 0.15rem;margin-top: 0.15rem;margin-bottom: 0.35rem;margin-right: 0.15rem;margin-left: 0.15rem">
+                                    翼分期目前已与中国银行、中国工商银行，招商银行，建设银行、农业银行、广发银行18家银行建立深度合作关系。</p>
+                            </div>
+                            <!--<div class="weui-tab__item">
+                                <div class="img-box">
+                                    <img src="/images/active/d/new/tab3.jpg">
+                                </div>
+                            </div>-->
+                            <div class="weui-tab__item">
+                                <div class="img-box">
+                                    <img src="/images/active/d/new/tab4.jpg">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <div class="ios-mask weui-mask" style="opacity: 1;display: none"
+                 ng-click="hideActionsheet('#productSelector')"></div>
+            <div class="about-yfq weui-actionsheet" id="productSelector">
+                <div class="weui-media-box weui-media-box_appmsg">
+                    <div class="weui-media-box__hd">
+                        <img class="weui-media-box__thumb" style="display: none"
+                             src="http://www.yfq.cn:8899/fileserver/medias/{{mainColor.mediaUrl}}" alt="">
+                    </div>
+                    <div class="weui-media-box__bd">
+                        <h4 class="weui-media-box__title" style="font-size: 0.16rem"><em>￥</em><em ng-if="payType == 0"
+                                                                                                   ng-bind="mainColor.salePrice * phone.discountRate | numberUp | number : 0"></em><em
+                                ng-if="payType == 1" ng-bind="mainColor.salePrice | number : 0"></em><em
+                                ng-if="payType == 2" ng-bind="mainColor.monthlyPrice/12 | numberUp | number : 0"></em>
+                            <em ng-if="payType == 2" style="font-size: 0.12rem">x12期</em><span
+                                    ng-click="hideActionsheet('#productSelector')"
+                                    class="js-action-sheet-hide icon-cross right"></span> <del style="font-size: 0.14rem; color:#999; font-weight: normal; margin-left: 0.05rem" ng-repeat="channelPrice in mainColor.channelPrice" ng-if="channelPrice.source == 'jd'"><span>某东价：￥</span><span ng-bind="channelPrice.dayPrice"></span></del></h4>
+                        <p class="weui-media-box__desc">已选：<span ng-bind="mainColor.name"></span>；全网通(<span
+                                ng-bind="phone.phoneTypes[0].productMemory"></span>)；<span
+                                ng-if="payType==0">马上支付</span><span ng-if="payType==1">货到付款</span><span
+                                ng-if="payType==2">分期付款</span></p>
+                    </div>
+                </div>
+
+                <div id="phoneColors" style="margin-top: 0">
+                    <main-colors-lj title="颜色" ng-if="phone"></main-colors-lj>
+                </div>
+
+                <div id="phoneFlash" style="background: #fff;margin-top: 0;padding-top: 0.1rem;padding-bottom: 0.15rem">
+                    <div class="weui-cells__title title-icon">
+                        <span class="title">规格</span>
+                        <span class="star-color">*</span>
+                    </div>
+                    <div class="flash-panel pd-w">
+                        <ul class="item-lists minus pure-g">
+                            <li class="list-item pure-u-1-2"
+                                ng-repeat="memory in phone.memoryProducts | orderBy : 'flash'">
+                                <div class="item-box margin border radius small ng-scope"
+                                     ng-class="{'curr':memory.productId == phone.activityproductId && memory.stock != 0,'disabled':memory.stock == 0}"
+                                     ng-click="setFlashDriver($event,memory)">
+                                    <p>全网通(<span ng-bind="memory.flash"></span>GB)</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="weui-actionsheet__menu">
+                    <a-pay-type title="支付方式"></a-pay-type>
+                </div>
+                <p style="color: #999;background: #fff;padding-left: 0.15rem;padding-right: 0.15rem">
+                    部分颜色会出现缺货，未能及时更新，请谅解。</p>
+                <div class="select-button weui-actionsheet__action">
+                    <a style="font-size: 0.18rem" has-hash="false" href="javascript:userTrack('YES I DO');"
+                       ng-class="{true:'disabled',false:''}[phone.ifSellOut == 0]"
+                       ng-click="makeSelected($event,'#productSelector')" class="weui-actionsheet__cell">
+                        <span ng-if="phone.ifSellOut == 0">已抢光</span>
+                        <span ng-if="phone.ifSellOut > 0">确认</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

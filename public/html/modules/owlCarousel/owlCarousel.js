@@ -2,7 +2,7 @@
 
 app.directive("owlCarousel", ['$http', '$compile', function ($http, $compile) {
     return {
-        restrict: 'C',
+        restrict: 'EA',
         templateUrl: "modules/owlCarousel/owlCarousel.html",
         scope: {
             imgUrls: '='
@@ -13,7 +13,7 @@ app.directive("owlCarousel", ['$http', '$compile', function ($http, $compile) {
     };
 }]).directive("carouselItem", ['$http', '$compile', function ($http, $compile) {
     return {
-        restrict: 'C',
+        restrict: 'EA',
         link: function (scope, element, attrs) {
             if (scope.$last) {
                 $(element).parent().owlCarousel({
@@ -21,7 +21,8 @@ app.directive("owlCarousel", ['$http', '$compile', function ($http, $compile) {
                     slideSpeed: 300,
                     paginationSpeed: 400,
                     singleItem: true,
-                    autoPlay: 3000
+                    autoPlay: 3000,
+                    items:1
                 });
             }
         }
