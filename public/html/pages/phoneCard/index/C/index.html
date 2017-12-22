@@ -1,6 +1,6 @@
 <div class="page ci-a ci-c">
     <!-- cia card-index-pageType -->
-    <top-nav page-title="首页" page-back="menu" nav-visibility="hide"></top-nav>
+    <top-nav page-title="365领流量" page-back="menu" nav-visibility="hide"></top-nav>
     <form id="checkoutForm" name="checkoutForm" action="http://sell.yfq.cn/order/submitOrderDouble.ht" method="post"
           novalidate>
         <input type="hidden" value="1" name="monthNumber" id="monthNumber">
@@ -17,13 +17,19 @@
         <redirect-url></redirect-url>
         <div class="content-scrollable has-footer">
             <div class="img-box">
-                <img src="/images/phoneCard/C/1.gif">
+                <img src="/images/phoneCard/C/1.gif?a">
             </div>
             <div class="img-box">
-                <img src="/images/phoneCard/C/2.jpg">
+                <img src="/images/phoneCard/C/2.jpg?a">
             </div>
             <div class="img-box">
-                <img src="/images/phoneCard/C/3.gif">
+                <img src="/images/phoneCard/C/3.gif?a">
+            </div>
+            <div ng-click="showTip()" class="img-box">
+                <img src="/images/phoneCard/C/4.gif?a">
+            </div>
+            <div class="img-box">
+                <img src="/images/phoneCard/C/5.gif?b">
             </div>
             <div class="order-content">
                 <div class="content-hd">
@@ -32,7 +38,7 @@
                 <div class="content-bd">
                     <div class="content-bd-box">
                         <main-number title="选择电话号码(号码归属地为广州)" no-animate="true"></main-number>
-                        <adr no-animate="true"></adr>
+                        <adr no-animate="true" hide-active-code="true"></adr>
                         <!--<div class="submit-form">
                             <p style="font-size:.14rem;color:#edd00d;text-align: center;margin-bottom:.1rem;">
                                 *本活动仅限18岁以上用户参与</p>
@@ -83,7 +89,7 @@
         <div id="spcNav" class="footer-nav nav-list" style="padding-left: 0;z-index: 999">
             <div class="pure-g">
                 <div class="nav-price nav-item pure-u-3-5">
-                    <em style="font-size: 0.16rem">预存：￥</em><em>200</em>
+                    <em style="font-size: 0.16rem">预存：￥</em><em>300</em>
                 </div>
                 <div class="nav-button nav-item pure-u-2-5">
                     <a id="footerPayButton" has-hash="false" href="javascript:userTrack('submitForm');"

@@ -19,11 +19,25 @@ app.config(['$stateProvider', '$locationProvider', function($stateProvider, $loc
 
     $scope.pageType = $stateParams.pageType;
 
-    $scope.activeTag = "mysytcb";
-    $scope.appType = systemName + "_" + $scope.pageType + "_c";
+    $scope.activeTag = "mobileCard";
+    $scope.appType = systemName + "_199_detail_" + $scope.pageType;
     $scope.category = $scope.appType;
     $scope.second = 5;
+
     writebdLog($scope.category, "_Load", "渠道号", $scope.gh);
+
+
+    $scope.$root.share = {
+        homeLink: 'http://app.yfq.cn/activity/199',
+        shareTitle: '剧无霸流量王，流量随便花！',
+        shareDisc: '无限流量，上不封顶。3000分钟，打遍全国。4G网速，最求极速。',
+        picUrl: 'http://app.yfq.cn/images/phoneCard/C/nativeShare.jpg',
+        mobile: '',
+        pid: '10000095979791',
+        gh: $scope.gh,
+        category: $scope.category,
+        url: window.location.href
+    };
 
     $scope.setPkg = function(event, pkgId) {
         $scope.pkgId = pkgId;
@@ -33,6 +47,10 @@ app.config(['$stateProvider', '$locationProvider', function($stateProvider, $loc
             scrollTop: $scrollTo.offset().top - $container.offset().top + $container.scrollTop()
         });
         writebdLog($scope.category, "_SelectPackage" + pkgId, "渠道号", $scope.gh);
+    };
+
+    $scope.showTip = function () {
+        $scope.dialog.open("抵金券使用说明", "<p>1、30元存入中国电信翼支付APP。</p><p>2、自发放起生效，有效期60天。</p><p>3、抵金券受理24小时内到帐，将会短信通知用户。</p>");
     };
     
     $scope.userTrack = function(name) {
@@ -53,7 +71,6 @@ app.config(['$stateProvider', '$locationProvider', function($stateProvider, $loc
 
 
     $scope.submitForm = function() {
-        console.log('submit');
         $scope.toast.open();
         if (!$scope.checkMainNumber()) {
             $scope.toast.close();
@@ -61,12 +78,22 @@ app.config(['$stateProvider', '$locationProvider', function($stateProvider, $loc
         }
         if (!$scope.checkAddress()) {
             $scope.toast.close();
+            var $scrollTo = $('#receiverAddress');
+            $container.animate({
+                scrollTop: $scrollTo.offset().top - $container.offset().top + $container.scrollTop() - 50
+            });
             return false;
         }
-        if (!$scope.checkActiveCode()) {
+        /*if (!$scope.checkActiveCode()) {
             $scope.toast.close();
+            var $scrollTo = $('#receiverAddress');
+            $container.animate({
+                scrollTop: $scrollTo.offset().top - $container.offset().top + $container.scrollTop() - 50
+            });
             return false;
-        }
+        }*/
+
+        writebdLog($scope.category, "_BuyNow", "渠道号", $scope.gh); //免费领卡
 
         $("#checkoutForm").submit();
 
@@ -99,8 +126,6 @@ app.config(['$stateProvider', '$locationProvider', function($stateProvider, $loc
             console.log(status);
             //deferred.reject(status)
         });*/
-
-        writebdLog($scope.category, "_BuyNow", "渠道号", $scope.gh); //免费领卡
     };
 
     $(".fqa-more").click(function() {

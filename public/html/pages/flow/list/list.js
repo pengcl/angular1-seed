@@ -9,7 +9,7 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
             templateUrl: "pages/flow/list/list.html",
             controller: "flowListController"
         });
-}]).controller('flowListController', ['$scope', '$stateParams', '$filter', '$location', '$cookieStore', 'MarketSvc', 'CouponSvc', function ($scope, $stateParams, $filter, $location, $cookieStore, MarketSvc, CouponSvc) {
+}]).controller('flowListController', ['$scope', '$stateParams', '$filter', '$location', '$cookieStore', '$timeout', 'MarketSvc', 'CouponSvc', function ($scope, $stateParams, $filter, $location, $cookieStore, $timeout, MarketSvc, CouponSvc) {
 
     $scope.category = systemName + "_flowBag_A_list";
     writebdLog($scope.category, "_Load", "渠道号", $scope.gh);
@@ -363,6 +363,7 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
 
     $scope.$watch('mobileView', function (n, o, $scope) {
         if (n) {
+            $scope.isSubmit = false;
             var value = n;
             value = value.replace(/\s*/g, "");
             var result = [];
@@ -388,11 +389,14 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
         $scope.flowCouponLength = 0;
         $scope.feeCouponLength = 0;
 
-        if (n !== undefined && n.length == 11) {
-            $scope.mobileValid = $scope.mobile;
-        } else {
-            $scope.mobileValid = false;
-        }
+        $timeout(function () {
+            if (n !== undefined && n.length == 11 && $scope.salesForm.mobile.$valid) {
+                $scope.mobileValid = $scope.mobile;
+            } else {
+                $scope.mobileValid = false;
+            }
+        });
+
     });
 }]);
 

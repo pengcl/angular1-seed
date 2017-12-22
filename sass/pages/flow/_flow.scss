@@ -79,6 +79,25 @@
   }
 }
 
+.page.flow30 {
+  .content-scrollable {
+    background-image: url("/images/30/30.jpg?a=1");
+    background-size: 100% 100%;
+    .nlogo {
+      width: 30%;
+      margin: 0.1rem;
+    }
+    .title {
+      width: 70%;
+      margin: 0.3rem auto 0.1rem;
+    }
+    .red-bag {
+      width: 100%;
+      margin-top: -0.3rem;
+    }
+  }
+}
+
 .page.market {
   .owl-carousel {
     padding-bottom: 0;

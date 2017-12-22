@@ -6,56 +6,51 @@
                 <img class="active" src="http://app.yfq.cn/images/flow/icon-cz-active.png">
             </i>
         </span>
-        <p class="weui-tabbar__label">充值</p>
+        <p class="weui-tabbar__label">手机充值</p>
     </a>
-    <a href="/" class="mall weui-tabbar__item" ng-class="{true:'weui-bar__item_on',false:''}[pageActive === 'mall']" ng-click="writeClick('NavMall');">
+    <a href="http://home.yfq.cn/member/index.ht#/login?path=couponHome" class="weui-tabbar__item" ng-class="{true:'weui-bar__item_on',false:''}[pageActive === 'member']" ng-click="writeClick('NavMember');">
+        <span style="display: inline-block;position: relative;">
+            <i class="weui-tabbar__icon">
+                <img class="normal" src="http://app.yfq.cn/images/flow/icon-coupon-normal.png">
+                <img class="active" src="http://app.yfq.cn/images/flow/icon-coupon-active.png">
+            </i>
+        </span>
+        <p class="weui-tabbar__label">充值代金券</p>
+    </a>
+    <a href="https://kdt.im/fBSu5h" class="weui-tabbar__item" ng-class="{true:'weui-bar__item_on',false:''}[pageActive === 'mall']" ng-click="writeClick('NavMall');">
         <span style="display: inline-block;position: relative;">
             <i class="weui-tabbar__icon">
                 <img class="normal" src="http://app.yfq.cn/images/flow/icon-mall-normal.png">
                 <img class="active" src="http://app.yfq.cn/images/flow/icon-mall-active.png">
             </i>
         </span>
-        <p class="weui-tabbar__label">商城</p>
-    </a>
-    <a href="http://home.yfq.cn/member/index.ht" class="weui-tabbar__item" ng-class="{true:'weui-bar__item_on',false:''}[pageActive === 'member']" ng-click="writeClick('NavMember');">
-        <span style="display: inline-block;position: relative;">
-            <i class="weui-tabbar__icon">
-                <img class="normal" src="http://app.yfq.cn/images/flow/icon-ps-normal.png">
-                <img class="active" src="http://app.yfq.cn/images/flow/icon-ps-active.png">
-            </i>
-        </span>
-        <p class="weui-tabbar__label">个人</p>
+        <p class="weui-tabbar__label">手机批发价</p>
     </a>
 </div>
 
 <div class="weui-tabbar flow-365" ng-show="appType === '365flow'">
-    <a ui-sref="ljIndexBPhones" class="weui-tabbar__item" ui-sref-active="weui-bar__item_on">
+    <a href="https://kdt.im/fBSu5h" class="weui-tabbar__item" ui-sref-active="weui-bar__item_on">
     <span style="display: inline-block;position: relative;">
         <img src="/images/lj/mall.png" alt="" class="weui-tabbar__icon">
         <img src="/images/lj/mall_curr.png" alt="" class="curr weui-tabbar__icon">
     </span>
-        <p class="weui-tabbar__label">商城</p>
+        <p class="weui-tabbar__label">手机批发网</p>
     </a>
-    <a href="http://app.ljker.com/activity/sign" class="weui-tabbar__item" ui-sref-active="weui-bar__item_on">
-        <img src="/images/lj/sign.png" alt="" class="weui-tabbar__icon">
-        <img src="/images/lj/sign_curr.png" alt="" class="curr weui-tabbar__icon">
-        <p class="weui-tabbar__label">签到</p>
-    </a>
-    <a href="http://app.ljker.com/activity/follow" class="weui-tabbar__item" ui-sref-active="weui-bar__item_on">
+    <a href="http://app.danius.cn/activity/follow" class="weui-tabbar__item" ui-sref-active="weui-bar__item_on">
     <span style="display: inline-block;position: relative;">
         <img src="/images/lj/turntable.png" alt="" class="weui-tabbar__icon">
         <img src="/images/lj/turntable_curr.png" alt="" class="curr weui-tabbar__icon">
     </span>
-        <p class="weui-tabbar__label">抽奖</p>
+        <p class="weui-tabbar__label">流量转盘</p>
     </a>
-    <a href="http://app.ljker.com/activity/recharge" class="weui-tabbar__item" ui-sref-active="weui-bar__item_on">
+    <a href="http://app.danius.cn/activity/recharge" class="weui-tabbar__item" ui-sref-active="weui-bar__item_on">
         <img src="/images/lj/recharge.png" alt="" class="weui-tabbar__icon">
         <img src="/images/lj/recharge_curr.png" alt="" class="curr weui-tabbar__icon">
-        <p class="weui-tabbar__label">充值</p>
+        <p class="weui-tabbar__label">特惠充值</p>
     </a>
-    <a href="http://app.ljker.com/member/home" class="weui-tabbar__item" ui-sref-active="weui-bar__item_on">
+    <a href="http://app.danius.cn/member/home" class="weui-tabbar__item" ui-sref-active="weui-bar__item_on">
         <img src="/images/lj/me.png" alt="" class="weui-tabbar__icon">
         <img src="/images/lj/me_curr.png" alt="" class="curr weui-tabbar__icon">
-        <p class="weui-tabbar__label">我的</p>
+        <p class="weui-tabbar__label">个人中心</p>
     </a>
 </div>

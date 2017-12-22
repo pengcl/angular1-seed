@@ -405,7 +405,7 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
         if (n !== undefined) {
             $scope.couponVos = [];
             $scope.derate = 0;
-            $http.jsonp('http://m.ljker.com/member/findOpenId.ht?mobile=' + n + '&callback=JSON_CALLBACK').success(function (data) {
+            $http.jsonp('http://m.danius.cn/member/findOpenId.ht?mobile=' + n + '&callback=JSON_CALLBACK').success(function (data) {
                 if (data) {
                     $http.jsonp("http://sell.yfq.cn/product/getProDetial.ht?productId=" + $scope.productId + "&mobile=" + n + "&activeTag=ljzma&s=wap&callback=JSON_CALLBACK").success(function (data, status, headers, config) {
                         $scope.couponVos = data.couponVos;

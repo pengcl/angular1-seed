@@ -252,9 +252,8 @@ body {
 .owl-carousel {
   font-size: 0;
   background: #eaeaea;
-  padding-bottom: 0.3rem;
 }
-/* line 5, ../../sass/modules/_owlCarousel.scss */
+/* line 4, ../../sass/modules/_owlCarousel.scss */
 .owl-carousel .owl-controls {
   position: absolute;
   bottom: 0.1rem;
@@ -262,18 +261,32 @@ body {
   width: 100%;
   text-align: center;
 }
-/* line 11, ../../sass/modules/_owlCarousel.scss */
+/* line 10, ../../sass/modules/_owlCarousel.scss */
 .owl-carousel .owl-controls .owl-buttons {
   display: none;
 }
-/* line 15, ../../sass/modules/_owlCarousel.scss */
+/* line 14, ../../sass/modules/_owlCarousel.scss */
 .owl-carousel .owl-controls .owl-page span {
   width: 0.08rem;
   height: 0.08rem;
   margin: 0.05rem;
 }
+/* line 21, ../../sass/modules/_owlCarousel.scss */
+.owl-carousel .owl-dots {
+  position: absolute;
+  bottom: 0.1rem;
+  z-index: 1;
+  width: 100%;
+  text-align: center;
+}
+/* line 28, ../../sass/modules/_owlCarousel.scss */
+.owl-carousel .owl-dots .owl-dot span {
+  width: 0.08rem;
+  height: 0.08rem;
+  margin: 0.05rem;
+}
 
-/* line 25, ../../sass/modules/_owlCarousel.scss */
+/* line 38, ../../sass/modules/_owlCarousel.scss */
 .carousel-item img, .owl-item img {
   display: block;
   width: 100%;

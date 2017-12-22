@@ -1,5 +1,5 @@
 <div class="page market flow list">
-    <top-nav page-back="logo" page-title="手机充值" home-url="" group-token="8ba3446475970c6af51f22c9a7bb4fb4" page-done="share"></top-nav>
+    <top-nav page-back="logo" home-url="https://kdt.im/fBSu5h" page-title="手机充值" home-url="" group-token="8ba3446475970c6af51f22c9a7bb4fb4"></top-nav>
     <gh></gh>
     <activity></activity>
     <!--<app-nav nav-item='{"menu":false,"back":true,"share":false,"comment":true,"class":"","title":"充值"}'></app-nav>-->
@@ -14,7 +14,9 @@
                 <div class="weui-cell" style="padding-bottom: 0;padding-top: 0.15rem">
                     <div class="weui-cell__bd">
                         <input id="mobile" ng-model="mobile" name="mobile" ng-blur="inputMobile(mobile)"
-                               ng-pattern="/^[0-9]*$/" pattern="[0-9]*" ng-minlength="11" ng-maxlength="11"
+                               ng-pattern="/^(((13[0-9]{1})|(15[0-9]{1})|(17[0-9]{1})|(18[0-9]{1}))+\d{8})$/"
+                               pattern="/^(((13[0-9]{1})|(15[0-9]{1})|(17[0-9]{1})|(18[0-9]{1}))+\d{8})$/"
+                               ng-minlength="11" ng-maxlength="11"
                                class="weui-input"
                                placeholder="请输入需要充值的手机号码" type="hidden" required/>
 
@@ -23,14 +25,8 @@
                                ng-pattern="/^[0-9 ]*$/" pattern="[0-9 ]*"
                                ng-blur="inputMobile(mobile)"
                                class="weui-input"
-                               placeholder="支持移动/电信/联通号码" required/>
+                               placeholder="请在此输入手机号码" required/>
 
-                        <!--<input class="mobile" ng-model="mobileView"
-                               name="mobileView" ng-focus="mobileClass"
-                               ng-pattern="/^[0-9 ]*$/" pattern="[0-9 ]*"
-                               ng-blur="inputMobile(mobile)"
-                               class="weui-input"
-                               placeholder="支持移动/电信/联通号码" required/>-->
                     </div>
                     <div class="weui-cell__ft">
                         <span ng-bind="flowList.area_operator"></span>
@@ -39,7 +35,7 @@
                 <div class="weui-cell">
                     <div class="weui-cell__bd">
                         <span style="display: block;height: 0.12rem;line-height: 0.12rem;font-size: 0.12rem">
-                            <span ng-if="!salesForm.mobile.$valid && !salesForm.mobileView.$pristine">请输入11位正确手机号码</span>
+                            <span ng-if="(mobile.length == 11 && !mobileValid) || (isSubmit && !mobileValid)">请输入11位正确手机号码</span>
                         </span>
                     </div>
                 </div>
@@ -50,7 +46,7 @@
                     <div class="pure-u-1-2">
                         <div ng-class="{true:'curr',false:''}[productType === 'flow']" ng-click="setProductType('flow')"
                              class="tab-item">
-                            流量限时特惠
+                            流量特惠<span class="weui-badge" style="background: #ff5635;margin-left: 5px;">买一送一</span>
                         </div>
                     </div>
                     <div class="pure-u-1-2">
@@ -69,14 +65,14 @@
 
                 <div class="item-lists pure-g pdw">
                     <div class="list-item pure-u-1-3" ng-repeat="item in flowList.data | limitTo : flowLimitTo"
-                         ng-class="{true:'',false:'disabled'}[item.stock]">
+                         ng-show="item.stock && item.sortNo >= 30">
                         <div class="item-box" ng-click="selectedFlowProd(item.stock,item,true,$event);"
                              ng-class="{true:'active',false:''}[item === flowProduct]">
                             <div class="title" ng-bind="item.productName"></div>
                             <div class="disc"><span ng-bind="item.regionProducts | flowSalesPrice | number : 2"></span>元
                             </div>
                             <ins class="hot" ng-if="item.ifHot == 1"><img style="display: block;width: 0.3rem" src="/images/flow/hot.png"></ins>
-                            <span class="flag" ng-if="item.sortNo >= 100 && couponList.length > 0 && item.ifHot != 1">优惠</span>
+                            <!--<span class="flag" ng-if="item.sortNo >= 100 && couponList.length > 0 && item.ifHot != 1">优惠</span>-->
                         </div>
                     </div>
                     <div class="list-item pure-u-1-3">
@@ -115,7 +111,7 @@
                 </div>
 
                 <p style="font-size: 0.12rem;padding-left: 0.15rem;margin-top: 0.1rem">
-                    <span ng-click="appDialog.open('优惠券使用说明','<p>1、充值流量包即可获得支付金额同等金额的优惠券（按实际支付金额向下取整，单笔最多获得30元优惠券，优惠券抵扣的部分不参与）</p><p>2、优惠券可用于下次充值，适用于话费及流量，请在有效期内使用。</p>')" class="disc-content"
+                    <span ng-click="appDialog.open('优惠券使用说明','<p> 1、充值流量包即可获得相同价值的优惠券（按实际支付金额赠送，只取整数）</p><p>2、单次充值最多可获赠30元优惠券。</p><p>3、优惠券可在下次充值时抵扣支付金额。</p><p>4、流量及话费充值均可使用，请在有效期内使用。</p>')" class="disc-content"
                           style="margin-right: 20px;cursor: pointer">
                         <img src="/images/flow/icon-coupon.png"
                              style="height:0.14rem;width:auto;display: inline-block;vertical-align: middle">
@@ -215,7 +211,7 @@
                 </div>-->
 
                 <p style="font-size: 0.12rem;padding-left: 0.15rem;margin-top: 0.1rem" ng-if="regionFeeProduct.costPrice >= 50">
-                    <span ng-click="appDialog.open('优惠券使用说明','<p>1、话费充值面值50元送5元优惠券，面额100元送10元优惠券，多充多送（最多30元）</p><p>2、优惠券可用于下次充值，适用于话费及流量，请在有效期内使用。</p>')" class="disc-content"
+                    <span ng-click="appDialog.open('优惠券使用说明','<p> 1、充值流量包即可获得相同价值的优惠券（按实际支付金额赠送，只取整数）</p><p>2、单次充值最多可获赠30元优惠券。</p><p>3、优惠券可在下次充值时抵扣支付金额。</p><p>4、流量及话费充值均可使用，请在有效期内使用。</p>')" class="disc-content"
                           style="margin-right: 20px;cursor: pointer">
                         <img src="/images/flow/icon-coupon.png"
                              style="height:0.14rem;width:auto;display: inline-block;vertical-align: middle">
