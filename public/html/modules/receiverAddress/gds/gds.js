@@ -88,7 +88,7 @@ app.directive("gds", ["$compile", "$cookieStore", '$http', '$interval', function
                     return false;
                 }
                 scope.toast.open();
-                $http.get("http://app.yfq.cn:3099/api/getActiveCodeF/" + phoneNumber).success(function (data) {
+                $http.get("http://app.yfq.cn:3099/api/getActiveCodeS/" + phoneNumber).success(function (data) {
                     scope.toast.close();
                     if (data == "") {
                         timePromise = $interval(function () {

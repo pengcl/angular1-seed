@@ -1,7 +1,7 @@
 <div class="page fd-details in v3 v4 v5">
     <top-nav page-title="中国电信●翼分期商城" home-url="/fd/v5/430" page-back="menu" nav-visibility="hide" page-done="contact"></top-nav>
     <form id="checkoutForm" name="checkoutForm"
-          action="http://m.yfq.cn/wap/taokafanghaoNew/submitOrderDouble.html"
+          action="http://test.yfq.cn/order/submitOrderDouble.ht"
           method="post" novalidate>
         <input type="hidden" value="1" name="mainMonthNumber" id="mainMonthNumber">
         <input type="hidden" value="{{product.activityproductId}}" ng-model="product.activityproductId" name="machineId"
@@ -44,7 +44,7 @@
                 <div class="img-box" style="position: absolute;top: -0.3rem;width: 70%;left: 50%;margin-left: -35%">
                     <img src="/images/flow/flowcard/v4/0-tit.png"/>
                 </div>
-                <div id="flowPackage" class="flow-package">
+                <!--<div id="flowPackage" class="flow-package">
                     <input type="hidden" name="productId" id="productId" ng-model="packageItem.productId"
                            value="{{packageItem.productId}}" required>
                     <div class="weui-cells__title title-icon">
@@ -62,11 +62,11 @@
                                     </p>
                                     <ins class="icon-check"></ins>
                                 </div>
-                                <!-- <p class="tips" style="font-size: 0.14rem">注：4G流量卡由系统随机分配</p> -->
+                                &lt;!&ndash; <p class="tips" style="font-size: 0.14rem">注：4G流量卡由系统随机分配</p> &ndash;&gt;
                             </li>
                         </ul>
                     </div>
-                </div>
+                </div>-->
 
 
                 <!-- <div ng-show="!autoSelect"> -->
@@ -137,9 +137,9 @@
                     <div class="pay-container pd-w">
                         <div class="pay-content">
                             <div class="pure-g">
-                                <span class="lb pure-u-2-3" ng-bind="product.packageProductList[0].productName"></span>
+                                <span class="lb pure-u-2-3" ng-bind="product.productName"></span>
                                 <span class="price pure-u-1-3">
-                                <em>￥</em><em ng-bind="product.packageProductList[0].salesPrice | number:0"></em> <sub>x1</sub>
+                                <em>￥</em><em ng-bind="product.salePrice | number:0"></em> <sub>x1</sub>
                             </span>
                             </div>
                             <div class="pure-g" ng-repeat="item in mifis" ng-if="item.selected">
@@ -168,7 +168,7 @@
                 </div>
 
 
-                <receiver-address title="“收货地址”"></receiver-address>
+                <adr title="“收货地址”"></adr>
 
                 <div class="buy-group">
                     <a class="buy-group-btn" href="javascript:;" ng-click="submitForm($event,'BuyNowOne');">

@@ -72,7 +72,7 @@ app.directive("nativeShare", ['$cookieStore', '$http', '$location', function ($c
             var a = UA.toLowerCase();
             var shareUrl = $location.absUrl().split("#")[0].replace(/&/gi, "AND");
             if (a.match(/MicroMessenger/i) == "micromessenger") {
-                $http.jsonp(cfApi.apiHost + "/product/getWxParameter.html?shareUrl=" + shareUrl + "&s=wap&callback=JSON_CALLBACK").success(function (data, status, headers, config) {
+                $http.jsonp(cfApi.apiHost + "/product/getWxParameter.ht?shareUrl=" + shareUrl + "&s=wap&callback=JSON_CALLBACK").success(function (data, status, headers, config) {
                     wx.config({
                         debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
                         appId: data[0].appId, // 必填，公众号的唯一标识

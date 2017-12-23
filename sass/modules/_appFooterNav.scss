@@ -1,3 +1,25 @@
+.flow-365 {
+  .weui-tabbar__item {
+    .weui-tabbar__label {
+      color: #0b182b;
+    }
+    .curr {
+      display: none;
+    }
+    &.weui-bar__item_on {
+      .weui-tabbar__label {
+        color: #4892ff !important;
+      }
+      .weui-tabbar__icon {
+        display: none;
+      }
+      .curr {
+        display: inline-block;
+      }
+    }
+  }
+}
+
 /*
 .weui-tabbar {
   background-color: #fafafa;

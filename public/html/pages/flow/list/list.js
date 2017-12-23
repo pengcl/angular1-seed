@@ -9,7 +9,7 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
             templateUrl: "pages/flow/list/list.html",
             controller: "flowListController"
         });
-}]).controller('flowListController', ['$scope', '$stateParams', '$filter', '$location', '$cookieStore', 'MarketSvc', 'CouponSvc', function ($scope, $stateParams, $filter, $location, $cookieStore, MarketSvc, CouponSvc) {
+}]).controller('flowListController', ['$scope', '$stateParams', '$filter', '$location', '$cookieStore', '$timeout', 'MarketSvc', 'CouponSvc', function ($scope, $stateParams, $filter, $location, $cookieStore, $timeout, MarketSvc, CouponSvc) {
 
     $scope.category = systemName + "_flowBag_A_list";
     writebdLog($scope.category, "_Load", "渠道号", $scope.gh);
@@ -92,19 +92,26 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
                 $scope.flowCouponLength = 1;
             }
 
-            if (product.flowRate >= 500 && $scope.couponList.length >= 2) {
+            if (product.flowRate > 300 && $scope.couponList.length >= 2) {
                 $scope.flowCoupons = $scope.couponList[0].couponNo + "," + $scope.couponList[1].couponNo;
                 $scope.flowCouponLength = 2;
+            }
+            if (product.flowRate >= 1000 && $scope.couponList.length >= 3) {
+                $scope.flowCoupons = $scope.couponList[0].couponNo + "," + $scope.couponList[1].couponNo + "," + $scope.couponList[2].couponNo;
+                $scope.flowCouponLength = 3;
+            }
+            if (product.flowRate >= 4000 && $scope.couponList.length >= 5) {
+                $scope.flowCoupons = $scope.couponList[0].couponNo + "," + $scope.couponList[1].couponNo + "," + $scope.couponList[2].couponNo + "," + $scope.couponList[3].couponNo + "," + $scope.couponList[4].couponNo;
+                $scope.flowCouponLength = 5;
             }
         } else {
             $scope.flowCoupons = "";
         }
 
         $scope.regionFlowProduct = product.regionProducts[0];
-        if(e)
-        {
-        	$scope.isRobot = false;
-        	writebdLog($scope.category, "_SelectPackage" + $scope.productType + product.sortNo + 'M', "渠道号", $scope.gh);
+        if (e) {
+            $scope.isRobot = false;
+            writebdLog($scope.category, "_SelectPackage" + $scope.productType + product.sortNo + 'M', "渠道号", $scope.gh);
         }
     };
 
@@ -134,10 +141,9 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
         }
 
         $scope.regionFeeProduct = product.regionProducts[0];
-        if(e)
-        {
-        	$scope.isRobot = false;
-        	writebdLog($scope.category, "_SelectPackage" + $scope.productType + product.sortNo + 'M', "渠道号", $scope.gh);
+        if (e) {
+            $scope.isRobot = false;
+            writebdLog($scope.category, "_SelectPackage" + $scope.productType + product.sortNo + 'M', "渠道号", $scope.gh);
         }
     };
 
@@ -150,12 +156,12 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
 
     $scope.flowDialog = function () {
         $scope.$root.appDialog.open('', '充值流量包，即赠送等金额（按实际金额向下取整，最多30元）的流量包/话费充值通用优惠券，可用于下次充值或转赠给朋友使用。');
-        
+
         writebdLog($scope.category, "_FlowDialog", "渠道号", $scope.gh);
     };
     $scope.feeDialog = function () {
         $scope.$root.appDialog.open('', '话费充值面值50元送5元优惠券，面额100元送10元优惠券，多充多送（最多30元），优惠券流量包/话费充值通用，可用于下次流量包充值或转赠给朋友使用。');
-        
+
         writebdLog($scope.category, "_FeeDialog", "渠道号", $scope.gh);
     };
 
@@ -184,9 +190,8 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
                     window.location.href = data.payUrl;
                     writebdLog($scope.category, "_BuyNow" + $scope.productType, "渠道号", $scope.gh);
                     //默认选中商品，点击下单时统计选择的商品
-                    if($scope.isRobot)
-                    {
-                    	writebdLog($scope.category, "_SelectPackage" + $scope.productType + product.sortNo + 'M', "渠道号", $scope.gh);
+                    if ($scope.isRobot) {
+                        writebdLog($scope.category, "_SelectPackage" + $scope.productType + product.sortNo + 'M', "渠道号", $scope.gh);
                     }
                 } else {
                     $scope.$root.appDialog.open('系统提示', data.msg);
@@ -240,8 +245,8 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
 
     $scope.taggleShow = function (target) {
         $(target).slideToggle(500);
-        
-        writebdLog($scope.category, "_" + target.replace('#',''), "渠道号", $scope.gh);
+
+        writebdLog($scope.category, "_" + target.replace('#', ''), "渠道号", $scope.gh);
     };
 
     $scope.showOverlay = function (target) {
@@ -325,7 +330,7 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
                             if (_flowIndex > 6) {
                                 $scope.selectedFlowProd(true, $scope.flowList.data[_flowIndex], false);
                             } else {
-                                if(_flowIndex !== ""){
+                                if (_flowIndex !== "") {
                                     $scope.selectedFlowProd(true, $scope.flowList.data[_flowIndex], true);
                                 }
                             }
@@ -338,7 +343,7 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
                             if (_feeIndex > 6) {
                                 $scope.selectedFeeProd(true, $scope.feeList.data[_feeIndex], false);
                             } else {
-                                if(_feeIndex !== ""){
+                                if (_feeIndex !== "") {
                                     $scope.selectedFeeProd(true, $scope.feeList.data[_feeIndex], true);
                                 }
                             }
@@ -358,6 +363,7 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
 
     $scope.$watch('mobileView', function (n, o, $scope) {
         if (n) {
+            $scope.isSubmit = false;
             var value = n;
             value = value.replace(/\s*/g, "");
             var result = [];
@@ -383,11 +389,14 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
         $scope.flowCouponLength = 0;
         $scope.feeCouponLength = 0;
 
-        if (n !== undefined && n.length == 11) {
-            $scope.mobileValid = $scope.mobile;
-        } else {
-            $scope.mobileValid = false;
-        }
+        $timeout(function () {
+            if (n !== undefined && n.length == 11 && $scope.salesForm.mobile.$valid) {
+                $scope.mobileValid = $scope.mobile;
+            } else {
+                $scope.mobileValid = false;
+            }
+        });
+
     });
 }]);
 

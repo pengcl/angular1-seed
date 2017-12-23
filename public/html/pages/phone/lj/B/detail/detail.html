@@ -16,15 +16,15 @@
         <redirect-url></redirect-url>
         <div id="scrollAnimate" class="content-scrollable has-footer">
 
-            <div class="owl-carousel" img-urls="imgUrls"></div>
+            <owl-carousel class="owl-carousel owl-theme" img-urls="imgUrls"></owl-carousel>
             <div class="price-red">
                 <div class="weui-flex">
                     <div class="weui-flex__item" style="text-align: left">
                         <div class="price placeholder">
                             <em>￥</em><em ng-if="payType == 0"
-                                          ng-bind="mainColor.salePrice * 0.95 | numberUp | number : 0"></em><em
-                                ng-if="payType == 1" ng-bind="mainColor.salePrice | number : 0"></em><em
-                                ng-if="payType == 2" ng-bind="mainColor.monthlyPrice | number : 0"></em>
+                                          ng-bind="mainColor.salePrice * phone.discountRate | numberUp | number : 0"></em><em
+                                ng-if="payType == 1" ng-bind="mainColor.salePrice * phone.discountRate | numberUp | number:0"></em><em
+                                ng-if="payType == 2" ng-bind="mainColor.monthlyPrice | numberUp | number:0"></em>
                         </div>
                         <div class="bijia placeholder" style="padding-left: 0.2rem">
                             <del ng-repeat="channelPrice in mainColor.channelPrice" ng-if="channelPrice.source == 'jd'"><span>某东价：￥</span><span ng-bind="channelPrice.dayPrice"></span></del>
@@ -44,7 +44,7 @@
             <div class="product-header">
                 <div class="product-txt">
                     <h1><span ng-bind="phone.phoneTypes[0].productName"></span></h1>
-                    <h2>全场限时特惠9.5折，最高降￥400！爆款机型12期免息<br>分期！享更多优惠，关注“翼分期商城”公众号。</h2>
+                    <h2>全场限时特惠<span ng-show="phone.discountRate < 0"><span ng-bind="phone.discountRate * 100"></span>折</span>，最高降￥400！爆款机型12期免息<br>分期！享更多优惠，关注“翼分期商城”公众号。</h2>
                 </div>
             </div>
             <div class="product-footer">
@@ -53,7 +53,7 @@
                 </div>
             </div>
 
-            <div id="coupons">
+            <div id="coupons" ng-show="phone.discountRate < 1">
                 <div class="weui-cells__title title-icon">
                     <span class="title">优惠</span><span class="star-color"></span>
                 </div>
@@ -62,7 +62,7 @@
                     <div class="weui-cells">
                         <div class="weui-cell">
                             <div class="weui-cell__hd"><span>立省</span></div>
-                            <div class="weui-cell__bd">一次性支付享95折优惠</div>
+                            <div class="weui-cell__bd">一次性支付享<span ng-bind="phone.discountRate * 100"></span>折优惠</div>
                         </div>
                     </div>
 
@@ -137,7 +137,7 @@
                             <div class="service-item">
                                 <h3><img src="/images/phones/dj/detail/serviceIcon-5.png"> 无忧退换货</h3>
                                 <p>
-                                    客户购买翼分期商品7日内（不包括话费套餐以及话费套餐卡，含7日，自客户收到商品之日起计算），在保证商品完好的前提下，可无理由退货，但翼分期商城不承担退换货的物流费用。</p>
+                                    客户购买翼分期商品7日内（不包括话费套餐及话费套餐卡，含7日，自客户收到商品之日起计算）。在保证商品完好无损坏的前提下，7天可退换货。但翼分期商城不承担退换货的物流费用。</p>
                             </div>
                         </div>
                     </div>
@@ -253,7 +253,7 @@
                                     <div class="txt-box">
                                         <div class="tit" ng-bind="singlePhone.productName"></div>
                                         <div class="price"><em>￥</em><em
-                                                ng-bind="singlePhone.salePrice | number : 0"></em></div>
+                                                ng-bind="singlePhone.salePrice | numberUp | number:0"></em></div>
                                     </div>
                                 </a>
                             </li>
@@ -271,7 +271,7 @@
                                     <div class="txt-box">
                                         <div class="tit" ng-bind="singlePhone.productName"></div>
                                         <div class="price"><em>￥</em><em
-                                                ng-bind="singlePhone.salePrice | number : 0"></em></div>
+                                                ng-bind="singlePhone.salePrice | numberUp | number:0"></em></div>
                                     </div>
                                 </a>
                             </li>
@@ -288,7 +288,41 @@
 
             <div class="adr-additional">
                 <em>翼分期商城提供发货并由该产品品牌商提供售后服务</em>
-                <div><b>物流：全国包邮</b>（预计2-3天送达），不同地区送达时间有所不同，详情请咨询物流公司</div>
+                <div ng-if="payType != 1"><b>物流：全国包邮</b>（预计2-3天送达），不同地区送达时间有所不同，详情请咨询物流公司</div>
+            </div>
+
+            <div class="use-coupons weui-panel" ng-show="couponVos.length > 0">
+                <div class="weui-cells weui-cells_form">
+                    <div class="weui-cell weui-cell_switch" style="padding-left: 0">
+                        <div class="weui-cell__bd title-icon">使用卡券</div>
+                        <div class="weui-cell__ft" style="padding-right: 0">
+                            <label for="switchCP" class="weui-switch-cp">
+                                <input type="hidden" id="isjm" name="isjm" ng-model="isjm" value="{{isjm}}">
+                                <input id="switchCP" class="weui-switch-cp__input" type="checkbox" checked="checked" ng-click="setCoupon()">
+                                <div class="weui-switch-cp__box"></div>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="weui-panel__bd">
+                    <div class="weui-media-box weui-media-box_small-appmsg">
+                        <div class="weui-cells">
+                            <div class="weui-cell" href="javascript:;" ng-repeat="coupon in couponVos">
+                                <div class="weui-cell__hd"><span ng-bind="coupon.couponName"></span></div>
+                                <div class="weui-cell__bd weui-cell_primary" style="text-align: right">
+                                    <p>x <span ng-bind="coupon.couponNum"></span> 张</p>
+                                </div>
+                                <div class="weui-cell__ft" style="padding: 0 0 0 0.2rem;">减免 <span ng-bind="coupon.couponAmount * coupon.couponNum"></span>元</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="weui-panel__ft">
+                    <a href="javascript:void(0);" class="weui-cell">
+                        <div class="weui-cell__bd"></div>
+                        <span class="weui-cell__ft" style="text-align: right;padding-right: 0">共减免  <span ng-bind="derate | numberUp | number:0"></span>元</span>
+                    </a>
+                </div>
             </div>
 
             <!--<coupon-list></coupon-list>-->
@@ -298,47 +332,98 @@
             <div class="pay-container pd-w">
                 <div class="pay-content" ng-if="payType == 0">
                     <div class="pure-g">
-                        <span class="lb pure-u-1-2">商品金额</span>
+                        <span class="lb pure-u-1-2">商品原价</span>
                         <span class="price pure-u-1-2"><em>￥</em><em
                                 ng-bind="mainColor.salePrice | number:0"></em></span>
                     </div>
-                    <div class="pure-g">
+                    <div class="pure-g" ng-show="phone.discountRate < 1">
                         <span class="lb pure-u-1-2">
-                            <span style="display: inline-block;margin-bottom:0.05rem;color:#fff;background: #d83e14;padding-left: 0.1rem;padding-right: 0.1rem;">限时优惠95折</span>
+                            <span style="display: inline-block;margin-bottom:0.05rem;color:#fff;background: #d83e14;padding-left: 0.1rem;padding-right: 0.1rem;">限时优惠<span ng-bind="phone.discountRate * 100"></span>折</span>
                         </span>
                         <span class="price pure-u-1-2">
-                            <span><em>-￥</em><em ng-bind="mainColor.salePrice * 0.05 | numberUp | number:0"></em></span>
+                            <span><em>-￥</em><em ng-bind="mainColor.salePrice * (1 - phone.discountRate) | numberDown | number:0"></em></span>
+                        </span>
+                    </div>
+                    <div class="pure-g" ng-if="derate > 0 && isjm == 1">
+                        <span class="lb pure-u-1-2">
+                            <span style="display: inline-block;margin-bottom:0.05rem;color:#fff;background: #d83e14;padding-left: 0.1rem;padding-right: 0.1rem;">优惠券</span>
+                        </span>
+                        <span class="price pure-u-1-2">
+                            <span><em>-￥</em><em ng-bind="derate | numberUp | number:0"></em></span>
                         </span>
                     </div>
                 </div>
 
                 <div class="pay-content" ng-if="payType == 1">
                     <div class="pure-g">
-                        <span class="lb pure-u-1-2">商品金额</span>
-                        <span class="price pure-u-1-2"><em>￥</em><em
-                                ng-bind="mainColor.salePrice | number:0"></em></span>
+                        <span class="lb pure-u-1-2">商品原价</span>
+                        <span class="price pure-u-1-2"><b>￥</b><b
+                                ng-bind="mainColor.salePrice | number:0"></b></span>
                     </div>
-                    <!--<div class="pure-g">
-                        <span class="lb pure-u-1-2">限时优惠95折</span>
-                        <span class="price pure-u-1-2">
-                            <span><em>￥</em><em ng-bind="mainColor.salePrice * 0.95 | numberUp | number:0"></em></span>
+                    <div class="pure-g">
+                        <span class="lb pure-u-1-2">服务费</span>
+                        <span class="price pure-u-1-2"><b>￥</b><b
+                                ng-bind="mainColor.salePrice * 0.05 | numberUp | number:0"></b></span>
+                    </div>
+                    <div class="pure-g">
+                        <span class="lb pure-u-1-2">运费</span>
+                        <span class="price pure-u-1-2"><b>￥0</b></span>
+                    </div>
+                    <div class="pure-g" ng-show="phone.discountRate < 1">
+                        <span class="lb pure-u-1-2">
+                            <span style="display: inline-block;margin-bottom:0.05rem;color:#fff;background: #d83e14;padding-left: 0.1rem;padding-right: 0.1rem;">限时优惠<span ng-bind="phone.discountRate * 100"></span>折</span>
                         </span>
-                    </div>-->
+                        <span class="price pure-u-1-2">
+                            <span><em>-￥</em><em ng-bind="mainColor.salePrice * (1 - phone.discountRate) | numberDown | number:0"></em></span>
+                        </span>
+                    </div>
+                    <div class="pure-g" ng-if="derate > 0 && isjm == 1">
+                        <span class="lb pure-u-1-2">
+                            <span style="display: inline-block;margin-bottom:0.05rem;color:#fff;background: #d83e14;padding-left: 0.1rem;padding-right: 0.1rem;">优惠券</span>
+                        </span>
+                        <span class="price pure-u-1-2">
+                            <span><em>-￥</em><em ng-bind="derate | number:0"></em></span>
+                        </span>
+                    </div>
+                    <div class="pure-g">
+                        <span class="lb pure-u-1-4">
+                            <span style="display: inline-block;margin-bottom:0.05rem;color:#fff;background: #d83e14;padding-left: 0.1rem;padding-right: 0.1rem;">到付金额</span>
+                        </span>
+                        <span class="price pure-u-3-4">
+                            <span><em>￥</em><em ng-bind="mainColor.salePrice * phone.discountRate - derate -30 + mainColor.salePrice * 0.05 | numberUp | number:0"></em></span>
+                        </span>
+                    </div>
                 </div>
 
                 <div class="pay-content" ng-if="payType == 2">
                     <div class="pure-g">
                         <span class="lb pure-u-1-2">商品金额</span>
-                        <span class="price pure-u-1-2"><em>￥</em><em
-                                ng-bind="mainColor.monthlyPrice | number:0"></em></span>
+                        <span class="price pure-u-1-2"><b>￥</b><b
+                                ng-bind="mainColor.monthlyPrice | numberUp | number:0"></b></span>
                     </div>
                     <div class="pure-g">
                         <span class="lb pure-u-1-2">
                             <span style="display: inline-block;margin-bottom:0.05rem;color:#fff;background: #d83e14;padding-left: 0.1rem;padding-right: 0.1rem;">限时免息优惠</span>
                         </span>
                         <span class="price pure-u-1-2">
-                            <em>12期0利息</em>
+                            <b>12期0利息</b>
                         </span>
+                        <div class="price pure-u-1">
+                            <em>(节省利息约￥<span ng-bind="mainColor.monthlyPrice * 0.06 | number : 0"></span>)</em>
+                        </div>
+                    </div>
+                    <div class="pure-g" ng-if="derate > 0 && isjm == 1">
+                        <span class="lb pure-u-1-2">
+                            <span style="display: inline-block;margin-bottom:0.05rem;color:#fff;background: #d83e14;padding-left: 0.1rem;padding-right: 0.1rem;">优惠券</span>
+                        </span>
+                        <span class="price pure-u-1-2">
+                            <span><em>-￥</em><em ng-bind="derate | numberUp | number:0"></em></span>
+                        </span>
+                    </div>
+                    <div class="pure-g">
+                        <span class="lb pure-u-1-2">实际分期金额</span>
+                        <span class="price pure-u-1-2"><b>￥</b><b
+                                ng-bind="mainColor.monthlyPrice - derate | number:0"></b></span>
                     </div>
                 </div>
             </div>
@@ -355,14 +440,14 @@
                 <div class="nav-price nav-item pure-u-3-5">
                     <div ng-if="payType == 0">
                         <em style="font-size: 0.16rem">实付款：￥</em><em
-                            ng-bind="mainColor.salePrice * 0.95 | numberUp | number:0"></em>
+                            ng-bind="mainColor.salePrice * phone.discountRate - derate | numberUp | number:0"></em>
                     </div>
                     <div ng-if="payType == 1">
-                        <em style="font-size: 0.16rem">货到实付价：￥</em><em ng-bind="mainColor.salePrice | number:0"></em>
+                        <em style="font-size: 0.16rem">预付款：￥</em><em>30</em>
                     </div>
                     <div ng-if="payType == 2">
                         <em style="font-size: 0.16rem">月供：￥</em><em
-                            ng-bind="mainColor.monthlyPrice/12 | numberUp | number : 0"></em><em
+                            ng-bind="(mainColor.monthlyPrice - derate)/12 | numberUp | number : 0"></em><em
                             style="font-size: 0.16rem"> X 12期</em>
                     </div>
                 </div>
@@ -465,7 +550,7 @@
                     </div>
                     <div class="weui-media-box__bd">
                         <h4 class="weui-media-box__title" style="font-size: 0.16rem"><em>￥</em><em ng-if="payType == 0"
-                                                                                                   ng-bind="mainColor.salePrice * 0.95 | numberUp | number : 0"></em><em
+                                                                                                   ng-bind="mainColor.salePrice * phone.discountRate | numberUp | number : 0"></em><em
                                 ng-if="payType == 1" ng-bind="mainColor.salePrice | number : 0"></em><em
                                 ng-if="payType == 2" ng-bind="mainColor.monthlyPrice/12 | numberUp | number : 0"></em>
                             <em ng-if="payType == 2" style="font-size: 0.12rem">x12期</em><span

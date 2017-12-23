@@ -8,6 +8,7 @@ app.directive("adr", ["$compile", "$cookieStore", '$http', '$interval', function
 
             //模块标题
             scope.receiverTitle = attrs.title;
+            scope.hideActiveCode = attrs.hideActiveCode;
 
             //拷贝 $address-panel、$address-overlay 到appBody
             $compile($("#address-panel").clone().appendTo(".page"))(scope);
@@ -78,23 +79,23 @@ app.directive("adr", ["$compile", "$cookieStore", '$http', '$interval', function
                 if (room == undefined || room == "" || room.length <= 3) return;
                 writebdLog(scope.category, "_Address", "渠道号", scope.gh);//收货地址
             };
-            
+
             //只有输入详细收货地址才记录到闭环
             scope.inputMobile = function (mobile) {
-            	if (mobile == undefined || mobile == "" || mobile.length <= 10) return;
-            	writebdLog(scope.category, "_InputMobile", "渠道号", scope.gh);//收货地址
+                if (mobile == undefined || mobile == "" || mobile.length <= 10) return;
+                writebdLog(scope.category, "_InputMobile", "渠道号", scope.gh);//收货地址
             };
 
             scope.paracont = "获取验证码";
             scope.paraclass = "but_null";
             var second = 59, timePromise = undefined;
 
-            scope.getActiveCode = function (phoneNumber,e) {
-                if($(e.currentTarget).hasClass("not")){
+            scope.getActiveCode = function (phoneNumber, e) {
+                if ($(e.currentTarget).hasClass("not")) {
                     return false;
                 }
                 scope.toast.open();
-                $http.get("http://app.yfq.cn:3099/api/getActiveCodeF/" + phoneNumber).success(function (data) {
+                $http.get("http://app.yfq.cn:3099/api/getActiveCodeS/" + phoneNumber).success(function (data) {
                     scope.toast.close();
                     if (data == "") {
                         timePromise = $interval(function () {

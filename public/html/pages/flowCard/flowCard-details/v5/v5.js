@@ -10,17 +10,19 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
         })
 }]).controller('flowCardV5Controller', ['$scope', '$rootScope', '$stateParams', '$location', '$http', function ($scope, $rootScope, $stateParams, $location, $http) {
 
-    window.location.href = "http://" + window.location.host + "/phone/lj/A/phones" + window.location.search;
+    /*window.location.href = "http://" + window.location.host + "/phone/lj/A/phones" + window.location.search;*/
 
     $scope.activeTag = "mifitc";
     $scope.pageType = 'C';
     $scope.category = systemName + "_mifitc_" + $scope.pageType;
     writebdLog($scope.category, "_Load", "渠道号", $scope.gh);
 
-    $http.jsonp(cfApi.apiHost + "/product/getProDetial.html?productId=" + $stateParams.productId + "&activeTag=mifitc&s=wap&callback=JSON_CALLBACK").success(function (data, status, headers, config) {
+    cfApi.apiHost = "http://test.yfq.cn";
+
+    $http.jsonp(cfApi.apiHost + "/product/getProDetial.ht?productId=" + $stateParams.productId + "&activeTag=mifitc&s=wap&callback=JSON_CALLBACK").success(function (data, status, headers, config) {
         $scope.product = data;
         $scope.selectedMifis = [$scope.product.activityproductId];
-        $scope.packageItem = data.packageProductList[0];
+        $scope.packageItem = data;
 
         var mifis = [];
         $.each(data.phoneTypes, function (i, k) {
@@ -33,7 +35,7 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
         });
 
         $scope.mifis = mifis;
-        $scope.totalPrice = parseInt($scope.product.packageProductList[0].salesPrice);
+        $scope.totalPrice = parseInt($scope.product.salePrice);
 
         $scope.$root.share = {
             homeLink: 'http://app.yfq.cn/fd/v5/' + $stateParams.productId + window.location.search,
@@ -106,7 +108,7 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
         });
     });
 
-    $http.jsonp(cfApi.apiHost + '/wap/taokafanghaoNew/fetchLuckNumber.html?time=' + new Date().getTime() + '&callback=JSON_CALLBACK').success(function (data, status, headers, config) {//获取所有的手机号码
+    $http.jsonp(cfApi.apiHost + '/product/fetchLuckNumber.ht?time=' + new Date().getTime() + '&callback=JSON_CALLBACK').success(function (data, status, headers, config) {//获取所有的手机号码
         var _data = [];
         var inputData1 = [];
         $.each(eval(data), function (i, k) {
@@ -183,12 +185,12 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
             $scope.goTo('#receiverAddress');
             return false;
         }
-        var url = cfApi.apiHost + "/product/checkPhoneState.html?number=[" + $scope.selectedData.mainNumber.n + "]&s=wap&callback=JSON_CALLBACK";
+        var url = cfApi.apiHost + "/product/checkPhoneState.ht?number=[" + $scope.selectedData.mainNumber.n + "]&s=wap&callback=JSON_CALLBACK";
 
         $scope.$root.toast.open();
         $http.jsonp(url).success(function (data, status, headers, config) {//查看号码是否被选
             if (data.tempIndexs.length === 0) {//查看号码是否被选
-                $http.jsonp(cfApi.apiHost + '/product/checkOrderCount.html?receiverMobile=' + $scope.checkoutForm.receiverMobile.$modelValue + '&productId=' + $scope.packageItem.productId + '&s=wap&time=' + new Date().getTime() + '&callback=JSON_CALLBACK').success(function (data, status, headers, config) {//查看是否下过单
+                $http.jsonp(cfApi.apiHost + '/product/checkOrderCount.ht?receiverMobile=' + $scope.checkoutForm.receiverMobile.$modelValue + '&productId=' + $scope.packageItem.productId + '&s=wap&time=' + new Date().getTime() + '&callback=JSON_CALLBACK').success(function (data, status, headers, config) {//查看是否下过单
 
                     if (data.result) {
                         $form.submit();
@@ -231,7 +233,7 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
     $scope.$watch('mifis', function (n, o, $scope) {
         if (n !== o && n !== undefined) {
             $scope.selectedMifis = [$scope.product.activityproductId];
-            $scope.totalPrice = parseInt($scope.product.packageProductList[0].salesPrice);
+            $scope.totalPrice = parseInt($scope.product.salePrice);
             $.each(n, function (i, k) {
                 if (k.selected) {
                     $scope.totalPrice = $scope.totalPrice + k.salePrice;

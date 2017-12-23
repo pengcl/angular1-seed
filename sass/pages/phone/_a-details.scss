@@ -1293,6 +1293,158 @@
       }
     }
   }
+  &.a-details-d {
+    .content-scrollable {
+      background: #f1f1f1;
+    }
+    .product-header {
+      padding: 0 0.15rem 0.05rem;
+      .product-txt {
+        h1 {
+          font-size: 0.15rem;
+          font-weight: normal;
+        }
+        .price {
+          margin-top: 0.1rem;
+          position: relative;
+          .new {
+            font-size: 0.2rem;
+            color: #ff232f;
+            em {
+              color: #ff232f;
+            }
+          }
+          .old {
+            font-size: 0.13rem;
+            color: #999;
+          }
+          .sold {
+            position: absolute;
+            top: 0.1rem;
+            right: 0.15rem;
+            color: #999;
+            font-size: 0.13rem;
+          }
+        }
+      }
+    }
+    .product-footer {
+      background: #fff;
+      padding: 0.1rem 0;
+      position: relative;
+      &:after {
+        content: " ";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        height: 1px;
+        border-bottom: 1px solid #e5e5e5;
+        color: #e5e5e5;
+        @include scaleY(0.5);
+        z-index: 2;
+      }
+    }
+    .title-icon {
+      padding-left: 0.15rem;
+      &:before {
+        display: none;
+      }
+      .title {
+        color: #999;
+        margin-right: 0.1rem;
+      }
+    }
+    .pay-container {
+      margin-bottom: 0.3rem;
+      .pay-content {
+        background: none;
+        padding: 0;
+      }
+    }
+    .weui-tab {
+      background: none;
+      .weui-navbar {
+        &:after {
+          display: none;
+        }
+        .weui-navbar__item {
+          &:after {
+            display: none;
+          }
+          &.weui-bar__item_on {
+            color: #ff232f;
+            &:before {
+              border-bottom: 2px solid #ff232f;
+              width: 2.8em;
+              left: 50%;
+              right: auto;
+              margin-left: -1.4em;
+            }
+          }
+        }
+      }
+      .weui-tab__panel {
+        padding-top: 0.45rem !important;
+      }
+      &.hot-phones {
+        .weui-navbar {
+          &:after {
+            display: block;
+          }
+        }
+      }
+    }
+    .hot-phones {
+      .phone-box {
+        margin: 0.05rem;
+        .img-box {
+          margin: 0.05rem;
+        }
+        .txt-box {
+          .price {
+            margin-top: 0.05rem;
+            color: #ff232f;
+            em {
+              color: #ff232f;
+            }
+          }
+        }
+      }
+    }
+    .page.p-details.a-details #receiverAddress .adr-tab {
+
+    }
+    #receiverAddress {
+      .adr-tab {
+        &:after {
+          display: block;
+        }
+      }
+    }
+    #receiverAddressPanel {
+      padding-left: 0;
+      &:after {
+        display: block;
+      }
+      .input-ok {
+        display: none;
+      }
+    }
+    .adr-additional {
+      padding: 0.15rem;
+    }
+    em {
+      color: #ff232f;
+    }
+    .about-btn {
+      @include inline-block;
+      @include border-radius(0.04rem);
+      color: #ff232f;
+      border: 1px solid #ff232f;
+      padding: 0.05rem 0.1rem;
+    }
+  }
   @at-root .d-mifis {
     .weui-cell {
       .weui-cell__hd {
@@ -1306,7 +1458,7 @@
             font-size: 0.12rem;
             line-height: 0.16rem;
             text-align: center;
-            border:2px solid #ccc;
+            border: 2px solid #ccc;
             @include border-radius(3px);
           }
         }
@@ -1316,7 +1468,7 @@
           i {
             &:before {
               content: "√";
-              border:2px solid $color-primary;
+              border: 2px solid $color-primary;
               background: $color-primary;
               color: #fff;
             }

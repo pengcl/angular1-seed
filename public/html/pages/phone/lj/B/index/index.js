@@ -51,6 +51,15 @@ app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $lo
     $http.jsonp(cfApi.apiHost + '/product/getProList.ht?activeTag=ljzma&s=wap&callback=JSON_CALLBACK').success(function (data, status, headers, config) {
         $scope.singlePhones = data;
 
+        $scope.phoneOne = $scope.singlePhones[getIndex($scope.singlePhones, "activityproductId", '10000095429375')];
+        $scope.phoneTwo = $scope.singlePhones[getIndex($scope.singlePhones, "activityproductId", '10000095429619')];
+
+        $scope.phoneThree = $scope.singlePhones[getIndex($scope.singlePhones, "activityproductId", '456')];
+        $scope.phoneFour = $scope.singlePhones[getIndex($scope.singlePhones, "activityproductId", '457')];
+
+        $scope.phoneFive = $scope.singlePhones[getIndex($scope.singlePhones, "activityproductId", '458')];
+        $scope.phoneSix = $scope.singlePhones[getIndex($scope.singlePhones, "activityproductId", '459')];
+
         $scope.brands = [
             {
                 "brandName": "全部",

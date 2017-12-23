@@ -50,7 +50,7 @@
             <div class="weui-cell__ft"><i class="weui-icon-warn"></i><i class="weui-icon-success"></i></div>
         </div>
 
-        <div class="weui-cell weui-cell_vcode input-vcode" ng-show="checkoutForm.receiverMobile.$valid == true" ng-class="{'weui-cell_warn':checkoutForm.activeCode.$dirty== true && checkoutForm.activeCode.$valid == false,'weui-cell_success':checkoutForm.activeCode.$valid == true}">
+        <div class="weui-cell weui-cell_vcode input-vcode" ng-show="!hideActiveCode && checkoutForm.receiverMobile.$valid == true" ng-class="{'weui-cell_warn':checkoutForm.activeCode.$dirty== true && checkoutForm.activeCode.$valid == false,'weui-cell_success':checkoutForm.activeCode.$valid == true}">
             <div class="weui-cell__hd"><label class="weui-label">验证码：</label></div>
             <div class="weui-cell__bd weui_cell_primary">
                 <input id="activeCode" name="activeCode" ng-blur="inputHomeCode()" ng-model="activeCode" ng-maxlength="4" ng-pattern="/^[0-9]*$/" pattern="[0-9]*" ng-minlength="4" placeholder="请输入验证码..." class="weui-input" required/>

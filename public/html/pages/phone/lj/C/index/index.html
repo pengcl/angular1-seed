@@ -1,0 +1,201 @@
+<div class="page active-a active-d active-e lj-index">
+    <!-- pia phone-index-c -->
+    <top-nav page-title="365手机批发商城" page-back="menu" nav-visibility="hide"></top-nav>
+    <div class="top img-box">
+        <img src="/images/lj/C/top.png">
+    </div>
+    <div class="content-scrollable" history-scroll-top>
+        <gh></gh>
+        <activity></activity>
+        <!--<div class="hot-phone img-box">-->
+        <!--<img src="/images/active/activePhoneTitle.jpg">-->
+        <!--</div>-->
+
+        <owl-carousel class="owl-carousel owl-theme"
+                      img-urls="['/images/lj/C/banner-1.jpg','/images/lj/C/banner-1.jpg']"></owl-carousel>
+
+        <!--<div class="lj-banner">
+            <div class="img-box">
+                <img src="/images/lj/C/banner-1.jpg?2">
+            </div>
+            &lt;!&ndash;<div class="timers" style="bottom: 0.3rem">
+                <div>- 距离抢购活动结束还剩 -</div>
+                <timer></timer>
+            </div>&ndash;&gt;
+        </div>-->
+        <div class="img-box" style="margin:0.1rem 0">
+            <img src="/images/lj/C/promise.png">
+        </div>
+
+        <div class="hots">
+            <ul class="pure-g">
+                <li class="pure-u-1-2">
+                    <a class="hot-box" href="/phs/lj/{{pageType}}/456{{params}}">
+                        <div class="img-box">
+                            <img src="/images/lj/C/hot-1.png">
+                        </div>
+                    </a>
+                </li>
+                <li class="pure-u-1-2">
+                    <a class="hot-box" href="/phs/lj/{{pageType}}/456{{params}}">
+                        <div class="img-box">
+                            <img src="/images/lj/C/hot-2.png">
+                        </div>
+                    </a>
+                    <a class="hot-box" href="/phs/lj/{{pageType}}/456{{params}}">
+                        <div class="img-box">
+                            <img src="/images/lj/C/hot-3.png">
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <spc-title main-title="热卖特惠 一台也是批发价"></spc-title>
+        <!--<div class="img-box" ng-click="showFudai('JM-MX')">
+            <img src="/images/active/d/2.jpg">
+        </div>-->
+
+        <div class="phones">
+            <ul class="pure-g">
+                <li class="pure-u-1-2">
+                    <a class="phone-box" href="/phs/lj/{{pageType}}/{{phoneOne.activityproductId}}{{params}}">
+                        <div class="tag">省￥<span
+                                ng-bind="phoneOne.salePrice - phoneOne.salePrice * phoneOne.discountRate | numberUp"></span>
+                        </div>
+                        <div class="img-box">
+                            <img ng-src="http://www.yfq.cn:8899/fileserver/medias/{{phoneOne.mainImageUrl}}">
+                        </div>
+                        <div class="txt-box">
+                            <div class="name" ng-bind="phoneOne.productName"></div>
+                            <div class="old-price">
+                                <del>旗舰店价：￥<span ng-bind="phoneOne.salePrice"></span></del>
+                            </div>
+                            <div class="price"><sub>365批发价：￥</sub><em
+                                    ng-bind="phoneOne.salePrice * phoneOne.discountRate | numberUp"></em></div>
+                        </div>
+                    </a>
+                </li>
+                <li class="pure-u-1-2">
+                    <a class="phone-box" href="/phs/lj/{{pageType}}/{{phoneTwo.activityproductId}}{{params}}">
+                        <div class="tag">省￥<span
+                                ng-bind="phoneTwo.salePrice - phoneTwo.salePrice * phoneTwo.discountRate | numberUp"></span>
+                        </div>
+                        <div class="img-box">
+                            <img ng-src="http://www.yfq.cn:8899/fileserver/medias/{{phoneTwo.mainImageUrl}}">
+                        </div>
+                        <div class="txt-box">
+                            <div class="name" ng-bind="phoneTwo.productName"></div>
+                            <div class="old-price">
+                                <del>旗舰店价：￥<span ng-bind="phoneTwo.salePrice"></span></del>
+                            </div>
+                            <div class="price"><sub>365批发价：￥</sub><em
+                                    ng-bind="phoneTwo.salePrice * phoneTwo.discountRate | numberUp"></em></div>
+                        </div>
+                    </a>
+                </li>
+                <li class="pure-u-1-2">
+                    <a class="phone-box" href="/phs/lj/{{pageType}}/{{phoneThree.activityproductId}}{{params}}">
+                        <div class="tag">省￥<span
+                                ng-bind="phoneThree.salePrice - phoneThree.salePrice * phoneThree.discountRate | numberUp"></span>
+                        </div>
+                        <div class="img-box">
+                            <img ng-src="http://www.yfq.cn:8899/fileserver/medias/{{phoneThree.mainImageUrl}}">
+                        </div>
+                        <div class="txt-box">
+                            <div class="name" ng-bind="phoneThree.productName"></div>
+                            <div class="old-price">
+                                <del>旗舰店价：￥<span ng-bind="phoneThree.salePrice"></span></del>
+                            </div>
+                            <div class="price"><sub>365批发价：￥</sub><em
+                                    ng-bind="phoneThree.salePrice * phoneThree.discountRate | numberUp"></em></div>
+                        </div>
+                    </a>
+                </li>
+                <li class="pure-u-1-2">
+                    <a class="phone-box" href="/phs/lj/{{pageType}}/{{phoneFour.activityproductId}}{{params}}">
+                        <div class="tag">省￥<span
+                                ng-bind="phoneFour.salePrice - phoneFour.salePrice * phoneFour.discountRate | numberUp"></span>
+                        </div>
+                        <div class="img-box">
+                            <img ng-src="http://www.yfq.cn:8899/fileserver/medias/{{phoneFour.mainImageUrl}}">
+                        </div>
+                        <div class="txt-box">
+                            <div class="name" ng-bind="phoneFour.productName"></div>
+                            <div class="old-price">
+                                <del>旗舰店价：￥<span ng-bind="phoneFour.salePrice"></span></del>
+                            </div>
+                            <div class="price"><sub>365批发价：￥</sub><em
+                                    ng-bind="phoneFour.salePrice * phoneFour.discountRate | numberUp"></em></div>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="img-box" style="margin-bottom: 0.1rem">
+            <img src="/images/lj/C/ad.jpg">
+        </div>
+
+        <!--<div class="img-box" style="margin-top: 0.05rem;margin-left: 0.1rem;margin-right: 0.1rem">
+            <img src="/images/active/d/red-tips.gif">
+        </div>-->
+
+        <div class="brands">
+            <div id="brands" class="owl-carousel owl-theme">
+                <div class="item" ng-click="setBrand('全部')" ng-class="{true:'curr',false:''}[brand==='全部']">全部</div>
+                <div class="item" ng-click="setBrand('iPhone')" ng-class="{true:'curr',false:''}[brand==='iPhone']">iPhone</div>
+                <div class="item" ng-click="setBrand('华为')" ng-class="{true:'curr',false:''}[brand==='华为']">华为</div>
+                <div class="item" ng-click="setBrand('OPPO')" ng-class="{true:'curr',false:''}[brand==='OPPO']">OPPO</div>
+                <div class="item" ng-click="setBrand('vivo')" ng-class="{true:'curr',false:''}[brand==='vivo']">vivo</div>
+                <div class="item" ng-click="setBrand('小米')" ng-class="{true:'curr',false:''}[brand==='小米']">小米</div>
+                <div class="item" ng-click="setBrand('360')" ng-class="{true:'curr',false:''}[brand==='360']">360</div>
+                <div class="item" ng-click="setBrand('锤子')" ng-class="{true:'curr',false:''}[brand==='锤子']">锤子</div>
+                <div class="item" ng-click="setBrand('魅族')" ng-class="{true:'curr',false:''}[brand==='魅族']">魅族</div>
+                <div class="item" ng-click="setBrand('AGM')" ng-class="{true:'curr',false:''}[brand==='AGM']">AGM</div>
+                <div class="item" ng-click="setBrand('美图')" ng-class="{true:'curr',false:''}[brand==='美图']">美图</div>
+                <div class="item" ng-click="setBrand('小辣椒')" ng-class="{true:'curr',false:''}[brand==='小辣椒']">小辣椒</div>
+                <div class="item" ng-click="setBrand('必虎')" ng-class="{true:'curr',false:''}[brand==='必虎']">必虎</div>
+            </div>
+        </div>
+
+        <div class="phones">
+            <ul class="pure-g">
+                <li class="pure-u-1-2" ng-repeat="singlePhone in brandPhones">
+                    <a class="phone-box" href="/phs/lj/{{pageType}}/{{singlePhone.activityproductId}}{{params}}">
+                        <div class="tag">省￥<span
+                                ng-bind="singlePhone.salePrice - singlePhone.salePrice * singlePhone.discountRate | numberUp"></span>
+                        </div>
+                        <div class="img-box">
+                            <img ng-src="http://www.yfq.cn:8899/fileserver/medias/{{singlePhone.mainImageUrl}}">
+                        </div>
+                        <div class="txt-box">
+                            <div class="name" ng-bind="singlePhone.productName"></div>
+                            <div class="old-price">
+                                <del>旗舰店价：￥<span ng-bind="singlePhone.salePrice"></span></del>
+                            </div>
+                            <div class="price"><sub>365批发价：￥</sub><em
+                                    ng-bind="singlePhone.salePrice * singlePhone.discountRate | numberUp"></em></div>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="footer">
+            <p>广州大牛信息科技有限公司</p>
+            <p>地址：广州市天河区黄埔大道西53号恒城大厦B座3001室</p>
+            <p>电话：020-85599918</p>
+        </div>
+    </div>
+    <!--<app-footer-nav page-active="mall"></app-footer-nav>-->
+    <go-top></go-top>
+    <!--<div class="right-nav">
+        <div class="img-box" ng-click="showFudai('JM-MX')">
+            <img src="/images/active/d/ling.png">
+        </div>
+        <div class="img-box" ng-click="goToTop()">
+            <img src="/images/active/22.png">
+        </div>
+    </div>-->
+</div>

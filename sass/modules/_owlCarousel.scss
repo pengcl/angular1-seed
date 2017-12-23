@@ -1,7 +1,6 @@
 .owl-carousel {
   font-size: 0;
   background: #eaeaea;
-  padding-bottom: 0.3rem;
   .owl-controls {
     position: absolute;
     bottom:0.1rem;
@@ -19,9 +18,23 @@
       }
     }
   }
+  .owl-dots {
+    position: absolute;
+    bottom:0.1rem;
+    z-index: 1;
+    width: 100%;
+    text-align: center;
+    .owl-dot {
+      span {
+        width: 0.08rem;
+        height: 0.08rem;
+        margin:0.05rem;
+      }
+    }
+  }
 }
 .carousel-item,.owl-item {
-  width: 100%;
+  //width: 100%;
   img {
     display: block;
     width: 100%;

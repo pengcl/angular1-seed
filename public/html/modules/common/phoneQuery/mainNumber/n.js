@@ -93,7 +93,7 @@ app.directive("mainNumber", ["$cookieStore", function ($cookieStore) {
         writebdLog($scope.category, '_' + type + 'InputNumber', "渠道号", $scope.gh);//输入查询号码
     };
 
-    $http.jsonp(cfApi.apiHost + '/wap/taokafanghaoNew/fetchLuckNumber.html?time=' + new Date().getTime() + '&callback=JSON_CALLBACK').success(function (data, status, headers, config) {//获取所有的手机号码
+    $http.jsonp(cfApi.apiHost + '/product/fetchLuckNumber.ht?time=' + new Date().getTime() + '&callback=JSON_CALLBACK').success(function (data, status, headers, config) {//获取所有的手机号码
 
         data = data.sort(function (a,b) {
             return b.s-a.s;
