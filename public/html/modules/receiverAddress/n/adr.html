@@ -2,14 +2,14 @@
     <input type="hidden" value="{{receiver.city + receiver.room}}" name="address" id="address">
     <input type="hidden" value="{{receiver.city + receiver.room}}" name="recieverAddress" id="recieverAddress">
     <div class="adr-tab weui-cells" ng-click="showReceiverPn($event);">
-        <a class="weui-cell weui-cell_access" has-hash="false" href="javascript:userTrack('showAddressPanel');">
+        <!--<a class="weui-cell weui-cell_access" has-hash="false" href="javascript:userTrack('showAddressPanel');">
             <div class="weui-cell__bd title-icon">
                 <p>朕的收货地址<span class="star-color">*</span></p>
             </div>
             <div class="weui-cell__ft">
                 <span ng-if="!receiver.city">未填写</span><span ng-if="receiver.city" ng-bind="receiver.city"></span>
             </div>
-        </a>
+        </a>-->
     </div>
 
     <div class="adr-content" ng-show="receiver.city" ng-click="showReceiverPn($event);">

@@ -213,7 +213,9 @@ router.get('/getActiveCodeS/:receiverMobile', function (req, res) {
     res.header("Access-Control-Allow-Methods", "GET, POST");
     res.header("Cache-Control: no-cache, must-reva lidate");
     //以上两行设置跨域请求
-    request.get('http://m.yfq.cn/wap/customer/getSystemMobileCode.html?reciverMoblie=' + req.params.receiverMobile + "&s=wap", function (error, response, body) {
+
+    //http://m.yfq.cn/wap/customer/get365SystemMobileCode.html?reciverMoblie=18620803688
+    request.get('http://m.yfq.cn/wap/customer/get365SystemMobileCode.html?reciverMoblie=' + req.params.receiverMobile + "&s=wap", function (error, response, body) {
         if (!error && response.statusCode == 200) {
             res.send(body);
         }

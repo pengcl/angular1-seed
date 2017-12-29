@@ -1,0 +1,23 @@
+<div class="page page ci-a ci-c">
+    <top-nav page-title="在线选号" page-back="back"></top-nav>
+
+    <div class="content-scrollable">
+        <form method="post" id="checkoutForm" name="checkoutForm"
+              action="http://sell.yfq.cn/order/chooseNumber.ht"
+              novalidate="novalidate" style="padding: 0 0.1rem;">
+            <input type="hidden" id="orderNo" name="orderNo" value="{{orderNo}}">
+            <input type="hidden" value="{{mainNumber}}" name="phoneNumber" id="phoneNumber">
+            <gh></gh>
+            <activity></activity>
+            <main-number title="选择电话号码(号码归属地为广州)" no-animate="true"></main-number>
+        </form>
+        <p style="text-align: center;font-size: 0.18rem;padding: 0.15rem" ng-if="mainNumber">
+            <span>已选手机号码：</span>
+            <span ng-bind="mainNumber" style="color: #1AAD19"></span>
+        </p>
+    </div>
+    <a ng-click="showDialog()" style="position: fixed;bottom: 0.1rem;width: 92%; left: 4%" href="javascript:;"
+       class="weui-btn weui-btn_primary" ng-class="{true:'',false:'disabled'}[!!mainNumber]">开通此号码</a>
+
+    <app-modal></app-modal>
+</div>

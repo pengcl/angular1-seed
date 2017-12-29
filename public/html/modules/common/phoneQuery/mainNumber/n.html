@@ -23,12 +23,26 @@
         </div>
 
         <div class="query-panel">
-            <ul class="query-lists item-lists pure-g">
+            <ul class="query-lists item-lists pure-g" ng-show="mainItems.length > 0">
                 <li  class="query-item list-item pure-u-1-2" ng-repeat="numberItem in mainItems | orderBy: -s" >
-                    <div class="item-box" ng-click="setMainNumber($event,numberItem)">
+                    <div class="item-box" ng-click="setMainNumber($event,numberItem)" ng-class="{true:'curr',false:''}[numberItem.n === mainNumber]">
                         <p class="phone-number" >
                             <span class="weui-icon-success weui-icon_msg"></span>
                             <span ng-bind-html="numberItem.n | replaceInput : mainQuery | trustHtml"></span>
+                            <span class="nd" ng-if="numberItem.s > 0"><del ng-bind="'原价' + numberItem.s"></del><em>￥0</em></span>
+                        </p>
+                        <ins class="icon-check" ng-if="numberItem.s > 0"></ins>
+                    </div>
+                </li>
+            </ul>
+
+            <p style="font-size: 0.14rem;padding: 0.15rem;" ng-show="mainItems.length === 0">抱歉，没有找到"<em>{{mainQuery}}</em>"相关的手机号码<br>以下这些靓号也不错哦，来挑选吧</p>
+            <ul class="query-lists item-lists pure-g" ng-show="mainItems.length === 0">
+                <li  class="query-item list-item pure-u-1-2" ng-repeat="numberItem in numberItems | orderBy: -s | limitTo : 4" >
+                    <div class="item-box" ng-click="setMainNumber($event,numberItem)" ng-class="{true:'curr',false:''}[numberItem.n === mainNumber]">
+                        <p class="phone-number" >
+                            <span class="weui-icon-success weui-icon_msg"></span>
+                            <span ng-bind-html="numberItem.n | replaceInput : defaultQuery | trustHtml"></span>
                             <span class="nd" ng-if="numberItem.s > 0"><del ng-bind="'原价' + numberItem.s"></del><em>￥0</em></span>
                         </p>
                         <ins class="icon-check" ng-if="numberItem.s > 0"></ins>

@@ -6,7 +6,7 @@ app.directive("mainNumber", ["$cookieStore", function ($cookieStore) {
         templateUrl: "modules/common/phoneQuery/mainNumber/n.html",
         controller: "numberController",
         link: function (scope, element, attrs) {
-            scope.phoneTitle=attrs.title;
+            scope.phoneTitle = attrs.title;
             var $container = $('.content-scrollable');
 
             scope.$root.checkMainNumber = function () {
@@ -30,7 +30,7 @@ app.directive("mainNumber", ["$cookieStore", function ($cookieStore) {
                     scope.$root._mainNumber = numberItem.n;
                     $this.parent().siblings().children().removeClass('curr');
                     $this.addClass('curr');
-                    if(!(attrs.noAnimate == "true")){
+                    if (!(attrs.noAnimate == "true")) {
                         $("#pickMainNumberPanel").slideToggle();
                         $("#pickMainNumber .weui-cells").toggleClass("down");
                     }
@@ -41,7 +41,7 @@ app.directive("mainNumber", ["$cookieStore", function ($cookieStore) {
             };
 
             scope.showMNumberPn = function (event) {
-                if(!(attrs.noAnimate == "true")){
+                if (!(attrs.noAnimate == "true")) {
                     $("#pickMainNumberPanel").slideToggle();
                     $(event.currentTarget).toggleClass("down");
                 }
@@ -53,6 +53,9 @@ app.directive("mainNumber", ["$cookieStore", function ($cookieStore) {
     //var deferred = $q.defer();
     $scope.phoneData = new Array();
     $scope.phoneSubData = new Array();
+    $scope.numberItems = new Array();
+
+    $scope.defaultQuery = 8;
 
     $scope.phoneMainFilter = function (query) {//查询包含query的手机号码;
         var _data = new Array();
@@ -95,18 +98,63 @@ app.directive("mainNumber", ["$cookieStore", function ($cookieStore) {
 
     $http.jsonp(cfApi.apiHost + '/product/fetchLuckNumber.ht?time=' + new Date().getTime() + '&callback=JSON_CALLBACK').success(function (data, status, headers, config) {//获取所有的手机号码
 
-        data = data.sort(function (a,b) {
-            return b.s-a.s;
+        data = data.sort(function (a, b) {
+            return b.s - a.s;
         });
 
         $.each(eval(data), function (i, k) {
-            if(k.s<=1){
+            if (k.s <= 1) {
                 $scope.phoneData.push(k);
-                if(k.t == 0){
+                if (k.t == 0) {
                     $scope.phoneSubData.push(k);
                 }
             }
         });
+
+        $.each(eval($scope.phoneData), function (i, k) {
+            if (k.n.indexOf('199') === 0) {
+                if(k.n.match(/[8]/g).length === 3){
+                    $scope.numberItems.push(k);
+                }
+            }
+        });
+
+        if($scope.numberItems.length < 4){
+            $.each(eval($scope.phoneData), function (i, k) {
+                if (k.n.indexOf('199') === 0) {
+                    if(k.n.match(/[8]/g).length === 2){
+                        $scope.numberItems.push(k);
+                    }
+                }
+            });
+        }
+
+        if($scope.numberItems.length < 4){
+            $.each(eval($scope.phoneData), function (i, k) {
+                if (k.n.indexOf('199') === 0) {
+                    if(k.n.match(/[8]/g).length === 1){
+                        $scope.numberItems.push(k);
+                    }
+                }
+            });
+        }
+
+        if($scope.numberItems.length < 4){
+            $.each(eval($scope.phoneData), function (i, k) {
+                if (k.n.indexOf('199') === 0) {
+                    if(k.n.match(/[8]/g).length === 0){
+                        $scope.numberItems.push(k);
+                    }
+                }
+            });
+        }
+
+        if($scope.numberItems.length < 4){
+            $.each(eval($scope.phoneData), function (i, k) {
+                $scope.numberItems.push(k);
+            });
+        }
+
 
         $scope.dataInit = function () {
             $scope.selPage = 1;

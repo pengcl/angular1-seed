@@ -7,7 +7,7 @@
         <input type="hidden" value="1" name="mainMonthNumber" id="mainMonthNumber">
         <input type="hidden" value="10000095979791" name="machineId" id="machineId">
         <input type="hidden" value="{{mainNumber}}" name="mobileNumber" id="mobileNumber">
-        <input type="hidden" value="0" name="payType" id="payType">
+        <input type="hidden" value="1" name="payType" id="payType">
         <input type="hidden" value="{{category}}" name="category" id="category">
         <input type="hidden" value="{{activeTag}}" ng-model="activeTag" name="activeTag" id="activeTag">
         <input type="hidden" value="{{phoneQueryUrl}}" name="phoneQueryUrl" id="phoneQueryUrl">
@@ -15,21 +15,15 @@
         <gh></gh>
         <activity></activity>
         <redirect-url></redirect-url>
-        <div class="content-scrollable has-footer">
+        <div class="content-scrollable">
             <div class="img-box">
                 <img src="/images/phoneCard/C/1.gif?a">
             </div>
-            <div class="img-box">
-                <img src="/images/phoneCard/C/2.jpg?a">
-            </div>
-            <div class="img-box">
-                <img src="/images/phoneCard/C/3.gif?a">
-            </div>
             <div ng-click="showTip()" class="img-box">
-                <img src="/images/phoneCard/C/4.gif?a">
+                <img src="/images/phoneCard/C/2.png?a">
             </div>
             <div class="img-box">
-                <img src="/images/phoneCard/C/5.gif?b">
+                <img src="/images/phoneCard/C/3.gif?b">
             </div>
             <div class="order-content">
                 <div class="content-hd">
@@ -37,8 +31,20 @@
                 </div>
                 <div class="content-bd">
                     <div class="content-bd-box">
-                        <main-number title="选择电话号码(号码归属地为广州)" no-animate="true"></main-number>
-                        <adr no-animate="true" hide-active-code="true"></adr>
+                        <!--<main-number title="选择电话号码(号码归属地为广州)" no-animate="true"></main-number>-->
+                        <div class="adr-title" style="width: 64%;margin: 0.15rem auto;">
+                            <div class="img-box">
+                                <img src="/images/phoneCard/C/adr-title.png?a">
+                            </div>
+                        </div>
+                        <adr no-animate="true"></adr>
+
+                        <p style="font-size: 0.14rem;text-align: center;margin: 0.15rem 0">---- 已有 <em
+                                ng-bind="getters"></em> 人成功申领 ----</p>
+
+                        <a ng-click="submitForm($event);"
+                           style="background: #ff2241; color: #fff;margin:0.15rem 0 0.3rem"
+                           href="javascript:;" class="weui-btn weui-btn_primary">快速申领</a>
                         <!--<div class="submit-form">
                             <p style="font-size:.14rem;color:#edd00d;text-align: center;margin-bottom:.1rem;">
                                 *本活动仅限18岁以上用户参与</p>
@@ -55,6 +61,13 @@
                 </div>
                 <div class="content-ft">
                 </div>
+            </div>
+
+            <div class="img-box">
+                <img src="/images/phoneCard/C/2.jpg?a">
+            </div>
+            <div class="img-box">
+                <img src="/images/phoneCard/C/5.gif?b">
             </div>
 
             <div id="wxQrCode" style="display: none">
@@ -85,19 +98,22 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <div id="spcNav" class="footer-nav nav-list" style="padding-left: 0;z-index: 999">
-            <div class="pure-g">
-                <div class="nav-price nav-item pure-u-3-5">
-                    <em style="font-size: 0.16rem">预存：￥</em><em>300</em>
+            <a ng-click="submitForm($event);" style="background: #ff2241; color: #fff;margin: 0.2rem;"
+               href="javascript:;" class="weui-btn weui-btn_primary">快速申领</a>
+            <!--<div id="spcNav" class="footer-nav nav-list"
+                 style="padding-left: 0;z-index: 999;position: static;margin-top: 0.2rem">
+                <div class="pure-g">
+                    <div class="nav-price nav-item pure-u-3-5">
+                        <em style="font-size: 0.16rem">预存：￥</em><em>300</em>
+                    </div>
+                    <div class="nav-button nav-item pure-u-2-5">
+                        <a id="footerPayButton" has-hash="false" href="javascript:userTrack('submitForm');"
+                           ng-click="submitForm($event);">
+                            <span>提交订单</span>
+                        </a>
+                    </div>
                 </div>
-                <div class="nav-button nav-item pure-u-2-5">
-                    <a id="footerPayButton" has-hash="false" href="javascript:userTrack('submitForm');"
-                       ng-click="submitForm($event);">
-                        <span>提交订单</span>
-                    </a>
-                </div>
-            </div>
+            </div>-->
         </div>
     </form>
 </div>

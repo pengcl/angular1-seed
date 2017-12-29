@@ -52,6 +52,17 @@ app.config(['$stateProvider', '$locationProvider', function($stateProvider, $loc
     $scope.showTip = function () {
         $scope.dialog.open("抵金券使用说明", "<p>1、30元存入中国电信翼支付APP。</p><p>2、自发放起生效，有效期60天。</p><p>3、抵金券受理24小时内到帐，将会短信通知用户。</p>");
     };
+
+
+    $scope.getterNumber = function () {
+        var baseTimestamp = Date.parse('2017/12/28 00:00:00');
+        var timestamp = Date.parse(new Date());
+        return 1000 + Math.round((timestamp - baseTimestamp)/(15 * 60 *1000));
+    };
+
+    $scope.getters = $scope.getterNumber();
+
+    console.log($scope.getters);
     
     $scope.userTrack = function(name) {
     	writebdLog($scope.category, name, "渠道号", $scope.gh);
@@ -72,10 +83,10 @@ app.config(['$stateProvider', '$locationProvider', function($stateProvider, $loc
 
     $scope.submitForm = function() {
         $scope.toast.open();
-        if (!$scope.checkMainNumber()) {
+        /*if (!$scope.checkMainNumber()) {
             $scope.toast.close();
             return false;
-        }
+        }*/
         if (!$scope.checkAddress()) {
             $scope.toast.close();
             var $scrollTo = $('#receiverAddress');
@@ -84,14 +95,14 @@ app.config(['$stateProvider', '$locationProvider', function($stateProvider, $loc
             });
             return false;
         }
-        /*if (!$scope.checkActiveCode()) {
+        if (!$scope.checkActiveCode()) {
             $scope.toast.close();
             var $scrollTo = $('#receiverAddress');
             $container.animate({
                 scrollTop: $scrollTo.offset().top - $container.offset().top + $container.scrollTop() - 50
             });
             return false;
-        }*/
+        }
 
         writebdLog($scope.category, "_BuyNow", "渠道号", $scope.gh); //免费领卡
 

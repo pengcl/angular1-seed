@@ -1,0 +1,11 @@
+<div id="js-dialog" class="js_dialog" ng-if="modal.show">
+    <div class="weui-mask"></div>
+    <div class="weui-dialog">
+        <div ng-if="modal.title != ''" class="weui-dialog__hd"><strong class="weui-dialog__title">{{modal.title}}</strong></div>
+        <div class="weui-dialog__bd" ng-bind-html="modal.body | trustHtml"></div>
+        <div class="weui-dialog__ft">
+            <a ng-if="modal.buttons[0].show" href="javascript:;" class="weui-dialog__btn weui-dialog__btn_primary" ng-click="modal.close(modal.buttons[0].eventId)">{{modal.buttons[0].txt}}</a>
+            <a ng-if="modal.buttons[1].show" href="javascript:;" class="weui-dialog__btn weui-dialog__btn_default" ng-click="modal.close(modal.buttons[1].eventId)">{{modal.buttons[1].txt}}</a>
+        </div>
+    </div>
+</div>

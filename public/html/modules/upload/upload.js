@@ -5,8 +5,9 @@ app.directive("dropzone", function () {
         restrict: 'C',
         link: function(scope, element, attrs) {
 
+            Dropzone.autoDiscover = false;
             var config = {
-                url: 'http://www.cz.com:8082/uploadFile.html?decorator=blank',
+                url: 'http://sell.yfq.cn/uploadFile.ht?decorator=blank',
                 maxFilesize: 100,
                 paramName: "uploadfile",
                 maxThumbnailFilesize: 10,

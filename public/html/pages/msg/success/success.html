@@ -1,0 +1,29 @@
+<div class="page">
+    <top-nav page-title="选号成功" page-back="menu" page-done="done" nav-visibility="hide"></top-nav>
+    <div class="content-scrollable">
+        <div class="weui-msg">
+            <div class="weui-msg__icon-area"><i class="weui-icon-success weui-icon_msg"></i></div>
+            <div class="weui-msg__text-area">
+                <h2 class="weui-msg__title">
+                    <span ng-if="hasMobile">您已经成功选号了！</span>
+                    <span ng-if="!hasMobile">提交成功！</span>
+                </h2>
+                <p class="weui-msg__desc">新卡的手机号码为 <em ng-bind="mobile"></em></p>
+                <p class="weui-msg__desc">请留意激活通知短信，成功激活后预存的话费立即到帐</p>
+            </div>
+            <div class="weui-msg__opr-area">
+                <p class="weui-btn-area">
+                    <a href="https://kdt.im/fBSu5h" class="weui-btn weui-btn_primary">为新卡配个新手机</a>
+                </p>
+            </div>
+            <!--<div class="weui-msg__extra-area">
+                <div class="weui-footer">
+                    <p class="weui-footer__links">
+                        <a href="javascript:void(0);" class="weui-footer__link"><span ng-if="payStatus != 'resume'">微信公众号：翼分期商城</span><span ng-if="payStatus == 'resume'">微信号：大牛管家</span></a>
+                    </p>
+                    <p class="weui-footer__text">Copyright &copy; 2008-2016</p>
+                </div>
+            </div>-->
+        </div>
+    </div>
+</div>
